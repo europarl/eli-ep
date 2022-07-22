@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+
+
+
+
+<!-- setup the locale for the messages based on the language in the session -->
+
+
+
+
+
+<html>
+	<head>
+		<title>SHACL Play!</title>
+		
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+	    <!-- Font Awesome -->
+	    <link rel="stylesheet" href="/play/resources/fa/css/all.min.css;jsessionid=75FE21DFDA975EB8703BEFC52A658079">
+		
+		<link rel="stylesheet" href="/play/resources/MDB-Free/css/bootstrap.min.css;jsessionid=75FE21DFDA975EB8703BEFC52A658079">
+		<link rel="stylesheet" href="/play/resources/MDB-Free/css/mdb.min.css;jsessionid=75FE21DFDA975EB8703BEFC52A658079">
+		<link rel="stylesheet" href="/play/resources/jasny-bootstrap/jasny-bootstrap.min.css;jsessionid=75FE21DFDA975EB8703BEFC52A658079" />
+		<link rel="stylesheet" href="/play/resources/css/shacl-play.css;jsessionid=75FE21DFDA975EB8703BEFC52A658079" />	
+			
+		
+		<script type="text/javascript">
+			
+			function enabledShapeInput(selected) {
+				document.getElementById('sourceShape-' + selected).checked = true;
+				document.getElementById('inputShapeUrl').disabled = selected != 'inputShapeUrl';
+				document.getElementById('inputShapeCatalog').disabled = selected != 'inputShapeCatalog';
+				document.getElementById('inputShapeFile').disabled = selected != 'inputShapeFile';
+				document.getElementById('inputShapeInline').disabled = selected != 'inputShapeInline';
+			}
+
+	    </script>
+		
+		
+	</head>
+	<body>
+
+	
+
+
+
+
+
+<!-- setup the locale for the messages based on the language in the session -->
+
+
+
+
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-light" id="globalnav">
+
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="/play/;jsessionid=75FE21DFDA975EB8703BEFC52A658079"><i class="fal fa-home"></i>&nbsp;SHACL Play!</a>
+
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+                <a class="nav-link" href="/play/validate;jsessionid=75FE21DFDA975EB8703BEFC52A658079">Validate</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="/play/convert;jsessionid=75FE21DFDA975EB8703BEFC52A658079">Convert</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="/play/draw;jsessionid=75FE21DFDA975EB8703BEFC52A658079">Draw</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/play/doc;jsessionid=75FE21DFDA975EB8703BEFC52A658079">Generate documentation<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="/play/rules;jsessionid=75FE21DFDA975EB8703BEFC52A658079">Display rules</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="/play/sparql;jsessionid=75FE21DFDA975EB8703BEFC52A658079">SPARQL Query</a>
+            </li>
+            <li class="navbar-text" style="color: gray;">|</li>
+            <li class="nav-item ">
+                <a class="nav-link" href="/play/shapes-catalog;jsessionid=75FE21DFDA975EB8703BEFC52A658079">Shapes Catalog</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="/play/rules-catalog;jsessionid=75FE21DFDA975EB8703BEFC52A658079">Rules Catalog</a>
+            </li>
+        </ul>
+        <!-- /Links -->
+        
+        <ul class="navbar-nav ml-auto nav-flex-icons">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="langMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span style="font-size:1.25rem;"><i class="fal fa-globe-africa"></i></span>&nbsp;&nbsp;en
+            </a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="langMenuLink">
+              <a class="dropdown-item" href="/play/home;jsessionid=75FE21DFDA975EB8703BEFC52A658079?lang=fr">fr</a>
+              <a class="dropdown-item" href="/play/home;jsessionid=75FE21DFDA975EB8703BEFC52A658079?lang=en">en</a>
+              <a class="dropdown-item" href="/play/home;jsessionid=75FE21DFDA975EB8703BEFC52A658079?lang=es">es</a>
+            </div>
+          </li>
+        </ul>
+
+    </div>
+    <!-- Collapsible content -->
+
+</nav>
+<!--/.Navbar-->
+                
+
+    <div class="container-fluid">
+    
+    	<div class="row justify-content-md-center">
+            <div class="col-6">
+ 
+	    		<div class="messages">
+					
+				</div>
+				
+				<h1 class="display-3">SHACL documentation</h1>	
+	 
+			  	<form id="upload_form" action="doc" method="POST" enctype="multipart/form-data" class="form-horizontal">
+				      
+					  
+
+						  <h2><i class="fal fa-shapes"></i>&nbsp;&nbsp;Shapes</h2>
+						  <blockquote class="blockquote bq-primary">		  
+						  
+						      <div class="form-group row">
+		
+							    <label for="inputShapeFile" class="col-sm-3 col-form-label">
+							    
+							    	<input
+											type="radio"
+											name="shapesSource"
+											id="sourceShape-inputShapeFile"
+											value="file"
+											checked="checked"
+											onchange="enabledShapeInput('inputShapeFile')" />
+							    	Upload
+							    
+							    </label>
+							    <div class="col-sm-9">
+							    		<div class="fileinput fileinput-new input-group" data-provides="fileinput">
+										  <div class="form-control" data-trigger="fileinput" id="inputShapeFile">
+										    <i class="fal fa-upload"></i><span class="fileinput-filename with-icon"></span>
+										  </div>
+										  <span class="input-group-append">
+										    <span class="input-group-text fileinput-exists" data-dismiss="fileinput">
+										      Remove
+										    </span>
+										
+										    <span class="input-group-text btn-file">
+										      <span class="fileinput-new">Select file</span>
+										      <span class="fileinput-exists">Change</span>
+										      <input type="file" name="inputShapeFile" multiple onchange="enabledShapeInput('inputShapeFile')">
+										    </span>
+										  </span>
+										</div>
+										<small class="form-text text-muted">
+											  You can select multiple files. Supported extensions : .rdf, .ttl, .n3, .trig. Other extensions will be treated as RDF/XML
+									  </small>
+							    </div>
+							  </div>
+						      
+						      
+							      <div class="form-group row">	
+								    <label for="inputShapeCatalog" class="col-sm-3 col-form-label">
+								    
+								    	<input
+												type="radio"
+												name="shapesSource"
+												id="sourceShape-inputShapeCatalog"
+												value="catalog"
+												onchange="enabledShapeInput('inputShapeCatalog')" />
+								    	Select from <a href="shapes-catalog">Shapes catalog</a>					    
+								    </label>
+								    <div class="col-sm-9">
+								    		<select class="form-control" id="inputShapeCatalog" name="inputShapeCatalog" onchange="enabledShapeInput('inputShapeCatalog');">
+										      	
+										      		<option value="eli">ELI Shapes</option>
+										      	
+										      		<option value="shaclplay-catalog">SHACL Play! Catalog shapes</option>
+										      	
+										      		<option value="shsh">SHACL for SHACL</option>
+										      	
+										      		<option value="op-skosShapes">SKOS Shapes (Office of Publications)</option>
+										      	
+										      		<option value="lode">LODE Shapes from DBPedia Archivo</option>
+										      	
+										      		<option value="scoLOMFR">ScoLOMFR Application Profile</option>
+										      	
+										      		<option value="openarchaeo">OpenArchaeo Shapes</option>
+										      	
+										    </select>
+										    <small class="form-text text-muted">
+												  To have your Shapes in the catalog, add it to the <a target="_blank" href="https://github.com/sparna-git/SHACL-Catalog/blob/master/shapes-catalog.ttl">catalog Github repository</a>.
+										    </small>
+								    </div>
+								  </div>
+							  
+							  
+							  <div class="form-group row">
+							    <label for="inputShapeUrl" class="col-sm-3 col-form-label">
+							    
+							    	<input
+											type="radio"
+											name="shapesSource"
+											id="sourceShape-inputShapeUrl"
+											value="url"
+											onchange="enabledShapeInput('inputShapeUrl')" />
+							    	URL
+							    </label>
+							    <div class="col-sm-9">
+							      <input 
+							      	type="text"
+							      	class="form-control"
+							      	id="inputShapeUrl"
+							      	name="inputShapeUrl"
+							      	placeholder="http://... (URL of SHACL file)"
+							      	onkeypress="enabledShapeInput('inputShapeUrl');"
+							      	onchange="enabledShapeInput('inputShapeUrl')"
+							      >
+							      <small class="form-text text-muted">
+									  URL of an RDF file. Same extensions as file upload are supported.
+							    </small>
+							    </div>
+							  </div>
+							  <div class="form-group row">
+							    <label for="inputShapeInline" class="col-sm-3 col-form-label">
+							    
+							    	<input
+											type="radio"
+											name="shapesSource"
+											id="sourceShape-inputShapeInline"
+											value="inline"
+											onchange="enabledShapeInput('inputShapeInline')" />
+							    	Copy/paste SHACL Rules content
+							    </label>
+							    <div class="col-sm-9">
+							      <textarea 
+							      	class="form-control"
+							      	id="inputShapeInline"
+							      	name="inputShapeInline"
+							      	rows="5"
+							      	onkeypress="enabledShapeInput('inputShapeInline');"
+							      	onpaste="enabledShapeInput('inputShapeInline');"
+							      ></textarea>
+							      <small class="form-text text-muted">
+									  Supported syntaxes : Turtle, RDF/XML, JSON-LD, TriG, TriX, N-Quads. We recommend Turtle.
+								  </small>
+							    </div>	
+						      </div>						      		
+					      </blockquote>					  
+					  
+					  
+					  <h2><i class="fal fa-tools"></i>&nbsp;&nbsp;Options</h2>
+				      <blockquote class="blockquote bq-warning">
+				      	<div class="form-group row">
+						      	<div class="col-sm-12">
+							      	<div class="form-check">
+									  <input class="form-check-input" type="checkbox" id="includeDiagram" name="includeDiagram" />
+									  <label class="form-check-label" for="includeDiagram">
+									    Include diagram in the generated documentation
+									  </label>
+									  <small class="form-text text-muted">
+										Check if you want the UML diagram to be included in the generated documentation. Not all structure of Shapes file can produce a nice UML diagram.
+									  </small>
+									</div>
+								</div>
+						</div>
+						<!-- PDF Option -->
+						<!--  
+						<div class="form-group row">
+						      	<div class="col-sm-12">
+							      	<div class="form-check">
+									  <input class="form-check-input" type="checkbox" id="printPDF" name="printPDF" checked="checked"/>
+									  <label class="form-check-label" for="printPDF">
+									    PDF print
+									  </label>
+									  <small class="form-text text-muted">
+										Check if you want print in PDF. (This option don't the diagram UML print)
+									  </small>
+									</div>
+								</div>
+						</div>
+						-->
+					  </blockquote>
+					  
+				    <button type="submit" id="validate-button" class="btn btn-info btn-lg">Generate doc</button>			  	
+			  	</form>
+ 				
+ 				<!-- Documentation -->	
+				<div id="documentation" style="margin-top:3em;">
+					<h3>Documentation</h3>
+
+					<p>This documentation generation utility prints an <em>application profile specified in SHACL</em>. It supports a subset of SHACL constraints.<p/>
+					<p>
+					   The generated documentation describes all the properties allowed on each class/shape of the application profile, and includes a diagram, namespace table, introduction, 
+					   and some metadata at the top of the document.
+					</p>
+					<h4>Sample file</h4>
+					<p> 
+					   To test, and to better understand how the documentation generation works you can download this <a href="/play/resources/example/PersonCountry.ttl;jsessionid=75FE21DFDA975EB8703BEFC52A658079">turtle example of an application profile specified in SHACL</a>
+					   , or the corresponding <a href="/play/resources/example/PersonCountry.xlsx;jsessionid=75FE21DFDA975EB8703BEFC52A658079">Excel file</a> This Excel file can be converted in SHACL using 
+					   the <a href="https://skos-play.sparna.fr/play/convert" target="_blank">SKOS Play xls2rdf conversion tool</a>. All the details about the conversion rules 
+					   are documented in the converter page. This documentation focuses on which SHACL constraints are used to produce the documentation.					   					
+					</p>
+
+
+					<div style="margin-top:2em;">
+						<h4>owl:Ontology header</h4>
+						<p>The documentation generation reads the following properties on a owl:Ontology entity in the SHACL file.</p>
+						
+						<table class="table table-bordered">
+							<thead>
+								<tr align="center">
+									<th scope="col">Property</th>
+								    <th scope="col">Type</th>
+								    <th scope="col" width="auto">Required</th>
+								    <th scope="col">Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row" width="30%"><code>rdfs:label</code></th>
+									<td>xsd:string</td>
+									<td>Yes</td>
+									<td class="text-break">Generates the title of the document</td>
+								</tr>
+								<tr>
+									<th scope="row"><code>rdfs:comment</code></th>
+									<td>xsd:string</td>
+									<td>No</td>
+									<td class="text-break">Generates an <b>Abstract</b> section in the documentation, if present.</td>
+							  	</tr>
+							  	<tr>
+							  		<th scope="row"><code>dcterms:description</code></th>
+							  		<td>xsd:string</td>
+							  		<td>No</td>
+							  		<td class="text-break">Generates a <b>Description</b> section in the generated documentation, if present.</td>
+							  	</tr>
+							  	<tr>
+							  		<th scope="row"><code>owl:versionInfo</code></th>
+							  		<td>xsd:string</td>
+							  		<td>No</td>
+							  		<td class="text-break">Shown in the header of the generated documentation</td>
+							  	</tr>
+							  	<tr>
+							  		<th scope="row"><code>dcterms:modified</code></th>
+							  		<td>xsd:dateTime</td>
+							  		<td>No</td>
+							  		<td class="text-break">Shown in the header of the generated documentation</td>
+							  	</tr>
+							</tbody>
+						</table>
+												  
+						<br/>
+						<p>This is an example of such a header:</p>
+						<br/>
+						<!-- OWL -->
+						<img src="/play/resources/img/shacl_doc_owl.png;jsessionid=75FE21DFDA975EB8703BEFC52A658079" width="100%"/>
+						<br/>
+						<br/>
+						This generates the following output:
+						<br/>
+						<br/>
+						<img src="/play/resources/img/shacl_doc_header.png;jsessionid=75FE21DFDA975EB8703BEFC52A658079" width="100%"/>
+						<br/>
+					</div>
+					
+					<div style="margin-top:2em;">
+						<h4>Prefixes table</h4>
+						<p>The prefixes of the SHACL file are inserted in a ""Namespaces section at the top of the documentation.
+						For example the following prefixes:</p>
+						<img src="/play/resources/img/shacl_doc_prefixes_input.png;jsessionid=75FE21DFDA975EB8703BEFC52A658079" width="80%"/>
+						<br/>
+						<br/>
+						<p>Will generate the corresponding output table:</p>
+						<img src="/play/resources/img/shacl_doc_prefixes.png;jsessionid=75FE21DFDA975EB8703BEFC52A658079" width="80%" />
+						
+					</div>
+					
+					<div style="margin-top:2em;">
+						<h4>Documentation of Node Shapes</h4>
+						<p>The following properties are read on each sh:NodeShape to populate the header of each section of the generated documentation.</p>
+						
+						<table class="table table-bordered">
+							<thead>
+								<tr align="center">
+									<th scope="col">Property</th>
+								    <th scope="col">Type</th>
+								    <th scope="col" width="auto">Required</th>
+								    <th scope="col">Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row" width="30%"><code>rdfs:label</code></th>
+									<td>xsd:string</td>
+									<td>Yes</td>
+									<td class="text-break">Label of the NodeShape used as the label of the section in the documentation.</td>
+								</tr>
+								<tr>
+									<th scope="row" width="30%"><code>rdfs:comment</code></th>
+									<td>xsd:string</td>
+									<td>No</td>
+									<td class="text-break">Description of the NodeShape.</td>
+								</tr>
+								<tr>
+									<th scope="row"><code>sh:targetClass</code></th>
+									<td>sh:IRI</td>
+									<td>No</td>
+									<td class="text-break">Declare all nodes that are instances of some class.</td>
+							  	</tr>
+								<tr>
+									<th scope="row"><code>sh:pattern</code></th>
+									<td>xsd:string</td>
+									<td>No</td>
+									<td class="text-break">Regex specifying the URI pattern that the targets of the NodeShape must conform to.</td>
+							  	</tr>
+							  	<tr>
+							  		<th scope="row"><code>skos:example</code></th>
+							  		<td>xsd:string</td>
+							  		<td>No</td>
+							  		<td class="text-break">Example of an IRI for a target of this NodeShape.</td>
+							  	</tr>
+							  	<tr>
+							  		<th scope="row"><code>sh:order</code></th>
+							  		<td>xsd:integer</td>
+							  		<td>No</td>
+							  		<td class="text-break">Sections of the generated documentation are sorted according to sh:order on sh:NodeShape, or by label if not present.</td>
+							  	</tr>					  	
+							</tbody>
+						</table>
+
+						<p>This is how it can typically look like in SHACL:</p>
+						<img src="/play/resources/img/shacl_doc_nodeshape_shacl.png;jsessionid=75FE21DFDA975EB8703BEFC52A658079" width="100%"/>
+						<br/>
+						<br/>
+						<p>This generates the following output:</p>
+						<img src="/play/resources/img/nodeshape_person.png;jsessionid=75FE21DFDA975EB8703BEFC52A658079" width="100%"/>
+						<br/>
+						<br/>
+						<img src="/play/resources/img/nodeshape_country.png;jsessionid=75FE21DFDA975EB8703BEFC52A658079" width="100%"/>
+						<br/>
+						<br/>
+						<img src="/play/resources/img/nodeshape_referenceOrganization.png;jsessionid=75FE21DFDA975EB8703BEFC52A658079" width="100%"/>
+						<br/>
+						<br/>
+						<img src="/play/resources/img/nodeshape_referencePerson.png;jsessionid=75FE21DFDA975EB8703BEFC52A658079" width="100%"/>
+						<br/>
+						<br/>
+					</div>
+					
+					<div style="margin-top:2em;">
+						<h4>Documentation of Property Shapes</h4>
+						<p>The following properties are read on each sh:PropertyShape to populate the properties table in the generated documentation.</p>
+						
+						<table class="table table-bordered">
+							<thead>
+								<tr align="center">
+									<th scope="col">Property</th>
+								    <th scope="col">Expected value</th>
+								    <th scope="col" width="auto">Required</th>
+								    <th scope="col">Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row" width="30%"><code>sh:path</code></th>
+									<td>IRI</td>
+									<td>Yes</td>
+									<td class="text-break">Property or property path - each property shape generates one line in the table.</td>
+								</tr>
+								<tr>
+									<th scope="row"><code>sh:name</code></th>
+									<td>xsd:string</td>
+									<td>No</td>
+									<td class="text-break">Used to display the name of the property. If not provided, and if sh:path points to a URI, then an <code>rdfs:label</code>
+							  		is searched on the property URI indicated in the sh:path. This implies the SHACL file also contains the OWL definition. Otherwise, the column will be empty.</td>
+							  	</tr>
+							  	<tr>
+							  		<th scope="row"><code>sh:description</code></th>
+							  		<td>xsd:string</td>
+							  		<td>No</td>
+							  		<td class="text-break">Populates the <b>Description</b> column of the table. If not provided, and if sh:path points to a URI, then an <code>rdfs:comment</code>
+							  		is searched on the property URI indicated in the sh:path. This implies the SHACL file also contains the OWL definition. Otherwise the column will be empty.</td>
+							  	</tr>
+							  	<tr>
+							  		<th scope="row"><code>sh:minCount</code> / <code>sh:maxCount</code></th>
+							  		<td>xsd:integer</td>
+							  		<td>No</td>
+							  		<td class="text-break">Used to populate the <b>Cardinality</b> column of the table</td>
+							  	</tr>
+							  	<tr>
+							  		<th scope="row"><code>sh:node</code></th>
+							  		<td>IRI of a NodeShape</td>
+							  		<td>One of sh:node, sh:class, sh:nodeKind, sh:datatype, sh:or, sh:hasValue must be provided</td>
+							  		<td class="text-break">Used to populate the <b>Expected value</b> column, see below.</td>
+							  	</tr>
+							  	<tr>
+							  		<th scope="row"><code>sh:class</code></th>
+							  		<td>IRI of a class</td>
+							  		<td>One of sh:node, sh:class, sh:nodeKind, sh:datatype, sh:or, sh:hasValue must be provided.</td>
+							  		<td class="text-break">Used to populate the <b>Expected value</b> column, see below.</td>
+							  	</tr>
+							  	<tr>
+							  		<th scope="row"><code>sh:nodeKind</code></th>
+							  		<td>Value can be either sh:IRI or sh:Literal</td>
+							  		<td>One of sh:node, sh:class, sh:nodeKind, sh:datatype, sh:or, sh:hasValue must be provided.</td>
+							  		<td class="text-break">Used to populate the <b>Expected value</b> column, see below.</td>
+							  	</tr>
+							  	<tr>
+							  		<th scope="row"><code>sh:datatype</code></th>
+							  		<td>IRI of a datatype</td>
+							  		<td>One of sh:node, sh:class, sh:nodeKind, sh:datatype, sh:or, sh:hasValue must be provided.</td>
+							  		<td class="text-break">Used to populate the <b>Expected value</b> column, see below.</td>
+							  	</tr>
+							  	<tr>
+							  		<th scope="row"><code>sh:hasValue</code></th>
+							  		<td>RDF List of values</td>
+							  		<td>One of sh:node, sh:class, sh:nodeKind, sh:datatype, sh:or, sh:hasValue must be provided.</td>
+							  		<td class="text-break">Used to populate the <b>Expected value</b> column, see below.</td>
+							  	</tr>
+							  	<tr>
+							  		<th scope="row"><code>sh:or</code></th>
+							  		<td>RDF List of blank nodes with a <code>sh:node</code></td>
+							  		<td>One of sh:node, sh:class, sh:nodeKind, sh:datatype, sh:or, sh:hasValue must be provided.</td>
+							  		<td class="text-break">Used to populate the <b>Expected value</b> column, see below.</td>
+							  	</tr>
+							  	<tr>
+							  		<th scope="row"><code>sh:in</code></th>
+							  		<td>RDF List of values</td>
+							  		<td>No</td>
+							  		<td class="text-break">Used to indicate the possible list of values, as an additionnal information in the <b>Expected value</b> column.</td>
+							  	</tr>
+							  	<tr>
+							  		<th scope="row"><code>sh:order</code></th>
+							  		<td>xsd:integer</td>
+							  		<td>No</td>
+							  		<td class="text-break">Lines of the generated table are sorted according to <code>sh:order</code>.</td>
+							  	</tr>
+							  	
+							</tbody>
+						</table>
+						
+						<p>The <b>Expected value</b> column is generated by looking at the following properties in order of precedence :</p>
+						<ul>
+							<li>Use <code>sh:hasValue</code> if present.</li>
+							<li>Otherwise use <code>sh:class</code></li>
+							<li>Otherwise use <code>sh:node</code></li>
+							<li>Otherwise use <code>sh:datatype</code></li>
+							<li>Otherwise use <code>sh:nodeKind</code></li>	
+							<li>Otherwise use <code>sh:or</code>; in this case, get the list items and read <code>sh:node</code> on each of them.</li>
+							<li>Otherwise the column is left empty.</li>
+						</ul>
+						<p>Additionally, if <code>sh:in</code> is present, it is inserted as an additional information in the Expected value column.</p>
+						<p>This generates the following output:</p>
+						<img src="/play/resources/img/shacl_doc_properties.png;jsessionid=75FE21DFDA975EB8703BEFC52A658079" width="100%"/>
+						<br/>
+						<br/>
+						<img src="/play/resources/img/shacl_doc_properties_2.png;jsessionid=75FE21DFDA975EB8703BEFC52A658079" width="100%"/>
+						
+					</div>
+					
+				</div>			
+			</div>
+		</div>
+
+    </div><!-- /.container-fluid -->
+
+			
+	
+
+
+
+
+<!-- setup the locale for the messages based on the language in the session -->
+
+
+
+<footer id="footer" style="margin-top:30px;">
+	    SHACL Play! by <a href="http://blog.sparna.fr" target="_blank">Thomas Francart</a>, <a href="http://sparna.fr" target="_blank"><img src="/play/resources/img/sparna.png;jsessionid=75FE21DFDA975EB8703BEFC52A658079" /></a>
+      	&nbsp;|&nbsp;
+      	version : 0.6 (timestamp)
+      	&nbsp;|&nbsp;
+      	SHACL Play! embeds <a href="https://github.com/TopQuadrant/shacl" target="_blank">TobBraid SHACL API</a> from <a href="https://www.topquadrant.com/" target="_blank">TopQuadrant</a>
+      	<br />
+      	<br />
+</footer>
+	
+	<!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="/play/resources/MDB-Free/js/jquery.min.js;jsessionid=75FE21DFDA975EB8703BEFC52A658079"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="/play/resources/MDB-Free/js/popper.min.js;jsessionid=75FE21DFDA975EB8703BEFC52A658079"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="/play/resources/MDB-Free/js/bootstrap.min.js;jsessionid=75FE21DFDA975EB8703BEFC52A658079"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="/play/resources/MDB-Free/js/mdb.min.js;jsessionid=75FE21DFDA975EB8703BEFC52A658079"></script>
+	
+    <script type="text/javascript" src="/play/resources/jasny-bootstrap/jasny-bootstrap.min.js;jsessionid=75FE21DFDA975EB8703BEFC52A658079"></script>
+
+    
+    <script>
+    	$(document).ready(function () {
+	    	$('#htmlOrRdf a').click(function (e) {
+	    	  e.preventDefault();
+	    	  $(this).tab('show')
+	    	});
+	    	
+	        // Initialize CodeMirror editor and the update callbacks
+	        var sourceText = document.getElementById('text');
+	        var editorOptions = {
+	          mode: 'text/html',
+	          tabMode: 'indent'
+	        };
+	        
+	        // CodeMirror commented for now
+	        // var editor = CodeMirror.fromTextArea(sourceText, editorOptions);
+	        // editor.on("change", function(cm, event) { enabledInput('text'); });
+    	});
+    </script>
+    
+  </body>
+</html>
