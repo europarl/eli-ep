@@ -12,4 +12,4 @@ ELI-EP is an application profile of the [ELI](https://op.europa.eu/en/web/eu-voc
 
 ## Licence
 
-ELI-EP is distributed under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+ELI-EP is distributed under the terms and conditions described in the [European Parliament Legal Notice](https://www.europarl.europa.eu/legal-notice/).
