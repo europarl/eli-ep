@@ -37,7 +37,7 @@
   dcterms:description "ELI-EP is an application profile of the European Legislation Identifier (ELI) ontology (https://op.europa.eu/en/web/eu-vocabularies/eli), designed and used for data of the European Parliament."@en;
   dcterms:issued "2022-08-19"^^xsd:date;
   dcterms:license <https://www.europarl.europa.eu/legal-notice/>;
-  dcterms:modified "2022-07-14"^^xsd:date;
+  dcterms:modified "2022-07-17"^^xsd:date;
   dcterms:publisher <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
   dcterms:rigthsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
   dcterms:title "ELI-EP Application Profile"@en;
