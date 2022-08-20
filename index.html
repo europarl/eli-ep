@@ -1,6 +1,9 @@
 
 <html lang="en">
    <head>
+   
+<title>ELI-EP Application profile</title>   
+   
       <style type="text/css">
 					.anchor {
 						float: left;
@@ -148,12 +151,20 @@
 					
 					
 				</style>
+
+<style type="text/css">
+.container {width:calc(100% - 500px);}
+.toc {position:fixed;top:0;left:0;font-size:small;padding:10px 20px;width:170px;border-right:solid 2px #eeeeee;}
+figcaption {text-align:center;}
+</style>
+
    </head>
    <body>
       <div class="container">
          <br/>
          <table style="width:100%">
             <tr>
+<!--
                <td width="20%">
                   <img src="https://www.europarl.europa.eu/portal/img/ep-logo.svg"/>
                </td>
@@ -164,10 +175,24 @@
                      </center>
                   </div>
                </td>
+-->
+
+               <td width="75%">
+                  <div>
+                     <center>
+                        <h1>ELI-EP Application Profile</h1>
+                     </center>
+                  </div>
+               </td>
+               <td width="15%">
+                  <img src="https://www.europarl.europa.eu/portal/img/ep-logo.svg"/>
+               </td>
+
             </tr>
          </table>
          <br/>
          <br/>
+<!--
          <b>Created date: </b>2021-11-11<br/>
          <b>Issued date: </b>2022-08-19<br/>
          <b>Last updated: </b>2022-07-17<br/>
@@ -185,11 +210,40 @@
             target="_blank">http://publications.europa.eu/resource/dataset/corporate-body/EP</a>
          <br/>
          <br/>
+-->
+
+<b>Creation date: </b>2021-11-11<br/>
+<b>Issue date: </b>2022-08-19<br/>
+<b>Last updated: </b>2022-08-17<br/>
+<b>Version: </b>0.4.4<br/>
+<b>Status: </b>Under development<br/>
+<b>Creator: </b><a href="https://www.europarl.europa.eu/" target="_blank">European Parliament</a><br/>
+<b>Publisher: </b><a href="https://www.europarl.europa.eu/" target="_blank">European Parliament</a><br/>
+
+<!--
+<b>Licence: </b><a href="https://www.europarl.europa.eu/legal-notice/" target="_blank">European Parliament Legal Notice</a><br/>
+<b>Copyright date: </b>2021<br/>
+<b>Copyright holder: </b><a href="https://europa.eu/" target="_blank">European Union</a><br/>
+-->
+
+<p><b>Available RDF serialisations: </b><a href="./eli-ep.shacl.ttl">SHACL (Turtle)</a></p>
+
+<p>Copyright &copy; 2021 <a href="https://europa.eu/" target="_blank">European Union</a>. This document is distributed under the terms and conditions described in the <a href="https://www.europarl.europa.eu/legal-notice/" target="_blank">European Parliament Legal Notice</a>.</p>
+
          <hr/>
          <br/>
+<!--
          <div>
             <h2>Table of Content</h2>
+-->
+<div class="toc">
+<h2>Table of Contents</h2>
+<!--
             <a href="#diagram">Dataset diagram</a>
+-->
+
+            <a href="#diagram">Diagram</a>
+
             <br/>
             <a href="#description">Description </a>
             <br/>
@@ -237,8 +291,23 @@
             <br/>
          </div>
          <br/>
+
+<div>
+<h2>Abstract</h2>
+<p>ELI-EP is an application profile of the European Legislation Identifier (ELI) ontology (https://op.europa.eu/en/web/eu-vocabularies/eli), designed and used for data of the European Parliament.</p>
+</div>
+
+<div>
+<h2>Usage note</h2>
+This version of ELI-EP is a draft specification and may be updated, replaced or obsoleted by other documents at any time. It is inappropriate to cite this document as other than work in progress.
+</div>
+
          <div id="diagram">
+<!--
             <h2>Dataset diagram</h2>
+-->
+
+            <h2>Diagram</h2>
 			
 			<figure id="fig-diagram">
 			  <a title="Click to open the diagram at full size" href="./eli-ep.svg" target="_blank"><img alt="Diagram" src="./eli-ep.svg" width="100%"/></a>
