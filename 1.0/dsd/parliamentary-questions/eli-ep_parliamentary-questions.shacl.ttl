@@ -1,0 +1,1347 @@
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix eli: <http://data.europa.eu/eli/ontology#> .
+@prefix eli-dl: <http://data.europa.eu/eli/eli-draft-legislation-ontology#> .
+@prefix epvoc: <https://data.europarl.europa.eu/def/epvoc#> .
+@prefix euvoc: <http://publications.europa.eu/ontology/euvoc#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix op-aut: <http://publications.europa.eu/resource/authority/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix questions: <https://data.europarl.europa.eu/def/parliamentary-questions#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix resource-type: <http://publications.europa.eu/resource/authority/resource-type/> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shacl-play: <https://shacl-play.sparna.fr/ontology#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skosthes: <http://purl.org/iso25964/skos-thes#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://data.europarl.europa.eu/def/parliamentary-questions#> a owl:Ontology, adms:Asset;
+  dcterms:conformsTo <https://www.w3.org/TR/shacl>;
+  dcterms:created "2022-11-18"^^xsd:date;
+  dcterms:creator <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
+  dcterms:dateCopyrighted "2022"^^xsd:gYear;
+  dcterms:description "This Dataset Description is a subset of the general ELI-EP application profile and it includes classes and properties used in Parliamentary questions datasets. Descriptions of classes and properties can be found in ELI-EP application profile."@en;
+  dcterms:license <https://www.europarl.europa.eu/legal-notice/en/>;
+  dcterms:modified "2023-01-24T00:00:00.000Z"^^xsd:dateTime;
+  dcterms:publisher <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
+  dcterms:rigthsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
+  dcterms:title "Parliamentary questions dataset description"@en;
+  dcterms:type <http://publications.europa.eu/resource/authority/dataset-type/APROF>;
+  rdfs:label "Parliamentary questions dataset description"@en;
+  owl:versionIRI <https://data.europarl.europa.eu/def/parliamentary-questions#>;
+  owl:versionInfo "1.0";
+  adms:status <http://publications.europa.eu/resource/dataset/dataset-status/COMPLETED>;
+  adms:versionNotes """1.0 - 2023-01-16
+- minor corrections
+1.0 - 2022-11-18
+- creation"""@en .
+
+questions:Question a sh:NodeShape;
+  rdfs:label "Question"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/E-9-2022-000004";
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 1;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:property questions:P10, questions:P11, questions:P12, questions:P13, questions:P14,
+    questions:P15, questions:P16, questions:P17, questions:P18, questions:P19, questions:P20,
+    questions:P21, questions:P22, questions:P23, questions:P24, questions:P25, questions:P9;
+  sh:target questions:Question-target .
+
+questions:Question-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
+SELECT ?this
+WHERE {
+ ?this eli:work_type ?type .
+ VALUES ?type {
+ # all narrower terms of QUEST_EP
+ <http://publications.europa.eu/resource/authority/resource-type/INTERPEL_MAJ_EP>
+<http://publications.europa.eu/resource/authority/resource-type/INTERPEL_MIN_EP>
+<http://publications.europa.eu/resource/authority/resource-type/QUEST_ORAL>
+<http://publications.europa.eu/resource/authority/resource-type/QUEST_WRITTEN_PRIORITY_EP>
+<http://publications.europa.eu/resource/authority/resource-type/QUEST_TIME>
+<http://publications.europa.eu/resource/authority/resource-type/QUEST_WRITTEN>
+
+ }
+}""" .
+
+questions:AnswerToQuestion a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  rdfs:label "Answer to question"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/E-9-2022-000004-ASW";
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 2;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:property questions:P27, questions:P28, questions:P29, questions:P30, questions:P31,
+    questions:P32, questions:P33, questions:P34, questions:P35, questions:P36, questions:P37,
+    questions:P38, questions:P39, questions:P40, questions:P41, questions:P42, questions:P43 .
+
+questions:AnnexOfAnswer a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  rdfs:label "Annex to Answer"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/E-9-2022-000004-ASW";
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 3;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:property questions:P45, questions:P46, questions:P47, questions:P48, questions:P49,
+    questions:P50, questions:P51, questions:P52, questions:P53, questions:P54, questions:P55,
+    questions:P56, questions:P57, questions:P58, questions:P59, questions:P60 .
+
+questions:Expression a sh:NodeShape;
+  rdfs:label "Expression"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/E-9-2022-000004/en";
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 4;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+/[a-z][a-z]$";
+  sh:property questions:P62, questions:P63, questions:P64, questions:P65, questions:P66;
+  sh:targetClass eli:Expression .
+
+questions:Manifestation a sh:NodeShape;
+  rdfs:label "Manifestation"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/E-9-2022-000004/en/pdf";
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 5;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+/[a-z][a-z]/.*$";
+  sh:property questions:P69, questions:P70, questions:P71, questions:P72, questions:P73,
+    questions:P74;
+  sh:targetClass eli:Manifestation .
+
+questions:Participation a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class eli-dl:Participation"@en;
+  rdfs:label "Participation"@en;
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 6;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/participation/[A-Za-z0-9\\-_]+_+[A-Za-z0-9\\-_]+$";
+  sh:property questions:P76, questions:P77, questions:P78, questions:P79, questions:P80 .
+
+questions:ParliamentaryTermReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class eli-dl:ParliamentaryTerm"@en;
+  rdfs:label "Reference to a Parliamentary Term"@en;
+  skos:example "https://data.europarl.europa.eu/org/ep-9";
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 7;
+  sh:pattern "^https://data.europarl.europa.eu/org/ep-[0-9].*$";
+  sh:property questions:P83, questions:P84 .
+
+questions:WorkTypeReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class eli:WorkType"@en;
+  rdfs:label "Reference to a Work type"@en;
+  skos:example "http://publications.europa.eu/resource/authority/resource-type/QUEST_WRITTEN";
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 8;
+  sh:pattern "http://publications.europa.eu/resource/authority/resource-type/.*$";
+  sh:property questions:P87, questions:P88 .
+
+questions:LanguageReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class dcterms:LinguisticSystem"@en;
+  rdfs:label "Reference to a Language"@en;
+  skos:example "http://publications.europa.eu/resource/authority/language/ENG";
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 9;
+  sh:pattern "http://publications.europa.eu/resource/authority/language/.*$";
+  sh:property questions:P91, questions:P92 .
+
+questions:MediaTypeOrExtentReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class dcterms:MediaTypeOrExtent"@en;
+  rdfs:label "Reference to a Format"@en;
+  skos:example "http://publications.europa.eu/resource/authority/file-type/PDF";
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 10;
+  sh:pattern "http://publications.europa.eu/resource/authority/file-type/.*$";
+  sh:property questions:P95, questions:P96 .
+
+questions:ParticipationRoleReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class eli-dl:ParticipationRole"@en;
+  rdfs:label "Reference to a Role"@en;
+  skos:example "http://publications.europa.eu/resource/authority/role/AUT";
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 11;
+  sh:pattern "http://publications.europa.eu/resource/authority/role/.*$";
+  sh:property questions:P100, questions:P99 .
+
+questions:OrganizationReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class org:Organization"@en;
+  rdfs:label "Reference to an Organization"@en;
+  skos:example "http://publications.europa.eu/resource/authority/corporate-body/EP";
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 12;
+  sh:pattern "http://publications.europa.eu/resource/authority/corporate-body/.*$";
+  sh:property questions:P103, questions:P104 .
+
+questions:PersonReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class foaf:Person"@en;
+  rdfs:label "Reference to a Person"@en;
+  skos:example "https://data.europarl.europa.eu/person/1234";
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 13;
+  sh:pattern "^https://data.europarl.europa.eu/person/[0-9].*$";
+  sh:property questions:P107, questions:P108 .
+
+questions:P9 sh:hasValue eli:Work;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "type"@en;
+  sh:path rdf:type .
+
+questions:P10 sh:in _:node1gpmtdgvsx419 .
+
+_:node1gpmtdgvsx419 rdf:first resource-type:INTERPEL_MAJ_EP;
+  rdf:rest _:node1gpmtdgvsx420 .
+
+_:node1gpmtdgvsx420 rdf:first resource-type:INTERPEL_MIN_EP;
+  rdf:rest _:node1gpmtdgvsx421 .
+
+_:node1gpmtdgvsx421 rdf:first resource-type:QUEST_ORAL_PART_SESSION_EP;
+  rdf:rest _:node1gpmtdgvsx422 .
+
+_:node1gpmtdgvsx422 rdf:first resource-type:QUEST_WRITTEN_PRIORITY_EP;
+  rdf:rest _:node1gpmtdgvsx423 .
+
+_:node1gpmtdgvsx423 rdf:first resource-type:QUEST_INTERPEL_EP;
+  rdf:rest _:node1gpmtdgvsx424 .
+
+_:node1gpmtdgvsx424 rdf:first resource-type:QUEST_TIME;
+  rdf:rest _:node1gpmtdgvsx425 .
+
+_:node1gpmtdgvsx425 rdf:first resource-type:QUEST_ORAL;
+  rdf:rest _:node1gpmtdgvsx426 .
+
+_:node1gpmtdgvsx426 rdf:first resource-type:QUEST_WRITTEN;
+  rdf:rest rdf:nil .
+
+questions:P10 sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "work type"@en;
+  sh:node questions:WorkTypeReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli:work_type .
+
+questions:P11 sh:datatype xsd:dateTime;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "date document"@en;
+  sh:nodeKind sh:Literal;
+  sh:path eli:date_document .
+
+questions:P12 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "identifier"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:identifier .
+
+questions:P13 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:name "identifier year"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:identifierYear .
+
+questions:P14 sh:datatype rdf:langString;
+  sh:minCount 1;
+  sh:name "title"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:title .
+
+questions:P15 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:name "label"@en;
+  sh:nodeKind sh:Literal;
+  sh:path rdfs:label .
+
+questions:P16 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:name "ep number"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:epNumber .
+
+questions:P17 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:name "en number version"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:epNumberVersion .
+
+questions:P18 sh:datatype epvoc:publicRegister;
+  sh:name "notation"@en;
+  sh:nodeKind sh:Literal;
+  sh:path skos:notation .
+
+questions:P19 sh:maxCount 1;
+  sh:minCount 0;
+  sh:name "parliamentary term"@en;
+  sh:node questions:ParliamentaryTermReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli-dl:parliamentary_term .
+
+questions:P20 sh:minCount 0;
+  sh:name "original language"@en;
+  sh:node questions:LanguageReference;
+  sh:nodeKind sh:IRI;
+  sh:path epvoc:originalLanguage .
+
+questions:P21 sh:name "creator"@en;
+  sh:nodeKind sh:IRI;
+  sh:path dcterms:creator .
+
+questions:P22 sh:maxCount 1;
+  sh:name "publisher"@en;
+  sh:nodeKind sh:IRI;
+  sh:path dcterms:publisher .
+
+questions:P23 sh:minCount 1;
+  sh:name "is realized by"@en;
+  sh:node questions:Expression;
+  sh:nodeKind sh:IRI;
+  sh:path eli:is_realized_by .
+
+questions:P24 sh:maxCount 2;
+  sh:name "answered in"@en;
+  sh:node questions:AnswerToQuestion;
+  sh:nodeKind sh:IRI;
+  sh:path _:node1gpmtdgvsx427 .
+
+_:node1gpmtdgvsx427 sh:inversePath eli-dl:answers_to .
+
+questions:P25 sh:name "stakeholder participant"@en;
+  sh:node questions:Participation;
+  sh:nodeKind sh:IRI;
+  sh:path epvoc:workHadParticipation .
+
+questions:P27 sh:hasValue eli:Work;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "type"@en;
+  sh:path rdf:type .
+
+questions:P28 sh:in _:node1gpmtdgvsx428 .
+
+_:node1gpmtdgvsx428 rdf:first resource-type:QUEST_INTERPEL_ANSWER_EP;
+  rdf:rest _:node1gpmtdgvsx429 .
+
+_:node1gpmtdgvsx429 rdf:first resource-type:QUEST_WRITTEN_ANSWER_EP;
+  rdf:rest rdf:nil .
+
+questions:P28 sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "work type"@en;
+  sh:node questions:WorkTypeReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli:work_type .
+
+questions:P29 sh:datatype xsd:dateTime;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "date document"@en;
+  sh:nodeKind sh:Literal;
+  sh:path eli:date_document .
+
+questions:P30 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "identifier"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:identifier .
+
+questions:P31 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:name "identifier year"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:identifierYear .
+
+questions:P32 sh:datatype rdf:langString;
+  sh:minCount 1;
+  sh:name "title"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:title .
+
+questions:P33 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:name "label"@en;
+  sh:nodeKind sh:Literal;
+  sh:path rdfs:label .
+
+questions:P34 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:name "ep number"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:epNumber .
+
+questions:P35 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:name "en number version"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:epNumberVersion .
+
+questions:P36 sh:datatype epvoc:publicRegister;
+  sh:name "notation"@en;
+  sh:nodeKind sh:Literal;
+  sh:path skos:notation .
+
+questions:P37 sh:maxCount 1;
+  sh:minCount 0;
+  sh:name "parliamentary term"@en;
+  sh:node questions:ParliamentaryTermReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli-dl:parliamentary_term .
+
+questions:P38 sh:name "creator"@en;
+  sh:nodeKind sh:IRI;
+  sh:path dcterms:creator .
+
+questions:P39 sh:maxCount 1;
+  sh:name "publisher"@en;
+  sh:nodeKind sh:IRI;
+  sh:path dcterms:publisher .
+
+questions:P40 sh:minCount 1;
+  sh:name "is realized by"@en;
+  sh:node questions:Expression;
+  sh:nodeKind sh:IRI;
+  sh:path eli:is_realized_by .
+
+questions:P41 sh:minCount 1;
+  sh:name "answers to"@en;
+  sh:nodeKind sh:IRI;
+  sh:path eli-dl:answers_to .
+
+questions:P42 sh:name "has annex"@en;
+  sh:node questions:AnnexOfAnswer;
+  sh:nodeKind sh:IRI;
+  sh:path _:node1gpmtdgvsx430 .
+
+_:node1gpmtdgvsx430 sh:inversePath eli:is_annex_of .
+
+questions:P43 sh:name "stakeholder participant"@en;
+  sh:node questions:Participation;
+  sh:nodeKind sh:IRI;
+  sh:path epvoc:workHadParticipation .
+
+questions:P45 sh:hasValue eli:Work;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "type"@en;
+  sh:path rdf:type .
+
+questions:P46 sh:hasValue resource-type:ANNEX;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "work type"@en;
+  sh:node questions:WorkTypeReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli:work_type .
+
+questions:P47 sh:datatype xsd:dateTime;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "date document"@en;
+  sh:nodeKind sh:Literal;
+  sh:path eli:date_document .
+
+questions:P48 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "identifier"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:identifier .
+
+questions:P49 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:name "identifier year"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:identifierYear .
+
+questions:P50 sh:datatype rdf:langString;
+  sh:minCount 1;
+  sh:name "title"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:title .
+
+questions:P51 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:name "label"@en;
+  sh:nodeKind sh:Literal;
+  sh:path rdfs:label .
+
+questions:P52 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:name "ep number"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:epNumber .
+
+questions:P53 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:name "en number version"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:epNumberVersion .
+
+questions:P54 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:name "numbering"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:numbering .
+
+questions:P55 sh:datatype epvoc:publicRegister;
+  sh:name "notation"@en;
+  sh:nodeKind sh:Literal;
+  sh:path skos:notation .
+
+questions:P56 sh:maxCount 1;
+  sh:minCount 0;
+  sh:name "parliamentary term"@en;
+  sh:node questions:ParliamentaryTermReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli-dl:parliamentary_term .
+
+questions:P57 sh:maxCount 1;
+  sh:name "publisher"@en;
+  sh:nodeKind sh:IRI;
+  sh:path dcterms:publisher .
+
+questions:P58 sh:minCount 1;
+  sh:name "is realized by"@en;
+  sh:node questions:Expression;
+  sh:nodeKind sh:IRI;
+  sh:path eli:is_realized_by .
+
+questions:P59 sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "is annex of"@en;
+  sh:nodeKind sh:IRI;
+  sh:path eli:is_annex_of .
+
+questions:P60 sh:name "stakeholder participant"@en;
+  sh:node questions:Participation;
+  sh:nodeKind sh:IRI;
+  sh:path epvoc:workHadParticipation .
+
+questions:P62 sh:hasValue eli:Expression;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:path rdf:type .
+
+questions:P63 sh:datatype rdf:langString;
+  sh:minCount 1;
+  sh:name "title"@en;
+  sh:nodeKind sh:Literal;
+  sh:path eli:title .
+
+questions:P64 sh:datatype rdf:langString;
+  sh:name "alternative title"@en;
+  sh:nodeKind sh:Literal;
+  sh:path eli:title_alternative .
+
+questions:P65 sh:minCount 1;
+  sh:name "is embodied by"@en;
+  sh:node questions:Manifestation;
+  sh:nodeKind sh:IRI;
+  sh:path eli:is_embodied_by .
+
+questions:P66 sh:minCount 1;
+  sh:name "language"@en;
+  sh:node questions:LanguageReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli:language .
+
+questions:P69 sh:hasValue eli:Manifestation;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:path rdf:type .
+
+questions:P70 sh:datatype xsd:dateTime;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "issued"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:issued .
+
+questions:P71 sh:minCount 1;
+  sh:name "is exemplified by"@en;
+  sh:nodeKind sh:IRI;
+  sh:path eli:is_exemplified_by .
+
+questions:P72 sh:datatype xsd:long;
+  sh:maxCount 1;
+  sh:name "byte size"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:byteSize .
+
+questions:P73 sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "format"@en;
+  sh:node questions:MediaTypeOrExtentReference;
+  sh:nodeKind sh:IRI;
+  sh:path dcterms:format .
+
+questions:P74 sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "media type"@en;
+  sh:nodeKind sh:IRI;
+  sh:path eli:media_type .
+
+questions:P76 sh:hasValue eli-dl:Participation;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:path rdf:type .
+
+questions:P77 sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "participation role"@en;
+  sh:node questions:ParticipationRoleReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli-dl:participation_role .
+
+questions:P78 sh:maxCount 1;
+  sh:name "participation organization"@en;
+  sh:nodeKind sh:IRI;
+  sh:path eli-dl:had_participant_organization .
+
+questions:P79 sh:maxCount 1;
+  sh:name "participation in name of"@en;
+  sh:nodeKind sh:IRI;
+  sh:path eli-dl:participation_in_name_of .
+
+questions:P80 sh:maxCount 1;
+  sh:name "participation person"@en;
+  sh:node questions:PersonReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli-dl:had_participant_person .
+
+questions:P83 sh:hasValue eli-dl:ParliamentaryTerm;
+  sh:minCount 1;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:path rdf:type .
+
+questions:P84 sh:datatype rdf:langString;
+  sh:languageIn _:node1gpmtdgvsx431 .
+
+_:node1gpmtdgvsx431 rdf:first "bg";
+  rdf:rest _:node1gpmtdgvsx432 .
+
+_:node1gpmtdgvsx432 rdf:first "es";
+  rdf:rest _:node1gpmtdgvsx433 .
+
+_:node1gpmtdgvsx433 rdf:first "cs";
+  rdf:rest _:node1gpmtdgvsx434 .
+
+_:node1gpmtdgvsx434 rdf:first "da";
+  rdf:rest _:node1gpmtdgvsx435 .
+
+_:node1gpmtdgvsx435 rdf:first "de";
+  rdf:rest _:node1gpmtdgvsx436 .
+
+_:node1gpmtdgvsx436 rdf:first "et";
+  rdf:rest _:node1gpmtdgvsx437 .
+
+_:node1gpmtdgvsx437 rdf:first "el";
+  rdf:rest _:node1gpmtdgvsx438 .
+
+_:node1gpmtdgvsx438 rdf:first "en";
+  rdf:rest _:node1gpmtdgvsx439 .
+
+_:node1gpmtdgvsx439 rdf:first "fr";
+  rdf:rest _:node1gpmtdgvsx440 .
+
+_:node1gpmtdgvsx440 rdf:first "ga";
+  rdf:rest _:node1gpmtdgvsx441 .
+
+_:node1gpmtdgvsx441 rdf:first "hr";
+  rdf:rest _:node1gpmtdgvsx442 .
+
+_:node1gpmtdgvsx442 rdf:first "it";
+  rdf:rest _:node1gpmtdgvsx443 .
+
+_:node1gpmtdgvsx443 rdf:first "lv";
+  rdf:rest _:node1gpmtdgvsx444 .
+
+_:node1gpmtdgvsx444 rdf:first "lt";
+  rdf:rest _:node1gpmtdgvsx445 .
+
+_:node1gpmtdgvsx445 rdf:first "hu";
+  rdf:rest _:node1gpmtdgvsx446 .
+
+_:node1gpmtdgvsx446 rdf:first "mt";
+  rdf:rest _:node1gpmtdgvsx447 .
+
+_:node1gpmtdgvsx447 rdf:first "nl";
+  rdf:rest _:node1gpmtdgvsx448 .
+
+_:node1gpmtdgvsx448 rdf:first "pl";
+  rdf:rest _:node1gpmtdgvsx449 .
+
+_:node1gpmtdgvsx449 rdf:first "pt";
+  rdf:rest _:node1gpmtdgvsx450 .
+
+_:node1gpmtdgvsx450 rdf:first "ro";
+  rdf:rest _:node1gpmtdgvsx451 .
+
+_:node1gpmtdgvsx451 rdf:first "sk";
+  rdf:rest _:node1gpmtdgvsx452 .
+
+_:node1gpmtdgvsx452 rdf:first "sl";
+  rdf:rest _:node1gpmtdgvsx453 .
+
+_:node1gpmtdgvsx453 rdf:first "fi";
+  rdf:rest _:node1gpmtdgvsx454 .
+
+_:node1gpmtdgvsx454 rdf:first "sv";
+  rdf:rest rdf:nil .
+
+questions:P84 sh:minCount 1;
+  sh:name "pref label"@en;
+  sh:nodeKind sh:Literal;
+  sh:path skos:prefLabel;
+  sh:uniqueLang true .
+
+questions:P87 sh:hasValue eli:WorkType;
+  sh:minCount 1;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:path rdf:type .
+
+questions:P88 sh:datatype rdf:langString;
+  sh:languageIn _:node1gpmtdgvsx455 .
+
+_:node1gpmtdgvsx455 rdf:first "bg";
+  rdf:rest _:node1gpmtdgvsx456 .
+
+_:node1gpmtdgvsx456 rdf:first "es";
+  rdf:rest _:node1gpmtdgvsx457 .
+
+_:node1gpmtdgvsx457 rdf:first "cs";
+  rdf:rest _:node1gpmtdgvsx458 .
+
+_:node1gpmtdgvsx458 rdf:first "da";
+  rdf:rest _:node1gpmtdgvsx459 .
+
+_:node1gpmtdgvsx459 rdf:first "de";
+  rdf:rest _:node1gpmtdgvsx460 .
+
+_:node1gpmtdgvsx460 rdf:first "et";
+  rdf:rest _:node1gpmtdgvsx461 .
+
+_:node1gpmtdgvsx461 rdf:first "el";
+  rdf:rest _:node1gpmtdgvsx462 .
+
+_:node1gpmtdgvsx462 rdf:first "en";
+  rdf:rest _:node1gpmtdgvsx463 .
+
+_:node1gpmtdgvsx463 rdf:first "fr";
+  rdf:rest _:node1gpmtdgvsx464 .
+
+_:node1gpmtdgvsx464 rdf:first "ga";
+  rdf:rest _:node1gpmtdgvsx465 .
+
+_:node1gpmtdgvsx465 rdf:first "hr";
+  rdf:rest _:node1gpmtdgvsx466 .
+
+_:node1gpmtdgvsx466 rdf:first "it";
+  rdf:rest _:node1gpmtdgvsx467 .
+
+_:node1gpmtdgvsx467 rdf:first "lv";
+  rdf:rest _:node1gpmtdgvsx468 .
+
+_:node1gpmtdgvsx468 rdf:first "lt";
+  rdf:rest _:node1gpmtdgvsx469 .
+
+_:node1gpmtdgvsx469 rdf:first "hu";
+  rdf:rest _:node1gpmtdgvsx470 .
+
+_:node1gpmtdgvsx470 rdf:first "mt";
+  rdf:rest _:node1gpmtdgvsx471 .
+
+_:node1gpmtdgvsx471 rdf:first "nl";
+  rdf:rest _:node1gpmtdgvsx472 .
+
+_:node1gpmtdgvsx472 rdf:first "pl";
+  rdf:rest _:node1gpmtdgvsx473 .
+
+_:node1gpmtdgvsx473 rdf:first "pt";
+  rdf:rest _:node1gpmtdgvsx474 .
+
+_:node1gpmtdgvsx474 rdf:first "ro";
+  rdf:rest _:node1gpmtdgvsx475 .
+
+_:node1gpmtdgvsx475 rdf:first "sk";
+  rdf:rest _:node1gpmtdgvsx476 .
+
+_:node1gpmtdgvsx476 rdf:first "sl";
+  rdf:rest _:node1gpmtdgvsx477 .
+
+_:node1gpmtdgvsx477 rdf:first "fi";
+  rdf:rest _:node1gpmtdgvsx478 .
+
+_:node1gpmtdgvsx478 rdf:first "sv";
+  rdf:rest _:node1gpmtdgvsx479 .
+
+_:node1gpmtdgvsx479 rdf:first "eu";
+  rdf:rest _:node1gpmtdgvsx480 .
+
+_:node1gpmtdgvsx480 rdf:first "sq";
+  rdf:rest _:node1gpmtdgvsx481 .
+
+_:node1gpmtdgvsx481 rdf:first "ca";
+  rdf:rest _:node1gpmtdgvsx482 .
+
+_:node1gpmtdgvsx482 rdf:first "tr";
+  rdf:rest _:node1gpmtdgvsx483 .
+
+_:node1gpmtdgvsx483 rdf:first "lb";
+  rdf:rest _:node1gpmtdgvsx484 .
+
+_:node1gpmtdgvsx484 rdf:first "is";
+  rdf:rest _:node1gpmtdgvsx485 .
+
+_:node1gpmtdgvsx485 rdf:first "rm";
+  rdf:rest _:node1gpmtdgvsx486 .
+
+_:node1gpmtdgvsx486 rdf:first "mk";
+  rdf:rest _:node1gpmtdgvsx487 .
+
+_:node1gpmtdgvsx487 rdf:first "sr";
+  rdf:rest _:node1gpmtdgvsx488 .
+
+_:node1gpmtdgvsx488 rdf:first "no";
+  rdf:rest _:node1gpmtdgvsx489 .
+
+_:node1gpmtdgvsx489 rdf:first "uk";
+  rdf:rest _:node1gpmtdgvsx490 .
+
+_:node1gpmtdgvsx490 rdf:first "bs";
+  rdf:rest _:node1gpmtdgvsx491 .
+
+_:node1gpmtdgvsx491 rdf:first "gl";
+  rdf:rest _:node1gpmtdgvsx492 .
+
+_:node1gpmtdgvsx492 rdf:first "fo";
+  rdf:rest _:node1gpmtdgvsx493 .
+
+_:node1gpmtdgvsx493 rdf:first "be";
+  rdf:rest _:node1gpmtdgvsx494 .
+
+_:node1gpmtdgvsx494 rdf:first "ru";
+  rdf:rest _:node1gpmtdgvsx495 .
+
+_:node1gpmtdgvsx495 rdf:first "sh";
+  rdf:rest _:node1gpmtdgvsx496 .
+
+_:node1gpmtdgvsx496 rdf:first "hsb";
+  rdf:rest _:node1gpmtdgvsx497 .
+
+_:node1gpmtdgvsx497 rdf:first "ar";
+  rdf:rest _:node1gpmtdgvsx498 .
+
+_:node1gpmtdgvsx498 rdf:first "zh";
+  rdf:rest _:node1gpmtdgvsx499 .
+
+_:node1gpmtdgvsx499 rdf:first "ja";
+  rdf:rest rdf:nil .
+
+questions:P88 sh:minCount 1;
+  sh:name "pref label"@en;
+  sh:nodeKind sh:Literal;
+  sh:path skos:prefLabel;
+  sh:uniqueLang true .
+
+questions:P91 sh:hasValue dcterms:LinguisticSystem;
+  sh:minCount 1;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:path rdf:type .
+
+questions:P92 sh:datatype rdf:langString;
+  sh:languageIn _:node1gpmtdgvsx500 .
+
+_:node1gpmtdgvsx500 rdf:first "bg";
+  rdf:rest _:node1gpmtdgvsx501 .
+
+_:node1gpmtdgvsx501 rdf:first "es";
+  rdf:rest _:node1gpmtdgvsx502 .
+
+_:node1gpmtdgvsx502 rdf:first "cs";
+  rdf:rest _:node1gpmtdgvsx503 .
+
+_:node1gpmtdgvsx503 rdf:first "da";
+  rdf:rest _:node1gpmtdgvsx504 .
+
+_:node1gpmtdgvsx504 rdf:first "de";
+  rdf:rest _:node1gpmtdgvsx505 .
+
+_:node1gpmtdgvsx505 rdf:first "et";
+  rdf:rest _:node1gpmtdgvsx506 .
+
+_:node1gpmtdgvsx506 rdf:first "el";
+  rdf:rest _:node1gpmtdgvsx507 .
+
+_:node1gpmtdgvsx507 rdf:first "en";
+  rdf:rest _:node1gpmtdgvsx508 .
+
+_:node1gpmtdgvsx508 rdf:first "fr";
+  rdf:rest _:node1gpmtdgvsx509 .
+
+_:node1gpmtdgvsx509 rdf:first "ga";
+  rdf:rest _:node1gpmtdgvsx510 .
+
+_:node1gpmtdgvsx510 rdf:first "hr";
+  rdf:rest _:node1gpmtdgvsx511 .
+
+_:node1gpmtdgvsx511 rdf:first "it";
+  rdf:rest _:node1gpmtdgvsx512 .
+
+_:node1gpmtdgvsx512 rdf:first "lv";
+  rdf:rest _:node1gpmtdgvsx513 .
+
+_:node1gpmtdgvsx513 rdf:first "lt";
+  rdf:rest _:node1gpmtdgvsx514 .
+
+_:node1gpmtdgvsx514 rdf:first "hu";
+  rdf:rest _:node1gpmtdgvsx515 .
+
+_:node1gpmtdgvsx515 rdf:first "mt";
+  rdf:rest _:node1gpmtdgvsx516 .
+
+_:node1gpmtdgvsx516 rdf:first "nl";
+  rdf:rest _:node1gpmtdgvsx517 .
+
+_:node1gpmtdgvsx517 rdf:first "pl";
+  rdf:rest _:node1gpmtdgvsx518 .
+
+_:node1gpmtdgvsx518 rdf:first "pt";
+  rdf:rest _:node1gpmtdgvsx519 .
+
+_:node1gpmtdgvsx519 rdf:first "ro";
+  rdf:rest _:node1gpmtdgvsx520 .
+
+_:node1gpmtdgvsx520 rdf:first "sk";
+  rdf:rest _:node1gpmtdgvsx521 .
+
+_:node1gpmtdgvsx521 rdf:first "sl";
+  rdf:rest _:node1gpmtdgvsx522 .
+
+_:node1gpmtdgvsx522 rdf:first "fi";
+  rdf:rest _:node1gpmtdgvsx523 .
+
+_:node1gpmtdgvsx523 rdf:first "sv";
+  rdf:rest _:node1gpmtdgvsx524 .
+
+_:node1gpmtdgvsx524 rdf:first "eu";
+  rdf:rest _:node1gpmtdgvsx525 .
+
+_:node1gpmtdgvsx525 rdf:first "sq";
+  rdf:rest _:node1gpmtdgvsx526 .
+
+_:node1gpmtdgvsx526 rdf:first "ca";
+  rdf:rest _:node1gpmtdgvsx527 .
+
+_:node1gpmtdgvsx527 rdf:first "tr";
+  rdf:rest _:node1gpmtdgvsx528 .
+
+_:node1gpmtdgvsx528 rdf:first "lb";
+  rdf:rest _:node1gpmtdgvsx529 .
+
+_:node1gpmtdgvsx529 rdf:first "is";
+  rdf:rest _:node1gpmtdgvsx530 .
+
+_:node1gpmtdgvsx530 rdf:first "rm";
+  rdf:rest _:node1gpmtdgvsx531 .
+
+_:node1gpmtdgvsx531 rdf:first "mk";
+  rdf:rest _:node1gpmtdgvsx532 .
+
+_:node1gpmtdgvsx532 rdf:first "sr";
+  rdf:rest _:node1gpmtdgvsx533 .
+
+_:node1gpmtdgvsx533 rdf:first "no";
+  rdf:rest _:node1gpmtdgvsx534 .
+
+_:node1gpmtdgvsx534 rdf:first "uk";
+  rdf:rest _:node1gpmtdgvsx535 .
+
+_:node1gpmtdgvsx535 rdf:first "bs";
+  rdf:rest _:node1gpmtdgvsx536 .
+
+_:node1gpmtdgvsx536 rdf:first "gl";
+  rdf:rest _:node1gpmtdgvsx537 .
+
+_:node1gpmtdgvsx537 rdf:first "fo";
+  rdf:rest _:node1gpmtdgvsx538 .
+
+_:node1gpmtdgvsx538 rdf:first "be";
+  rdf:rest _:node1gpmtdgvsx539 .
+
+_:node1gpmtdgvsx539 rdf:first "ru";
+  rdf:rest _:node1gpmtdgvsx540 .
+
+_:node1gpmtdgvsx540 rdf:first "sh";
+  rdf:rest _:node1gpmtdgvsx541 .
+
+_:node1gpmtdgvsx541 rdf:first "hsb";
+  rdf:rest _:node1gpmtdgvsx542 .
+
+_:node1gpmtdgvsx542 rdf:first "ar";
+  rdf:rest _:node1gpmtdgvsx543 .
+
+_:node1gpmtdgvsx543 rdf:first "zh";
+  rdf:rest _:node1gpmtdgvsx544 .
+
+_:node1gpmtdgvsx544 rdf:first "ja";
+  rdf:rest rdf:nil .
+
+questions:P92 sh:minCount 1;
+  sh:name "pref label"@en;
+  sh:nodeKind sh:Literal;
+  sh:path skos:prefLabel;
+  sh:uniqueLang true .
+
+questions:P95 sh:hasValue dcterms:MediaTypeOrExtent;
+  sh:minCount 1;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:path rdf:type .
+
+questions:P96 sh:datatype rdf:langString;
+  sh:languageIn _:node1gpmtdgvsx545 .
+
+_:node1gpmtdgvsx545 rdf:first "bg";
+  rdf:rest _:node1gpmtdgvsx546 .
+
+_:node1gpmtdgvsx546 rdf:first "es";
+  rdf:rest _:node1gpmtdgvsx547 .
+
+_:node1gpmtdgvsx547 rdf:first "cs";
+  rdf:rest _:node1gpmtdgvsx548 .
+
+_:node1gpmtdgvsx548 rdf:first "da";
+  rdf:rest _:node1gpmtdgvsx549 .
+
+_:node1gpmtdgvsx549 rdf:first "de";
+  rdf:rest _:node1gpmtdgvsx550 .
+
+_:node1gpmtdgvsx550 rdf:first "et";
+  rdf:rest _:node1gpmtdgvsx551 .
+
+_:node1gpmtdgvsx551 rdf:first "el";
+  rdf:rest _:node1gpmtdgvsx552 .
+
+_:node1gpmtdgvsx552 rdf:first "en";
+  rdf:rest _:node1gpmtdgvsx553 .
+
+_:node1gpmtdgvsx553 rdf:first "fr";
+  rdf:rest _:node1gpmtdgvsx554 .
+
+_:node1gpmtdgvsx554 rdf:first "ga";
+  rdf:rest _:node1gpmtdgvsx555 .
+
+_:node1gpmtdgvsx555 rdf:first "hr";
+  rdf:rest _:node1gpmtdgvsx556 .
+
+_:node1gpmtdgvsx556 rdf:first "it";
+  rdf:rest _:node1gpmtdgvsx557 .
+
+_:node1gpmtdgvsx557 rdf:first "lv";
+  rdf:rest _:node1gpmtdgvsx558 .
+
+_:node1gpmtdgvsx558 rdf:first "lt";
+  rdf:rest _:node1gpmtdgvsx559 .
+
+_:node1gpmtdgvsx559 rdf:first "hu";
+  rdf:rest _:node1gpmtdgvsx560 .
+
+_:node1gpmtdgvsx560 rdf:first "mt";
+  rdf:rest _:node1gpmtdgvsx561 .
+
+_:node1gpmtdgvsx561 rdf:first "nl";
+  rdf:rest _:node1gpmtdgvsx562 .
+
+_:node1gpmtdgvsx562 rdf:first "pl";
+  rdf:rest _:node1gpmtdgvsx563 .
+
+_:node1gpmtdgvsx563 rdf:first "pt";
+  rdf:rest _:node1gpmtdgvsx564 .
+
+_:node1gpmtdgvsx564 rdf:first "ro";
+  rdf:rest _:node1gpmtdgvsx565 .
+
+_:node1gpmtdgvsx565 rdf:first "sk";
+  rdf:rest _:node1gpmtdgvsx566 .
+
+_:node1gpmtdgvsx566 rdf:first "sl";
+  rdf:rest _:node1gpmtdgvsx567 .
+
+_:node1gpmtdgvsx567 rdf:first "fi";
+  rdf:rest _:node1gpmtdgvsx568 .
+
+_:node1gpmtdgvsx568 rdf:first "sv";
+  rdf:rest _:node1gpmtdgvsx569 .
+
+_:node1gpmtdgvsx569 rdf:first "eu";
+  rdf:rest _:node1gpmtdgvsx570 .
+
+_:node1gpmtdgvsx570 rdf:first "sq";
+  rdf:rest _:node1gpmtdgvsx571 .
+
+_:node1gpmtdgvsx571 rdf:first "ca";
+  rdf:rest _:node1gpmtdgvsx572 .
+
+_:node1gpmtdgvsx572 rdf:first "tr";
+  rdf:rest _:node1gpmtdgvsx573 .
+
+_:node1gpmtdgvsx573 rdf:first "lb";
+  rdf:rest _:node1gpmtdgvsx574 .
+
+_:node1gpmtdgvsx574 rdf:first "is";
+  rdf:rest _:node1gpmtdgvsx575 .
+
+_:node1gpmtdgvsx575 rdf:first "rm";
+  rdf:rest _:node1gpmtdgvsx576 .
+
+_:node1gpmtdgvsx576 rdf:first "mk";
+  rdf:rest _:node1gpmtdgvsx577 .
+
+_:node1gpmtdgvsx577 rdf:first "sr";
+  rdf:rest _:node1gpmtdgvsx578 .
+
+_:node1gpmtdgvsx578 rdf:first "no";
+  rdf:rest _:node1gpmtdgvsx579 .
+
+_:node1gpmtdgvsx579 rdf:first "uk";
+  rdf:rest _:node1gpmtdgvsx580 .
+
+_:node1gpmtdgvsx580 rdf:first "bs";
+  rdf:rest _:node1gpmtdgvsx581 .
+
+_:node1gpmtdgvsx581 rdf:first "gl";
+  rdf:rest _:node1gpmtdgvsx582 .
+
+_:node1gpmtdgvsx582 rdf:first "fo";
+  rdf:rest _:node1gpmtdgvsx583 .
+
+_:node1gpmtdgvsx583 rdf:first "be";
+  rdf:rest _:node1gpmtdgvsx584 .
+
+_:node1gpmtdgvsx584 rdf:first "ru";
+  rdf:rest _:node1gpmtdgvsx585 .
+
+_:node1gpmtdgvsx585 rdf:first "sh";
+  rdf:rest _:node1gpmtdgvsx586 .
+
+_:node1gpmtdgvsx586 rdf:first "hsb";
+  rdf:rest _:node1gpmtdgvsx587 .
+
+_:node1gpmtdgvsx587 rdf:first "ar";
+  rdf:rest _:node1gpmtdgvsx588 .
+
+_:node1gpmtdgvsx588 rdf:first "zh";
+  rdf:rest _:node1gpmtdgvsx589 .
+
+_:node1gpmtdgvsx589 rdf:first "ja";
+  rdf:rest rdf:nil .
+
+questions:P96 sh:minCount 1;
+  sh:name "pref label"@en;
+  sh:nodeKind sh:Literal;
+  sh:path skos:prefLabel;
+  sh:uniqueLang true .
+
+questions:P99 sh:hasValue eli-dl:ParticipationRole;
+  sh:minCount 1;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:path rdf:type .
+
+questions:P100 sh:datatype rdf:langString;
+  sh:languageIn _:node1gpmtdgvsx590 .
+
+_:node1gpmtdgvsx590 rdf:first "bg";
+  rdf:rest _:node1gpmtdgvsx591 .
+
+_:node1gpmtdgvsx591 rdf:first "es";
+  rdf:rest _:node1gpmtdgvsx592 .
+
+_:node1gpmtdgvsx592 rdf:first "cs";
+  rdf:rest _:node1gpmtdgvsx593 .
+
+_:node1gpmtdgvsx593 rdf:first "da";
+  rdf:rest _:node1gpmtdgvsx594 .
+
+_:node1gpmtdgvsx594 rdf:first "de";
+  rdf:rest _:node1gpmtdgvsx595 .
+
+_:node1gpmtdgvsx595 rdf:first "et";
+  rdf:rest _:node1gpmtdgvsx596 .
+
+_:node1gpmtdgvsx596 rdf:first "el";
+  rdf:rest _:node1gpmtdgvsx597 .
+
+_:node1gpmtdgvsx597 rdf:first "en";
+  rdf:rest _:node1gpmtdgvsx598 .
+
+_:node1gpmtdgvsx598 rdf:first "fr";
+  rdf:rest _:node1gpmtdgvsx599 .
+
+_:node1gpmtdgvsx599 rdf:first "ga";
+  rdf:rest _:node1gpmtdgvsx600 .
+
+_:node1gpmtdgvsx600 rdf:first "hr";
+  rdf:rest _:node1gpmtdgvsx601 .
+
+_:node1gpmtdgvsx601 rdf:first "it";
+  rdf:rest _:node1gpmtdgvsx602 .
+
+_:node1gpmtdgvsx602 rdf:first "lv";
+  rdf:rest _:node1gpmtdgvsx603 .
+
+_:node1gpmtdgvsx603 rdf:first "lt";
+  rdf:rest _:node1gpmtdgvsx604 .
+
+_:node1gpmtdgvsx604 rdf:first "hu";
+  rdf:rest _:node1gpmtdgvsx605 .
+
+_:node1gpmtdgvsx605 rdf:first "mt";
+  rdf:rest _:node1gpmtdgvsx606 .
+
+_:node1gpmtdgvsx606 rdf:first "nl";
+  rdf:rest _:node1gpmtdgvsx607 .
+
+_:node1gpmtdgvsx607 rdf:first "pl";
+  rdf:rest _:node1gpmtdgvsx608 .
+
+_:node1gpmtdgvsx608 rdf:first "pt";
+  rdf:rest _:node1gpmtdgvsx609 .
+
+_:node1gpmtdgvsx609 rdf:first "ro";
+  rdf:rest _:node1gpmtdgvsx610 .
+
+_:node1gpmtdgvsx610 rdf:first "sk";
+  rdf:rest _:node1gpmtdgvsx611 .
+
+_:node1gpmtdgvsx611 rdf:first "sl";
+  rdf:rest _:node1gpmtdgvsx612 .
+
+_:node1gpmtdgvsx612 rdf:first "fi";
+  rdf:rest _:node1gpmtdgvsx613 .
+
+_:node1gpmtdgvsx613 rdf:first "sv";
+  rdf:rest _:node1gpmtdgvsx614 .
+
+_:node1gpmtdgvsx614 rdf:first "eu";
+  rdf:rest _:node1gpmtdgvsx615 .
+
+_:node1gpmtdgvsx615 rdf:first "sq";
+  rdf:rest _:node1gpmtdgvsx616 .
+
+_:node1gpmtdgvsx616 rdf:first "ca";
+  rdf:rest _:node1gpmtdgvsx617 .
+
+_:node1gpmtdgvsx617 rdf:first "tr";
+  rdf:rest _:node1gpmtdgvsx618 .
+
+_:node1gpmtdgvsx618 rdf:first "lb";
+  rdf:rest _:node1gpmtdgvsx619 .
+
+_:node1gpmtdgvsx619 rdf:first "is";
+  rdf:rest _:node1gpmtdgvsx620 .
+
+_:node1gpmtdgvsx620 rdf:first "rm";
+  rdf:rest _:node1gpmtdgvsx621 .
+
+_:node1gpmtdgvsx621 rdf:first "mk";
+  rdf:rest _:node1gpmtdgvsx622 .
+
+_:node1gpmtdgvsx622 rdf:first "sr";
+  rdf:rest _:node1gpmtdgvsx623 .
+
+_:node1gpmtdgvsx623 rdf:first "no";
+  rdf:rest _:node1gpmtdgvsx624 .
+
+_:node1gpmtdgvsx624 rdf:first "uk";
+  rdf:rest _:node1gpmtdgvsx625 .
+
+_:node1gpmtdgvsx625 rdf:first "bs";
+  rdf:rest _:node1gpmtdgvsx626 .
+
+_:node1gpmtdgvsx626 rdf:first "gl";
+  rdf:rest _:node1gpmtdgvsx627 .
+
+_:node1gpmtdgvsx627 rdf:first "fo";
+  rdf:rest _:node1gpmtdgvsx628 .
+
+_:node1gpmtdgvsx628 rdf:first "be";
+  rdf:rest _:node1gpmtdgvsx629 .
+
+_:node1gpmtdgvsx629 rdf:first "ru";
+  rdf:rest _:node1gpmtdgvsx630 .
+
+_:node1gpmtdgvsx630 rdf:first "sh";
+  rdf:rest _:node1gpmtdgvsx631 .
+
+_:node1gpmtdgvsx631 rdf:first "hsb";
+  rdf:rest _:node1gpmtdgvsx632 .
+
+_:node1gpmtdgvsx632 rdf:first "ar";
+  rdf:rest _:node1gpmtdgvsx633 .
+
+_:node1gpmtdgvsx633 rdf:first "zh";
+  rdf:rest _:node1gpmtdgvsx634 .
+
+_:node1gpmtdgvsx634 rdf:first "ja";
+  rdf:rest rdf:nil .
+
+questions:P100 sh:minCount 1;
+  sh:name "pref label"@en;
+  sh:nodeKind sh:Literal;
+  sh:path skos:prefLabel;
+  sh:uniqueLang true .
+
+questions:P103 sh:hasValue org:Organization;
+  sh:minCount 1;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:path rdf:type .
+
+questions:P104 sh:datatype rdf:langString;
+  sh:minCount 1;
+  sh:name "name"@en;
+  sh:nodeKind sh:Literal;
+  sh:path skos:prefLabel .
+
+questions:P107 sh:hasValue foaf:Person;
+  sh:minCount 1;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:path rdf:type .
+
+questions:P108 sh:datatype xsd:string;
+  sh:minCount 1;
+  sh:name "name"@en;
+  sh:nodeKind sh:Literal;
+  sh:path rdfs:label .
