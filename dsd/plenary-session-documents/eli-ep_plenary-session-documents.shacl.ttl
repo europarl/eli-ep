@@ -1,0 +1,1998 @@
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix eli: <http://data.europa.eu/eli/ontology#> .
+@prefix eli-dl: <http://data.europa.eu/eli/eli-draft-legislation-ontology#> .
+@prefix epvoc: <https://data.europarl.europa.eu/def/epvoc#> .
+@prefix euvoc: <http://publications.europa.eu/ontology/euvoc#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix psd: <https://data.europarl.europa.eu/def/plenary-session-documents#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix resource-type: <http://publications.europa.eu/resource/authority/resource-type/> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shacl-play: <https://shacl-play.sparna.fr/ontology#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skosthes: <http://purl.org/iso25964/skos-thes#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://data.europarl.europa.eu/def/plenary-session-documents#> a owl:Ontology, adms:Asset;
+  dcterms:conformsTo <https://www.w3.org/TR/shacl>;
+  dcterms:created "2022-11-18"^^xsd:date;
+  dcterms:creator <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
+  dcterms:dateCopyrighted "2022"^^xsd:gYear;
+  dcterms:description "This Dataset Description is a subset of the general ELI-EP application profile and it includes classes and properties used in Plenary session documents datasets. Descriptions of classes and properties can be found in ELI-EP application profile."@en;
+  dcterms:license <https://www.europarl.europa.eu/legal-notice/en/>;
+  dcterms:modified "2023-01-16T00:00:00.000Z"^^xsd:dateTime;
+  dcterms:publisher <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
+  dcterms:rigthsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
+  dcterms:title "Plenary session documents dataset description"@en;
+  dcterms:type <http://publications.europa.eu/resource/authority/dataset-type/APROF>;
+  rdfs:label "Plenary session documents dataset description"@en;
+  owl:versionIRI <https://data.europarl.europa.eu/def/plenary-session-documents#>;
+  owl:versionInfo "1.0";
+  adms:status <http://publications.europa.eu/resource/dataset/dataset-status/COMPLETED>;
+  adms:versionNotes """1.0 - 2023-01-16
+- minor corrections
+1.0 - 2022-11-18
+- creation"""@en .
+
+psd:PlenaryAgendaPartSession a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  rdfs:label "ComplexWork Plenary agenda"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/OJ-9-2021-07-05";
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 1;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:property psd:P10, psd:P11, psd:P12, psd:P13, psd:P14, psd:P15, psd:P16, psd:P17,
+    psd:P18, psd:P19, psd:P20, psd:P21, psd:P9;
+  sh:target psd:PlenaryAgendaPartSession-target;
+  shacl-play:color "Magenta" .
+
+psd:PlenaryAgendaPartSession-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
+SELECT ?this
+WHERE {
+ ?this a eli:ComplexWork.
+ ?this eli:work_type <http://publications.europa.eu/resource/authority/resource-type/PLENARY_AGENDA_PART_SESSION_EP>.
+}""" .
+
+psd:PlenaryDebates a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  rdfs:label "ComplexWork Plenary debates"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/PV-9-2021-07-05";
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 2;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:property psd:P100, psd:P101, psd:P102, psd:P103, psd:P104, psd:P105, psd:P106,
+    psd:P107, psd:P108, psd:P109, psd:P98, psd:P99;
+  sh:target psd:PlenaryDebates-target;
+  shacl-play:color "Magenta" .
+
+psd:PlenaryDebates-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
+SELECT ?this
+WHERE {
+ ?this a eli:ComplexWork.
+ ?this eli:work_type <http://publications.europa.eu/resource/authority/resource-type/PLENARY_CRE_EP> .
+}""" .
+
+psd:PlenaryMinutes a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  rdfs:label "ComplexWork Plenary minutes"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/OJ-9-2021-07-05";
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 3;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:property psd:P39, psd:P40, psd:P41, psd:P42, psd:P43, psd:P44, psd:P45, psd:P46,
+    psd:P47, psd:P48, psd:P49, psd:P50, psd:P51;
+  sh:target psd:PlenaryMinutes-target;
+  shacl-play:color "Magenta" .
+
+psd:PlenaryMinutes-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
+SELECT ?this
+WHERE {
+ ?this a eli:ComplexWork.
+ ?this eli:work_type <http://publications.europa.eu/resource/authority/resource-type/PLENARY_MINUTES_EP> .
+}""" .
+
+psd:PlenaryDebatesAnnex a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  rdfs:label "ComplexWork Plenary debates annex"@en;
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 4;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:property psd:P112, psd:P113, psd:P114, psd:P115, psd:P116, psd:P117, psd:P118,
+    psd:P119, psd:P120, psd:P121, psd:P122;
+  shacl-play:color "Magenta" .
+
+psd:PlenarySittingAgenda a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  rdfs:label "ComplexWork Plenary sitting agenda"@en;
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 5;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:property psd:P24, psd:P25, psd:P26, psd:P27, psd:P28, psd:P29, psd:P30, psd:P31,
+    psd:P32, psd:P33, psd:P34, psd:P35, psd:P36;
+  shacl-play:color "Magenta" .
+
+psd:PlenaryRcv a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  rdfs:label "Work Plenary Rcv"@en;
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 6;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:property psd:P84, psd:P85, psd:P86, psd:P87, psd:P88, psd:P89, psd:P90, psd:P91,
+    psd:P92, psd:P93, psd:P94, psd:P95;
+  shacl-play:color "Orange" .
+
+psd:PlenaryVotes a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  rdfs:label "ComplexWork Plenary votes"@en;
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 7;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:property psd:P69, psd:P70, psd:P71, psd:P72, psd:P73, psd:P74, psd:P75, psd:P76,
+    psd:P77, psd:P78, psd:P79, psd:P80, psd:P81;
+  shacl-play:color "Magenta" .
+
+psd:PlenaryAtt a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  rdfs:label "ComplexWork Plenary Att"@en;
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 8;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:property psd:P54, psd:P55, psd:P56, psd:P57, psd:P58, psd:P59, psd:P60, psd:P61,
+    psd:P62, psd:P63, psd:P64, psd:P65, psd:P66;
+  shacl-play:color "Magenta" .
+
+psd:Expression a sh:NodeShape;
+  rdfs:label "Realized By"@en;
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 9;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+/[a-z][a-z]$";
+  sh:property psd:P154, psd:P155, psd:P156, psd:P157;
+  sh:targetClass eli:Expression;
+  shacl-play:color "Blue" .
+
+psd:Manifestation a sh:NodeShape;
+  rdfs:label "Is embodied by"@en;
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 10;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+/[a-z][a-z]/.*$";
+  sh:property psd:P160, psd:P161, psd:P162, psd:P163, psd:P164, psd:P165;
+  sh:targetClass eli:Manifestation;
+  shacl-play:color "Green" .
+
+psd:VersionedWork a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  rdfs:label "Versioned Work"@en;
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 11;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:property psd:P125, psd:P126, psd:P127, psd:P128, psd:P129, psd:P130, psd:P131,
+    psd:P132, psd:P133, psd:P134, psd:P135, psd:P136;
+  shacl-play:color "Orange" .
+
+psd:VersionedAnnexWork a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  rdfs:label "Versioned Annex Work"@en;
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 12;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:property psd:P139, psd:P140, psd:P141, psd:P142, psd:P143, psd:P144, psd:P145,
+    psd:P146, psd:P147, psd:P148, psd:P149, psd:P150, psd:P151;
+  shacl-play:color "Orange" .
+
+psd:ParliamentaryTermReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class eli-dl:ParliamentaryTerm"@en;
+  rdfs:label "Reference to a Parliamentary Term"@en;
+  skos:example "https://data.europarl.europa.eu/org/ep-9";
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 13;
+  sh:pattern "^https://data.europarl.europa.eu/org/ep-[0-9].*$";
+  sh:property psd:P168, psd:P169;
+  shacl-play:color "DarkGrey" .
+
+psd:WorkTypeReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class eli:WorkType"@en;
+  rdfs:label "Reference to a Work Type"@en;
+  skos:example "http://publications.europa.eu/resource/authority/resource-type/PLENARY_AGENDA";
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 14;
+  sh:pattern "http://publications.europa.eu/resource/authority/resource-type/.*$";
+  sh:property psd:P171, psd:P172 .
+
+psd:LanguageReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class dcterms:LinguisticSystem"@en;
+  rdfs:label "Reference to a language"@en;
+  skos:example "http://publications.europa.eu/resource/authority/language/ENG";
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 15;
+  sh:pattern "http://publications.europa.eu/resource/authority/language/.*$";
+  sh:property psd:P174, psd:P175 .
+
+psd:MediaTypeOrExtentReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class dcterms:MediaTypeOrExtent"@en;
+  rdfs:label "Reference to a Format"@en;
+  skos:example "http://publications.europa.eu/resource/authority/file-type/PDF";
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 16;
+  sh:pattern "http://publications.europa.eu/resource/authority/file-type/.*$";
+  sh:property psd:P177, psd:P178;
+  shacl-play:color "DarkGrey" .
+
+psd:OrganizationReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class org:Organization"@en;
+  rdfs:label "Reference to an Organization"@en;
+  skos:example "http://publications.europa.eu/resource/authority/corporate-body/EP";
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 17;
+  sh:pattern "http://publications.europa.eu/resource/authority/corporate-body/.*$";
+  sh:property psd:P180, psd:P181;
+  shacl-play:color "DarkGrey" .
+
+psd:VersionReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class euvoc:FileStatus"@en;
+  rdfs:label "Reference to a Status"@en;
+  skos:example "http://publications.europa.eu/resource/authority/file-status/FINAL";
+  sh:closed true;
+  sh:nodeKind sh:IRI;
+  sh:order 18;
+  sh:pattern "http://publications.europa.eu/resource/authority/file-status/.*$";
+  sh:property psd:P183, psd:P184;
+  shacl-play:color "DarkGrey" .
+
+psd:P9 sh:in _:node1gpmtdgvsx859 .
+
+_:node1gpmtdgvsx859 rdf:first eli:ComplexWork;
+  rdf:rest _:node1gpmtdgvsx860 .
+
+_:node1gpmtdgvsx860 rdf:first eli:Work;
+  rdf:rest rdf:nil .
+
+psd:P9 sh:minCount 1;
+  sh:name "type"@en;
+  sh:path rdf:type;
+  shacl-play:color "Magenta" .
+
+psd:P10 sh:hasValue resource-type:PLENARY_AGENDA_PART_SESSION_EP;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "work type"@en;
+  sh:node psd:WorkTypeReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli:work_type .
+
+psd:P11 sh:datatype xsd:dateTime;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "date document"@en;
+  sh:nodeKind sh:Literal;
+  sh:path eli:date_document .
+
+psd:P12 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "identifier"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:identifier .
+
+psd:P13 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:name "identifier year"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:identifierYear .
+
+psd:P14 sh:datatype rdf:langString;
+  sh:minCount 1;
+  sh:name "title"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:title .
+
+psd:P15 sh:datatype xsd:string;
+  sh:name "label"@en;
+  sh:nodeKind sh:Literal;
+  sh:path rdfs:label .
+
+psd:P16 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "ep number"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:epNumber .
+
+psd:P17 sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "parliamentary term"@en;
+  sh:node psd:ParliamentaryTermReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli-dl:parliamentary_term .
+
+psd:P18 sh:hasValue <http://publications.europa.eu/resource/authority/corporate-body/EP>;
+  sh:maxCount 1;
+  sh:name "publisher"@en;
+  sh:node psd:OrganizationReference;
+  sh:nodeKind sh:IRI;
+  sh:path dcterms:publisher .
+
+psd:P19 sh:name "has member"@en;
+  sh:node psd:VersionedWork;
+  sh:nodeKind sh:IRI;
+  sh:path eli:has_member .
+
+psd:P20 sh:name "has current version"@en;
+  sh:node psd:VersionedWork;
+  sh:nodeKind sh:IRI;
+  sh:path dcat:hasCurrentVersion .
+
+psd:P21 sh:name "has derivative"@en;
+  sh:nodeKind sh:IRI;
+  sh:path _:node1gpmtdgvsx861 .
+
+_:node1gpmtdgvsx861 sh:inversePath eli:is_derivative_of .
+
+psd:P24 sh:in _:node1gpmtdgvsx862 .
+
+_:node1gpmtdgvsx862 rdf:first eli:ComplexWork;
+  rdf:rest _:node1gpmtdgvsx863 .
+
+_:node1gpmtdgvsx863 rdf:first eli:Work;
+  rdf:rest rdf:nil .
+
+psd:P24 sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "type"@en;
+  sh:path rdf:type;
+  shacl-play:color "Magenta" .
+
+psd:P25 sh:hasValue resource-type:PLENARY_AGENDA_EP;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "work type"@en;
+  sh:node psd:WorkTypeReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli:work_type .
+
+psd:P26 sh:datatype xsd:dateTime;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "date document"@en;
+  sh:nodeKind sh:Literal;
+  sh:path eli:date_document .
+
+psd:P27 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "identifier"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:identifier .
+
+psd:P28 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:name "identifier year"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:identifierYear .
+
+psd:P29 sh:datatype rdf:langString;
+  sh:minCount 1;
+  sh:name "title"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:title .
+
+psd:P30 sh:datatype xsd:string;
+  sh:name "label"@en;
+  sh:nodeKind sh:Literal;
+  sh:path rdfs:label .
+
+psd:P31 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "ep number"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:epNumber .
+
+psd:P32 sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "parliamentary term"@en;
+  sh:node psd:ParliamentaryTermReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli-dl:parliamentary_term .
+
+psd:P33 sh:hasValue <http://publications.europa.eu/resource/authority/corporate-body/EP>;
+  sh:maxCount 1;
+  sh:name "publisher"@en;
+  sh:node psd:OrganizationReference;
+  sh:nodeKind sh:IRI;
+  sh:path dcterms:publisher .
+
+psd:P34 sh:name "has member"@en;
+  sh:node psd:VersionedWork;
+  sh:nodeKind sh:IRI;
+  sh:path eli:has_member .
+
+psd:P35 sh:name "has current version"@en;
+  sh:node psd:VersionedWork;
+  sh:nodeKind sh:IRI;
+  sh:path dcat:hasCurrentVersion .
+
+psd:P36 sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "is derivative of"@en;
+  sh:node psd:PlenaryAgendaPartSession;
+  sh:nodeKind sh:IRI;
+  sh:path eli:is_derivative_of .
+
+psd:P39 sh:in _:node1gpmtdgvsx864 .
+
+_:node1gpmtdgvsx864 rdf:first eli:ComplexWork;
+  rdf:rest _:node1gpmtdgvsx865 .
+
+_:node1gpmtdgvsx865 rdf:first eli:Work;
+  rdf:rest rdf:nil .
+
+psd:P39 sh:minCount 1;
+  sh:name "type"@en;
+  sh:path rdf:type;
+  shacl-play:color "Magenta" .
+
+psd:P40 sh:hasValue resource-type:PLENARY_MINUTES_EP;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "work type"@en;
+  sh:node psd:WorkTypeReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli:work_type .
+
+psd:P41 sh:datatype xsd:dateTime;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "date document"@en;
+  sh:nodeKind sh:Literal;
+  sh:path eli:date_document .
+
+psd:P42 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "identifier"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:identifier .
+
+psd:P43 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:name "identifier year"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:identifierYear .
+
+psd:P44 sh:datatype rdf:langString;
+  sh:minCount 1;
+  sh:name "title"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:title .
+
+psd:P45 sh:datatype xsd:string;
+  sh:name "label"@en;
+  sh:nodeKind sh:Literal;
+  sh:path rdfs:label .
+
+psd:P46 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "ep number"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:epNumber .
+
+psd:P47 sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "parliamentary term"@en;
+  sh:node psd:ParliamentaryTermReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli-dl:parliamentary_term .
+
+psd:P48 sh:hasValue <http://publications.europa.eu/resource/authority/corporate-body/EP>;
+  sh:maxCount 1;
+  sh:name "publisher"@en;
+  sh:node psd:OrganizationReference;
+  sh:nodeKind sh:IRI;
+  sh:path dcterms:publisher .
+
+psd:P49 sh:name "has member"@en;
+  sh:node psd:VersionedWork;
+  sh:nodeKind sh:IRI;
+  sh:path eli:has_member .
+
+psd:P50 sh:name "has current version"@en;
+  sh:node psd:VersionedWork;
+  sh:nodeKind sh:IRI;
+  sh:path dcat:hasCurrentVersion .
+
+psd:P51 sh:name "has annex"@en;
+  sh:nodeKind sh:IRI;
+  sh:or _:node1gpmtdgvsx867 .
+
+_:node1gpmtdgvsx867 rdf:first _:node1gpmtdgvsx868 .
+
+_:node1gpmtdgvsx868 sh:node psd:PlenaryRcv .
+
+_:node1gpmtdgvsx867 rdf:rest _:node1gpmtdgvsx869 .
+
+_:node1gpmtdgvsx869 rdf:first _:node1gpmtdgvsx870 .
+
+_:node1gpmtdgvsx870 sh:node psd:PlenaryAtt .
+
+_:node1gpmtdgvsx869 rdf:rest _:node1gpmtdgvsx871 .
+
+_:node1gpmtdgvsx871 rdf:first _:node1gpmtdgvsx872 .
+
+_:node1gpmtdgvsx872 sh:node psd:PlenaryVotes .
+
+_:node1gpmtdgvsx871 rdf:rest rdf:nil .
+
+psd:P51 sh:path _:node1gpmtdgvsx866 .
+
+_:node1gpmtdgvsx866 sh:inversePath eli:is_annex_of .
+
+psd:P54 sh:in _:node1gpmtdgvsx873 .
+
+_:node1gpmtdgvsx873 rdf:first eli:ComplexWork;
+  rdf:rest _:node1gpmtdgvsx874 .
+
+_:node1gpmtdgvsx874 rdf:first eli:Work;
+  rdf:rest rdf:nil .
+
+psd:P54 sh:minCount 1;
+  sh:name "type"@en;
+  sh:path rdf:type;
+  shacl-play:color "Magenta" .
+
+psd:P55 sh:hasValue resource-type:PLENARY_ATT_LIST_EP;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "work type"@en;
+  sh:node psd:WorkTypeReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli:work_type .
+
+psd:P56 sh:datatype xsd:dateTime;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "date document"@en;
+  sh:nodeKind sh:Literal;
+  sh:path eli:date_document .
+
+psd:P57 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "identifier"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:identifier .
+
+psd:P58 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:name "identifier year"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:identifierYear .
+
+psd:P59 sh:datatype rdf:langString;
+  sh:minCount 1;
+  sh:name "title"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:title .
+
+psd:P60 sh:datatype xsd:string;
+  sh:name "label"@en;
+  sh:nodeKind sh:Literal;
+  sh:path rdfs:label .
+
+psd:P61 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "ep number"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:epNumber .
+
+psd:P62 sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "parliamentary term"@en;
+  sh:node psd:ParliamentaryTermReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli-dl:parliamentary_term .
+
+psd:P63 sh:hasValue <http://publications.europa.eu/resource/authority/corporate-body/EP>;
+  sh:maxCount 1;
+  sh:name "publisher"@en;
+  sh:node psd:OrganizationReference;
+  sh:nodeKind sh:IRI;
+  sh:path dcterms:publisher .
+
+psd:P64 sh:name "has member"@en;
+  sh:node psd:VersionedWork;
+  sh:nodeKind sh:IRI;
+  sh:path eli:has_member .
+
+psd:P65 sh:name "has current version"@en;
+  sh:node psd:VersionedWork;
+  sh:nodeKind sh:IRI;
+  sh:path dcat:hasCurrentVersion .
+
+psd:P66 sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "is annex of"@en;
+  sh:node psd:PlenaryMinutes;
+  sh:nodeKind sh:IRI;
+  sh:path eli:is_annex_of .
+
+psd:P69 sh:in _:node1gpmtdgvsx875 .
+
+_:node1gpmtdgvsx875 rdf:first eli:ComplexWork;
+  rdf:rest _:node1gpmtdgvsx876 .
+
+_:node1gpmtdgvsx876 rdf:first eli:Work;
+  rdf:rest rdf:nil .
+
+psd:P69 sh:minCount 1;
+  sh:name "type"@en;
+  sh:path rdf:type;
+  shacl-play:color "Magenta" .
+
+psd:P70 sh:hasValue resource-type:PLENARY_VOTES_RESULTS_EP;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "work type"@en;
+  sh:node psd:WorkTypeReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli:work_type .
+
+psd:P71 sh:datatype xsd:dateTime;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "date document"@en;
+  sh:nodeKind sh:Literal;
+  sh:path eli:date_document .
+
+psd:P72 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "identifier"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:identifier .
+
+psd:P73 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:name "identifier year"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:identifierYear .
+
+psd:P74 sh:datatype rdf:langString;
+  sh:minCount 1;
+  sh:name "title"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:title .
+
+psd:P75 sh:datatype xsd:string;
+  sh:name "label"@en;
+  sh:nodeKind sh:Literal;
+  sh:path rdfs:label .
+
+psd:P76 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "ep number"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:epNumber .
+
+psd:P77 sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "parliamentary term"@en;
+  sh:node psd:ParliamentaryTermReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli-dl:parliamentary_term .
+
+psd:P78 sh:hasValue <http://publications.europa.eu/resource/authority/corporate-body/EP>;
+  sh:maxCount 1;
+  sh:name "publisher"@en;
+  sh:node psd:OrganizationReference;
+  sh:nodeKind sh:IRI;
+  sh:path dcterms:publisher .
+
+psd:P79 sh:name "has member"@en;
+  sh:node psd:VersionedWork;
+  sh:nodeKind sh:IRI;
+  sh:path eli:has_member .
+
+psd:P80 sh:name "has current version"@en;
+  sh:node psd:VersionedWork;
+  sh:nodeKind sh:IRI;
+  sh:path dcat:hasCurrentVersion .
+
+psd:P81 sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "is annex of"@en;
+  sh:node psd:PlenaryMinutes;
+  sh:nodeKind sh:IRI;
+  sh:path eli:is_annex_of .
+
+psd:P84 sh:hasValue eli:Work;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "type"@en;
+  sh:path rdf:type;
+  shacl-play:color "Orange" .
+
+psd:P85 sh:hasValue resource-type:PLENARY_RCV_EP;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "work type"@en;
+  sh:node psd:WorkTypeReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli:work_type .
+
+psd:P86 sh:datatype xsd:dateTime;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "date document"@en;
+  sh:nodeKind sh:Literal;
+  sh:path eli:date_document .
+
+psd:P87 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "identifier"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:identifier .
+
+psd:P88 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:name "identifier year"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:identifierYear .
+
+psd:P89 sh:datatype rdf:langString;
+  sh:minCount 1;
+  sh:name "title"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:title .
+
+psd:P90 sh:datatype xsd:string;
+  sh:name "label"@en;
+  sh:nodeKind sh:Literal;
+  sh:path rdfs:label .
+
+psd:P91 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "ep number"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:epNumber .
+
+psd:P92 sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "parliamentary term"@en;
+  sh:node psd:ParliamentaryTermReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli-dl:parliamentary_term .
+
+psd:P93 sh:hasValue <http://publications.europa.eu/resource/authority/corporate-body/EP>;
+  sh:maxCount 1;
+  sh:name "publisher"@en;
+  sh:node psd:OrganizationReference;
+  sh:nodeKind sh:IRI;
+  sh:path dcterms:publisher .
+
+psd:P94 sh:name "is realized by"@en;
+  sh:node psd:Expression;
+  sh:nodeKind sh:IRI;
+  sh:path eli:is_realized_by .
+
+psd:P95 sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "is annex of"@en;
+  sh:node psd:PlenaryMinutes;
+  sh:nodeKind sh:IRI;
+  sh:path eli:is_annex_of .
+
+psd:P98 sh:in _:node1gpmtdgvsx877 .
+
+_:node1gpmtdgvsx877 rdf:first eli:ComplexWork;
+  rdf:rest _:node1gpmtdgvsx878 .
+
+_:node1gpmtdgvsx878 rdf:first eli:Work;
+  rdf:rest rdf:nil .
+
+psd:P98 sh:minCount 1;
+  sh:name "type"@en;
+  sh:path rdf:type;
+  shacl-play:color "Magenta" .
+
+psd:P99 sh:hasValue resource-type:VERBATIM_REPORT_PROCEED;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "work type"@en;
+  sh:node psd:WorkTypeReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli:work_type .
+
+psd:P100 sh:datatype xsd:dateTime;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "date document"@en;
+  sh:nodeKind sh:Literal;
+  sh:path eli:date_document .
+
+psd:P101 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "identifier"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:identifier .
+
+psd:P102 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:name "identifier year"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:identifierYear .
+
+psd:P103 sh:datatype rdf:langString;
+  sh:minCount 1;
+  sh:name "title"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:title .
+
+psd:P104 sh:datatype xsd:string;
+  sh:name "label"@en;
+  sh:nodeKind sh:Literal;
+  sh:path rdfs:label .
+
+psd:P105 sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "parliamentary term"@en;
+  sh:node psd:ParliamentaryTermReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli-dl:parliamentary_term .
+
+psd:P106 sh:hasValue <http://publications.europa.eu/resource/authority/corporate-body/EP>;
+  sh:maxCount 1;
+  sh:name "publisher"@en;
+  sh:node psd:OrganizationReference;
+  sh:nodeKind sh:IRI;
+  sh:path dcterms:publisher .
+
+psd:P107 sh:name "has member"@en;
+  sh:node psd:VersionedWork;
+  sh:nodeKind sh:IRI;
+  sh:path eli:has_member .
+
+psd:P108 sh:name "has current version"@en;
+  sh:node psd:VersionedWork;
+  sh:nodeKind sh:IRI;
+  sh:path dcat:hasCurrentVersion .
+
+psd:P109 sh:name "has annex"@en;
+  sh:node psd:PlenaryDebatesAnnex;
+  sh:nodeKind sh:IRI;
+  sh:path _:node1gpmtdgvsx879 .
+
+_:node1gpmtdgvsx879 sh:inversePath eli:is_annex_of .
+
+psd:P112 sh:in _:node1gpmtdgvsx880 .
+
+_:node1gpmtdgvsx880 rdf:first eli:ComplexWork;
+  rdf:rest _:node1gpmtdgvsx881 .
+
+_:node1gpmtdgvsx881 rdf:first eli:Work;
+  rdf:rest rdf:nil .
+
+psd:P112 sh:minCount 1;
+  sh:name "type"@en;
+  sh:path rdf:type;
+  shacl-play:color "Magenta" .
+
+psd:P113 sh:hasValue resource-type:ANNEX;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "work type"@en;
+  sh:node psd:WorkTypeReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli:work_type .
+
+psd:P114 sh:datatype xsd:dateTime;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "date document"@en;
+  sh:nodeKind sh:Literal;
+  sh:path eli:date_document .
+
+psd:P115 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "identifier"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:identifier .
+
+psd:P116 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:name "identifier year"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:identifierYear .
+
+psd:P117 sh:datatype rdf:langString;
+  sh:minCount 1;
+  sh:name "title"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:title .
+
+psd:P118 sh:datatype xsd:string;
+  sh:name "label"@en;
+  sh:nodeKind sh:Literal;
+  sh:path rdfs:label .
+
+psd:P119 sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "parliamentary term"@en;
+  sh:node psd:ParliamentaryTermReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli-dl:parliamentary_term .
+
+psd:P120 sh:hasValue <http://publications.europa.eu/resource/authority/corporate-body/EP>;
+  sh:maxCount 1;
+  sh:name "publisher"@en;
+  sh:node psd:OrganizationReference;
+  sh:nodeKind sh:IRI;
+  sh:path dcterms:publisher .
+
+psd:P121 sh:name "has member"@en;
+  sh:node psd:VersionedAnnexWork;
+  sh:nodeKind sh:IRI;
+  sh:path eli:has_member .
+
+psd:P122 sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "is annex of"@en;
+  sh:node psd:PlenaryDebates;
+  sh:nodeKind sh:IRI;
+  sh:path eli:is_annex_of .
+
+psd:P125 sh:hasValue eli:Work;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "type"@en;
+  sh:path rdf:type;
+  shacl-play:color "Orange" .
+
+psd:P126 sh:datatype xsd:dateTime;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "date document"@en;
+  sh:nodeKind sh:Literal;
+  sh:path eli:date_document .
+
+psd:P127 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "identifier"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:identifier .
+
+psd:P128 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:name "identifier year"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:identifierYear .
+
+psd:P129 sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "work type"@en;
+  sh:node psd:WorkTypeReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli:work_type .
+
+psd:P130 sh:datatype rdf:langString;
+  sh:minCount 1;
+  sh:name "title"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:title .
+
+psd:P131 sh:datatype xsd:string;
+  sh:name "label"@en;
+  sh:nodeKind sh:Literal;
+  sh:path rdfs:label .
+
+psd:P132 sh:datatype epvoc:publicRegister;
+  sh:maxCount 1;
+  sh:name "notation"@en;
+  sh:nodeKind sh:Literal;
+  sh:path skos:notation .
+
+psd:P133 sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "parliamentary term"@en;
+  sh:node psd:ParliamentaryTermReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli-dl:parliamentary_term .
+
+psd:P134 sh:hasValue <http://publications.europa.eu/resource/authority/corporate-body/EP>;
+  sh:maxCount 1;
+  sh:name "publisher"@en;
+  sh:node psd:OrganizationReference;
+  sh:nodeKind sh:IRI;
+  sh:path dcterms:publisher .
+
+psd:P135 sh:name "is realized by"@en;
+  sh:node psd:Expression;
+  sh:nodeKind sh:IRI;
+  sh:path eli:is_realized_by .
+
+psd:P136 sh:maxCount 1;
+  sh:name "version status"@en;
+  sh:node psd:VersionReference;
+  sh:nodeKind sh:IRI;
+  sh:path epvoc:versionType .
+
+psd:P139 sh:hasValue eli:Work;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "type"@en;
+  sh:path rdf:type;
+  shacl-play:color "Orange" .
+
+psd:P140 sh:datatype xsd:dateTime;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "date document"@en;
+  sh:nodeKind sh:Literal;
+  sh:path eli:date_document .
+
+psd:P141 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "identifier"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:identifier .
+
+psd:P142 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:name "identifier year"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:identifierYear .
+
+psd:P143 sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "work type"@en;
+  sh:node psd:WorkTypeReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli:work_type .
+
+psd:P144 sh:datatype rdf:langString;
+  sh:minCount 1;
+  sh:name "title"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:title .
+
+psd:P145 sh:datatype xsd:string;
+  sh:name "label"@en;
+  sh:nodeKind sh:Literal;
+  sh:path rdfs:label .
+
+psd:P146 sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:name "numbering"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:numbering .
+
+psd:P147 sh:datatype xsd:string;
+  sh:name "notation"@en;
+  sh:nodeKind sh:Literal;
+  sh:path skos:notation .
+
+psd:P148 sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "parliamentary term"@en;
+  sh:node psd:ParliamentaryTermReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli-dl:parliamentary_term .
+
+psd:P149 sh:hasValue <http://publications.europa.eu/resource/authority/corporate-body/EP>;
+  sh:maxCount 1;
+  sh:name "publisher"@en;
+  sh:node psd:OrganizationReference;
+  sh:nodeKind sh:IRI;
+  sh:path dcterms:publisher .
+
+psd:P150 sh:name "is realized by"@en;
+  sh:node psd:Expression;
+  sh:nodeKind sh:IRI;
+  sh:path eli:is_realized_by .
+
+psd:P151 sh:maxCount 1;
+  sh:name "version status"@en;
+  sh:node psd:VersionReference;
+  sh:nodeKind sh:IRI;
+  sh:path epvoc:versionType .
+
+psd:P154 sh:hasValue eli:Expression;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:path rdf:type;
+  shacl-play:color "Blue" .
+
+psd:P155 sh:datatype rdf:langString;
+  sh:minCount 1;
+  sh:name "title"@en;
+  sh:nodeKind sh:Literal;
+  sh:path eli:title .
+
+psd:P156 sh:name "is embodied by"@en;
+  sh:node psd:Manifestation;
+  sh:nodeKind sh:IRI;
+  sh:path eli:is_embodied_by .
+
+psd:P157 sh:minCount 1;
+  sh:name "language"@en;
+  sh:node psd:LanguageReference;
+  sh:nodeKind sh:IRI;
+  sh:path eli:language .
+
+psd:P160 sh:hasValue eli:Manifestation;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:path rdf:type;
+  shacl-play:color "Green" .
+
+psd:P161 sh:datatype xsd:dateTime;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "issued"@en;
+  sh:nodeKind sh:Literal;
+  sh:path dcterms:issued .
+
+psd:P162 sh:minCount 1;
+  sh:name "is exemplified by"@en;
+  sh:nodeKind sh:IRI;
+  sh:path eli:is_exemplified_by .
+
+psd:P163 sh:datatype xsd:long;
+  sh:maxCount 1;
+  sh:name "byte size"@en;
+  sh:nodeKind sh:Literal;
+  sh:path epvoc:byteSize .
+
+psd:P164 sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "format"@en;
+  sh:node psd:MediaTypeOrExtentReference;
+  sh:nodeKind sh:IRI;
+  sh:path dcterms:format .
+
+psd:P165 sh:maxCount 1;
+  sh:minCount 1;
+  sh:name "media type"@en;
+  sh:nodeKind sh:IRI;
+  sh:path eli:media_type .
+
+psd:P168 sh:hasValue eli-dl:ParliamentaryTerm;
+  sh:minCount 1;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:path rdf:type;
+  shacl-play:color "DarkGrey" .
+
+psd:P169 sh:datatype rdf:langString;
+  sh:languageIn _:node1gpmtdgvsx882 .
+
+_:node1gpmtdgvsx882 rdf:first "bg";
+  rdf:rest _:node1gpmtdgvsx883 .
+
+_:node1gpmtdgvsx883 rdf:first "es";
+  rdf:rest _:node1gpmtdgvsx884 .
+
+_:node1gpmtdgvsx884 rdf:first "cs";
+  rdf:rest _:node1gpmtdgvsx885 .
+
+_:node1gpmtdgvsx885 rdf:first "da";
+  rdf:rest _:node1gpmtdgvsx886 .
+
+_:node1gpmtdgvsx886 rdf:first "de";
+  rdf:rest _:node1gpmtdgvsx887 .
+
+_:node1gpmtdgvsx887 rdf:first "et";
+  rdf:rest _:node1gpmtdgvsx888 .
+
+_:node1gpmtdgvsx888 rdf:first "el";
+  rdf:rest _:node1gpmtdgvsx889 .
+
+_:node1gpmtdgvsx889 rdf:first "en";
+  rdf:rest _:node1gpmtdgvsx890 .
+
+_:node1gpmtdgvsx890 rdf:first "fr";
+  rdf:rest _:node1gpmtdgvsx891 .
+
+_:node1gpmtdgvsx891 rdf:first "ga";
+  rdf:rest _:node1gpmtdgvsx892 .
+
+_:node1gpmtdgvsx892 rdf:first "hr";
+  rdf:rest _:node1gpmtdgvsx893 .
+
+_:node1gpmtdgvsx893 rdf:first "it";
+  rdf:rest _:node1gpmtdgvsx894 .
+
+_:node1gpmtdgvsx894 rdf:first "lv";
+  rdf:rest _:node1gpmtdgvsx895 .
+
+_:node1gpmtdgvsx895 rdf:first "lt";
+  rdf:rest _:node1gpmtdgvsx896 .
+
+_:node1gpmtdgvsx896 rdf:first "hu";
+  rdf:rest _:node1gpmtdgvsx897 .
+
+_:node1gpmtdgvsx897 rdf:first "mt";
+  rdf:rest _:node1gpmtdgvsx898 .
+
+_:node1gpmtdgvsx898 rdf:first "nl";
+  rdf:rest _:node1gpmtdgvsx899 .
+
+_:node1gpmtdgvsx899 rdf:first "pl";
+  rdf:rest _:node1gpmtdgvsx900 .
+
+_:node1gpmtdgvsx900 rdf:first "pt";
+  rdf:rest _:node1gpmtdgvsx901 .
+
+_:node1gpmtdgvsx901 rdf:first "ro";
+  rdf:rest _:node1gpmtdgvsx902 .
+
+_:node1gpmtdgvsx902 rdf:first "sk";
+  rdf:rest _:node1gpmtdgvsx903 .
+
+_:node1gpmtdgvsx903 rdf:first "sl";
+  rdf:rest _:node1gpmtdgvsx904 .
+
+_:node1gpmtdgvsx904 rdf:first "fi";
+  rdf:rest _:node1gpmtdgvsx905 .
+
+_:node1gpmtdgvsx905 rdf:first "sv";
+  rdf:rest rdf:nil .
+
+psd:P169 sh:minCount 1;
+  sh:name "pref label"@en;
+  sh:nodeKind sh:Literal;
+  sh:path skos:prefLabel;
+  sh:uniqueLang true .
+
+psd:P171 sh:hasValue eli:WorkType;
+  sh:minCount 1;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:path rdf:type;
+  shacl-play:color "DarkGrey" .
+
+psd:P172 sh:datatype rdf:langString;
+  sh:languageIn _:node1gpmtdgvsx906 .
+
+_:node1gpmtdgvsx906 rdf:first "bg";
+  rdf:rest _:node1gpmtdgvsx907 .
+
+_:node1gpmtdgvsx907 rdf:first "es";
+  rdf:rest _:node1gpmtdgvsx908 .
+
+_:node1gpmtdgvsx908 rdf:first "cs";
+  rdf:rest _:node1gpmtdgvsx909 .
+
+_:node1gpmtdgvsx909 rdf:first "da";
+  rdf:rest _:node1gpmtdgvsx910 .
+
+_:node1gpmtdgvsx910 rdf:first "de";
+  rdf:rest _:node1gpmtdgvsx911 .
+
+_:node1gpmtdgvsx911 rdf:first "et";
+  rdf:rest _:node1gpmtdgvsx912 .
+
+_:node1gpmtdgvsx912 rdf:first "el";
+  rdf:rest _:node1gpmtdgvsx913 .
+
+_:node1gpmtdgvsx913 rdf:first "en";
+  rdf:rest _:node1gpmtdgvsx914 .
+
+_:node1gpmtdgvsx914 rdf:first "fr";
+  rdf:rest _:node1gpmtdgvsx915 .
+
+_:node1gpmtdgvsx915 rdf:first "ga";
+  rdf:rest _:node1gpmtdgvsx916 .
+
+_:node1gpmtdgvsx916 rdf:first "hr";
+  rdf:rest _:node1gpmtdgvsx917 .
+
+_:node1gpmtdgvsx917 rdf:first "it";
+  rdf:rest _:node1gpmtdgvsx918 .
+
+_:node1gpmtdgvsx918 rdf:first "lv";
+  rdf:rest _:node1gpmtdgvsx919 .
+
+_:node1gpmtdgvsx919 rdf:first "lt";
+  rdf:rest _:node1gpmtdgvsx920 .
+
+_:node1gpmtdgvsx920 rdf:first "hu";
+  rdf:rest _:node1gpmtdgvsx921 .
+
+_:node1gpmtdgvsx921 rdf:first "mt";
+  rdf:rest _:node1gpmtdgvsx922 .
+
+_:node1gpmtdgvsx922 rdf:first "nl";
+  rdf:rest _:node1gpmtdgvsx923 .
+
+_:node1gpmtdgvsx923 rdf:first "pl";
+  rdf:rest _:node1gpmtdgvsx924 .
+
+_:node1gpmtdgvsx924 rdf:first "pt";
+  rdf:rest _:node1gpmtdgvsx925 .
+
+_:node1gpmtdgvsx925 rdf:first "ro";
+  rdf:rest _:node1gpmtdgvsx926 .
+
+_:node1gpmtdgvsx926 rdf:first "sk";
+  rdf:rest _:node1gpmtdgvsx927 .
+
+_:node1gpmtdgvsx927 rdf:first "sl";
+  rdf:rest _:node1gpmtdgvsx928 .
+
+_:node1gpmtdgvsx928 rdf:first "fi";
+  rdf:rest _:node1gpmtdgvsx929 .
+
+_:node1gpmtdgvsx929 rdf:first "sv";
+  rdf:rest _:node1gpmtdgvsx930 .
+
+_:node1gpmtdgvsx930 rdf:first "eu";
+  rdf:rest _:node1gpmtdgvsx931 .
+
+_:node1gpmtdgvsx931 rdf:first "sq";
+  rdf:rest _:node1gpmtdgvsx932 .
+
+_:node1gpmtdgvsx932 rdf:first "ca";
+  rdf:rest _:node1gpmtdgvsx933 .
+
+_:node1gpmtdgvsx933 rdf:first "tr";
+  rdf:rest _:node1gpmtdgvsx934 .
+
+_:node1gpmtdgvsx934 rdf:first "lb";
+  rdf:rest _:node1gpmtdgvsx935 .
+
+_:node1gpmtdgvsx935 rdf:first "is";
+  rdf:rest _:node1gpmtdgvsx936 .
+
+_:node1gpmtdgvsx936 rdf:first "rm";
+  rdf:rest _:node1gpmtdgvsx937 .
+
+_:node1gpmtdgvsx937 rdf:first "mk";
+  rdf:rest _:node1gpmtdgvsx938 .
+
+_:node1gpmtdgvsx938 rdf:first "sr";
+  rdf:rest _:node1gpmtdgvsx939 .
+
+_:node1gpmtdgvsx939 rdf:first "no";
+  rdf:rest _:node1gpmtdgvsx940 .
+
+_:node1gpmtdgvsx940 rdf:first "uk";
+  rdf:rest _:node1gpmtdgvsx941 .
+
+_:node1gpmtdgvsx941 rdf:first "bs";
+  rdf:rest _:node1gpmtdgvsx942 .
+
+_:node1gpmtdgvsx942 rdf:first "gl";
+  rdf:rest _:node1gpmtdgvsx943 .
+
+_:node1gpmtdgvsx943 rdf:first "fo";
+  rdf:rest _:node1gpmtdgvsx944 .
+
+_:node1gpmtdgvsx944 rdf:first "be";
+  rdf:rest _:node1gpmtdgvsx945 .
+
+_:node1gpmtdgvsx945 rdf:first "ru";
+  rdf:rest _:node1gpmtdgvsx946 .
+
+_:node1gpmtdgvsx946 rdf:first "sh";
+  rdf:rest _:node1gpmtdgvsx947 .
+
+_:node1gpmtdgvsx947 rdf:first "hsb";
+  rdf:rest rdf:nil .
+
+psd:P172 sh:minCount 1;
+  sh:name "pref label"@en;
+  sh:nodeKind sh:Literal;
+  sh:path skos:prefLabel;
+  sh:uniqueLang true .
+
+psd:P174 sh:hasValue dcterms:LinguisticSystem;
+  sh:minCount 1;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:path rdf:type;
+  shacl-play:color "DarkGrey" .
+
+psd:P175 sh:datatype rdf:langString;
+  sh:languageIn _:node1gpmtdgvsx948 .
+
+_:node1gpmtdgvsx948 rdf:first "bg";
+  rdf:rest _:node1gpmtdgvsx949 .
+
+_:node1gpmtdgvsx949 rdf:first "es";
+  rdf:rest _:node1gpmtdgvsx950 .
+
+_:node1gpmtdgvsx950 rdf:first "cs";
+  rdf:rest _:node1gpmtdgvsx951 .
+
+_:node1gpmtdgvsx951 rdf:first "da";
+  rdf:rest _:node1gpmtdgvsx952 .
+
+_:node1gpmtdgvsx952 rdf:first "de";
+  rdf:rest _:node1gpmtdgvsx953 .
+
+_:node1gpmtdgvsx953 rdf:first "et";
+  rdf:rest _:node1gpmtdgvsx954 .
+
+_:node1gpmtdgvsx954 rdf:first "el";
+  rdf:rest _:node1gpmtdgvsx955 .
+
+_:node1gpmtdgvsx955 rdf:first "en";
+  rdf:rest _:node1gpmtdgvsx956 .
+
+_:node1gpmtdgvsx956 rdf:first "fr";
+  rdf:rest _:node1gpmtdgvsx957 .
+
+_:node1gpmtdgvsx957 rdf:first "ga";
+  rdf:rest _:node1gpmtdgvsx958 .
+
+_:node1gpmtdgvsx958 rdf:first "hr";
+  rdf:rest _:node1gpmtdgvsx959 .
+
+_:node1gpmtdgvsx959 rdf:first "it";
+  rdf:rest _:node1gpmtdgvsx960 .
+
+_:node1gpmtdgvsx960 rdf:first "lv";
+  rdf:rest _:node1gpmtdgvsx961 .
+
+_:node1gpmtdgvsx961 rdf:first "lt";
+  rdf:rest _:node1gpmtdgvsx962 .
+
+_:node1gpmtdgvsx962 rdf:first "hu";
+  rdf:rest _:node1gpmtdgvsx963 .
+
+_:node1gpmtdgvsx963 rdf:first "mt";
+  rdf:rest _:node1gpmtdgvsx964 .
+
+_:node1gpmtdgvsx964 rdf:first "nl";
+  rdf:rest _:node1gpmtdgvsx965 .
+
+_:node1gpmtdgvsx965 rdf:first "pl";
+  rdf:rest _:node1gpmtdgvsx966 .
+
+_:node1gpmtdgvsx966 rdf:first "pt";
+  rdf:rest _:node1gpmtdgvsx967 .
+
+_:node1gpmtdgvsx967 rdf:first "ro";
+  rdf:rest _:node1gpmtdgvsx968 .
+
+_:node1gpmtdgvsx968 rdf:first "sk";
+  rdf:rest _:node1gpmtdgvsx969 .
+
+_:node1gpmtdgvsx969 rdf:first "sl";
+  rdf:rest _:node1gpmtdgvsx970 .
+
+_:node1gpmtdgvsx970 rdf:first "fi";
+  rdf:rest _:node1gpmtdgvsx971 .
+
+_:node1gpmtdgvsx971 rdf:first "sv";
+  rdf:rest _:node1gpmtdgvsx972 .
+
+_:node1gpmtdgvsx972 rdf:first "eu";
+  rdf:rest _:node1gpmtdgvsx973 .
+
+_:node1gpmtdgvsx973 rdf:first "sq";
+  rdf:rest _:node1gpmtdgvsx974 .
+
+_:node1gpmtdgvsx974 rdf:first "ca";
+  rdf:rest _:node1gpmtdgvsx975 .
+
+_:node1gpmtdgvsx975 rdf:first "tr";
+  rdf:rest _:node1gpmtdgvsx976 .
+
+_:node1gpmtdgvsx976 rdf:first "lb";
+  rdf:rest _:node1gpmtdgvsx977 .
+
+_:node1gpmtdgvsx977 rdf:first "is";
+  rdf:rest _:node1gpmtdgvsx978 .
+
+_:node1gpmtdgvsx978 rdf:first "rm";
+  rdf:rest _:node1gpmtdgvsx979 .
+
+_:node1gpmtdgvsx979 rdf:first "mk";
+  rdf:rest _:node1gpmtdgvsx980 .
+
+_:node1gpmtdgvsx980 rdf:first "sr";
+  rdf:rest _:node1gpmtdgvsx981 .
+
+_:node1gpmtdgvsx981 rdf:first "no";
+  rdf:rest _:node1gpmtdgvsx982 .
+
+_:node1gpmtdgvsx982 rdf:first "uk";
+  rdf:rest _:node1gpmtdgvsx983 .
+
+_:node1gpmtdgvsx983 rdf:first "bs";
+  rdf:rest _:node1gpmtdgvsx984 .
+
+_:node1gpmtdgvsx984 rdf:first "gl";
+  rdf:rest _:node1gpmtdgvsx985 .
+
+_:node1gpmtdgvsx985 rdf:first "fo";
+  rdf:rest _:node1gpmtdgvsx986 .
+
+_:node1gpmtdgvsx986 rdf:first "be";
+  rdf:rest _:node1gpmtdgvsx987 .
+
+_:node1gpmtdgvsx987 rdf:first "ru";
+  rdf:rest _:node1gpmtdgvsx988 .
+
+_:node1gpmtdgvsx988 rdf:first "sh";
+  rdf:rest _:node1gpmtdgvsx989 .
+
+_:node1gpmtdgvsx989 rdf:first "hsb";
+  rdf:rest rdf:nil .
+
+psd:P175 sh:minCount 1;
+  sh:name "pref label"@en;
+  sh:nodeKind sh:Literal;
+  sh:path skos:prefLabel;
+  sh:uniqueLang true .
+
+psd:P177 sh:hasValue dcterms:MediaTypeOrExtent;
+  sh:minCount 1;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:path rdf:type;
+  shacl-play:color "DarkGrey" .
+
+psd:P178 sh:datatype rdf:langString;
+  sh:languageIn _:node1gpmtdgvsx990 .
+
+_:node1gpmtdgvsx990 rdf:first "bg";
+  rdf:rest _:node1gpmtdgvsx991 .
+
+_:node1gpmtdgvsx991 rdf:first "es";
+  rdf:rest _:node1gpmtdgvsx992 .
+
+_:node1gpmtdgvsx992 rdf:first "cs";
+  rdf:rest _:node1gpmtdgvsx993 .
+
+_:node1gpmtdgvsx993 rdf:first "da";
+  rdf:rest _:node1gpmtdgvsx994 .
+
+_:node1gpmtdgvsx994 rdf:first "de";
+  rdf:rest _:node1gpmtdgvsx995 .
+
+_:node1gpmtdgvsx995 rdf:first "et";
+  rdf:rest _:node1gpmtdgvsx996 .
+
+_:node1gpmtdgvsx996 rdf:first "el";
+  rdf:rest _:node1gpmtdgvsx997 .
+
+_:node1gpmtdgvsx997 rdf:first "en";
+  rdf:rest _:node1gpmtdgvsx998 .
+
+_:node1gpmtdgvsx998 rdf:first "fr";
+  rdf:rest _:node1gpmtdgvsx999 .
+
+_:node1gpmtdgvsx999 rdf:first "ga";
+  rdf:rest _:node1gpmtdgvsx1000 .
+
+_:node1gpmtdgvsx1000 rdf:first "hr";
+  rdf:rest _:node1gpmtdgvsx1001 .
+
+_:node1gpmtdgvsx1001 rdf:first "it";
+  rdf:rest _:node1gpmtdgvsx1002 .
+
+_:node1gpmtdgvsx1002 rdf:first "lv";
+  rdf:rest _:node1gpmtdgvsx1003 .
+
+_:node1gpmtdgvsx1003 rdf:first "lt";
+  rdf:rest _:node1gpmtdgvsx1004 .
+
+_:node1gpmtdgvsx1004 rdf:first "hu";
+  rdf:rest _:node1gpmtdgvsx1005 .
+
+_:node1gpmtdgvsx1005 rdf:first "mt";
+  rdf:rest _:node1gpmtdgvsx1006 .
+
+_:node1gpmtdgvsx1006 rdf:first "nl";
+  rdf:rest _:node1gpmtdgvsx1007 .
+
+_:node1gpmtdgvsx1007 rdf:first "pl";
+  rdf:rest _:node1gpmtdgvsx1008 .
+
+_:node1gpmtdgvsx1008 rdf:first "pt";
+  rdf:rest _:node1gpmtdgvsx1009 .
+
+_:node1gpmtdgvsx1009 rdf:first "ro";
+  rdf:rest _:node1gpmtdgvsx1010 .
+
+_:node1gpmtdgvsx1010 rdf:first "sk";
+  rdf:rest _:node1gpmtdgvsx1011 .
+
+_:node1gpmtdgvsx1011 rdf:first "sl";
+  rdf:rest _:node1gpmtdgvsx1012 .
+
+_:node1gpmtdgvsx1012 rdf:first "fi";
+  rdf:rest _:node1gpmtdgvsx1013 .
+
+_:node1gpmtdgvsx1013 rdf:first "sv";
+  rdf:rest _:node1gpmtdgvsx1014 .
+
+_:node1gpmtdgvsx1014 rdf:first "eu";
+  rdf:rest _:node1gpmtdgvsx1015 .
+
+_:node1gpmtdgvsx1015 rdf:first "sq";
+  rdf:rest _:node1gpmtdgvsx1016 .
+
+_:node1gpmtdgvsx1016 rdf:first "ca";
+  rdf:rest _:node1gpmtdgvsx1017 .
+
+_:node1gpmtdgvsx1017 rdf:first "tr";
+  rdf:rest _:node1gpmtdgvsx1018 .
+
+_:node1gpmtdgvsx1018 rdf:first "lb";
+  rdf:rest _:node1gpmtdgvsx1019 .
+
+_:node1gpmtdgvsx1019 rdf:first "is";
+  rdf:rest _:node1gpmtdgvsx1020 .
+
+_:node1gpmtdgvsx1020 rdf:first "rm";
+  rdf:rest _:node1gpmtdgvsx1021 .
+
+_:node1gpmtdgvsx1021 rdf:first "mk";
+  rdf:rest _:node1gpmtdgvsx1022 .
+
+_:node1gpmtdgvsx1022 rdf:first "sr";
+  rdf:rest _:node1gpmtdgvsx1023 .
+
+_:node1gpmtdgvsx1023 rdf:first "no";
+  rdf:rest _:node1gpmtdgvsx1024 .
+
+_:node1gpmtdgvsx1024 rdf:first "uk";
+  rdf:rest _:node1gpmtdgvsx1025 .
+
+_:node1gpmtdgvsx1025 rdf:first "bs";
+  rdf:rest _:node1gpmtdgvsx1026 .
+
+_:node1gpmtdgvsx1026 rdf:first "gl";
+  rdf:rest _:node1gpmtdgvsx1027 .
+
+_:node1gpmtdgvsx1027 rdf:first "fo";
+  rdf:rest _:node1gpmtdgvsx1028 .
+
+_:node1gpmtdgvsx1028 rdf:first "be";
+  rdf:rest _:node1gpmtdgvsx1029 .
+
+_:node1gpmtdgvsx1029 rdf:first "ru";
+  rdf:rest _:node1gpmtdgvsx1030 .
+
+_:node1gpmtdgvsx1030 rdf:first "sh";
+  rdf:rest _:node1gpmtdgvsx1031 .
+
+_:node1gpmtdgvsx1031 rdf:first "hsb";
+  rdf:rest rdf:nil .
+
+psd:P178 sh:minCount 1;
+  sh:name "pref label"@en;
+  sh:nodeKind sh:Literal;
+  sh:path skos:prefLabel;
+  sh:uniqueLang true .
+
+psd:P180 sh:hasValue org:Organization;
+  sh:minCount 1;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:path rdf:type;
+  shacl-play:color "DarkGrey" .
+
+psd:P181 sh:datatype rdf:langString;
+  sh:languageIn _:node1gpmtdgvsx1032 .
+
+_:node1gpmtdgvsx1032 rdf:first "bg";
+  rdf:rest _:node1gpmtdgvsx1033 .
+
+_:node1gpmtdgvsx1033 rdf:first "es";
+  rdf:rest _:node1gpmtdgvsx1034 .
+
+_:node1gpmtdgvsx1034 rdf:first "cs";
+  rdf:rest _:node1gpmtdgvsx1035 .
+
+_:node1gpmtdgvsx1035 rdf:first "da";
+  rdf:rest _:node1gpmtdgvsx1036 .
+
+_:node1gpmtdgvsx1036 rdf:first "de";
+  rdf:rest _:node1gpmtdgvsx1037 .
+
+_:node1gpmtdgvsx1037 rdf:first "et";
+  rdf:rest _:node1gpmtdgvsx1038 .
+
+_:node1gpmtdgvsx1038 rdf:first "el";
+  rdf:rest _:node1gpmtdgvsx1039 .
+
+_:node1gpmtdgvsx1039 rdf:first "en";
+  rdf:rest _:node1gpmtdgvsx1040 .
+
+_:node1gpmtdgvsx1040 rdf:first "fr";
+  rdf:rest _:node1gpmtdgvsx1041 .
+
+_:node1gpmtdgvsx1041 rdf:first "ga";
+  rdf:rest _:node1gpmtdgvsx1042 .
+
+_:node1gpmtdgvsx1042 rdf:first "hr";
+  rdf:rest _:node1gpmtdgvsx1043 .
+
+_:node1gpmtdgvsx1043 rdf:first "it";
+  rdf:rest _:node1gpmtdgvsx1044 .
+
+_:node1gpmtdgvsx1044 rdf:first "lv";
+  rdf:rest _:node1gpmtdgvsx1045 .
+
+_:node1gpmtdgvsx1045 rdf:first "lt";
+  rdf:rest _:node1gpmtdgvsx1046 .
+
+_:node1gpmtdgvsx1046 rdf:first "hu";
+  rdf:rest _:node1gpmtdgvsx1047 .
+
+_:node1gpmtdgvsx1047 rdf:first "mt";
+  rdf:rest _:node1gpmtdgvsx1048 .
+
+_:node1gpmtdgvsx1048 rdf:first "nl";
+  rdf:rest _:node1gpmtdgvsx1049 .
+
+_:node1gpmtdgvsx1049 rdf:first "pl";
+  rdf:rest _:node1gpmtdgvsx1050 .
+
+_:node1gpmtdgvsx1050 rdf:first "pt";
+  rdf:rest _:node1gpmtdgvsx1051 .
+
+_:node1gpmtdgvsx1051 rdf:first "ro";
+  rdf:rest _:node1gpmtdgvsx1052 .
+
+_:node1gpmtdgvsx1052 rdf:first "sk";
+  rdf:rest _:node1gpmtdgvsx1053 .
+
+_:node1gpmtdgvsx1053 rdf:first "sl";
+  rdf:rest _:node1gpmtdgvsx1054 .
+
+_:node1gpmtdgvsx1054 rdf:first "fi";
+  rdf:rest _:node1gpmtdgvsx1055 .
+
+_:node1gpmtdgvsx1055 rdf:first "sv";
+  rdf:rest _:node1gpmtdgvsx1056 .
+
+_:node1gpmtdgvsx1056 rdf:first "eu";
+  rdf:rest _:node1gpmtdgvsx1057 .
+
+_:node1gpmtdgvsx1057 rdf:first "sq";
+  rdf:rest _:node1gpmtdgvsx1058 .
+
+_:node1gpmtdgvsx1058 rdf:first "ca";
+  rdf:rest _:node1gpmtdgvsx1059 .
+
+_:node1gpmtdgvsx1059 rdf:first "tr";
+  rdf:rest _:node1gpmtdgvsx1060 .
+
+_:node1gpmtdgvsx1060 rdf:first "lb";
+  rdf:rest _:node1gpmtdgvsx1061 .
+
+_:node1gpmtdgvsx1061 rdf:first "is";
+  rdf:rest _:node1gpmtdgvsx1062 .
+
+_:node1gpmtdgvsx1062 rdf:first "rm";
+  rdf:rest _:node1gpmtdgvsx1063 .
+
+_:node1gpmtdgvsx1063 rdf:first "mk";
+  rdf:rest _:node1gpmtdgvsx1064 .
+
+_:node1gpmtdgvsx1064 rdf:first "sr";
+  rdf:rest _:node1gpmtdgvsx1065 .
+
+_:node1gpmtdgvsx1065 rdf:first "no";
+  rdf:rest _:node1gpmtdgvsx1066 .
+
+_:node1gpmtdgvsx1066 rdf:first "uk";
+  rdf:rest _:node1gpmtdgvsx1067 .
+
+_:node1gpmtdgvsx1067 rdf:first "bs";
+  rdf:rest _:node1gpmtdgvsx1068 .
+
+_:node1gpmtdgvsx1068 rdf:first "gl";
+  rdf:rest _:node1gpmtdgvsx1069 .
+
+_:node1gpmtdgvsx1069 rdf:first "fo";
+  rdf:rest _:node1gpmtdgvsx1070 .
+
+_:node1gpmtdgvsx1070 rdf:first "be";
+  rdf:rest _:node1gpmtdgvsx1071 .
+
+_:node1gpmtdgvsx1071 rdf:first "ru";
+  rdf:rest _:node1gpmtdgvsx1072 .
+
+_:node1gpmtdgvsx1072 rdf:first "sh";
+  rdf:rest _:node1gpmtdgvsx1073 .
+
+_:node1gpmtdgvsx1073 rdf:first "hsb";
+  rdf:rest rdf:nil .
+
+psd:P181 sh:minCount 1;
+  sh:name "pref label"@en;
+  sh:nodeKind sh:Literal;
+  sh:path skos:prefLabel;
+  sh:uniqueLang true .
+
+psd:P183 sh:hasValue euvoc:FileStatus;
+  sh:minCount 1;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:path rdf:type;
+  shacl-play:color "DarkGrey" .
+
+psd:P184 sh:datatype rdf:langString;
+  sh:languageIn _:node1gpmtdgvsx1074 .
+
+_:node1gpmtdgvsx1074 rdf:first "bg";
+  rdf:rest _:node1gpmtdgvsx1075 .
+
+_:node1gpmtdgvsx1075 rdf:first "es";
+  rdf:rest _:node1gpmtdgvsx1076 .
+
+_:node1gpmtdgvsx1076 rdf:first "cs";
+  rdf:rest _:node1gpmtdgvsx1077 .
+
+_:node1gpmtdgvsx1077 rdf:first "da";
+  rdf:rest _:node1gpmtdgvsx1078 .
+
+_:node1gpmtdgvsx1078 rdf:first "de";
+  rdf:rest _:node1gpmtdgvsx1079 .
+
+_:node1gpmtdgvsx1079 rdf:first "et";
+  rdf:rest _:node1gpmtdgvsx1080 .
+
+_:node1gpmtdgvsx1080 rdf:first "el";
+  rdf:rest _:node1gpmtdgvsx1081 .
+
+_:node1gpmtdgvsx1081 rdf:first "en";
+  rdf:rest _:node1gpmtdgvsx1082 .
+
+_:node1gpmtdgvsx1082 rdf:first "fr";
+  rdf:rest _:node1gpmtdgvsx1083 .
+
+_:node1gpmtdgvsx1083 rdf:first "ga";
+  rdf:rest _:node1gpmtdgvsx1084 .
+
+_:node1gpmtdgvsx1084 rdf:first "hr";
+  rdf:rest _:node1gpmtdgvsx1085 .
+
+_:node1gpmtdgvsx1085 rdf:first "it";
+  rdf:rest _:node1gpmtdgvsx1086 .
+
+_:node1gpmtdgvsx1086 rdf:first "lv";
+  rdf:rest _:node1gpmtdgvsx1087 .
+
+_:node1gpmtdgvsx1087 rdf:first "lt";
+  rdf:rest _:node1gpmtdgvsx1088 .
+
+_:node1gpmtdgvsx1088 rdf:first "hu";
+  rdf:rest _:node1gpmtdgvsx1089 .
+
+_:node1gpmtdgvsx1089 rdf:first "mt";
+  rdf:rest _:node1gpmtdgvsx1090 .
+
+_:node1gpmtdgvsx1090 rdf:first "nl";
+  rdf:rest _:node1gpmtdgvsx1091 .
+
+_:node1gpmtdgvsx1091 rdf:first "pl";
+  rdf:rest _:node1gpmtdgvsx1092 .
+
+_:node1gpmtdgvsx1092 rdf:first "pt";
+  rdf:rest _:node1gpmtdgvsx1093 .
+
+_:node1gpmtdgvsx1093 rdf:first "ro";
+  rdf:rest _:node1gpmtdgvsx1094 .
+
+_:node1gpmtdgvsx1094 rdf:first "sk";
+  rdf:rest _:node1gpmtdgvsx1095 .
+
+_:node1gpmtdgvsx1095 rdf:first "sl";
+  rdf:rest _:node1gpmtdgvsx1096 .
+
+_:node1gpmtdgvsx1096 rdf:first "fi";
+  rdf:rest _:node1gpmtdgvsx1097 .
+
+_:node1gpmtdgvsx1097 rdf:first "sv";
+  rdf:rest _:node1gpmtdgvsx1098 .
+
+_:node1gpmtdgvsx1098 rdf:first "eu";
+  rdf:rest _:node1gpmtdgvsx1099 .
+
+_:node1gpmtdgvsx1099 rdf:first "sq";
+  rdf:rest _:node1gpmtdgvsx1100 .
+
+_:node1gpmtdgvsx1100 rdf:first "ca";
+  rdf:rest _:node1gpmtdgvsx1101 .
+
+_:node1gpmtdgvsx1101 rdf:first "tr";
+  rdf:rest _:node1gpmtdgvsx1102 .
+
+_:node1gpmtdgvsx1102 rdf:first "lb";
+  rdf:rest _:node1gpmtdgvsx1103 .
+
+_:node1gpmtdgvsx1103 rdf:first "is";
+  rdf:rest _:node1gpmtdgvsx1104 .
+
+_:node1gpmtdgvsx1104 rdf:first "rm";
+  rdf:rest _:node1gpmtdgvsx1105 .
+
+_:node1gpmtdgvsx1105 rdf:first "mk";
+  rdf:rest _:node1gpmtdgvsx1106 .
+
+_:node1gpmtdgvsx1106 rdf:first "sr";
+  rdf:rest _:node1gpmtdgvsx1107 .
+
+_:node1gpmtdgvsx1107 rdf:first "no";
+  rdf:rest _:node1gpmtdgvsx1108 .
+
+_:node1gpmtdgvsx1108 rdf:first "uk";
+  rdf:rest _:node1gpmtdgvsx1109 .
+
+_:node1gpmtdgvsx1109 rdf:first "bs";
+  rdf:rest _:node1gpmtdgvsx1110 .
+
+_:node1gpmtdgvsx1110 rdf:first "gl";
+  rdf:rest _:node1gpmtdgvsx1111 .
+
+_:node1gpmtdgvsx1111 rdf:first "fo";
+  rdf:rest _:node1gpmtdgvsx1112 .
+
+_:node1gpmtdgvsx1112 rdf:first "be";
+  rdf:rest _:node1gpmtdgvsx1113 .
+
+_:node1gpmtdgvsx1113 rdf:first "ru";
+  rdf:rest _:node1gpmtdgvsx1114 .
+
+_:node1gpmtdgvsx1114 rdf:first "sh";
+  rdf:rest _:node1gpmtdgvsx1115 .
+
+_:node1gpmtdgvsx1115 rdf:first "hsb";
+  rdf:rest rdf:nil .
+
+psd:P184 sh:minCount 1;
+  sh:name "pref label"@en;
+  sh:nodeKind sh:Literal;
+  sh:path skos:prefLabel;
+  sh:uniqueLang true .
