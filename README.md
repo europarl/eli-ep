@@ -6,10 +6,11 @@ ELI-EP is an application profile of the [ELI](https://op.europa.eu/en/web/eu-voc
 
 ## Versions
 - Latest version:
-  - [HTML](index.html)
-  - [SHACL](eli-ep.shacl.ttl)
+  - [HTML](./index.html)
+  - [SHACL](./epi-ep.shacl.ttl)
 - [Version 0.4.4](./0.4.4/)
 - [Version 1.0](./1.0/)
+- [Version 1.1](./1.1/)
 
 ## ELI-EP at a glance
 
