@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      
+<html lang="en"><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <style class="anchorjs"></style><style>
 					body {
 						margin: 0;
@@ -131,7 +130,7 @@
 					table {
 						display: table;
 						border-spacing: 0px;
-						margin-botton: 1rem;
+						margin-bottom: 1rem;
 					}
 					
 					tr:nth-child(even) {
@@ -203,25 +202,25 @@
 								top: 0;
 								left: 0;
 								font-size: small;
-								padding: 10px 20px;
+								padding: 10px 10px;
 								width: auto;
 								border-right: solid 2px #eeeeee;
 								bottom: 0;
 								overflow-y: scroll;
 								background-color:white;
-								max-width:180px;
+								max-width:255px;
 							}
 							.sp_list_toc {padding-left: 0px;}							
 						</style>
-      
+      <meta charset="UTF-8">
       <meta name="lang" content="en">
       <meta property="og:locale" content="en">
       <title>Adopted texts dataset description</title>
       <meta name="apple-mobile-web-app-title" content="Adopted texts dataset description">
       <meta name="twitter:title" content="Adopted texts dataset description">
       <meta property="og:title" content="Adopted texts dataset description">
-   <style>[id*='google_ads_iframe'],.taboolaHeight,#credential_picker_container,#credential_picker_iframe,.google-one-tap-modal-div{display:none!important;min-height:0!important;height:0!important;}</style></head>
-   <body data-new-gr-c-s-check-loaded="14.1097.0" data-gr-ext-installed="" cz-shortcut-listen="true">
+   </head>
+   <body>
       <div class="sp_container_principal container pt-4">
          <table style="width:100%">
             <tbody><tr>
@@ -231,21 +230,22 @@
                </td>
             </tr>
          </tbody></table>
-         <div><b>Creation date: </b>2022-11-18<br><b>Last updated: </b>2023-01-24<br><b>Copyright date: </b>2022<br><b>Version: </b>1.0<br><b>License: </b><a href="https://www.europarl.europa.eu/legal-notice/en/" target="_blank">https://www.europarl.europa.eu/legal-notice/en/</a><br><b>Creator: </b><a href="http://publications.europa.eu/resource/dataset/corporate-body/EP" target="_blank">http://publications.europa.eu/resource/dataset/corporate-body/EP</a><br><b>Publisher: </b><a href="http://publications.europa.eu/resource/dataset/corporate-body/EP" target="_blank">http://publications.europa.eu/resource/dataset/corporate-body/EP</a><br><br></div>
+         <div><b>Creation date: </b>2022-11-18<br><b>Last updated: </b>2023-04-12 00:00:00<br><b>Copyright date: </b>2022<br><b>Version: </b>1.1<br><b>License: </b><a href="https://www.europarl.europa.eu/legal-notice/en/" target="_blank">https://www.europarl.europa.eu/legal-notice/en/</a><br><b>Creator: </b><a href="http://publications.europa.eu/resource/dataset/corporate-body/EP" target="_blank">http://publications.europa.eu/resource/dataset/corporate-body/EP</a><br><b>Publisher: </b><a href="http://publications.europa.eu/resource/dataset/corporate-body/EP" target="_blank">http://publications.europa.eu/resource/dataset/corporate-body/EP</a><br><b id="formats">Download serialization: </b><div><span class="sp_serialization_badge"><a href="https://europarl.github.io/eli-ep/eli-ep.shacl.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL"></a></span></div><br></div>
          <div class="sp_section_title_toc toc">
             <h2 id="Index"><a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="#" href="#Index" style="position: absolute; margin-left: -1.25em; padding-right: 0.25em; padding-left: 0.25em;"></a>Table of Contents</h2>
             <ul role="list" class="sp_list_toc ul_type_none t-x-mode">
                <li><a href="#prefixes">Namespaces</a></li>
                <li><a href="#description">Description</a></li>
                <li><a href="#ta:AdoptedText">Adopted text</a></li>
-               <li><a href="#ta:Corrigendum">Corrigendum to adopted text</a></li>
+               <li><a href="#ta:Corrigendum">Corrigendum to Adopted text</a></li>
                <li><a href="#ta:Expression">Expression</a></li>
                <li><a href="#ta:Manifestation">Manifestation</a></li>
-               <li><a href="#ta:ParliamentaryTermReference">Reference to a Parliamentary Term</a></li>
                <li><a href="#ta:WorkTypeReference">Reference to a Work type</a></li>
-               <li><a href="#ta:LanguageReference">Reference to a language</a></li>
+               <li><a href="#ta:LanguageReference">Reference to a Language</a></li>
                <li><a href="#ta:MediaTypeOrExtentReference">Reference to a Media Type or Extent (Format)</a></li>
-               <li><a href="#ta:ConceptReference">Reference to a Concept</a></li>
+               <li><a href="#ta:ConceptReference">Reference to a Concept (Eurovoc)</a></li>
+               <li><a href="#ta:ConceptSubjectMatterReference">Reference to a Concept (Subject Matter)</a></li>
+               <li><a href="#ta:ConceptDirectoryCodeReference">Reference to a Concept (Directory Code)</a></li>
             </ul>
          </div>
          <div class="row mt-3">
@@ -277,6 +277,14 @@
                            <td><a href="https://data.europarl.europa.eu/def/epvoc#" target="_blank">https://data.europarl.europa.eu/def/epvoc#</a></td>
                         </tr>
                         <tr>
+                           <td>file-type</td>
+                           <td><a href="http://publications.europa.eu/resource/authority/file-type/" target="_blank">http://publications.europa.eu/resource/authority/file-type/</a></td>
+                        </tr>
+                        <tr>
+                           <td>op-aut</td>
+                           <td><a href="http://publications.europa.eu/resource/authority/" target="_blank">http://publications.europa.eu/resource/authority/</a></td>
+                        </tr>
+                        <tr>
                            <td>rdf</td>
                            <td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#" target="_blank">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a></td>
                         </tr>
@@ -300,8 +308,8 @@
                   </table>
                </section>
             </div>
-
-            <div id="diagram">
+			
+			            <div id="diagram">
      
                
                <h2 id="diagram" class="sp_section_subtitle"><a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="#" href="#diagram" style="position: absolute; margin-left: -1.25em; padding-right: 0.25em; padding-left: 0.25em;"></a>Diagram</h2>
@@ -312,10 +320,13 @@
             </figure>
             
             </div>
-</div><br><div>
-
+</div><div>
          </div><br><div>
-            <h2 id="description" class="sp_section_subtitle"><a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="#" href="#description" style="position: absolute; margin-left: -1.25em; padding-right: 0.25em; padding-left: 0.25em;"></a>Description</h2>This Dataset Description is a subset of the general ELI-EP application profile and it includes classes and properties used in Adopted texts datasets. Descriptions of classes and properties can be found in ELI-EP application profile.</div>
+            <h2 id="description" class="sp_section_subtitle"><a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="#" href="#description" style="position: absolute; margin-left: -1.25em; padding-right: 0.25em; padding-left: 0.25em;"></a>Description</h2>This
+ Dataset Description is a subset of the general ELI-EP application 
+profile and it includes classes and properties used in Adopted texts 
+datasets. Descriptions of classes and properties can be found in ELI-EP 
+application profile.</div>
          <div class="row mt-3">
             <div class="col">
                <section id="ta:AdoptedText">
@@ -330,9 +341,13 @@
                      <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/TA-9-2021-0362</code></li>
                   </ul>Applies to: <br><code>
                      <pre>PREFIX eli: &lt;http://data.europa.eu/eli/ontology#&gt;
+
 SELECT ?this
+
 WHERE {
+
  ?this eli:work_type &lt;http://publications.europa.eu/resource/authority/resource-type/ADOPT_TEXT&gt;.
+
 }</pre></code><table class="sp_table_propertyshapes table-striped table-responsive">
                      <thead>
                         <tr>
@@ -345,9 +360,18 @@ WHERE {
                      </thead>
                      <tbody>
                         <tr>
+                           <td>adopts</td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#adopts">eli-dl:adopts</a></code></td>
+                           <td><code>IRI</code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
                            <td>consolidates</td>
                            <td><code>^eli:consolidated_by</code></td>
-                           <td><code><a href="#ta:Corrigendum">Corrigendum to adopted text</a></code><br></td>
+                           <td><code><a href="#ta:Corrigendum">Corrigendum to Adopted text</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -356,18 +380,9 @@ WHERE {
                         <tr>
                            <td>date document</td>
                            <td><code><a href="http://data.europa.eu/eli/ontology#date_document">eli:date_document</a></code></td>
-                           <td><code>xsd:dateTime</code><br></td>
+                           <td><code>xsd:date</code><br></td>
                            <td>
                               <div style="width:30px">1..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>descriptor</td>
-                           <td><code><a href="http://data.europa.eu/eli/ontology#is_about">eli:is_about</a></code></td>
-                           <td><code>IRI</code><br></td>
-                           <td>
-                              <div style="width:30px">0..*</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -399,9 +414,36 @@ WHERE {
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
                         <tr>
+                           <td>is about</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#is_about">eli:is_about</a></code></td>
+                           <td><code><a href="#ta:ConceptReference">Reference to a Concept (Eurovoc)</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>is about directory code</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#isAboutDirectoryCode">epvoc:isAboutDirectoryCode</a></code></td>
+                           <td><code><a href="#ta:ConceptDirectoryCodeReference">Reference to a Concept (Directory Code)</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>is about subject matter</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#isAboutSubjectMatter">epvoc:isAboutSubjectMatter</a></code></td>
+                           <td><code><a href="#ta:ConceptSubjectMatterReference">Reference to a Concept (Subject Matter)</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
                            <td>is corrected by</td>
                            <td><code>^eli:corrects</code></td>
-                           <td><code><a href="#ta:Corrigendum">Corrigendum to adopted text</a></code><br></td>
+                           <td><code><a href="#ta:Corrigendum">Corrigendum to Adopted text</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -430,14 +472,14 @@ WHERE {
                            <td><code><a href="http://www.w3.org/2004/02/skos/core#notation">skos:notation</a></code></td>
                            <td><code>epvoc:publicRegister</code><br></td>
                            <td>
-                              <div style="width:30px">0..*</div>
+                              <div style="width:30px">0..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
                         <tr>
                            <td>parliamentary term</td>
                            <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#parliamentary_term">eli-dl:parliamentary_term</a></code></td>
-                           <td><code><a href="#ta:ParliamentaryTermReference">Reference to a Parliamentary Term</a></code><br></td>
+                           <td><code>IRI</code><br></td>
                            <td>
                               <div style="width:30px">0..1</div>
                            </td>
@@ -471,6 +513,15 @@ WHERE {
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
                         <tr>
+                           <td>was realised through</td>
+                           <td><code>^eli-dl:created_a_realization_of</code></td>
+                           <td><code>IRI</code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
                            <td>work type</td>
                            <td><code><a href="http://data.europa.eu/eli/ontology#work_type">eli:work_type</a></code></td>
                            <td><code><a href="#ta:WorkTypeReference">Reference to a Work type</a></code><br></td>
@@ -487,7 +538,7 @@ WHERE {
             <div class="col">
                <section id="ta:Corrigendum">
                   <div class="sp_section_title_table_wrapper">
-                     <h2 class="sp_section_title_table" id="corrigendum-to-adopted-text"><a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="#" href="#corrigendum-to-adopted-text" style="position: absolute; margin-left: -1.25em; padding-right: 0.25em; padding-left: 0.25em;"></a>Corrigendum to adopted text</h2>
+                     <h2 class="sp_section_title_table" id="corrigendum-to-adopted-text"><a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="#" href="#corrigendum-to-adopted-text" style="position: absolute; margin-left: -1.25em; padding-right: 0.25em; padding-left: 0.25em;"></a>Corrigendum to Adopted text</h2>
                   </div>
                   <p><em>This node shape represents a subset of eli:Work</em></p>
                   <ul class="sp_list_description_properties">
@@ -528,27 +579,9 @@ WHERE {
                         <tr>
                            <td>date document</td>
                            <td><code><a href="http://data.europa.eu/eli/ontology#date_document">eli:date_document</a></code></td>
-                           <td><code>xsd:dateTime</code><br></td>
+                           <td><code>xsd:date</code><br></td>
                            <td>
                               <div style="width:30px">1..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>descriptor</td>
-                           <td><code><a href="http://data.europa.eu/eli/ontology#is_about">eli:is_about</a></code></td>
-                           <td><code>IRI</code><br></td>
-                           <td>
-                              <div style="width:30px">0..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>ep number</td>
-                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#epNumber">epvoc:epNumber</a></code></td>
-                           <td><code>xsd:string</code><br></td>
-                           <td>
-                              <div style="width:30px">0..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -580,24 +613,6 @@ WHERE {
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
                         <tr>
-                           <td>label</td>
-                           <td><code><a href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a></code></td>
-                           <td><code>xsd:string</code><br></td>
-                           <td>
-                              <div style="width:30px">0..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>notation</td>
-                           <td><code><a href="http://www.w3.org/2004/02/skos/core#notation">skos:notation</a></code></td>
-                           <td><code>epvoc:publicRegister</code><br></td>
-                           <td>
-                              <div style="width:30px">0..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
                            <td>numbering</td>
                            <td><code><a href="https://data.europarl.europa.eu/def/epvoc#numbering">epvoc:numbering</a></code></td>
                            <td><code>xsd:string</code><br></td>
@@ -609,7 +624,7 @@ WHERE {
                         <tr>
                            <td>parliamentary term</td>
                            <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#parliamentary_term">eli-dl:parliamentary_term</a></code></td>
-                           <td><code><a href="#ta:ParliamentaryTermReference">Reference to a Parliamentary Term</a></code><br></td>
+                           <td><code>IRI</code><br></td>
                            <td>
                               <div style="width:30px">0..1</div>
                            </td>
@@ -661,6 +676,7 @@ WHERE {
                   <div class="sp_section_title_table_wrapper">
                      <h2 class="sp_section_title_table" id="expression"><a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="#" href="#expression" style="position: absolute; margin-left: -1.25em; padding-right: 0.25em; padding-left: 0.25em;"></a>Expression</h2>
                   </div>
+                  <p><em>This node shape represents a subset of eli:Expression</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Applies to: <a href="http://data.europa.eu/eli/ontology#Expression">eli:Expression</a></li>
                      <li>Nodes: IRI</li>
@@ -700,7 +716,7 @@ WHERE {
                         <tr>
                            <td>language</td>
                            <td><code><a href="http://data.europa.eu/eli/ontology#language">eli:language</a></code></td>
-                           <td><code><a href="#ta:LanguageReference">Reference to a language</a></code><br></td>
+                           <td><code><a href="#ta:LanguageReference">Reference to a Language</a></code><br></td>
                            <td>
                               <div style="width:30px">1..*</div>
                            </td>
@@ -734,6 +750,7 @@ WHERE {
                   <div class="sp_section_title_table_wrapper">
                      <h2 class="sp_section_title_table" id="manifestation"><a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="#" href="#manifestation" style="position: absolute; margin-left: -1.25em; padding-right: 0.25em; padding-left: 0.25em;"></a>Manifestation</h2>
                   </div>
+                  <p><em>This node shape represents a subset of eli:Manifestation</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Applies to: <a href="http://data.europa.eu/eli/ontology#Manifestation">eli:Manifestation</a></li>
                      <li>Nodes: IRI</li>
@@ -764,11 +781,12 @@ WHERE {
                         <tr>
                            <td>format</td>
                            <td><code><a href="http://purl.org/dc/terms/format">dcterms:format</a></code></td>
-                           <td><code><a href="#ta:MediaTypeOrExtentReference">Reference to a Media Type or Extent (Format)</a></code><br></td>
+                           <td><code><a href="#ta:MediaTypeOrExtentReference">Reference to a Media Type or Extent (Format)</a></code><br><p><small>(file-type:PDF, file-type:XML, file-type:DOCX)</small></p>
+                           </td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td class="sp_table_propertyshapes_col_description">Remark: XML format is expected only for ADOPT_TEXT, not CORRIGENDUM.</td>
                         </tr>
                         <tr>
                            <td>is exemplified by</td>
@@ -812,52 +830,6 @@ WHERE {
             </div>
          </div><br><div class="row mt-3">
             <div class="col">
-               <section id="ta:ParliamentaryTermReference">
-                  <div class="sp_section_title_table_wrapper">
-                     <h2 class="sp_section_title_table" id="reference-to-a-parliamentary-term"><a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="#" href="#reference-to-a-parliamentary-term" style="position: absolute; margin-left: -1.25em; padding-right: 0.25em; padding-left: 0.25em;"></a>Reference to a Parliamentary Term</h2>
-                  </div>
-                  <p><em>This node shape refers to the class eli-dl:ParliamentaryTerm</em></p>
-                  <ul class="sp_list_description_properties">
-                     <li>Nodes: IRI</li>
-                     <li>Closed shape</li>
-                     <li>URI pattern: <code>^https://data.europarl.europa.eu/org/ep-[0-9].*$</code></li>
-                     <li>Example: <code>https://data.europarl.europa.eu/org/ep-9</code></li>
-                  </ul>
-                  <table class="sp_table_propertyshapes table-striped table-responsive">
-                     <thead>
-                        <tr>
-                           <th>Property name</th>
-                           <th>URI</th>
-                           <th>Expected value</th>
-                           <th>Card.</th>
-                           <th class="sp_description_column">Description</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <tr>
-                           <td>pref label</td>
-                           <td><code><a href="http://www.w3.org/2004/02/skos/core#prefLabel">skos:prefLabel</a></code></td>
-                           <td><code>rdf:langString</code><br></td>
-                           <td>
-                              <div style="width:30px">1..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>type</td>
-                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli-dl:ParliamentaryTerm</code><br></td>
-                           <td>
-                              <div style="width:30px">1..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                     </tbody>
-                  </table>
-               </section>
-            </div>
-         </div><br><div class="row mt-3">
-            <div class="col">
                <section id="ta:WorkTypeReference">
                   <div class="sp_section_title_table_wrapper">
                      <h2 class="sp_section_title_table" id="reference-to-a-work-type"><a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="#" href="#reference-to-a-work-type" style="position: absolute; margin-left: -1.25em; padding-right: 0.25em; padding-left: 0.25em;"></a>Reference to a Work type</h2>
@@ -881,11 +853,11 @@ WHERE {
                      </thead>
                      <tbody>
                         <tr>
-                           <td>pref label</td>
-                           <td><code><a href="http://www.w3.org/2004/02/skos/core#prefLabel">skos:prefLabel</a></code></td>
-                           <td><code>rdf:langString</code><br></td>
+                           <td>Is in scheme</td>
+                           <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                           <td><code>op-aut:resource-type</code><br></td>
                            <td>
-                              <div style="width:30px">1..*</div>
+                              <div style="width:30px">0..*</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -894,7 +866,7 @@ WHERE {
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
                            <td><code>eli:WorkType</code><br></td>
                            <td>
-                              <div style="width:30px">1..*</div>
+                              <div style="width:30px">0..*</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -906,7 +878,7 @@ WHERE {
             <div class="col">
                <section id="ta:LanguageReference">
                   <div class="sp_section_title_table_wrapper">
-                     <h2 class="sp_section_title_table" id="reference-to-a-language"><a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="#" href="#reference-to-a-language" style="position: absolute; margin-left: -1.25em; padding-right: 0.25em; padding-left: 0.25em;"></a>Reference to a language</h2>
+                     <h2 class="sp_section_title_table" id="reference-to-a-language"><a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="#" href="#reference-to-a-language" style="position: absolute; margin-left: -1.25em; padding-right: 0.25em; padding-left: 0.25em;"></a>Reference to a Language</h2>
                   </div>
                   <p><em>This node shape refers to the class dcterms:LinguisticSystem</em></p>
                   <ul class="sp_list_description_properties">
@@ -927,11 +899,11 @@ WHERE {
                      </thead>
                      <tbody>
                         <tr>
-                           <td>pref label</td>
-                           <td><code><a href="http://www.w3.org/2004/02/skos/core#prefLabel">skos:prefLabel</a></code></td>
-                           <td><code>rdf:langString</code><br></td>
+                           <td>Is in scheme</td>
+                           <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                           <td><code>op-aut:language</code><br></td>
                            <td>
-                              <div style="width:30px">1..*</div>
+                              <div style="width:30px">0..*</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -940,7 +912,7 @@ WHERE {
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
                            <td><code>dcterms:LinguisticSystem</code><br></td>
                            <td>
-                              <div style="width:30px">1..*</div>
+                              <div style="width:30px">0..*</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -973,11 +945,11 @@ WHERE {
                      </thead>
                      <tbody>
                         <tr>
-                           <td>pref label</td>
-                           <td><code><a href="http://www.w3.org/2004/02/skos/core#prefLabel">skos:prefLabel</a></code></td>
-                           <td><code>rdf:langString</code><br></td>
+                           <td>Is in scheme</td>
+                           <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                           <td><code>op-aut:format</code><br></td>
                            <td>
-                              <div style="width:30px">1..*</div>
+                              <div style="width:30px">0..*</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -986,7 +958,7 @@ WHERE {
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
                            <td><code>dcterms:MediaTypeOrExtent</code><br></td>
                            <td>
-                              <div style="width:30px">1..*</div>
+                              <div style="width:30px">0..*</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -998,12 +970,14 @@ WHERE {
             <div class="col">
                <section id="ta:ConceptReference">
                   <div class="sp_section_title_table_wrapper">
-                     <h2 class="sp_section_title_table" id="reference-to-a-concept"><a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="#" href="#reference-to-a-concept" style="position: absolute; margin-left: -1.25em; padding-right: 0.25em; padding-left: 0.25em;"></a>Reference to a Concept</h2>
+                     <h2 class="sp_section_title_table" id="reference-to-a-concept-eurovoc"><a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="#" href="#reference-to-a-concept-eurovoc" style="position: absolute; margin-left: -1.25em; padding-right: 0.25em; padding-left: 0.25em;"></a>Reference to a Concept (Eurovoc)</h2>
                   </div>
                   <p><em>This node shape refers to the class skos:Concept</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
                      <li>Closed shape</li>
+                     <li>URI pattern: <code>http://eurovoc.europa.eu/.*$</code></li>
+                     <li>Example: <code>http://eurovoc.europa.eu/2836</code></li>
                   </ul>
                   <table class="sp_table_propertyshapes table-striped table-responsive">
                      <thead>
@@ -1017,11 +991,20 @@ WHERE {
                      </thead>
                      <tbody>
                         <tr>
+                           <td>Is in scheme</td>
+                           <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                           <td><code>http://eurovoc.europa.eu</code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
                            <td><code>skos:Concept</code><br></td>
                            <td>
-                              <div style="width:30px">1..*</div>
+                              <div style="width:30px">0..*</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -1029,11 +1012,103 @@ WHERE {
                   </table>
                </section>
             </div>
-         </div><br></div><script src="./Adopted texts dataset description_files/anchor.min.js.download">//</script><script>				
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section id="ta:ConceptSubjectMatterReference">
+                  <div class="sp_section_title_table_wrapper">
+                     <h2 class="sp_section_title_table" id="reference-to-a-concept-subject-matter"><a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="#" href="#reference-to-a-concept-subject-matter" style="position: absolute; margin-left: -1.25em; padding-right: 0.25em; padding-left: 0.25em;"></a>Reference to a Concept (Subject Matter)</h2>
+                  </div>
+                  <p><em>This node shape refers to the class skos:Concept</em></p>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>http://publications.europa.eu/resource/authority/subject-matter/.*$</code></li>
+                     <li>Example: <code>http://publications.europa.eu/resource/authority/subject-matter/MARI</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Is in scheme</td>
+                           <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                           <td><code>op-aut:subject-matter</code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>type</td>
+                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code>skos:Concept</code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section id="ta:ConceptDirectoryCodeReference">
+                  <div class="sp_section_title_table_wrapper">
+                     <h2 class="sp_section_title_table" id="reference-to-a-concept-directory-code"><a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="#" href="#reference-to-a-concept-directory-code" style="position: absolute; margin-left: -1.25em; padding-right: 0.25em; padding-left: 0.25em;"></a>Reference to a Concept (Directory Code)</h2>
+                  </div>
+                  <p><em>This node shape refers to the class skos:Concept</em></p>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>http://publications.europa.eu/resource/authority/dir-eu-legal-act/.*$</code></li>
+                     <li>Example: <code>http://publications.europa.eu/resource/authority/dir-eu-legal-act/062020</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Is in scheme</td>
+                           <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                           <td><code>op-aut:dir-eu-legal-act</code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>type</td>
+                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code>skos:Concept</code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br></div><script src="index_files/anchor.min.js">//</script><script>				
 					anchors.options = {
 	                    icon: '#'
 	                  };
                		anchors.options.placement = 'left';
 					anchors.add();		
 				</script>
-</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
+</body></html>
