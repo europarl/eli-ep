@@ -224,13 +224,13 @@
       <div class="sp_container_principal container pt-4">
          <table style="width:100%">
             <tbody><tr>
-               <td width="20%"><img src="https://www.europarl.europa.eu/portal/img/ep-logo.svg"></td>
+               <td width="20%"><img src="index2_files/ep-logo.svg"></td>
                <td width="80%">
                   <h1 class="mb-4 sp_section_title_header">ELI-EP Application Profile</h1>
                </td>
             </tr>
          </tbody></table>
-         <div><b>Creation date: </b>2022-11-24<br><b>Last updated: </b>2023-04-17 00:00:00<br><b>Copyright date: </b>2022<br><b>Version: </b>1.1<br><b>License: </b><a href="https://www.europarl.europa.eu/legal-notice/" target="_blank">https://www.europarl.europa.eu/legal-notice/</a><br><b>Creator: </b><a href="http://publications.europa.eu/resource/dataset/corporate-body/EP" target="_blank">http://publications.europa.eu/resource/dataset/corporate-body/EP</a><br><b>Publisher: </b><a href="http://publications.europa.eu/resource/dataset/corporate-body/EP" target="_blank">http://publications.europa.eu/resource/dataset/corporate-body/EP</a><br><b id="formats">Download serialization: </b><div><span class="sp_serialization_badge"><a href="https://europarl.github.io/eli-ep/eli-ep.shacl.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL"></a></span></div><br></div>
+         <div><b>Creation date: </b>2022-11-24<br><b>Last updated: </b>2023-04-19 00:00:00<br><b>Copyright date: </b>2022<br><b>Version: </b>1.1<br><b>License: </b><a href="https://www.europarl.europa.eu/legal-notice/" target="_blank">https://www.europarl.europa.eu/legal-notice/</a><br><b>Creator: </b><a href="http://publications.europa.eu/resource/dataset/corporate-body/EP" target="_blank">http://publications.europa.eu/resource/dataset/corporate-body/EP</a><br><b>Publisher: </b><a href="http://publications.europa.eu/resource/dataset/corporate-body/EP" target="_blank">http://publications.europa.eu/resource/dataset/corporate-body/EP</a><br><b id="formats">Download serialization: </b><div><span class="sp_serialization_badge"><a href="https://europarl.github.io/eli-ep/1.1/eli-ep.shacl.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL"></a></span></div><br></div>
          <div class="sp_section_title_toc toc">
             <h2 id="Index"><a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="#" href="#Index" style="position: absolute; margin-left: -1.25em; padding-right: 0.25em; padding-left: 0.25em;"></a>Table of Contents</h2>
             <ul role="list" class="sp_list_toc ul_type_none t-x-mode">
@@ -337,17 +337,17 @@
                   </table>
                </section>
             </div>
-			<div id="diagram">
+            <div id="diagram">
      
                
-                           <h2 id="diagram" class="sp_section_subtitle"><a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="#" href="#diagram" style="position: absolute; margin-left: -1.25em; padding-right: 0.25em; padding-left: 0.25em;"></a>Diagram</h2>
+               <h2 id="diagram" class="sp_section_subtitle"><a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="#" href="#diagram" style="position: absolute; margin-left: -1.25em; padding-right: 0.25em; padding-left: 0.25em;"></a>Diagram</h2>
 
-                        <figure id="fig-diagram">
-                          <a title="Click to open the diagram at full size" href="./eli-ep.svg" target="_blank"><img alt="Diagram" src="./eli-ep.svg" width="100%"/></a>
-                          <figcaption>ELI-EP diagram</figcaption>
-                        </figure>
-                        
-                        </div>
+            <figure id="fig-diagram">
+              <a title="Click to open the diagram at full size" href="./eli-ep.svg" target="_blank"><img alt="Diagram" src="./eli-ep.svg" width="100%"/></a>
+              <figcaption>ELI-EP diagram</figcaption>
+            </figure>
+            
+            </div>
          </div><br><div>
             <h2 id="description" class="sp_section_subtitle"><a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="#" href="#description" style="position: absolute; margin-left: -1.25em; padding-right: 0.25em; padding-left: 0.25em;"></a>Description</h2>ELI-EP
  is an application profile based on the ELI / ELI-DL Ontology, 
@@ -392,7 +392,8 @@ the European Parliament.</div>
                               <div style="width:30px">0..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description">Indicates a LegalResource already published that the future law, if adopted, will
-                              change. Readers should refer to the definition of the eli:changes property.
+                              change. Readers should refer to the definition of the eli:changes property.
+
                               Note the legal impacts can change in successive versions of the same document.</td>
                         </tr>
                         <tr>
@@ -651,7 +652,7 @@ the European Parliament.</div>
                         </tr>
                         <tr>
                            <td>version status</td>
-                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#versionType">epvoc:versionType</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#versiontype">epvoc:versiontype</a></code></td>
                            <td><code><a href="#euvoc:FileStatus">Status</a></code><br></td>
                            <td>
                               <div style="width:30px">0..1</div>
@@ -661,7 +662,7 @@ the European Parliament.</div>
                         <tr>
                            <td>work type</td>
                            <td><code><a href="http://data.europa.eu/eli/ontology#work_type">eli:work_type</a></code></td>
-                           <td><code><a href="#eli:WorkType">Work type</a></code><br></td>
+                           <td><code>eli:Worktype</code><br></td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
@@ -855,7 +856,7 @@ the European Parliament.</div>
                         <tr>
                            <td>work type</td>
                            <td><code><a href="http://data.europa.eu/eli/ontology#work_type">eli:work_type</a></code></td>
-                           <td><code><a href="#eli:WorkType">Work type</a></code><br></td>
+                           <td><code>eli:Worktype</code><br></td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
@@ -961,7 +962,7 @@ the European Parliament.</div>
                         <tr>
                            <td>format</td>
                            <td><code><a href="http://purl.org/dc/terms/format">dcterms:format</a></code></td>
-                           <td><code><a href="#dcterms:MediaTypeOrExtent">Media Type or Extent</a></code><br></td>
+                           <td><code>dcterms:MediatypeOrExtent</code><br></td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
@@ -970,11 +971,12 @@ the European Parliament.</div>
                         <tr>
                            <td>format</td>
                            <td><code><a href="http://data.europa.eu/eli/ontology#media_type">eli:media_type</a></code></td>
-                           <td><code><a href="#dcterms:MediaType">Media Type</a></code><br></td>
+                           <td><code>dcterms:Mediatype</code><br></td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
-                           <td class="sp_table_propertyshapes_col_description">The file format of the manifestation (IANA).
+                           <td class="sp_table_propertyshapes_col_description">The file format of the manifestation (IANA).
+
                               This field is intended to capture the technical file format and will serve as a basis
                               for content negotiation for the server to return the appropriate file based on the
                               client preference.</td>
@@ -1033,8 +1035,10 @@ the European Parliament.</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description">The date of an activity, to indicate a single date. Alternatively, if an activity
                               spans a time range, \"activity_start_date\" and \"activity_end_date\" can be used
-                              to indicate the beginning and end of the activity.
-                              
+                              to indicate the beginning and end of the activity.
+
+                              
+
                               Dates can be expressed either at a date precision (yyyy-mm-dd), or with time precision
                               (yyyy-dd-mmYhh:mm:ss)</td>
                         </tr>
@@ -1045,8 +1049,10 @@ the European Parliament.</div>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
-                           <td class="sp_table_propertyshapes_col_description">The date at which an activity ended.
-                              
+                           <td class="sp_table_propertyshapes_col_description">The date at which an activity ended.
+
+                              
+
                               Dates can be expressed either at a date precision (yyyy-mm-dd), or with time precision
                               (yyyy-dd-mmYhh:mm:ss)</td>
                         </tr>
@@ -1059,8 +1065,10 @@ the European Parliament.</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description">An identifier for the process. This is meant to capture how the process is identified
                               by law makers. A process can have multiple identifiers for different institutions,
-                              e.g. an identifier for the government, and an identifier for the parliament.
-                              
+                              e.g. an identifier for the government, and an identifier for the parliament.
+
+                              
+
                               Note that a subproperty process_external_id exists to capture the identifier of another
                               institution, depending on the point of view.</td>
                         </tr>
@@ -1080,15 +1088,17 @@ the European Parliament.</div>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
-                           <td class="sp_table_propertyshapes_col_description">The date at which an activity started.
-                              
+                           <td class="sp_table_propertyshapes_col_description">The date at which an activity started.
+
+                              
+
                               Dates can be expressed either at a date precision (yyyy-mm-dd), or with time precision
                               (yyyy-dd-mmYhh:mm:ss)</td>
                         </tr>
                         <tr>
                            <td>activity type</td>
                            <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#had_activity_type">eli-dl:had_activity_type</a></code></td>
-                           <td><code><a href="#eli-dl:ActivityType">Activity Type</a></code><br></td>
+                           <td><code>eli-dl:Activitytype</code><br></td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
@@ -1103,8 +1113,10 @@ the European Parliament.</div>
                               <div style="width:30px">0..*</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description">Indicates a more fine-grained activity that is taking place within this one. This
-                              allows to nest activities inside each other, at an arbitrary level of precision.
-                              
+                              allows to nest activities inside each other, at an arbitrary level of precision.
+
+                              
+
                               Example : \"Legislative process number 384\" consists of \"Initiation of the process
                               384\", \"First lecture in assembl?e nationale of legislative process 384\", \"First
                               lecture in senate of legislative process 384\", \"joint commitee reading of legislative
@@ -1156,8 +1168,10 @@ the European Parliament.</div>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
-                           <td class="sp_table_propertyshapes_col_description">Indicates that an activity was recorded in a related work.
-                              
+                           <td class="sp_table_propertyshapes_col_description">Indicates that an activity was recorded in a related work.
+
+                              
+
                               Note : this property is shortcut for an implicit FRBR \"Recording Event\" that would
                               have created the Recording of the event.</td>
                         </tr>
@@ -1202,7 +1216,7 @@ the European Parliament.</div>
                            <td><code><a href="http://purl.org/dc/terms/identifier">dcterms:identifier</a></code></td>
                            <td><code>epvoc:periclesId</code><br></td>
                            <td>
-                              <div style="width:30px">0..*</div>
+                              <div style="width:30px">0..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description">An identifier is a string of characters such as "12345-33" used to uniquely identify
                               a concept within the scope of a given concept scheme.</td>
@@ -1349,7 +1363,7 @@ the European Parliament.</div>
                      </thead>
                      <tbody>
                         <tr>
-                           <td></td>
+                           <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
                            <td><code>org:Organization</code><br></td>
                            <td>
@@ -1405,7 +1419,8 @@ dumps and APIs.</em></p>
                               <div style="width:30px">0..*</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description">Indicates that a Process created some Work . The works are seen as the \"output\"
-                              of the activity.
+                              of the activity.
+
                               Remark: Process data will not be yet available. For now, this inverse relation will
                               be provided only in adopted-texts dumps and APIs.</td>
                         </tr>
@@ -1423,37 +1438,6 @@ dumps and APIs.</em></p>
                      <li>URI pattern: <code>http://publications.europa.eu/resource/authority/resource-type/.*$</code></li>
                      <li>Example: <code>http://publications.europa.eu/resource/authority/resource-type/ADOPT_TEXT</code></li>
                   </ul>
-                  <table class="sp_table_propertyshapes table-striped table-responsive">
-                     <thead>
-                        <tr>
-                           <th>Property name</th>
-                           <th>URI</th>
-                           <th>Expected value</th>
-                           <th>Card.</th>
-                           <th class="sp_description_column">Description</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <tr>
-                           <td>Is in scheme</td>
-                           <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                           <td><code>op-aut:resource-type</code><br></td>
-                           <td>
-                              <div style="width:30px">0..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description">Property stating the concept scheme that a given resource is part of</td>
-                        </tr>
-                        <tr>
-                           <td>Type</td>
-                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>skos:Concept</code><br></td>
-                           <td>
-                              <div style="width:30px">0..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description">Property that is used to state that a resource is an instance of a class</td>
-                        </tr>
-                     </tbody>
-                  </table>
                </section>
             </div>
          </div><br><div class="row mt-3">
@@ -1487,7 +1471,7 @@ dumps and APIs.</em></p>
                            <td class="sp_table_propertyshapes_col_description">Property stating the concept scheme that a given resource is part of</td>
                         </tr>
                         <tr>
-                           <td>Type</td>
+                           <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
                            <td><code>skos:Concept</code><br></td>
                            <td>
@@ -1530,7 +1514,7 @@ dumps and APIs.</em></p>
                            <td class="sp_table_propertyshapes_col_description">Property stating the concept scheme that a given resource is part of</td>
                         </tr>
                         <tr>
-                           <td>Type</td>
+                           <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
                            <td><code>skos:Concept</code><br></td>
                            <td>
@@ -1552,37 +1536,6 @@ dumps and APIs.</em></p>
                      <li>URI pattern: <code>http://publications.europa.eu/resource/authority/file-type/.*$</code></li>
                      <li>Example: <code>http://publications.europa.eu/resource/authority/file-type/PDF</code></li>
                   </ul>
-                  <table class="sp_table_propertyshapes table-striped table-responsive">
-                     <thead>
-                        <tr>
-                           <th>Property name</th>
-                           <th>URI</th>
-                           <th>Expected value</th>
-                           <th>Card.</th>
-                           <th class="sp_description_column">Description</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <tr>
-                           <td>Is in scheme</td>
-                           <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                           <td><code>op-aut:file-type</code><br></td>
-                           <td>
-                              <div style="width:30px">0..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description">Property stating the concept scheme that a given resource is part of</td>
-                        </tr>
-                        <tr>
-                           <td>Type</td>
-                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>skos:Concept</code><br></td>
-                           <td>
-                              <div style="width:30px">0..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description">Property that is used to state that a resource is an instance of a class</td>
-                        </tr>
-                     </tbody>
-                  </table>
                </section>
             </div>
          </div><br><div class="row mt-3">
@@ -1628,7 +1581,7 @@ dumps and APIs.</em></p>
                            <td class="sp_table_propertyshapes_col_description">Property stating the concept scheme that a given resource is part of</td>
                         </tr>
                         <tr>
-                           <td>Type</td>
+                           <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
                            <td><code>skos:Concept</code><br></td>
                            <td>
@@ -1671,15 +1624,6 @@ dumps and APIs.</em></p>
                            <td class="sp_table_propertyshapes_col_description">Property stating the concept scheme that a given resource is part of</td>
                         </tr>
                         <tr>
-                           <td>Type</td>
-                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>skos:Concept</code><br></td>
-                           <td>
-                              <div style="width:30px">0..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description">Property that is used to state that a resource is an instance of a class</td>
-                        </tr>
-                        <tr>
                            <td>Within country</td>
                            <td><code><a href="http://www.opengis.net/ont/geosparql#sfWithin">geosparql:sfWithin</a></code></td>
                            <td><code><a href="#euvoc:Country">Country</a></code><br></td>
@@ -1687,6 +1631,15 @@ dumps and APIs.</em></p>
                               <div style="width:30px">0..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description">States that the subject is spatially within the object</td>
+                        </tr>
+                        <tr>
+                           <td>type</td>
+                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code>skos:Concept</code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description">Property that is used to state that a resource is an instance of a class</td>
                         </tr>
                      </tbody>
                   </table>
@@ -1723,7 +1676,7 @@ dumps and APIs.</em></p>
                            <td class="sp_table_propertyshapes_col_description">Property stating the concept scheme that a given resource is part of</td>
                         </tr>
                         <tr>
-                           <td>Type</td>
+                           <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
                            <td><code>skos:Concept</code><br></td>
                            <td>
@@ -1766,7 +1719,7 @@ dumps and APIs.</em></p>
                            <td class="sp_table_propertyshapes_col_description">Property stating the concept scheme that a given resource is part of</td>
                         </tr>
                         <tr>
-                           <td>Type</td>
+                           <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
                            <td><code>skos:Concept</code><br></td>
                            <td>
@@ -1809,7 +1762,7 @@ dumps and APIs.</em></p>
                            <td class="sp_table_propertyshapes_col_description">Property stating the concept scheme that a given resource is part of</td>
                         </tr>
                         <tr>
-                           <td>Type</td>
+                           <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
                            <td><code>skos:Concept</code><br></td>
                            <td>
@@ -1844,23 +1797,15 @@ dumps and APIs.</em></p>
                         <tr>
                            <td>Is in scheme</td>
                            <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                           <td><code>IRI</code><br></td>
+                           <td><code>IRI</code><br><p><small>(op-aut:subject-matter, op-aut:dir-eu-legal-act, http://eurovoc.europa.eu)</small></p>
+                           </td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description">Property stating the concept scheme that a given resource is part of</td>
                         </tr>
                         <tr>
-                           <td>Preferred label</td>
-                           <td><code><a href="http://www.w3.org/2004/02/skos/core#prefLabel">skos:prefLabel</a></code></td>
-                           <td><code>IRI</code><br></td>
-                           <td>
-                              <div style="width:30px">0..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description">The preferred lexical label for a resource, in a given language.</td>
-                        </tr>
-                        <tr>
-                           <td></td>
+                           <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
                            <td><code>skos:Concept</code><br></td>
                            <td>
@@ -1882,9 +1827,40 @@ dumps and APIs.</em></p>
                      <li>URI pattern: <code>http://publications.europa.eu/resource/authority/event/.*$</code></li>
                      <li>Example: <code>http://publications.europa.eu/resource/authority/event/EP_PLENARY_PART_SESSION</code></li>
                   </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Is in scheme</td>
+                           <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                           <td><code>op-aut:event</code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description">Property stating the concept scheme that a given resource is part of</td>
+                        </tr>
+                        <tr>
+                           <td>type</td>
+                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code>eli-dl:ActivityType</code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description">Property that is used to state that a resource is an instance of a class</td>
+                        </tr>
+                     </tbody>
+                  </table>
                </section>
             </div>
-         </div><br></div><script src="inline-data_files/anchor.min.js">//</script><script>				
+         </div><br></div><script src="index2_files/anchor.min.js">//</script><script>				
 					anchors.options = {
 	                    icon: '#'
 	                  };
