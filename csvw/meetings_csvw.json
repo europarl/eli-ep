@@ -1,0 +1,125 @@
+{
+  "@context": "http://www.w3.org/ns/csvw",
+  "dc:license": {
+    "@id": "https://www.europarl.europa.eu/legal-notice"
+  },
+  "dc:modified": {
+    "@type": "xsd:date",
+    "@value": "2023-06-07"
+  },
+  "dc:publisher": "European Parliament",
+  "dc:title": "meetings_csv",
+  "url": "https://data.europarl.europa.eu/def/meetings_csvw.json",
+  "tables": [
+    {
+      "url": "meetings.csv",
+      "tableSchema": {
+        "columns": [
+          {
+            "name": "meeting_identifier",
+            "propertyUrl": "eli-dl:activity_id",
+            "constraints": {
+              "required": true,
+              "type": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          },
+          {
+            "name": "meeting_title",
+            "propertyUrl": "dcterms:title",
+            "constraints": {
+              "required": false,
+              "type": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          },
+          {
+            "name": "meeting_type",
+            "propertyUrl": "eli-dl:had_activity_type",
+            "constraints": {
+              "required": false,
+              "type": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          },
+          {
+            "name": "meeting_parliamentary_term",
+            "propertyUrl": "eli-dl:parliamentary_term",
+            "constraints": {
+              "required": false,
+              "type": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          },
+          {
+            "name": "meeting_start",
+            "propertyUrl": "eli-dl:activity_start_date",
+            "constraints": {
+              "required": false,
+              "type": "http://www.w3.org/2001/XMLSchema#dateTime"
+            }
+          },
+          {
+            "name": "meeting_end",
+            "propertyUrl": "eli-dl:activity_end_date",
+            "constraints": {
+              "required": false,
+              "type": "http://www.w3.org/2001/XMLSchema#dateTime"
+            }
+          },
+          {
+            "name": "meeting_place",
+            "propertyUrl": "vcard:hasLocality",
+            "constraints": {
+              "required": false,
+              "type": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          },
+          {
+            "name": "meeting_room",
+            "propertyUrl": "epvoc:hasRoom",
+            "constraints": {
+              "required": false,
+              "type": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          },
+          {
+            "name": "meeting_document_agenda_pdf",
+            "propertyUrl": "eli:is_exemplified_by",
+            "constraints": {
+              "required": false,
+              "type": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          },
+          {
+            "name": "meeting_document_minutes_pdf",
+            "propertyUrl": "eli:is_exemplified_by",
+            "constraints": {
+              "required": false,
+              "type": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          },
+          {
+            "name": "meeting_document_debates_pdf",
+            "propertyUrl": "eli:is_exemplified_by",
+            "constraints": {
+              "required": false,
+              "type": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          },
+          {
+            "name": "meeting_belongs_to",
+            "propertyUrl": "eli-dl:consists_of",
+            "constraints": {
+              "required": false,
+              "type": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          },
+          {
+            "name": "meeting_uri",
+            "constraints": {
+              "required": true,
+              "type": "http://www.w3.org/2001/XMLSchema#anyURI"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
