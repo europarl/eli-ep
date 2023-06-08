@@ -1,0 +1,165 @@
+{
+  "@context": "http://www.w3.org/ns/csvw",
+  "dc:license": {
+    "@id": "https://www.europarl.europa.eu/legal-notice"
+  },
+  "dc:modified": {
+    "@type": "xsd:date",
+    "@value": "2023-06-07"
+  },
+  "dc:publisher": "European Parliament",
+  "dc:title": "plenary-documents_csv",
+  "url": "https://data.europarl.europa.eu/def/plenary-documents_csvw.json",
+  "tables": [
+    {
+      "url": "plenary-documents.csv",
+      "tableSchema": {
+        "columns": [
+          {
+            "name": "document_identifier",
+            "propertyUrl": "dc:identifier",
+            "constraints": {
+              "required": true,
+              "type": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          },
+          {
+            "name": "document_title",
+            "propertyUrl": "eli:title",
+            "constraints": {
+              "required": false,
+              "type": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          },
+          {
+            "name": "document_type",
+            "propertyUrl": "eli:work_type",
+            "constraints": {
+              "required": false,
+              "type": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          },
+          {
+            "name": "document_parliamentary_term",
+            "propertyUrl": "eli-dl:parliamentary_term",
+            "constraints": {
+              "required": false,
+              "type": "http://www.w3.org/2001/XMLSchema#int"
+            }
+          },
+          {
+            "name": "document_date",
+            "propertyUrl": "eli:date_document",
+            "constraints": {
+              "required": false,
+              "type": "http://www.w3.org/2001/XMLSchema#dateTime"
+            }
+          },
+          {
+            "name": "document_public_register_notation",
+            "propertyUrl": "skos:notation",
+            "constraints": {
+              "required": false,
+              "type": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          },
+          {
+            "name": "document_creator_person",
+            "propertyUrl": "dcterms:creator",
+            "constraints": {
+              "required": false,
+              "type": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          },
+          {
+            "name": "document_creator_organization",
+            "propertyUrl": "dcterms:creator",
+            "constraints": {
+              "required": false,
+              "type": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          },
+          {
+            "name": "document_language",
+            "propertyUrl": "eli:language",
+            "constraints": {
+              "required": false,
+              "type": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          },
+          {
+            "name": "document_pdf",
+            "propertyUrl": "eli:is_exemplified_by",
+            "constraints": {
+              "required": false,
+              "type": "http://www.w3.org/2001/XMLSchema#anyURI"
+            }
+          },
+          {
+            "name": "document_doc",
+            "propertyUrl": "eli:is_exemplified_by",
+            "constraints": {
+              "required": false,
+              "type": "http://www.w3.org/2001/XMLSchema#anyURI"
+            }
+          },
+          {
+            "name": "document_errata_pdf",
+            "propertyUrl": "eli:is_exemplified_by",
+            "constraints": {
+              "required": false,
+              "type": "http://www.w3.org/2001/XMLSchema#anyURI"
+            }
+          },
+          {
+            "name": "document_errata_doc",
+            "propertyUrl": "eli:is_exemplified_by",
+            "constraints": {
+              "required": false,
+              "type": "http://www.w3.org/2001/XMLSchema#anyURI"
+            }
+          },
+          {
+            "name": "document_amendments_pdf",
+            "propertyUrl": "eli:is_exemplified_by",
+            "constraints": {
+              "required": false,
+              "type": "http://www.w3.org/2001/XMLSchema#anyURI"
+            }
+          },
+          {
+            "name": "document_amendments_doc",
+            "propertyUrl": "eli:is_exemplified_by",
+            "constraints": {
+              "required": false,
+              "type": "http://www.w3.org/2001/XMLSchema#anyURI"
+            }
+          },
+          {
+            "name": "document_ep_number",
+            "propertyUrl": "epvoc:epNumber",
+            "constraints": {
+              "required": false,
+              "type": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          },
+          {
+            "name": "document_number_version",
+            "propertyUrl": "epvoc:epNumberVersion",
+            "constraints": {
+              "required": false,
+              "type": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          },
+          {
+            "name": "document_URI",
+            "constraints": {
+              "required": true,
+              "type": "http://www.w3.org/2001/XMLSchema#anyURI"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
