@@ -34,8 +34,12 @@
   rdfs:label "ELI-EP Application Profile"@en;
   dcterms:title "ELI-EP Application Profile"@en;
   dcterms:description "ELI-EP is an application profile based on the ELI / ELI-DL Ontology, specifically designed to describe the documents and the activities of the European Parliament."@en;
-  owl:versionInfo "1.1";
-  adms:versionNotes """1.1 - 2023-04-14
+  owl:versionInfo "1.2";
+  adms:versionNotes """1.2 - 2023-06-10
+- (update) change dcterms:identifier^^epvoc:periclesId to skos:notation^^epvoc:periclesId
+(update) eli-dl:activity_date change datatype to date only (xsd:date)
+
+1.1 - 2023-04-14
 - (new) object properties: eli-dl:adopts, epvoc:isAboutSubjectMatter, epvoc:isAboutDirectoryCode
 - (new) eli-dl:Process
 - (update) eli:date_document sh:datatype changed from xsd:dateTime to xsd:date"""@en;
@@ -43,15 +47,15 @@
   owl:versionIRI <https://data.europarl.europa.eu/def/eli-ep#>;
   dcterms:conformsTo <https://www.w3.org/TR/shacl>;
   dcterms:created "2022-11-24"^^xsd:date;
-  dcterms:modified "2023-04-17T00:00:00.000Z"^^xsd:dateTime;
+  dcterms:modified "2023-06-20T00:00:00.000Z"^^xsd:dateTime;
   dcterms:dateCopyrighted "2022"^^xsd:gYear;
   dcterms:license <https://www.europarl.europa.eu/legal-notice/>;
   dcterms:creator <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
   dcterms:publisher <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
   dcterms:rigthsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
-  dcat:distribution _:24b883f25d9e4a03a5050a6b1d409209852 .
+  dcat:distribution _:edfc1a2bfd5d4c73ac4a3025879a52441689 .
 
-_:24b883f25d9e4a03a5050a6b1d409209852 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
+_:edfc1a2bfd5d4c73ac4a3025879a52441689 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
   dcat:downloadURL <https://europarl.github.io/eli-ep/1.1/eli-ep.shacl.ttl> .
 
 eli:Work a sh:NodeShape, rdfs:Class;
@@ -59,7 +63,7 @@ eli:Work a sh:NodeShape, rdfs:Class;
   sh:nodeKind sh:IRI;
   sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
   sh:closed "true"^^xsd:boolean;
-  sh:ignoredProperties _:24b883f25d9e4a03a5050a6b1d409209853;
+  sh:ignoredProperties _:edfc1a2bfd5d4c73ac4a3025879a52441690;
   rdfs:label "Work"@en;
   sh:order "1"^^xsd:integer;
   owl:versionInfo "v1.0";
@@ -70,7 +74,7 @@ eli:Work a sh:NodeShape, rdfs:Class;
     eli-ep:P32, eli-ep:P33, eli-ep:P34, eli-ep:P35, eli-ep:P36, eli-ep:P37, eli-ep:P38,
     eli-ep:P39, eli-ep:P40, eli-ep:P41, eli-ep:P42 .
 
-_:24b883f25d9e4a03a5050a6b1d409209853 rdf:first rdf:type;
+_:edfc1a2bfd5d4c73ac4a3025879a52441690 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 eli:ComplexWork a sh:NodeShape, rdfs:Class;
@@ -78,7 +82,7 @@ eli:ComplexWork a sh:NodeShape, rdfs:Class;
   sh:nodeKind sh:IRI;
   sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
   sh:closed "true"^^xsd:boolean;
-  sh:ignoredProperties _:24b883f25d9e4a03a5050a6b1d409209854;
+  sh:ignoredProperties _:edfc1a2bfd5d4c73ac4a3025879a52441691;
   rdfs:label "Complex work"@en;
   sh:order "2"^^xsd:integer;
   owl:versionInfo "v1.0";
@@ -87,7 +91,7 @@ eli:ComplexWork a sh:NodeShape, rdfs:Class;
     eli-ep:P16, eli-ep:P17, eli-ep:P18, eli-ep:P19, eli-ep:P20, eli-ep:P21, eli-ep:P22,
     eli-ep:P23, eli-ep:P24, eli-ep:P25, eli-ep:P45, eli-ep:P46 .
 
-_:24b883f25d9e4a03a5050a6b1d409209854 rdf:first rdf:type;
+_:edfc1a2bfd5d4c73ac4a3025879a52441691 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 eli:Expression a sh:NodeShape, rdfs:Class;
@@ -95,14 +99,14 @@ eli:Expression a sh:NodeShape, rdfs:Class;
   sh:nodeKind sh:IRI;
   sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+/[a-z][a-z]$";
   sh:closed "true"^^xsd:boolean;
-  sh:ignoredProperties _:24b883f25d9e4a03a5050a6b1d409209855;
+  sh:ignoredProperties _:edfc1a2bfd5d4c73ac4a3025879a52441692;
   rdfs:label "Expression"@en;
   sh:order "3"^^xsd:integer;
   owl:versionInfo "v1.0";
   shacl-play:color "RoyalBlue";
   sh:property eli-ep:P66, eli-ep:P67, eli-ep:P68, eli-ep:P69 .
 
-_:24b883f25d9e4a03a5050a6b1d409209855 rdf:first rdf:type;
+_:edfc1a2bfd5d4c73ac4a3025879a52441692 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 eli:Manifestation a sh:NodeShape, rdfs:Class;
@@ -110,14 +114,14 @@ eli:Manifestation a sh:NodeShape, rdfs:Class;
   sh:nodeKind sh:IRI;
   sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+/[a-z][a-z]/.*$";
   sh:closed "true"^^xsd:boolean;
-  sh:ignoredProperties _:24b883f25d9e4a03a5050a6b1d409209856;
+  sh:ignoredProperties _:edfc1a2bfd5d4c73ac4a3025879a52441693;
   rdfs:label "Manifestation"@en;
   sh:order "4"^^xsd:integer;
   owl:versionInfo "v1.0";
   shacl-play:color "SeaGreen";
   sh:property eli-ep:P73, eli-ep:P74, eli-ep:P75, eli-ep:P76, eli-ep:P77 .
 
-_:24b883f25d9e4a03a5050a6b1d409209856 rdf:first rdf:type;
+_:edfc1a2bfd5d4c73ac4a3025879a52441693 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 eli-dl:Activity a sh:NodeShape, rdfs:Class;
@@ -125,7 +129,7 @@ eli-dl:Activity a sh:NodeShape, rdfs:Class;
   sh:nodeKind sh:IRI;
   sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\\-_]+$";
   sh:closed "true"^^xsd:boolean;
-  sh:ignoredProperties _:24b883f25d9e4a03a5050a6b1d409209857;
+  sh:ignoredProperties _:edfc1a2bfd5d4c73ac4a3025879a52441694;
   rdfs:label "Activity"@en;
   sh:order "5"^^xsd:integer;
   owl:versionInfo "v1.0";
@@ -133,7 +137,7 @@ eli-dl:Activity a sh:NodeShape, rdfs:Class;
   sh:property eli-ep:P51, eli-ep:P52, eli-ep:P53, eli-ep:P54, eli-ep:P55, eli-ep:P56,
     eli-ep:P57, eli-ep:P58, eli-ep:P59, eli-ep:P60, eli-ep:P61, eli-ep:P62, eli-ep:P63 .
 
-_:24b883f25d9e4a03a5050a6b1d409209857 rdf:first rdf:type;
+_:edfc1a2bfd5d4c73ac4a3025879a52441694 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 eli-dl:ForeseenActivity a sh:NodeShape, rdfs:Class;
@@ -141,14 +145,14 @@ eli-dl:ForeseenActivity a sh:NodeShape, rdfs:Class;
   sh:nodeKind sh:IRI;
   sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\\-_]+$";
   sh:closed "true"^^xsd:boolean;
-  sh:ignoredProperties _:24b883f25d9e4a03a5050a6b1d409209858;
+  sh:ignoredProperties _:edfc1a2bfd5d4c73ac4a3025879a52441695;
   rdfs:label "ForeseenActivity"@en;
   sh:order "6"^^xsd:integer;
   owl:versionInfo "v1.0";
   shacl-play:color "DarkBlue";
   sh:property eli-ep:P49 .
 
-_:24b883f25d9e4a03a5050a6b1d409209858 rdf:first rdf:type;
+_:edfc1a2bfd5d4c73ac4a3025879a52441695 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 eli-dl:Participation a sh:NodeShape, rdfs:Class;
@@ -156,14 +160,14 @@ eli-dl:Participation a sh:NodeShape, rdfs:Class;
   sh:nodeKind sh:IRI;
   sh:pattern "^https://data.europarl.europa.eu/eli/dl/participation/[A-Za-z0-9\\-_]+_+[A-Za-z0-9\\-_]+$";
   sh:closed "true"^^xsd:boolean;
-  sh:ignoredProperties _:24b883f25d9e4a03a5050a6b1d409209859;
+  sh:ignoredProperties _:edfc1a2bfd5d4c73ac4a3025879a52441696;
   rdfs:label "Participation"@en;
   sh:order "7"^^xsd:integer;
   owl:versionInfo "v1.0";
   shacl-play:color "Purple";
   sh:property eli-ep:P80, eli-ep:P81, eli-ep:P82, eli-ep:P83 .
 
-_:24b883f25d9e4a03a5050a6b1d409209859 rdf:first rdf:type;
+_:edfc1a2bfd5d4c73ac4a3025879a52441696 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 epvoc:Room a sh:NodeShape, rdfs:Class;
@@ -171,14 +175,14 @@ epvoc:Room a sh:NodeShape, rdfs:Class;
   sh:nodeKind sh:IRI;
   sh:pattern "^https://data.europarl.europa.eu/room/[A-Za-z0-9\\-_]+$";
   sh:closed "true"^^xsd:boolean;
-  sh:ignoredProperties _:24b883f25d9e4a03a5050a6b1d409209860;
+  sh:ignoredProperties _:edfc1a2bfd5d4c73ac4a3025879a52441697;
   rdfs:label "Room"@en;
   sh:order "8"^^xsd:integer;
   owl:versionInfo "v1.0";
   shacl-play:color "Black";
   sh:property eli-ep:P86, eli-ep:P87, eli-ep:P88 .
 
-_:24b883f25d9e4a03a5050a6b1d409209860 rdf:first rdf:type;
+_:edfc1a2bfd5d4c73ac4a3025879a52441697 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 eli-dl:ParliamentaryTerm a sh:NodeShape, rdfs:Class;
@@ -186,26 +190,26 @@ eli-dl:ParliamentaryTerm a sh:NodeShape, rdfs:Class;
   sh:nodeKind sh:IRI;
   sh:pattern "^https://data.europarl.europa.eu/org/ep-[0-9].*$";
   sh:closed "true"^^xsd:boolean;
-  sh:ignoredProperties _:24b883f25d9e4a03a5050a6b1d409209861;
+  sh:ignoredProperties _:edfc1a2bfd5d4c73ac4a3025879a52441698;
   rdfs:label "Parliamentary term"@en;
   sh:order "9"^^xsd:integer;
   owl:versionInfo "v1.0";
   shacl-play:color "Black";
   sh:property eli-ep:P94 .
 
-_:24b883f25d9e4a03a5050a6b1d409209861 rdf:first rdf:type;
+_:edfc1a2bfd5d4c73ac4a3025879a52441698 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 eli:LegalResource a sh:NodeShape, rdfs:Class;
   sh:nodeKind sh:IRI;
   sh:closed "true"^^xsd:boolean;
-  sh:ignoredProperties _:24b883f25d9e4a03a5050a6b1d409209862;
+  sh:ignoredProperties _:edfc1a2bfd5d4c73ac4a3025879a52441699;
   rdfs:label "Legal Resource"@en;
   sh:order "10"^^xsd:integer;
   owl:versionInfo "v1.0";
   shacl-play:color "Orange" .
 
-_:24b883f25d9e4a03a5050a6b1d409209862 rdf:first rdf:type;
+_:edfc1a2bfd5d4c73ac4a3025879a52441699 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 eli-dl:Process a sh:NodeShape, rdfs:Class;
@@ -214,178 +218,178 @@ eli-dl:Process a sh:NodeShape, rdfs:Class;
   sh:nodeKind sh:IRI;
   sh:pattern "^https://data.europarl.europa.eu/eli/dl/proc/[A-Za-z0-9\\-_]+$";
   sh:closed "true"^^xsd:boolean;
-  sh:ignoredProperties _:24b883f25d9e4a03a5050a6b1d409209863;
+  sh:ignoredProperties _:edfc1a2bfd5d4c73ac4a3025879a52441700;
   rdfs:label "Process"@en;
   sh:order "11"^^xsd:integer;
   owl:versionInfo "v1.1";
   shacl-play:color "Plum";
   sh:property eli-ep:P91 .
 
-_:24b883f25d9e4a03a5050a6b1d409209863 rdf:first rdf:type;
+_:edfc1a2bfd5d4c73ac4a3025879a52441700 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 eli:WorkType a sh:NodeShape, rdfs:Class;
   skos:example "http://publications.europa.eu/resource/authority/resource-type/ADOPT_TEXT";
   sh:nodeKind sh:IRI;
   sh:pattern "http://publications.europa.eu/resource/authority/resource-type/.*$";
-  sh:ignoredProperties _:24b883f25d9e4a03a5050a6b1d409209864;
+  sh:ignoredProperties _:edfc1a2bfd5d4c73ac4a3025879a52441701;
   rdfs:label "Work type"@en;
   sh:order "12"^^xsd:integer;
   owl:versionInfo "v1.0";
   shacl-play:color "DarkGrey" .
 
-_:24b883f25d9e4a03a5050a6b1d409209864 rdf:first rdf:type;
+_:edfc1a2bfd5d4c73ac4a3025879a52441701 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 eli-dl:ParticipationRole a sh:NodeShape, rdfs:Class;
   skos:example "http://publications.europa.eu/resource/authority/role/RAPP";
   sh:nodeKind sh:IRI;
   sh:pattern "http://publications.europa.eu/resource/authority/role/.*$";
-  sh:ignoredProperties _:24b883f25d9e4a03a5050a6b1d409209865;
+  sh:ignoredProperties _:edfc1a2bfd5d4c73ac4a3025879a52441702;
   rdfs:label "Participation Role"@en;
   sh:order "13"^^xsd:integer;
   owl:versionInfo "v1.0";
   shacl-play:color "DarkGrey";
   sh:property eli-ep:P101, eli-ep:P102 .
 
-_:24b883f25d9e4a03a5050a6b1d409209865 rdf:first rdf:type;
+_:edfc1a2bfd5d4c73ac4a3025879a52441702 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 dcterms:LinguisticSystem a sh:NodeShape, rdfs:Class;
   skos:example "http://publications.europa.eu/resource/authority/language/LIT";
   sh:nodeKind sh:IRI;
   sh:pattern "http://publications.europa.eu/resource/authority/langauge/.*$";
-  sh:ignoredProperties _:24b883f25d9e4a03a5050a6b1d409209866;
+  sh:ignoredProperties _:edfc1a2bfd5d4c73ac4a3025879a52441703;
   rdfs:label "Linguistic System"@en;
   sh:order "14"^^xsd:integer;
   owl:versionInfo "v1.0";
   shacl-play:color "DarkGrey";
   sh:property eli-ep:P121, eli-ep:P122 .
 
-_:24b883f25d9e4a03a5050a6b1d409209866 rdf:first rdf:type;
+_:edfc1a2bfd5d4c73ac4a3025879a52441703 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 dcterms:MediaTypeOrExtent a sh:NodeShape, rdfs:Class;
   skos:example "http://publications.europa.eu/resource/authority/file-type/PDF";
   sh:nodeKind sh:IRI;
   sh:pattern "http://publications.europa.eu/resource/authority/file-type/.*$";
-  sh:ignoredProperties _:24b883f25d9e4a03a5050a6b1d409209867;
+  sh:ignoredProperties _:edfc1a2bfd5d4c73ac4a3025879a52441704;
   rdfs:label "Media Type or Extent"@en;
   sh:order "15"^^xsd:integer;
   owl:versionInfo "v1.0";
   shacl-play:color "DarkGrey" .
 
-_:24b883f25d9e4a03a5050a6b1d409209867 rdf:first rdf:type;
+_:edfc1a2bfd5d4c73ac4a3025879a52441704 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 dcterms:MediaType a sh:NodeShape, rdfs:Class;
   skos:example "https://www.iana.org/assignments/media-types/application/pdf";
   sh:nodeKind sh:IRI;
   sh:pattern "https://www.iana.org/assignments/media-types/application/.*$";
-  sh:ignoredProperties _:24b883f25d9e4a03a5050a6b1d409209868;
+  sh:ignoredProperties _:edfc1a2bfd5d4c73ac4a3025879a52441705;
   rdfs:label "Media Type"@en;
   sh:order "16"^^xsd:integer;
   owl:versionInfo "v1.0";
   shacl-play:color "DarkGrey" .
 
-_:24b883f25d9e4a03a5050a6b1d409209868 rdf:first rdf:type;
+_:edfc1a2bfd5d4c73ac4a3025879a52441705 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 euvoc:Country a sh:NodeShape, rdfs:Class;
   skos:example "http://publications.europa.eu/resource/authority/country/FRA";
   sh:nodeKind sh:IRI;
   sh:pattern "http://publications.europa.eu/resource/authority/country/.*$";
-  sh:ignoredProperties _:24b883f25d9e4a03a5050a6b1d409209869;
+  sh:ignoredProperties _:edfc1a2bfd5d4c73ac4a3025879a52441706;
   rdfs:label "Country"@en;
   sh:order "17"^^xsd:integer;
   owl:versionInfo "v1.0";
   shacl-play:color "DarkGrey";
   sh:property eli-ep:P125, eli-ep:P126 .
 
-_:24b883f25d9e4a03a5050a6b1d409209869 rdf:first rdf:type;
+_:edfc1a2bfd5d4c73ac4a3025879a52441706 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 dcterms:Location a sh:NodeShape, rdfs:Class;
   skos:example "http://publications.europa.eu/resource/authority/place/FRA_SXB";
   sh:nodeKind sh:IRI;
   sh:pattern "http://publications.europa.eu/resource/authority/place/.*$";
-  sh:ignoredProperties _:24b883f25d9e4a03a5050a6b1d409209870;
+  sh:ignoredProperties _:edfc1a2bfd5d4c73ac4a3025879a52441707;
   rdfs:label "Place"@en;
   sh:order "18"^^xsd:integer;
   owl:versionInfo "v1.0";
   shacl-play:color "DarkGrey";
   sh:property eli-ep:P129, eli-ep:P130, eli-ep:P131 .
 
-_:24b883f25d9e4a03a5050a6b1d409209870 rdf:first rdf:type;
+_:edfc1a2bfd5d4c73ac4a3025879a52441707 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 euvoc:FileStatus a sh:NodeShape, rdfs:Class;
   skos:example "http://publications.europa.eu/resource/authority/file-status/ADOPTED";
   sh:nodeKind sh:IRI;
   sh:pattern "http://publications.europa.eu/resource/authority/file-status/.*$";
-  sh:ignoredProperties _:24b883f25d9e4a03a5050a6b1d409209871;
+  sh:ignoredProperties _:edfc1a2bfd5d4c73ac4a3025879a52441708;
   rdfs:label "Status"@en;
   sh:order "19"^^xsd:integer;
   owl:versionInfo "v1.0";
   shacl-play:color "DarkGrey";
   sh:property eli-ep:P109, eli-ep:P110 .
 
-_:24b883f25d9e4a03a5050a6b1d409209871 rdf:first rdf:type;
+_:edfc1a2bfd5d4c73ac4a3025879a52441708 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 org:Organization a sh:NodeShape, rdfs:Class;
   skos:example "http://publications.europa.eu/resource/authority/corporate-body/EP";
   sh:nodeKind sh:IRI;
   sh:pattern "http://publications.europa.eu/resource/authority/corporate-body/.*$";
-  sh:ignoredProperties _:24b883f25d9e4a03a5050a6b1d409209872;
+  sh:ignoredProperties _:edfc1a2bfd5d4c73ac4a3025879a52441709;
   rdfs:label "Corporate Body"@en;
   sh:order "20"^^xsd:integer;
   owl:versionInfo "v1.0";
   shacl-play:color "DarkGrey";
   sh:property eli-ep:P138, eli-ep:P139 .
 
-_:24b883f25d9e4a03a5050a6b1d409209872 rdf:first rdf:type;
+_:edfc1a2bfd5d4c73ac4a3025879a52441709 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 org:Site a sh:NodeShape, rdfs:Class;
   skos:example "http://publications.europa.eu/resource/authority/site/ASP";
   sh:nodeKind sh:IRI;
   sh:pattern "http://publications.europa.eu/resource/authority/site/.*$";
-  sh:ignoredProperties _:24b883f25d9e4a03a5050a6b1d409209873;
+  sh:ignoredProperties _:edfc1a2bfd5d4c73ac4a3025879a52441710;
   rdfs:label "Site"@en;
   sh:order "21"^^xsd:integer;
   owl:versionInfo "v1.0";
   shacl-play:color "DarkGrey";
   sh:property eli-ep:P134, eli-ep:P135 .
 
-_:24b883f25d9e4a03a5050a6b1d409209873 rdf:first rdf:type;
+_:edfc1a2bfd5d4c73ac4a3025879a52441710 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 skos:Concept a sh:NodeShape, rdfs:Class;
   skos:example "http://eurovoc.europa.eu/434743";
   sh:nodeKind sh:IRI;
-  sh:ignoredProperties _:24b883f25d9e4a03a5050a6b1d409209874;
+  sh:ignoredProperties _:edfc1a2bfd5d4c73ac4a3025879a52441711;
   rdfs:label "Concept"@en;
   sh:order "22"^^xsd:integer;
   owl:versionInfo "v1.0";
   shacl-play:color "DarkGrey";
   sh:property eli-ep:P97, eli-ep:P98 .
 
-_:24b883f25d9e4a03a5050a6b1d409209874 rdf:first rdf:type;
+_:edfc1a2bfd5d4c73ac4a3025879a52441711 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 eli-dl:ActivityType a sh:NodeShape, rdfs:Class;
   skos:example "http://publications.europa.eu/resource/authority/event/EP_PLENARY_PART_SESSION";
   sh:nodeKind sh:IRI;
   sh:pattern "http://publications.europa.eu/resource/authority/event/.*$";
-  sh:ignoredProperties _:24b883f25d9e4a03a5050a6b1d409209875;
+  sh:ignoredProperties _:edfc1a2bfd5d4c73ac4a3025879a52441712;
   rdfs:label "Activity Type"@en;
   sh:order "23"^^xsd:integer;
   owl:versionInfo "v1.0";
   shacl-play:color "DarkGrey";
   sh:property eli-ep:P142, eli-ep:P143 .
 
-_:24b883f25d9e4a03a5050a6b1d409209875 rdf:first rdf:type;
+_:edfc1a2bfd5d4c73ac4a3025879a52441712 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 eli-ep:P10 owl:versionInfo "v1.0";
@@ -641,8 +645,8 @@ eli-ep:P46 owl:versionInfo "v1.0";
   sh:nodeKind sh:IRI;
   sh:class eli:Work .
 
-eli-ep:P49 owl:versionInfo "v1.0";
-  sh:path dcterms:identifier;
+eli-ep:P49 owl:versionInfo "v1.2";
+  sh:path skos:notation;
   sh:name "identifier in pericles"@en;
   sh:description "An identifier is a string of characters such as \"12345-33\" used to uniquely identify a concept within the scope of a given concept scheme."@en;
   sh:maxCount "1"^^xsd:integer;
@@ -658,7 +662,7 @@ eli-ep:P51 owl:versionInfo "v1.0";
   sh:nodeKind sh:IRI;
   sh:class eli-dl:Activitytype .
 
-eli-ep:P52 owl:versionInfo "v1.0";
+eli-ep:P52 owl:versionInfo "v1.2";
   sh:path eli-dl:activity_date;
   sh:name "activity date"@en;
   sh:description """The date of an activity, to indicate a single date. Alternatively, if an activity spans a time range, \\\"activity_start_date\\\" and \\\"activity_end_date\\\" can be used to indicate the beginning and end of the activity.
@@ -666,8 +670,8 @@ eli-ep:P52 owl:versionInfo "v1.0";
 Dates can be expressed either at a date precision (yyyy-mm-dd), or with time precision (yyyy-dd-mmYhh:mm:ss)"""@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
-  sh:nodeKind sh:Literal;
-  sh:datatype xsd:dateTime .
+  sh:nodeKind sh:IRI;
+  sh:class xsd:date .
 
 eli-ep:P53 owl:versionInfo "v1.0";
   sh:path eli-dl:activity_start_date;
@@ -698,7 +702,7 @@ eli-ep:P55 owl:versionInfo "v1.0";
   sh:nodeKind sh:IRI;
   sh:class eli:Work .
 
-eli-ep:P56 owl:versionInfo "v1.0";
+eli-ep:P56 owl:versionInfo "v1.2";
   sh:path eli-dl:recorded_in_realization_of;
   sh:name "recorded in realization of"@en;
   sh:description """Indicates that an activity was recorded in a related work.
@@ -921,15 +925,15 @@ eli-ep:P98 owl:versionInfo "v1.0";
   sh:name "Is in scheme"@en;
   sh:description "Property stating the concept scheme that a given resource is part of"@en;
   sh:nodeKind sh:IRI;
-  sh:in _:24b883f25d9e4a03a5050a6b1d409209876 .
+  sh:in _:edfc1a2bfd5d4c73ac4a3025879a52441713 .
 
-_:24b883f25d9e4a03a5050a6b1d409209876 rdf:first op-aut:subject-matter;
-  rdf:rest _:24b883f25d9e4a03a5050a6b1d409209877 .
+_:edfc1a2bfd5d4c73ac4a3025879a52441713 rdf:first op-aut:subject-matter;
+  rdf:rest _:edfc1a2bfd5d4c73ac4a3025879a52441714 .
 
-_:24b883f25d9e4a03a5050a6b1d409209877 rdf:first op-aut:dir-eu-legal-act;
-  rdf:rest _:24b883f25d9e4a03a5050a6b1d409209878 .
+_:edfc1a2bfd5d4c73ac4a3025879a52441714 rdf:first op-aut:dir-eu-legal-act;
+  rdf:rest _:edfc1a2bfd5d4c73ac4a3025879a52441715 .
 
-_:24b883f25d9e4a03a5050a6b1d409209878 rdf:first <http://eurovoc.europa.eu>;
+_:edfc1a2bfd5d4c73ac4a3025879a52441715 rdf:first <http://eurovoc.europa.eu>;
   rdf:rest rdf:nil .
 
 eli-ep:P101 owl:versionInfo "v1.0";
@@ -1099,4 +1103,4 @@ eli-ep:P143 owl:versionInfo "v1.0";
   sh:name "Is in scheme"@en;
   sh:description "Property stating the concept scheme that a given resource is part of"@en;
   sh:nodeKind sh:IRI;
-  sh:hasValue op-aut:language .
+  sh:hasValue op-aut:event .

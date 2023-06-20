@@ -29,43 +29,41 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
 
-<https://data.europarl.europa.eu/def/meetings#> a owl:Ontology, adms:Asset, skos:ConceptScheme;
+<https://data.europarl.europa.eu/def/meetings#> a owl:Ontology, adms:Asset;
   dcterms:type <http://publications.europa.eu/resource/authority/dataset-type/APROF>;
   rdfs:label "Meetings dataset description"@en;
   dcterms:title "Meetings dataset description"@en;
   dcterms:description "This Dataset Description is a subset of the general ELI-EP application profile and it includes classes and properties used in Meetings datasets. Descriptions of classes and properties can be found in ELI-EP application profile."@en;
-  owl:versionInfo "1.1";
-  adms:versionNotes """1.1 - 2023-04-13
+  owl:versionInfo "1.2";
+  adms:versionNotes """1.2 - 2023-06-06
+- entry point of validation (target) changed from meetings:PlenaryPartSession to meetings:PlenarySitting
+- renamed dcterms:identifier^^ properties to skos:notation^^epvoc:periclesId
+- eli-dl:activity_date datatype changed from from xsd:dateTime to xsd:date
+
+1.1 - 2023-04-13
 - remove external shapes (incl. controlled vocabularies data) in datasets.
+
 1.0 - 2022-11-18
 - creation"""@en;
   adms:status <http://publications.europa.eu/resource/dataset/dataset-status/COMPLETED>;
   owl:versionIRI <https://data.europarl.europa.eu/def/meetings#>;
   dcterms:conformsTo <https://www.w3.org/TR/shacl>;
   dcterms:created "2022-11-18"^^xsd:date;
-  dcterms:modified "2023-04-13T00:00:00.000Z"^^xsd:dateTime;
+  dcterms:modified "2023-06-10T00:00:00.000Z"^^xsd:dateTime;
   dcterms:dateCopyrighted "2022"^^xsd:gYear;
   dcterms:license <https://www.europarl.europa.eu/legal-notice/en/>;
   dcterms:creator <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
   dcterms:publisher <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
   dcterms:rigthsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
-  dcat:distribution _:a2950a43c59347ed9378ba4420ba04c28147;
-  skos:hasTopConcept meetings:P9, meetings:P10, meetings:P11, meetings:P12, meetings:P13,
-    meetings:P14, meetings:P15, meetings:P16, meetings:P17, meetings:P18, meetings:P19,
-    meetings:P21, meetings:P22, meetings:P23, meetings:P24, meetings:P25, meetings:P26,
-    meetings:P27, meetings:P28, meetings:P29, meetings:P30, meetings:P31, meetings:P32,
-    meetings:P35, meetings:P36, meetings:P37, meetings:P38, meetings:P39, meetings:P40,
-    meetings:P41, meetings:P42, meetings:P43, meetings:P44, meetings:P47, meetings:P48,
-    meetings:P49, meetings:P50, meetings:P53, meetings:P54, meetings:P57, meetings:P58,
-    meetings:P61, meetings:P62, meetings:P65, meetings:P66 .
+  dcat:distribution _:edfc1a2bfd5d4c73ac4a3025879a52441716 .
 
-_:a2950a43c59347ed9378ba4420ba04c28147 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
+_:edfc1a2bfd5d4c73ac4a3025879a52441716 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
   dcat:downloadURL <https://europarl.github.io/eli-ep/dsd/meetings/eli-ep_meetings.shacl.ttl> .
 
-meetings:PlenaryPartSession a sh:NodeShape;
+meetings:PlenarySitting a sh:NodeShape;
   rdfs:comment "This node shape refers to the class eli-dl:Activity"@en;
-  sh:target meetings:PlenaryPartSession-target;
-  skos:example "https://data.europarl.europa.eu/eli/dl/event/GMTG-PL-2020-10-23";
+  sh:target meetings:PlenarySitting-target;
+  skos:example "https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2020-10-23";
   sh:nodeKind sh:IRI;
   sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\\-_]+$";
   sh:closed "true"^^xsd:boolean;
@@ -73,26 +71,26 @@ meetings:PlenaryPartSession a sh:NodeShape;
   sh:order "1"^^xsd:integer;
   shacl-play:color "DarkBlue";
   sh:property meetings:P9, meetings:P10, meetings:P11, meetings:P12, meetings:P13, meetings:P14,
-    meetings:P15, meetings:P16, meetings:P17, meetings:P18, meetings:P19 .
+    meetings:P15, meetings:P16, meetings:P17, meetings:P18, meetings:P19, meetings:P20,
+    meetings:P21 .
 
-meetings:PlenaryPartSession-target sh:select """PREFIX eli-dl: <http://data.europa.eu/eli/eli-draft-legislation-ontology#>
+meetings:PlenarySitting-target sh:select """PREFIX eli-dl: <http://data.europa.eu/eli/eli-draft-legislation-ontology#>
 SELECT ?this
 WHERE {
- ?this eli-dl:had_activity_type <http://publications.europa.eu/resource/authority/event/EP_PLENARY_PART_SESSION> .
+ ?this eli-dl:had_activity_type <http://publications.europa.eu/resource/authority/event/EP_PLENARY_SITTING> .
 }""" .
 
-meetings:PlenarySitting a sh:NodeShape;
+meetings:PlenaryPartSession a sh:NodeShape;
   rdfs:comment "This node shape refers to the class eli-dl:Activity"@en;
-  skos:example "https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2020-10-23";
+  skos:example "https://data.europarl.europa.eu/eli/dl/event/GMTG-PL-2020-10-23";
   sh:nodeKind sh:IRI;
   sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\\-_]+$";
   sh:closed "true"^^xsd:boolean;
   rdfs:label "Plenary Sitting"@en;
   sh:order "2"^^xsd:integer;
   shacl-play:color "DarkBlue";
-  sh:property meetings:P21, meetings:P22, meetings:P23, meetings:P24, meetings:P25,
-    meetings:P26, meetings:P27, meetings:P28, meetings:P29, meetings:P30, meetings:P31,
-    meetings:P32 .
+  sh:property meetings:P23, meetings:P24, meetings:P25, meetings:P26, meetings:P27,
+    meetings:P28, meetings:P29, meetings:P30, meetings:P31, meetings:P32, meetings:P33 .
 
 meetings:MeetingPart a sh:NodeShape;
   rdfs:comment "This node shape refers to the class eli-dl:Activity"@en;
@@ -103,8 +101,8 @@ meetings:MeetingPart a sh:NodeShape;
   rdfs:label "Meeting Part"@en;
   sh:order "3"^^xsd:integer;
   shacl-play:color "DarkBlue";
-  sh:property meetings:P35, meetings:P36, meetings:P37, meetings:P38, meetings:P39,
-    meetings:P40, meetings:P41, meetings:P42, meetings:P43, meetings:P44 .
+  sh:property meetings:P36, meetings:P37, meetings:P38, meetings:P39, meetings:P40,
+    meetings:P41, meetings:P42, meetings:P43, meetings:P44, meetings:P45 .
 
 meetings:Room a sh:NodeShape;
   rdfs:comment "This node shape refers to the class epvoc:Room"@en;
@@ -115,7 +113,7 @@ meetings:Room a sh:NodeShape;
   rdfs:label "Room"@en;
   sh:order "4"^^xsd:integer;
   shacl-play:color "Red";
-  sh:property meetings:P47, meetings:P48, meetings:P49, meetings:P50 .
+  sh:property meetings:P48, meetings:P49, meetings:P50, meetings:P51 .
 
 meetings:ActivityTypeReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class eli-dl:ActivityType"@en;
@@ -126,7 +124,7 @@ meetings:ActivityTypeReference a sh:NodeShape;
   rdfs:label "Reference to an Activity type"@en;
   sh:order "7"^^xsd:integer;
   shacl-play:color "DarkGrey";
-  sh:property meetings:P57, meetings:P58 .
+  sh:property meetings:P58, meetings:P59 .
 
 meetings:WorkTypeReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class eli:WorkType"@en;
@@ -147,7 +145,7 @@ meetings:LocationReference a sh:NodeShape;
   rdfs:label "Reference to a Place"@en;
   sh:order "9"^^xsd:integer;
   shacl-play:color "DarkGrey";
-  sh:property meetings:P61, meetings:P62 .
+  sh:property meetings:P62, meetings:P63 .
 
 meetings:SiteReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class org:Site"@en;
@@ -158,7 +156,7 @@ meetings:SiteReference a sh:NodeShape;
   rdfs:label "Reference to a Site"@en;
   sh:order "10"^^xsd:integer;
   shacl-play:color "DarkGrey";
-  sh:property meetings:P65, meetings:P66 .
+  sh:property meetings:P66, meetings:P67 .
 
 meetings:PlenarySessionDocumentReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class eli:ComplexWork"@en;
@@ -170,134 +168,14 @@ meetings:PlenarySessionDocumentReference a sh:NodeShape;
   sh:order "11"^^xsd:integer;
   shacl-play:color "Orange" .
 
-meetings:P9 a skos:Concept;
-  owl:versionInfo "v1.0";
+meetings:P9 owl:versionInfo "v1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
-  sh:hasValue eli-dl:Activity;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:hasValue eli-dl:Activity .
 
-meetings:P10 a skos:Concept;
-  owl:versionInfo "v1.1";
-  sh:path eli-dl:had_activity_type;
-  sh:name "activity type"@en;
-  sh:minCount "1"^^xsd:integer;
-  sh:maxCount "1"^^xsd:integer;
-  sh:nodeKind sh:IRI;
-  sh:node meetings:ActivityTypeReference;
-  sh:hasValue event-type:EP_PLENARY_PART_SESSION;
-  sh:deactivated "true"^^xsd:boolean;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
-
-meetings:P11 a skos:Concept;
-  owl:versionInfo "v1.0";
-  sh:path eli-dl:activity_date;
-  sh:name "activity date"@en;
-  sh:minCount "1"^^xsd:integer;
-  sh:maxCount "1"^^xsd:integer;
-  sh:nodeKind sh:Literal;
-  sh:datatype xsd:dateTime;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
-
-meetings:P12 a skos:Concept;
-  owl:versionInfo "v1.0";
-  sh:path eli-dl:activity_start_date;
-  sh:name "activity start date"@en;
-  sh:minCount "1"^^xsd:integer;
-  sh:maxCount "1"^^xsd:integer;
-  sh:nodeKind sh:Literal;
-  sh:datatype xsd:dateTime;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
-
-meetings:P13 a skos:Concept;
-  owl:versionInfo "v1.0";
-  sh:path eli-dl:activity_end_date;
-  sh:name "activity end date"@en;
-  sh:minCount "1"^^xsd:integer;
-  sh:maxCount "1"^^xsd:integer;
-  sh:nodeKind sh:Literal;
-  sh:datatype xsd:dateTime;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
-
-meetings:P14 a skos:Concept;
-  owl:versionInfo "v1.1";
-  sh:path eli-dl:documented_by_a_realization_of;
-  sh:name "documented by a realization of"@en;
-  sh:nodeKind sh:IRI;
-  sh:node meetings:PlenarySessionDocumentReference;
-  sh:deactivated "true"^^xsd:boolean;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
-
-meetings:P15 a skos:Concept;
-  owl:versionInfo "v1.1";
-  sh:path eli-dl:recorded_in_realization_of;
-  sh:name "recorded in realization of"@en;
-  sh:nodeKind sh:IRI;
-  sh:node meetings:PlenarySessionDocumentReference;
-  sh:deactivated "true"^^xsd:boolean;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
-
-meetings:P16 a skos:Concept;
-  owl:versionInfo "v1.0";
-  sh:path eli-dl:consists_of;
-  sh:name "consists of"@en;
-  sh:minCount "1"^^xsd:integer;
-  sh:nodeKind sh:IRI;
-  sh:node meetings:PlenarySitting;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
-
-meetings:P17 a skos:Concept;
-  owl:versionInfo "v1.1";
-  sh:path eli-dl:parliamentary_term;
-  sh:name "parliamentary term"@en;
-  sh:minCount "1"^^xsd:integer;
-  sh:maxCount "1"^^xsd:integer;
-  sh:nodeKind sh:IRI;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
-
-meetings:P18 a skos:Concept;
-  owl:versionInfo "v1.0";
-  sh:path eli-dl:activity_id;
-  sh:name "activity id"@en;
-  sh:minCount "1"^^xsd:integer;
-  sh:maxCount "1"^^xsd:integer;
-  sh:nodeKind sh:Literal;
-  sh:datatype xsd:string;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
-
-meetings:P19 a skos:Concept;
-  owl:versionInfo "v1.0";
-  sh:path eli-dl:activity_label;
-  sh:name "activity label"@en;
-  sh:nodeKind sh:Literal;
-  sh:datatype rdf:langString;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
-
-meetings:P21 a skos:Concept;
-  owl:versionInfo "v1.0";
-  sh:path rdf:type;
-  sh:name "type"@en;
-  sh:minCount "1"^^xsd:integer;
-  sh:maxCount "1"^^xsd:integer;
-  sh:hasValue eli-dl:Activity;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
-
-meetings:P22 a skos:Concept;
-  owl:versionInfo "v1.1";
+meetings:P10 owl:versionInfo "v1.1";
   sh:path eli-dl:had_activity_type;
   sh:name "activity type"@en;
   sh:minCount "1"^^xsd:integer;
@@ -305,127 +183,183 @@ meetings:P22 a skos:Concept;
   sh:nodeKind sh:IRI;
   sh:node meetings:ActivityTypeReference;
   sh:hasValue event-type:EP_PLENARY_SITTING;
-  sh:deactivated "true"^^xsd:boolean;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:deactivated "true"^^xsd:boolean .
 
-meetings:P23 a skos:Concept;
-  owl:versionInfo "v1.0";
+meetings:P11 owl:versionInfo "v1.0";
   sh:path eli-dl:activity_date;
   sh:name "activity date"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
-  sh:datatype xsd:dateTime;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:datatype xsd:date .
 
-meetings:P24 a skos:Concept;
-  owl:versionInfo "v1.0";
+meetings:P12 owl:versionInfo "v1.0";
   sh:path eli-dl:activity_start_date;
   sh:name "activity start date"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
-  sh:datatype xsd:dateTime;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:datatype xsd:dateTime .
 
-meetings:P25 a skos:Concept;
-  owl:versionInfo "v1.0";
+meetings:P13 owl:versionInfo "v1.0";
   sh:path eli-dl:activity_end_date;
   sh:name "activity end date"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
-  sh:datatype xsd:dateTime;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:datatype xsd:dateTime .
 
-meetings:P26 a skos:Concept;
-  owl:versionInfo "v1.1";
+meetings:P14 owl:versionInfo "v1.1";
   sh:path eli-dl:documented_by_a_realization_of;
   sh:name "documented by a realization of"@en;
   sh:nodeKind sh:IRI;
   sh:node meetings:PlenarySessionDocumentReference;
-  sh:deactivated "true"^^xsd:boolean;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:deactivated "true"^^xsd:boolean .
 
-meetings:P27 a skos:Concept;
-  owl:versionInfo "v1.1";
-  sh:path eli-dl:recorded_in_realization_of;
-  sh:name "recorded in realization of"@en;
+meetings:P15 owl:versionInfo "v1.1";
+  sh:path eli-dl:recorded_in_a_realization_of;
+  sh:name "recorded in a realization of"@en;
   sh:nodeKind sh:IRI;
   sh:node meetings:PlenarySessionDocumentReference;
-  sh:deactivated "true"^^xsd:boolean;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:deactivated "true"^^xsd:boolean .
 
-meetings:P28 a skos:Concept;
-  owl:versionInfo "v1.0";
+meetings:P16 owl:versionInfo "v1.0";
   sh:path epvoc:scheduledIn;
   sh:name "scheduled_in"@en;
   sh:nodeKind sh:IRI;
-  sh:node meetings:MeetingPart;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:node meetings:MeetingPart .
 
-meetings:P29 a skos:Concept;
-  owl:versionInfo "v1.1";
+meetings:P17 owl:versionInfo "v1.1";
   sh:path eli-dl:parliamentary_term;
   sh:name "parliamentary term"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
-  sh:nodeKind sh:IRI;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:nodeKind sh:IRI .
 
-meetings:P30 a skos:Concept;
-  owl:versionInfo "v1.1";
+meetings:P18 owl:versionInfo "v1.1";
   sh:path vcard:hasLocality;
   sh:name "locality"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   sh:node meetings:LocationReference;
-  sh:deactivated "true"^^xsd:boolean;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:deactivated "true"^^xsd:boolean .
 
-meetings:P31 a skos:Concept;
-  owl:versionInfo "v1.0";
+meetings:P19 owl:versionInfo "v1.0";
   sh:path eli-dl:activity_id;
   sh:name "activity id"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
-  sh:datatype xsd:string;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:datatype xsd:string .
 
-meetings:P32 a skos:Concept;
-  owl:versionInfo "v1.0";
+meetings:P20 owl:versionInfo "v1.0";
   sh:path eli-dl:activity_label;
   sh:name "activity label"@en;
   sh:minCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
-  sh:datatype rdf:langString;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:datatype rdf:langString .
 
-meetings:P35 a skos:Concept;
-  owl:versionInfo "v1.0";
+meetings:P21 owl:versionInfo "v1.2";
+  sh:path _:edfc1a2bfd5d4c73ac4a3025879a52441717;
+  sh:name "forms part of"@en;
+  sh:nodeKind sh:IRI;
+  sh:node meetings:PlenaryPartSession .
+
+_:edfc1a2bfd5d4c73ac4a3025879a52441717 sh:inversePath eli-dl:consists_of .
+
+meetings:P23 owl:versionInfo "v1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
-  sh:hasValue eli-dl:ForeseenActivity;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:hasValue eli-dl:Activity .
 
-meetings:P36 a skos:Concept;
-  owl:versionInfo "v1.1";
+meetings:P24 owl:versionInfo "v1.1";
+  sh:path eli-dl:had_activity_type;
+  sh:name "activity type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node meetings:ActivityTypeReference;
+  sh:hasValue event-type:EP_PLENARY_PART_SESSION;
+  sh:deactivated "true"^^xsd:boolean .
+
+meetings:P25 owl:versionInfo "v1.0";
+  sh:path eli-dl:activity_date;
+  sh:name "activity date"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date .
+
+meetings:P26 owl:versionInfo "v1.0";
+  sh:path eli-dl:activity_start_date;
+  sh:name "activity start date"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:dateTime .
+
+meetings:P27 owl:versionInfo "v1.0";
+  sh:path eli-dl:activity_end_date;
+  sh:name "activity end date"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:dateTime .
+
+meetings:P28 owl:versionInfo "v1.1";
+  sh:path eli-dl:documented_by_a_realization_of;
+  sh:name "documented by a realization of"@en;
+  sh:nodeKind sh:IRI;
+  sh:node meetings:PlenarySessionDocumentReference;
+  sh:deactivated "true"^^xsd:boolean .
+
+meetings:P29 owl:versionInfo "v1.1";
+  sh:path eli-dl:recorded_in_a_realization_of;
+  sh:name "recorded in a realization of"@en;
+  sh:nodeKind sh:IRI;
+  sh:node meetings:PlenarySessionDocumentReference;
+  sh:deactivated "true"^^xsd:boolean .
+
+meetings:P30 owl:versionInfo "v1.0";
+  sh:path eli-dl:consists_of;
+  sh:name "consists of"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node meetings:PlenarySitting;
+  sh:deactivated "true"^^xsd:boolean .
+
+meetings:P31 owl:versionInfo "v1.1";
+  sh:path eli-dl:parliamentary_term;
+  sh:name "parliamentary term"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI .
+
+meetings:P32 owl:versionInfo "v1.0";
+  sh:path eli-dl:activity_id;
+  sh:name "activity id"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string .
+
+meetings:P33 owl:versionInfo "v1.0";
+  sh:path eli-dl:activity_label;
+  sh:name "activity label"@en;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString .
+
+meetings:P36 owl:versionInfo "v1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue eli-dl:ForeseenActivity .
+
+meetings:P37 owl:versionInfo "v1.1";
   sh:path eli-dl:had_activity_type;
   sh:name "activity type"@en;
   sh:minCount "1"^^xsd:integer;
@@ -433,206 +367,144 @@ meetings:P36 a skos:Concept;
   sh:nodeKind sh:IRI;
   sh:node meetings:ActivityTypeReference;
   sh:hasValue event-type:EP_MEETING_PART;
-  sh:deactivated "true"^^xsd:boolean;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:deactivated "true"^^xsd:boolean .
 
-meetings:P37 a skos:Concept;
-  owl:versionInfo "v1.0";
+meetings:P38 owl:versionInfo "v1.0";
   sh:path epvoc:hasRoom;
   sh:name "room part"@en;
   sh:minCount "0"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
-  sh:node meetings:Room;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:node meetings:Room .
 
-meetings:P38 a skos:Concept;
-  owl:versionInfo "v1.1";
+meetings:P39 owl:versionInfo "v1.1";
   sh:path eli-dl:parliamentary_term;
   sh:name "parliamentary term"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
-  sh:nodeKind sh:IRI;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:nodeKind sh:IRI .
 
-meetings:P39 a skos:Concept;
-  owl:versionInfo "v1.0";
+meetings:P40 owl:versionInfo "v1.0";
   sh:path eli-dl:activity_date;
   sh:name "activity date"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
-  sh:datatype xsd:dateTime;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:datatype xsd:date .
 
-meetings:P40 a skos:Concept;
-  owl:versionInfo "v1.0";
+meetings:P41 owl:versionInfo "v1.0";
   sh:path eli-dl:activity_start_date;
   sh:name "activity start date"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
-  sh:datatype xsd:dateTime;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:datatype xsd:dateTime .
 
-meetings:P41 a skos:Concept;
-  owl:versionInfo "v1.0";
+meetings:P42 owl:versionInfo "v1.0";
   sh:path eli-dl:activity_end_date;
   sh:name "activity end date"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
-  sh:datatype xsd:dateTime;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:datatype xsd:dateTime .
 
-meetings:P42 a skos:Concept;
-  owl:versionInfo "v1.0";
+meetings:P43 owl:versionInfo "v1.0";
   sh:path eli-dl:activity_id;
   sh:name "activity id"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
-  sh:datatype xsd:string;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:datatype xsd:string .
 
-meetings:P43 a skos:Concept;
-  owl:versionInfo "v1.0";
+meetings:P44 owl:versionInfo "v1.0";
   sh:path eli-dl:activity_label;
   sh:name "activity label"@en;
   sh:minCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
-  sh:datatype rdf:langString;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:datatype rdf:langString .
 
-meetings:P44 a skos:Concept;
-  owl:versionInfo "v1.0";
-  sh:path dcterms:identifier;
+meetings:P45 owl:versionInfo "v1.0";
+  sh:path skos:notation;
   sh:name "pericles identifier"@en;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
-  sh:datatype epvoc:periclesId;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:datatype epvoc:periclesId .
 
-meetings:P47 a skos:Concept;
-  owl:versionInfo "v1.0";
+meetings:P48 owl:versionInfo "v1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
-  sh:hasValue epvoc:Room;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:hasValue epvoc:Room .
 
-meetings:P48 a skos:Concept;
-  owl:versionInfo "v1.0";
+meetings:P49 owl:versionInfo "v1.0";
   sh:path euvoc:officeAddress;
   sh:name "office address"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
-  sh:datatype xsd:string;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:datatype xsd:string .
 
-meetings:P49 a skos:Concept;
-  owl:versionInfo "v1.0";
+meetings:P50 owl:versionInfo "v1.0";
   sh:path dcterms:identifier;
   sh:name "identifier"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
-  sh:datatype xsd:string;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:datatype xsd:string .
 
-meetings:P50 a skos:Concept;
-  owl:versionInfo "v1.1";
+meetings:P51 owl:versionInfo "v1.1";
   sh:path epvoc:hasSite;
   sh:name "site"@en;
   sh:minCount "0"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   sh:node meetings:SiteReference;
-  sh:deactivated "true"^^xsd:boolean;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:deactivated "true"^^xsd:boolean .
 
-meetings:P53 a skos:Concept;
-  owl:versionInfo "v1.1";
+meetings:P54 owl:versionInfo "v1.1";
   sh:path rdf:type;
   sh:name "type"@en;
-  sh:hasValue eli:ComplexWork;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:hasValue eli:ComplexWork .
 
-meetings:PlenarySessionDocument sh:property meetings:P53, meetings:P54 .
+meetings:PlenarySessionDocument sh:property meetings:P54, meetings:P55 .
 
-meetings:P54 a skos:Concept;
-  owl:versionInfo "v1.1";
+meetings:P55 owl:versionInfo "v1.1";
   sh:path eli:work_type;
-  sh:name "work type"@en;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:name "work type"@en .
 
-meetings:P57 a skos:Concept;
-  owl:versionInfo "v1.1";
+meetings:P58 owl:versionInfo "v1.1";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
-  sh:hasValue eli-dl:ActivityType;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:hasValue eli-dl:ActivityType .
 
-meetings:P58 a skos:Concept;
-  owl:versionInfo "v1.1";
+meetings:P59 owl:versionInfo "v1.1";
   sh:path skos:inScheme;
   sh:name "Is in scheme"@en;
   sh:nodeKind sh:IRI;
-  sh:hasValue op-aut:event;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:hasValue op-aut:event .
 
-meetings:P61 a skos:Concept;
-  owl:versionInfo "v1.1";
+meetings:P62 owl:versionInfo "v1.1";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
-  sh:hasValue dcterms:Location;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:hasValue dcterms:Location .
 
-meetings:P62 a skos:Concept;
-  owl:versionInfo "v1.1";
+meetings:P63 owl:versionInfo "v1.1";
   sh:path skos:inScheme;
   sh:name "Is in scheme"@en;
   sh:nodeKind sh:IRI;
-  sh:hasValue op-aut:place;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:hasValue op-aut:place .
 
-meetings:P65 a skos:Concept;
-  owl:versionInfo "v1.1";
+meetings:P66 owl:versionInfo "v1.1";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
-  sh:hasValue org:Site;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:hasValue org:Site .
 
-meetings:P66 a skos:Concept;
-  owl:versionInfo "v1.1";
+meetings:P67 owl:versionInfo "v1.1";
   sh:path skos:inScheme;
   sh:name "Is in scheme"@en;
   sh:nodeKind sh:IRI;
-  sh:hasValue op-aut:site;
-  skos:inScheme <https://data.europarl.europa.eu/def/meetings#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/meetings#> .
+  sh:hasValue op-aut:site .
