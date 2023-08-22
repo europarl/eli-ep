@@ -67,7 +67,7 @@ meetings:PlenarySitting a sh:NodeShape;
   sh:nodeKind sh:IRI;
   sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\\-_]+$";
   sh:closed "true"^^xsd:boolean;
-  rdfs:label "Plenary Session"@en;
+  rdfs:label "Plenary Sitting"@en;
   sh:order "1"^^xsd:integer;
   shacl-play:color "DarkBlue";
   sh:property meetings:P9, meetings:P10, meetings:P11, meetings:P12, meetings:P13, meetings:P14,
@@ -86,7 +86,7 @@ meetings:PlenaryPartSession a sh:NodeShape;
   sh:nodeKind sh:IRI;
   sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\\-_]+$";
   sh:closed "true"^^xsd:boolean;
-  rdfs:label "Plenary Sitting"@en;
+  rdfs:label "Plenary Part Session"@en;
   sh:order "2"^^xsd:integer;
   shacl-play:color "DarkBlue";
   sh:property meetings:P23, meetings:P24, meetings:P25, meetings:P26, meetings:P27,
