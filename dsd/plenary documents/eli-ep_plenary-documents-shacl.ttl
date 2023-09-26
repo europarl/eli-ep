@@ -1,0 +1,1222 @@
+@prefix schema: <http://schema.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skosthes: <http://purl.org/iso25964/skos-thes#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix euvoc: <http://publications.europa.eu/ontology/euvoc#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix file-type: <http://publications.europa.eu/resource/authority/file-type/> .
+@prefix eli: <http://data.europa.eu/eli/ontology#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix xls2rdf: <https://xls2rdf.sparna.fr/vocabulary#> .
+@prefix eli-dl: <http://data.europa.eu/eli/eli-draft-legislation-ontology#> .
+@prefix pld: <https://data.europarl.europa.eu/def/plenary-documents#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix shacl-play: <https://shacl-play.sparna.fr/ontology#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix resource-type: <http://publications.europa.eu/resource/authority/resource-type/> .
+@prefix epvoc: <https://data.europarl.europa.eu/def/epvoc#> .
+@prefix op-aut: <http://publications.europa.eu/resource/authority/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+
+<https://data.europarl.europa.eu/def/plenary-documents#> a owl:Ontology, adms:Asset,
+    skos:ConceptScheme;
+  dcterms:type <http://publications.europa.eu/resource/authority/dataset-type/APROF>;
+  rdfs:label "Plenary documents dataset description"@en;
+  dcterms:title "Plenary documents dataset description"@en;
+  dcterms:description "This Dataset Description is a subset of the general ELI-EP application profile and it includes classes and properties used in Plenary documents datasets. Descriptions of classes and properties can be found in ELI-EP application profile."@en;
+  owl:versionInfo "1.3.0";
+  adms:versionNotes """1.3.0 - 2023-09-26
+- (rfc) impact on eli:work_type due to changed values (op-aut:resource-type: REPORT → REPORT_EP and AMEND_EP → AMEND_LIST_EP)
+- (rfc) impact on eli-dl:participation_role for REPORT_EP due to changed values (op-aut:role: AUT → RAPP)
+- (new) eli-dl:adopts for REPORT_EP
+- (new) epvoc:isAboutSubjectMatter and epvoc:isAboutDirectoryCode
+- (new) add [sh:inversePath eli-dl:created_a_realization_of] to a procedure (Remark: Data on procedures will be available in the upcoming releases).
+1.1 - 2023-04-27
+- eli:date_document sh:datatype is not xsd:dateTime, but xsd:date
+- remove external shapes (incl. controlled vocabularies data) in datasets.
+1.0 - 2022-11-18
+- creation"""@en;
+  adms:status <http://publications.europa.eu/resource/dataset/dataset-status/COMPLETED>;
+  owl:versionIRI <https://data.europarl.europa.eu/def/plenary-documents#>;
+  dcterms:conformsTo <https://www.w3.org/TR/shacl>;
+  dcterms:created "2022-11-18"^^xsd:date;
+  dcterms:modified "2023-09-26T00:00:00.000Z"^^xsd:dateTime;
+  dcterms:dateCopyrighted "2022"^^xsd:gYear;
+  dcterms:license <https://www.europarl.europa.eu/legal-notice/en/>;
+  dcterms:creator <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
+  dcterms:publisher <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
+  dcterms:rigthsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
+  dcat:distribution _:6cae76e663834852a26be1c266d997065773;
+  skos:hasTopConcept pld:P9, pld:P10, pld:P11, pld:P12, pld:P13, pld:P14, pld:P15, pld:P16,
+    pld:P17, pld:P18, pld:P19, pld:P20, pld:P21, pld:P22, pld:P23, pld:P24, pld:P25, pld:P26,
+    pld:P27, pld:P28, pld:P29, pld:P30, pld:P31, pld:P32, pld:P33, pld:P36, pld:P37, pld:P38,
+    pld:P39, pld:P40, pld:P41, pld:P42, pld:P43, pld:P44, pld:P45, pld:P46, pld:P47, pld:P48,
+    pld:P49, pld:P50, pld:P52, pld:P53, pld:P54, pld:P58, pld:P59, pld:P60, pld:P61, pld:P62,
+    pld:P63, pld:P64, pld:P65, pld:P66, pld:P67, pld:P68, pld:P69, pld:P70, pld:P71, pld:P72,
+    pld:P73, pld:P77, pld:P78, pld:P79, pld:P80, pld:P81, pld:P84, pld:P85, pld:P86, pld:P87,
+    pld:P88, pld:P89, pld:P91, pld:P92, pld:P93, pld:P94, pld:P95, pld:P98, pld:P99, pld:P102,
+    pld:P103, pld:P106, pld:P107, pld:P110, pld:P111, pld:P114, pld:P115, pld:P118, pld:P119,
+    pld:P122, pld:P123, pld:P126, pld:P129 .
+
+_:6cae76e663834852a26be1c266d997065773 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
+  dcat:downloadURL <https://europarl.github.io/eli-ep/dsd/plenary-documents/eli-ep_plenary-documents.shacl.ttl> .
+
+pld:PlenaryDocument a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  sh:target pld:PlenaryDocument-target;
+  sh:nodeKind sh:IRI;
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Work Plenary document"@en;
+  sh:order "1"^^xsd:integer;
+  owl:versionInfo "1.3.0";
+  shacl-play:color "Orange";
+  sh:property pld:P9, pld:P10, pld:P11, pld:P12, pld:P13, pld:P14, pld:P15, pld:P16,
+    pld:P17, pld:P18, pld:P19, pld:P20, pld:P21, pld:P22, pld:P23, pld:P24, pld:P25, pld:P26,
+    pld:P27, pld:P28, pld:P29, pld:P30, pld:P31, pld:P32, pld:P33 .
+
+pld:PlenaryDocument-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
+SELECT ?this
+WHERE {
+ ?this eli:work_type ?type .
+ VALUES ?type {
+ <http://publications.europa.eu/resource/authority/resource-type/REPORT_EP>
+ <http://publications.europa.eu/resource/authority/resource-type/MOTION_RES>
+ <http://publications.europa.eu/resource/authority/resource-type/JOINT_MOTION_RES>
+ <http://publications.europa.eu/resource/authority/resource-type/QUEST_ORAL_PART_SESSION_EP>
+ }
+}""" .
+
+pld:Amendment a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  sh:nodeKind sh:IRI;
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Work Plenary Amendment"@en;
+  sh:order "2"^^xsd:integer;
+  owl:versionInfo "1.0";
+  shacl-play:color "Orange";
+  sh:property pld:P36, pld:P37, pld:P38, pld:P39, pld:P40, pld:P41, pld:P42, pld:P43,
+    pld:P44, pld:P45, pld:P46, pld:P47, pld:P48, pld:P49, pld:P50, pld:P52, pld:P53, pld:P54 .
+
+pld:Erratum a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  sh:nodeKind sh:IRI;
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Work Plenary Erratum"@en;
+  sh:order "3"^^xsd:integer;
+  owl:versionInfo "1.0";
+  shacl-play:color "Orange";
+  sh:property pld:P58, pld:P59, pld:P60, pld:P61, pld:P62, pld:P63, pld:P64, pld:P65,
+    pld:P66, pld:P67, pld:P68, pld:P69, pld:P70, pld:P71, pld:P72, pld:P73 .
+
+pld:Expression a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:Expression"@en;
+  sh:targetClass eli:Expression;
+  sh:nodeKind sh:IRI;
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Realized By Expression"@en;
+  sh:order "4"^^xsd:integer;
+  owl:versionInfo "1.0";
+  shacl-play:color "Blue";
+  sh:property pld:P77, pld:P78, pld:P79, pld:P80, pld:P81 .
+
+pld:Manifestation a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:Manifestation"@en;
+  sh:targetClass eli:Manifestation;
+  sh:nodeKind sh:IRI;
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Is embodied by Manifestation"@en;
+  sh:order "5"^^xsd:integer;
+  owl:versionInfo "1.0";
+  shacl-play:color "Green";
+  sh:property pld:P84, pld:P85, pld:P86, pld:P87, pld:P88, pld:P89 .
+
+pld:Participation a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli-dl:Participation"@en;
+  sh:targetClass eli-dl:Participation;
+  sh:nodeKind sh:IRI;
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Participation"@en;
+  sh:order "6"^^xsd:integer;
+  owl:versionInfo "1.0";
+  shacl-play:color "Black";
+  sh:property pld:P91, pld:P92, pld:P93, pld:P94, pld:P95 .
+
+pld:WorkTypeReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class eli:WorkType"@en;
+  skos:example "http://publications.europa.eu/resource/authority/resource-type/PLENARY_REPORT";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/resource-type/.*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to a Work type"@en;
+  sh:order "8"^^xsd:integer;
+  owl:versionInfo "1.0";
+  shacl-play:color "DarkGrey";
+  sh:property pld:P98, pld:P99 .
+
+pld:LanguageReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class dcterms:LinguisticSystem"@en;
+  skos:example "http://publications.europa.eu/resource/authority/language/ENG";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/language/.*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to a Language"@en;
+  sh:order "9"^^xsd:integer;
+  owl:versionInfo "1.0";
+  shacl-play:color "DarkGrey";
+  sh:property pld:P102, pld:P103 .
+
+pld:AgentReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class foaf:Agent"@en;
+  sh:nodeKind sh:IRI;
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to an Agent"@en;
+  sh:order "10"^^xsd:integer;
+  owl:versionInfo "1.0";
+  shacl-play:color "DarkGrey" .
+
+pld:MediaTypeOrExtentReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class dcterms:MediaTypeOrExtent"@en;
+  skos:example "http://publications.europa.eu/resource/authority/file-type/PDF";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/file-type/.*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to a Media Type"@en;
+  sh:order "11"^^xsd:integer;
+  owl:versionInfo "1.0";
+  shacl-play:color "DarkGrey";
+  sh:property pld:P106, pld:P107 .
+
+pld:ParticipationRoleReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class eli-dl:ParticipationRole"@en;
+  skos:example "http://publications.europa.eu/resource/authority/role/AUT";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/role/.*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to a Role"@en;
+  sh:order "12"^^xsd:integer;
+  owl:versionInfo "1.0";
+  shacl-play:color "DarkGrey";
+  sh:property pld:P110, pld:P111, pld:P115 .
+
+pld:OrganizationReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class org:Organization"@en;
+  skos:example "http://publications.europa.eu/resource/authority/corporate-body/EP";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/corporate-body/.*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to an Organization"@en;
+  sh:order "13"^^xsd:integer;
+  owl:versionInfo "1.0";
+  shacl-play:color "DarkGrey";
+  sh:property pld:P126 .
+
+pld:PersonReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class foaf:Person"@en;
+  skos:example "https://data.europarl.europa.eu/person/1234";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/person/[0-9].*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to a Person"@en;
+  sh:order "14"^^xsd:integer;
+  owl:versionInfo "1.0";
+  shacl-play:color "DarkGrey";
+  sh:property pld:P129 .
+
+pld:ConceptReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class skos:Concept"@en;
+  skos:example "http://eurovoc.europa.eu/1851";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://eurovoc.europa.eu/.*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to a Concept"@en;
+  sh:order "15"^^xsd:integer;
+  owl:versionInfo "1.0";
+  shacl-play:color "DarkGrey";
+  sh:property pld:P114 .
+
+pld:ConceptSubjectMatterReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class skos:Concept"@en;
+  skos:example "http://publications.europa.eu/resource/authority/subject-matter/MARI";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/subject-matter/.*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to a Concept (Subject Matter)"@en;
+  sh:order "16"^^xsd:integer;
+  owl:versionInfo "1.3.0";
+  shacl-play:color "DarkGrey";
+  sh:property pld:P118, pld:P119 .
+
+pld:ConceptDirectoryCodeReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class skos:Concept"@en;
+  skos:example "http://publications.europa.eu/resource/authority/dir-eu-legal-act/062020";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/dir-eu-legal-act/.*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to a Concept (Directory Code)"@en;
+  sh:order "17"^^xsd:integer;
+  owl:versionInfo "1.3.0";
+  shacl-play:color "DarkGrey";
+  sh:property pld:P122, pld:P123 .
+
+pld:P9 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue eli:Work;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P10 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli:work_type;
+  sh:name "work type"@en;
+  skos:example "A-9-2022-0081";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:WorkTypeReference;
+  sh:in _:6cae76e663834852a26be1c266d997065774;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+_:6cae76e663834852a26be1c266d997065774 rdf:first resource-type:REPORT_EP;
+  rdf:rest _:6cae76e663834852a26be1c266d997065775 .
+
+_:6cae76e663834852a26be1c266d997065775 rdf:first resource-type:MOTION_RES;
+  rdf:rest _:6cae76e663834852a26be1c266d997065776 .
+
+_:6cae76e663834852a26be1c266d997065776 rdf:first resource-type:JOINT_MOTION_RES;
+  rdf:rest _:6cae76e663834852a26be1c266d997065777 .
+
+_:6cae76e663834852a26be1c266d997065777 rdf:first resource-type:QUEST_ORAL_PART_SESSION_EP;
+  rdf:rest rdf:nil .
+
+pld:P11 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path eli:date_document;
+  sh:name "date document"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P12 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path dcterms:identifier;
+  sh:name "identifier"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P13 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path epvoc:identifierYear;
+  sh:name "identifier year"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P14 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path dcterms:title;
+  sh:name "title"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P15 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path rdfs:label;
+  sh:name "label"@en;
+  skos:example "A9-0081/2022";
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P16 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path epvoc:epNumber;
+  sh:name "ep number"@en;
+  skos:example "PE704.888";
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P17 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path epvoc:epNumberVersion;
+  sh:name "en number version"@en;
+  skos:example "0300";
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P18 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path skos:notation;
+  sh:name "notation"@en;
+  skos:example "P9_A(2022)0081";
+  sh:nodeKind sh:Literal;
+  sh:datatype epvoc:publicRegister;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P19 a skos:Concept;
+  owl:versionInfo "1.1";
+  sh:path eli-dl:parliamentary_term;
+  sh:name "parliamentary term"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P20 a skos:Concept;
+  owl:versionInfo "1.1";
+  sh:path epvoc:originalLanguage;
+  sh:name "original language"@en;
+  sh:minCount "0"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:LanguageReference;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P21 a skos:Concept;
+  owl:versionInfo "1.1";
+  sh:path eli:is_about;
+  sh:name "descriptor"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:ConceptReference;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P22 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path epvoc:isAboutSubjectMatter;
+  sh:name "is about subject matter"@en;
+  skos:example "http://publications.europa.eu/resource/authority/subject-matter/MARI";
+  sh:nodeKind sh:IRI;
+  sh:node pld:ConceptSubjectMatterReference;
+  sh:pattern "http://publications.europa.eu/resource/authority/subject-matter/.*$";
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P23 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path epvoc:isAboutDirectoryCode;
+  sh:name "is about directory code"@en;
+  skos:example "http://publications.europa.eu/resource/authority/dir-eu-legal-act/062020";
+  sh:nodeKind sh:IRI;
+  sh:node pld:ConceptDirectoryCodeReference;
+  sh:pattern "http://publications.europa.eu/resource/authority/dir-eu-legal-act/.*$";
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P24 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path dcterms:creator;
+  sh:name "creator"@en;
+  skos:example "http://publications.europa.eu/resource/authority/corporate-body/EP_LIBE";
+  sh:nodeKind sh:IRI;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P25 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path dcterms:publisher;
+  sh:name "publisher"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P26 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path eli:based_on;
+  sh:name "based on"@en;
+  sh:nodeKind sh:IRI;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P27 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path eli:is_realized_by;
+  sh:name "is realized by"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:Expression;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P28 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path eli:is_derivative_of;
+  sh:name "is derivative of"@en;
+  sh:nodeKind sh:IRI;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P29 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path epvoc:workHadParticipation;
+  sh:name "stakeholder participant"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/participation/A-9-2022-0081_LIBE";
+  sh:nodeKind sh:IRI;
+  sh:node pld:Participation;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P30 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli-dl:adopts;
+  sh:name "adopts"@en;
+  sh:nodeKind sh:IRI;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P31 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path _:6cae76e663834852a26be1c266d997065778;
+  sh:name "is_foreseeably_changed_by"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:Amendment;
+  shacl-play:shortname "is_foreseeably_changed_by";
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+_:6cae76e663834852a26be1c266d997065778 sh:inversePath eli:foresees_change_of .
+
+pld:P32 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path _:6cae76e663834852a26be1c266d997065779;
+  sh:name "corrected by"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:Erratum;
+  shacl-play:shortname "corrected_by";
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+_:6cae76e663834852a26be1c266d997065779 sh:inversePath eli:corrects .
+
+pld:P33 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path _:6cae76e663834852a26be1c266d997065780;
+  sh:name "was realized through"@en;
+  sh:nodeKind sh:IRI;
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "was_realized_through";
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+_:6cae76e663834852a26be1c266d997065780 sh:inversePath eli-dl:created_a_realization_of .
+
+pld:P36 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue eli:Work;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P37 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path dcterms:identifier;
+  sh:name "identifier"@en;
+  skos:example "A-9-2022-0081-AM-001-001";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P38 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli:work_type;
+  sh:name "work type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:WorkTypeReference;
+  sh:hasValue resource-type:AMEND_LIST_EP;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P39 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path eli:date_document;
+  sh:name "date document"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P40 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path epvoc:identifierYear;
+  sh:name "identifier year"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P41 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path dcterms:title;
+  sh:name "title"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P42 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path rdfs:label;
+  sh:name "label"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P43 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path epvoc:epNumber;
+  sh:name "ep number"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P44 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path epvoc:epNumberVersion;
+  sh:name "ep number version"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P45 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path epvoc:numbering;
+  sh:name "numbering"@en;
+  skos:example "001-001";
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P46 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path epvoc:itemNumberBegin;
+  sh:name "item number begin"@en;
+  skos:example "1";
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:integer;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P47 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path epvoc:itemNumberEnd;
+  sh:name "item number end"@en;
+  skos:example "1";
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:integer;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P48 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path skos:notation;
+  sh:name "notation"@en;
+  sh:nodeKind sh:Literal;
+  sh:datatype epvoc:publicRegister;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P49 a skos:Concept;
+  owl:versionInfo "1.1";
+  sh:path eli-dl:parliamentary_term;
+  sh:name "parliamentary term"@en;
+  sh:minCount "0"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P50 a skos:Concept;
+  owl:versionInfo "1.1";
+  sh:path epvoc:originalLanguage;
+  sh:name "original language"@en;
+  sh:minCount "0"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:LanguageReference;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P52 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path dcterms:publisher;
+  sh:name "publisher"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P53 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path eli:is_realized_by;
+  sh:name "is realized by"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:Expression;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P54 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path eli-dl:foresees_change_of;
+  sh:name "foresees change of"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:PlenaryDocument;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P58 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli:Work;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P59 a skos:Concept;
+  owl:versionInfo "1.1";
+  sh:path eli:work_type;
+  sh:name "work type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:WorkTypeReference;
+  sh:hasValue resource-type:ERRATUM;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P60 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path eli:date_document;
+  sh:name "date document"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P61 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path dcterms:identifier;
+  sh:name "identifier"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P62 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path epvoc:identifierYear;
+  sh:name "identifier year"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P63 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path dcterms:title;
+  sh:name "title"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P64 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path rdfs:label;
+  sh:name "label"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P65 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path epvoc:epNumber;
+  sh:name "ep number"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P66 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path epvoc:epNumberVersion;
+  sh:name "ep number version"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P67 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path epvoc:numbering;
+  sh:name "numbering"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P68 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path skos:notation;
+  sh:name "notation"@en;
+  sh:nodeKind sh:Literal;
+  sh:datatype epvoc:publicRegister;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P69 a skos:Concept;
+  owl:versionInfo "1.1";
+  sh:path eli-dl:parliamentary_term;
+  sh:name "parliamentary term"@en;
+  sh:minCount "0"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P70 a skos:Concept;
+  owl:versionInfo "1.1";
+  sh:path epvoc:originalLanguage;
+  sh:name "original language"@en;
+  sh:minCount "0"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:LanguageReference;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P71 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path dcterms:publisher;
+  sh:name "publisher"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P72 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path eli:is_realized_by;
+  sh:name "is realized by"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:Expression;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P73 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path eli:corrects;
+  sh:name "corrects"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:PlenaryDocument;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P77 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli:Expression;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P78 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path eli:title;
+  sh:name "title"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P79 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path eli:title_alternative;
+  sh:name "alternative title"@en;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P80 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path eli:is_embodied_by;
+  sh:name "is embodied by"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:Manifestation;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P81 a skos:Concept;
+  owl:versionInfo "1.1";
+  sh:path eli:language;
+  sh:name "language"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:LanguageReference;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P84 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli:Manifestation;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P85 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path dcterms:issued;
+  sh:name "issued"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:dateTime;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P86 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path eli:is_exemplified_by;
+  sh:name "is exemplified by"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P87 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path epvoc:byteSize;
+  sh:name "byte size"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:long;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P88 a skos:Concept;
+  owl:versionInfo "1.1";
+  sh:path dcterms:format;
+  sh:name "format"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:MediaTypeOrExtentReference;
+  sh:in _:6cae76e663834852a26be1c266d997065769;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+  
+  
+_:6cae76e663834852a26be1c266d997065769 rdf:first file-type:PDF;
+  rdf:rest _:6cae76e663834852a26be1c266d997065770 .
+
+_:6cae76e663834852a26be1c266d997065770 rdf:first file-type:XML;
+  rdf:rest _:6cae76e663834852a26be1c266d997065771 .
+
+_:6cae76e663834852a26be1c266d997065771 rdf:first file-type:DOCX;
+  rdf:rest _:6cae76e663834852a26be1c266d997065772 .
+
+_:6cae76e663834852a26be1c266d997065772 rdf:first file-type:DOC;
+  rdf:rest rdf:nil .
+
+pld:P89 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path eli:media_type;
+  sh:name "media type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P91 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli-dl:Participation;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P92 a skos:Concept;
+  owl:versionInfo "1.1";
+  sh:path eli-dl:participation_role;
+  sh:name "participation role"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:ParticipationRoleReference;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P93 a skos:Concept;
+  owl:versionInfo "1.1";
+  sh:path eli-dl:had_participant_organization;
+  sh:name "participation organization"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:OrganizationReference;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P94 a skos:Concept;
+  owl:versionInfo "1.1";
+  sh:path eli-dl:participation_in_name_of;
+  sh:name "participation in name of"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:OrganizationReference;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P95 a skos:Concept;
+  owl:versionInfo "1.1";
+  sh:path eli-dl:had_participant_person;
+  sh:name "participation person"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:PersonReference;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P98 a skos:Concept;
+  owl:versionInfo "1.1";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli:WorkType;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P99 a skos:Concept;
+  owl:versionInfo "1.1";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue op-aut:resource-type;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P102 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue dcterms:LinguisticSystem;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P103 a skos:Concept;
+  owl:versionInfo "1.1";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue op-aut:language;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P106 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue dcterms:MediaTypeOrExtent;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P107 a skos:Concept;
+  owl:versionInfo "1.1";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue op-aut:format;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P110 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:hasValue eli-dl:ParticipationRole;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P111 a skos:Concept;
+  owl:versionInfo "1.1";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue op-aut:role;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P114 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue skos:Concept;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P115 a skos:Concept;
+  owl:versionInfo "1.1";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue <http://eurovoc.europa.eu>;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P118 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue skos:Concept;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P119 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue op-aut:subject-matter;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P122 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue skos:Concept;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P123 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue op-aut:dir-eu-legal-act;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P126 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:hasValue org:Organization;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+pld:P129 a skos:Concept;
+  owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:hasValue foaf:Person;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .

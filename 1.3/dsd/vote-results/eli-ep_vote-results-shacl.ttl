@@ -1,0 +1,412 @@
+@prefix psd: <https://data.europarl.europa.eu/def/plenary-session-documents#> .
+@prefix schema: <http://schema.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skosthes: <http://purl.org/iso25964/skos-thes#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix euvoc: <http://publications.europa.eu/ontology/euvoc#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix eli: <http://data.europa.eu/eli/ontology#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix xls2rdf: <https://xls2rdf.sparna.fr/vocabulary#> .
+@prefix eli-dl: <http://data.europa.eu/eli/eli-draft-legislation-ontology#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix shacl-play: <https://shacl-play.sparna.fr/ontology#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix resource-type: <http://publications.europa.eu/resource/authority/resource-type/> .
+@prefix epvoc: <https://data.europarl.europa.eu/def/epvoc#> .
+@prefix vr: <https://data.europarl.europa.eu/def/vote-results#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+
+<https://data.europarl.europa.eu/def/vote-results#> a owl:Ontology, adms:Asset, skos:ConceptScheme;
+  dcterms:type <http://publications.europa.eu/resource/authority/dataset-type/APROF>;
+  rdfs:label "Vote results dataset description"@en;
+  dcterms:title "Vote results dataset description"@en;
+  dcterms:description "This Dataset Description is a subset of the general ELI-EP application profile and it includes classes and properties used in Vote results datasets. Descriptions of classes and properties can be found in ELI-EP application profile."@en;
+  owl:versionInfo "1.3.0";
+  adms:versionNotes """1.3.0 - 2023-09-26
+- creation"""@en;
+  adms:status <http://publications.europa.eu/resource/dataset/dataset-status/COMPLETED>;
+  owl:versionIRI <https://data.europarl.europa.eu/def/vote-results#>;
+  dcterms:conformsTo <https://www.w3.org/TR/shacl>;
+  dcterms:created "2023-09-26"^^xsd:date;
+  dcterms:modified "2023-09-26T00:00:00.000Z"^^xsd:dateTime;
+  dcterms:dateCopyrighted "2023"^^xsd:gYear;
+  dcterms:license <https://www.europarl.europa.eu/legal-notice/en/>;
+  dcterms:creator <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
+  dcterms:publisher <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
+  dcterms:rigthsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
+  dcat:distribution _:6cae76e663834852a26be1c266d997066088;
+  skos:hasTopConcept vr:P9, vr:P10, vr:P11, vr:P12, vr:P13, vr:P14, vr:P15, vr:P16,
+    vr:P19, vr:P20, vr:P21, vr:P22, vr:P23, vr:P24, vr:P25, vr:P26, vr:P27, vr:P28, vr:P29,
+    vr:P30, vr:P31, vr:P32, vr:P35, vr:P38, vr:P41, vr:P42, vr:P45, vr:P46 .
+
+_:6cae76e663834852a26be1c266d997066088 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
+  dcat:downloadURL <https://europarl.github.io/eli-ep/dsd/vote-results/eli-ep_vote-results.shacl.ttl> .
+
+vr:PlenaryVoteResults a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli-dl:Activity"@en;
+  sh:target vr:PlenaryVoteResults-target;
+  skos:example "https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2023-06-14-VOT-ITM-6";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Plenary Vote Results"@en;
+  sh:order "1"^^xsd:integer;
+  owl:versionInfo "1.3.0";
+  shacl-play:color "DarkBlue";
+  sh:property vr:P9, vr:P10, vr:P11, vr:P12, vr:P13, vr:P14, vr:P15, vr:P16 .
+
+vr:PlenaryVoteResults-target sh:select """PREFIX eli-dl: <http://data.europa.eu/eli/eli-draft-legislation-ontology#>
+SELECT ?this
+WHERE {
+ ?this a eli-dl:Activity.
+ ?this eli-dl:had_activity_type <http://publications.europa.eu/resource/authority/event/EP_PLENARY_VOTE_RESULTS>.
+}""" .
+
+vr:Decision a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class eli-dl:Decision"@en;
+  sh:targetClass eli-dl:Decision;
+  skos:example "https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2023-07-11-DEC-156726";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Decision"@en;
+  sh:order "2"^^xsd:integer;
+  owl:versionInfo "1.3.0";
+  shacl-play:color "LightBlue";
+  sh:property vr:P19, vr:P20, vr:P21, vr:P22, vr:P23, vr:P24, vr:P25, vr:P26, vr:P27,
+    vr:P28, vr:P29, vr:P30, vr:P31, vr:P32 .
+
+vr:WorkSubdivision a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:WorkSubdivision"@en;
+  sh:targetClass eli:WorkSubdivision;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Work Subdivision"@en;
+  sh:order "4"^^xsd:integer;
+  owl:versionInfo "1.3.0";
+  shacl-play:color "Orange";
+  sh:property vr:P35 .
+
+vr:ActivityTypeReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class eli-dl:ActivityType"@en;
+  sh:targetClass eli-dl:ActivityType;
+  skos:example "http://publications.europa.eu/resource/authority/event/EP_PLENARY_VOTE_RESULTS";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/event/.*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Activity Type"@en;
+  sh:order "5"^^xsd:integer;
+  owl:versionInfo "1.3.0";
+  shacl-play:color "DarkGrey";
+  sh:property vr:P41, vr:P42 .
+
+vr:DecisionMethodReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class eli-dl:DecisionMethod"@en;
+  sh:targetClass eli-dl:DecisionMethod;
+  skos:example "http://publications.europa.eu/resource/authority/decison-method/ROLL_CALL_EV";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/decision-method/.*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Decision Method"@en;
+  sh:order "6"^^xsd:integer;
+  owl:versionInfo "1.3.0";
+  shacl-play:color "DarkGrey";
+  sh:property vr:P45, vr:P46 .
+
+vr:PersonReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class foaf:Person"@en;
+  sh:targetClass foaf:Person;
+  skos:example "https://data.europarl.europa.eu/person/124936";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/person/[0-9]*?$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Person"@en;
+  sh:order "3"^^xsd:integer;
+  owl:versionInfo "1.3.0";
+  shacl-play:color "DarkGrey";
+  sh:property vr:P38 .
+
+vr:P9 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:hasValue eli-dl:Activity;
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .
+
+vr:P10 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli-dl:activity_id;
+  sh:name "activity id"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .
+
+vr:P11 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli-dl:had_activity_type;
+  sh:name "activity type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node vr:ActivityTypeReference;
+  sh:hasValue <http://publications.europa.eu/resource/authority/event/EP_PLENARY_VOTE_RESULTS>;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .
+
+vr:P12 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli-dl:activity_label;
+  sh:name "activity label"@en;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .
+
+vr:P13 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli-dl:activity_date;
+  sh:name "activity date"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .
+
+vr:P14 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path skos:notation;
+  sh:name "dlv id"@en;
+  sh:datatype epvoc:dlvId;
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .
+
+vr:P15 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli-dl:consists_of;
+  sh:name "consists of"@en;
+  sh:nodeKind sh:IRI;
+  sh:node vr:Decision;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .
+
+vr:P16 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path _:6cae76e663834852a26be1c266d997066089;
+  sh:name "forms part of"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .
+
+_:6cae76e663834852a26be1c266d997066089 sh:inversePath eli-dl:consists_of .
+
+vr:P19 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:hasValue eli-dl:Decision;
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .
+
+vr:P20 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli-dl:activity_id;
+  sh:name "activity id"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .
+
+vr:P21 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli-dl:had_activity_type;
+  sh:name "activity type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node vr:ActivityTypeReference;
+  sh:hasValue <http://publications.europa.eu/resource/authority/event/EP_PLENARY_DECISION>;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .
+
+vr:P22 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path skos:notation;
+  sh:name "voting id"@en;
+  sh:datatype epvoc:votingId;
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .
+
+vr:P23 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli-dl:activity_date;
+  sh:name "activity date"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .
+
+vr:P24 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli-dl:activity_label;
+  sh:name "activity label"@en;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .
+
+vr:P25 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli-dl:decision_method;
+  sh:name "decision method"@en;
+  sh:nodeKind sh:IRI;
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .
+
+vr:P26 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli-dl:had_voter_favor;
+  sh:name "had voter favor"@en;
+  sh:nodeKind sh:IRI;
+  sh:node vr:PersonReference;
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .
+
+vr:P27 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli-dl:had_voter_against;
+  sh:name "had voter against"@en;
+  sh:nodeKind sh:IRI;
+  sh:node vr:PersonReference;
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .
+
+vr:P28 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli-dl:had_voter_abstention;
+  sh:name "had voter abstention"@en;
+  sh:nodeKind sh:IRI;
+  sh:node vr:PersonReference;
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .
+
+vr:P29 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli-dl:had_voter_intended_favor;
+  sh:name "had voter intended favor"@en;
+  sh:nodeKind sh:IRI;
+  sh:node vr:PersonReference;
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .
+
+vr:P30 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli-dl:had_voter_intended_against;
+  sh:name "had voter intended against"@en;
+  sh:nodeKind sh:IRI;
+  sh:node vr:PersonReference;
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .
+
+vr:P31 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli-dl:had_voter_intended_abstention;
+  sh:name "had voter intended abstention"@en;
+  sh:nodeKind sh:IRI;
+  sh:node vr:PersonReference;
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .
+
+vr:P32 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli-dl:recorded_in_a_realization_of;
+  sh:name "recorded in a realization of"@en;
+  sh:nodeKind sh:IRI;
+  sh:node vr:WorkSubdivision;
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .
+
+vr:P35 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli:WorkSubdivision;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .
+
+vr:P38 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue foaf:Person;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .
+
+vr:P41 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli-dl:ActivityType;
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .
+
+vr:P42 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue "op-aut:event";
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .
+
+vr:P45 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli-dl:DecisionMethod;
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .
+
+vr:P46 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  skos:inScheme <https://data.europarl.europa.eu/def/vote-results#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/vote-results#> .

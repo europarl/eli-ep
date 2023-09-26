@@ -1,0 +1,962 @@
+@prefix schema: <http://schema.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix questions: <https://data.europarl.europa.eu/def/parliamentary-questions#> .
+@prefix skosthes: <http://purl.org/iso25964/skos-thes#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix euvoc: <http://publications.europa.eu/ontology/euvoc#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix file-type: <http://publications.europa.eu/resource/authority/file-type/> .
+@prefix eli: <http://data.europa.eu/eli/ontology#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix xls2rdf: <https://xls2rdf.sparna.fr/vocabulary#> .
+@prefix eli-dl: <http://data.europa.eu/eli/eli-draft-legislation-ontology#> .
+@prefix comdoc: <https://data.europarl.europa.eu/def/committee-documents#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix shacl-play: <https://shacl-play.sparna.fr/ontology#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix resource-type: <http://publications.europa.eu/resource/authority/resource-type/> .
+@prefix epvoc: <https://data.europarl.europa.eu/def/epvoc#> .
+@prefix op-aut: <http://publications.europa.eu/resource/authority/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+
+<https://data.europarl.europa.eu/def/committee-documents#> a owl:Ontology, adms:Asset,
+    skos:ConceptScheme;
+  dcterms:type <http://publications.europa.eu/resource/authority/dataset-type/APROF>;
+  rdfs:label "committee documents dataset description"@en;
+  dcterms:title "committee documents dataset description"@en;
+  dcterms:description "This Dataset Description is a subset of the general ELI-EP application profile and it includes classes and properties used in committee documents datasets. Descriptions of classes and properties can be found in ELI-EP application profile."@en;
+  owl:versionInfo "1.3.0";
+  adms:versionNotes """1.3.0 - 2023-09-26
+- creation"""@en;
+  adms:status <http://publications.europa.eu/resource/dataset/dataset-status/COMPLETED>;
+  owl:versionIRI <https://data.europarl.europa.eu/def/committee-documents#>;
+  dcterms:conformsTo <https://www.w3.org/TR/shacl>;
+  dcterms:created "2023-09-26"^^xsd:date;
+  dcterms:modified "2023-09-26T00:00:00.000Z"^^xsd:dateTime;
+  dcterms:dateCopyrighted "2023"^^xsd:gYear;
+  dcterms:license <https://www.europarl.europa.eu/legal-notice/en/>;
+  dcterms:creator <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
+  dcterms:publisher <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
+  dcterms:rigthsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
+  dcat:distribution _:6cae76e663834852a26be1c266d997066065;
+  skos:hasTopConcept comdoc:P9, comdoc:P10, comdoc:P11, comdoc:P12, comdoc:P13, comdoc:P14,
+    comdoc:P15, comdoc:P16, comdoc:P17, comdoc:P18, comdoc:P19, comdoc:P20, comdoc:P21,
+    comdoc:P22, comdoc:P23, comdoc:P24, comdoc:P25, comdoc:P26, comdoc:P27, comdoc:P28,
+    comdoc:P29, comdoc:P30, comdoc:P31, comdoc:P32, comdoc:P33, comdoc:P34, comdoc:P35,
+    comdoc:P37, comdoc:P38, comdoc:P39, comdoc:P50, comdoc:P51, comdoc:P52, comdoc:P53,
+    comdoc:P54, comdoc:P57, comdoc:P58, comdoc:P59, comdoc:P60, comdoc:P61, comdoc:P62,
+    comdoc:P65, comdoc:P66, comdoc:P67, comdoc:P68, comdoc:P69, comdoc:P72, comdoc:P73,
+    comdoc:P76, comdoc:P77, comdoc:P80, comdoc:P81, comdoc:P84, comdoc:P85, comdoc:P88,
+    comdoc:P89, comdoc:P92, comdoc:P93, comdoc:P96, comdoc:P97, comdoc:P100, comdoc:P101,
+    comdoc:P104 .
+
+_:6cae76e663834852a26be1c266d997066065 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
+  dcat:downloadURL <https://europarl.github.io/eli-ep/dsd/committee-documents/eli-ep_committee-session-documents.shacl.ttl> .
+
+comdoc:CommitteeDocument a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  sh:target comdoc:CommitteeDocument-target;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/AFCO-PA-745315";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Committee document"@en;
+  sh:order "1"^^xsd:integer;
+  owl:versionInfo "1.3.0";
+  shacl-play:color "Orange";
+  sh:property comdoc:P9, comdoc:P10, comdoc:P11, comdoc:P12, comdoc:P13, comdoc:P14,
+    comdoc:P15, comdoc:P16, comdoc:P17, comdoc:P18, comdoc:P19, comdoc:P20, comdoc:P21,
+    comdoc:P22, comdoc:P23, comdoc:P24, comdoc:P25, comdoc:P26, comdoc:P27, comdoc:P28,
+    comdoc:P29 .
+
+comdoc:CommitteeDocument-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
+SELECT ?this
+WHERE {
+ ?this eli:work_type ?type .
+ VALUES ?type {
+ <http://publications.europa.eu/resource/authority/resource-type/OPIN_DRAFT_EP_CMT>
+ <http://publications.europa.eu/resource/authority/resource-type/OPIN_EP_CMT>
+ <http://publications.europa.eu/resource/authority/resource-type/OPIN_LETTER_EP_CMT>
+ <http://publications.europa.eu/resource/authority/resource-type/REPORT_DRAFT_EP_CMT>
+ }
+}""" .
+
+comdoc:Amendment a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  sh:targetClass eli:Work;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Amendment"@en;
+  sh:order "2"^^xsd:integer;
+  owl:versionInfo "1.3.0";
+  sh:property comdoc:P25, comdoc:P26, comdoc:P27, comdoc:P28, comdoc:P29, comdoc:P30,
+    comdoc:P31, comdoc:P32, comdoc:P33, comdoc:P34, comdoc:P35, comdoc:P37, comdoc:P38,
+    comdoc:P39 .
+
+comdoc:Expression a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:Expression"@en;
+  sh:targetClass eli:Expression;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/AFCO-PA-745315/en";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+/[a-z]{2,3}$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Expression"@en;
+  sh:order "3"^^xsd:integer;
+  owl:versionInfo "1.3.0";
+  shacl-play:color "RoyalBlue";
+  sh:property comdoc:P50, comdoc:P51, comdoc:P52, comdoc:P53, comdoc:P54 .
+
+comdoc:Manifestation a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:Manifestation"@en;
+  sh:targetClass eli:Manifestation;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/AFCO-PA-745315/en/pdf";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+/[a-z]{2,3}/.*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Manifestation"@en;
+  sh:order "4"^^xsd:integer;
+  owl:versionInfo "1.3.0";
+  shacl-play:color "SeaGreen";
+  sh:property comdoc:P57, comdoc:P58, comdoc:P59, comdoc:P60, comdoc:P61, comdoc:P62 .
+
+comdoc:Participation a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli-dl:Participation"@en;
+  sh:targetClass eli-dl:Participation;
+  skos:example "https://data.europarl.europa.eu/eli/dl/participation/AFCO-PA-745315_124936";
+  sh:nodeKind sh:IRI;
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Participation"@en;
+  sh:order "5"^^xsd:integer;
+  owl:versionInfo "1.3.0";
+  sh:property comdoc:P65, comdoc:P66, comdoc:P67, comdoc:P68, comdoc:P69 .
+
+comdoc:WorkTypeReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class eli:WorkType"@en;
+  skos:example "http://publications.europa.eu/resource/authority/resource-type/OPIN_EP_CMT";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/resource-type/.*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to a Work type"@en;
+  sh:order "9"^^xsd:integer;
+  owl:versionInfo "1.3.0";
+  shacl-play:color "DarkGrey";
+  sh:property comdoc:P72, comdoc:P73 .
+
+comdoc:LanguageReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class dcterms:LinguisticSystem"@en;
+  skos:example "http://publications.europa.eu/resource/authority/language/ENG";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/language/.*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to a Language"@en;
+  sh:order "10"^^xsd:integer;
+  owl:versionInfo "1.3.0";
+  shacl-play:color "DarkGrey";
+  sh:property comdoc:P76, comdoc:P77 .
+
+comdoc:MediaTypeOrExtentReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class dcterms:MediaTypeOrExtent"@en;
+  skos:example "http://publications.europa.eu/resource/authority/file-type/PDF";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/file-type/.*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to a Media Type or Extent (Format)"@en;
+  sh:order "11"^^xsd:integer;
+  owl:versionInfo "1.3.0";
+  shacl-play:color "DarkGrey";
+  sh:property comdoc:P80, comdoc:P81 .
+
+comdoc:OrganizationReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class org:Organization"@en;
+  skos:example "http://publications.europa.eu/resource/authority/corporate-body/EP";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/corporate-body/.*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to an Organization"@en;
+  sh:order "13"^^xsd:integer;
+  owl:versionInfo "1.3.0";
+  shacl-play:color "DarkGrey";
+  sh:property comdoc:P84, comdoc:P85 .
+
+comdoc:ParticipationRoleReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class eli-dl:ParticipationRole"@en;
+  sh:nodeKind sh:IRI;
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to a Participation Role"@en;
+  sh:order "14"^^xsd:integer;
+  owl:versionInfo "1.3.0";
+  shacl-play:color "DarkGrey" .
+
+comdoc:ConceptReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class skos:Concept"@en;
+  skos:example "http://eurovoc.europa.eu/2836";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://eurovoc.europa.eu/.*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to a Concept (Eurovoc)"@en;
+  sh:order "15"^^xsd:integer;
+  owl:versionInfo "1.3.0";
+  shacl-play:color "DarkGrey";
+  sh:property comdoc:P92, comdoc:P93 .
+
+comdoc:ConceptSubjectMatterReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class skos:Concept"@en;
+  skos:example "http://publications.europa.eu/resource/authority/subject-matter/MARI";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/subject-matter/.*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to a Concept (Subject Matter)"@en;
+  sh:order "16"^^xsd:integer;
+  owl:versionInfo "1.3.0";
+  shacl-play:color "DarkGrey";
+  sh:property comdoc:P96, comdoc:P97 .
+
+comdoc:ConceptDirectoryCodeReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class skos:Concept"@en;
+  skos:example "http://publications.europa.eu/resource/authority/dir-eu-legal-act/062020";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/dir-eu-legal-act/.*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to a Concept (Directory Code)"@en;
+  sh:order "17"^^xsd:integer;
+  owl:versionInfo "1.3.0";
+  shacl-play:color "DarkGrey";
+  sh:property comdoc:P100, comdoc:P101 .
+
+comdoc:AgentReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class foaf:Agent"@en;
+  sh:nodeKind sh:IRI;
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Agent"@en;
+  sh:order "6"^^xsd:integer;
+  owl:versionInfo "1.3.0" .
+
+comdoc:PersonReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class foaf:Person"@en;
+  skos:example "https://data.europarl.europa.eu/person/1234";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/person/[0-9].*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Person"@en;
+  sh:order "7"^^xsd:integer;
+  owl:versionInfo "1.3.0";
+  sh:property comdoc:P104 .
+
+comdoc:P9 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue eli:Work;
+  shacl-play:shortname "type";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P10 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path dcterms:identifier;
+  sh:name "identifier"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifier";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P11 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli:work_type;
+  sh:name "work type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node comdoc:WorkTypeReference;
+  sh:in _:6cae76e663834852a26be1c266d997066066;
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "work_type";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+_:6cae76e663834852a26be1c266d997066066 rdf:first resource-type:OPIN_DRAFT_EP_CMT;
+  rdf:rest _:6cae76e663834852a26be1c266d997066067 .
+
+_:6cae76e663834852a26be1c266d997066067 rdf:first resource-type:OPIN_EP_CMT;
+  rdf:rest _:6cae76e663834852a26be1c266d997066068 .
+
+_:6cae76e663834852a26be1c266d997066068 rdf:first resource-type:OPIN_LETTER_EP_CMT;
+  rdf:rest _:6cae76e663834852a26be1c266d997066069 .
+
+_:6cae76e663834852a26be1c266d997066069 rdf:first resource-type:REPORT_DRAFT_EP_CMT;
+  rdf:rest rdf:nil .
+
+comdoc:P12 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli:date_document;
+  sh:name "date document"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  shacl-play:shortname "date_document";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P13 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path dcterms:title;
+  sh:name "title"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title_dcterms";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P14 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path epvoc:identifierYear;
+  sh:name "identifier year"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P15 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path rdfs:label;
+  sh:name "label"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "label";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P16 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path epvoc:epNumber;
+  sh:name "ep number"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "epNumber";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P17 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path epvoc:epNumberVersion;
+  sh:name "ep number version"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "epNumber";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P18 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path skos:notation;
+  sh:name "notation"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype epvoc:publicRegister;
+  shacl-play:shortname "notation";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P19 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli-dl:parliamentary_term;
+  sh:name "parliamentary term"@en;
+  sh:minCount "0"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/org/ep-[0-9].*$";
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "parliamentary_term";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P20 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path dcterms:publisher;
+  sh:name "publisher"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node comdoc:OrganizationReference;
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "publisher";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P21 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path dcterms:creator;
+  sh:name "creator"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node comdoc:AgentReference;
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "publisher";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P22 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli:is_realized_by;
+  sh:name "is realized by"@en;
+  sh:nodeKind sh:IRI;
+  sh:node comdoc:Expression;
+  shacl-play:shortname "is_realized_by";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P23 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path epvoc:originalLanguage;
+  sh:name "original language"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node comdoc:LanguageReference;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P24 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path epvoc:workHadParticipation;
+  sh:name "work had participation"@en;
+  sh:nodeKind sh:IRI;
+  sh:node comdoc:Participation;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P25 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli:is_about, rdf:type;
+  sh:name "descriptor"@en, "type"@en;
+  skos:example "http://eurovoc.europa.eu/2836";
+  sh:nodeKind sh:IRI;
+  sh:node comdoc:ConceptReference;
+  sh:pattern "http://eurovoc.europa.eu/.*$";
+  sh:deactivated "true"^^xsd:boolean;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue eli:Work;
+  shacl-play:shortname "type";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P26 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path epvoc:isAboutSubjectMatter, dcterms:identifier;
+  sh:name "is about subject matter"@en, "identifier"@en;
+  skos:example "http://publications.europa.eu/resource/authority/subject-matter/MARI";
+  sh:nodeKind sh:IRI, sh:Literal;
+  sh:node comdoc:ConceptSubjectMatterReference;
+  sh:pattern "http://publications.europa.eu/resource/authority/subject-matter/.*$";
+  sh:deactivated "true"^^xsd:boolean;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifier";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P27 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path epvoc:isAboutDirectoryCode, eli:work_type;
+  sh:name "is about directory code"@en, "work type"@en;
+  skos:example "http://publications.europa.eu/resource/authority/dir-eu-legal-act/062020";
+  sh:nodeKind sh:IRI;
+  sh:node comdoc:ConceptDirectoryCodeReference, comdoc:WorkTypeReference;
+  sh:pattern "http://publications.europa.eu/resource/authority/dir-eu-legal-act/.*$";
+  sh:deactivated "true"^^xsd:boolean;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue resource-type:AMEND_LIST_EP;
+  shacl-play:shortname "work_type";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P28 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli-dl:adopts, eli:date_document;
+  sh:name "adopts"@en, "date document"@en;
+  sh:nodeKind sh:IRI, sh:Literal;
+  sh:deactivated "true"^^xsd:boolean;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:datatype xsd:date;
+  shacl-play:shortname "date_document";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P29 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path _:6cae76e663834852a26be1c266d997066070, dcterms:title;
+  sh:nodeKind sh:IRI, sh:Literal;
+  sh:node comdoc:Amendment;
+  sh:deactivated "true"^^xsd:boolean;
+  sh:name "title"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title_dcterms";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+_:6cae76e663834852a26be1c266d997066070 sh:inversePath eli-dl:foresees_change_of .
+
+comdoc:P30 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path rdfs:label;
+  sh:name "label"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "label";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P31 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path epvoc:epNumber;
+  sh:name "ep number"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "epNumber";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P32 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path epvoc:epNumberVersion;
+  sh:name "ep number version"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "epNumber";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P33 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path skos:notation;
+  sh:name "notation"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype epvoc:publicRegister;
+  shacl-play:shortname "notation";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P34 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli-dl:parliamentary_term;
+  sh:name "parliamentary term"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/org/ep-[0-9].*$";
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "parliamentary_term";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P35 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path dcterms:publisher;
+  sh:name "publisher"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node comdoc:OrganizationReference;
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "publisher";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P37 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli:is_realized_by;
+  sh:name "is realized by"@en;
+  sh:nodeKind sh:IRI;
+  sh:node comdoc:Expression;
+  shacl-play:shortname "is_realized_by";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P38 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path epvoc:originalLanguage;
+  sh:name "original language"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node comdoc:LanguageReference;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P39 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli-dl:foresees_change_of;
+  sh:name "foresees change of"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node comdoc:CommitteeDocument;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P50 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli:Expression;
+  shacl-play:shortname "type";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P51 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli:title;
+  sh:name "title"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P52 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli:title_alternative;
+  sh:name "alternative title"@en;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title_alternative";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P53 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli:is_embodied_by;
+  sh:name "is embodied by"@en;
+  sh:nodeKind sh:IRI;
+  sh:node comdoc:Manifestation;
+  shacl-play:shortname "is_embodied_by";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P54 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli:language;
+  sh:name "language"@en;
+  skos:example "http://publications.europa.eu/resource/authority/language/ENG";
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node comdoc:LanguageReference;
+  sh:pattern "http://publications.europa.eu/resource/authority/language/.*$";
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "language";
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P57 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli:Manifestation;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P58 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path dcterms:issued;
+  sh:name "issued"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:dateTime;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P59 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli:is_exemplified_by;
+  sh:name "is exemplified by"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P60 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path epvoc:byteSize;
+  sh:name "byte size"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:long;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P61 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path dcterms:format;
+  sh:name "format"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node comdoc:MediaTypeOrExtentReference;
+  sh:in _:6cae76e663834852a26be1c266d997066071;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+_:6cae76e663834852a26be1c266d997066071 rdf:first file-type:PDF;
+  rdf:rest _:6cae76e663834852a26be1c266d997066072 .
+
+_:6cae76e663834852a26be1c266d997066072 rdf:first file-type:DOCX;
+  rdf:rest _:6cae76e663834852a26be1c266d997066073 .
+
+_:6cae76e663834852a26be1c266d997066073 rdf:first file-type:DOC;
+  rdf:rest rdf:nil .
+
+comdoc:P62 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli:media_type;
+  sh:name "media type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P65 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:hasValue eli-dl:Participation;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P66 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli-dl:participation_role;
+  sh:name "participation role"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node comdoc:ParticipationRoleReference;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P67 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli-dl:had_participant_organization;
+  sh:name "had participant organization"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node comdoc:OrganizationReference;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P68 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli-dl:had_participant_person;
+  sh:name "had participant person"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node comdoc:PersonReference;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P69 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path eli-dl:participation_in_name_of;
+  sh:name "participation in name of"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node comdoc:OrganizationReference;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P72 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli:WorkType;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P73 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue op-aut:resource-type;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P76 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue dcterms:LinguisticSystem;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P77 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue op-aut:language;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P80 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue dcterms:MediaTypeOrExtent;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P81 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue op-aut:format;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P84 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue org:Organization;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P85 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue op-aut:corporate-body;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P88 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli-dl:ParticipationRole;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:PartecipationRoleReference sh:property comdoc:P88, comdoc:P89 .
+
+comdoc:P89 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue op-aut:role;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P92 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue skos:Concept;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P93 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue <http://eurovoc.europa.eu>;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P96 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue skos:Concept;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P97 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue op-aut:subject-matter;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P100 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue skos:Concept;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P101 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue op-aut:dir-eu-legal-act;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
+
+comdoc:P104 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:hasValue foaf:Person;
+  skos:inScheme <https://data.europarl.europa.eu/def/committee-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/committee-documents#> .
