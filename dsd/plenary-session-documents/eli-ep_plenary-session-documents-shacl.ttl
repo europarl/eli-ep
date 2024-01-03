@@ -34,8 +34,12 @@
   rdfs:label "Plenary session documents dataset description"@en;
   dcterms:title "Plenary session documents dataset description"@en;
   dcterms:description "This Dataset Description is a subset of the general ELI-EP application profile and it includes classes and properties used in Plenary session documents datasets. Descriptions of classes and properties can be found in ELI-EP application profile."@en;
-  owl:versionInfo "1.3.0";
-  adms:versionNotes """1.3.0 - 2023-09-26
+  owl:versionInfo "1.5.0";
+  adms:versionNotes """1.5.0 - 2023-12-08
+- (new) add epvoc:expressionContent
+- (new) add eli:refers_to for eli:WorkSubdivision, eli:Work and eli-dl:Process
+- (rf) PLENARY_AGENDA_EP only eli:Work, no more eli:ComplexWork
+1.3.0 - 2023-09-26
 - (rfc) change target scope (psd:PlenarySittingAgenda, psd:PlenaryRcv, psd:PlenaryVotes, psd:PlenaryAtt moved from Other Shapes to Main Shapes).
 - (rfc) removed eli:ComplexWork class for PLENARY_MINUTES_EP (PV), PLENARY_ATT_LIST_EP (ATT), PLENARY_VOTES (VOT). Remark: in the upcoming releases PLENARY_AGENDA_EP and PLENARY_CRE_EP will also be available only as eli:Work.
 - (rfc) correct eli-dl:recorded_in_realization_of by eli-dl:recorded_in_a_realization_of
@@ -52,13 +56,13 @@
   owl:versionIRI <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   dcterms:conformsTo <https://www.w3.org/TR/shacl>;
   dcterms:created "2022-11-18"^^xsd:date;
-  dcterms:modified "2023-09-26T00:00:00.000Z"^^xsd:dateTime;
+  dcterms:modified "2023-12-08T00:00:00.000Z"^^xsd:dateTime;
   dcterms:dateCopyrighted "2022"^^xsd:gYear;
   dcterms:license <https://www.europarl.europa.eu/legal-notice/en/>;
   dcterms:creator <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
   dcterms:publisher <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
   dcterms:rigthsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
-  dcat:distribution _:6cae76e663834852a26be1c266d997065988;
+  dcat:distribution _:79f295ad32df4ce8a18a92539c6e8a3b45514;
   skos:hasTopConcept psd:P9, psd:P10, psd:P11, psd:P12, psd:P13, psd:P14, psd:P15, psd:P16,
     psd:P17, psd:P18, psd:P19, psd:P20, psd:P21, psd:P22, psd:P25, psd:P26, psd:P27, psd:P28,
     psd:P29, psd:P30, psd:P31, psd:P32, psd:P33, psd:P34, psd:P35, psd:P36, psd:P37, psd:P38,
@@ -71,11 +75,11 @@
     psd:P113, psd:P114, psd:P115, psd:P116, psd:P117, psd:P118, psd:P119, psd:P120, psd:P122,
     psd:P138, psd:P139, psd:P140, psd:P141, psd:P142, psd:P143, psd:P144, psd:P145, psd:P146,
     psd:P147, psd:P148, psd:P149, psd:P150, psd:P168, psd:P169, psd:P170, psd:P171, psd:P172,
-    psd:P173, psd:P174, psd:P175, psd:P178, psd:P179, psd:P180, psd:P181, psd:P184, psd:P185,
-    psd:P186, psd:P187, psd:P188, psd:P189, psd:P192, psd:P193, psd:P196, psd:P197, psd:P200,
-    psd:P201, psd:P204, psd:P205, psd:P208, psd:P209 .
+    psd:P173, psd:P174, psd:P175, psd:P176, psd:P177, psd:P178, psd:P179, psd:P182, psd:P183,
+    psd:P184, psd:P185, psd:P188, psd:P189, psd:P190, psd:P191, psd:P192, psd:P193, psd:P196,
+    psd:P197, psd:P200, psd:P201, psd:P204, psd:P205, psd:P208, psd:P209, psd:P212, psd:P213 .
 
-_:6cae76e663834852a26be1c266d997065988 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
+_:79f295ad32df4ce8a18a92539c6e8a3b45514 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
   dcat:downloadURL <https://europarl.github.io/eli-ep/dsd/plenary-session-documents/eli-ep_plenary-session-documents.shacl.ttl> .
 
 psd:PlenaryAgendaPartSession a sh:NodeShape;
@@ -148,17 +152,17 @@ psd:PlenarySittingAgenda a sh:NodeShape;
   sh:nodeKind sh:IRI;
   sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
   sh:closed "true"^^xsd:boolean;
-  rdfs:label "ComplexWork Plenary sitting agenda"@en;
+  rdfs:label "Work Plenary sitting agenda"@en;
   sh:order "4"^^xsd:integer;
-  owl:versionInfo "1.3.0";
-  shacl-play:color "Magenta";
+  owl:versionInfo "1.5.0";
+  shacl-play:color "Orange";
   sh:property psd:P25, psd:P26, psd:P27, psd:P28, psd:P29, psd:P30, psd:P31, psd:P32,
     psd:P33, psd:P34, psd:P35, psd:P36, psd:P37, psd:P38 .
 
 psd:PlenarySittingAgenda-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
 SELECT ?this
 WHERE {
- ?this a eli:ComplexWork.
+ ?this a eli:Work.
  ?this eli:work_type <http://publications.europa.eu/resource/authority/resource-type/PLENARY_AGENDA_EP> .
 }""" .
 
@@ -235,7 +239,7 @@ psd:Expression a sh:NodeShape;
   sh:order "9"^^xsd:integer;
   owl:versionInfo "1.3.0";
   shacl-play:color "Blue";
-  sh:property psd:P178, psd:P179, psd:P180, psd:P181 .
+  sh:property psd:P182, psd:P183, psd:P184, psd:P185 .
 
 psd:Manifestation a sh:NodeShape;
   rdfs:comment "This node shape represents a subset of eli:Manifestation"@en;
@@ -247,7 +251,7 @@ psd:Manifestation a sh:NodeShape;
   sh:order "10"^^xsd:integer;
   owl:versionInfo "1.3.0";
   shacl-play:color "Green";
-  sh:property psd:P184, psd:P185, psd:P186, psd:P187, psd:P188, psd:P189 .
+  sh:property psd:P188, psd:P189, psd:P190, psd:P191, psd:P192, psd:P193 .
 
 psd:VersionedWork a sh:NodeShape;
   rdfs:comment "This node shape represents a subset of eli:Work"@en;
@@ -273,7 +277,7 @@ psd:WorkSubdivision a sh:NodeShape;
   owl:versionInfo "1.3.0";
   shacl-play:color "Orange";
   sh:property psd:P168, psd:P169, psd:P170, psd:P171, psd:P172, psd:P173, psd:P174,
-    psd:P175 .
+    psd:P175, psd:P176, psd:P177, psd:P178, psd:P179 .
 
 psd:WorkTypeReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class eli:WorkType"@en;
@@ -285,7 +289,7 @@ psd:WorkTypeReference a sh:NodeShape;
   sh:order "14"^^xsd:integer;
   owl:versionInfo "1.0";
   shacl-play:color "DarkGrey";
-  sh:property psd:P192, psd:P193 .
+  sh:property psd:P196, psd:P197 .
 
 psd:LanguageReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class dcterms:LinguisticSystem"@en;
@@ -297,7 +301,7 @@ psd:LanguageReference a sh:NodeShape;
   sh:order "15"^^xsd:integer;
   owl:versionInfo "1.0";
   shacl-play:color "DarkGrey";
-  sh:property psd:P196, psd:P197 .
+  sh:property psd:P200, psd:P201 .
 
 psd:MediaTypeOrExtentReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class dcterms:MediaTypeOrExtent"@en;
@@ -309,7 +313,7 @@ psd:MediaTypeOrExtentReference a sh:NodeShape;
   sh:order "16"^^xsd:integer;
   owl:versionInfo "1.0";
   shacl-play:color "DarkGrey";
-  sh:property psd:P200, psd:P201 .
+  sh:property psd:P204, psd:P205 .
 
 psd:VersionReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class euvoc:FileStatus"@en;
@@ -321,7 +325,7 @@ psd:VersionReference a sh:NodeShape;
   sh:order "17"^^xsd:integer;
   owl:versionInfo "1.0";
   shacl-play:color "DarkGrey";
-  sh:property psd:P204, psd:P205 .
+  sh:property psd:P208, psd:P209 .
 
 psd:SubdivisionTypeReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class eli:SubdivisionType"@en;
@@ -333,21 +337,21 @@ psd:SubdivisionTypeReference a sh:NodeShape;
   sh:order "18"^^xsd:integer;
   owl:versionInfo "1.3.0";
   shacl-play:color "DarkGrey";
-  sh:property psd:P208, psd:P209 .
+  sh:property psd:P212, psd:P213 .
 
 psd:P9 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
-  sh:in _:6cae76e663834852a26be1c266d997065989;
+  sh:in _:79f295ad32df4ce8a18a92539c6e8a3b45515;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-_:6cae76e663834852a26be1c266d997065989 rdf:first eli:ComplexWork;
-  rdf:rest _:6cae76e663834852a26be1c266d997065990 .
+_:79f295ad32df4ce8a18a92539c6e8a3b45515 rdf:first eli:ComplexWork;
+  rdf:rest _:79f295ad32df4ce8a18a92539c6e8a3b45516 .
 
-_:6cae76e663834852a26be1c266d997065990 rdf:first eli:Work;
+_:79f295ad32df4ce8a18a92539c6e8a3b45516 rdf:first eli:Work;
   rdf:rest rdf:nil .
 
 psd:P10 a skos:Concept;
@@ -473,7 +477,7 @@ psd:P20 a skos:Concept;
 
 psd:P21 a skos:Concept;
   owl:versionInfo "1.3.0";
-  sh:path _:6cae76e663834852a26be1c266d997065991;
+  sh:path _:79f295ad32df4ce8a18a92539c6e8a3b45517;
   sh:name "has derivative"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:PlenarySittingAgenda;
@@ -482,11 +486,11 @@ psd:P21 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-_:6cae76e663834852a26be1c266d997065991 sh:inversePath eli:is_derivative_of .
+_:79f295ad32df4ce8a18a92539c6e8a3b45517 sh:inversePath eli:is_derivative_of .
 
 psd:P22 a skos:Concept;
   owl:versionInfo "1.3.0";
-  sh:path _:6cae76e663834852a26be1c266d997065992;
+  sh:path _:79f295ad32df4ce8a18a92539c6e8a3b45518;
   sh:name "documents"@en;
   sh:nodeKind sh:IRI;
   sh:deactivated "true"^^xsd:boolean;
@@ -494,23 +498,17 @@ psd:P22 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-_:6cae76e663834852a26be1c266d997065992 sh:inversePath eli-dl:documented_by_a_realization_of .
+_:79f295ad32df4ce8a18a92539c6e8a3b45518 sh:inversePath eli-dl:documented_by_a_realization_of .
 
 psd:P25 a skos:Concept;
-  owl:versionInfo "1.0";
+  owl:versionInfo "1.5.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
-  sh:in _:6cae76e663834852a26be1c266d997065993;
+  sh:hasValue eli:Work;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
-
-_:6cae76e663834852a26be1c266d997065993 rdf:first eli:ComplexWork;
-  rdf:rest _:6cae76e663834852a26be1c266d997065994 .
-
-_:6cae76e663834852a26be1c266d997065994 rdf:first eli:Work;
-  rdf:rest rdf:nil .
 
 psd:P26 a skos:Concept;
   owl:versionInfo "1.0";
@@ -641,7 +639,7 @@ psd:P37 a skos:Concept;
 
 psd:P38 a skos:Concept;
   owl:versionInfo "1.3.0";
-  sh:path _:6cae76e663834852a26be1c266d997065995;
+  sh:path _:79f295ad32df4ce8a18a92539c6e8a3b45519;
   sh:name "documents"@en;
   sh:nodeKind sh:IRI;
   sh:deactivated "true"^^xsd:boolean;
@@ -649,7 +647,7 @@ psd:P38 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-_:6cae76e663834852a26be1c266d997065995 sh:inversePath eli-dl:documented_by_a_realization_of .
+_:79f295ad32df4ce8a18a92539c6e8a3b45519 sh:inversePath eli-dl:documented_by_a_realization_of .
 
 psd:P41 a skos:Concept;
   owl:versionInfo "1.3.0";
@@ -766,45 +764,45 @@ psd:P51 a skos:Concept;
 
 psd:P54 a skos:Concept;
   owl:versionInfo "1.3.0";
-  sh:path _:6cae76e663834852a26be1c266d997065996;
+  sh:path _:79f295ad32df4ce8a18a92539c6e8a3b45520;
   sh:name "has annex"@en;
   sh:nodeKind sh:IRI;
-  sh:or _:6cae76e663834852a26be1c266d997065997;
+  sh:or _:79f295ad32df4ce8a18a92539c6e8a3b45521;
   sh:deactivated "true"^^xsd:boolean;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-_:6cae76e663834852a26be1c266d997065996 sh:inversePath eli:is_annex_of .
+_:79f295ad32df4ce8a18a92539c6e8a3b45520 sh:inversePath eli:is_annex_of .
 
-_:6cae76e663834852a26be1c266d997065997 rdf:first _:6cae76e663834852a26be1c266d997065998;
-  rdf:rest _:6cae76e663834852a26be1c266d997065999 .
+_:79f295ad32df4ce8a18a92539c6e8a3b45521 rdf:first _:79f295ad32df4ce8a18a92539c6e8a3b45522;
+  rdf:rest _:79f295ad32df4ce8a18a92539c6e8a3b45523 .
 
-_:6cae76e663834852a26be1c266d997065998 sh:node psd:PlenaryRcv .
+_:79f295ad32df4ce8a18a92539c6e8a3b45522 sh:node psd:PlenaryRcv .
 
-_:6cae76e663834852a26be1c266d997065999 rdf:first _:6cae76e663834852a26be1c266d997066000;
-  rdf:rest _:6cae76e663834852a26be1c266d997066001 .
+_:79f295ad32df4ce8a18a92539c6e8a3b45523 rdf:first _:79f295ad32df4ce8a18a92539c6e8a3b45524;
+  rdf:rest _:79f295ad32df4ce8a18a92539c6e8a3b45525 .
 
-_:6cae76e663834852a26be1c266d997066000 sh:node psd:PlenaryAtt .
+_:79f295ad32df4ce8a18a92539c6e8a3b45524 sh:node psd:PlenaryAtt .
 
-_:6cae76e663834852a26be1c266d997066001 rdf:first _:6cae76e663834852a26be1c266d997066002;
+_:79f295ad32df4ce8a18a92539c6e8a3b45525 rdf:first _:79f295ad32df4ce8a18a92539c6e8a3b45526;
   rdf:rest rdf:nil .
 
-_:6cae76e663834852a26be1c266d997066002 sh:node psd:PlenaryVotes .
+_:79f295ad32df4ce8a18a92539c6e8a3b45526 sh:node psd:PlenaryVotes .
 
 psd:P55 a skos:Concept;
   owl:versionInfo "1.3.0";
-  sh:path _:6cae76e663834852a26be1c266d997066003;
+  sh:path _:79f295ad32df4ce8a18a92539c6e8a3b45527;
   sh:name "has part"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:WorkSubdivision;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-_:6cae76e663834852a26be1c266d997066003 sh:inversePath eli:is_part_of .
+_:79f295ad32df4ce8a18a92539c6e8a3b45527 sh:inversePath eli:is_part_of .
 
 psd:P56 a skos:Concept;
   owl:versionInfo "1.3.0";
-  sh:path _:6cae76e663834852a26be1c266d997066004;
+  sh:path _:79f295ad32df4ce8a18a92539c6e8a3b45528;
   sh:name "records"@en;
   sh:nodeKind sh:IRI;
   sh:deactivated "true"^^xsd:boolean;
@@ -812,7 +810,7 @@ psd:P56 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-_:6cae76e663834852a26be1c266d997066004 sh:inversePath eli-dl:recorded_in_a_realization_of .
+_:79f295ad32df4ce8a18a92539c6e8a3b45528 sh:inversePath eli-dl:recorded_in_a_realization_of .
 
 psd:P59 a skos:Concept;
   owl:versionInfo "1.3.0";
@@ -951,7 +949,7 @@ psd:P73 a skos:Concept;
 
 psd:P74 a skos:Concept;
   owl:versionInfo "1.3.0";
-  sh:path _:6cae76e663834852a26be1c266d997066005;
+  sh:path _:79f295ad32df4ce8a18a92539c6e8a3b45529;
   sh:name "records"@en;
   sh:nodeKind sh:IRI;
   sh:deactivated "true"^^xsd:boolean;
@@ -959,7 +957,7 @@ psd:P74 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-_:6cae76e663834852a26be1c266d997066005 sh:inversePath eli-dl:recorded_in_a_realization_of .
+_:79f295ad32df4ce8a18a92539c6e8a3b45529 sh:inversePath eli-dl:recorded_in_a_realization_of .
 
 psd:P77 a skos:Concept;
   owl:versionInfo "1.3.0";
@@ -1088,7 +1086,7 @@ psd:P90 a skos:Concept;
 
 psd:P91 a skos:Concept;
   owl:versionInfo "1.3.0";
-  sh:path _:6cae76e663834852a26be1c266d997066006;
+  sh:path _:79f295ad32df4ce8a18a92539c6e8a3b45530;
   sh:name "records"@en;
   sh:nodeKind sh:IRI;
   sh:deactivated "true"^^xsd:boolean;
@@ -1096,7 +1094,7 @@ psd:P91 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-_:6cae76e663834852a26be1c266d997066006 sh:inversePath eli-dl:recorded_in_a_realization_of .
+_:79f295ad32df4ce8a18a92539c6e8a3b45530 sh:inversePath eli-dl:recorded_in_a_realization_of .
 
 psd:P94 a skos:Concept;
   owl:versionInfo "1.0";
@@ -1226,7 +1224,7 @@ psd:P105 a skos:Concept;
 
 psd:P106 a skos:Concept;
   owl:versionInfo "1.3.0";
-  sh:path _:6cae76e663834852a26be1c266d997066007;
+  sh:path _:79f295ad32df4ce8a18a92539c6e8a3b45531;
   sh:name "has part"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:WorkSubdivision;
@@ -1234,11 +1232,11 @@ psd:P106 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-_:6cae76e663834852a26be1c266d997066007 sh:inversePath eli:is_part_of .
+_:79f295ad32df4ce8a18a92539c6e8a3b45531 sh:inversePath eli:is_part_of .
 
 psd:P107 a skos:Concept;
   owl:versionInfo "1.3.0";
-  sh:path _:6cae76e663834852a26be1c266d997066008;
+  sh:path _:79f295ad32df4ce8a18a92539c6e8a3b45532;
   sh:name "records"@en;
   sh:nodeKind sh:IRI;
   sh:deactivated "true"^^xsd:boolean;
@@ -1246,21 +1244,21 @@ psd:P107 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-_:6cae76e663834852a26be1c266d997066008 sh:inversePath eli-dl:recorded_in_a_realization_of .
+_:79f295ad32df4ce8a18a92539c6e8a3b45532 sh:inversePath eli-dl:recorded_in_a_realization_of .
 
 psd:P110 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
-  sh:in _:6cae76e663834852a26be1c266d997066009;
+  sh:in _:79f295ad32df4ce8a18a92539c6e8a3b45533;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-_:6cae76e663834852a26be1c266d997066009 rdf:first eli:ComplexWork;
-  rdf:rest _:6cae76e663834852a26be1c266d997066010 .
+_:79f295ad32df4ce8a18a92539c6e8a3b45533 rdf:first eli:ComplexWork;
+  rdf:rest _:79f295ad32df4ce8a18a92539c6e8a3b45534 .
 
-_:6cae76e663834852a26be1c266d997066010 rdf:first eli:Work;
+_:79f295ad32df4ce8a18a92539c6e8a3b45534 rdf:first eli:Work;
   rdf:rest rdf:nil .
 
 psd:P111 a skos:Concept;
@@ -1368,7 +1366,7 @@ psd:P120 a skos:Concept;
 
 psd:P122 a skos:Concept;
   owl:versionInfo "1.3.0";
-  sh:path _:6cae76e663834852a26be1c266d997066011;
+  sh:path _:79f295ad32df4ce8a18a92539c6e8a3b45535;
   sh:name "records"@en;
   sh:nodeKind sh:IRI;
   sh:deactivated "true"^^xsd:boolean;
@@ -1376,7 +1374,7 @@ psd:P122 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-_:6cae76e663834852a26be1c266d997066011 sh:inversePath eli-dl:recorded_in_a_realization_of .
+_:79f295ad32df4ce8a18a92539c6e8a3b45535 sh:inversePath eli-dl:recorded_in_a_realization_of .
 
 psd:P138 a skos:Concept;
   owl:versionInfo "1.0";
@@ -1428,18 +1426,18 @@ psd:P142 a skos:Concept;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   sh:node psd:WorkTypeReference;
-  sh:in _:6cae76e663834852a26be1c266d997066012;
+  sh:in _:79f295ad32df4ce8a18a92539c6e8a3b45536;
   sh:deactivated "true"^^xsd:boolean;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-_:6cae76e663834852a26be1c266d997066012 rdf:first resource-type::PLENARY_AGENDA_PART_SESSION_EP;
-  rdf:rest _:6cae76e663834852a26be1c266d997066013 .
+_:79f295ad32df4ce8a18a92539c6e8a3b45536 rdf:first resource-type::PLENARY_AGENDA_PART_SESSION_EP;
+  rdf:rest _:79f295ad32df4ce8a18a92539c6e8a3b45537 .
 
-_:6cae76e663834852a26be1c266d997066013 rdf:first resource-type::PLENARY_AGENDA_EP;
-  rdf:rest _:6cae76e663834852a26be1c266d997066014 .
+_:79f295ad32df4ce8a18a92539c6e8a3b45537 rdf:first resource-type::PLENARY_AGENDA_EP;
+  rdf:rest _:79f295ad32df4ce8a18a92539c6e8a3b45538 .
 
-_:6cae76e663834852a26be1c266d997066014 rdf:first resource-type:PLENARY_CRE_EP;
+_:79f295ad32df4ce8a18a92539c6e8a3b45538 rdf:first resource-type:PLENARY_CRE_EP;
   rdf:rest rdf:nil .
 
 psd:P143 a skos:Concept;
@@ -1565,20 +1563,26 @@ psd:P171 a skos:Concept;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
 psd:P172 a skos:Concept;
-  owl:versionInfo "1.3.0";
+  owl:versionInfo "1.5.0";
   sh:path eli:is_part_of;
   sh:name "is part of"@en;
   sh:minCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
-  sh:in _:6cae76e663834852a26be1c266d997066015;
+  sh:in _:79f295ad32df4ce8a18a92539c6e8a3b45539;
   sh:deactivated "true"^^xsd:boolean;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-_:6cae76e663834852a26be1c266d997066015 rdf:first psd:PlenaryRcv;
-  rdf:rest _:6cae76e663834852a26be1c266d997066016 .
+_:79f295ad32df4ce8a18a92539c6e8a3b45539 rdf:first psd:PlenaryRcv;
+  rdf:rest _:79f295ad32df4ce8a18a92539c6e8a3b45540 .
 
-_:6cae76e663834852a26be1c266d997066016 rdf:first psd:PlenaryMinutes;
+_:79f295ad32df4ce8a18a92539c6e8a3b45540 rdf:first psd:PlenaryMinutes;
+  rdf:rest _:79f295ad32df4ce8a18a92539c6e8a3b45541 .
+
+_:79f295ad32df4ce8a18a92539c6e8a3b45541 rdf:first psd:PlenaryVotes;
+  rdf:rest _:79f295ad32df4ce8a18a92539c6e8a3b45542 .
+
+_:79f295ad32df4ce8a18a92539c6e8a3b45542 rdf:first psd:WorkSubdivision;
   rdf:rest rdf:nil .
 
 psd:P173 a skos:Concept;
@@ -1604,8 +1608,61 @@ psd:P174 a skos:Concept;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
 psd:P175 a skos:Concept;
+  owl:versionInfo "1.5.0";
+  sh:path eli:refers_to;
+  sh:name "refers to"@en;
+  sh:nodeKind sh:IRI;
+  sh:in _:79f295ad32df4ce8a18a92539c6e8a3b45543;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
+
+_:79f295ad32df4ce8a18a92539c6e8a3b45543 rdf:first eli:WorkSubdivision;
+  rdf:rest _:79f295ad32df4ce8a18a92539c6e8a3b45544 .
+
+_:79f295ad32df4ce8a18a92539c6e8a3b45544 rdf:first eli:Work;
+  rdf:rest _:79f295ad32df4ce8a18a92539c6e8a3b45545 .
+
+_:79f295ad32df4ce8a18a92539c6e8a3b45545 rdf:first eli-dl:Process;
+  rdf:rest rdf:nil .
+
+psd:P176 a skos:Concept;
+  owl:versionInfo "1.5.1";
+  sh:path epvoc:expressionContent;
+  sh:name "expression content"@en;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
+
+psd:P177 a skos:Concept;
+  owl:versionInfo "1.5.0";
+  sh:path _:79f295ad32df4ce8a18a92539c6e8a3b45546;
+  sh:name "has part"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node psd:WorkSubdivision;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
+
+_:79f295ad32df4ce8a18a92539c6e8a3b45546 sh:inversePath eli:is_part_of .
+
+psd:P178 a skos:Concept;
+  owl:versionInfo "1.5.0";
+  sh:path _:79f295ad32df4ce8a18a92539c6e8a3b45547;
+  sh:name "is referred to by"@en;
+  sh:nodeKind sh:IRI;
+  sh:node psd:WorkSubdivision;
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "is_referred_to_by";
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
+
+_:79f295ad32df4ce8a18a92539c6e8a3b45547 sh:inversePath eli:refers_to .
+
+psd:P179 a skos:Concept;
   owl:versionInfo "1.3.0";
-  sh:path _:6cae76e663834852a26be1c266d997066017;
+  sh:path _:79f295ad32df4ce8a18a92539c6e8a3b45548;
   sh:name "records"@en;
   sh:nodeKind sh:IRI;
   sh:deactivated "true"^^xsd:boolean;
@@ -1613,9 +1670,9 @@ psd:P175 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-_:6cae76e663834852a26be1c266d997066017 sh:inversePath eli-dl:recorded_in_a_realization_of .
+_:79f295ad32df4ce8a18a92539c6e8a3b45548 sh:inversePath eli-dl:recorded_in_a_realization_of .
 
-psd:P178 a skos:Concept;
+psd:P182 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path rdf:type;
   sh:name "type"@en;
@@ -1626,7 +1683,7 @@ psd:P178 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-psd:P179 a skos:Concept;
+psd:P183 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path eli:title;
   sh:name "title"@en;
@@ -1636,7 +1693,7 @@ psd:P179 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-psd:P180 a skos:Concept;
+psd:P184 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path eli:is_embodied_by;
   sh:name "is embodied by"@en;
@@ -1645,7 +1702,7 @@ psd:P180 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-psd:P181 a skos:Concept;
+psd:P185 a skos:Concept;
   owl:versionInfo "1.1";
   sh:path eli:language;
   sh:name "language"@en;
@@ -1656,7 +1713,7 @@ psd:P181 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-psd:P184 a skos:Concept;
+psd:P188 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path rdf:type;
   sh:name "type"@en;
@@ -1667,7 +1724,7 @@ psd:P184 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-psd:P185 a skos:Concept;
+psd:P189 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path dcterms:issued;
   sh:name "issued"@en;
@@ -1678,7 +1735,7 @@ psd:P185 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-psd:P186 a skos:Concept;
+psd:P190 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path eli:is_exemplified_by;
   sh:name "is exemplified by"@en;
@@ -1687,7 +1744,7 @@ psd:P186 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-psd:P187 a skos:Concept;
+psd:P191 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path epvoc:byteSize;
   sh:name "byte size"@en;
@@ -1697,7 +1754,7 @@ psd:P187 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-psd:P188 a skos:Concept;
+psd:P192 a skos:Concept;
   owl:versionInfo "1.1";
   sh:path dcterms:format;
   sh:name "format"@en;
@@ -1709,7 +1766,7 @@ psd:P188 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-psd:P189 a skos:Concept;
+psd:P193 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path eli:media_type;
   sh:name "media type"@en;
@@ -1719,7 +1776,7 @@ psd:P189 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-psd:P192 a skos:Concept;
+psd:P196 a skos:Concept;
   owl:versionInfo "1.1";
   sh:path rdf:type;
   sh:name "type"@en;
@@ -1728,7 +1785,7 @@ psd:P192 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-psd:P193 a skos:Concept;
+psd:P197 a skos:Concept;
   owl:versionInfo "1.1";
   sh:path skos:inScheme;
   sh:name "Is in scheme"@en;
@@ -1737,7 +1794,7 @@ psd:P193 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-psd:P196 a skos:Concept;
+psd:P200 a skos:Concept;
   owl:versionInfo "1.1";
   sh:path rdf:type;
   sh:name "type"@en;
@@ -1746,7 +1803,7 @@ psd:P196 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-psd:P197 a skos:Concept;
+psd:P201 a skos:Concept;
   owl:versionInfo "1.1";
   sh:path skos:inScheme;
   sh:name "Is in scheme"@en;
@@ -1755,7 +1812,7 @@ psd:P197 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-psd:P200 a skos:Concept;
+psd:P204 a skos:Concept;
   owl:versionInfo "1.1";
   sh:path rdf:type;
   sh:name "type"@en;
@@ -1764,7 +1821,7 @@ psd:P200 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-psd:P201 a skos:Concept;
+psd:P205 a skos:Concept;
   owl:versionInfo "1.1";
   sh:path skos:inScheme;
   sh:name "Is in scheme"@en;
@@ -1773,26 +1830,8 @@ psd:P201 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
-psd:P204 a skos:Concept;
-  owl:versionInfo "1.1";
-  sh:path rdf:type;
-  sh:name "type"@en;
-  sh:nodeKind sh:IRI;
-  sh:hasValue euvoc:FileStatus;
-  skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
-
-psd:P205 a skos:Concept;
-  owl:versionInfo "1.1";
-  sh:path skos:inScheme;
-  sh:name "Is in scheme"@en;
-  sh:nodeKind sh:IRI;
-  sh:hasValue "op-aut:file-status";
-  skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
-  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
-
 psd:P208 a skos:Concept;
-  owl:versionInfo "1.3.0";
+  owl:versionInfo "1.1";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
@@ -1801,6 +1840,24 @@ psd:P208 a skos:Concept;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
 
 psd:P209 a skos:Concept;
+  owl:versionInfo "1.1";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue "op-aut:file-status";
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
+
+psd:P212 a skos:Concept;
+  owl:versionInfo "1.3.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue euvoc:FileStatus;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-session-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-session-documents#> .
+
+psd:P213 a skos:Concept;
   owl:versionInfo "1.3.0";
   sh:path skos:inScheme;
   sh:name "Is in scheme"@en;
