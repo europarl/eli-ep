@@ -36,8 +36,10 @@
   rdfs:label "Plenary documents dataset description"@en;
   dcterms:title "Plenary documents dataset description"@en;
   dcterms:description "This Dataset Description is a subset of the general ELI-EP application profile and it includes classes and properties used in Plenary documents datasets. Descriptions of classes and properties can be found in ELI-EP application profile."@en;
-  owl:versionInfo "1.3.0";
-  adms:versionNotes """1.3.0 - 2023-09-26
+  owl:versionInfo "1.5.0";
+  adms:versionNotes """1.5.0
+- (new) [sh:inversePath eli-dl:based_on_a_realization_of]; [sh:inversePath eli-dl:decided_on_a_realization_of]
+1.3.0 - 2023-09-26
 - (rfc) impact on eli:work_type due to changed values (op-aut:resource-type: REPORT → REPORT_EP and AMEND_EP → AMEND_LIST_EP)
 - (rfc) impact on eli-dl:participation_role for REPORT_EP due to changed values (op-aut:role: AUT → RAPP)
 - (new) eli-dl:adopts for REPORT_EP
@@ -52,25 +54,25 @@
   owl:versionIRI <https://data.europarl.europa.eu/def/plenary-documents#>;
   dcterms:conformsTo <https://www.w3.org/TR/shacl>;
   dcterms:created "2022-11-18"^^xsd:date;
-  dcterms:modified "2023-09-26T00:00:00.000Z"^^xsd:dateTime;
+  dcterms:modified "2023-12-07T00:00:00.000Z"^^xsd:dateTime;
   dcterms:dateCopyrighted "2022"^^xsd:gYear;
   dcterms:license <https://www.europarl.europa.eu/legal-notice/en/>;
   dcterms:creator <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
   dcterms:publisher <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
   dcterms:rigthsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
-  dcat:distribution _:6cae76e663834852a26be1c266d997065773;
+  dcat:distribution _:79f295ad32df4ce8a18a92539c6e8a3b45549;
   skos:hasTopConcept pld:P9, pld:P10, pld:P11, pld:P12, pld:P13, pld:P14, pld:P15, pld:P16,
     pld:P17, pld:P18, pld:P19, pld:P20, pld:P21, pld:P22, pld:P23, pld:P24, pld:P25, pld:P26,
-    pld:P27, pld:P28, pld:P29, pld:P30, pld:P31, pld:P32, pld:P33, pld:P36, pld:P37, pld:P38,
+    pld:P27, pld:P28, pld:P29, pld:P30, pld:P31, pld:P32, pld:P33, pld:P34, pld:P35, pld:P38,
     pld:P39, pld:P40, pld:P41, pld:P42, pld:P43, pld:P44, pld:P45, pld:P46, pld:P47, pld:P48,
-    pld:P49, pld:P50, pld:P52, pld:P53, pld:P54, pld:P58, pld:P59, pld:P60, pld:P61, pld:P62,
+    pld:P49, pld:P50, pld:P51, pld:P52, pld:P54, pld:P55, pld:P56, pld:P60, pld:P61, pld:P62,
     pld:P63, pld:P64, pld:P65, pld:P66, pld:P67, pld:P68, pld:P69, pld:P70, pld:P71, pld:P72,
-    pld:P73, pld:P77, pld:P78, pld:P79, pld:P80, pld:P81, pld:P84, pld:P85, pld:P86, pld:P87,
-    pld:P88, pld:P89, pld:P91, pld:P92, pld:P93, pld:P94, pld:P95, pld:P98, pld:P99, pld:P102,
-    pld:P103, pld:P106, pld:P107, pld:P110, pld:P111, pld:P114, pld:P115, pld:P118, pld:P119,
-    pld:P122, pld:P123, pld:P126, pld:P129 .
+    pld:P73, pld:P74, pld:P75, pld:P79, pld:P80, pld:P81, pld:P82, pld:P83, pld:P86, pld:P87,
+    pld:P88, pld:P89, pld:P90, pld:P91, pld:P93, pld:P94, pld:P95, pld:P96, pld:P97, pld:P100,
+    pld:P101, pld:P104, pld:P105, pld:P108, pld:P109, pld:P112, pld:P113, pld:P116, pld:P117,
+    pld:P120, pld:P121, pld:P124, pld:P125, pld:P128, pld:P131 .
 
-_:6cae76e663834852a26be1c266d997065773 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
+_:79f295ad32df4ce8a18a92539c6e8a3b45549 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
   dcat:downloadURL <https://europarl.github.io/eli-ep/dsd/plenary-documents/eli-ep_plenary-documents.shacl.ttl> .
 
 pld:PlenaryDocument a sh:NodeShape;
@@ -84,7 +86,7 @@ pld:PlenaryDocument a sh:NodeShape;
   shacl-play:color "Orange";
   sh:property pld:P9, pld:P10, pld:P11, pld:P12, pld:P13, pld:P14, pld:P15, pld:P16,
     pld:P17, pld:P18, pld:P19, pld:P20, pld:P21, pld:P22, pld:P23, pld:P24, pld:P25, pld:P26,
-    pld:P27, pld:P28, pld:P29, pld:P30, pld:P31, pld:P32, pld:P33 .
+    pld:P27, pld:P28, pld:P29, pld:P30, pld:P31, pld:P32, pld:P33, pld:P34, pld:P35 .
 
 pld:PlenaryDocument-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
 SELECT ?this
@@ -106,8 +108,8 @@ pld:Amendment a sh:NodeShape;
   sh:order "2"^^xsd:integer;
   owl:versionInfo "1.0";
   shacl-play:color "Orange";
-  sh:property pld:P36, pld:P37, pld:P38, pld:P39, pld:P40, pld:P41, pld:P42, pld:P43,
-    pld:P44, pld:P45, pld:P46, pld:P47, pld:P48, pld:P49, pld:P50, pld:P52, pld:P53, pld:P54 .
+  sh:property pld:P38, pld:P39, pld:P40, pld:P41, pld:P42, pld:P43, pld:P44, pld:P45,
+    pld:P46, pld:P47, pld:P48, pld:P49, pld:P50, pld:P51, pld:P52, pld:P54, pld:P55, pld:P56 .
 
 pld:Erratum a sh:NodeShape;
   rdfs:comment "This node shape represents a subset of eli:Work"@en;
@@ -117,8 +119,8 @@ pld:Erratum a sh:NodeShape;
   sh:order "3"^^xsd:integer;
   owl:versionInfo "1.0";
   shacl-play:color "Orange";
-  sh:property pld:P58, pld:P59, pld:P60, pld:P61, pld:P62, pld:P63, pld:P64, pld:P65,
-    pld:P66, pld:P67, pld:P68, pld:P69, pld:P70, pld:P71, pld:P72, pld:P73 .
+  sh:property pld:P60, pld:P61, pld:P62, pld:P63, pld:P64, pld:P65, pld:P66, pld:P67,
+    pld:P68, pld:P69, pld:P70, pld:P71, pld:P72, pld:P73, pld:P74, pld:P75 .
 
 pld:Expression a sh:NodeShape;
   rdfs:comment "This node shape represents a subset of eli:Expression"@en;
@@ -129,7 +131,7 @@ pld:Expression a sh:NodeShape;
   sh:order "4"^^xsd:integer;
   owl:versionInfo "1.0";
   shacl-play:color "Blue";
-  sh:property pld:P77, pld:P78, pld:P79, pld:P80, pld:P81 .
+  sh:property pld:P79, pld:P80, pld:P81, pld:P82, pld:P83 .
 
 pld:Manifestation a sh:NodeShape;
   rdfs:comment "This node shape represents a subset of eli:Manifestation"@en;
@@ -140,7 +142,7 @@ pld:Manifestation a sh:NodeShape;
   sh:order "5"^^xsd:integer;
   owl:versionInfo "1.0";
   shacl-play:color "Green";
-  sh:property pld:P84, pld:P85, pld:P86, pld:P87, pld:P88, pld:P89 .
+  sh:property pld:P86, pld:P87, pld:P88, pld:P89, pld:P90, pld:P91 .
 
 pld:Participation a sh:NodeShape;
   rdfs:comment "This node shape represents a subset of eli-dl:Participation"@en;
@@ -151,7 +153,7 @@ pld:Participation a sh:NodeShape;
   sh:order "6"^^xsd:integer;
   owl:versionInfo "1.0";
   shacl-play:color "Black";
-  sh:property pld:P91, pld:P92, pld:P93, pld:P94, pld:P95 .
+  sh:property pld:P93, pld:P94, pld:P95, pld:P96, pld:P97 .
 
 pld:WorkTypeReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class eli:WorkType"@en;
@@ -163,7 +165,7 @@ pld:WorkTypeReference a sh:NodeShape;
   sh:order "8"^^xsd:integer;
   owl:versionInfo "1.0";
   shacl-play:color "DarkGrey";
-  sh:property pld:P98, pld:P99 .
+  sh:property pld:P100, pld:P101 .
 
 pld:LanguageReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class dcterms:LinguisticSystem"@en;
@@ -175,7 +177,7 @@ pld:LanguageReference a sh:NodeShape;
   sh:order "9"^^xsd:integer;
   owl:versionInfo "1.0";
   shacl-play:color "DarkGrey";
-  sh:property pld:P102, pld:P103 .
+  sh:property pld:P104, pld:P105 .
 
 pld:AgentReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class foaf:Agent"@en;
@@ -196,7 +198,7 @@ pld:MediaTypeOrExtentReference a sh:NodeShape;
   sh:order "11"^^xsd:integer;
   owl:versionInfo "1.0";
   shacl-play:color "DarkGrey";
-  sh:property pld:P106, pld:P107 .
+  sh:property pld:P108, pld:P109 .
 
 pld:ParticipationRoleReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class eli-dl:ParticipationRole"@en;
@@ -208,7 +210,7 @@ pld:ParticipationRoleReference a sh:NodeShape;
   sh:order "12"^^xsd:integer;
   owl:versionInfo "1.0";
   shacl-play:color "DarkGrey";
-  sh:property pld:P110, pld:P111, pld:P115 .
+  sh:property pld:P112, pld:P113, pld:P117 .
 
 pld:OrganizationReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class org:Organization"@en;
@@ -220,7 +222,7 @@ pld:OrganizationReference a sh:NodeShape;
   sh:order "13"^^xsd:integer;
   owl:versionInfo "1.0";
   shacl-play:color "DarkGrey";
-  sh:property pld:P126 .
+  sh:property pld:P128 .
 
 pld:PersonReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class foaf:Person"@en;
@@ -232,7 +234,7 @@ pld:PersonReference a sh:NodeShape;
   sh:order "14"^^xsd:integer;
   owl:versionInfo "1.0";
   shacl-play:color "DarkGrey";
-  sh:property pld:P129 .
+  sh:property pld:P131 .
 
 pld:ConceptReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class skos:Concept"@en;
@@ -244,7 +246,7 @@ pld:ConceptReference a sh:NodeShape;
   sh:order "15"^^xsd:integer;
   owl:versionInfo "1.0";
   shacl-play:color "DarkGrey";
-  sh:property pld:P114 .
+  sh:property pld:P116 .
 
 pld:ConceptSubjectMatterReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class skos:Concept"@en;
@@ -256,7 +258,7 @@ pld:ConceptSubjectMatterReference a sh:NodeShape;
   sh:order "16"^^xsd:integer;
   owl:versionInfo "1.3.0";
   shacl-play:color "DarkGrey";
-  sh:property pld:P118, pld:P119 .
+  sh:property pld:P120, pld:P121 .
 
 pld:ConceptDirectoryCodeReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class skos:Concept"@en;
@@ -268,7 +270,7 @@ pld:ConceptDirectoryCodeReference a sh:NodeShape;
   sh:order "17"^^xsd:integer;
   owl:versionInfo "1.3.0";
   shacl-play:color "DarkGrey";
-  sh:property pld:P122, pld:P123 .
+  sh:property pld:P124, pld:P125 .
 
 pld:P9 a skos:Concept;
   owl:versionInfo "1.0";
@@ -289,21 +291,21 @@ pld:P10 a skos:Concept;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   sh:node pld:WorkTypeReference;
-  sh:in _:6cae76e663834852a26be1c266d997065774;
+  sh:in _:79f295ad32df4ce8a18a92539c6e8a3b45550;
   sh:deactivated "true"^^xsd:boolean;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-_:6cae76e663834852a26be1c266d997065774 rdf:first resource-type:REPORT_EP;
-  rdf:rest _:6cae76e663834852a26be1c266d997065775 .
+_:79f295ad32df4ce8a18a92539c6e8a3b45550 rdf:first resource-type:REPORT_EP;
+  rdf:rest _:79f295ad32df4ce8a18a92539c6e8a3b45551 .
 
-_:6cae76e663834852a26be1c266d997065775 rdf:first resource-type:MOTION_RES;
-  rdf:rest _:6cae76e663834852a26be1c266d997065776 .
+_:79f295ad32df4ce8a18a92539c6e8a3b45551 rdf:first resource-type:MOTION_RES;
+  rdf:rest _:79f295ad32df4ce8a18a92539c6e8a3b45552 .
 
-_:6cae76e663834852a26be1c266d997065776 rdf:first resource-type:JOINT_MOTION_RES;
-  rdf:rest _:6cae76e663834852a26be1c266d997065777 .
+_:79f295ad32df4ce8a18a92539c6e8a3b45552 rdf:first resource-type:JOINT_MOTION_RES;
+  rdf:rest _:79f295ad32df4ce8a18a92539c6e8a3b45553 .
 
-_:6cae76e663834852a26be1c266d997065777 rdf:first resource-type:QUEST_ORAL_PART_SESSION_EP;
+_:79f295ad32df4ce8a18a92539c6e8a3b45553 rdf:first resource-type:QUEST_ORAL_PART_SESSION_EP;
   rdf:rest rdf:nil .
 
 pld:P11 a skos:Concept;
@@ -510,7 +512,7 @@ pld:P30 a skos:Concept;
 
 pld:P31 a skos:Concept;
   owl:versionInfo "1.0";
-  sh:path _:6cae76e663834852a26be1c266d997065778;
+  sh:path _:79f295ad32df4ce8a18a92539c6e8a3b45554;
   sh:name "is_foreseeably_changed_by"@en;
   sh:nodeKind sh:IRI;
   sh:node pld:Amendment;
@@ -518,11 +520,11 @@ pld:P31 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-_:6cae76e663834852a26be1c266d997065778 sh:inversePath eli:foresees_change_of .
+_:79f295ad32df4ce8a18a92539c6e8a3b45554 sh:inversePath eli:foresees_change_of .
 
 pld:P32 a skos:Concept;
   owl:versionInfo "1.0";
-  sh:path _:6cae76e663834852a26be1c266d997065779;
+  sh:path _:79f295ad32df4ce8a18a92539c6e8a3b45555;
   sh:name "corrected by"@en;
   sh:nodeKind sh:IRI;
   sh:node pld:Erratum;
@@ -530,21 +532,46 @@ pld:P32 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-_:6cae76e663834852a26be1c266d997065779 sh:inversePath eli:corrects .
+_:79f295ad32df4ce8a18a92539c6e8a3b45555 sh:inversePath eli:corrects .
 
 pld:P33 a skos:Concept;
   owl:versionInfo "1.3.0";
-  sh:path _:6cae76e663834852a26be1c266d997065780;
+  sh:path _:79f295ad32df4ce8a18a92539c6e8a3b45556;
   sh:name "was realized through"@en;
   sh:nodeKind sh:IRI;
+  sh:hasValue eli-dl:Process;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "was_realized_through";
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-_:6cae76e663834852a26be1c266d997065780 sh:inversePath eli-dl:created_a_realization_of .
+_:79f295ad32df4ce8a18a92539c6e8a3b45556 sh:inversePath eli-dl:created_a_realization_of .
 
-pld:P36 a skos:Concept;
+pld:P34 a skos:Concept;
+  owl:versionInfo "1.5.0";
+  sh:path _:79f295ad32df4ce8a18a92539c6e8a3b45557;
+  sh:name "basis for activity"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli-dl:Activity;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+_:79f295ad32df4ce8a18a92539c6e8a3b45557 sh:inversePath eli-dl:based_on_a_realization_of .
+
+pld:P35 a skos:Concept;
+  owl:versionInfo "1.5.0";
+  sh:path _:79f295ad32df4ce8a18a92539c6e8a3b45558;
+  sh:name "was decided through"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli-dl:Decision;
+  sh:deactivated "true"^^xsd:boolean;
+  skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
+  skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
+
+_:79f295ad32df4ce8a18a92539c6e8a3b45558 sh:inversePath eli-dl:decided_on_a_realization_of .
+
+pld:P38 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path rdf:type;
   sh:name "type"@en;
@@ -554,7 +581,7 @@ pld:P36 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P37 a skos:Concept;
+pld:P39 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path dcterms:identifier;
   sh:name "identifier"@en;
@@ -566,7 +593,7 @@ pld:P37 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P38 a skos:Concept;
+pld:P40 a skos:Concept;
   owl:versionInfo "1.3.0";
   sh:path eli:work_type;
   sh:name "work type"@en;
@@ -579,7 +606,7 @@ pld:P38 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P39 a skos:Concept;
+pld:P41 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path eli:date_document;
   sh:name "date document"@en;
@@ -590,7 +617,7 @@ pld:P39 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P40 a skos:Concept;
+pld:P42 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path epvoc:identifierYear;
   sh:name "identifier year"@en;
@@ -600,7 +627,7 @@ pld:P40 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P41 a skos:Concept;
+pld:P43 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path dcterms:title;
   sh:name "title"@en;
@@ -610,7 +637,7 @@ pld:P41 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P42 a skos:Concept;
+pld:P44 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path rdfs:label;
   sh:name "label"@en;
@@ -620,7 +647,7 @@ pld:P42 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P43 a skos:Concept;
+pld:P45 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path epvoc:epNumber;
   sh:name "ep number"@en;
@@ -630,7 +657,7 @@ pld:P43 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P44 a skos:Concept;
+pld:P46 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path epvoc:epNumberVersion;
   sh:name "ep number version"@en;
@@ -640,7 +667,7 @@ pld:P44 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P45 a skos:Concept;
+pld:P47 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path epvoc:numbering;
   sh:name "numbering"@en;
@@ -651,7 +678,7 @@ pld:P45 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P46 a skos:Concept;
+pld:P48 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path epvoc:itemNumberBegin;
   sh:name "item number begin"@en;
@@ -662,7 +689,7 @@ pld:P46 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P47 a skos:Concept;
+pld:P49 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path epvoc:itemNumberEnd;
   sh:name "item number end"@en;
@@ -673,7 +700,7 @@ pld:P47 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P48 a skos:Concept;
+pld:P50 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path skos:notation;
   sh:name "notation"@en;
@@ -682,7 +709,7 @@ pld:P48 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P49 a skos:Concept;
+pld:P51 a skos:Concept;
   owl:versionInfo "1.1";
   sh:path eli-dl:parliamentary_term;
   sh:name "parliamentary term"@en;
@@ -692,7 +719,7 @@ pld:P49 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P50 a skos:Concept;
+pld:P52 a skos:Concept;
   owl:versionInfo "1.1";
   sh:path epvoc:originalLanguage;
   sh:name "original language"@en;
@@ -703,7 +730,7 @@ pld:P50 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P52 a skos:Concept;
+pld:P54 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path dcterms:publisher;
   sh:name "publisher"@en;
@@ -712,7 +739,7 @@ pld:P52 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P53 a skos:Concept;
+pld:P55 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path eli:is_realized_by;
   sh:name "is realized by"@en;
@@ -721,7 +748,7 @@ pld:P53 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P54 a skos:Concept;
+pld:P56 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path eli-dl:foresees_change_of;
   sh:name "foresees change of"@en;
@@ -732,7 +759,7 @@ pld:P54 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P58 a skos:Concept;
+pld:P60 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path rdf:type;
   sh:name "type"@en;
@@ -743,7 +770,7 @@ pld:P58 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P59 a skos:Concept;
+pld:P61 a skos:Concept;
   owl:versionInfo "1.1";
   sh:path eli:work_type;
   sh:name "work type"@en;
@@ -756,7 +783,7 @@ pld:P59 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P60 a skos:Concept;
+pld:P62 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path eli:date_document;
   sh:name "date document"@en;
@@ -767,7 +794,7 @@ pld:P60 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P61 a skos:Concept;
+pld:P63 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path dcterms:identifier;
   sh:name "identifier"@en;
@@ -778,7 +805,7 @@ pld:P61 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P62 a skos:Concept;
+pld:P64 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path epvoc:identifierYear;
   sh:name "identifier year"@en;
@@ -788,7 +815,7 @@ pld:P62 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P63 a skos:Concept;
+pld:P65 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path dcterms:title;
   sh:name "title"@en;
@@ -798,7 +825,7 @@ pld:P63 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P64 a skos:Concept;
+pld:P66 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path rdfs:label;
   sh:name "label"@en;
@@ -808,7 +835,7 @@ pld:P64 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P65 a skos:Concept;
+pld:P67 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path epvoc:epNumber;
   sh:name "ep number"@en;
@@ -818,7 +845,7 @@ pld:P65 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P66 a skos:Concept;
+pld:P68 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path epvoc:epNumberVersion;
   sh:name "ep number version"@en;
@@ -828,7 +855,7 @@ pld:P66 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P67 a skos:Concept;
+pld:P69 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path epvoc:numbering;
   sh:name "numbering"@en;
@@ -838,7 +865,7 @@ pld:P67 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P68 a skos:Concept;
+pld:P70 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path skos:notation;
   sh:name "notation"@en;
@@ -847,7 +874,7 @@ pld:P68 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P69 a skos:Concept;
+pld:P71 a skos:Concept;
   owl:versionInfo "1.1";
   sh:path eli-dl:parliamentary_term;
   sh:name "parliamentary term"@en;
@@ -857,7 +884,7 @@ pld:P69 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P70 a skos:Concept;
+pld:P72 a skos:Concept;
   owl:versionInfo "1.1";
   sh:path epvoc:originalLanguage;
   sh:name "original language"@en;
@@ -868,7 +895,7 @@ pld:P70 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P71 a skos:Concept;
+pld:P73 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path dcterms:publisher;
   sh:name "publisher"@en;
@@ -877,7 +904,7 @@ pld:P71 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P72 a skos:Concept;
+pld:P74 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path eli:is_realized_by;
   sh:name "is realized by"@en;
@@ -886,7 +913,7 @@ pld:P72 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P73 a skos:Concept;
+pld:P75 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path eli:corrects;
   sh:name "corrects"@en;
@@ -897,7 +924,7 @@ pld:P73 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P77 a skos:Concept;
+pld:P79 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path rdf:type;
   sh:name "type"@en;
@@ -908,7 +935,7 @@ pld:P77 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P78 a skos:Concept;
+pld:P80 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path eli:title;
   sh:name "title"@en;
@@ -918,7 +945,7 @@ pld:P78 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P79 a skos:Concept;
+pld:P81 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path eli:title_alternative;
   sh:name "alternative title"@en;
@@ -927,7 +954,7 @@ pld:P79 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P80 a skos:Concept;
+pld:P82 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path eli:is_embodied_by;
   sh:name "is embodied by"@en;
@@ -936,7 +963,7 @@ pld:P80 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P81 a skos:Concept;
+pld:P83 a skos:Concept;
   owl:versionInfo "1.1";
   sh:path eli:language;
   sh:name "language"@en;
@@ -947,7 +974,7 @@ pld:P81 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P84 a skos:Concept;
+pld:P86 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path rdf:type;
   sh:name "type"@en;
@@ -958,7 +985,7 @@ pld:P84 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P85 a skos:Concept;
+pld:P87 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path dcterms:issued;
   sh:name "issued"@en;
@@ -969,7 +996,7 @@ pld:P85 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P86 a skos:Concept;
+pld:P88 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path eli:is_exemplified_by;
   sh:name "is exemplified by"@en;
@@ -978,7 +1005,7 @@ pld:P86 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P87 a skos:Concept;
+pld:P89 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path epvoc:byteSize;
   sh:name "byte size"@en;
@@ -988,7 +1015,7 @@ pld:P87 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P88 a skos:Concept;
+pld:P90 a skos:Concept;
   owl:versionInfo "1.1";
   sh:path dcterms:format;
   sh:name "format"@en;
@@ -996,25 +1023,24 @@ pld:P88 a skos:Concept;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   sh:node pld:MediaTypeOrExtentReference;
-  sh:in _:6cae76e663834852a26be1c266d997065769;
+  sh:in _:79f295ad32df4ce8a18a92539c6e8a3b45559;
   sh:deactivated "true"^^xsd:boolean;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
-  
-  
-_:6cae76e663834852a26be1c266d997065769 rdf:first file-type:PDF;
-  rdf:rest _:6cae76e663834852a26be1c266d997065770 .
 
-_:6cae76e663834852a26be1c266d997065770 rdf:first file-type:XML;
-  rdf:rest _:6cae76e663834852a26be1c266d997065771 .
+_:79f295ad32df4ce8a18a92539c6e8a3b45559 rdf:first file-type:PDF;
+  rdf:rest _:79f295ad32df4ce8a18a92539c6e8a3b45560 .
 
-_:6cae76e663834852a26be1c266d997065771 rdf:first file-type:DOCX;
-  rdf:rest _:6cae76e663834852a26be1c266d997065772 .
+_:79f295ad32df4ce8a18a92539c6e8a3b45560 rdf:first file-type:XML;
+  rdf:rest _:79f295ad32df4ce8a18a92539c6e8a3b45561 .
 
-_:6cae76e663834852a26be1c266d997065772 rdf:first file-type:DOC;
+_:79f295ad32df4ce8a18a92539c6e8a3b45561 rdf:first file-type:DOCX;
+  rdf:rest _:79f295ad32df4ce8a18a92539c6e8a3b45562 .
+
+_:79f295ad32df4ce8a18a92539c6e8a3b45562 rdf:first file-type:DOC;
   rdf:rest rdf:nil .
 
-pld:P89 a skos:Concept;
+pld:P91 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path eli:media_type;
   sh:name "media type"@en;
@@ -1024,7 +1050,7 @@ pld:P89 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P91 a skos:Concept;
+pld:P93 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path rdf:type;
   sh:name "type"@en;
@@ -1035,7 +1061,7 @@ pld:P91 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P92 a skos:Concept;
+pld:P94 a skos:Concept;
   owl:versionInfo "1.1";
   sh:path eli-dl:participation_role;
   sh:name "participation role"@en;
@@ -1047,7 +1073,7 @@ pld:P92 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P93 a skos:Concept;
+pld:P95 a skos:Concept;
   owl:versionInfo "1.1";
   sh:path eli-dl:had_participant_organization;
   sh:name "participation organization"@en;
@@ -1058,7 +1084,7 @@ pld:P93 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P94 a skos:Concept;
+pld:P96 a skos:Concept;
   owl:versionInfo "1.1";
   sh:path eli-dl:participation_in_name_of;
   sh:name "participation in name of"@en;
@@ -1069,7 +1095,7 @@ pld:P94 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P95 a skos:Concept;
+pld:P97 a skos:Concept;
   owl:versionInfo "1.1";
   sh:path eli-dl:had_participant_person;
   sh:name "participation person"@en;
@@ -1080,7 +1106,7 @@ pld:P95 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P98 a skos:Concept;
+pld:P100 a skos:Concept;
   owl:versionInfo "1.1";
   sh:path rdf:type;
   sh:name "type"@en;
@@ -1089,7 +1115,7 @@ pld:P98 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P99 a skos:Concept;
+pld:P101 a skos:Concept;
   owl:versionInfo "1.1";
   sh:path skos:inScheme;
   sh:name "Is in scheme"@en;
@@ -1098,7 +1124,7 @@ pld:P99 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P102 a skos:Concept;
+pld:P104 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path rdf:type;
   sh:name "type"@en;
@@ -1107,7 +1133,7 @@ pld:P102 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P103 a skos:Concept;
+pld:P105 a skos:Concept;
   owl:versionInfo "1.1";
   sh:path skos:inScheme;
   sh:name "Is in scheme"@en;
@@ -1116,7 +1142,7 @@ pld:P103 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P106 a skos:Concept;
+pld:P108 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path rdf:type;
   sh:name "type"@en;
@@ -1125,7 +1151,7 @@ pld:P106 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P107 a skos:Concept;
+pld:P109 a skos:Concept;
   owl:versionInfo "1.1";
   sh:path skos:inScheme;
   sh:name "Is in scheme"@en;
@@ -1134,7 +1160,7 @@ pld:P107 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P110 a skos:Concept;
+pld:P112 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path rdf:type;
   sh:name "type"@en;
@@ -1142,7 +1168,7 @@ pld:P110 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P111 a skos:Concept;
+pld:P113 a skos:Concept;
   owl:versionInfo "1.1";
   sh:path skos:inScheme;
   sh:name "Is in scheme"@en;
@@ -1151,7 +1177,7 @@ pld:P111 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P114 a skos:Concept;
+pld:P116 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path rdf:type;
   sh:name "type"@en;
@@ -1160,7 +1186,7 @@ pld:P114 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P115 a skos:Concept;
+pld:P117 a skos:Concept;
   owl:versionInfo "1.1";
   sh:path skos:inScheme;
   sh:name "Is in scheme"@en;
@@ -1169,7 +1195,7 @@ pld:P115 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P118 a skos:Concept;
+pld:P120 a skos:Concept;
   owl:versionInfo "1.3.0";
   sh:path rdf:type;
   sh:name "type"@en;
@@ -1178,7 +1204,7 @@ pld:P118 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P119 a skos:Concept;
+pld:P121 a skos:Concept;
   owl:versionInfo "1.3.0";
   sh:path skos:inScheme;
   sh:name "Is in scheme"@en;
@@ -1187,7 +1213,7 @@ pld:P119 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P122 a skos:Concept;
+pld:P124 a skos:Concept;
   owl:versionInfo "1.3.0";
   sh:path rdf:type;
   sh:name "type"@en;
@@ -1196,7 +1222,7 @@ pld:P122 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P123 a skos:Concept;
+pld:P125 a skos:Concept;
   owl:versionInfo "1.3.0";
   sh:path skos:inScheme;
   sh:name "Is in scheme"@en;
@@ -1205,7 +1231,7 @@ pld:P123 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P126 a skos:Concept;
+pld:P128 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path rdf:type;
   sh:name "type"@en;
@@ -1213,7 +1239,7 @@ pld:P126 a skos:Concept;
   skos:inScheme <https://data.europarl.europa.eu/def/plenary-documents#>;
   skos:topConceptOf <https://data.europarl.europa.eu/def/plenary-documents#> .
 
-pld:P129 a skos:Concept;
+pld:P131 a skos:Concept;
   owl:versionInfo "1.0";
   sh:path rdf:type;
   sh:name "type"@en;
