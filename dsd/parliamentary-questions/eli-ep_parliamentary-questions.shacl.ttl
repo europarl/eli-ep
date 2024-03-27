@@ -1,0 +1,1388 @@
+@prefix schema: <http://schema.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix questions: <https://data.europarl.europa.eu/def/parliamentary-questions#> .
+@prefix skosthes: <http://purl.org/iso25964/skos-thes#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ep-roles: <https://data.europarl.europa.eu/def/ep-roles/> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix euvoc: <http://publications.europa.eu/ontology/euvoc#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix eli: <http://data.europa.eu/eli/ontology#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix xls2rdf: <https://xls2rdf.sparna.fr/vocabulary#> .
+@prefix eli-dl: <http://data.europa.eu/eli/eli-draft-legislation-ontology#> .
+@prefix ept: <https://data.europarl.europa.eu/def/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix shacl-play: <https://shacl-play.sparna.fr/ontology#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ep-document-types: <https://data.europarl.europa.eu/def/ep-document-types/> .
+@prefix resource-type: <http://publications.europa.eu/resource/authority/resource-type/> .
+@prefix epvoc: <https://data.europarl.europa.eu/def/epvoc#> .
+@prefix op-aut: <http://publications.europa.eu/resource/authority/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+
+<https://data.europarl.europa.eu/def/parliamentary-questions#> a owl:Ontology, adms:Asset;
+  dcterms:type <http://publications.europa.eu/resource/authority/dataset-type/APROF>;
+  rdfs:label "Parliamentary questions dataset description"@en;
+  dcterms:title "Parliamentary questions dataset description"@en;
+  dcterms:description "This Dataset Description is a subset of the general ELI-EP application profile and it includes classes and properties used in Parliamentary questions datasets. Descriptions of classes and properties can be found in ELI-EP application profile."@en;
+  owl:versionInfo "2.1.0";
+  adms:versionNotes """2.1.0 - 2024-03-21
+- (rfc) eli:work_type[eli:WorkType] values based on the EP taxonomy ep-document-types (QUESTION_WRITTEN, QUESTION_WRITTEN_PRIORITY, QUESTION_ORAL, INTERPELLATION_MAJOR, INTERPELLATION_MINOR, QUESTION_WRITTEN_ANSWER, INTERPELLATION_MINOR_WRITTEN_ANSWER, ANNEX) and not EU AT (op-aut:resource-type)
+- (rfc) dcterms:creator, dcterms:publisher, eli-dl:had_participant_organization and eli-dl:participation_in_name_of will be based on org:Organization as EP data
+- (rfc) eli-dl:participation_role values based on the EP taxonomy ep-roles (AUTHOR, ADDRESSEE), and not EU AT (op-aut:role)
+- (rfc) create more specific shapes for each type
+- (rfc) change of JSON key using \"inverse_\" (api/v2 only)
+
+1.1 - 2023-04-27
+- eli:date_document sh:datatype is not xsd:dateTime, but xsd:date
+- remove external shapes (incl. controlled vocabularies data) in datasets (Dumps).
+
+1.0 - 2022-11-18
+- creation"""@en;
+  adms:status <http://publications.europa.eu/resource/dataset/dataset-status/COMPLETED>;
+  owl:versionIRI <https://data.europarl.europa.eu/def/parliamentary-questions#>;
+  dcterms:conformsTo <https://www.w3.org/TR/shacl>;
+  dcterms:created "2022-11-18"^^xsd:date;
+  dcterms:modified "2024-03-21T00:00:00.000Z"^^xsd:dateTime;
+  dcterms:dateCopyrighted "2022"^^xsd:gYear;
+  dcterms:license <https://www.europarl.europa.eu/legal-notice/en/>;
+  dcterms:creator <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
+  dcterms:publisher <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
+  dcterms:rigthsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
+  dcat:distribution _:a4aeb3f30c2042e3b539bc99a24f35721252 .
+
+_:a4aeb3f30c2042e3b539bc99a24f35721252 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
+  dcat:downloadURL <https://europarl.github.io/eli-ep/dsd/parliamentary-questions/eli-ep_parliamentary-questions.shacl.ttl> .
+
+questions:QuestionOral a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  sh:target questions:QuestionOral-target;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/O-9-2023-000056";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Question Oral"@en;
+  sh:order "2"^^xsd:integer;
+  owl:versionInfo "2.1.0";
+  shacl-play:color "Orange";
+  sh:property questions:P29, questions:P30, questions:P31, questions:P32, questions:P33,
+    questions:P34, questions:P35, questions:P36, questions:P37, questions:P38, questions:P39,
+    questions:P40, questions:P41, questions:P42, questions:P43, questions:P44, questions:P45 .
+
+questions:QuestionOral-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
+SELECT ?this
+WHERE {
+ ?this eli:work_type ?type .
+ VALUES ?type {
+ <https://data.europarl.europa.eu/def/ep-document-types/QUESTION_ORAL>
+ }
+}""" .
+
+questions:InterpellationMajor a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  sh:target questions:InterpellationMajor-target;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/G-9-2023-001002";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Question Interpellation Major"@en;
+  sh:order "3"^^xsd:integer;
+  owl:versionInfo "2.1.0";
+  shacl-play:color "Orange";
+  sh:property questions:P48, questions:P49, questions:P50, questions:P51, questions:P52,
+    questions:P53, questions:P54, questions:P55, questions:P56, questions:P57, questions:P58,
+    questions:P59, questions:P60, questions:P61, questions:P62, questions:P63, questions:P64 .
+
+questions:InterpellationMajor-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
+SELECT ?this
+WHERE {
+ ?this eli:work_type ?type .
+ VALUES ?type {
+ <https://data.europarl.europa.eu/def/ep-document-types/INTERPELLATION_MAJOR>
+ }
+}""" .
+
+questions:QuestionWritten a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  sh:target questions:QuestionWritten-target;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/E-9-2022-000004";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Question Written (Priority)"@en;
+  sh:order "1"^^xsd:integer;
+  owl:versionInfo "2.1.0";
+  shacl-play:color "Orange";
+  sh:property questions:P9, questions:P10, questions:P11, questions:P12, questions:P13,
+    questions:P14, questions:P15, questions:P16, questions:P17, questions:P18, questions:P19,
+    questions:P20, questions:P21, questions:P22, questions:P23, questions:P24, questions:P25,
+    questions:P26 .
+
+questions:QuestionWritten-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
+SELECT ?this
+WHERE {
+ ?this eli:work_type ?type .
+ VALUES ?type {
+ <https://data.europarl.europa.eu/def/ep-document-types/QUESTION_WRITTEN>
+<https://data.europarl.europa.eu/def/ep-document-types/QUESTION_WRITTEN_PRIORITY>
+ }
+}""" .
+
+questions:InterpellationMinor a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  sh:target questions:InterpellationMinor-target;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/K-8-2019-000001";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Question Interpellation Minor"@en;
+  sh:order "4"^^xsd:integer;
+  owl:versionInfo "2.1.0";
+  shacl-play:color "Orange";
+  sh:property questions:P67, questions:P68, questions:P69, questions:P70, questions:P71,
+    questions:P72, questions:P73, questions:P74, questions:P75, questions:P76, questions:P77,
+    questions:P78, questions:P79, questions:P80, questions:P81, questions:P82, questions:P83,
+    questions:P84 .
+
+questions:InterpellationMinor-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
+SELECT ?this
+WHERE {
+ ?this eli:work_type ?type .
+ VALUES ?type {
+ <https://data.europarl.europa.eu/def/ep-document-types/INTERPELLATION_MINOR>
+ }
+}""" .
+
+questions:AnswerToQuestionWritten a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/E-9-2022-000004-ASW";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Answer to question"@en;
+  sh:order "7"^^xsd:integer;
+  owl:versionInfo "1.1" .
+
+questions:AnnexOfAnswer a sh:NodeShape;
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/E-9-2022-000004-ASW";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Annex to Answer"@en;
+  sh:order "8"^^xsd:integer;
+  owl:versionInfo "1.1";
+  sh:property questions:P106, questions:P107, questions:P108, questions:P109, questions:P110,
+    questions:P111, questions:P112, questions:P113, questions:P114, questions:P115, questions:P116,
+    questions:P117, questions:P118, questions:P119, questions:P120, questions:P121 .
+
+questions:Expression a sh:NodeShape;
+  sh:targetClass eli:Expression;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/E-9-2022-000004/en";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+/[a-z][a-z]$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Expression"@en;
+  sh:order "9"^^xsd:integer;
+  owl:versionInfo "1.1";
+  sh:property questions:P124, questions:P125, questions:P126, questions:P127, questions:P128 .
+
+questions:Manifestation a sh:NodeShape;
+  sh:targetClass eli:Manifestation;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/E-9-2022-000004/en/pdf";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+/[a-z][a-z]/.*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Manifestation"@en;
+  sh:order "10"^^xsd:integer;
+  owl:versionInfo "1.1";
+  sh:property questions:P131, questions:P132, questions:P133, questions:P134, questions:P135,
+    questions:P136 .
+
+questions:Participation a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class eli-dl:Participation"@en;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/participation/[A-Za-z0-9\\-_]+_+[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Participation"@en;
+  sh:order "11"^^xsd:integer;
+  owl:versionInfo "1.1";
+  sh:property questions:P139, questions:P140, questions:P141, questions:P142, questions:P143 .
+
+questions:ParliamentaryTermReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class eli-dl:ParliamentaryTerm"@en;
+  skos:example "https://data.europarl.europa.eu/org/ep-9";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/org/ep-[0-9].*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to a Parliamentary Term"@en;
+  sh:order "14"^^xsd:integer;
+  owl:versionInfo "1.1" .
+
+questions:WorkTypeReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class eli:WorkType"@en;
+  skos:example "http://publications.europa.eu/resource/authority/resource-type/QUEST_WRITTEN";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/resource-type/.*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to a Work type"@en;
+  sh:order "15"^^xsd:integer;
+  owl:versionInfo "1.1";
+  sh:property questions:P146, questions:P147 .
+
+questions:LanguageReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class dcterms:LinguisticSystem"@en;
+  skos:example "http://publications.europa.eu/resource/authority/language/ENG";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/language/.*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to a Language"@en;
+  sh:order "16"^^xsd:integer;
+  owl:versionInfo "1.1";
+  sh:property questions:P150, questions:P151 .
+
+questions:MediaTypeOrExtentReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class dcterms:MediaTypeOrExtent"@en;
+  skos:example "http://publications.europa.eu/resource/authority/file-type/PDF";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/file-type/.*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to a Format"@en;
+  sh:order "17"^^xsd:integer;
+  owl:versionInfo "1.1";
+  sh:property questions:P154, questions:P155 .
+
+questions:ParticipationRoleReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class eli-dl:ParticipationRole"@en;
+  skos:example "http://publications.europa.eu/resource/authority/role/AUT";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/role/.*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to a Role"@en;
+  sh:order "18"^^xsd:integer;
+  owl:versionInfo "1.1";
+  sh:property questions:P158, questions:P159 .
+
+questions:OrganizationReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class org:Organization"@en;
+  skos:example "http://publications.europa.eu/resource/authority/corporate-body/EP";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/corporate-body/.*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to an Organization"@en;
+  sh:order "19"^^xsd:integer;
+  owl:versionInfo "1.1";
+  sh:property questions:P162 .
+
+questions:PersonReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class foaf:Person"@en;
+  skos:example "https://data.europarl.europa.eu/person/1234";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/person/[0-9].*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to a Person"@en;
+  sh:order "20"^^xsd:integer;
+  owl:versionInfo "1.1";
+  sh:property questions:P165 .
+
+questions:P9 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue eli:Work;
+  shacl-play:shortname "type" .
+
+questions:P10 owl:versionInfo "2.1.0";
+  sh:path eli:work_type;
+  sh:name "work type"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-document-types/QUESTION_WRITTEN";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:WorkTypeReference;
+  sh:in _:a4aeb3f30c2042e3b539bc99a24f35721253;
+  shacl-play:shortname "work_type" .
+
+_:a4aeb3f30c2042e3b539bc99a24f35721253 rdf:first ep-document-types:QUESTION_WRITTEN;
+  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721254 .
+
+_:a4aeb3f30c2042e3b539bc99a24f35721254 rdf:first ep-document-types:QUESTION_WRITTEN_PRIORITY;
+  rdf:rest rdf:nil .
+
+questions:P11 owl:versionInfo "2.1.0";
+  sh:path eli:date_document;
+  sh:name "date document"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  shacl-play:shortname "date_document" .
+
+questions:P12 owl:versionInfo "2.1.0";
+  sh:path dcterms:identifier;
+  sh:name "identifier"@en;
+  skos:example "E-9-2022-000004";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifier" .
+
+questions:P13 owl:versionInfo "2.1.0";
+  sh:path epvoc:identifierYear;
+  sh:name "identifier year"@en;
+  skos:example "2022";
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifierYear" .
+
+questions:P14 owl:versionInfo "2.1.0";
+  sh:path dcterms:title;
+  sh:name "title"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title_dcterms" .
+
+questions:P15 owl:versionInfo "2.1.0";
+  sh:path rdfs:label;
+  sh:name "label"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "label" .
+
+questions:P16 owl:versionInfo "2.1.0";
+  sh:path epvoc:epNumber;
+  sh:name "ep number"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "epNumber" .
+
+questions:P17 owl:versionInfo "2.1.0";
+  sh:path epvoc:epNumberVersion;
+  sh:name "en number version"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "epNumberVersion" .
+
+questions:P18 owl:versionInfo "2.1.0";
+  sh:path skos:notation;
+  sh:name "notation"@en;
+  sh:nodeKind sh:Literal;
+  sh:datatype epvoc:publicRegister;
+  shacl-play:shortname "notation_publicRegister" .
+
+questions:P19 owl:versionInfo "2.1.0";
+  sh:path eli-dl:parliamentary_term;
+  sh:name "parliamentary term"@en;
+  sh:minCount "0"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  shacl-play:shortname "parliamentary_term" .
+
+questions:P20 owl:versionInfo "2.1.0";
+  sh:path epvoc:originalLanguage;
+  sh:name "original language"@en;
+  sh:minCount "0"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:LanguageReference;
+  shacl-play:shortname "originalLanguage" .
+
+questions:P21 owl:versionInfo "2.1.0";
+  sh:path dcterms:creator;
+  sh:name "creator"@en;
+  sh:nodeKind sh:IRI;
+  sh:node questions:OrganizationReference;
+  shacl-play:shortname "creator" .
+
+questions:P22 owl:versionInfo "2.1.0";
+  sh:path dcterms:publisher;
+  sh:name "publisher"@en;
+  skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:OrganizationReference;
+  sh:hasValue <https://data.europarl.europa.eu/org/EU_PARLIAMENT>;
+  shacl-play:shortname "publisher" .
+
+questions:P23 owl:versionInfo "2.1.0";
+  sh:path eli:is_realized_by;
+  sh:name "is realized by"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:Expression;
+  shacl-play:shortname "is_realized_by" .
+
+questions:P24 owl:versionInfo "2.1.0";
+  sh:path epvoc:workHadParticipation;
+  sh:name "stakeholder participant"@en;
+  sh:nodeKind sh:IRI;
+  sh:node questions:Participation;
+  shacl-play:shortname "workHadParticipation" .
+
+questions:P25 owl:versionInfo "2.1.0";
+  sh:path eli:based_on;
+  sh:name "based on"@en;
+  sh:nodeKind sh:IRI;
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "based_on" .
+
+questions:P26 owl:versionInfo "2.1.0";
+  sh:path _:a4aeb3f30c2042e3b539bc99a24f35721255;
+  sh:name "inverse answers to"@en;
+  sh:nodeKind sh:IRI;
+  sh:node questions:AnswerToQuestion;
+  shacl-play:shortname "inverse_answers_to" .
+
+_:a4aeb3f30c2042e3b539bc99a24f35721255 sh:inversePath eli-dl:answers_to .
+
+questions:P29 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue eli:Work;
+  shacl-play:shortname "type" .
+
+questions:P30 owl:versionInfo "2.1.0";
+  sh:path eli:work_type;
+  sh:name "work type"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-document-types/QUESTION_ORAL";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:WorkTypeReference;
+  sh:hasValue ep-document-types:QUESTION_ORAL;
+  shacl-play:shortname "work_type" .
+
+questions:P31 owl:versionInfo "2.1.0";
+  sh:path eli:date_document;
+  sh:name "date document"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  shacl-play:shortname "date_document" .
+
+questions:P32 owl:versionInfo "2.1.0";
+  sh:path dcterms:identifier;
+  sh:name "identifier"@en;
+  skos:example "O-9-2023-000056";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifier" .
+
+questions:P33 owl:versionInfo "2.1.0";
+  sh:path epvoc:identifierYear;
+  sh:name "identifier year"@en;
+  skos:example "2023";
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifierYear" .
+
+questions:P34 owl:versionInfo "2.1.0";
+  sh:path dcterms:title;
+  sh:name "title"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title_dcterms" .
+
+questions:P35 owl:versionInfo "2.1.0";
+  sh:path rdfs:label;
+  sh:name "label"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "label" .
+
+questions:P36 owl:versionInfo "2.1.0";
+  sh:path epvoc:epNumber;
+  sh:name "ep number"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "epNumber" .
+
+questions:P37 owl:versionInfo "2.1.0";
+  sh:path epvoc:epNumberVersion;
+  sh:name "en number version"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "epNumberVersion" .
+
+questions:P38 owl:versionInfo "2.1.0";
+  sh:path skos:notation;
+  sh:name "notation"@en;
+  sh:nodeKind sh:Literal;
+  sh:datatype epvoc:publicRegister;
+  shacl-play:shortname "notation_publicRegister" .
+
+questions:P39 owl:versionInfo "2.1.0";
+  sh:path eli-dl:parliamentary_term;
+  sh:name "parliamentary term"@en;
+  sh:minCount "0"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  shacl-play:shortname "parliamentary_term" .
+
+questions:P40 owl:versionInfo "2.1.0";
+  sh:path epvoc:originalLanguage;
+  sh:name "original language"@en;
+  sh:minCount "0"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:LanguageReference;
+  shacl-play:shortname "originalLanguage" .
+
+questions:P41 owl:versionInfo "2.1.0";
+  sh:path dcterms:creator;
+  sh:name "creator"@en;
+  sh:nodeKind sh:IRI;
+  sh:node questions:OrganizationReference;
+  shacl-play:shortname "creator" .
+
+questions:P42 owl:versionInfo "2.1.0";
+  sh:path dcterms:publisher;
+  sh:name "publisher"@en;
+  skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:OrganizationReference;
+  sh:hasValue <https://data.europarl.europa.eu/org/EU_PARLIAMENT>;
+  shacl-play:shortname "publisher" .
+
+questions:P43 owl:versionInfo "2.1.0";
+  sh:path eli:is_realized_by;
+  sh:name "is realized by"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:Expression;
+  shacl-play:shortname "is_realized_by" .
+
+questions:P44 owl:versionInfo "2.1.0";
+  sh:path epvoc:workHadParticipation;
+  sh:name "stakeholder participant"@en;
+  sh:nodeKind sh:IRI;
+  sh:node questions:Participation;
+  shacl-play:shortname "workHadParticipation" .
+
+questions:P45 owl:versionInfo "2.1.0";
+  sh:path eli:based_on;
+  sh:name "based on"@en;
+  sh:nodeKind sh:IRI;
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "based_on" .
+
+questions:P48 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue eli:Work;
+  shacl-play:shortname "type" .
+
+questions:P49 owl:versionInfo "2.1.0";
+  sh:path eli:work_type;
+  sh:name "work type"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-document-types/INTERPELLATION_MAJOR";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:WorkTypeReference;
+  sh:hasValue ep-document-types:INTERPELLATION_MAJOR;
+  shacl-play:shortname "work_type" .
+
+questions:P50 owl:versionInfo "2.1.0";
+  sh:path eli:date_document;
+  sh:name "date document"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  shacl-play:shortname "date_document" .
+
+questions:P51 owl:versionInfo "2.1.0";
+  sh:path dcterms:identifier;
+  sh:name "identifier"@en;
+  skos:example "G-9-2023-001002";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifier" .
+
+questions:P52 owl:versionInfo "2.1.0";
+  sh:path epvoc:identifierYear;
+  sh:name "identifier year"@en;
+  skos:example "2023";
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifierYear" .
+
+questions:P53 owl:versionInfo "2.1.0";
+  sh:path dcterms:title;
+  sh:name "title"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title_dcterms" .
+
+questions:P54 owl:versionInfo "2.1.0";
+  sh:path rdfs:label;
+  sh:name "label"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "label" .
+
+questions:P55 owl:versionInfo "2.1.0";
+  sh:path epvoc:epNumber;
+  sh:name "ep number"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "epNumber" .
+
+questions:P56 owl:versionInfo "2.1.0";
+  sh:path epvoc:epNumberVersion;
+  sh:name "en number version"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "epNumberVersion" .
+
+questions:P57 owl:versionInfo "2.1.0";
+  sh:path skos:notation;
+  sh:name "notation"@en;
+  sh:nodeKind sh:Literal;
+  sh:datatype epvoc:publicRegister;
+  shacl-play:shortname "notation_publicRegister" .
+
+questions:P58 owl:versionInfo "2.1.0";
+  sh:path eli-dl:parliamentary_term;
+  sh:name "parliamentary term"@en;
+  sh:minCount "0"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  shacl-play:shortname "parliamentary_term" .
+
+questions:P59 owl:versionInfo "2.1.0";
+  sh:path epvoc:originalLanguage;
+  sh:name "original language"@en;
+  sh:minCount "0"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:LanguageReference;
+  shacl-play:shortname "originalLanguage" .
+
+questions:P60 owl:versionInfo "2.1.0";
+  sh:path dcterms:creator;
+  sh:name "creator"@en;
+  sh:nodeKind sh:IRI;
+  sh:node questions:OrganizationReference;
+  shacl-play:shortname "creator" .
+
+questions:P61 owl:versionInfo "2.1.0";
+  sh:path dcterms:publisher;
+  sh:name "publisher"@en;
+  skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:OrganizationReference;
+  sh:hasValue <https://data.europarl.europa.eu/org/EU_PARLIAMENT>;
+  shacl-play:shortname "publisher" .
+
+questions:P62 owl:versionInfo "2.1.0";
+  sh:path eli:is_realized_by;
+  sh:name "is realized by"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:Expression;
+  shacl-play:shortname "is_realized_by" .
+
+questions:P63 owl:versionInfo "2.1.0";
+  sh:path epvoc:workHadParticipation;
+  sh:name "stakeholder participant"@en;
+  sh:nodeKind sh:IRI;
+  sh:node questions:Participation;
+  shacl-play:shortname "workHadParticipation" .
+
+questions:P64 owl:versionInfo "2.1.0";
+  sh:path eli:based_on;
+  sh:name "based on"@en;
+  sh:nodeKind sh:IRI;
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "based_on" .
+
+questions:P67 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue eli:Work;
+  shacl-play:shortname "type" .
+
+questions:P68 owl:versionInfo "2.1.0";
+  sh:path eli:work_type;
+  sh:name "work type"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-document-types/INTERPELLATION_MINOR";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:WorkTypeReference;
+  sh:hasValue ep-document-types:INTERPELLATION_MINOR;
+  shacl-play:shortname "work_type" .
+
+questions:P69 owl:versionInfo "2.1.0";
+  sh:path eli:date_document;
+  sh:name "date document"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  shacl-play:shortname "date_document" .
+
+questions:P70 owl:versionInfo "2.1.0";
+  sh:path dcterms:identifier;
+  sh:name "identifier"@en;
+  skos:example "K-8-2019-000001";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifier" .
+
+questions:P71 owl:versionInfo "2.1.0";
+  sh:path epvoc:identifierYear;
+  sh:name "identifier year"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifierYear" .
+
+questions:P72 owl:versionInfo "2.1.0";
+  sh:path dcterms:title;
+  sh:name "title"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title_dcterms" .
+
+questions:P73 owl:versionInfo "2.1.0";
+  sh:path rdfs:label;
+  sh:name "label"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "label" .
+
+questions:P74 owl:versionInfo "2.1.0";
+  sh:path epvoc:epNumber;
+  sh:name "ep number"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "epNumber" .
+
+questions:P75 owl:versionInfo "2.1.0";
+  sh:path epvoc:epNumberVersion;
+  sh:name "en number version"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "epNumberVersion" .
+
+questions:P76 owl:versionInfo "2.1.0";
+  sh:path skos:notation;
+  sh:name "notation"@en;
+  sh:nodeKind sh:Literal;
+  sh:datatype epvoc:publicRegister;
+  shacl-play:shortname "notation_publicRegister" .
+
+questions:P77 owl:versionInfo "2.1.0";
+  sh:path eli-dl:parliamentary_term;
+  sh:name "parliamentary term"@en;
+  sh:minCount "0"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  shacl-play:shortname "parliamentary_term" .
+
+questions:P78 owl:versionInfo "2.1.0";
+  sh:path epvoc:originalLanguage;
+  sh:name "original language"@en;
+  sh:minCount "0"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:LanguageReference;
+  shacl-play:shortname "originalLanguage" .
+
+questions:P79 owl:versionInfo "2.1.0";
+  sh:path dcterms:creator;
+  sh:name "creator"@en;
+  sh:nodeKind sh:IRI;
+  sh:node questions:OrganizationReference;
+  shacl-play:shortname "creator" .
+
+questions:P80 owl:versionInfo "2.1.0";
+  sh:path dcterms:publisher;
+  sh:name "publisher"@en;
+  skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:OrganizationReference;
+  sh:hasValue <https://data.europarl.europa.eu/org/EU_PARLIAMENT>;
+  shacl-play:shortname "publisher" .
+
+questions:P81 owl:versionInfo "2.1.0";
+  sh:path eli:is_realized_by;
+  sh:name "is realized by"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:Expression;
+  shacl-play:shortname "is_realized_by" .
+
+questions:P82 owl:versionInfo "2.1.0";
+  sh:path epvoc:workHadParticipation;
+  sh:name "stakeholder participant"@en;
+  sh:nodeKind sh:IRI;
+  sh:node questions:Participation;
+  shacl-play:shortname "workHadParticipation" .
+
+questions:P83 owl:versionInfo "2.1.0";
+  sh:path eli:based_on;
+  sh:name "based on"@en;
+  sh:nodeKind sh:IRI;
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "based_on" .
+
+questions:P84 owl:versionInfo "2.1.0";
+  sh:path _:a4aeb3f30c2042e3b539bc99a24f35721256;
+  sh:name "inverse answers to"@en;
+  sh:nodeKind sh:IRI;
+  sh:node questions:AnswerToQuestion;
+  shacl-play:shortname "inverse_answers_to" .
+
+_:a4aeb3f30c2042e3b539bc99a24f35721256 sh:inversePath eli-dl:answers_to .
+
+questions:P87 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue eli:Work;
+  shacl-play:shortname "type" .
+
+questions:AnswerToQuestion sh:property questions:P87, questions:P88, questions:P89,
+    questions:P90, questions:P91, questions:P92, questions:P93, questions:P94, questions:P95,
+    questions:P96, questions:P97, questions:P98, questions:P99, questions:P100, questions:P101,
+    questions:P102, questions:P103 .
+
+questions:P88 owl:versionInfo "2.1.0";
+  sh:path eli:work_type;
+  sh:name "work type"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-document-types/QUESTION_WRITTEN_ANSWER";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:WorkTypeReference;
+  sh:in _:a4aeb3f30c2042e3b539bc99a24f35721257;
+  shacl-play:shortname "work_type" .
+
+_:a4aeb3f30c2042e3b539bc99a24f35721257 rdf:first ep-document-types:QUESTION_WRITTEN_ANSWER;
+  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721258 .
+
+_:a4aeb3f30c2042e3b539bc99a24f35721258 rdf:first ep-document-types:INTERPELLATION_MINOR_WRITTEN_ANSWER;
+  rdf:rest rdf:nil .
+
+questions:P89 owl:versionInfo "2.1.0";
+  sh:path eli:date_document;
+  sh:name "date document"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  shacl-play:shortname "date_document" .
+
+questions:P90 owl:versionInfo "2.1.0";
+  sh:path dcterms:identifier;
+  sh:name "identifier"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifier" .
+
+questions:P91 owl:versionInfo "2.1.0";
+  sh:path epvoc:identifierYear;
+  sh:name "identifier year"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifierYear" .
+
+questions:P92 owl:versionInfo "2.1.0";
+  sh:path dcterms:title;
+  sh:name "title"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title_dcterms" .
+
+questions:P93 owl:versionInfo "2.1.0";
+  sh:path rdfs:label;
+  sh:name "label"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "label" .
+
+questions:P94 owl:versionInfo "2.1.0";
+  sh:path epvoc:epNumber;
+  sh:name "ep number"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "epNumber" .
+
+questions:P95 owl:versionInfo "2.1.0";
+  sh:path epvoc:epNumberVersion;
+  sh:name "en number version"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "epNumberVersion" .
+
+questions:P96 owl:versionInfo "2.1.0";
+  sh:path skos:notation;
+  sh:name "notation"@en;
+  sh:nodeKind sh:Literal;
+  sh:datatype epvoc:publicRegister;
+  shacl-play:shortname "notation_publicRegister" .
+
+questions:P97 owl:versionInfo "2.1.0";
+  sh:path eli-dl:parliamentary_term;
+  sh:name "parliamentary term"@en;
+  sh:minCount "0"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  shacl-play:shortname "parliamentary_term" .
+
+questions:P98 owl:versionInfo "2.1.0";
+  sh:path dcterms:creator;
+  sh:name "creator"@en;
+  sh:nodeKind sh:IRI;
+  sh:node questions:OrganizationReference;
+  shacl-play:shortname "creator" .
+
+questions:P99 owl:versionInfo "2.1.0";
+  sh:path dcterms:publisher;
+  sh:name "publisher"@en;
+  skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:OrganizationReference;
+  sh:hasValue <https://data.europarl.europa.eu/org/EU_PARLIAMENT>;
+  shacl-play:shortname "publisher" .
+
+questions:P100 owl:versionInfo "2.1.0";
+  sh:path eli:is_realized_by;
+  sh:name "is realized by"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:Expression;
+  shacl-play:shortname "is_realized_by" .
+
+questions:P101 owl:versionInfo "2.1.0";
+  sh:path eli-dl:answers_to;
+  sh:name "answers to"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:Question;
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "answers_to" .
+
+questions:P102 owl:versionInfo "2.1.0";
+  sh:path epvoc:workHadParticipation;
+  sh:name "stakeholder participant"@en;
+  sh:nodeKind sh:IRI;
+  sh:node questions:Participation;
+  shacl-play:shortname "workHadParticipation" .
+
+questions:P103 owl:versionInfo "2.1.0";
+  sh:path _:a4aeb3f30c2042e3b539bc99a24f35721259;
+  sh:name "inverse is annex of"@en;
+  sh:nodeKind sh:IRI;
+  sh:node questions:AnnexOfAnswer;
+  shacl-play:shortname "inverse_is_annex_of" .
+
+_:a4aeb3f30c2042e3b539bc99a24f35721259 sh:inversePath eli:is_annex_of .
+
+questions:P106 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue eli:Work;
+  shacl-play:shortname "type" .
+
+questions:P107 owl:versionInfo "2.1.0";
+  sh:path eli:work_type;
+  sh:name "work type"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-document-types/ANNEX";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:WorkTypeReference;
+  sh:hasValue ep-document-types:ANNEX;
+  shacl-play:shortname "work_type" .
+
+questions:P108 owl:versionInfo "2.1.0";
+  sh:path eli:date_document;
+  sh:name "date document"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  shacl-play:shortname "date_document" .
+
+questions:P109 owl:versionInfo "2.1.0";
+  sh:path dcterms:identifier;
+  sh:name "identifier"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifier" .
+
+questions:P110 owl:versionInfo "2.1.0";
+  sh:path epvoc:identifierYear;
+  sh:name "identifier year"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifierYear" .
+
+questions:P111 owl:versionInfo "2.1.0";
+  sh:path dcterms:title;
+  sh:name "title"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title_dcterms" .
+
+questions:P112 owl:versionInfo "2.1.0";
+  sh:path rdfs:label;
+  sh:name "label"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "label" .
+
+questions:P113 owl:versionInfo "2.1.0";
+  sh:path epvoc:epNumber;
+  sh:name "ep number"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "epNumber" .
+
+questions:P114 owl:versionInfo "2.1.0";
+  sh:path epvoc:epNumberVersion;
+  sh:name "en number version"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "epNumberVersion" .
+
+questions:P115 owl:versionInfo "2.1.0";
+  sh:path epvoc:numbering;
+  sh:name "numbering"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "numbering" .
+
+questions:P116 owl:versionInfo "2.1.0";
+  sh:path skos:notation;
+  sh:name "notation"@en;
+  sh:nodeKind sh:Literal;
+  sh:datatype epvoc:publicRegister;
+  shacl-play:shortname "notation_publicRegister" .
+
+questions:P117 owl:versionInfo "2.1.0";
+  sh:path eli-dl:parliamentary_term;
+  sh:name "parliamentary term"@en;
+  sh:minCount "0"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  shacl-play:shortname "parliamentary_term" .
+
+questions:P118 owl:versionInfo "2.1.0";
+  sh:path dcterms:publisher;
+  sh:name "publisher"@en;
+  skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:OrganizationReference;
+  sh:hasValue <https://data.europarl.europa.eu/org/EU_PARLIAMENT>;
+  shacl-play:shortname "publisher" .
+
+questions:P119 owl:versionInfo "2.1.0";
+  sh:path eli:is_realized_by;
+  sh:name "is realized by"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:Expression;
+  shacl-play:shortname "is_realized_by" .
+
+questions:P120 owl:versionInfo "2.1.0";
+  sh:path eli:is_annex_of;
+  sh:name "is annex of"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:AnswerToQuestion;
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "is_annex_of" .
+
+questions:P121 owl:versionInfo "2.1.0";
+  sh:path epvoc:workHadParticipation;
+  sh:name "stakeholder participant"@en;
+  sh:nodeKind sh:IRI;
+  sh:node questions:Participation;
+  shacl-play:shortname "workHadParticipation" .
+
+questions:P124 owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli:Expression;
+  shacl-play:shortname "type" .
+
+questions:P125 owl:versionInfo "1.0";
+  sh:path eli:title;
+  sh:name "title"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title" .
+
+questions:P126 owl:versionInfo "1.0";
+  sh:path eli:title_alternative;
+  sh:name "alternative title"@en;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title_alternative" .
+
+questions:P127 owl:versionInfo "1.0";
+  sh:path eli:is_embodied_by;
+  sh:name "is embodied by"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:Manifestation;
+  shacl-play:shortname "is_embodied_by" .
+
+questions:P128 owl:versionInfo "1.1";
+  sh:path eli:language;
+  sh:name "language"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:LanguageReference;
+  shacl-play:shortname "language" .
+
+questions:P131 owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli:Manifestation;
+  shacl-play:shortname "type" .
+
+questions:P132 owl:versionInfo "1.0";
+  sh:path dcterms:issued;
+  sh:name "issued"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:dateTime;
+  shacl-play:shortname "issued" .
+
+questions:P133 owl:versionInfo "1.0";
+  sh:path eli:is_exemplified_by;
+  sh:name "is exemplified by"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  shacl-play:shortname "is_exemplified_by" .
+
+questions:P134 owl:versionInfo "1.0";
+  sh:path epvoc:byteSize;
+  sh:name "byte size"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:long;
+  shacl-play:shortname "byteSize" .
+
+questions:P135 owl:versionInfo "1.1";
+  sh:path dcterms:format;
+  sh:name "format"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:MediaTypeOrExtentReference;
+  shacl-play:shortname "format" .
+
+questions:P136 owl:versionInfo "1.0";
+  sh:path eli:media_type;
+  sh:name "media type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  shacl-play:shortname "media_type" .
+
+questions:P139 owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli-dl:Participation;
+  shacl-play:shortname "type" .
+
+questions:P140 owl:versionInfo "2.1.0";
+  sh:path eli-dl:participation_role;
+  sh:name "participation role"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:ParticipationRoleReference;
+  sh:in _:a4aeb3f30c2042e3b539bc99a24f35721260;
+  shacl-play:shortname "participation_role" .
+
+_:a4aeb3f30c2042e3b539bc99a24f35721260 rdf:first ep-roles:AUTHOR;
+  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721261 .
+
+_:a4aeb3f30c2042e3b539bc99a24f35721261 rdf:first ep-roles:ADDRESSEE;
+  rdf:rest rdf:nil .
+
+questions:P141 owl:versionInfo "2.1.0";
+  sh:path eli-dl:had_participant_organization;
+  sh:name "participation organization"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:OrganizationReference;
+  shacl-play:shortname "had_participant_organization" .
+
+questions:P142 owl:versionInfo "2.1.0";
+  sh:path eli-dl:participation_in_name_of;
+  sh:name "participation in name of"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:OrganizationReference;
+  shacl-play:shortname "participation_in_name_of" .
+
+questions:P143 owl:versionInfo "1.1";
+  sh:path eli-dl:had_participant_person;
+  sh:name "participation person"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node questions:PersonReference;
+  shacl-play:shortname "had_participant_person" .
+
+questions:P146 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli:WorkType;
+  sh:deactivated "true"^^xsd:boolean .
+
+questions:P147 owl:versionInfo "2.1.0";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue ept:ep-document-types;
+  sh:deactivated "true"^^xsd:boolean .
+
+questions:P150 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue dcterms:LinguisticSystem;
+  sh:deactivated "true"^^xsd:boolean .
+
+questions:P151 owl:versionInfo "2.1.0";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue op-aut:language;
+  sh:deactivated "true"^^xsd:boolean .
+
+questions:P154 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue dcterms:MediaTypeOrExtent;
+  sh:deactivated "true"^^xsd:boolean .
+
+questions:P155 owl:versionInfo "1.1";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue op-aut:format;
+  sh:deactivated "true"^^xsd:boolean .
+
+questions:P158 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli-dl:ParticipationRole;
+  sh:deactivated "true"^^xsd:boolean .
+
+questions:P159 owl:versionInfo "2.1.0";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue ept:ep-roles;
+  sh:deactivated "true"^^xsd:boolean .
+
+questions:P162 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue org:Organization;
+  sh:deactivated "true"^^xsd:boolean .
+
+questions:P165 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue foaf:Person;
+  sh:deactivated "true"^^xsd:boolean .
