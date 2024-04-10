@@ -1,42 +1,42 @@
 {
   "@context": "http://www.w3.org/ns/csvw",
-  "dc:license": {
+  "dcterms:license": {
     "@id": "https://www.europarl.europa.eu/legal-notice"
   },
   "dc:modified": {
     "@type": "xsd:date",
-    "@value": "2023-06-07"
+    "@value": "2024-04-10"
   },
-  "dc:publisher": "European Parliament",
-  "dc:title": "parliamentary-questions_csv",
-  "url": "https://data.europarl.europa.eu/def/parliamentary-questions_csvw.json",
+  "dcterms:publisher": "European Parliament",
+  "dcterms:title": "parliamentary-questions",
+  "url": "https://data.europarl.europa.eu/def/parliamentary-questions-csvw.json",
   "tables": [
     {
-      "url": "adopted-texts.csv",
+      "url": "parliamentary-questions_csvw.json",
       "tableSchema": {
-        "columns": [
+        "fields": [
           {
             "name": "document_identifier",
-            "propertyUrl": "dc:identifier",
+            "propertyUrl": "dcterms:identifier",
             "constraints": {
               "required": true,
-              "type": "http://www.w3.org/2001/XMLSchema#string"
+              "datatype": "xsd:integer"
             }
           },
           {
             "name": "document_title",
-            "propertyUrl": "eli:title",
+            "propertyUrl": "dcterms:title",
             "constraints": {
               "required": false,
-              "type": "http://www.w3.org/2001/XMLSchema#string"
+              "datatype": "rdf:langString"
             }
           },
           {
             "name": "document_title_en",
-            "propertyUrl": "eli:title",
+            "propertyUrl": "dcterms:title",
             "constraints": {
               "required": false,
-              "type": "http://www.w3.org/2001/XMLSchema#string"
+              "datatype": "rdf:langString"
             }
           },
           {
@@ -44,7 +44,7 @@
             "propertyUrl": "eli:work_type",
             "constraints": {
               "required": false,
-              "type": "http://www.w3.org/2001/XMLSchema#string"
+              "datatype": "IRI"
             }
           },
           {
@@ -52,7 +52,7 @@
             "propertyUrl": "eli-dl:parliamentary_term",
             "constraints": {
               "required": false,
-              "type": "http://www.w3.org/2001/XMLSchema#int"
+              "datatype": "IRI"
             }
           },
           {
@@ -60,7 +60,7 @@
             "propertyUrl": "eli:date_document",
             "constraints": {
               "required": false,
-              "type": "http://www.w3.org/2001/XMLSchema#dateTime"
+              "datatype": "xsd:date"
             }
           },
           {
@@ -68,7 +68,7 @@
             "propertyUrl": "skos:notation",
             "constraints": {
               "required": false,
-              "type": "http://www.w3.org/2001/XMLSchema#string"
+              "datatype": "xsd:string"
             }
           },
           {
@@ -76,7 +76,7 @@
             "propertyUrl": "dcterms:creator",
             "constraints": {
               "required": false,
-              "type": "http://www.w3.org/2001/XMLSchema#string"
+              "datatype": "IRI"
             }
           },
           {
@@ -84,7 +84,7 @@
             "propertyUrl": "dcterms:creator",
             "constraints": {
               "required": false,
-              "type": "http://www.w3.org/2001/XMLSchema#string"
+              "datatype": "IRI"
             }
           },
           {
@@ -92,7 +92,7 @@
             "propertyUrl": "eli:language",
             "constraints": {
               "required": false,
-              "type": "http://www.w3.org/2001/XMLSchema#string"
+              "datatype": "IRI"
             }
           },
           {
@@ -100,7 +100,7 @@
             "propertyUrl": "eli:is_exemplified_by",
             "constraints": {
               "required": false,
-              "type": "http://www.w3.org/2001/XMLSchema#anyURI"
+              "datatype": "IRI"
             }
           },
           {
@@ -108,7 +108,7 @@
             "propertyUrl": "eli:is_exemplified_by",
             "constraints": {
               "required": false,
-              "type": "http://www.w3.org/2001/XMLSchema#anyURI"
+              "datatype": "IRI"
             }
           },
           {
@@ -116,7 +116,7 @@
             "propertyUrl": "eli:is_exemplified_by",
             "constraints": {
               "required": false,
-              "type": "http://www.w3.org/2001/XMLSchema#anyURI"
+              "datatype": "IRI"
             }
           },
           {
@@ -124,7 +124,7 @@
             "propertyUrl": "eli:is_exemplified_by",
             "constraints": {
               "required": false,
-              "type": "http://www.w3.org/2001/XMLSchema#anyURI"
+              "datatype": "IRI"
             }
           },
           {
@@ -132,7 +132,7 @@
             "propertyUrl": "eli:is_exemplified_by",
             "constraints": {
               "required": false,
-              "type": "http://www.w3.org/2001/XMLSchema#anyURI"
+              "datatype": "IRI"
             }
           },
           {
@@ -140,7 +140,7 @@
             "propertyUrl": "eli:is_exemplified_by",
             "constraints": {
               "required": false,
-              "type": "http://www.w3.org/2001/XMLSchema#anyURI"
+              "datatype": "IRI"
             }
           },
           {
@@ -148,14 +148,15 @@
             "propertyUrl": "epvoc:epNumber",
             "constraints": {
               "required": false,
-              "type": "http://www.w3.org/2001/XMLSchema#string"
+              "datatype": "xsd:string"
             }
           },
           {
             "name": "document_URI",
+            "propertyUrl": "URI",
             "constraints": {
               "required": true,
-              "type": "http://www.w3.org/2001/XMLSchema#anyURI"
+              "datatype": "IRI"
             }
           }
         ]

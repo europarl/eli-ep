@@ -8,11 +8,11 @@
     "@value": "2024-04-10"
   },
   "dcterms:publisher": "European Parliament",
-  "dcterms:title": "adopted-texts",
-  "url": "https://data.europarl.europa.eu/def/adopted-texts-csvw.json",
+  "dcterms:title": "plenary-documents",
+  "url": "https://data.europarl.europa.eu/def/plenary-documents-csvw.json",
   "tables": [
     {
-      "url": "adopted-texts_csvw.json",
+      "url": "plenary-documents_csvw.json",
       "tableSchema": {
         "fields": [
           {
@@ -64,6 +64,22 @@
             }
           },
           {
+            "name": "document_creator_person",
+            "propertyUrl": "dcterms:creator",
+            "constraints": {
+              "required": false,
+              "datatype": "IRI"
+            }
+          },
+          {
+            "name": "document_creator_organization",
+            "propertyUrl": "dcterms:creator",
+            "constraints": {
+              "required": false,
+              "datatype": "IRI"
+            }
+          },
+          {
             "name": "document_language",
             "propertyUrl": "eli:language",
             "constraints": {
@@ -88,7 +104,7 @@
             }
           },
           {
-            "name": "document_corrigenda_pdf",
+            "name": "document_errata_pdf",
             "propertyUrl": "eli:is_exemplified_by",
             "constraints": {
               "required": false,
@@ -96,7 +112,7 @@
             }
           },
           {
-            "name": "document_corrigenda_doc",
+            "name": "document_errata_doc",
             "propertyUrl": "eli:is_exemplified_by",
             "constraints": {
               "required": false,
@@ -104,32 +120,16 @@
             }
           },
           {
-            "name": "document_subject_matter",
-            "propertyUrl": "epvoc:isAboutSubjectMatter",
+            "name": "document_amendments_pdf",
+            "propertyUrl": "eli:is_exemplified_by",
             "constraints": {
               "required": false,
               "datatype": "IRI"
             }
           },
           {
-            "name": "document_directory_code",
-            "propertyUrl": "epvoc:isAboutDirectoryCode",
-            "constraints": {
-              "required": false,
-              "datatype": "IRI"
-            }
-          },
-          {
-            "name": "document_adopts",
-            "propertyUrl": "eli-dl:adopts",
-            "constraints": {
-              "required": false,
-              "datatype": "IRI"
-            }
-          },
-          {
-            "name": "document_procedure",
-            "propertyUrl": "eli-dl:created_a_realization_of",
+            "name": "document_amendments_doc",
+            "propertyUrl": "eli:is_exemplified_by",
             "constraints": {
               "required": false,
               "datatype": "IRI"
@@ -138,6 +138,14 @@
           {
             "name": "document_ep_number",
             "propertyUrl": "epvoc:epNumber",
+            "constraints": {
+              "required": false,
+              "datatype": "xsd:string"
+            }
+          },
+          {
+            "name": "document_number_version",
+            "propertyUrl": "epvoc:epNumberVersion",
             "constraints": {
               "required": false,
               "datatype": "xsd:string"

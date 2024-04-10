@@ -1,26 +1,26 @@
 {
   "@context": "http://www.w3.org/ns/csvw",
-  "dc:license": {
+  "dcterms:license": {
     "@id": "https://www.europarl.europa.eu/legal-notice"
   },
   "dc:modified": {
     "@type": "xsd:date",
-    "@value": "2023-06-07"
+    "@value": "2024-04-10"
   },
-  "dc:publisher": "European Parliament",
-  "dc:title": "meetings_csv",
-  "url": "https://data.europarl.europa.eu/def/meetings_csvw.json",
+  "dcterms:publisher": "European Parliament",
+  "dcterms:title": "meetings",
+  "url": "https://data.europarl.europa.eu/def/meetings-csvw.json",
   "tables": [
     {
-      "url": "meetings.csv",
+      "url": "meetings_csvw.json",
       "tableSchema": {
-        "columns": [
+        "fields": [
           {
             "name": "meeting_identifier",
-            "propertyUrl": "eli-dl:activity_id",
+            "propertyUrl": "dcterms:identifier",
             "constraints": {
               "required": true,
-              "type": "http://www.w3.org/2001/XMLSchema#string"
+              "datatype": "xsd:integer"
             }
           },
           {
@@ -28,7 +28,7 @@
             "propertyUrl": "dcterms:title",
             "constraints": {
               "required": false,
-              "type": "http://www.w3.org/2001/XMLSchema#string"
+              "datatype": "rdf:langString"
             }
           },
           {
@@ -36,7 +36,7 @@
             "propertyUrl": "eli-dl:had_activity_type",
             "constraints": {
               "required": false,
-              "type": "http://www.w3.org/2001/XMLSchema#string"
+              "datatype": "IRI"
             }
           },
           {
@@ -44,7 +44,7 @@
             "propertyUrl": "eli-dl:parliamentary_term",
             "constraints": {
               "required": false,
-              "type": "http://www.w3.org/2001/XMLSchema#string"
+              "datatype": "IRI"
             }
           },
           {
@@ -52,7 +52,7 @@
             "propertyUrl": "eli-dl:activity_start_date",
             "constraints": {
               "required": false,
-              "type": "http://www.w3.org/2001/XMLSchema#dateTime"
+              "datatype": "xsd:date"
             }
           },
           {
@@ -60,7 +60,7 @@
             "propertyUrl": "eli-dl:activity_end_date",
             "constraints": {
               "required": false,
-              "type": "http://www.w3.org/2001/XMLSchema#dateTime"
+              "datatype": "xsd:date"
             }
           },
           {
@@ -68,7 +68,7 @@
             "propertyUrl": "vcard:hasLocality",
             "constraints": {
               "required": false,
-              "type": "http://www.w3.org/2001/XMLSchema#string"
+              "datatype": "IRI"
             }
           },
           {
@@ -76,7 +76,7 @@
             "propertyUrl": "epvoc:hasRoom",
             "constraints": {
               "required": false,
-              "type": "http://www.w3.org/2001/XMLSchema#string"
+              "datatype": "IRI"
             }
           },
           {
@@ -84,7 +84,7 @@
             "propertyUrl": "eli:is_exemplified_by",
             "constraints": {
               "required": false,
-              "type": "http://www.w3.org/2001/XMLSchema#string"
+              "datatype": "IRI"
             }
           },
           {
@@ -92,7 +92,7 @@
             "propertyUrl": "eli:is_exemplified_by",
             "constraints": {
               "required": false,
-              "type": "http://www.w3.org/2001/XMLSchema#string"
+              "datatype": "IRI"
             }
           },
           {
@@ -100,7 +100,7 @@
             "propertyUrl": "eli:is_exemplified_by",
             "constraints": {
               "required": false,
-              "type": "http://www.w3.org/2001/XMLSchema#string"
+              "datatype": "IRI"
             }
           },
           {
@@ -108,14 +108,15 @@
             "propertyUrl": "eli-dl:consists_of",
             "constraints": {
               "required": false,
-              "type": "http://www.w3.org/2001/XMLSchema#string"
+              "datatype": "IRI"
             }
           },
           {
             "name": "meeting_uri",
+            "propertyUrl": "URI",
             "constraints": {
               "required": true,
-              "type": "http://www.w3.org/2001/XMLSchema#anyURI"
+              "datatype": "IRI"
             }
           }
         ]
