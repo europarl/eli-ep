@@ -37,8 +37,8 @@
   dcterms:title "Plenary session documents dataset description"@en;
   dcterms:description "This Dataset Description is a subset of the general ELI-EP application profile and it includes classes and properties used in Plenary session documents datasets. Descriptions of classes and properties can be found in ELI-EP application profile."@en;
   owl:versionInfo "2.1.0";
-  adms:versionNotes """2.1.0 - 2024-03-21
-- (rfc) add new psd:WorkSubdivisionSpeech and psd:PlenarySittingSpeechReference
+  adms:versionNotes """2.1.0 - 2024-04-11 (major)
+- remark: plenary speeches will be published in a dedicated service (API) in the upcoming weeks
 - (rfc) add new properties for psd:WorkSubdivision and psd:Expression
 - (new) add missing [sh:inversePath eli:is_part_of] for psd:PlenaryVotes
 - (new) add psd:WorkSubdivision for psd:PlenaryDebates
@@ -73,15 +73,15 @@
   owl:versionIRI <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   dcterms:conformsTo <https://www.w3.org/TR/shacl>;
   dcterms:created "2022-11-18"^^xsd:date;
-  dcterms:modified "2024-03-21T00:00:00.000Z"^^xsd:dateTime;
+  dcterms:modified "2024-04-11T00:00:00.000Z"^^xsd:dateTime;
   dcterms:dateCopyrighted "2022"^^xsd:gYear;
   dcterms:license <https://www.europarl.europa.eu/legal-notice/>;
   dcterms:creator <https://publications.europa.eu/resource/authority/corporate-body/EP>;
   dcterms:publisher <https://publications.europa.eu/resource/authority/corporate-body/EP>;
   dcterms:rigthsHolder <https://publications.europa.eu/resource/authority/corporate-body/EURUN>;
-  dcat:distribution _:a4aeb3f30c2042e3b539bc99a24f35721321 .
+  dcat:distribution _:a7c8ac44478040d2b35e9c51a45ca5572 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721321 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
+_:a7c8ac44478040d2b35e9c51a45ca5572 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
   dcat:downloadURL <https://europarl.github.io/eli-ep/dsd/plenary-session-documents/eli-ep_plenary-session-documents.shacl.ttl> .
 
 psd:PlenaryAgendaPartSessionComplexWork a sh:NodeShape;
@@ -255,7 +255,7 @@ psd:Expression a sh:NodeShape;
   sh:order "9"^^xsd:integer;
   owl:versionInfo "1.3.0";
   shacl-play:color "Blue";
-  sh:property psd:P165, psd:P166, psd:P167, psd:P168, psd:P169 .
+  sh:property psd:P151, psd:P152, psd:P153, psd:P154 .
 
 psd:Manifestation a sh:NodeShape;
   rdfs:comment "This node shape represents a subset of eli:Manifestation"@en;
@@ -268,7 +268,7 @@ psd:Manifestation a sh:NodeShape;
   sh:order "10"^^xsd:integer;
   owl:versionInfo "1.3.0";
   shacl-play:color "Green";
-  sh:property psd:P172, psd:P173, psd:P174, psd:P175, psd:P176, psd:P177 .
+  sh:property psd:P157, psd:P158, psd:P159, psd:P160, psd:P161, psd:P162 .
 
 psd:WorkSubdivision a sh:NodeShape;
   rdfs:comment "This node shape represents a subset of eli:WorkSubdivision"@en;
@@ -283,18 +283,6 @@ psd:WorkSubdivision a sh:NodeShape;
   sh:property psd:P137, psd:P138, psd:P139, psd:P140, psd:P141, psd:P142, psd:P143,
     psd:P144, psd:P145, psd:P146, psd:P147, psd:P148 .
 
-psd:WorkSubdivisionSpeech a sh:NodeShape;
-  rdfs:comment "This node shape represents a subset of eli:WorkSubdivision"@en;
-  sh:nodeKind sh:IRI;
-  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
-  sh:closed "true"^^xsd:boolean;
-  rdfs:label "Work Subdivision (Plenary Debates Speech)"@en;
-  sh:order "12"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "Orange";
-  sh:property psd:P151, psd:P152, psd:P153, psd:P154, psd:P155, psd:P156, psd:P157,
-    psd:P158, psd:P159, psd:P160, psd:P161, psd:P162 .
-
 psd:WorkTypeReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class eli:WorkType"@en;
   skos:example "https://data.europarl.europa.eu/def/ep-document-types//MINUTES_PLENARY";
@@ -305,7 +293,7 @@ psd:WorkTypeReference a sh:NodeShape;
   sh:order "14"^^xsd:integer;
   owl:versionInfo "2.1.0";
   shacl-play:color "DarkGrey";
-  sh:property psd:P180, psd:P181 .
+  sh:property psd:P165, psd:P166 .
 
 psd:LanguageReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class dcterms:LinguisticSystem"@en;
@@ -317,7 +305,7 @@ psd:LanguageReference a sh:NodeShape;
   sh:order "15"^^xsd:integer;
   owl:versionInfo "1.0";
   shacl-play:color "DarkGrey";
-  sh:property psd:P184, psd:P185 .
+  sh:property psd:P169, psd:P170 .
 
 psd:MediaTypeOrExtentReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class dcterms:MediaTypeOrExtent"@en;
@@ -329,7 +317,7 @@ psd:MediaTypeOrExtentReference a sh:NodeShape;
   sh:order "16"^^xsd:integer;
   owl:versionInfo "1.0";
   shacl-play:color "DarkGrey";
-  sh:property psd:P188, psd:P189 .
+  sh:property psd:P173, psd:P174 .
 
 psd:VersionReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class euvoc:FileStatus"@en;
@@ -341,7 +329,7 @@ psd:VersionReference a sh:NodeShape;
   sh:order "17"^^xsd:integer;
   owl:versionInfo "1.0";
   shacl-play:color "DarkGrey";
-  sh:property psd:P192, psd:P193 .
+  sh:property psd:P177, psd:P178 .
 
 psd:SubdivisionTypeReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class eli:SubdivisionType"@en;
@@ -353,7 +341,7 @@ psd:SubdivisionTypeReference a sh:NodeShape;
   sh:order "18"^^xsd:integer;
   owl:versionInfo "1.3.0";
   shacl-play:color "DarkGrey";
-  sh:property psd:P196, psd:P197 .
+  sh:property psd:P181, psd:P182 .
 
 psd:PlenaryPartSessionReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class eli-dl:Activity"@en;
@@ -365,7 +353,7 @@ psd:PlenaryPartSessionReference a sh:NodeShape;
   sh:order "19"^^xsd:integer;
   owl:versionInfo "2.1.0";
   shacl-play:color "DarkGrey";
-  sh:property psd:P204, psd:P205 .
+  sh:property psd:P189, psd:P190 .
 
 psd:PlenarySittingReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class eli-dl:Activity"@en;
@@ -377,7 +365,7 @@ psd:PlenarySittingReference a sh:NodeShape;
   sh:order "20"^^xsd:integer;
   owl:versionInfo "2.1.0";
   shacl-play:color "DarkGrey";
-  sh:property psd:P207, psd:P208 .
+  sh:property psd:P192, psd:P193 .
 
 psd:PlenarySittingItemReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class eli-dl:Activity"@en;
@@ -389,7 +377,7 @@ psd:PlenarySittingItemReference a sh:NodeShape;
   sh:order "21"^^xsd:integer;
   owl:versionInfo "2.1.0";
   shacl-play:color "DarkGrey";
-  sh:property psd:P211, psd:P212 .
+  sh:property psd:P196, psd:P197 .
 
 psd:OrganizationReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class org:Organization"@en;
@@ -401,18 +389,7 @@ psd:OrganizationReference a sh:NodeShape;
   sh:order "22"^^xsd:integer;
   owl:versionInfo "2.1.0";
   shacl-play:color "DarkGrey";
-  sh:property psd:P200 .
-
-psd:PlenarySittingSpeechReference a sh:NodeShape;
-  rdfs:comment "This node shape refers to the class eli-dl:Activity"@en;
-  sh:nodeKind sh:IRI;
-  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\\-_]+$";
-  sh:closed "true"^^xsd:boolean;
-  rdfs:label "Reference to a Activity (Plenary Debate Speech, Plenary Debate Written Statement)"@en;
-  sh:order "23"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "DarkGrey";
-  sh:property psd:P215, psd:P216 .
+  sh:property psd:P185 .
 
 psd:P9 owl:versionInfo "2.1.0";
   sh:path rdf:type;
@@ -522,7 +499,7 @@ psd:P20 owl:versionInfo "2.1.0";
   shacl-play:shortname "hasCurrentVersion" .
 
 psd:P21 owl:versionInfo "2.1.0";
-  sh:path _:a4aeb3f30c2042e3b539bc99a24f35721322;
+  sh:path _:a7c8ac44478040d2b35e9c51a45ca5573;
   sh:name "inverse is derivative of"@en;
   sh:minCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
@@ -530,10 +507,10 @@ psd:P21 owl:versionInfo "2.1.0";
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "inverse_is_derivative_of" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721322 sh:inversePath eli:is_derivative_of .
+_:a7c8ac44478040d2b35e9c51a45ca5573 sh:inversePath eli:is_derivative_of .
 
 psd:P22 owl:versionInfo "2.1.0";
-  sh:path _:a4aeb3f30c2042e3b539bc99a24f35721323;
+  sh:path _:a7c8ac44478040d2b35e9c51a45ca5574;
   sh:name "inverse documented by a realization of"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
@@ -542,7 +519,7 @@ psd:P22 owl:versionInfo "2.1.0";
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "inverse_documented_by_a_realization_of" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721323 sh:inversePath eli-dl:documented_by_a_realization_of .
+_:a7c8ac44478040d2b35e9c51a45ca5574 sh:inversePath eli-dl:documented_by_a_realization_of .
 
 psd:P25 owl:versionInfo "2.1.0";
   sh:path rdf:type;
@@ -762,7 +739,7 @@ psd:P53 owl:versionInfo "2.1.0";
   shacl-play:shortname "is_realized_by" .
 
 psd:P54 owl:versionInfo "2.1.0";
-  sh:path _:a4aeb3f30c2042e3b539bc99a24f35721324;
+  sh:path _:a7c8ac44478040d2b35e9c51a45ca5575;
   sh:name "inverse documented by a realization of"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
@@ -771,7 +748,7 @@ psd:P54 owl:versionInfo "2.1.0";
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "inverse_documented_by_a_realization_of" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721324 sh:inversePath eli-dl:documented_by_a_realization_of .
+_:a7c8ac44478040d2b35e9c51a45ca5575 sh:inversePath eli-dl:documented_by_a_realization_of .
 
 psd:P57 owl:versionInfo "1.3.0";
   sh:path rdf:type;
@@ -868,48 +845,48 @@ psd:P67 owl:versionInfo "1.3.0";
   shacl-play:shortname "is_realized_by" .
 
 psd:P68 owl:versionInfo "1.3.0";
-  sh:path _:a4aeb3f30c2042e3b539bc99a24f35721325;
+  sh:path _:a7c8ac44478040d2b35e9c51a45ca5576;
   sh:name "inverse is annex of"@en;
   sh:nodeKind sh:IRI;
-  sh:or _:a4aeb3f30c2042e3b539bc99a24f35721326;
+  sh:or _:a7c8ac44478040d2b35e9c51a45ca5577;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "inverse_is_annex_of" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721325 sh:inversePath eli:is_annex_of .
+_:a7c8ac44478040d2b35e9c51a45ca5576 sh:inversePath eli:is_annex_of .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721326 rdf:first _:a4aeb3f30c2042e3b539bc99a24f35721327;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721328 .
+_:a7c8ac44478040d2b35e9c51a45ca5577 rdf:first _:a7c8ac44478040d2b35e9c51a45ca5578;
+  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca5579 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721327 sh:node psd:PlenaryRcv .
+_:a7c8ac44478040d2b35e9c51a45ca5578 sh:node psd:PlenaryRcv .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721328 rdf:first _:a4aeb3f30c2042e3b539bc99a24f35721329;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721330 .
+_:a7c8ac44478040d2b35e9c51a45ca5579 rdf:first _:a7c8ac44478040d2b35e9c51a45ca55710;
+  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55711 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721329 sh:node psd:PlenaryAtt .
+_:a7c8ac44478040d2b35e9c51a45ca55710 sh:node psd:PlenaryAtt .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721330 rdf:first _:a4aeb3f30c2042e3b539bc99a24f35721331;
+_:a7c8ac44478040d2b35e9c51a45ca55711 rdf:first _:a7c8ac44478040d2b35e9c51a45ca55712;
   rdf:rest rdf:nil .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721331 sh:node psd:PlenaryVotes .
+_:a7c8ac44478040d2b35e9c51a45ca55712 sh:node psd:PlenaryVotes .
 
 psd:P69 owl:versionInfo "1.3.0";
-  sh:path _:a4aeb3f30c2042e3b539bc99a24f35721332;
+  sh:path _:a7c8ac44478040d2b35e9c51a45ca55713;
   sh:name "inverse is part of"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:WorkSubdivision;
   shacl-play:shortname "inverse_is_part_of" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721332 sh:inversePath eli:is_part_of .
+_:a7c8ac44478040d2b35e9c51a45ca55713 sh:inversePath eli:is_part_of .
 
 psd:P70 owl:versionInfo "1.3.0";
-  sh:path _:a4aeb3f30c2042e3b539bc99a24f35721333;
+  sh:path _:a7c8ac44478040d2b35e9c51a45ca55714;
   sh:name "inverse recorded in a realization of"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:PlenarySittingReference;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "inverse_recorded_in_a_realization_of" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721333 sh:inversePath eli-dl:recorded_in_a_realization_of .
+_:a7c8ac44478040d2b35e9c51a45ca55714 sh:inversePath eli-dl:recorded_in_a_realization_of .
 
 psd:P73 owl:versionInfo "1.3.0";
   sh:path rdf:type;
@@ -1017,14 +994,14 @@ psd:P84 owl:versionInfo "1.1";
   shacl-play:shortname "is_annex_of" .
 
 psd:P86 owl:versionInfo "1.3.0";
-  sh:path _:a4aeb3f30c2042e3b539bc99a24f35721334;
+  sh:path _:a7c8ac44478040d2b35e9c51a45ca55715;
   sh:name "inverse recorded in a realization of"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:PlenarySittingReference;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "inverse_recorded_in_a_realization_of" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721334 sh:inversePath eli-dl:recorded_in_a_realization_of .
+_:a7c8ac44478040d2b35e9c51a45ca55715 sh:inversePath eli-dl:recorded_in_a_realization_of .
 
 psd:P89 owl:versionInfo "1.3.0";
   sh:path rdf:type;
@@ -1131,23 +1108,23 @@ psd:P100 owl:versionInfo "1.1";
   shacl-play:shortname "is_annex_of" .
 
 psd:P101 owl:versionInfo "2.1.0";
-  sh:path _:a4aeb3f30c2042e3b539bc99a24f35721335;
+  sh:path _:a7c8ac44478040d2b35e9c51a45ca55716;
   sh:name "inverse is part of"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:WorkSubdivision;
   shacl-play:shortname "inverse_is_part_of" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721335 sh:inversePath eli:is_part_of .
+_:a7c8ac44478040d2b35e9c51a45ca55716 sh:inversePath eli:is_part_of .
 
 psd:P102 owl:versionInfo "1.3.0";
-  sh:path _:a4aeb3f30c2042e3b539bc99a24f35721336;
+  sh:path _:a7c8ac44478040d2b35e9c51a45ca55717;
   sh:name "inverse recorded in a realization of"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:PlenarySittingReference;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "inverse_recorded_in_a_realization_of" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721336 sh:inversePath eli-dl:recorded_in_a_realization_of .
+_:a7c8ac44478040d2b35e9c51a45ca55717 sh:inversePath eli-dl:recorded_in_a_realization_of .
 
 psd:P105 owl:versionInfo "1.0";
   sh:path rdf:type;
@@ -1255,23 +1232,23 @@ psd:P116 owl:versionInfo "1.1";
   shacl-play:shortname "is_annex_of" .
 
 psd:P117 owl:versionInfo "1.3.0";
-  sh:path _:a4aeb3f30c2042e3b539bc99a24f35721337;
+  sh:path _:a7c8ac44478040d2b35e9c51a45ca55718;
   sh:name "inverse is part of"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:WorkSubdivision;
   shacl-play:shortname "inverse_is_part_of" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721337 sh:inversePath eli:is_part_of .
+_:a7c8ac44478040d2b35e9c51a45ca55718 sh:inversePath eli:is_part_of .
 
 psd:P118 owl:versionInfo "1.3.0";
-  sh:path _:a4aeb3f30c2042e3b539bc99a24f35721338;
+  sh:path _:a7c8ac44478040d2b35e9c51a45ca55719;
   sh:name "inverse recorded in a realization of"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:PlenarySittingReference;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "inverse_recorded_in_a_realization_of" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721338 sh:inversePath eli-dl:recorded_in_a_realization_of .
+_:a7c8ac44478040d2b35e9c51a45ca55719 sh:inversePath eli-dl:recorded_in_a_realization_of .
 
 psd:P121 owl:versionInfo "2.1.0";
   sh:path rdf:type;
@@ -1360,23 +1337,23 @@ psd:P132 owl:versionInfo "2.1.0";
   shacl-play:shortname "is_realized_by" .
 
 psd:P133 owl:versionInfo "2.1.0";
-  sh:path _:a4aeb3f30c2042e3b539bc99a24f35721339;
+  sh:path _:a7c8ac44478040d2b35e9c51a45ca55720;
   sh:name "inverse is part of"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:WorkSubdivision;
   shacl-play:shortname "inverse_is_part_of" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721339 sh:inversePath eli:is_part_of .
+_:a7c8ac44478040d2b35e9c51a45ca55720 sh:inversePath eli:is_part_of .
 
 psd:P134 owl:versionInfo "1.3.0";
-  sh:path _:a4aeb3f30c2042e3b539bc99a24f35721340;
+  sh:path _:a7c8ac44478040d2b35e9c51a45ca55721;
   sh:name "inverse recorded in a realization of"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:PlenarySittingReference;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "inverse_recorded_in_a_realization_of" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721340 sh:inversePath eli-dl:recorded_in_a_realization_of .
+_:a7c8ac44478040d2b35e9c51a45ca55721 sh:inversePath eli-dl:recorded_in_a_realization_of .
 
 psd:P137 owl:versionInfo "1.3.0";
   sh:path rdf:type;
@@ -1426,34 +1403,34 @@ psd:P142 owl:versionInfo "2.1.0";
   sh:name "is part of"@en;
   sh:minCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
-  sh:or _:a4aeb3f30c2042e3b539bc99a24f35721341;
+  sh:or _:a7c8ac44478040d2b35e9c51a45ca55722;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "is_part_of" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721341 rdf:first _:a4aeb3f30c2042e3b539bc99a24f35721342;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721343 .
+_:a7c8ac44478040d2b35e9c51a45ca55722 rdf:first _:a7c8ac44478040d2b35e9c51a45ca55723;
+  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55724 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721342 sh:node psd:PlenaryMinutes .
+_:a7c8ac44478040d2b35e9c51a45ca55723 sh:node psd:PlenaryMinutes .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721343 rdf:first _:a4aeb3f30c2042e3b539bc99a24f35721344;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721345 .
+_:a7c8ac44478040d2b35e9c51a45ca55724 rdf:first _:a7c8ac44478040d2b35e9c51a45ca55725;
+  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55726 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721344 sh:node psd:PlenaryRcv .
+_:a7c8ac44478040d2b35e9c51a45ca55725 sh:node psd:PlenaryRcv .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721345 rdf:first _:a4aeb3f30c2042e3b539bc99a24f35721346;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721347 .
+_:a7c8ac44478040d2b35e9c51a45ca55726 rdf:first _:a7c8ac44478040d2b35e9c51a45ca55727;
+  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55728 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721346 sh:node psd:PlenaryVotes .
+_:a7c8ac44478040d2b35e9c51a45ca55727 sh:node psd:PlenaryVotes .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721347 rdf:first _:a4aeb3f30c2042e3b539bc99a24f35721348;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721349 .
+_:a7c8ac44478040d2b35e9c51a45ca55728 rdf:first _:a7c8ac44478040d2b35e9c51a45ca55729;
+  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55730 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721348 sh:node psd:PlenaryDebates .
+_:a7c8ac44478040d2b35e9c51a45ca55729 sh:node psd:PlenaryDebates .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721349 rdf:first _:a4aeb3f30c2042e3b539bc99a24f35721350;
+_:a7c8ac44478040d2b35e9c51a45ca55730 rdf:first _:a7c8ac44478040d2b35e9c51a45ca55731;
   rdf:rest rdf:nil .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721350 sh:node psd:WorkSubdivision .
+_:a7c8ac44478040d2b35e9c51a45ca55731 sh:node psd:WorkSubdivision .
 
 psd:P143 owl:versionInfo "1.3.0";
   sh:path dcterms:title;
@@ -1467,17 +1444,17 @@ psd:P144 owl:versionInfo "1.5.0";
   sh:path eli:refers_to;
   sh:name "refers to"@en;
   sh:nodeKind sh:IRI;
-  sh:in _:a4aeb3f30c2042e3b539bc99a24f35721351;
+  sh:in _:a7c8ac44478040d2b35e9c51a45ca55732;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "refers_to" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721351 rdf:first eli:WorkSubdivision;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721352 .
+_:a7c8ac44478040d2b35e9c51a45ca55732 rdf:first eli:WorkSubdivision;
+  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55733 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721352 rdf:first eli:Work;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721353 .
+_:a7c8ac44478040d2b35e9c51a45ca55733 rdf:first eli:Work;
+  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55734 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721353 rdf:first eli-dl:Process;
+_:a7c8ac44478040d2b35e9c51a45ca55734 rdf:first eli-dl:Process;
   rdf:rest rdf:nil .
 
 psd:P145 owl:versionInfo "1.5.1";
@@ -1488,150 +1465,35 @@ psd:P145 owl:versionInfo "1.5.1";
   shacl-play:shortname "expressionContent" .
 
 psd:P146 owl:versionInfo "2.1.0";
-  sh:path _:a4aeb3f30c2042e3b539bc99a24f35721354;
+  sh:path _:a7c8ac44478040d2b35e9c51a45ca55735;
   sh:name "inverse is part of"@en;
   sh:nodeKind sh:IRI;
-  sh:or _:a4aeb3f30c2042e3b539bc99a24f35721355;
+  sh:node psd:WorkSubdivision;
   shacl-play:shortname "inverse_is_part_of" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721354 sh:inversePath eli:is_part_of .
-
-_:a4aeb3f30c2042e3b539bc99a24f35721355 rdf:first _:a4aeb3f30c2042e3b539bc99a24f35721356;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721357 .
-
-_:a4aeb3f30c2042e3b539bc99a24f35721356 sh:node psd:WorkSubdivision .
-
-_:a4aeb3f30c2042e3b539bc99a24f35721357 rdf:first _:a4aeb3f30c2042e3b539bc99a24f35721358;
-  rdf:rest rdf:nil .
-
-_:a4aeb3f30c2042e3b539bc99a24f35721358 sh:node psd:WorkSubdivisionSpeech .
+_:a7c8ac44478040d2b35e9c51a45ca55735 sh:inversePath eli:is_part_of .
 
 psd:P147 owl:versionInfo "1.5.0";
-  sh:path _:a4aeb3f30c2042e3b539bc99a24f35721359;
+  sh:path _:a7c8ac44478040d2b35e9c51a45ca55736;
   sh:name "inverse refers to"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:WorkSubdivision;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "inverse_refers_to" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721359 sh:inversePath eli:refers_to .
+_:a7c8ac44478040d2b35e9c51a45ca55736 sh:inversePath eli:refers_to .
 
 psd:P148 owl:versionInfo "1.3.0";
-  sh:path _:a4aeb3f30c2042e3b539bc99a24f35721360;
+  sh:path _:a7c8ac44478040d2b35e9c51a45ca55737;
   sh:name "inverse recorded in a realization of"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:PlenarySittingItemReference;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "inverse_recorded_in_a_realization_of" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721360 sh:inversePath eli-dl:recorded_in_a_realization_of .
+_:a7c8ac44478040d2b35e9c51a45ca55737 sh:inversePath eli-dl:recorded_in_a_realization_of .
 
-psd:P151 owl:versionInfo "2.1.0";
-  sh:path rdf:type;
-  sh:name "type"@en;
-  sh:minCount "1"^^xsd:integer;
-  sh:maxCount "1"^^xsd:integer;
-  sh:nodeKind sh:IRI;
-  sh:hasValue eli:WorkSubdivision;
-  shacl-play:shortname "type" .
-
-psd:P152 owl:versionInfo "2.1.0";
-  sh:path dcterms:identifier;
-  sh:name "identifier"@en;
-  sh:minCount "1"^^xsd:integer;
-  sh:maxCount "1"^^xsd:integer;
-  sh:nodeKind sh:Literal;
-  sh:datatype xsd:string;
-  shacl-play:shortname "identifier" .
-
-psd:P153 owl:versionInfo "2.1.0";
-  sh:path eli:type_subdivision;
-  sh:name "type subdivision"@en;
-  sh:minCount "1"^^xsd:integer;
-  sh:nodeKind sh:IRI;
-  sh:node psd:SubdivisionTypeReference;
-  sh:hasValue subdivision:OTH;
-  shacl-play:shortname "type_subdivision" .
-
-psd:P154 owl:versionInfo "2.1.0";
-  sh:path epvoc:numbering;
-  sh:name "numbering"@en;
-  sh:maxCount "1"^^xsd:integer;
-  sh:nodeKind sh:Literal;
-  sh:datatype xsd:string;
-  shacl-play:shortname "numbering" .
-
-psd:P155 owl:versionInfo "2.1.0";
-  sh:path eli:number;
-  sh:name "number"@en;
-  sh:maxCount "1"^^xsd:integer;
-  sh:nodeKind sh:Literal;
-  sh:datatype xsd:integer;
-  shacl-play:shortname "number" .
-
-psd:P156 owl:versionInfo "2.1.0";
-  sh:path eli:is_part_of;
-  sh:name "is part of"@en;
-  sh:minCount "1"^^xsd:integer;
-  sh:nodeKind sh:IRI;
-  sh:node psd:WorkSubdivision;
-  sh:deactivated "true"^^xsd:boolean;
-  shacl-play:shortname "is_part_of" .
-
-psd:P157 owl:versionInfo "2.1.0";
-  sh:path dcterms:title;
-  sh:name "title"@en;
-  sh:minCount "1"^^xsd:integer;
-  sh:nodeKind sh:Literal;
-  sh:datatype rdf:langString;
-  shacl-play:shortname "title_dcterms" .
-
-psd:P158 owl:versionInfo "2.1.0";
-  sh:path eli:refers_to;
-  sh:name "refers to"@en;
-  sh:nodeKind sh:IRI;
-  sh:in _:a4aeb3f30c2042e3b539bc99a24f35721361;
-  sh:deactivated "true"^^xsd:boolean;
-  shacl-play:shortname "refers_to" .
-
-_:a4aeb3f30c2042e3b539bc99a24f35721361 rdf:first eli:Work;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721362 .
-
-_:a4aeb3f30c2042e3b539bc99a24f35721362 rdf:first eli-dl:Process;
-  rdf:rest rdf:nil .
-
-psd:P159 owl:versionInfo "2.1.0";
-  sh:path skos:notation;
-  sh:name "notation"@en;
-  sh:maxCount "1"^^xsd:integer;
-  sh:nodeKind sh:Literal;
-  sh:datatype epvoc:speechId;
-  shacl-play:shortname "notation_speechId" .
-
-psd:P160 owl:versionInfo "2.1.0";
-  sh:path epvoc:originalLanguage;
-  sh:name "original language"@en;
-  sh:nodeKind sh:IRI;
-  shacl-play:shortname "originalLanguage" .
-
-psd:P161 owl:versionInfo "2.1.0";
-  sh:path eli:is_realized_by;
-  sh:name "is realized by"@en;
-  sh:nodeKind sh:IRI;
-  sh:node psd:Expression;
-  shacl-play:shortname "is_realized_by" .
-
-psd:P162 owl:versionInfo "2.1.0";
-  sh:path _:a4aeb3f30c2042e3b539bc99a24f35721363;
-  sh:name "inverse recorded in a realization of"@en;
-  sh:nodeKind sh:IRI;
-  sh:node psd:PlenarySittingSpeechReference;
-  sh:deactivated "true"^^xsd:boolean;
-  shacl-play:shortname "inverse_recorded_in_a_realization_of" .
-
-_:a4aeb3f30c2042e3b539bc99a24f35721363 sh:inversePath eli-dl:recorded_in_a_realization_of .
-
-psd:P165 owl:versionInfo "1.0";
+psd:P151 owl:versionInfo "1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1640,7 +1502,7 @@ psd:P165 owl:versionInfo "1.0";
   sh:hasValue eli:Expression;
   shacl-play:shortname "type" .
 
-psd:P166 owl:versionInfo "1.0";
+psd:P152 owl:versionInfo "2.1.0";
   sh:path eli:title;
   sh:name "title"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1648,14 +1510,14 @@ psd:P166 owl:versionInfo "1.0";
   sh:datatype rdf:langString;
   shacl-play:shortname "title" .
 
-psd:P167 owl:versionInfo "1.0";
+psd:P153 owl:versionInfo "1.0";
   sh:path eli:is_embodied_by;
   sh:name "is embodied by"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:Manifestation;
   shacl-play:shortname "is_embodied_by" .
 
-psd:P168 owl:versionInfo "1.1";
+psd:P154 owl:versionInfo "1.1";
   sh:path eli:language;
   sh:name "language"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1664,14 +1526,7 @@ psd:P168 owl:versionInfo "1.1";
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "language" .
 
-psd:P169 owl:versionInfo "2.1.0";
-  sh:path epvoc:expressionContent;
-  sh:name "expression content"@en;
-  sh:nodeKind sh:Literal;
-  sh:datatype rdf:langString;
-  shacl-play:shortname "expressionContent" .
-
-psd:P172 owl:versionInfo "1.0";
+psd:P157 owl:versionInfo "1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1680,7 +1535,7 @@ psd:P172 owl:versionInfo "1.0";
   sh:hasValue eli:Manifestation;
   shacl-play:shortname "type" .
 
-psd:P173 owl:versionInfo "1.0";
+psd:P158 owl:versionInfo "1.0";
   sh:path dcterms:issued;
   sh:name "issued"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1689,14 +1544,14 @@ psd:P173 owl:versionInfo "1.0";
   sh:datatype xsd:dateTime;
   shacl-play:shortname "issued" .
 
-psd:P174 owl:versionInfo "1.0";
+psd:P159 owl:versionInfo "1.0";
   sh:path eli:is_exemplified_by;
   sh:name "is exemplified by"@en;
   sh:minCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   shacl-play:shortname "is_exemplified_by" .
 
-psd:P175 owl:versionInfo "1.0";
+psd:P160 owl:versionInfo "1.0";
   sh:path epvoc:byteSize;
   sh:name "byte size"@en;
   sh:maxCount "1"^^xsd:integer;
@@ -1704,7 +1559,7 @@ psd:P175 owl:versionInfo "1.0";
   sh:datatype xsd:long;
   shacl-play:shortname "byteSize" .
 
-psd:P176 owl:versionInfo "1.1";
+psd:P161 owl:versionInfo "1.1";
   sh:path dcterms:format;
   sh:name "format"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1714,7 +1569,7 @@ psd:P176 owl:versionInfo "1.1";
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "format" .
 
-psd:P177 owl:versionInfo "1.0";
+psd:P162 owl:versionInfo "1.0";
   sh:path eli:media_type;
   sh:name "media type"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1722,161 +1577,148 @@ psd:P177 owl:versionInfo "1.0";
   sh:nodeKind sh:IRI;
   shacl-play:shortname "media_type" .
 
-psd:P180 owl:versionInfo "2.1.0";
+psd:P165 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue eli:WorkType;
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P181 owl:versionInfo "2.1.0";
+psd:P166 owl:versionInfo "2.1.0";
   sh:path skos:inScheme;
   sh:name "Is in scheme"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue ept:ep-document-types;
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P184 owl:versionInfo "2.1.0";
+psd:P169 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue dcterms:LinguisticSystem;
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P185 owl:versionInfo "2.1.0";
+psd:P170 owl:versionInfo "2.1.0";
   sh:path skos:inScheme;
   sh:name "Is in scheme"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue "op-aut:language";
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P188 owl:versionInfo "2.1.0";
+psd:P173 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue dcterms:MediaTypeOrExtent;
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P189 owl:versionInfo "2.1.0";
+psd:P174 owl:versionInfo "2.1.0";
   sh:path skos:inScheme;
   sh:name "Is in scheme"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue "op-aut:format";
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P192 owl:versionInfo "2.1.0";
+psd:P177 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue euvoc:FileStatus;
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P193 owl:versionInfo "2.1.0";
+psd:P178 owl:versionInfo "2.1.0";
   sh:path skos:inScheme;
   sh:name "Is in scheme"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue "op-aut:file-status";
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P196 owl:versionInfo "2.1.0";
+psd:P181 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue euvoc:FileStatus;
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P197 owl:versionInfo "2.1.0";
+psd:P182 owl:versionInfo "2.1.0";
   sh:path skos:inScheme;
   sh:name "Is in scheme"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue "op-aut:subdivision";
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P200 owl:versionInfo "2.1.0";
+psd:P185 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue org:Organization;
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P204 owl:versionInfo "2.1.0";
+psd:P189 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue eli-dl:Activity;
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P205 owl:versionInfo "2.1.0";
+psd:P190 owl:versionInfo "2.1.0";
   sh:path eli-dl:recorded_in_a_realization_of;
   sh:name "recorded in a realization of"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:PlenaryAgendaPartSessionComplexWork .
 
-psd:P207 owl:versionInfo "2.1.0";
+psd:P192 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue eli-dl:Activity;
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P208 owl:versionInfo "2.1.0";
+psd:P193 owl:versionInfo "2.1.0";
   sh:path eli-dl:recorded_in_a_realization_of;
   sh:name "recorded in a realization of"@en;
   sh:nodeKind sh:IRI;
-  sh:or _:a4aeb3f30c2042e3b539bc99a24f35721364 .
+  sh:or _:a7c8ac44478040d2b35e9c51a45ca55738 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721364 rdf:first _:a4aeb3f30c2042e3b539bc99a24f35721365;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721366 .
+_:a7c8ac44478040d2b35e9c51a45ca55738 rdf:first _:a7c8ac44478040d2b35e9c51a45ca55739;
+  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55740 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721365 sh:node psd:PlenarySittingAgenda .
+_:a7c8ac44478040d2b35e9c51a45ca55739 sh:node psd:PlenarySittingAgenda .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721366 rdf:first _:a4aeb3f30c2042e3b539bc99a24f35721367;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721368 .
+_:a7c8ac44478040d2b35e9c51a45ca55740 rdf:first _:a7c8ac44478040d2b35e9c51a45ca55741;
+  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55742 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721367 sh:node psd:PlenaryMinutes .
+_:a7c8ac44478040d2b35e9c51a45ca55741 sh:node psd:PlenaryMinutes .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721368 rdf:first _:a4aeb3f30c2042e3b539bc99a24f35721369;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721370 .
+_:a7c8ac44478040d2b35e9c51a45ca55742 rdf:first _:a7c8ac44478040d2b35e9c51a45ca55743;
+  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55744 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721369 sh:node psd:PlenaryRcv .
+_:a7c8ac44478040d2b35e9c51a45ca55743 sh:node psd:PlenaryRcv .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721370 rdf:first _:a4aeb3f30c2042e3b539bc99a24f35721371;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721372 .
+_:a7c8ac44478040d2b35e9c51a45ca55744 rdf:first _:a7c8ac44478040d2b35e9c51a45ca55745;
+  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55746 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721371 sh:node psd:PlenaryAtt .
+_:a7c8ac44478040d2b35e9c51a45ca55745 sh:node psd:PlenaryAtt .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721372 rdf:first _:a4aeb3f30c2042e3b539bc99a24f35721373;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721374 .
+_:a7c8ac44478040d2b35e9c51a45ca55746 rdf:first _:a7c8ac44478040d2b35e9c51a45ca55747;
+  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55748 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721373 sh:node psd:PlenaryVotes .
+_:a7c8ac44478040d2b35e9c51a45ca55747 sh:node psd:PlenaryVotes .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721374 rdf:first _:a4aeb3f30c2042e3b539bc99a24f35721375;
+_:a7c8ac44478040d2b35e9c51a45ca55748 rdf:first _:a7c8ac44478040d2b35e9c51a45ca55749;
   rdf:rest rdf:nil .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721375 sh:node psd:PlenaryDebates .
+_:a7c8ac44478040d2b35e9c51a45ca55749 sh:node psd:PlenaryDebates .
 
-psd:P211 owl:versionInfo "2.1.0";
+psd:P196 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue eli-dl:Activity;
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P212 owl:versionInfo "2.1.0";
+psd:P197 owl:versionInfo "2.1.0";
   sh:path eli-dl:recorded_in_a_realization_of;
   sh:name "recorded in a realization of"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:WorkSubdivision .
-
-psd:P215 owl:versionInfo "2.1.0";
-  sh:path rdf:type;
-  sh:name "type"@en;
-  sh:nodeKind sh:IRI;
-  sh:hasValue eli-dl:Activity;
-  sh:deactivated "true"^^xsd:boolean .
-
-psd:P216 owl:versionInfo "2.1.0";
-  sh:path eli-dl:recorded_in_a_realization_of;
-  sh:name "recorded in a realization of"@en;
-  sh:nodeKind sh:IRI;
-  sh:node psd:WorkSubdivisionSpeech .
