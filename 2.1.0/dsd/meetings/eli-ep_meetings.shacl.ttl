@@ -39,7 +39,8 @@
   dcterms:title "Meetings dataset description"@en;
   dcterms:description "This Dataset Description is a subset of the general ELI-EP application profile and it includes classes and properties used in Meetings datasets. Descriptions of classes and properties can be found in ELI-EP application profile."@en;
   owl:versionInfo "2.1.0";
-  adms:versionNotes """2.1.0 - 2024-03-21
+  adms:versionNotes """2.1.o - 2024-04-12
+- (bug) remove eli-dl:activity_start_date and eli-dl:activity_end_date for meetings:PlenaryPartSessionDossier
 - (new) add new eli-dl:had_activity_type (PLENARY_VOTE_EXPLANATIONS) for meetings:PlenarySittingActivity
 - (new) add meetings:PlenarySittingSpeechActivityReference
 - (rfc) extend scope for meetings:PlenaryOutomeReference to eli-dl:Vote (no impact on sparql query or data, for information only)
@@ -68,15 +69,15 @@
   owl:versionIRI <https://data.europarl.europa.eu/def/meetings#>;
   dcterms:conformsTo <https://www.w3.org/TR/shacl>;
   dcterms:created "2022-11-18"^^xsd:date;
-  dcterms:modified "2024-03-21T00:00:00.000Z"^^xsd:dateTime;
+  dcterms:modified "2024-04-12T00:00:00.000Z"^^xsd:dateTime;
   dcterms:dateCopyrighted "2022"^^xsd:gYear;
   dcterms:license <https://www.europarl.europa.eu/legal-notice/>;
   dcterms:creator <https://publications.europa.eu/resource/authority/corporate-body/EP>;
   dcterms:publisher <https://publications.europa.eu/resource/authority/corporate-body/EP>;
   dcterms:rigthsHolder <https://publications.europa.eu/resource/authority/corporate-body/EURUN>;
-  dcat:distribution _:a4aeb3f30c2042e3b539bc99a24f35721226 .
+  dcat:distribution _:a7c8ac44478040d2b35e9c51a45ca55776 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721226 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
+_:a7c8ac44478040d2b35e9c51a45ca55776 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
   dcat:downloadURL <https://europarl.github.io/eli-ep/dsd/meetings/eli-ep_meetings.shacl.ttl> .
 
 meetings:PlenarySitting a sh:NodeShape;
@@ -160,8 +161,8 @@ meetings:PlenaryPartSessionDossier a sh:NodeShape;
   sh:order "6"^^xsd:integer;
   owl:versionInfo "1.5.0";
   shacl-play:color "DarkBlue";
-  sh:property meetings:P73, meetings:P74, meetings:P75, meetings:P76, meetings:P77,
-    meetings:P78, meetings:P79, meetings:P80, meetings:P81, meetings:P82 .
+  sh:property meetings:P73, meetings:P74, meetings:P75, meetings:P78, meetings:P79,
+    meetings:P80, meetings:P81, meetings:P82 .
 
 meetings:PlenarySittingActivity a sh:NodeShape;
   rdfs:comment "This node shape refers to the class eli-dl:Activity"@en;
@@ -454,13 +455,13 @@ meetings:P25 owl:versionInfo "1.3.0";
   shacl-play:shortname "consists_of" .
 
 meetings:P26 owl:versionInfo "1.2";
-  sh:path _:a4aeb3f30c2042e3b539bc99a24f35721227;
+  sh:path _:a7c8ac44478040d2b35e9c51a45ca55777;
   sh:name "inverse consists of"@en;
   sh:nodeKind sh:IRI;
   sh:node meetings:PlenaryPartSession;
   shacl-play:shortname "inverse_consists_of" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721227 sh:inversePath eli-dl:consists_of .
+_:a7c8ac44478040d2b35e9c51a45ca55777 sh:inversePath eli-dl:consists_of .
 
 meetings:P29 owl:versionInfo "1.0";
   sh:path rdf:type;
@@ -693,16 +694,16 @@ meetings:P61 owl:versionInfo "2.1.0";
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   sh:node meetings:ActivityTypeReference;
-  sh:in _:a4aeb3f30c2042e3b539bc99a24f35721228;
+  sh:in _:a7c8ac44478040d2b35e9c51a45ca55778;
   shacl-play:shortname "had_activity_type" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721228 rdf:first ep-activities:PLENARY_DEBATE;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721229 .
+_:a7c8ac44478040d2b35e9c51a45ca55778 rdf:first ep-activities:PLENARY_DEBATE;
+  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55779 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721229 rdf:first ep-activities:PLENARY_VOTE;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721230 .
+_:a7c8ac44478040d2b35e9c51a45ca55779 rdf:first ep-activities:PLENARY_VOTE;
+  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55780 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721230 rdf:first ep-activities:PLENARY_VOTE_URGENCY;
+_:a7c8ac44478040d2b35e9c51a45ca55780 rdf:first ep-activities:PLENARY_VOTE_URGENCY;
   rdf:rest rdf:nil .
 
 meetings:P62 owl:versionInfo "1.5.0";
@@ -769,13 +770,13 @@ meetings:P69 owl:versionInfo "1.5.0";
   shacl-play:shortname "forms_part_of" .
 
 meetings:P70 owl:versionInfo "2.1.0";
-  sh:path _:a4aeb3f30c2042e3b539bc99a24f35721231;
+  sh:path _:a7c8ac44478040d2b35e9c51a45ca55781;
   sh:name "inverse scheduledIn"@en;
   sh:nodeKind sh:IRI;
   sh:node meetings:ProcessReference;
   shacl-play:shortname "inverse_scheduledIn" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721231 sh:inversePath epvoc:scheduledIn .
+_:a7c8ac44478040d2b35e9c51a45ca55781 sh:inversePath epvoc:scheduledIn .
 
 meetings:P73 owl:versionInfo "1.5.0";
   sh:path rdf:type;
@@ -803,24 +804,6 @@ meetings:P75 owl:versionInfo "1.5.0";
   sh:nodeKind sh:Literal;
   sh:datatype xsd:date;
   shacl-play:shortname "activity_date" .
-
-meetings:P76 owl:versionInfo "1.5.0";
-  sh:path eli-dl:activity_start_date;
-  sh:name "activity start date"@en;
-  sh:minCount "1"^^xsd:integer;
-  sh:maxCount "1"^^xsd:integer;
-  sh:nodeKind sh:Literal;
-  sh:datatype xsd:dateTime;
-  shacl-play:shortname "activity_start_date" .
-
-meetings:P77 owl:versionInfo "1.5.0";
-  sh:path eli-dl:activity_end_date;
-  sh:name "activity end date"@en;
-  sh:minCount "1"^^xsd:integer;
-  sh:maxCount "1"^^xsd:integer;
-  sh:nodeKind sh:Literal;
-  sh:datatype xsd:dateTime;
-  shacl-play:shortname "activity_end_date" .
 
 meetings:P78 owl:versionInfo "1.5.0";
   sh:path eli-dl:activity_id;
@@ -876,19 +859,19 @@ meetings:P86 owl:versionInfo "2.1.0";
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   sh:node meetings:ActivityTypeReference;
-  sh:in _:a4aeb3f30c2042e3b539bc99a24f35721232;
+  sh:in _:a7c8ac44478040d2b35e9c51a45ca55782;
   shacl-play:shortname "had_activity_type" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721232 rdf:first ep-activities:PLENARY_DEBATE;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721233 .
+_:a7c8ac44478040d2b35e9c51a45ca55782 rdf:first ep-activities:PLENARY_DEBATE;
+  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55783 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721233 rdf:first ep-activities:PLENARY_VOTE;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721234 .
+_:a7c8ac44478040d2b35e9c51a45ca55783 rdf:first ep-activities:PLENARY_VOTE;
+  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55784 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721234 rdf:first ep-activities:PLENARY_ACTIVITY;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721235 .
+_:a7c8ac44478040d2b35e9c51a45ca55784 rdf:first ep-activities:PLENARY_ACTIVITY;
+  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55785 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721235 rdf:first ep-activities:PLENARY_VOTE_EXPLANATIONS;
+_:a7c8ac44478040d2b35e9c51a45ca55785 rdf:first ep-activities:PLENARY_VOTE_EXPLANATIONS;
   rdf:rest rdf:nil .
 
 meetings:P87 owl:versionInfo "1.5.0";
@@ -956,13 +939,13 @@ meetings:P94 owl:versionInfo "2.1.0";
   shacl-play:shortname "recorded_in_a_realization_of" .
 
 meetings:P95 owl:versionInfo "2.1.0";
-  sh:path _:a4aeb3f30c2042e3b539bc99a24f35721236;
+  sh:path _:a7c8ac44478040d2b35e9c51a45ca55786;
   sh:name "inverse consists of"@en;
   sh:nodeKind sh:IRI;
   sh:node meetings:ProcessReference;
   shacl-play:shortname "inverse_consists_of" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721236 sh:inversePath eli-dl:consists_of .
+_:a7c8ac44478040d2b35e9c51a45ca55786 sh:inversePath eli-dl:consists_of .
 
 meetings:P98 owl:versionInfo "1.3.0";
   sh:path rdf:type;
@@ -1026,33 +1009,33 @@ meetings:P104 owl:versionInfo "2.1.0";
 meetings:P107 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
-  sh:in _:a4aeb3f30c2042e3b539bc99a24f35721237;
+  sh:in _:a7c8ac44478040d2b35e9c51a45ca55787;
   sh:deactivated "true"^^xsd:boolean .
 
 meetings:PlenarySessionDocument sh:property meetings:P107, meetings:P108 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721237 rdf:first eli:ComplexWork;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721238 .
+_:a7c8ac44478040d2b35e9c51a45ca55787 rdf:first eli:ComplexWork;
+  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55788 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721238 rdf:first eli:Work;
+_:a7c8ac44478040d2b35e9c51a45ca55788 rdf:first eli:Work;
   rdf:rest rdf:nil .
 
 meetings:P108 owl:versionInfo "2.1.0";
   sh:path eli:work_type;
   sh:name "work type"@en;
-  sh:in _:a4aeb3f30c2042e3b539bc99a24f35721239;
+  sh:in _:a7c8ac44478040d2b35e9c51a45ca55789;
   sh:deactivated "true"^^xsd:boolean .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721239 rdf:first ep-document-types:AGENDA_PLENARY_WEEL;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721240 .
+_:a7c8ac44478040d2b35e9c51a45ca55789 rdf:first ep-document-types:AGENDA_PLENARY_WEEL;
+  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55790 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721240 rdf:first ep-document-types:AGENDA_PLENARY_DAY;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721241 .
+_:a7c8ac44478040d2b35e9c51a45ca55790 rdf:first ep-document-types:AGENDA_PLENARY_DAY;
+  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55791 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721241 rdf:first ep-document-types:MINUTES_PLENARY;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721242 .
+_:a7c8ac44478040d2b35e9c51a45ca55791 rdf:first ep-document-types:MINUTES_PLENARY;
+  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55792 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721242 rdf:first ep-document-types:CRE_PLENARY;
+_:a7c8ac44478040d2b35e9c51a45ca55792 rdf:first ep-document-types:CRE_PLENARY;
   rdf:rest rdf:nil .
 
 meetings:P111 owl:versionInfo "2.1.0";
@@ -1101,13 +1084,13 @@ meetings:P123 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
-  sh:in _:a4aeb3f30c2042e3b539bc99a24f35721243;
+  sh:in _:a7c8ac44478040d2b35e9c51a45ca55793;
   sh:deactivated "true"^^xsd:boolean .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721243 rdf:first eli-dl:Decision;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721244 .
+_:a7c8ac44478040d2b35e9c51a45ca55793 rdf:first eli-dl:Decision;
+  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55794 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721244 rdf:first eli-dl:Vote;
+_:a7c8ac44478040d2b35e9c51a45ca55794 rdf:first eli-dl:Vote;
   rdf:rest rdf:nil .
 
 meetings:P124 owl:versionInfo "2.1.0";
@@ -1128,13 +1111,13 @@ meetings:P128 owl:versionInfo "2.1.0";
   sh:path eli-dl:had_activity_type;
   sh:name "had activity type"@en;
   sh:nodeKind sh:IRI;
-  sh:in _:a4aeb3f30c2042e3b539bc99a24f35721245;
+  sh:in _:a7c8ac44478040d2b35e9c51a45ca55795;
   sh:deactivated "true"^^xsd:boolean .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721245 rdf:first ep-activities:PLENARY_DEBATE_SPEECH;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721246 .
+_:a7c8ac44478040d2b35e9c51a45ca55795 rdf:first ep-activities:PLENARY_DEBATE_SPEECH;
+  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55796 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721246 rdf:first ep-activities:PLENARY_DEBATE_WRITTEN_STATEMENT;
+_:a7c8ac44478040d2b35e9c51a45ca55796 rdf:first ep-activities:PLENARY_DEBATE_WRITTEN_STATEMENT;
   rdf:rest rdf:nil .
 
 meetings:P131 owl:versionInfo "2.1.0";
@@ -1155,29 +1138,29 @@ meetings:P137 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
-  sh:in _:a4aeb3f30c2042e3b539bc99a24f35721247;
+  sh:in _:a7c8ac44478040d2b35e9c51a45ca55797;
   sh:deactivated "true"^^xsd:boolean .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721247 rdf:first eli:ComplexWork;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721248 .
+_:a7c8ac44478040d2b35e9c51a45ca55797 rdf:first eli:ComplexWork;
+  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55798 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721248 rdf:first eli:Work;
+_:a7c8ac44478040d2b35e9c51a45ca55798 rdf:first eli:Work;
   rdf:rest rdf:nil .
 
 meetings:P138 owl:versionInfo "2.1.0";
   sh:path eli:work_type;
   sh:name "work type"@en;
   sh:nodeKind sh:IRI;
-  sh:in _:a4aeb3f30c2042e3b539bc99a24f35721249;
+  sh:in _:a7c8ac44478040d2b35e9c51a45ca55799;
   sh:deactivated "true"^^xsd:boolean .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721249 rdf:first ep-document-types:PLENARY_REPORT;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721250 .
+_:a7c8ac44478040d2b35e9c51a45ca55799 rdf:first ep-document-types:PLENARY_REPORT;
+  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca557100 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721250 rdf:first ep-document-types:RESOLUTION_MOTION;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721251 .
+_:a7c8ac44478040d2b35e9c51a45ca557100 rdf:first ep-document-types:RESOLUTION_MOTION;
+  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca557101 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721251 rdf:first ep-document-types:RESOLUTION_MOTION_JOINT;
+_:a7c8ac44478040d2b35e9c51a45ca557101 rdf:first ep-document-types:RESOLUTION_MOTION_JOINT;
   rdf:rest rdf:nil .
 
 meetings:P141 owl:versionInfo "2.1.0";

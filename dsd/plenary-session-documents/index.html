@@ -169,7 +169,7 @@
 					.sp_table_propertyshapes tr {
 					    display: table-row;
 					    vertical-align: inherit;
-					    border-color: inherit;
+					    border-color: inherit;					    
 					}
 													
 					.sp_table_propertyshapes th:nth-child(4) {
@@ -189,6 +189,16 @@
 										
 					.sp_table_propertyshapes_col_description {
 						word-break: break-word;
+					}
+					
+					tr.sp_propertyGroup {
+						font-style: italic;
+						background-color: #def0f7;
+					}
+					
+					tr.sp_propertyGroup td {
+						border-bottom: 1px solid black;
+						padding-bottom: 0.25 rem;
 					}
 					
 					.sp_serialization_badge {
@@ -238,7 +248,7 @@
                </td>
             </tr>
          </table>
-         <div><b>Creation date: </b>2022-11-18<br><b>Last updated: </b>2024-03-21 00:00:00<br><b>Copyright date: </b>2022<br><b>Version: </b>2.1.0<br><b>License: </b><a href="https://www.europarl.europa.eu/legal-notice/" target="_blank">https://www.europarl.europa.eu/legal-notice/</a><br><b>Creator: </b><a href="https://publications.europa.eu/resource/authority/corporate-body/EP" target="_blank">https://publications.europa.eu/resource/authority/corporate-body/EP</a><br><b>Publisher: </b><a href="https://publications.europa.eu/resource/authority/corporate-body/EP" target="_blank">https://publications.europa.eu/resource/authority/corporate-body/EP</a><br><b>Rightsholder: </b><br><b>Feedback: </b><br><b id="formats">Download serialization: </b><div><span class="sp_serialization_badge"><a href="https://europarl.github.io/eli-ep/dsd/plenary-session-documents/eli-ep_plenary-session-documents.shacl.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.png" alt="TTL"></a></span></div><br></div>
+         <div><b>Creation date: </b>2022-11-18<br><b>Last updated: </b>2024-04-11 00:00:00<br><b>Copyright date: </b>2022<br><b>Version: </b>2.1.0<br><b>License: </b><a href="https://www.europarl.europa.eu/legal-notice/" target="_blank">https://www.europarl.europa.eu/legal-notice/</a><br><b>Creator: </b><a href="https://publications.europa.eu/resource/authority/corporate-body/EP" target="_blank">https://publications.europa.eu/resource/authority/corporate-body/EP</a><br><b>Publisher: </b><a href="https://publications.europa.eu/resource/authority/corporate-body/EP" target="_blank">https://publications.europa.eu/resource/authority/corporate-body/EP</a><br><b id="formats">Download serialization: </b><div><span class="sp_serialization_badge"><a href="https://europarl.github.io/eli-ep/dsd/plenary-session-documents/eli-ep_plenary-session-documents.shacl.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.png" alt="TTL"></a></span></div><br></div>
          <div class="sp_section_title_toc toc">
             <h2 id="Index">Table of Contents</h2>
             <ul role="list" class="sp_list_toc ul_type_none t-x-mode">
@@ -256,7 +266,6 @@
                      <li><a href="#psd:Expression">Realized By</a></li>
                      <li><a href="#psd:Manifestation">Is embodied by</a></li>
                      <li><a href="#psd:WorkSubdivision">Work Subdivision (ITM)</a></li>
-                     <li><a href="#psd:WorkSubdivisionSpeech">Work Subdivision (Plenary Debates Speech)</a></li>
                      <li><a href="#psd:WorkTypeReference">Reference to a Work Type</a></li>
                      <li><a href="#psd:LanguageReference">Reference to a language</a></li>
                      <li><a href="#psd:MediaTypeOrExtentReference">Reference to a Format</a></li>
@@ -266,7 +275,6 @@
                      <li><a href="#psd:PlenarySittingReference">Reference to a Activity (Plenary Sitting)</a></li>
                      <li><a href="#psd:PlenarySittingItemReference">Reference to a Activity (Plenary Debate, Plenary Vote, Plenary Vote Results, ...)</a></li>
                      <li><a href="#psd:OrganizationReference">Reference to an Organization</a></li>
-                     <li><a href="#psd:PlenarySittingSpeechReference">Reference to a Activity (Plenary Debate Speech, Plenary Debate Written Statement)</a></li>
                   </ul>
                </li>
                <li><a href="#releaseNotes">Release notes</a></li>
@@ -1613,15 +1621,6 @@ WHERE {&#xD;
                      </thead>
                      <tbody>
                         <tr>
-                           <td>expression content</td>
-                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#expressionContent">ept:epvoc#expressionContent</a></code></td>
-                           <td><code>rdf:langString</code><br></td>
-                           <td>
-                              <div style="width:30px">0..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
                            <td>is embodied by</td>
                            <td><code><a href="http://data.europa.eu/eli/ontology#is_embodied_by">eli:is_embodied_by</a></code></td>
                            <td><code><a href="#psd:Manifestation">Is embodied by</a></code><br></td>
@@ -1789,7 +1788,7 @@ WHERE {&#xD;
                         <tr>
                            <td>inverse is part of</td>
                            <td><code>^eli:is_part_of</code></td>
-                           <td><code><a href="#psd:WorkSubdivision">psd:WorkSubdivision</a></code><code> or </code><code><a href="#psd:WorkSubdivisionSpeech">psd:WorkSubdivisionSpeech</a></code><br></td>
+                           <td><code><a href="#psd:WorkSubdivision">Work Subdivision (ITM)</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -1837,141 +1836,6 @@ WHERE {&#xD;
                            <td><code>xsd:string</code><br></td>
                            <td>
                               <div style="width:30px">0..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>refers to</td>
-                           <td><code><a href="http://data.europa.eu/eli/ontology#refers_to">eli:refers_to</a></code></td>
-                           <td><code>IRI</code><br></td>
-                           <td>
-                              <div style="width:30px">0..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>title</td>
-                           <td><code><a href="http://purl.org/dc/terms/title">dcterms:title</a></code></td>
-                           <td><code>rdf:langString</code><br></td>
-                           <td>
-                              <div style="width:30px">1..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>type</td>
-                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli:WorkSubdivision</code><br></td>
-                           <td>
-                              <div style="width:30px">1..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>type subdivision</td>
-                           <td><code><a href="http://data.europa.eu/eli/ontology#type_subdivision">eli:type_subdivision</a></code></td>
-                           <td><code><a href="#psd:SubdivisionTypeReference">Reference to a Subdivision Type</a></code><br></td>
-                           <td>
-                              <div style="width:30px">1..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                     </tbody>
-                  </table>
-               </section>
-            </div>
-         </div><br><div class="row mt-3">
-            <div class="col">
-               <section id="psd:WorkSubdivisionSpeech">
-                  <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Work Subdivision (Plenary Debates Speech)</h3>
-                  </div>
-                  <p><em>This node shape represents a subset of eli:WorkSubdivision</em></p>
-                  <ul class="sp_list_description_properties">
-                     <li>Nodes: IRI</li>
-                     <li>Closed shape</li>
-                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\-_]+$</code></li>
-                  </ul>
-                  <table class="sp_table_propertyshapes table-striped table-responsive">
-                     <thead>
-                        <tr>
-                           <th>Property name</th>
-                           <th>URI</th>
-                           <th>Expected value</th>
-                           <th>Card.</th>
-                           <th class="sp_description_column">Description</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <tr>
-                           <td>identifier</td>
-                           <td><code><a href="http://purl.org/dc/terms/identifier">dcterms:identifier</a></code></td>
-                           <td><code>xsd:string</code><br></td>
-                           <td>
-                              <div style="width:30px">1..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>inverse recorded in a realization of</td>
-                           <td><code>^eli-dl:recorded_in_a_realization_of</code></td>
-                           <td><code><a href="#psd:PlenarySittingSpeechReference">Reference to a Activity (Plenary Debate Speech, Plenary Debate Written Statement)</a></code><br></td>
-                           <td>
-                              <div style="width:30px">0..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>is part of</td>
-                           <td><code><a href="http://data.europa.eu/eli/ontology#is_part_of">eli:is_part_of</a></code></td>
-                           <td><code><a href="#psd:WorkSubdivision">Work Subdivision (ITM)</a></code><br></td>
-                           <td>
-                              <div style="width:30px">1..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>is realized by</td>
-                           <td><code><a href="http://data.europa.eu/eli/ontology#is_realized_by">eli:is_realized_by</a></code></td>
-                           <td><code><a href="#psd:Expression">Realized By</a></code><br></td>
-                           <td>
-                              <div style="width:30px">0..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>notation</td>
-                           <td><code><a href="http://www.w3.org/2004/02/skos/core#notation">skos:notation</a></code></td>
-                           <td><code>ept:epvoc#speechId</code><br></td>
-                           <td>
-                              <div style="width:30px">0..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>number</td>
-                           <td><code><a href="http://data.europa.eu/eli/ontology#number">eli:number</a></code></td>
-                           <td><code>xsd:integer</code><br></td>
-                           <td>
-                              <div style="width:30px">0..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>numbering</td>
-                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#numbering">ept:epvoc#numbering</a></code></td>
-                           <td><code>xsd:string</code><br></td>
-                           <td>
-                              <div style="width:30px">0..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>original language</td>
-                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#originalLanguage">ept:epvoc#originalLanguage</a></code></td>
-                           <td><code>IRI</code><br></td>
-                           <td>
-                              <div style="width:30px">0..*</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -2420,55 +2284,10 @@ WHERE {&#xD;
                   </table>
                </section>
             </div>
-         </div><br><div class="row mt-3">
-            <div class="col">
-               <section id="psd:PlenarySittingSpeechReference">
-                  <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Reference to a Activity (Plenary Debate Speech, Plenary Debate Written Statement)</h3>
-                  </div>
-                  <p><em>This node shape refers to the class eli-dl:Activity</em></p>
-                  <ul class="sp_list_description_properties">
-                     <li>Nodes: IRI</li>
-                     <li>Closed shape</li>
-                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\-_]+$</code></li>
-                  </ul>
-                  <table class="sp_table_propertyshapes table-striped table-responsive">
-                     <thead>
-                        <tr>
-                           <th>Property name</th>
-                           <th>URI</th>
-                           <th>Expected value</th>
-                           <th>Card.</th>
-                           <th class="sp_description_column">Description</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <tr>
-                           <td>recorded in a realization of</td>
-                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#recorded_in_a_realization_of">eli-dl:recorded_in_a_realization_of</a></code></td>
-                           <td><code><a href="#psd:WorkSubdivisionSpeech">Work Subdivision (Plenary Debates Speech)</a></code><br></td>
-                           <td>
-                              <div style="width:30px">0..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>type</td>
-                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli-dl:Activity</code><br></td>
-                           <td>
-                              <div style="width:30px">0..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                     </tbody>
-                  </table>
-               </section>
-            </div>
          </div><br><div>
-            <h2 id="releaseNotes" class="sp_section_subtitle">Release notes</h2><p>2.1.0 - 2024-03-21</p>
+            <h2 id="releaseNotes" class="sp_section_subtitle">Release notes</h2><p>2.1.0 - 2024-04-11 (major)</p>
 <ul>
-<li>(rfc) add new psd:WorkSubdivisionSpeech and psd:PlenarySittingSpeechReference</li>
+<li>remark: plenary speeches will be published in a dedicated service (API) in the upcoming weeks</li>
 <li>(rfc) add new properties for psd:WorkSubdivision and psd:Expression</li>
 <li>(new) add missing [sh:inversePath eli:is_part_of] for psd:PlenaryVotes</li>
 <li>(new) add psd:WorkSubdivision for psd:PlenaryDebates</li>
