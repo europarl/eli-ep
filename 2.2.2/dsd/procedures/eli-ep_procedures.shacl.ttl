@@ -1,0 +1,652 @@
+@prefix schema: <http://schema.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skosthes: <http://purl.org/iso25964/skos-thes#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix euvoc: <http://publications.europa.eu/ontology/euvoc#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix proc: <https://data.europarl.europa.eu/def/proc#> .
+@prefix eli: <http://data.europa.eu/eli/ontology#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix xls2rdf: <https://xls2rdf.sparna.fr/vocabulary#> .
+@prefix event-type: <http://publications.europa.eu/resource/authority/event/> .
+@prefix ep-procedure-types: <https://data.europarl.europa.eu/def/ep-procedure-types/> .
+@prefix eli-dl: <http://data.europa.eu/eli/eli-draft-legislation-ontology#> .
+@prefix ept: <https://data.europarl.europa.eu/def/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@prefix shacl-play: <https://shacl-play.sparna.fr/ontology#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ep-activities: <https://data.europarl.europa.eu/def/ep-activities/> .
+@prefix epvoc: <https://data.europarl.europa.eu/def/epvoc#> .
+@prefix op-aut: <http://publications.europa.eu/resource/authority/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+
+<https://data.europarl.europa.eu/def/proc#> a owl:Ontology, adms:Asset;
+  dcterms:type <https://publications.europa.eu/resource/authority/dataset-type/APROF>;
+  rdfs:label "Procedures dataset description"@en;
+  dcterms:title "Procedures dataset description"@en;
+  dcterms:description "This Dataset Description is a subset of the general ELI-EP application profile and it includes classes and properties used in the procedures datasets. Descriptions of classes and properties can be found in ELI-EP application profile."@en;
+  owl:versionInfo "2.2.2";
+  adms:versionNotes """2.2.2 - 2024-05-31
+- (new) extend range of eli-dl:was_motivated_by
+- (rfc) remove eli-dl:forms_part_of and eli-dl:executed to eli-dl:ForeseenActivity to simplify the model
+
+2.1.0 - 2024-03-21
+- (new) add eli-dl:was_motivated_by for eli-dl:Decision
+- (new) eli-dl:involved_work
+- (rfc) eli-dl:process_type use EP taxonomy ep-procedure-types instead of EU AT procedure & internal-procedure
+- (rfc) eli-dl:had_activity_type use EP taxonomy ep-activities instead of EU AT event
+- (new) add prefix ept for EP taxonomies
+
+1.6.0 - 2023-12-21
+- (rfc) change of eli-dl:Activity URI to be more interoperable
+
+1.5.0 - 2023-12-15
+- (new) proc:ForeseenActivity
+- (new) epvoc:scheduledIn
+- (new) for eli-dl:Activity add eli-dl:occured_at_stage, eli-dl:based_on_a_realization_of, eli-dl:recorded_in_a_realization_of, eli-dl:executed
+- (new) for eli-dl:Decision add eli-dl:decided_on_a_realization_of
+
+1.4.0 - 2023-10-05 
+- creation"""@en;
+  adms:status <https://publications.europa.eu/resource/authority/dataset-status/COMPLETED>;
+  owl:versionIRI <https://data.europarl.europa.eu/def/proc#>;
+  dcterms:conformsTo <https://www.w3.org/TR/shacl>;
+  dcterms:created "2023-10-05"^^xsd:date;
+  dcterms:modified "2024-05-31T00:00:00.000Z"^^xsd:dateTime;
+  dcterms:dateCopyrighted "2022"^^xsd:gYear;
+  dcterms:license <https://www.europarl.europa.eu/legal-notice/>;
+  dcterms:creator <https://publications.europa.eu/resource/authority/corporate-body/EP>;
+  dcterms:publisher <https://publications.europa.eu/resource/authority/corporate-body/EP>;
+  dcterms:rigthsHolder <https://publications.europa.eu/resource/authority/corporate-body/EURUN>;
+  dcat:distribution _:2b89185e0581401fa28d995b7c886651778 .
+
+_:2b89185e0581401fa28d995b7c886651778 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
+  dcat:downloadURL <https://europarl.github.io/eli-ep/dsd/proc/eli-ep_procedures.shacl.ttl> .
+
+proc:Process a sh:NodeShape;
+  sh:targetClass eli-dl:Process;
+  rdfs:comment "This node shape refers to the class eli-dl:Process"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/proc/2022-0147";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/proc/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Procedure"@en;
+  sh:order "1"^^xsd:integer;
+  owl:versionInfo "1.4.0";
+  shacl-play:color "White";
+  shacl-play:background-color "DarkRed";
+  sh:property proc:P9, proc:P10, proc:P11, proc:P12, proc:P13, proc:P14, proc:P15, proc:P16,
+    proc:P17, proc:P18, proc:P19 .
+
+proc:Activity a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class eli-dl:Activity"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/event/2023-2121-ANPRO-2023-07-12";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Activity"@en;
+  sh:order "2"^^xsd:integer;
+  owl:versionInfo "1.6.0";
+  shacl-play:color "White";
+  shacl-play:background-color "DarkBlue";
+  sh:property proc:P32, proc:P33, proc:P34, proc:P35, proc:P36, proc:P37, proc:P38 .
+
+proc:Decision a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class eli-dl:Decision"@en;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Decision"@en;
+  sh:order "3"^^xsd:integer;
+  owl:versionInfo "1.4.0";
+  shacl-play:color "White";
+  shacl-play:background-color "DodgerBlue";
+  sh:property proc:P42, proc:P43, proc:P44, proc:P45, proc:P46, proc:P47, proc:P48 .
+
+proc:ForeseenActivity a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class eli-dl:ForeseenActivity"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-03-14-OJ-ITM-V_19";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Foreseen Activity"@en;
+  sh:order "4"^^xsd:integer;
+  owl:versionInfo "1.5.0";
+  shacl-play:color "White";
+  shacl-play:background-color "Slategrey";
+  sh:property proc:P22, proc:P23, proc:P24, proc:P25, proc:P26, proc:P27, proc:P29 .
+
+proc:ProcessTypeReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class eli-dl:ProcessType"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-procedure-types/COD";
+  sh:nodeKind sh:IRI;
+  sh:pattern "https://data.europarl.europa.eu/def/ep-procedure-types/.*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to a Process type"@en;
+  sh:order "5"^^xsd:integer;
+  owl:versionInfo "2.0.0";
+  shacl-play:color "White";
+  shacl-play:background-color "DarkRed";
+  sh:property proc:P51, proc:P52 .
+
+proc:ProcessStageReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class eli-dl:ProcessStage"@en;
+  skos:example "http://publications.europa.eu/resource/authority/procedure-phase/RDG1";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/procedure-phase/.*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to a Process stage"@en;
+  sh:order "6"^^xsd:integer;
+  owl:versionInfo "1.4.0";
+  shacl-play:color "White";
+  shacl-play:background-color "DarkRed";
+  sh:property proc:P55, proc:P56 .
+
+proc:ActivityTypeReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class eli-dl:ActivityType"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-activities/REFERRAL";
+  sh:nodeKind sh:IRI;
+  sh:pattern "https://data.europarl.europa.eu/def/ep-activities/.*$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to an Activity type"@en;
+  sh:order "7"^^xsd:integer;
+  owl:versionInfo "2.0.0";
+  shacl-play:color "White";
+  shacl-play:background-color "DarkBlue";
+  sh:property proc:P59, proc:P60 .
+
+proc:WorkReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class eli:Work"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/TA-9-2022-0053";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to a Work"@en;
+  sh:order "8"^^xsd:integer;
+  owl:versionInfo "2.1.0";
+  shacl-play:color "White";
+  shacl-play:background-color "DarkOrange";
+  sh:property proc:P63 .
+
+proc:WorkSubdivisionReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class eli:WorkSubdivision"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/PV-9-2022-03-08-ITM-6";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to a WorkSubdivision"@en;
+  sh:order "9"^^xsd:integer;
+  owl:versionInfo "2.1.0";
+  shacl-play:color "White";
+  shacl-play:background-color "DarkOrange";
+  sh:property proc:P66 .
+
+proc:ForeseenActivityPlenaryPartSessionDossierReference a sh:NodeShape;
+  rdfs:comment "This node shape refers to the class eli-dl:ForeseenActivity"@en;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  rdfs:label "Reference to a Foreseen Activity"@en;
+  sh:order "10"^^xsd:integer;
+  owl:versionInfo "2.2.2";
+  shacl-play:color "White";
+  shacl-play:background-color "Slategrey" .
+
+proc:P9 owl:versionInfo "1.4.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue eli-dl:Process;
+  shacl-play:shortname "type" .
+
+proc:P10 owl:versionInfo "1.4.0";
+  sh:path eli-dl:process_id;
+  sh:name "process id"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "process_id" .
+
+proc:P11 owl:versionInfo "1.4.0";
+  sh:path epvoc:identifierYear;
+  sh:name "identifier year"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifierYear" .
+
+proc:P12 owl:versionInfo "1.4.0";
+  sh:path rdfs:label;
+  sh:name "label"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "label" .
+
+proc:P13 owl:versionInfo "2.1.0";
+  sh:path eli-dl:process_type;
+  sh:name "process type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node proc:ProcessTypeReference;
+  sh:in _:2b89185e0581401fa28d995b7c886651779;
+  shacl-play:shortname "process_type" .
+
+_:2b89185e0581401fa28d995b7c886651779 rdf:first ep-procedure-types:COD;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651780 .
+
+_:2b89185e0581401fa28d995b7c886651780 rdf:first ep-procedure-types:RSP;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651781 .
+
+_:2b89185e0581401fa28d995b7c886651781 rdf:first ep-procedure-types:RPS;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651782 .
+
+_:2b89185e0581401fa28d995b7c886651782 rdf:first ep-procedure-types:NLE;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651783 .
+
+_:2b89185e0581401fa28d995b7c886651783 rdf:first ep-procedure-types:CNS;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651784 .
+
+_:2b89185e0581401fa28d995b7c886651784 rdf:first ep-procedure-types:ACI;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651785 .
+
+_:2b89185e0581401fa28d995b7c886651785 rdf:first ep-procedure-types:APP;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651786 .
+
+_:2b89185e0581401fa28d995b7c886651786 rdf:first ep-procedure-types:AVC;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651787 .
+
+_:2b89185e0581401fa28d995b7c886651787 rdf:first ep-procedure-types:BUD;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651788 .
+
+_:2b89185e0581401fa28d995b7c886651788 rdf:first ep-procedure-types:DEC;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651789 .
+
+_:2b89185e0581401fa28d995b7c886651789 rdf:first ep-procedure-types:SYN;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651790 .
+
+_:2b89185e0581401fa28d995b7c886651790 rdf:first ep-procedure-types:BUI;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651791 .
+
+_:2b89185e0581401fa28d995b7c886651791 rdf:first ep-procedure-types:COS;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651792 .
+
+_:2b89185e0581401fa28d995b7c886651792 rdf:first ep-procedure-types:DEA;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651793 .
+
+_:2b89185e0581401fa28d995b7c886651793 rdf:first ep-procedure-types:DCE;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651794 .
+
+_:2b89185e0581401fa28d995b7c886651794 rdf:first ep-procedure-types:IMM;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651795 .
+
+_:2b89185e0581401fa28d995b7c886651795 rdf:first ep-procedure-types:INI;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651796 .
+
+_:2b89185e0581401fa28d995b7c886651796 rdf:first ep-procedure-types:INL;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651797 .
+
+_:2b89185e0581401fa28d995b7c886651797 rdf:first ep-procedure-types:REG;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651798 .
+
+_:2b89185e0581401fa28d995b7c886651798 rdf:first ep-procedure-types:RSO;
+  rdf:rest rdf:nil .
+
+proc:P14 owl:versionInfo "2.1.0";
+  sh:path eli-dl:process_title;
+  sh:name "process title"@en;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "process_title" .
+
+proc:P15 owl:versionInfo "1.5.0";
+  sh:path eli-dl:created_a_realization_of;
+  sh:name "created a realization of"@en;
+  sh:nodeKind sh:IRI;
+  sh:node proc:WorkReference;
+  shacl-play:shortname "created_a_realization_of" .
+
+proc:P16 owl:versionInfo "2.0.0";
+  sh:path eli-dl:involved_work;
+  sh:name "involved work"@en;
+  sh:nodeKind sh:IRI;
+  sh:node proc:WorkReference;
+  shacl-play:shortname "involved_work" .
+
+proc:P17 owl:versionInfo "1.4.0";
+  sh:path eli-dl:consists_of;
+  sh:name "consists of"@en;
+  sh:nodeKind sh:IRI;
+  sh:or _:2b89185e0581401fa28d995b7c886651799;
+  shacl-play:shortname "consists_of" .
+
+_:2b89185e0581401fa28d995b7c886651799 rdf:first proc:Activity;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651800 .
+
+_:2b89185e0581401fa28d995b7c886651800 rdf:first proc:Decision;
+  rdf:rest rdf:nil .
+
+proc:P18 owl:versionInfo "2.1.0";
+  sh:path eli-dl:current_stage;
+  sh:name "current stage"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node proc:ProcessStageReference;
+  shacl-play:shortname "current_stage" .
+
+proc:P19 owl:versionInfo "1.5.0";
+  sh:path epvoc:scheduledIn;
+  sh:name "scheduled in"@en;
+  sh:nodeKind sh:IRI;
+  sh:node proc:ForeseenActivity;
+  shacl-play:shortname "scheduledIn" .
+
+proc:P22 owl:versionInfo "1.5.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue eli-dl:ForeseenActivity;
+  shacl-play:shortname "type" .
+
+proc:P23 owl:versionInfo "1.5.0";
+  sh:path eli-dl:activity_id;
+  sh:name "activity id"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "activity_id" .
+
+proc:P24 owl:versionInfo "2.1.0";
+  sh:path eli-dl:had_activity_type;
+  sh:name "activity type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node proc:ActivityTypeReference;
+  sh:in _:2b89185e0581401fa28d995b7c886651801;
+  shacl-play:shortname "had_activity_type" .
+
+_:2b89185e0581401fa28d995b7c886651801 rdf:first ep-activities:PLENARY_DEBATE;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651802 .
+
+_:2b89185e0581401fa28d995b7c886651802 rdf:first ep-activities:PLENARY_VOTE;
+  rdf:rest rdf:nil .
+
+proc:P25 owl:versionInfo "1.5.0";
+  sh:path eli-dl:activity_date;
+  sh:name "activity date"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  shacl-play:shortname "activity_date" .
+
+proc:P26 owl:versionInfo "1.5.0";
+  sh:path skos:notation;
+  sh:name "agenda point"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype epvoc:agendaPoint .
+
+proc:P27 owl:versionInfo "2.1.0";
+  sh:path eli-dl:occured_at_stage;
+  sh:name "occured at stage"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node proc:ProcessStageReference;
+  shacl-play:shortname "occured_at_stage" .
+
+proc:P29 owl:versionInfo "1.5.0";
+  sh:path epvoc:headingLabel;
+  sh:name "heading label"@en;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "headingLabel" .
+
+proc:P32 owl:versionInfo "1.4.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue eli-dl:Activity;
+  shacl-play:shortname "type" .
+
+proc:P33 owl:versionInfo "1.5.0";
+  sh:path eli-dl:activity_id;
+  sh:name "activity id"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "activity_id" .
+
+proc:P34 owl:versionInfo "2.1.0";
+  sh:path eli-dl:had_activity_type;
+  sh:name "activity type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node proc:ActivityTypeReference;
+  sh:in _:2b89185e0581401fa28d995b7c886651803;
+  shacl-play:shortname "had_activity_type" .
+
+_:2b89185e0581401fa28d995b7c886651803 rdf:first ep-activities:REFERRAL;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651804 .
+
+_:2b89185e0581401fa28d995b7c886651804 rdf:first ep-activities:TABLING_PLENARY;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651805 .
+
+_:2b89185e0581401fa28d995b7c886651805 rdf:first ep-activities:PUBLICATION_OFFICIAL_JOURNAL;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651806 .
+
+_:2b89185e0581401fa28d995b7c886651806 rdf:first ep-activities:SIGNATURE;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651807 .
+
+_:2b89185e0581401fa28d995b7c886651807 rdf:first ep-activities:PLENARY_DEBATE;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651808 .
+
+_:2b89185e0581401fa28d995b7c886651808 rdf:first ep-activities:PLENARY_VOTE;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651809 .
+
+_:2b89185e0581401fa28d995b7c886651809 rdf:first ep-activities:PLENARY_ACTIVITY;
+  rdf:rest rdf:nil .
+
+proc:P35 owl:versionInfo "1.4.0";
+  sh:path eli-dl:activity_date;
+  sh:name "activity date"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  shacl-play:shortname "activity_date" .
+
+proc:P36 owl:versionInfo "2.1.0";
+  sh:path eli-dl:occured_at_stage;
+  sh:name "occured at stage"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node proc:ProcessStageReference;
+  shacl-play:shortname "occured_at_stage" .
+
+proc:P37 owl:versionInfo "1.5.0";
+  sh:path eli-dl:based_on_a_realization_of;
+  sh:name "based on a realization of"@en;
+  sh:nodeKind sh:IRI;
+  sh:node proc:WorkReference;
+  shacl-play:shortname "based_on_a_realization_of" .
+
+proc:P38 owl:versionInfo "1.5.0";
+  sh:path eli-dl:recorded_in_a_realization_of;
+  sh:name "recorded in a realization of"@en;
+  sh:node proc:WorkSubdivisionReference;
+  shacl-play:shortname "recorded_in_a_realization_of" .
+
+proc:P42 owl:versionInfo "1.4.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue eli-dl:Decision;
+  shacl-play:shortname "type" .
+
+proc:P43 owl:versionInfo "1.5.0";
+  sh:path eli-dl:activity_id;
+  sh:name "activity id"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "activity_id" .
+
+proc:P44 owl:versionInfo "2.1.0";
+  sh:path eli-dl:had_activity_type;
+  sh:name "activity type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node proc:ActivityTypeReference;
+  sh:in _:2b89185e0581401fa28d995b7c886651810;
+  shacl-play:shortname "had_activity_type" .
+
+_:2b89185e0581401fa28d995b7c886651810 rdf:first ep-activities:COMMITTEE_APPROVE_PROVISIONAL_AGREEMENT;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651811 .
+
+_:2b89185e0581401fa28d995b7c886651811 rdf:first ep-activities:PLENARY_REFER_COMMITTEE_INTERINSTITUTIONAL_NEGOTIATIONS;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651812 .
+
+_:2b89185e0581401fa28d995b7c886651812 rdf:first ep-activities:PLENARY_REJECT_COMMITTEE_INTERINSTUTIONAL_NEGOTIATIONS;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651813 .
+
+_:2b89185e0581401fa28d995b7c886651813 rdf:first ep-activities:PLENARY_ENDORSE_COMMITTEE_INTERINSTITUTIONAL_NEGOTIATIONS;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651814 .
+
+_:2b89185e0581401fa28d995b7c886651814 rdf:first ep-activities:PLENARY_AMEND;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651815 .
+
+_:2b89185e0581401fa28d995b7c886651815 rdf:first ep-activities:PLENARY_DECISION;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651816 .
+
+_:2b89185e0581401fa28d995b7c886651816 rdf:first ep-activities:PLENARY_AMEND_COUNCIL_POSITION;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651817 .
+
+_:2b89185e0581401fa28d995b7c886651817 rdf:first ep-activities:PLENARY_APPROVE_COUNCIL_POSITION;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651818 .
+
+_:2b89185e0581401fa28d995b7c886651818 rdf:first ep-activities:PLENARY_REJECT_COUNCIL_POSITION;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651819 .
+
+_:2b89185e0581401fa28d995b7c886651819 rdf:first ep-activities:PLENARY_ADOPT_POSITION;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651820 .
+
+_:2b89185e0581401fa28d995b7c886651820 rdf:first ep-activities:PLENARY_AMEND_PROPOSAL;
+  rdf:rest rdf:nil .
+
+proc:P45 owl:versionInfo "1.4.0";
+  sh:path eli-dl:activity_date;
+  sh:name "activity date"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  shacl-play:shortname "activity_date" .
+
+proc:P46 owl:versionInfo "2.1.0";
+  sh:path eli-dl:occured_at_stage;
+  sh:name "occured at stage"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node proc:ProcessStageReference;
+  shacl-play:shortname "occured_at_stage" .
+
+proc:P47 owl:versionInfo "1.5.0";
+  sh:path eli-dl:decided_on_a_realization_of;
+  sh:name "decided on a realization of"@en;
+  sh:nodeKind sh:IRI;
+  sh:node proc:WorkReference;
+  shacl-play:shortname "decided_on_a_realization_of" .
+
+proc:P48 owl:versionInfo "2.2.2";
+  sh:path eli-dl:was_motivated_by;
+  sh:name "was motivated by"@en;
+  sh:description "This relation is not stable. It is provided only for some data in the past."@en;
+  sh:nodeKind sh:IRI;
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "was_motivated_by" .
+
+proc:P51 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli-dl:ProcedureType;
+  sh:deactivated "true"^^xsd:boolean .
+
+proc:P52 owl:versionInfo "2.0.0";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue ept:ep-procedure-types;
+  sh:deactivated "true"^^xsd:boolean .
+
+proc:P55 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli-dl:ProcessStage;
+  sh:deactivated "true"^^xsd:boolean .
+
+proc:P56 owl:versionInfo "2.1.0";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue op-aut:procedure-phase;
+  sh:deactivated "true"^^xsd:boolean .
+
+proc:P59 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli-dl:ActivityType;
+  sh:deactivated "true"^^xsd:boolean .
+
+proc:P60 owl:versionInfo "2.1.0";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue ept:ep-activities;
+  sh:deactivated "true"^^xsd:boolean .
+
+proc:P63 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli:Work;
+  sh:deactivated "true"^^xsd:boolean .
+
+proc:P66 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli:WorkSubdivision;
+  sh:deactivated "true"^^xsd:boolean .

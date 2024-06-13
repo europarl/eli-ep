@@ -38,8 +38,12 @@
   rdfs:label "Procedures dataset description"@en;
   dcterms:title "Procedures dataset description"@en;
   dcterms:description "This Dataset Description is a subset of the general ELI-EP application profile and it includes classes and properties used in the procedures datasets. Descriptions of classes and properties can be found in ELI-EP application profile."@en;
-  owl:versionInfo "2.1.0";
-  adms:versionNotes """2.1.0 - 2024-03-21
+  owl:versionInfo "2.2.2";
+  adms:versionNotes """2.2.2 - 2024-05-31
+- (new) extend range of eli-dl:was_motivated_by
+- (rfc) remove eli-dl:forms_part_of and eli-dl:executed to eli-dl:ForeseenActivity to simplify the model
+
+2.1.0 - 2024-03-21
 - (new) add eli-dl:was_motivated_by for eli-dl:Decision
 - (new) eli-dl:involved_work
 - (rfc) eli-dl:process_type use EP taxonomy ep-procedure-types instead of EU AT procedure & internal-procedure
@@ -61,15 +65,15 @@
   owl:versionIRI <https://data.europarl.europa.eu/def/proc#>;
   dcterms:conformsTo <https://www.w3.org/TR/shacl>;
   dcterms:created "2023-10-05"^^xsd:date;
-  dcterms:modified "2024-03-21T00:00:00.000Z"^^xsd:dateTime;
+  dcterms:modified "2024-05-31T00:00:00.000Z"^^xsd:dateTime;
   dcterms:dateCopyrighted "2022"^^xsd:gYear;
   dcterms:license <https://www.europarl.europa.eu/legal-notice/>;
   dcterms:creator <https://publications.europa.eu/resource/authority/corporate-body/EP>;
   dcterms:publisher <https://publications.europa.eu/resource/authority/corporate-body/EP>;
   dcterms:rigthsHolder <https://publications.europa.eu/resource/authority/corporate-body/EURUN>;
-  dcat:distribution _:a4aeb3f30c2042e3b539bc99a24f35721376 .
+  dcat:distribution _:2b89185e0581401fa28d995b7c886651778 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721376 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
+_:2b89185e0581401fa28d995b7c886651778 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
   dcat:downloadURL <https://europarl.github.io/eli-ep/dsd/proc/eli-ep_procedures.shacl.ttl> .
 
 proc:Process a sh:NodeShape;
@@ -82,7 +86,8 @@ proc:Process a sh:NodeShape;
   rdfs:label "Procedure"@en;
   sh:order "1"^^xsd:integer;
   owl:versionInfo "1.4.0";
-  shacl-play:color "FireBrick";
+  shacl-play:color "White";
+  shacl-play:background-color "DarkRed";
   sh:property proc:P9, proc:P10, proc:P11, proc:P12, proc:P13, proc:P14, proc:P15, proc:P16,
     proc:P17, proc:P18, proc:P19 .
 
@@ -95,9 +100,9 @@ proc:Activity a sh:NodeShape;
   rdfs:label "Activity"@en;
   sh:order "2"^^xsd:integer;
   owl:versionInfo "1.6.0";
-  shacl-play:color "DarkBlue";
-  sh:property proc:P32, proc:P33, proc:P34, proc:P35, proc:P36, proc:P37, proc:P38,
-    proc:P39 .
+  shacl-play:color "White";
+  shacl-play:background-color "DarkBlue";
+  sh:property proc:P32, proc:P33, proc:P34, proc:P35, proc:P36, proc:P37, proc:P38 .
 
 proc:Decision a sh:NodeShape;
   rdfs:comment "This node shape refers to the class eli-dl:Decision"@en;
@@ -107,7 +112,8 @@ proc:Decision a sh:NodeShape;
   rdfs:label "Decision"@en;
   sh:order "3"^^xsd:integer;
   owl:versionInfo "1.4.0";
-  shacl-play:color "DeepSkyBlue";
+  shacl-play:color "White";
+  shacl-play:background-color "DodgerBlue";
   sh:property proc:P42, proc:P43, proc:P44, proc:P45, proc:P46, proc:P47, proc:P48 .
 
 proc:ForeseenActivity a sh:NodeShape;
@@ -119,9 +125,9 @@ proc:ForeseenActivity a sh:NodeShape;
   rdfs:label "Foreseen Activity"@en;
   sh:order "4"^^xsd:integer;
   owl:versionInfo "1.5.0";
-  shacl-play:color "Grey";
-  sh:property proc:P22, proc:P23, proc:P24, proc:P25, proc:P26, proc:P27, proc:P28,
-    proc:P29 .
+  shacl-play:color "White";
+  shacl-play:background-color "Slategrey";
+  sh:property proc:P22, proc:P23, proc:P24, proc:P25, proc:P26, proc:P27, proc:P29 .
 
 proc:ProcessTypeReference a sh:NodeShape;
   rdfs:comment "This node shape refers to the class eli-dl:ProcessType"@en;
@@ -132,7 +138,8 @@ proc:ProcessTypeReference a sh:NodeShape;
   rdfs:label "Reference to a Process type"@en;
   sh:order "5"^^xsd:integer;
   owl:versionInfo "2.0.0";
-  shacl-play:color "DarkGrey";
+  shacl-play:color "White";
+  shacl-play:background-color "DarkRed";
   sh:property proc:P51, proc:P52 .
 
 proc:ProcessStageReference a sh:NodeShape;
@@ -144,7 +151,8 @@ proc:ProcessStageReference a sh:NodeShape;
   rdfs:label "Reference to a Process stage"@en;
   sh:order "6"^^xsd:integer;
   owl:versionInfo "1.4.0";
-  shacl-play:color "DarkGrey";
+  shacl-play:color "White";
+  shacl-play:background-color "DarkRed";
   sh:property proc:P55, proc:P56 .
 
 proc:ActivityTypeReference a sh:NodeShape;
@@ -156,7 +164,8 @@ proc:ActivityTypeReference a sh:NodeShape;
   rdfs:label "Reference to an Activity type"@en;
   sh:order "7"^^xsd:integer;
   owl:versionInfo "2.0.0";
-  shacl-play:color "DarkGrey";
+  shacl-play:color "White";
+  shacl-play:background-color "DarkBlue";
   sh:property proc:P59, proc:P60 .
 
 proc:WorkReference a sh:NodeShape;
@@ -168,7 +177,8 @@ proc:WorkReference a sh:NodeShape;
   rdfs:label "Reference to a Work"@en;
   sh:order "8"^^xsd:integer;
   owl:versionInfo "2.1.0";
-  shacl-play:color "DarkGrey";
+  shacl-play:color "White";
+  shacl-play:background-color "DarkOrange";
   sh:property proc:P63 .
 
 proc:WorkSubdivisionReference a sh:NodeShape;
@@ -180,7 +190,8 @@ proc:WorkSubdivisionReference a sh:NodeShape;
   rdfs:label "Reference to a WorkSubdivision"@en;
   sh:order "9"^^xsd:integer;
   owl:versionInfo "2.1.0";
-  shacl-play:color "DarkGrey";
+  shacl-play:color "White";
+  shacl-play:background-color "DarkOrange";
   sh:property proc:P66 .
 
 proc:ForeseenActivityPlenaryPartSessionDossierReference a sh:NodeShape;
@@ -190,9 +201,9 @@ proc:ForeseenActivityPlenaryPartSessionDossierReference a sh:NodeShape;
   sh:closed "true"^^xsd:boolean;
   rdfs:label "Reference to a Foreseen Activity"@en;
   sh:order "10"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "DarkGrey";
-  sh:property proc:P69 .
+  owl:versionInfo "2.2.2";
+  shacl-play:color "White";
+  shacl-play:background-color "Slategrey" .
 
 proc:P9 owl:versionInfo "1.4.0";
   sh:path rdf:type;
@@ -236,67 +247,67 @@ proc:P13 owl:versionInfo "2.1.0";
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   sh:node proc:ProcessTypeReference;
-  sh:in _:a4aeb3f30c2042e3b539bc99a24f35721377;
+  sh:in _:2b89185e0581401fa28d995b7c886651779;
   shacl-play:shortname "process_type" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721377 rdf:first ep-procedure-types:COD;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721378 .
+_:2b89185e0581401fa28d995b7c886651779 rdf:first ep-procedure-types:COD;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651780 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721378 rdf:first ep-procedure-types:RSP;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721379 .
+_:2b89185e0581401fa28d995b7c886651780 rdf:first ep-procedure-types:RSP;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651781 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721379 rdf:first ep-procedure-types:RPS;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721380 .
+_:2b89185e0581401fa28d995b7c886651781 rdf:first ep-procedure-types:RPS;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651782 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721380 rdf:first ep-procedure-types:NLE;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721381 .
+_:2b89185e0581401fa28d995b7c886651782 rdf:first ep-procedure-types:NLE;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651783 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721381 rdf:first ep-procedure-types:CNS;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721382 .
+_:2b89185e0581401fa28d995b7c886651783 rdf:first ep-procedure-types:CNS;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651784 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721382 rdf:first ep-procedure-types:ACI;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721383 .
+_:2b89185e0581401fa28d995b7c886651784 rdf:first ep-procedure-types:ACI;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651785 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721383 rdf:first ep-procedure-types:APP;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721384 .
+_:2b89185e0581401fa28d995b7c886651785 rdf:first ep-procedure-types:APP;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651786 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721384 rdf:first ep-procedure-types:AVC;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721385 .
+_:2b89185e0581401fa28d995b7c886651786 rdf:first ep-procedure-types:AVC;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651787 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721385 rdf:first ep-procedure-types:BUD;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721386 .
+_:2b89185e0581401fa28d995b7c886651787 rdf:first ep-procedure-types:BUD;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651788 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721386 rdf:first ep-procedure-types:DEC;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721387 .
+_:2b89185e0581401fa28d995b7c886651788 rdf:first ep-procedure-types:DEC;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651789 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721387 rdf:first ep-procedure-types:SYN;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721388 .
+_:2b89185e0581401fa28d995b7c886651789 rdf:first ep-procedure-types:SYN;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651790 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721388 rdf:first ep-procedure-types:BUI;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721389 .
+_:2b89185e0581401fa28d995b7c886651790 rdf:first ep-procedure-types:BUI;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651791 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721389 rdf:first ep-procedure-types:COS;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721390 .
+_:2b89185e0581401fa28d995b7c886651791 rdf:first ep-procedure-types:COS;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651792 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721390 rdf:first ep-procedure-types:DEA;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721391 .
+_:2b89185e0581401fa28d995b7c886651792 rdf:first ep-procedure-types:DEA;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651793 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721391 rdf:first ep-procedure-types:DCE;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721392 .
+_:2b89185e0581401fa28d995b7c886651793 rdf:first ep-procedure-types:DCE;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651794 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721392 rdf:first ep-procedure-types:IMM;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721393 .
+_:2b89185e0581401fa28d995b7c886651794 rdf:first ep-procedure-types:IMM;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651795 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721393 rdf:first ep-procedure-types:INI;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721394 .
+_:2b89185e0581401fa28d995b7c886651795 rdf:first ep-procedure-types:INI;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651796 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721394 rdf:first ep-procedure-types:INL;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721395 .
+_:2b89185e0581401fa28d995b7c886651796 rdf:first ep-procedure-types:INL;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651797 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721395 rdf:first ep-procedure-types:REG;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721396 .
+_:2b89185e0581401fa28d995b7c886651797 rdf:first ep-procedure-types:REG;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651798 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721396 rdf:first ep-procedure-types:RSO;
+_:2b89185e0581401fa28d995b7c886651798 rdf:first ep-procedure-types:RSO;
   rdf:rest rdf:nil .
 
 proc:P14 owl:versionInfo "2.1.0";
@@ -324,13 +335,13 @@ proc:P17 owl:versionInfo "1.4.0";
   sh:path eli-dl:consists_of;
   sh:name "consists of"@en;
   sh:nodeKind sh:IRI;
-  sh:or _:a4aeb3f30c2042e3b539bc99a24f35721397;
+  sh:or _:2b89185e0581401fa28d995b7c886651799;
   shacl-play:shortname "consists_of" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721397 rdf:first proc:Activity;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721398 .
+_:2b89185e0581401fa28d995b7c886651799 rdf:first proc:Activity;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651800 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721398 rdf:first proc:Decision;
+_:2b89185e0581401fa28d995b7c886651800 rdf:first proc:Decision;
   rdf:rest rdf:nil .
 
 proc:P18 owl:versionInfo "2.1.0";
@@ -373,13 +384,13 @@ proc:P24 owl:versionInfo "2.1.0";
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   sh:node proc:ActivityTypeReference;
-  sh:in _:a4aeb3f30c2042e3b539bc99a24f35721399;
+  sh:in _:2b89185e0581401fa28d995b7c886651801;
   shacl-play:shortname "had_activity_type" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721399 rdf:first ep-activities:PLENARY_DEBATE;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721400 .
+_:2b89185e0581401fa28d995b7c886651801 rdf:first ep-activities:PLENARY_DEBATE;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651802 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721400 rdf:first ep-activities:PLENARY_VOTE;
+_:2b89185e0581401fa28d995b7c886651802 rdf:first ep-activities:PLENARY_VOTE;
   rdf:rest rdf:nil .
 
 proc:P25 owl:versionInfo "1.5.0";
@@ -406,13 +417,6 @@ proc:P27 owl:versionInfo "2.1.0";
   sh:nodeKind sh:IRI;
   sh:node proc:ProcessStageReference;
   shacl-play:shortname "occured_at_stage" .
-
-proc:P28 owl:versionInfo "2.1.0";
-  sh:path eli-dl:forms_part_of;
-  sh:name "forms part of"@en;
-  sh:nodeKind sh:IRI;
-  sh:node proc:ForeseenActivityPlenaryPartSessionDossierReference;
-  shacl-play:shortname "forms_part_of" .
 
 proc:P29 owl:versionInfo "1.5.0";
   sh:path epvoc:headingLabel;
@@ -445,28 +449,28 @@ proc:P34 owl:versionInfo "2.1.0";
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   sh:node proc:ActivityTypeReference;
-  sh:in _:a4aeb3f30c2042e3b539bc99a24f35721401;
+  sh:in _:2b89185e0581401fa28d995b7c886651803;
   shacl-play:shortname "had_activity_type" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721401 rdf:first ep-activities:REFERRAL;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721402 .
+_:2b89185e0581401fa28d995b7c886651803 rdf:first ep-activities:REFERRAL;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651804 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721402 rdf:first ep-activities:TABLING_PLENARY;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721403 .
+_:2b89185e0581401fa28d995b7c886651804 rdf:first ep-activities:TABLING_PLENARY;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651805 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721403 rdf:first ep-activities:PUBLICATION_OFFICIAL_JOURNAL;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721404 .
+_:2b89185e0581401fa28d995b7c886651805 rdf:first ep-activities:PUBLICATION_OFFICIAL_JOURNAL;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651806 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721404 rdf:first ep-activities:SIGNATURE;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721405 .
+_:2b89185e0581401fa28d995b7c886651806 rdf:first ep-activities:SIGNATURE;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651807 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721405 rdf:first ep-activities:PLENARY_DEBATE;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721406 .
+_:2b89185e0581401fa28d995b7c886651807 rdf:first ep-activities:PLENARY_DEBATE;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651808 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721406 rdf:first ep-activities:PLENARY_VOTE;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721407 .
+_:2b89185e0581401fa28d995b7c886651808 rdf:first ep-activities:PLENARY_VOTE;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651809 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721407 rdf:first ep-activities:PLENARY_ACTIVITY;
+_:2b89185e0581401fa28d995b7c886651809 rdf:first ep-activities:PLENARY_ACTIVITY;
   rdf:rest rdf:nil .
 
 proc:P35 owl:versionInfo "1.4.0";
@@ -499,13 +503,6 @@ proc:P38 owl:versionInfo "1.5.0";
   sh:node proc:WorkSubdivisionReference;
   shacl-play:shortname "recorded_in_a_realization_of" .
 
-proc:P39 owl:versionInfo "1.5.0";
-  sh:path eli-dl:executed;
-  sh:name "executed"@en;
-  sh:nodeKind sh:IRI;
-  sh:node proc:ForeseenActivityPlenaryPartSessionDossierReference;
-  shacl-play:shortname "executed" .
-
 proc:P42 owl:versionInfo "1.4.0";
   sh:path rdf:type;
   sh:name "type"@en;
@@ -530,40 +527,40 @@ proc:P44 owl:versionInfo "2.1.0";
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   sh:node proc:ActivityTypeReference;
-  sh:in _:a4aeb3f30c2042e3b539bc99a24f35721408;
+  sh:in _:2b89185e0581401fa28d995b7c886651810;
   shacl-play:shortname "had_activity_type" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721408 rdf:first ep-activities:COMMITTEE_APPROVE_PROVISIONAL_AGREEMENT;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721409 .
+_:2b89185e0581401fa28d995b7c886651810 rdf:first ep-activities:COMMITTEE_APPROVE_PROVISIONAL_AGREEMENT;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651811 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721409 rdf:first ep-activities:PLENARY_REFER_COMMITTEE_INTERINSTITUTIONAL_NEGOTIATIONS;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721410 .
+_:2b89185e0581401fa28d995b7c886651811 rdf:first ep-activities:PLENARY_REFER_COMMITTEE_INTERINSTITUTIONAL_NEGOTIATIONS;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651812 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721410 rdf:first ep-activities:PLENARY_REJECT_COMMITTEE_INTERINSTUTIONAL_NEGOTIATIONS;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721411 .
+_:2b89185e0581401fa28d995b7c886651812 rdf:first ep-activities:PLENARY_REJECT_COMMITTEE_INTERINSTUTIONAL_NEGOTIATIONS;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651813 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721411 rdf:first ep-activities:PLENARY_ENDORSE_COMMITTEE_INTERINSTITUTIONAL_NEGOTIATIONS;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721412 .
+_:2b89185e0581401fa28d995b7c886651813 rdf:first ep-activities:PLENARY_ENDORSE_COMMITTEE_INTERINSTITUTIONAL_NEGOTIATIONS;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651814 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721412 rdf:first ep-activities:PLENARY_AMEND;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721413 .
+_:2b89185e0581401fa28d995b7c886651814 rdf:first ep-activities:PLENARY_AMEND;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651815 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721413 rdf:first ep-activities:PLENARY_DECISION;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721414 .
+_:2b89185e0581401fa28d995b7c886651815 rdf:first ep-activities:PLENARY_DECISION;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651816 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721414 rdf:first ep-activities:PLENARY_AMEND_COUNCIL_POSITION;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721415 .
+_:2b89185e0581401fa28d995b7c886651816 rdf:first ep-activities:PLENARY_AMEND_COUNCIL_POSITION;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651817 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721415 rdf:first ep-activities:PLENARY_APPROVE_COUNCIL_POSITION;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721416 .
+_:2b89185e0581401fa28d995b7c886651817 rdf:first ep-activities:PLENARY_APPROVE_COUNCIL_POSITION;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651818 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721416 rdf:first ep-activities:PLENARY_REJECT_COUNCIL_POSITION;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721417 .
+_:2b89185e0581401fa28d995b7c886651818 rdf:first ep-activities:PLENARY_REJECT_COUNCIL_POSITION;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651819 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721417 rdf:first ep-activities:PLENARY_ADOPT_POSITION;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721418 .
+_:2b89185e0581401fa28d995b7c886651819 rdf:first ep-activities:PLENARY_ADOPT_POSITION;
+  rdf:rest _:2b89185e0581401fa28d995b7c886651820 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721418 rdf:first ep-activities:PLENARY_AMEND_PROPOSAL;
+_:2b89185e0581401fa28d995b7c886651820 rdf:first ep-activities:PLENARY_AMEND_PROPOSAL;
   rdf:rest rdf:nil .
 
 proc:P45 owl:versionInfo "1.4.0";
@@ -590,9 +587,10 @@ proc:P47 owl:versionInfo "1.5.0";
   sh:node proc:WorkReference;
   shacl-play:shortname "decided_on_a_realization_of" .
 
-proc:P48 owl:versionInfo "2.1.0";
+proc:P48 owl:versionInfo "2.2.2";
   sh:path eli-dl:was_motivated_by;
   sh:name "was motivated by"@en;
+  sh:description "This relation is not stable. It is provided only for some data in the past."@en;
   sh:nodeKind sh:IRI;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "was_motivated_by" .
@@ -651,11 +649,4 @@ proc:P66 owl:versionInfo "2.1.0";
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue eli:WorkSubdivision;
-  sh:deactivated "true"^^xsd:boolean .
-
-proc:P69 owl:versionInfo "2.1.0";
-  sh:path rdf:type;
-  sh:name "type"@en;
-  sh:nodeKind sh:IRI;
-  sh:hasValue eli-dl:ForeseenActivity;
   sh:deactivated "true"^^xsd:boolean .
