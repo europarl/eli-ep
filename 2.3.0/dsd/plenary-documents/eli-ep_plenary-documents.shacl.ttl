@@ -1,0 +1,1999 @@
+@prefix schema: <http://schema.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skosthes: <http://purl.org/iso25964/skos-thes#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ep-roles: <https://data.europarl.europa.eu/def/ep-roles/> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix euvoc: <http://publications.europa.eu/ontology/euvoc#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix file-type: <http://publications.europa.eu/resource/authority/file-type/> .
+@prefix eli: <http://data.europa.eu/eli/ontology#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix xls2rdf: <https://xls2rdf.sparna.fr/vocabulary#> .
+@prefix eli-dl: <http://data.europa.eu/eli/eli-draft-legislation-ontology#> .
+@prefix ept: <https://data.europarl.europa.eu/def/> .
+@prefix pld: <https://data.europarl.europa.eu/def/plenary-documents#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix shacl-play: <https://shacl-play.sparna.fr/ontology#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ep-activities: <https://data.europarl.europa.eu/def/ep-activities/> .
+@prefix ep-document-types: <https://data.europarl.europa.eu/def/ep-document-types/> .
+@prefix resource-type: <http://publications.europa.eu/resource/authority/resource-type/> .
+@prefix epvoc: <https://data.europarl.europa.eu/def/epvoc#> .
+@prefix op-aut: <http://publications.europa.eu/resource/authority/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+
+<https://data.europarl.europa.eu/def/plenary-documents#> a owl:Ontology, adms:Asset;
+  dcterms:type <https://publications.europa.eu/resource/authority/dataset-type/APROF>;
+  rdfs:label "Plenary documents dataset description"@en;
+  dcterms:title "Plenary documents dataset description"@en;
+  dcterms:description "This Dataset Description is a subset of the general ELI-EP application profile and it includes classes and properties used in Plenary documents datasets. Descriptions of classes and properties can be found in ELI-EP application profile."@en;
+  owl:versionInfo "2.3.0";
+  adms:versionNotes """2.3.0 - 2024-10-26 (minor/patch)
+- (*) Changes impacting data:
+- (rfc) change wrong sh:datatype for epvoc:numbering (previously xsd:string) 
+- (new) add eli:number
+- (*) Other documentation changes (no impact on data):
+- (rfc) added regex pattern to local-ids of URIs, also to some properties
+- (rfc) added missing cardinalities
+- (rfc) added sh:hasValue, sh:in
+- (rfc) add shacl-play:background-color
+- (rfc) rename some shapes for background-colour formula
+
+2.1.0 - 2024-03-21
+- (rfc) eli:work_type[eli:WorkType] values based on the EP taxonomy ep-document-types (REPORT_PLENARY, RESOLUTION_MOTION, RESOLUTION_MOTION_JOINT, QUESTION_RESOLUTION_MOTION, AMENDMENT_LIST, ERRATUM) and not EU AT (op-aut:resource-type)
+- (rfc) create more specific shapes for each type
+- (rfc) dcterms:creator, dcterms:publisher, eli-dl:had_participant_organization and eli-dl:participation_in_name_of will be based on org-ep data and not EU AT (op-aut:corporate-body)
+- (rfc) eli-dl:participation_role values based on the EP taxonomy ep-roles, and not EU AT (op-aut:role)
+- (rfc) change of JSON key using \"inverse_\" (api/v2 only)
+
+1.5.0 - 2023-12-07
+- (new) [sh:inversePath eli-dl:based_on_a_realization_of]; [sh:inversePath eli-dl:decided_on_a_realization_of]
+
+1.3.0 - 2023-09-26
+- (rfc) impact on eli:work_type due to changed values (op-aut:resource-type: REPORT → REPORT_EP and AMEND_EP → AMEND_LIST_EP)
+- (rfc) impact on eli-dl:participation_role for REPORT_EP due to changed values (op-aut:role: AUT → RAPP)
+- (new) eli-dl:adopts for REPORT_EP
+- (new) epvoc:isAboutSubjectMatter and epvoc:isAboutDirectoryCode
+- (new) add [sh:inversePath eli-dl:created_a_realization_of] to a procedure (Remark: Data on procedures will be available in the upcoming releases).
+
+1.1 - 2023-04-27
+- eli:date_document sh:datatype is not xsd:dateTime, but xsd:date
+- remove external shapes (incl. controlled vocabularies data) in datasets.
+
+1.0 - 2022-11-18
+- creation"""@en;
+  adms:status <https://publications.europa.eu/resource/authority/dataset-status/COMPLETED>;
+  owl:versionIRI <https://data.europarl.europa.eu/def/plenary-documents#>;
+  dcterms:conformsTo <https://www.w3.org/TR/shacl>;
+  dcterms:created "2022-11-18"^^xsd:date;
+  dcterms:modified "2024-10-26T00:00:00.000Z"^^xsd:dateTime;
+  dcterms:dateCopyrighted "2022"^^xsd:gYear;
+  dcterms:license <https://www.europarl.europa.eu/legal-notice/en/>;
+  dcterms:creator <https://publications.europa.eu/resource/authority/corporate-body/EP>;
+  dcterms:publisher <https://publications.europa.eu/resource/authority/corporate-body/EP>;
+  dcterms:rigthsHolder <https://publications.europa.eu/resource/authority/corporate-body/EURUN>;
+  dcat:distribution _:a701ed0bc8f44446a3a682c5adf0356f2451 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2451 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
+  dcat:downloadURL <https://europarl.github.io/eli-ep/2.3.0/dsd/plenary-documents/eli-ep_plenary-documents.shacl.ttl> .
+
+pld:ReportPlenaryWork a sh:NodeShape;
+  owl:versionInfo "2.3.0";
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  sh:target pld:ReportPlenaryWork-target;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/A-9-2024-0061";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/A-[0-9]{1,2}-[0-9]{4}-[0-9]{4}$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "1"^^xsd:integer;
+  shacl-play:color "White";
+  shacl-play:background-color "DarkOrange";
+  rdfs:label "Work Plenary Report"@en;
+  sh:property pld:P9, pld:P10, pld:P11, pld:P12, pld:P13, pld:P14, pld:P15, pld:P16,
+    pld:P17, pld:P18, pld:P19, pld:P20, pld:P21, pld:P22, pld:P23, pld:P24, pld:P25, pld:P26,
+    pld:P27, pld:P28, pld:P29, pld:P30, pld:P31, pld:P32, pld:P33, pld:P34 .
+
+pld:ReportPlenaryWork-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
+SELECT ?this
+WHERE {
+ ?this eli:work_type <https://data.europarl.europa.eu/def/ep-document-types/REPORT_PLENARY>.
+}""" .
+
+pld:ResolutionMotionWork a sh:NodeShape;
+  owl:versionInfo "2.3.0";
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  sh:target pld:ResolutionMotionWork-target;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/B-9-2024-0185";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/B-[0-9]{1,2}-[0-9]{4}-[0-9]{4}$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "2"^^xsd:integer;
+  shacl-play:color "White";
+  shacl-play:background-color "DarkOrange";
+  rdfs:label "Work Motion for Resolution"@en;
+  sh:property pld:P36, pld:P37, pld:P38, pld:P39, pld:P40, pld:P41, pld:P42, pld:P43,
+    pld:P44, pld:P45, pld:P46, pld:P47, pld:P48, pld:P49, pld:P50, pld:P51, pld:P52, pld:P53,
+    pld:P54, pld:P55, pld:P56, pld:P57 .
+
+pld:ResolutionMotionWork-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
+SELECT ?this
+WHERE {
+ ?this eli:work_type <https://data.europarl.europa.eu/def/ep-document-types/RESOLUTION_MOTION>.
+}""" .
+
+pld:ResolutionMotionJointWork a sh:NodeShape;
+  owl:versionInfo "2.3.0";
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  sh:target pld:ResolutionMotionJointWork-target;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/RC-9-2024-0187";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/RC-[0-9]{1,2}-[0-9]{4}-[0-9]{4}$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "3"^^xsd:integer;
+  shacl-play:color "White";
+  shacl-play:background-color "DarkOrange";
+  rdfs:label "Work Joint Motion for Resolution"@en;
+  sh:property pld:P59, pld:P60, pld:P61, pld:P62, pld:P63, pld:P64, pld:P65, pld:P66,
+    pld:P67, pld:P68, pld:P69, pld:P70, pld:P71, pld:P72, pld:P73, pld:P74, pld:P75, pld:P76,
+    pld:P77, pld:P78, pld:P79, pld:P80, pld:P81 .
+
+pld:ResolutionMotionJointWork-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
+SELECT ?this
+WHERE {
+ ?this eli:work_type <https://data.europarl.europa.eu/def/ep-document-types/RESOLUTION_MOTION_JOINT>.
+}""" .
+
+pld:QuestionResolutionMotionWork a sh:NodeShape;
+  owl:versionInfo "2.3.0";
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  sh:target pld:QuestionResolutionMotionWork-target;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/QOB-9-2024-0004";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/QOB-[0-9]{1,2}-[0-9]{4}-[0-9]{4}$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "4"^^xsd:integer;
+  shacl-play:color "White";
+  shacl-play:background-color "DarkOrange";
+  rdfs:label "Work Question for Motion for Resolution"@en;
+  sh:property pld:P83, pld:P84, pld:P85, pld:P86, pld:P87, pld:P88, pld:P89, pld:P90,
+    pld:P91, pld:P92, pld:P93, pld:P94, pld:P95, pld:P96, pld:P97, pld:P98, pld:P99, pld:P100,
+    pld:P101, pld:P102, pld:P103, pld:P104, pld:P105 .
+
+pld:QuestionResolutionMotionWork-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
+SELECT ?this
+WHERE {
+ ?this eli:work_type <https://data.europarl.europa.eu/def/ep-document-types/QUESTION_RESOLUTION_MOTION>.
+}""" .
+
+pld:AmendmentListWork a sh:NodeShape;
+  owl:versionInfo "2.3.0";
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/A-9-2024-0065-AM-001-292";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "7"^^xsd:integer;
+  shacl-play:color "White";
+  shacl-play:background-color "DarkOrange";
+  rdfs:label "Work Plenary Amendment"@en;
+  sh:property pld:P107, pld:P108, pld:P109, pld:P110, pld:P111, pld:P112, pld:P113,
+    pld:P114, pld:P115, pld:P116, pld:P117, pld:P118, pld:P119, pld:P120, pld:P121, pld:P122,
+    pld:P123, pld:P124, pld:P125 .
+
+pld:ErratumWork a sh:NodeShape;
+  owl:versionInfo "2.3.0";
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "8"^^xsd:integer;
+  shacl-play:color "White";
+  shacl-play:background-color "DarkOrange";
+  rdfs:label "Work Plenary Erratum"@en;
+  sh:property pld:P127, pld:P128, pld:P129, pld:P130, pld:P131, pld:P132, pld:P133,
+    pld:P134, pld:P135, pld:P136, pld:P137, pld:P138, pld:P139, pld:P140, pld:P141 .
+
+pld:Expression a sh:NodeShape;
+  owl:versionInfo "1.0";
+  rdfs:comment "This node shape represents a subset of eli:Expression"@en;
+  sh:targetClass eli:Expression;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/A-9-2024-0061/en";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+/[a-z]{2,3}$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "9"^^xsd:integer;
+  shacl-play:color "White";
+  shacl-play:background-color "CornflowerBlue";
+  rdfs:label "Realized By Expression"@en;
+  sh:property pld:P143, pld:P144, pld:P145, pld:P146, pld:P147 .
+
+pld:Manifestation a sh:NodeShape;
+  owl:versionInfo "1.0";
+  rdfs:comment "This node shape represents a subset of eli:Manifestation"@en;
+  sh:targetClass eli:Manifestation;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/A-9-2024-0061/en/pdf";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+/[a-z]{2,3}/.*$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "10"^^xsd:integer;
+  shacl-play:color "White";
+  shacl-play:background-color "LimeGreen";
+  rdfs:label "Is embodied by Manifestation"@en;
+  sh:property pld:P149, pld:P150, pld:P151, pld:P152, pld:P153, pld:P154 .
+
+pld:Participation a sh:NodeShape;
+  owl:versionInfo "1.0";
+  rdfs:comment "This node shape represents a subset of eli-dl:Participation"@en;
+  sh:targetClass eli-dl:Participation;
+  skos:example "https://data.europarl.europa.eu/eli/dl/participation/A-9-2024-0061_197826";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/participation/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "11"^^xsd:integer;
+  shacl-play:color "Black";
+  shacl-play:background-color "FloralWhite";
+  rdfs:label "Participation"@en;
+  sh:property pld:P156, pld:P157, pld:P158, pld:P159, pld:P160 .
+
+pld:WorkTypeReference a sh:NodeShape;
+  owl:versionInfo "2.1.0";
+  rdfs:comment "This node shape refers to the class eli:WorkType"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-document-types/REPORT_PLENARY";
+  sh:nodeKind sh:IRI;
+  sh:pattern "https://data.europarl.europa.eu/def/ep-document-types/.*$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "14"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to a Work type"@en;
+  sh:property pld:P162, pld:P163 .
+
+pld:LanguageReference a sh:NodeShape;
+  owl:versionInfo "1.0";
+  rdfs:comment "This node shape refers to the class dcterms:LinguisticSystem"@en;
+  skos:example "http://publications.europa.eu/resource/authority/language/ENG";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/language/.*$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "15"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to a Language"@en;
+  sh:property pld:P165, pld:P166 .
+
+pld:AgentReference a sh:NodeShape;
+  owl:versionInfo "1.0";
+  rdfs:comment "This node shape refers to the class foaf:Agent"@en;
+  sh:nodeKind sh:IRI;
+  sh:closed "true"^^xsd:boolean;
+  sh:order "16"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to an Agent"@en .
+
+pld:MediaTypeOrExtentReference a sh:NodeShape;
+  owl:versionInfo "1.0";
+  rdfs:comment "This node shape refers to the class dcterms:MediaTypeOrExtent"@en;
+  skos:example "http://publications.europa.eu/resource/authority/file-type/PDF";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/file-type/.*$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "17"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to a Media Type"@en;
+  sh:property pld:P168, pld:P169 .
+
+pld:ParticipationRoleReference a sh:NodeShape;
+  owl:versionInfo "2.1.0";
+  rdfs:comment "This node shape refers to the class eli-dl:ParticipationRole"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-roles/AUTHOR";
+  sh:nodeKind sh:IRI;
+  sh:pattern "https://data.europarl.europa.eu/def/ep-roles/.*$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "18"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to a Role"@en;
+  sh:property pld:P171, pld:P172, pld:P175 .
+
+pld:OrganizationReference a sh:NodeShape;
+  owl:versionInfo "2.1.0";
+  rdfs:comment "This node shape refers to the class org:Organization"@en;
+  skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
+  sh:nodeKind sh:IRI;
+  sh:pattern "https://data.europarl.europa.eu/org/.*$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "19"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to an Organization"@en;
+  sh:property pld:P183 .
+
+pld:PersonReference a sh:NodeShape;
+  owl:versionInfo "2.1.0";
+  rdfs:comment "This node shape refers to the class foaf:Person"@en;
+  skos:example "https://data.europarl.europa.eu/person/1234";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/person/[0-9].*$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "20"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to a Person"@en;
+  sh:property pld:P185 .
+
+pld:ConceptReference a sh:NodeShape;
+  owl:versionInfo "2.1.0";
+  rdfs:comment "This node shape refers to the class skos:Concept"@en;
+  skos:example "http://eurovoc.europa.eu/1851";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^http://eurovoc.europa.eu/.*$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "21"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to a Concept"@en;
+  sh:property pld:P174 .
+
+pld:ConceptSubjectMatterReference a sh:NodeShape;
+  owl:versionInfo "1.3.0";
+  rdfs:comment "This node shape refers to the class skos:Concept"@en;
+  skos:example "http://publications.europa.eu/resource/authority/subject-matter/MARI";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/subject-matter/.*$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "22"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to a Concept (Subject Matter)"@en;
+  sh:property pld:P177, pld:P178 .
+
+pld:ConceptDirectoryCodeReference a sh:NodeShape;
+  owl:versionInfo "1.3.0";
+  rdfs:comment "This node shape refers to the class skos:Concept"@en;
+  skos:example "http://publications.europa.eu/resource/authority/dir-eu-legal-act/062020";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/dir-eu-legal-act/.*$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "23"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to a Concept (Directory Code)"@en;
+  sh:property pld:P180, pld:P181 .
+
+pld:ProcessReference a sh:NodeShape;
+  owl:versionInfo "2.1.0";
+  rdfs:comment "This node shape refers to the class eli-dl:Process"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/proc/2023-0338";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/proc/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "24"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to a Process"@en;
+  sh:property pld:P187, pld:P188 .
+
+pld:DecisionReference a sh:NodeShape;
+  owl:versionInfo "2.1.0";
+  rdfs:comment "This node shape refers to the class eli-dl:Decision"@en;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "25"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to a Decision"@en;
+  sh:property pld:P190, pld:P191, pld:P192 .
+
+pld:ActivityReference a sh:NodeShape;
+  owl:versionInfo "2.1.0";
+  rdfs:comment "This node shape refers to the class eli-dl:Activity"@en;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "26"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to an Activity"@en;
+  sh:property pld:P194, pld:P195, pld:P196 .
+
+pld:ReportParliamentaryCommitteeDraftReference a sh:NodeShape;
+  owl:versionInfo "2.1.0";
+  rdfs:comment "This node shape refers to the class eli:Work"@en;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "27"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to a Work (Report Parliamentary Committee Draft)"@en;
+  sh:property pld:P198, pld:P199 .
+
+pld:P9 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue eli:Work;
+  shacl-play:shortname "type" .
+
+pld:P10 owl:versionInfo "2.1.0";
+  sh:path dcterms:identifier;
+  sh:name "identifier"@en;
+  skos:example "A-9-2022-0081";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:pattern "A-[0-9]{1,2}-[0-9]{4}-[0-9]{4}";
+  shacl-play:shortname "identifier" .
+
+pld:P11 owl:versionInfo "2.1.0";
+  sh:path eli:work_type;
+  sh:name "work type"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-document-types/REPORT_PLENARY";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:WorkTypeReference;
+  sh:hasValue ep-document-types:REPORT_PLENARY;
+  shacl-play:shortname "work_type" .
+
+pld:P12 owl:versionInfo "2.1.0";
+  sh:path eli:date_document;
+  sh:name "date document"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  shacl-play:shortname "date_document" .
+
+pld:P13 owl:versionInfo "2.1.0";
+  sh:path epvoc:identifierYear;
+  sh:name "identifier year"@en;
+  skos:example "2022";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:pattern "[0-9]{4}";
+  shacl-play:shortname "identifierYear" .
+
+pld:P14 owl:versionInfo "2.1.0";
+  sh:path rdfs:label;
+  sh:name "label"@en;
+  skos:example "A9-0081/2022";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:pattern "A[0-9]{1,2}-[0-9]{4}\\/[0-9]{4}";
+  shacl-play:shortname "label" .
+
+pld:P15 owl:versionInfo "2.1.0";
+  sh:path epvoc:epNumber;
+  sh:name "ep number"@en;
+  skos:example "PE704.888";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:pattern "PE[0-9]{3}.[0-9]{3}";
+  shacl-play:shortname "epNumber" .
+
+pld:P16 owl:versionInfo "2.1.0";
+  sh:path epvoc:epNumberVersion;
+  sh:name "en number version"@en;
+  skos:example "0300";
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "epNumberVersion" .
+
+pld:P17 owl:versionInfo "2.1.0";
+  sh:path skos:notation;
+  sh:name "notation"@en;
+  skos:example "P9_A(2022)0081";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype epvoc:publicRegister;
+  sh:pattern "P[0-9]{1,2}_A\\([0-9]{4}\\)[0-9]{4}";
+  shacl-play:shortname "notation_publicRegister" .
+
+pld:P18 owl:versionInfo "2.1.0";
+  sh:path eli-dl:parliamentary_term;
+  sh:name "parliamentary term"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/org/ep-.*$";
+  shacl-play:shortname "parliamentary_term" .
+
+pld:P19 owl:versionInfo "2.1.0";
+  sh:path epvoc:originalLanguage;
+  sh:name "original language"@en;
+  sh:minCount "0"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:LanguageReference;
+  shacl-play:shortname "originalLanguage" .
+
+pld:P20 owl:versionInfo "2.1.0";
+  sh:path eli:is_about;
+  sh:name "is about descriptor"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:ConceptReference;
+  shacl-play:shortname "is_about" .
+
+pld:P21 owl:versionInfo "2.1.0";
+  sh:path epvoc:isAboutSubjectMatter;
+  sh:name "is about subject matter"@en;
+  skos:example "http://publications.europa.eu/resource/authority/subject-matter/MARI";
+  sh:nodeKind sh:IRI;
+  sh:node pld:ConceptSubjectMatterReference;
+  sh:pattern "http://publications.europa.eu/resource/authority/subject-matter/.*$";
+  shacl-play:shortname "isAboutSubjectMatter" .
+
+pld:P22 owl:versionInfo "2.1.0";
+  sh:path epvoc:isAboutDirectoryCode;
+  sh:name "is about directory code"@en;
+  skos:example "http://publications.europa.eu/resource/authority/dir-eu-legal-act/062020";
+  sh:nodeKind sh:IRI;
+  sh:node pld:ConceptDirectoryCodeReference;
+  sh:pattern "http://publications.europa.eu/resource/authority/dir-eu-legal-act/.*$";
+  shacl-play:shortname "isAboutDirectoryCode" .
+
+pld:P23 owl:versionInfo "2.3.0";
+  sh:path dcterms:creator;
+  sh:name "creator"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:or _:a701ed0bc8f44446a3a682c5adf0356f2452;
+  shacl-play:shortname "creator" .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2452 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2453;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2454 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2453 sh:node pld:OrganizationReference .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2454 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2455;
+  rdf:rest rdf:nil .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2455 sh:node pld:PersonReference .
+
+pld:P24 owl:versionInfo "2.1.0";
+  sh:path dcterms:publisher;
+  sh:name "publisher"@en;
+  skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:OrganizationReference;
+  sh:hasValue <https://data.europarl.europa.eu/org/EU_PARLIAMENT>;
+  shacl-play:shortname "publisher" .
+
+pld:P25 owl:versionInfo "2.1.0";
+  sh:path eli:based_on;
+  sh:name "based on"@en;
+  sh:nodeKind sh:IRI;
+  shacl-play:shortname "based_on" .
+
+pld:P26 owl:versionInfo "2.1.0";
+  sh:path eli:is_realized_by;
+  sh:name "is realized by"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:Expression;
+  shacl-play:shortname "is_realized_by" .
+
+pld:P27 owl:versionInfo "2.1.0";
+  sh:path dcterms:title;
+  sh:name "title"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title_dcterms" .
+
+pld:P28 owl:versionInfo "2.1.0";
+  sh:path epvoc:workHadParticipation;
+  sh:name "stakeholder participant"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/participation/A-9-2022-0081_LIBE";
+  sh:nodeKind sh:IRI;
+  sh:node pld:Participation;
+  shacl-play:shortname "workHadParticipation" .
+
+pld:P29 owl:versionInfo "2.1.0";
+  sh:path eli-dl:adopts;
+  sh:name "adopts"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:ReportParliamentaryCommitteeDraftReference;
+  shacl-play:shortname "adopts" .
+
+pld:P30 owl:versionInfo "2.1.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2456;
+  sh:name "inverse foresees change of"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:AmendmentListWork;
+  shacl-play:shortname "inverse_foresees_change_of" .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2456 sh:inversePath eli-dl:foresees_change_of .
+
+pld:P31 owl:versionInfo "2.1.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2457;
+  sh:name "inverse corrects"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:ErratumWork;
+  shacl-play:shortname "inverse_corrects" .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2457 sh:inversePath eli:corrects .
+
+pld:P32 owl:versionInfo "2.1.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2458;
+  sh:name "inverse created a realization of"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:ProcessReference;
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "inverse_created_a_realization_of" .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2458 sh:inversePath eli-dl:created_a_realization_of .
+
+pld:P33 owl:versionInfo "2.1.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2459;
+  sh:name "inverse based on a realization of"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:ActivityReference;
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "inverse_based_on_a_realization_of" .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2459 sh:inversePath eli-dl:based_on_a_realization_of .
+
+pld:P34 owl:versionInfo "2.1.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2460;
+  sh:name "inverse decided on a realization of"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:DecisionReference;
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "inverse_decided_on_a_realization_of" .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2460 sh:inversePath eli-dl:decided_on_a_realization_of .
+
+pld:P36 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue eli:Work;
+  shacl-play:shortname "type" .
+
+pld:P37 owl:versionInfo "2.1.0";
+  sh:path dcterms:identifier;
+  sh:name "identifier"@en;
+  skos:example "B-9-2024-0062";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifier" .
+
+pld:P38 owl:versionInfo "2.1.0";
+  sh:path eli:work_type;
+  sh:name "work type"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-document-types/RESOLUTION_MOTION";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:WorkTypeReference;
+  sh:hasValue ep-document-types:RESOLUTION_MOTION;
+  sh:pattern "https://data.europarl.europa.eu/def/ep-document-types/.*$";
+  shacl-play:shortname "work_type" .
+
+pld:P39 owl:versionInfo "2.1.0";
+  sh:path eli:date_document;
+  sh:name "date document"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  shacl-play:shortname "date_document" .
+
+pld:P40 owl:versionInfo "2.3.0";
+  sh:path epvoc:identifierYear;
+  sh:name "identifier year"@en;
+  skos:example "2024";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifierYear" .
+
+pld:P41 owl:versionInfo "2.1.0";
+  sh:path dcterms:title;
+  sh:name "title"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title_dcterms" .
+
+pld:P42 owl:versionInfo "2.1.0";
+  sh:path rdfs:label;
+  sh:name "label"@en;
+  skos:example "B9-0062/2024";
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "label" .
+
+pld:P43 owl:versionInfo "2.3.0";
+  sh:path epvoc:epNumber;
+  sh:name "ep number"@en;
+  skos:example "PE756.747";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "epNumber" .
+
+pld:P44 owl:versionInfo "2.3.0";
+  sh:path skos:notation;
+  sh:name "notation"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype epvoc:publicRegister;
+  shacl-play:shortname "notation_publicRegister" .
+
+pld:P45 owl:versionInfo "2.1.0";
+  sh:path eli-dl:parliamentary_term;
+  sh:name "parliamentary term"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/org/ep-.*$";
+  shacl-play:shortname "parliamentary_term" .
+
+pld:P46 owl:versionInfo "2.1.0";
+  sh:path epvoc:originalLanguage;
+  sh:name "original language"@en;
+  sh:minCount "0"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:LanguageReference;
+  sh:pattern "^http://publications.europa.eu/resource/authority/language/[A-Z]+$";
+  shacl-play:shortname "originalLanguage" .
+
+pld:P47 owl:versionInfo "2.1.0";
+  sh:path eli:is_about;
+  sh:name "is about descriptor"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:ConceptReference;
+  shacl-play:shortname "is_about" .
+
+pld:P48 owl:versionInfo "2.1.0";
+  sh:path epvoc:isAboutSubjectMatter;
+  sh:name "is about subject matter"@en;
+  skos:example "http://publications.europa.eu/resource/authority/subject-matter/MARI";
+  sh:nodeKind sh:IRI;
+  sh:node pld:ConceptSubjectMatterReference;
+  sh:pattern "http://publications.europa.eu/resource/authority/subject-matter/.*$";
+  shacl-play:shortname "isAboutSubjectMatter" .
+
+pld:P49 owl:versionInfo "2.1.0";
+  sh:path epvoc:isAboutDirectoryCode;
+  sh:name "is about directory code"@en;
+  skos:example "http://publications.europa.eu/resource/authority/dir-eu-legal-act/062020";
+  sh:nodeKind sh:IRI;
+  sh:node pld:ConceptDirectoryCodeReference;
+  sh:pattern "http://publications.europa.eu/resource/authority/dir-eu-legal-act/.*$";
+  shacl-play:shortname "isAboutDirectoryCode" .
+
+pld:P50 owl:versionInfo "2.1.0";
+  sh:path dcterms:creator;
+  sh:name "creator"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:or _:a701ed0bc8f44446a3a682c5adf0356f2461;
+  shacl-play:shortname "creator" .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2461 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2462;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2463 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2462 sh:node pld:OrganizationReference .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2463 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2464;
+  rdf:rest rdf:nil .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2464 sh:node pld:PersonReference .
+
+pld:P51 owl:versionInfo "2.1.0";
+  sh:path dcterms:publisher;
+  sh:name "publisher"@en;
+  skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:OrganizationReference;
+  sh:hasValue <https://data.europarl.europa.eu/org/EU_PARLIAMENT>;
+  shacl-play:shortname "publisher" .
+
+pld:P52 owl:versionInfo "2.1.0";
+  sh:path eli:based_on;
+  sh:name "based on"@en;
+  sh:minCount "0"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  shacl-play:shortname "based_on" .
+
+pld:P53 owl:versionInfo "2.1.0";
+  sh:path eli:is_realized_by;
+  sh:name "is realized by"@en;
+  sh:minCount "0"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:Expression;
+  shacl-play:shortname "is_realized_by" .
+
+pld:P54 owl:versionInfo "2.1.0";
+  sh:path epvoc:workHadParticipation;
+  sh:name "stakeholder participant"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/participation/B-9-2024-0062_125004";
+  sh:minCount "0"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:Participation;
+  shacl-play:shortname "workHadParticipation" .
+
+pld:P55 owl:versionInfo "2.1.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2465;
+  sh:name "inverse foresees change of"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:AmendmentListWork;
+  shacl-play:shortname "inverse_foresees_change_of" .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2465 sh:inversePath eli-dl:foresees_change_of .
+
+pld:P56 owl:versionInfo "2.1.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2466;
+  sh:name "inverse created a realization of"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:ProcessReference;
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "inverse_created_a_realization_of" .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2466 sh:inversePath eli-dl:created_a_realization_of .
+
+pld:P57 owl:versionInfo "2.1.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2467;
+  sh:name "inverse based on a realization of"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:ActivityReference;
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "inverse_based_on_a_realization_of" .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2467 sh:inversePath eli-dl:based_on_a_realization_of .
+
+pld:P59 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue eli:Work;
+  shacl-play:shortname "type" .
+
+pld:P60 owl:versionInfo "2.1.0";
+  sh:path dcterms:identifier;
+  sh:name "identifier"@en;
+  skos:example "RC-9-2024-0063";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifier" .
+
+pld:P61 owl:versionInfo "2.1.0";
+  sh:path eli:work_type;
+  sh:name "work type"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-document-types/RESOLUTION_MOTION_JOINT";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:WorkTypeReference;
+  sh:hasValue ep-document-types:RESOLUTION_MOTION_JOINT;
+  sh:pattern "https://data.europarl.europa.eu/def/ep-document-types/.*$";
+  shacl-play:shortname "work_type" .
+
+pld:P62 owl:versionInfo "2.1.0";
+  sh:path eli:date_document;
+  sh:name "date document"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  shacl-play:shortname "date_document" .
+
+pld:P63 owl:versionInfo "2.3.0";
+  sh:path epvoc:identifierYear;
+  sh:name "identifier year"@en;
+  skos:example "2024";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifierYear" .
+
+pld:P64 owl:versionInfo "2.1.0";
+  sh:path dcterms:title;
+  sh:name "title"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title_dcterms" .
+
+pld:P65 owl:versionInfo "2.1.0";
+  sh:path rdfs:label;
+  sh:name "label"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "label" .
+
+pld:P66 owl:versionInfo "2.3.0";
+  sh:path epvoc:epNumber;
+  sh:name "ep number"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "epNumber" .
+
+pld:P67 owl:versionInfo "2.3.0";
+  sh:path skos:notation;
+  sh:name "notation"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype epvoc:publicRegister;
+  shacl-play:shortname "notation_publicRegister" .
+
+pld:P68 owl:versionInfo "2.1.0";
+  sh:path eli-dl:parliamentary_term;
+  sh:name "parliamentary term"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/org/ep-.*$";
+  shacl-play:shortname "parliamentary_term" .
+
+pld:P69 owl:versionInfo "2.1.0";
+  sh:path epvoc:originalLanguage;
+  sh:name "original language"@en;
+  sh:minCount "0"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:LanguageReference;
+  shacl-play:shortname "originalLanguage" .
+
+pld:P70 owl:versionInfo "2.1.0";
+  sh:path eli:is_about;
+  sh:name "is about descriptor"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:ConceptReference;
+  shacl-play:shortname "is_about" .
+
+pld:P71 owl:versionInfo "2.1.0";
+  sh:path epvoc:isAboutSubjectMatter;
+  sh:name "is about subject matter"@en;
+  skos:example "http://publications.europa.eu/resource/authority/subject-matter/MARI";
+  sh:nodeKind sh:IRI;
+  sh:node pld:ConceptSubjectMatterReference;
+  sh:pattern "http://publications.europa.eu/resource/authority/subject-matter/.*$";
+  shacl-play:shortname "isAboutSubjectMatter" .
+
+pld:P72 owl:versionInfo "2.1.0";
+  sh:path epvoc:isAboutDirectoryCode;
+  sh:name "is about directory code"@en;
+  skos:example "http://publications.europa.eu/resource/authority/dir-eu-legal-act/062020";
+  sh:nodeKind sh:IRI;
+  sh:node pld:ConceptDirectoryCodeReference;
+  sh:pattern "http://publications.europa.eu/resource/authority/dir-eu-legal-act/.*$";
+  shacl-play:shortname "isAboutDirectoryCode" .
+
+pld:P73 owl:versionInfo "2.1.0";
+  sh:path dcterms:creator;
+  sh:name "creator"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:or _:a701ed0bc8f44446a3a682c5adf0356f2468;
+  shacl-play:shortname "creator" .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2468 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2469;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2470 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2469 sh:node pld:OrganizationReference .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2470 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2471;
+  rdf:rest rdf:nil .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2471 sh:node pld:PersonReference .
+
+pld:P74 owl:versionInfo "2.1.0";
+  sh:path dcterms:publisher;
+  sh:name "publisher"@en;
+  skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:OrganizationReference;
+  sh:hasValue <https://data.europarl.europa.eu/org/EU_PARLIAMENT>;
+  shacl-play:shortname "publisher" .
+
+pld:P75 owl:versionInfo "2.1.0";
+  sh:path eli:based_on;
+  sh:name "based on"@en;
+  sh:minCount "0"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  shacl-play:shortname "based_on" .
+
+pld:P76 owl:versionInfo "2.1.0";
+  sh:path eli:is_realized_by;
+  sh:name "is realized by"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/RC-9-2024-0063/en";
+  sh:minCount "0"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:Expression;
+  shacl-play:shortname "is_realized_by" .
+
+pld:P77 owl:versionInfo "2.1.0";
+  sh:path eli:is_derivative_of;
+  sh:name "is derivative of"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/B-9-2024-0080";
+  sh:minCount "0"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  shacl-play:shortname "is_derivative_of" .
+
+pld:P78 owl:versionInfo "2.1.0";
+  sh:path epvoc:workHadParticipation;
+  sh:name "stakeholder participant"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/participation/RC-9-2024-0063_185341";
+  sh:minCount "0"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:Participation;
+  shacl-play:shortname "workHadParticipation" .
+
+pld:P79 owl:versionInfo "2.1.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2472;
+  sh:name "inverse foresees change of"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:AmendmentListWork;
+  shacl-play:shortname "inverse_foresees_change_of" .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2472 sh:inversePath eli-dl:foresees_change_of .
+
+pld:P80 owl:versionInfo "2.1.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2473;
+  sh:name "inverse created a realization of"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:ProcessReference;
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "inverse_created_a_realization_of" .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2473 sh:inversePath eli-dl:created_a_realization_of .
+
+pld:P81 owl:versionInfo "2.1.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2474;
+  sh:name "inverse based on a realization of"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:ActivityReference;
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "inverse_based_on_a_realization_of" .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2474 sh:inversePath eli-dl:based_on_a_realization_of .
+
+pld:P83 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue eli:Work;
+  shacl-play:shortname "type" .
+
+pld:P84 owl:versionInfo "2.1.0";
+  sh:path eli:work_type;
+  sh:name "work type"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-document-types/QUESTION_RESOLUTION_MOTION";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:WorkTypeReference;
+  sh:hasValue ep-document-types:QUESTION_RESOLUTION_MOTION;
+  sh:pattern "https://data.europarl.europa.eu/def/ep-document-types/.*$";
+  shacl-play:shortname "work_type" .
+
+pld:P85 owl:versionInfo "2.1.0";
+  sh:path eli:date_document;
+  sh:name "date document"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  shacl-play:shortname "date_document" .
+
+pld:P86 owl:versionInfo "2.1.0";
+  sh:path dcterms:identifier;
+  sh:name "identifier"@en;
+  skos:example "QOB-9-2024-0003";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifier" .
+
+pld:P87 owl:versionInfo "2.3.0";
+  sh:path epvoc:identifierYear;
+  sh:name "identifier year"@en;
+  skos:example "2024";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifierYear" .
+
+pld:P88 owl:versionInfo "2.1.0";
+  sh:path dcterms:title;
+  sh:name "title"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title_dcterms" .
+
+pld:P89 owl:versionInfo "2.1.0";
+  sh:path rdfs:label;
+  sh:name "label"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "label" .
+
+pld:P90 owl:versionInfo "2.3.0";
+  sh:path epvoc:epNumber;
+  sh:name "ep number"@en;
+  skos:example "PE757.526";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "epNumber" .
+
+pld:P91 owl:versionInfo "2.3.0";
+  sh:path skos:notation;
+  sh:name "notation"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype epvoc:publicRegister;
+  shacl-play:shortname "notation_publicRegister" .
+
+pld:P92 owl:versionInfo "2.1.0";
+  sh:path eli-dl:parliamentary_term;
+  sh:name "parliamentary term"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/org/ep-.*$";
+  shacl-play:shortname "parliamentary_term" .
+
+pld:P93 owl:versionInfo "2.1.0";
+  sh:path epvoc:originalLanguage;
+  sh:name "original language"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:LanguageReference;
+  shacl-play:shortname "originalLanguage" .
+
+pld:P94 owl:versionInfo "2.1.0";
+  sh:path eli:is_about;
+  sh:name "is about descriptor"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:ConceptReference;
+  shacl-play:shortname "is_about" .
+
+pld:P95 owl:versionInfo "2.1.0";
+  sh:path epvoc:isAboutSubjectMatter;
+  sh:name "is about subject matter"@en;
+  skos:example "http://publications.europa.eu/resource/authority/subject-matter/MARI";
+  sh:nodeKind sh:IRI;
+  sh:node pld:ConceptSubjectMatterReference;
+  sh:pattern "http://publications.europa.eu/resource/authority/subject-matter/.*$";
+  shacl-play:shortname "isAboutSubjectMatter" .
+
+pld:P96 owl:versionInfo "2.1.0";
+  sh:path epvoc:isAboutDirectoryCode;
+  sh:name "is about directory code"@en;
+  skos:example "http://publications.europa.eu/resource/authority/dir-eu-legal-act/062020";
+  sh:nodeKind sh:IRI;
+  sh:node pld:ConceptDirectoryCodeReference;
+  sh:pattern "http://publications.europa.eu/resource/authority/dir-eu-legal-act/.*$";
+  shacl-play:shortname "isAboutDirectoryCode" .
+
+pld:P97 owl:versionInfo "2.1.0";
+  sh:path dcterms:creator;
+  sh:name "creator"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:or _:a701ed0bc8f44446a3a682c5adf0356f2475;
+  shacl-play:shortname "creator" .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2475 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2476;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2477 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2476 sh:node pld:OrganizationReference .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2477 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2478;
+  rdf:rest rdf:nil .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2478 sh:node pld:PersonReference .
+
+pld:P98 owl:versionInfo "2.1.0";
+  sh:path dcterms:publisher;
+  sh:name "publisher"@en;
+  skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:OrganizationReference;
+  sh:hasValue <https://data.europarl.europa.eu/org/EU_PARLIAMENT>;
+  shacl-play:shortname "publisher" .
+
+pld:P99 owl:versionInfo "2.1.0";
+  sh:path eli:based_on;
+  sh:name "based on"@en;
+  sh:nodeKind sh:IRI;
+  shacl-play:shortname "based_on" .
+
+pld:P100 owl:versionInfo "2.1.0";
+  sh:path eli:is_realized_by;
+  sh:name "is realized by"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:Expression;
+  shacl-play:shortname "is_realized_by" .
+
+pld:P101 owl:versionInfo "2.1.0";
+  sh:path eli:is_derivative_of;
+  sh:name "is derivative of"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/O-9-2023-000058";
+  sh:nodeKind sh:IRI;
+  shacl-play:shortname "is_derivative_of" .
+
+pld:P102 owl:versionInfo "2.1.0";
+  sh:path epvoc:workHadParticipation;
+  sh:name "stakeholder participant"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:Participation;
+  shacl-play:shortname "workHadParticipation" .
+
+pld:P103 owl:versionInfo "2.1.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2479;
+  sh:name "inverse foresees change of"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:AmendmentListWork;
+  shacl-play:shortname "inverse_foresees_change_of" .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2479 sh:inversePath eli-dl:foresees_change_of .
+
+pld:P104 owl:versionInfo "2.1.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2480;
+  sh:name "inverse created a realization of"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:ProcessReference;
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "inverse_created_a_realization_of" .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2480 sh:inversePath eli-dl:created_a_realization_of .
+
+pld:P105 owl:versionInfo "2.1.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2481;
+  sh:name "inverse based on a realization of"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:ActivityReference;
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "inverse_based_on_a_realization_of" .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2481 sh:inversePath eli-dl:based_on_a_realization_of .
+
+pld:P107 owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue eli:Work;
+  shacl-play:shortname "type" .
+
+pld:P108 owl:versionInfo "1.0";
+  sh:path dcterms:identifier;
+  sh:name "identifier"@en;
+  skos:example "A-9-2022-0081-AM-001-001";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifier" .
+
+pld:P109 owl:versionInfo "2.1.0";
+  sh:path eli:work_type;
+  sh:name "work type"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-document-types/AMENDMENT_LIST";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:WorkTypeReference;
+  sh:hasValue ep-document-types:AMENDMENT_LIST;
+  sh:pattern "https://data.europarl.europa.eu/def/ep-document-types/.*$";
+  shacl-play:shortname "work_type" .
+
+pld:P110 owl:versionInfo "1.0";
+  sh:path eli:date_document;
+  sh:name "date document"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  shacl-play:shortname "date_document" .
+
+pld:P111 owl:versionInfo "2.3.0";
+  sh:path epvoc:identifierYear;
+  sh:name "identifier year"@en;
+  skos:example "2023";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifierYear" .
+
+pld:P112 owl:versionInfo "1.0";
+  sh:path dcterms:title;
+  sh:name "title"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title_dcterms" .
+
+pld:P113 owl:versionInfo "1.0";
+  sh:path rdfs:label;
+  sh:name "label"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "label" .
+
+pld:P114 owl:versionInfo "1.0";
+  sh:path epvoc:epNumber;
+  sh:name "ep number"@en;
+  skos:example "PE756.742";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "epNumber" .
+
+pld:P115 owl:versionInfo "1.0";
+  sh:path epvoc:epNumberVersion;
+  sh:name "ep number version"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "epNumberVersion" .
+
+pld:P116 owl:versionInfo "2.3.0";
+  sh:path epvoc:numbering;
+  sh:name "numbering"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:integer;
+  shacl-play:shortname "numbering" .
+
+pld:P117 owl:versionInfo "2.3.0";
+  sh:path eli:number;
+  sh:name "number"@en;
+  skos:example "001-001";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string .
+
+pld:P118 owl:versionInfo "2.3.0";
+  sh:path epvoc:itemNumberBegin;
+  sh:name "item number begin"@en;
+  skos:example "1";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:integer;
+  shacl-play:shortname "itemNumberBegin" .
+
+pld:P119 owl:versionInfo "2.3.0";
+  sh:path epvoc:itemNumberEnd;
+  sh:name "item number end"@en;
+  skos:example "1";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:integer;
+  shacl-play:shortname "itemNumberEnd" .
+
+pld:P120 owl:versionInfo "1.0";
+  sh:path skos:notation;
+  sh:name "notation"@en;
+  sh:nodeKind sh:Literal;
+  sh:datatype epvoc:publicRegister;
+  shacl-play:shortname "notation_publicRegister" .
+
+pld:P121 owl:versionInfo "2.3.0";
+  sh:path eli-dl:parliamentary_term;
+  sh:name "parliamentary term"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/org/ep-.*$";
+  shacl-play:shortname "parliamentary_term" .
+
+pld:P122 owl:versionInfo "1.1";
+  sh:path epvoc:originalLanguage;
+  sh:name "original language"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:LanguageReference;
+  shacl-play:shortname "originalLanguage" .
+
+pld:P123 owl:versionInfo "2.1.0";
+  sh:path dcterms:publisher;
+  sh:name "publisher"@en;
+  skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:OrganizationReference;
+  sh:hasValue <https://data.europarl.europa.eu/org/EU_PARLIAMENT>;
+  shacl-play:shortname "publisher" .
+
+pld:P124 owl:versionInfo "1.0";
+  sh:path eli:is_realized_by;
+  sh:name "is realized by"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:Expression;
+  shacl-play:shortname "is_realized_by" .
+
+pld:P125 owl:versionInfo "2.3.0";
+  sh:path eli-dl:foresees_change_of;
+  sh:name "foresees change of"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/A-9-2022-0081";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:or _:a701ed0bc8f44446a3a682c5adf0356f2482;
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "foresees_change_of" .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2482 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2483;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2484 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2483 sh:node pld:ReportPlenaryWork .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2484 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2485;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2486 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2485 sh:node pld:ResolutionMotionWork .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2486 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2487;
+  rdf:rest rdf:nil .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2487 sh:node pld:ResolutionMotionJointWork .
+
+pld:P127 owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli:Work;
+  shacl-play:shortname "type" .
+
+pld:P128 owl:versionInfo "1.0";
+  sh:path dcterms:identifier;
+  sh:name "identifier"@en;
+  skos:example "A-8-2019-0200-ERR01";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:pattern "A-[0-9]{1,2}-[0-9]{4}-[0-9]{4}-ERR[0-9]{2}";
+  shacl-play:shortname "identifier" .
+
+pld:P129 owl:versionInfo "2.1.0";
+  sh:path eli:work_type;
+  sh:name "work type"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-document-types/ERRATUM";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:WorkTypeReference;
+  sh:hasValue ep-document-types:ERRATUM;
+  sh:pattern "https://data.europarl.europa.eu/def/ep-document-types/.*$";
+  shacl-play:shortname "work_type" .
+
+pld:P130 owl:versionInfo "1.0";
+  sh:path eli:date_document;
+  sh:name "date document"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  shacl-play:shortname "date_document" .
+
+pld:P131 owl:versionInfo "2.3.0";
+  sh:path epvoc:identifierYear;
+  sh:name "identifier year"@en;
+  skos:example "2019";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:pattern "[0-9]{4}";
+  shacl-play:shortname "identifierYear" .
+
+pld:P132 owl:versionInfo "1.0";
+  sh:path dcterms:title;
+  sh:name "title"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title_dcterms" .
+
+pld:P133 owl:versionInfo "1.0";
+  sh:path rdfs:label;
+  sh:name "label"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "label" .
+
+pld:P134 owl:versionInfo "2.3.0";
+  sh:path epvoc:numbering;
+  sh:name "numbering"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:integer;
+  shacl-play:shortname "numbering" .
+
+pld:P135 owl:versionInfo "2.3.0";
+  sh:path eli:number;
+  sh:name "number"@en;
+  skos:example "01";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string .
+
+pld:P136 owl:versionInfo "1.0";
+  sh:path skos:notation;
+  sh:name "notation"@en;
+  sh:nodeKind sh:Literal;
+  sh:datatype epvoc:publicRegister;
+  shacl-play:shortname "notation_publicRegister" .
+
+pld:P137 owl:versionInfo "2.3.0";
+  sh:path eli-dl:parliamentary_term;
+  sh:name "parliamentary term"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/org/ep-.*$";
+  shacl-play:shortname "parliamentary_term" .
+
+pld:P138 owl:versionInfo "1.1";
+  sh:path epvoc:originalLanguage;
+  sh:name "original language"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:LanguageReference;
+  shacl-play:shortname "originalLanguage" .
+
+pld:P139 owl:versionInfo "2.1.0";
+  sh:path dcterms:publisher;
+  sh:name "publisher"@en;
+  skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:OrganizationReference;
+  sh:hasValue <https://data.europarl.europa.eu/org/EU_PARLIAMENT>;
+  shacl-play:shortname "publisher" .
+
+pld:P140 owl:versionInfo "1.0";
+  sh:path eli:is_realized_by;
+  sh:name "is realized by"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:Expression;
+  shacl-play:shortname "is_realized_by" .
+
+pld:P141 owl:versionInfo "2.3.0";
+  sh:path eli:corrects;
+  sh:name "corrects"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:PlenaryReport;
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "corrects" .
+
+pld:P143 owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli:Expression;
+  shacl-play:shortname "type" .
+
+pld:P144 owl:versionInfo "1.0";
+  sh:path eli:title;
+  sh:name "title"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title" .
+
+pld:P145 owl:versionInfo "1.0";
+  sh:path eli:title_alternative;
+  sh:name "alternative title"@en;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title_alternative" .
+
+pld:P146 owl:versionInfo "1.0";
+  sh:path eli:is_embodied_by;
+  sh:name "is embodied by"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:Manifestation;
+  shacl-play:shortname "is_embodied_by" .
+
+pld:P147 owl:versionInfo "1.1";
+  sh:path eli:language;
+  sh:name "language"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:LanguageReference;
+  shacl-play:shortname "language" .
+
+pld:P149 owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli:Manifestation;
+  shacl-play:shortname "type" .
+
+pld:P150 owl:versionInfo "1.0";
+  sh:path dcterms:issued;
+  sh:name "issued"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:dateTime;
+  shacl-play:shortname "issued" .
+
+pld:P151 owl:versionInfo "1.0";
+  sh:path eli:is_exemplified_by;
+  sh:name "is exemplified by"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  shacl-play:shortname "is_exemplified_by" .
+
+pld:P152 owl:versionInfo "2.3.0";
+  sh:path epvoc:byteSize;
+  sh:name "byte size"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:long;
+  shacl-play:shortname "byteSize" .
+
+pld:P153 owl:versionInfo "1.1";
+  sh:path dcterms:format;
+  sh:name "format"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:MediaTypeOrExtentReference;
+  sh:in _:a701ed0bc8f44446a3a682c5adf0356f2488;
+  shacl-play:shortname "format" .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2488 rdf:first file-type:PDF;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2489 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2489 rdf:first file-type:XML;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2490 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2490 rdf:first file-type:DOCX;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2491 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2491 rdf:first file-type:DOC;
+  rdf:rest rdf:nil .
+
+pld:P154 owl:versionInfo "1.0";
+  sh:path eli:media_type;
+  sh:name "media type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  shacl-play:shortname "media_type" .
+
+pld:P156 owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli-dl:Participation;
+  shacl-play:shortname "type" .
+
+pld:P157 owl:versionInfo "2.1.0";
+  sh:path eli-dl:participation_role;
+  sh:name "participation role"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-roles/AUTHOR";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:ParticipationRoleReference;
+  sh:in _:a701ed0bc8f44446a3a682c5adf0356f2492;
+  shacl-play:shortname "participation_role" .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2492 rdf:first ep-roles:AUTHOR;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2493 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2493 rdf:first ep-roles:RAPPORTEUR;
+  rdf:rest rdf:nil .
+
+pld:P158 owl:versionInfo "2.1.0";
+  sh:path eli-dl:had_participant_organization;
+  sh:name "participation organization"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:OrganizationReference;
+  shacl-play:shortname "had_participant_organization" .
+
+pld:P159 owl:versionInfo "2.1.0";
+  sh:path eli-dl:participation_in_name_of;
+  sh:name "participation in name of"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:OrganizationReference;
+  shacl-play:shortname "participation_in_name_of" .
+
+pld:P160 owl:versionInfo "1.1";
+  sh:path eli-dl:had_participant_person;
+  sh:name "participation person"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node pld:PersonReference;
+  shacl-play:shortname "had_participant_person" .
+
+pld:P162 owl:versionInfo "1.1";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli:WorkType;
+  sh:deactivated "true"^^xsd:boolean .
+
+pld:P163 owl:versionInfo "2.1.0";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue ept:ep-document-types;
+  sh:deactivated "true"^^xsd:boolean .
+
+pld:P165 owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue dcterms:LinguisticSystem;
+  sh:deactivated "true"^^xsd:boolean .
+
+pld:P166 owl:versionInfo "1.1";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue op-aut:language;
+  sh:deactivated "true"^^xsd:boolean .
+
+pld:P168 owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue dcterms:MediaTypeOrExtent;
+  sh:deactivated "true"^^xsd:boolean .
+
+pld:P169 owl:versionInfo "1.1";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue op-aut:format;
+  sh:deactivated "true"^^xsd:boolean .
+
+pld:P171 owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:hasValue eli-dl:ParticipationRole;
+  sh:deactivated "true"^^xsd:boolean .
+
+pld:P172 owl:versionInfo "2.1.0";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue ept:ep-roles;
+  sh:deactivated "true"^^xsd:boolean .
+
+pld:P174 owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue skos:Concept;
+  sh:deactivated "true"^^xsd:boolean .
+
+pld:P175 owl:versionInfo "1.1";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue <http://eurovoc.europa.eu>;
+  sh:deactivated "true"^^xsd:boolean .
+
+pld:P177 owl:versionInfo "1.3.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue skos:Concept;
+  sh:deactivated "true"^^xsd:boolean .
+
+pld:P178 owl:versionInfo "1.3.0";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue op-aut:subject-matter;
+  sh:deactivated "true"^^xsd:boolean .
+
+pld:P180 owl:versionInfo "1.3.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue skos:Concept;
+  sh:deactivated "true"^^xsd:boolean .
+
+pld:P181 owl:versionInfo "1.3.0";
+  sh:path skos:inScheme;
+  sh:name "Is in scheme"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue op-aut:dir-eu-legal-act;
+  sh:deactivated "true"^^xsd:boolean .
+
+pld:P183 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:hasValue org:Organization;
+  sh:deactivated "true"^^xsd:boolean .
+
+pld:P185 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:hasValue foaf:Person;
+  sh:deactivated "true"^^xsd:boolean .
+
+pld:P187 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli-dl:Process;
+  sh:deactivated "true"^^xsd:boolean .
+
+pld:P188 owl:versionInfo "2.1.0";
+  sh:path eli-dl:created_a_realization_of;
+  sh:name "created a realization of"@en;
+  sh:nodeKind sh:IRI;
+  sh:or _:a701ed0bc8f44446a3a682c5adf0356f2494 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2494 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2495;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2496 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2495 sh:node pld:ReportPlenaryWork .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2496 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2497;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2498 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2497 sh:node pld:ResolutionMotionWork .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2498 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2499;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2500 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2499 sh:node pld:ResolutionMotionJointWork .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2500 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2501;
+  rdf:rest rdf:nil .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2501 sh:node pld:QuestionResolutionMotionWork .
+
+pld:P190 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli-dl:Decision;
+  sh:deactivated "true"^^xsd:boolean .
+
+pld:P191 owl:versionInfo "2.1.0";
+  sh:path eli-dl:had_activity_type;
+  sh:name "had activity type"@en;
+  sh:nodeKind sh:IRI;
+  sh:deactivated "true"^^xsd:boolean .
+
+pld:P192 owl:versionInfo "2.1.0";
+  sh:path eli-dl:decided_a_realization_of;
+  sh:name "decided on a realization of"@en;
+  sh:nodeKind sh:IRI;
+  sh:node pld:ReportPlenaryWork .
+
+pld:P194 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli-dl:Activity;
+  sh:deactivated "true"^^xsd:boolean .
+
+pld:P195 owl:versionInfo "2.1.0";
+  sh:path eli-dl:had_activity_type;
+  sh:name "had activity type"@en;
+  sh:nodeKind sh:IRI;
+  sh:deactivated "true"^^xsd:boolean .
+
+pld:P196 owl:versionInfo "2.1.0";
+  sh:path eli-dl:created_a_realization_of;
+  sh:name "created a realization of"@en;
+  sh:nodeKind sh:IRI;
+  sh:or _:a701ed0bc8f44446a3a682c5adf0356f2502 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2502 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2503;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2504 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2503 sh:node pld:ReportPlenaryWork .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2504 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2505;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2506 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2505 sh:node pld:ResolutionMotionWork .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2506 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2507;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2508 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2507 sh:node pld:ResolutionMotionJointWork .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2508 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2509;
+  rdf:rest rdf:nil .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2509 sh:node pld:QuestionResolutionMotionWork .
+
+pld:P198 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli:Work;
+  sh:deactivated "true"^^xsd:boolean .
+
+pld:P199 owl:versionInfo "2.1.0";
+  sh:path eli:work_type;
+  sh:name "work type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue ep-document-types:REPORT_PARLIAMENTARY_COMMITTEE_DRAFT;
+  sh:deactivated "true"^^xsd:boolean .
