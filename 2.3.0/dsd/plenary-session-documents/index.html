@@ -1,0 +1,2344 @@
+<!DOCTYPE HTML><html lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <style>
+		
+			body {
+						margin: 0;
+						font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+							"Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+							"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+							"Noto Color Emoji";
+						background-color: #fff;
+					}
+					
+					.anchor {
+						float: left;
+						padding-right: 4px;
+						margin-left: -20px;
+						line-height: 1;
+						padding-top: 12px;
+					}
+							
+					a {
+						color: #007bff;
+						text-decoration: none;
+						background-color: transparent;
+					}
+					
+					a:-webkit-any-link {
+						cursor: pointer;
+					}
+					
+					.p {
+						font-size: 0.875em;
+					}
+					
+					h2 {
+						margin: 25px 0px 10px 0px;
+					}
+					
+					h3 {
+						font-size: 1.4em;
+					}
+					
+					@media only print {
+					}
+					
+					@page {
+						size: A4 portrait;
+						margin-top: 1.2cm;
+						margin-bottom: 1.2cm;
+						margin-left: 1.2cm;
+						margin-right: 1.2cm;
+						background-repeat: no-repeat;
+						background-position: 40px 10px;
+						
+						@bottom-center
+						{
+						content
+						:
+						counter(
+						page
+						);
+					}
+					
+					}
+							
+					/* This section draw the format web */
+					.ul_type_none {
+						list-style-type: none;
+					}
+					
+					.sp_list_description_properties {
+						/* don't set it lower otherwise it gets hidden in PDF */
+						padding-left: 20px;
+					}
+					
+					dl, ol, ul {
+						margin-top: 0;
+						margin-bottom: 1rem;
+					}
+					
+					li {
+						display: list-item;
+						text-align: -webkit-match-parent;
+					}
+					
+					.sp_section_title_header {
+						font-family: Georgia, Garamond, serif;	
+						margin-top: 25px;
+						margin-bottom: 2.5rem;
+					    font-size: 1.5625rem;
+						display: block;
+						font-weight: 500;
+						color: #1e1e1f;
+						line-height: 1.2em;   
+					}
+					
+					.sp_section_subtitle {
+						font-family: Georgia, Garamond, serif;	
+						margin-top: 0;
+						margin-bottom: 0.5rem;
+						display: block;
+						font-weight: 500;
+						color: #1e1e1f;
+						line-height: 1.2em;  
+					}
+					
+					.sp_section_title_table {
+						font-family: Georgia, Garamond, serif;	
+						/* 0 because URI is right under */
+						margin-bottom: 0rem;
+						display: block;
+						font-weight: 500;
+						color: #1e1e1f;
+						line-height: 1.2em; 
+					}
+							
+
+					.sp_section_title_toc {
+						font-family: Georgia, Garamond, serif;	
+					}
+
+					/* URI below the title of the section */
+					.sp_section_uri	 {
+						margin-top: 0px;
+					}
+
+					/* div wrapping section title and URI below - same as a paragraph margin */
+					.sp_section_title_table_wrapper {
+						margin-bottom: 16px;
+						border-bottom: 1px solid;	
+					}
+					
+					 
+					table {
+						display: table;
+						border-spacing: 0px;
+						margin-bottom: 1rem;
+					}
+					
+					tr:nth-child(even) {
+						background-color: #eee;
+					}
+							
+					.sp_table_prefixes table {
+						border-collapse: collapse;
+						margin-bottom: 1rem;
+						color: #212529;
+					}
+											
+					.sp_table_prefixes td {
+						padding: 0.25rem;
+						vertical-align: top;
+						border-top: 1px solid #dee2e6;
+					}
+					
+					.sp_table_propertyshapes {
+						border-collapse: collapse;
+						width: 100%;
+					}
+										
+					.sp_table_propertyshapes thead {
+						display: table-header-group;
+						vertical-align: middle;
+						border-color: inherit;
+					}
+													
+					.sp_table_propertyshapes tr {
+					    display: table-row;
+					    vertical-align: inherit;
+					    border-color: inherit;					    
+					}
+													
+					.sp_table_propertyshapes th:nth-child(4) {
+						width: 6%;
+					}
+													
+					.sp_table_propertyshapes td {
+						padding: 0.75rem;
+						border-top: 1px solid #dee2e6;
+					}
+													
+					.sp_table_propertyshapes tbody {
+						display: table-row-group;
+						vertical-align: middle;
+						border-color: inherit;
+					}
+										
+					.sp_table_propertyshapes_col_description {
+						word-break: break-word;
+					}
+					
+					tr.sp_propertyGroup {
+						font-style: italic;
+						background-color: #def0f7;
+					}
+					
+					tr.sp_propertyGroup td {
+						border-bottom: 1px solid black;
+						padding-bottom: 0.25 rem;
+					}
+					
+					.sp_serialization_badge {
+						margin-right: 0.5em;
+					}
+					
+					
+							.container {
+							    width: calc(100% - 40px);
+							    max-width: 1000px;
+							    margin-left: 300px;
+							    margin-right: auto;
+							}
+							.container {width: calc(100% - 500px);}
+							.toc {
+								position: fixed;
+								top: 0;
+								left: 0;
+								font-size: small;
+								padding: 10px 10px;
+								width: auto;
+								border-right: solid 2px #eeeeee;
+								bottom: 0;
+								overflow-y: scroll;
+								background-color:white;
+								max-width:255px;
+							}
+							.sp_list_toc {padding-left: 0px;}
+							.sp_list_toc_l2 {padding-left: 10px;}	
+							.sp_list_toc_l3 {padding-left: 8px;}					
+						</style>
+      <meta charset="UTF-8">
+      <meta name="lang" content="en">
+      <meta property="og:locale" content="en">
+      <title>Plenary session documents dataset description</title>
+      <meta name="apple-mobile-web-app-title" content="Plenary session documents dataset description">
+      <meta name="twitter:title" content="Plenary session documents dataset description">
+      <meta property="og:title" content="Plenary session documents dataset description"><script type="application/ld+json">{
+    "datePublished": "2022-11-18",
+    "license": ["https://www.europarl.europa.eu/legal-notice/"],
+    "@type": "TechArticle",
+    "author": [{
+        "@type": "Organization",
+        "url": "https://publications.europa.eu/resource/authority/corporate-body/EP"
+    }],
+    "name": "Plenary session documents dataset description",
+    "publisher": [{
+        "@type": "Organization",
+        "url": "https://publications.europa.eu/resource/authority/corporate-body/EP"
+    }],
+    "@context": "https://schema.org",
+    "version": "2.3.0",
+    "url": "https://data.europarl.europa.eu/def/plenary-session-documents#"
+}</script></head>
+   <body>
+      <div class="sp_container_principal container pt-4">
+         <table style="width:100%">
+            <tr>
+               <td width="20%"><img src="https://www.europarl.europa.eu/portal/img/ep-logo.svg"></td>
+               <td width="80%">
+                  <h1 class="mb-4 sp_section_title_header">Plenary session documents dataset description</h1>
+               </td>
+            </tr>
+         </table>
+         <div><b>Creation date: </b>2022-11-18<br><b>Last updated: </b>2024-10-26 00:00:00<br><b>Copyright date: </b>2022<br><b>Version: </b>2.3.0<br><b>License: </b><a href="https://www.europarl.europa.eu/legal-notice/" target="_blank">https://www.europarl.europa.eu/legal-notice/</a><br><b>Creator: </b><a href="https://publications.europa.eu/resource/authority/corporate-body/EP" target="_blank">https://publications.europa.eu/resource/authority/corporate-body/EP</a><br><b>Publisher: </b><a href="https://publications.europa.eu/resource/authority/corporate-body/EP" target="_blank">https://publications.europa.eu/resource/authority/corporate-body/EP</a><br><b id="formats">Download serialization: </b><div><span class="sp_serialization_badge"><a href="https://europarl.github.io/eli-ep/2.3.0/dsd/plenary-session-documents/eli-ep_plenary-session-documents.shacl.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.png" alt="TTL"></a></span></div><br></div>
+         <div class="sp_section_title_toc toc">
+            <h2 id="Index">Table of Contents</h2>
+            <ul role="list" class="sp_list_toc ul_type_none t-x-mode">
+               <li><a href="#prefixes">Namespaces</a></li>
+               <li><a href="#description">Description</a></li>
+               <li><a href="#documentation">Model documentation</a><ul role="list" class="ul_type_none sp_list_toc_l2">
+                     <li><a href="#psd:PlenaryAgendaPartSessionComplexWork">ComplexWork Plenary agenda</a></li>
+                     <li><a href="#psd:PlenarySittingAgendaWork">Work Plenary sitting agenda</a></li>
+                     <li><a href="#psd:PlenaryMinutesWork">Work Plenary minutes</a></li>
+                     <li><a href="#psd:PlenaryRcvWork">Work Plenary Rcv</a></li>
+                     <li><a href="#psd:PlenaryVotesWork">Work Plenary votes</a></li>
+                     <li><a href="#psd:PlenaryAttWork">Work Plenary Att</a></li>
+                     <li><a href="#psd:PlenaryDebatesWork">Work Plenary debates</a></li>
+                     <li><a href="#psd:PlenaryAgendaPartSessionWork">Versioned Work</a></li>
+                     <li><a href="#psd:Expression">Realized By</a></li>
+                     <li><a href="#psd:Manifestation">Is embodied by</a></li>
+                     <li><a href="#psd:WorkSubdivision">Work Subdivision (ITM)</a></li>
+                     <li><a href="#psd:WorkTypeReference">Reference to a Work Type</a></li>
+                     <li><a href="#psd:LanguageReference">Reference to a language</a></li>
+                     <li><a href="#psd:MediaTypeOrExtentReference">Reference to a Format</a></li>
+                     <li><a href="#psd:VersionReference">Reference to a Status</a></li>
+                     <li><a href="#psd:SubdivisionTypeReference">Reference to a Subdivision Type</a></li>
+                     <li><a href="#psd:PlenaryPartSessionReference">Reference to a Activity (Plenary Part Session)</a></li>
+                     <li><a href="#psd:PlenarySittingReference">Reference to a Activity (Plenary Sitting)</a></li>
+                     <li><a href="#psd:PlenarySittingItemReference">Reference to a Activity (Plenary Debate, Plenary Vote, Plenary Vote Results, ...)</a></li>
+                     <li><a href="#psd:OrganizationReference">Reference to an Organization</a></li>
+                  </ul>
+               </li>
+               <li><a href="#releaseNotes">Release notes</a></li>
+            </ul>
+         </div>
+         <div class="row mt-3">
+            <div class="col">
+               <section id="prefixes">
+                  <h2 class="sp_section_subtitle">Namespaces</h2>
+                  <table class="sp_table_prefixes table table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Prefix</th>
+                           <th>Namespace</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>dcat</td>
+                           <td><a href="http://www.w3.org/ns/dcat#" target="_blank">http://www.w3.org/ns/dcat#</a></td>
+                        </tr>
+                        <tr>
+                           <td>dcterms</td>
+                           <td><a href="http://purl.org/dc/terms/" target="_blank">http://purl.org/dc/terms/</a></td>
+                        </tr>
+                        <tr>
+                           <td>eli</td>
+                           <td><a href="http://data.europa.eu/eli/ontology#" target="_blank">http://data.europa.eu/eli/ontology#</a></td>
+                        </tr>
+                        <tr>
+                           <td>eli-dl</td>
+                           <td><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#" target="_blank">http://data.europa.eu/eli/eli-draft-legislation-ontology#</a></td>
+                        </tr>
+                        <tr>
+                           <td>ep-document-types</td>
+                           <td><a href="https://data.europarl.europa.eu/def/ep-document-types/" target="_blank">https://data.europarl.europa.eu/def/ep-document-types/</a></td>
+                        </tr>
+                        <tr>
+                           <td>ept</td>
+                           <td><a href="https://data.europarl.europa.eu/def/" target="_blank">https://data.europarl.europa.eu/def/</a></td>
+                        </tr>
+                        <tr>
+                           <td>epvoc</td>
+                           <td><a href="https://data.europarl.europa.eu/def/epvoc#" target="_blank">https://data.europarl.europa.eu/def/epvoc#</a></td>
+                        </tr>
+                        <tr>
+                           <td>euvoc</td>
+                           <td><a href="http://publications.europa.eu/ontology/euvoc#" target="_blank">http://publications.europa.eu/ontology/euvoc#</a></td>
+                        </tr>
+                        <tr>
+                           <td>org</td>
+                           <td><a href="http://www.w3.org/ns/org#" target="_blank">http://www.w3.org/ns/org#</a></td>
+                        </tr>
+                        <tr>
+                           <td>rdf</td>
+                           <td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#" target="_blank">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a></td>
+                        </tr>
+                        <tr>
+                           <td>rdfs</td>
+                           <td><a href="http://www.w3.org/2000/01/rdf-schema#" target="_blank">http://www.w3.org/2000/01/rdf-schema#</a></td>
+                        </tr>
+                        <tr>
+                           <td>skos</td>
+                           <td><a href="http://www.w3.org/2004/02/skos/core#" target="_blank">http://www.w3.org/2004/02/skos/core#</a></td>
+                        </tr>
+                        <tr>
+                           <td>subdivision</td>
+                           <td><a href="http://publications.europa.eu/resource/authority/subdivision/" target="_blank">http://publications.europa.eu/resource/authority/subdivision/</a></td>
+                        </tr>
+                        <tr>
+                           <td>xsd</td>
+                           <td><a href="http://www.w3.org/2001/XMLSchema#" target="_blank">http://www.w3.org/2001/XMLSchema#</a></td>
+                        </tr>
+                     </tbody>
+                   </table>
+               </section>
+            </div>
+   <div>
+            <h2 id="diagram" class="sp_section_subtitle"><a class="anchorjs-link " aria-label="Anchor"
+                  data-anchorjs-icon="#" href="#diagram"
+                  style="position: absolute; margin-left: -1.25em; padding-right: 0.25em; padding-left: 0.25em;"></a>Diagram
+            </h2>
+   
+            <figure id="fig-diagram">
+               <a title="Click to open the diagram at full size" href="./eli-ep_plenary-session-documents.svg" target="_blank"><img
+                     alt="Diagram" src="./eli-ep_plenary-session-documents.svg" width="120%" /></a>
+               <figcaption>Plenary Session documents diagram</figcaption>
+            </figure>
+   
+         </div>
+   
+      </div>
+      
+      
+      <br><div>
+            <h2 id="documentation" class="sp_section_subtitle">Model documentation</h2>
+         <div class="row mt-3">
+            <div class="col">
+               <section id="psd:PlenaryAgendaPartSessionComplexWork">
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 class="sp_section_title_table">ComplexWork Plenary agenda</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-session-documents#PlenaryAgendaPartSessionComplexWork</code></div>
+                  <p><em>This node shape represents a subset of eli:ComplexWork</em></p>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/OJ-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/OJ-9-2021-07-05</code></li>
+                  </ul>Applies to: <br><code>
+                     <pre>PREFIX eli: &lt;http://data.europa.eu/eli/ontology#&gt;&#xD;
+SELECT ?this&#xD;
+WHERE {&#xD;
+ ?this a eli:ComplexWork.&#xD;
+ ?this eli:work_type &lt;https://data.europarl.europa.eu/def/ep-document-types/AGENDA_PLENARY_WEEK&gt;.&#xD;
+}</pre></code><table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>date document</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#date_document">eli:date_document</a></code></td>
+                           <td><code>xsd:date</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>ep number</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#epNumber">ept:epvoc#epNumber</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>has current version</td>
+                           <td><code><a href="http://www.w3.org/ns/dcat#hasCurrentVersion">dcat:hasCurrentVersion</a></code></td>
+                           <td><code><a href="#psd:PlenaryAgendaPartSessionWork">Versioned Work</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>has member</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#has_member">eli:has_member</a></code></td>
+                           <td><code><a href="#psd:PlenaryAgendaPartSessionWork">Versioned Work</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>identifier</td>
+                           <td><code><a href="http://purl.org/dc/terms/identifier">dcterms:identifier</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>identifier year</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#identifierYear">ept:epvoc#identifierYear</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>inverse documented by a realization of</td>
+                           <td><code>^eli-dl:documented_by_a_realization_of</code></td>
+                           <td><code><a href="#psd:PlenaryPartSessionReference">Reference to a Activity (Plenary Part Session)</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>inverse is derivative of</td>
+                           <td><code>^eli:is_derivative_of</code></td>
+                           <td><code><a href="#psd:PlenarySittingAgendaWork">Work Plenary sitting agenda</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>label</td>
+                           <td><code><a href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>parliamentary term</td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#parliamentary_term">eli-dl:parliamentary_term</a></code></td>
+                           <td><code>IRI</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>publisher</td>
+                           <td><code><a href="http://purl.org/dc/terms/publisher">dcterms:publisher</a></code></td>
+                           <td><code><a href="#psd:OrganizationReference">Reference to an Organization</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>title</td>
+                           <td><code><a href="http://purl.org/dc/terms/title">dcterms:title</a></code></td>
+                           <td><code>rdf:langString</code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>type</td>
+                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#ComplexWork">eli:ComplexWork</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>work type</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#work_type">eli:work_type</a></code></td>
+                           <td><code><a href="#psd:WorkTypeReference">Reference to a Work Type</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section id="psd:PlenarySittingAgendaWork">
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 class="sp_section_title_table">Work Plenary sitting agenda</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-session-documents#PlenarySittingAgendaWork</code></div>
+                  <p><em>This node shape represents a subset of eli:Work</em></p>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/OJQ-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/OJQ-9-2021-07-05</code></li>
+                  </ul>Applies to: <br><code>
+                     <pre>PREFIX eli: &lt;http://data.europa.eu/eli/ontology#&gt;&#xD;
+SELECT ?this&#xD;
+WHERE {&#xD;
+ ?this a eli:Work.&#xD;
+ ?this eli:work_type &lt;https://data.europarl.europa.eu/def/ep-document-types/AGENDA_PLENARY_DAY&gt; .&#xD;
+}</pre></code><table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>date document</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#date_document">eli:date_document</a></code></td>
+                           <td><code>xsd:date</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>ep number</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#epNumber">ept:epvoc#epNumber</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>identifier</td>
+                           <td><code><a href="http://purl.org/dc/terms/identifier">dcterms:identifier</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>identifier year</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#identifierYear">ept:epvoc#identifierYear</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>inverse documented by a realization of</td>
+                           <td><code>^eli-dl:documented_by_a_realization_of</code></td>
+                           <td><code><a href="#psd:PlenarySittingReference">Reference to a Activity (Plenary Sitting)</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>is derivative of</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#is_derivative_of">eli:is_derivative_of</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/plenary-session-documents#PlenaryAgendaPartSession">psd:PlenaryAgendaPartSession</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>is realized by</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#is_realized_by">eli:is_realized_by</a></code></td>
+                           <td><code><a href="#psd:Expression">Realized By</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>label</td>
+                           <td><code><a href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>parliamentary term</td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#parliamentary_term">eli-dl:parliamentary_term</a></code></td>
+                           <td><code>IRI</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>publisher</td>
+                           <td><code><a href="http://purl.org/dc/terms/publisher">dcterms:publisher</a></code></td>
+                           <td><code><a href="#psd:OrganizationReference">Reference to an Organization</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>title</td>
+                           <td><code><a href="http://purl.org/dc/terms/title">dcterms:title</a></code></td>
+                           <td><code>rdf:langString</code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>type</td>
+                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Work">eli:Work</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>work type</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#work_type">eli:work_type</a></code></td>
+                           <td><code><a href="#psd:WorkTypeReference">Reference to a Work Type</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section id="psd:PlenaryMinutesWork">
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 class="sp_section_title_table">Work Plenary minutes</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-session-documents#PlenaryMinutesWork</code></div>
+                  <p><em>This node shape represents a subset of eli:Work</em></p>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/PV-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/PV-9-2021-07-05</code></li>
+                  </ul>Applies to: <br><code>
+                     <pre>PREFIX eli: &lt;http://data.europa.eu/eli/ontology#&gt;&#xD;
+SELECT ?this&#xD;
+WHERE {&#xD;
+ ?this a eli:Work.&#xD;
+ ?this eli:work_type &lt;https://data.europarl.europa.eu/def/ep-document-types/MINUTES_PLENARY&gt; .&#xD;
+}</pre></code><table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>date document</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#date_document">eli:date_document</a></code></td>
+                           <td><code>xsd:date</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>ep number</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#epNumber">ept:epvoc#epNumber</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>identifier</td>
+                           <td><code><a href="http://purl.org/dc/terms/identifier">dcterms:identifier</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>identifier year</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#identifierYear">ept:epvoc#identifierYear</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>inverse is annex of</td>
+                           <td><code>^eli:is_annex_of</code></td>
+                           <td><code><a href="#psd:PlenaryRcvWork">psd:PlenaryRcvWork</a></code><code> or </code><code><a href="#psd:PlenaryAttWork">psd:PlenaryAttWork</a></code><code> or </code><code><a href="#psd:PlenaryVotesWork">psd:PlenaryVotesWork</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>inverse is part of</td>
+                           <td><code>^eli:is_part_of</code></td>
+                           <td><code><a href="#psd:WorkSubdivision">Work Subdivision (ITM)</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>inverse recorded in a realization of</td>
+                           <td><code>^eli-dl:recorded_in_a_realization_of</code></td>
+                           <td><code><a href="#psd:PlenarySittingReference">Reference to a Activity (Plenary Sitting)</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>is realized by</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#is_realized_by">eli:is_realized_by</a></code></td>
+                           <td><code><a href="#psd:Expression">Realized By</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>label</td>
+                           <td><code><a href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>parliamentary term</td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#parliamentary_term">eli-dl:parliamentary_term</a></code></td>
+                           <td><code>IRI</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>publisher</td>
+                           <td><code><a href="http://purl.org/dc/terms/publisher">dcterms:publisher</a></code></td>
+                           <td><code><a href="#psd:OrganizationReference">Reference to an Organization</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>title</td>
+                           <td><code><a href="http://purl.org/dc/terms/title">dcterms:title</a></code></td>
+                           <td><code>rdf:langString</code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>type</td>
+                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Work">eli:Work</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>work type</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#work_type">eli:work_type</a></code></td>
+                           <td><code><a href="#psd:WorkTypeReference">Reference to a Work Type</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section id="psd:PlenaryRcvWork">
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 class="sp_section_title_table">Work Plenary Rcv</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-session-documents#PlenaryRcvWork</code></div>
+                  <p><em>This node shape represents a subset of eli:Work</em></p>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/PV-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}-RCV$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/PV-9-2021-07-05-RCV</code></li>
+                  </ul>Applies to: <br><code>
+                     <pre>PREFIX eli: &lt;http://data.europa.eu/eli/ontology#&gt;&#xD;
+SELECT ?this&#xD;
+WHERE {&#xD;
+ ?this a eli:Work.&#xD;
+ ?this eli:work_type &lt;https://data.europarl.europa.eu/def/ep-document-types/VOTE_ROLLCALL_PLENARY&gt; .&#xD;
+}</pre></code><table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>date document</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#date_document">eli:date_document</a></code></td>
+                           <td><code>xsd:date</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>ep number</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#epNumber">ept:epvoc#epNumber</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>identifier</td>
+                           <td><code><a href="http://purl.org/dc/terms/identifier">dcterms:identifier</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>identifier year</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#identifierYear">ept:epvoc#identifierYear</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>inverse is part of</td>
+                           <td><code>^eli:is_part_of</code></td>
+                           <td><code><a href="#psd:WorkSubdivision">Work Subdivision (ITM)</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>inverse recorded in a realization of</td>
+                           <td><code>^eli-dl:recorded_in_a_realization_of</code></td>
+                           <td><code><a href="#psd:PlenarySittingReference">Reference to a Activity (Plenary Sitting)</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>is annex of</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#is_annex_of">eli:is_annex_of</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/plenary-session-documents#PlenaryMinutes">psd:PlenaryMinutes</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>is realized by</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#is_realized_by">eli:is_realized_by</a></code></td>
+                           <td><code><a href="#psd:Expression">Realized By</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>label</td>
+                           <td><code><a href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>parliamentary term</td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#parliamentary_term">eli-dl:parliamentary_term</a></code></td>
+                           <td><code>IRI</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>publisher</td>
+                           <td><code><a href="http://purl.org/dc/terms/publisher">dcterms:publisher</a></code></td>
+                           <td><code><a href="#psd:OrganizationReference">Reference to an Organization</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>title</td>
+                           <td><code><a href="http://purl.org/dc/terms/title">dcterms:title</a></code></td>
+                           <td><code>rdf:langString</code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>type</td>
+                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Work">eli:Work</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>work type</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#work_type">eli:work_type</a></code></td>
+                           <td><code><a href="#psd:WorkTypeReference">Reference to a Work Type</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section id="psd:PlenaryVotesWork">
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 class="sp_section_title_table">Work Plenary votes</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-session-documents#PlenaryVotesWork</code></div>
+                  <p><em>This node shape represents a subset of eli:Work</em></p>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/PV-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}-VOT$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/PV-9-2021-07-05-VOT</code></li>
+                  </ul>Applies to: <br><code>
+                     <pre>PREFIX eli: &lt;http://data.europa.eu/eli/ontology#&gt;&#xD;
+SELECT ?this&#xD;
+WHERE {&#xD;
+ ?this a eli:Work.&#xD;
+ ?this eli:work_type &lt;https://data.europarl.europa.eu/def/ep-document-types/VOTE_RESULTS_PLENARY&gt; .&#xD;
+}</pre></code><table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>date document</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#date_document">eli:date_document</a></code></td>
+                           <td><code>xsd:date</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>ep number</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#epNumber">ept:epvoc#epNumber</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>identifier</td>
+                           <td><code><a href="http://purl.org/dc/terms/identifier">dcterms:identifier</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>identifier year</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#identifierYear">ept:epvoc#identifierYear</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>inverse is part of</td>
+                           <td><code>^eli:is_part_of</code></td>
+                           <td><code><a href="#psd:WorkSubdivision">Work Subdivision (ITM)</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>inverse recorded in a realization of</td>
+                           <td><code>^eli-dl:recorded_in_a_realization_of</code></td>
+                           <td><code><a href="#psd:PlenarySittingReference">Reference to a Activity (Plenary Sitting)</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>is annex of</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#is_annex_of">eli:is_annex_of</a></code></td>
+                           <td><code><a href="#psd:PlenaryMinutesWork">Work Plenary minutes</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>is realized by</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#is_realized_by">eli:is_realized_by</a></code></td>
+                           <td><code><a href="#psd:Expression">Realized By</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>label</td>
+                           <td><code><a href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>parliamentary term</td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#parliamentary_term">eli-dl:parliamentary_term</a></code></td>
+                           <td><code>IRI</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>publisher</td>
+                           <td><code><a href="http://purl.org/dc/terms/publisher">dcterms:publisher</a></code></td>
+                           <td><code><a href="#psd:OrganizationReference">Reference to an Organization</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>title</td>
+                           <td><code><a href="http://purl.org/dc/terms/title">dcterms:title</a></code></td>
+                           <td><code>rdf:langString</code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>type</td>
+                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Work">eli:Work</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>work type</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#work_type">eli:work_type</a></code></td>
+                           <td><code><a href="#psd:WorkTypeReference">Reference to a Work Type</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section id="psd:PlenaryAttWork">
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 class="sp_section_title_table">Work Plenary Att</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-session-documents#PlenaryAttWork</code></div>
+                  <p><em>This node shape represents a subset of eli:Work</em></p>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/PV-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}-ATT$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/PV-9-2021-07-05-ATT</code></li>
+                  </ul>Applies to: <br><code>
+                     <pre>PREFIX eli: &lt;http://data.europa.eu/eli/ontology#&gt;&#xD;
+SELECT ?this&#xD;
+WHERE {&#xD;
+ ?this a eli:Work.&#xD;
+ ?this eli:work_type &lt;https://data.europarl.europa.eu/def/ep-document-types/LIST_ATTEND_PLENARY&gt; .&#xD;
+}</pre></code><table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>date document</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#date_document">eli:date_document</a></code></td>
+                           <td><code>xsd:date</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>ep number</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#epNumber">ept:epvoc#epNumber</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>identifier</td>
+                           <td><code><a href="http://purl.org/dc/terms/identifier">dcterms:identifier</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>identifier year</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#identifierYear">ept:epvoc#identifierYear</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>inverse recorded in a realization of</td>
+                           <td><code>^eli-dl:recorded_in_a_realization_of</code></td>
+                           <td><code><a href="#psd:PlenarySittingReference">Reference to a Activity (Plenary Sitting)</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>is annex of</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#is_annex_of">eli:is_annex_of</a></code></td>
+                           <td><code><a href="#psd:PlenaryMinutesWork">Work Plenary minutes</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>is realized by</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#is_realized_by">eli:is_realized_by</a></code></td>
+                           <td><code><a href="#psd:Expression">Realized By</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>label</td>
+                           <td><code><a href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>parliamentary term</td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#parliamentary_term">eli-dl:parliamentary_term</a></code></td>
+                           <td><code>IRI</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>publisher</td>
+                           <td><code><a href="http://purl.org/dc/terms/publisher">dcterms:publisher</a></code></td>
+                           <td><code><a href="#psd:OrganizationReference">Reference to an Organization</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>title</td>
+                           <td><code><a href="http://purl.org/dc/terms/title">dcterms:title</a></code></td>
+                           <td><code>rdf:langString</code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>type</td>
+                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Work">eli:Work</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>work type</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#work_type">eli:work_type</a></code></td>
+                           <td><code><a href="#psd:WorkTypeReference">Reference to a Work Type</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section id="psd:PlenaryDebatesWork">
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 class="sp_section_title_table">Work Plenary debates</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-session-documents#PlenaryDebatesWork</code></div>
+                  <p><em>This node shape represents a subset of eli:Work</em></p>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/CRE-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/CRE-9-2021-07-05</code></li>
+                  </ul>Applies to: <br><code>
+                     <pre>PREFIX eli: &lt;http://data.europa.eu/eli/ontology#&gt;&#xD;
+SELECT ?this&#xD;
+WHERE {&#xD;
+ ?this a eli:Work.&#xD;
+ ?this eli:work_type &lt;https://data.europarl.europa.eu/def/ep-document-types/CRE_PLENARY&gt; .&#xD;
+}</pre></code><table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>date document</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#date_document">eli:date_document</a></code></td>
+                           <td><code>xsd:date</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>identifier</td>
+                           <td><code><a href="http://purl.org/dc/terms/identifier">dcterms:identifier</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>identifier year</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#identifierYear">ept:epvoc#identifierYear</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>inverse is part of</td>
+                           <td><code>^eli:is_part_of</code></td>
+                           <td><code><a href="#psd:WorkSubdivision">Work Subdivision (ITM)</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>inverse recorded in a realization of</td>
+                           <td><code>^eli-dl:recorded_in_a_realization_of</code></td>
+                           <td><code><a href="#psd:PlenarySittingReference">Reference to a Activity (Plenary Sitting)</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>is realized by</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#is_realized_by">eli:is_realized_by</a></code></td>
+                           <td><code><a href="#psd:Expression">Realized By</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>label</td>
+                           <td><code><a href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>parliamentary term</td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#parliamentary_term">eli-dl:parliamentary_term</a></code></td>
+                           <td><code>IRI</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>publisher</td>
+                           <td><code><a href="http://purl.org/dc/terms/publisher">dcterms:publisher</a></code></td>
+                           <td><code><a href="#psd:OrganizationReference">Reference to an Organization</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>title</td>
+                           <td><code><a href="http://purl.org/dc/terms/title">dcterms:title</a></code></td>
+                           <td><code>rdf:langString</code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>type</td>
+                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Work">eli:Work</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>work type</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#work_type">eli:work_type</a></code></td>
+                           <td><code><a href="#psd:WorkTypeReference">Reference to a Work Type</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section id="psd:PlenaryAgendaPartSessionWork">
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 class="sp_section_title_table">Versioned Work</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-session-documents#PlenaryAgendaPartSessionWork</code></div>
+                  <p><em>This node shape represents a subset of eli:Work</em></p>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/OJ-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}-(FNL|PRV|REV|ADP)$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/OJ-9-2024-02-26-FNL</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>date document</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#date_document">eli:date_document</a></code></td>
+                           <td><code>xsd:date</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>ep number</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#epNumber">ept:epvoc#epNumber</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>identifier</td>
+                           <td><code><a href="http://purl.org/dc/terms/identifier">dcterms:identifier</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>identifier year</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#identifierYear">ept:epvoc#identifierYear</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>is realized by</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#is_realized_by">eli:is_realized_by</a></code></td>
+                           <td><code><a href="#psd:Expression">Realized By</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>label</td>
+                           <td><code><a href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>notation</td>
+                           <td><code><a href="http://www.w3.org/2004/02/skos/core#notation">skos:notation</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#publicRegister">ept:epvoc#publicRegister</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>parliamentary term</td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#parliamentary_term">eli-dl:parliamentary_term</a></code></td>
+                           <td><code>IRI</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>publisher</td>
+                           <td><code><a href="http://purl.org/dc/terms/publisher">dcterms:publisher</a></code></td>
+                           <td><code><a href="#psd:OrganizationReference">Reference to an Organization</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>title</td>
+                           <td><code><a href="http://purl.org/dc/terms/title">dcterms:title</a></code></td>
+                           <td><code>rdf:langString</code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>type</td>
+                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Work">eli:Work</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>version status</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#versionType">ept:epvoc#versionType</a></code></td>
+                           <td><code><a href="#psd:VersionReference">Reference to a Status</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>work type</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#work_type">eli:work_type</a></code></td>
+                           <td><code><a href="#psd:WorkTypeReference">Reference to a Work Type</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section id="psd:Expression">
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 class="sp_section_title_table">Realized By</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-session-documents#Expression</code></div>
+                  <p><em>This node shape represents a subset of eli:Expression</em></p>
+                  <ul class="sp_list_description_properties">
+                     <li>Applies to: <a href="http://data.europa.eu/eli/ontology#Expression">eli:Expression</a></li>
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\-_]+/[a-z]{2,3}$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/PV-9-2024-02-26/sl</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>is embodied by</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#is_embodied_by">eli:is_embodied_by</a></code></td>
+                           <td><code><a href="#psd:Manifestation">Is embodied by</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>language</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#language">eli:language</a></code></td>
+                           <td><code><a href="#psd:LanguageReference">Reference to a language</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>title</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#title">eli:title</a></code></td>
+                           <td><code>rdf:langString</code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>type</td>
+                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Expression">eli:Expression</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section id="psd:Manifestation">
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 class="sp_section_title_table">Is embodied by</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-session-documents#Manifestation</code></div>
+                  <p><em>This node shape represents a subset of eli:Manifestation</em></p>
+                  <ul class="sp_list_description_properties">
+                     <li>Applies to: <a href="http://data.europa.eu/eli/ontology#Manifestation">eli:Manifestation</a></li>
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\-_]+/[a-z]{2,3}/.*$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/PV-9-2024-02-26/bg/xml</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>byte size</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#byteSize">ept:epvoc#byteSize</a></code></td>
+                           <td><code>xsd:long</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>format</td>
+                           <td><code><a href="http://purl.org/dc/terms/format">dcterms:format</a></code></td>
+                           <td><code><a href="#psd:MediaTypeOrExtentReference">Reference to a Format</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>is exemplified by</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#is_exemplified_by">eli:is_exemplified_by</a></code></td>
+                           <td><code>IRI</code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>issued</td>
+                           <td><code><a href="http://purl.org/dc/terms/issued">dcterms:issued</a></code></td>
+                           <td><code>xsd:dateTime</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>media type</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#media_type">eli:media_type</a></code></td>
+                           <td><code>IRI</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>type</td>
+                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Manifestation">eli:Manifestation</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section id="psd:WorkSubdivision">
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 class="sp_section_title_table">Work Subdivision (ITM)</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-session-documents#WorkSubdivision</code></div>
+                  <p><em>This node shape represents a subset of eli:WorkSubdivision</em></p>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/(PV|CRE)-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}(-(?:VOT|RCV))?-ITM-[0-9]{3}(-[0-9]{2})?$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/PV-9-2024-02-26-ITM-022-01</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>expression content</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#expressionContent">ept:epvoc#expressionContent</a></code></td>
+                           <td><code>rdf:langString</code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>identifier</td>
+                           <td><code><a href="http://purl.org/dc/terms/identifier">dcterms:identifier</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>inverse is part of</td>
+                           <td><code>^eli:is_part_of</code></td>
+                           <td><code><a href="#psd:WorkSubdivision">Work Subdivision (ITM)</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>inverse recorded in a realization of</td>
+                           <td><code>^eli-dl:recorded_in_a_realization_of</code></td>
+                           <td><code><a href="#psd:PlenarySittingItemReference">Reference to a Activity (Plenary Debate, Plenary Vote, Plenary Vote Results, ...)</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>inverse refers to</td>
+                           <td><code>^eli:refers_to</code></td>
+                           <td><code><a href="#psd:WorkSubdivision">Work Subdivision (ITM)</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>is part of</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#is_part_of">eli:is_part_of</a></code></td>
+                           <td><code><a href="#psd:PlenaryMinutes">psd:PlenaryMinutes</a></code><code> or </code><code><a href="#psd:PlenaryRcvWork">psd:PlenaryRcvWork</a></code><code> or </code><code><a href="#psd:PlenaryVotesWork">psd:PlenaryVotesWork</a></code><code> or </code><code><a href="#psd:PlenaryDebatesWork">psd:PlenaryDebatesWork</a></code><code> or </code><code><a href="#psd:WorkSubdivision">psd:WorkSubdivision</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>number</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#number">eli:number</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>numbering</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#numbering">ept:epvoc#numbering</a></code></td>
+                           <td><code>xsd:integer</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>refers to</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#refers_to">eli:refers_to</a></code></td>
+                           <td><code>IRI</code><br><p><small><a href="http://data.europa.eu/eli/ontology#WorkSubdivision">eli:WorkSubdivision</a>, <a href="http://data.europa.eu/eli/ontology#Work">eli:Work</a>, <a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#Process">eli-dl:Process</a></small></p>
+                           </td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>title</td>
+                           <td><code><a href="http://purl.org/dc/terms/title">dcterms:title</a></code></td>
+                           <td><code>rdf:langString</code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>type</td>
+                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#WorkSubdivision">eli:WorkSubdivision</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>type subdivision</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#type_subdivision">eli:type_subdivision</a></code></td>
+                           <td><code><a href="#psd:SubdivisionTypeReference">Reference to a Subdivision Type</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section id="psd:WorkTypeReference">
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 class="sp_section_title_table">Reference to a Work Type</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-session-documents#WorkTypeReference</code></div>
+                  <p><em>This node shape refers to the class eli:WorkType</em></p>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>https://data.europarl.europa.eu/def/ep-document-types/.*$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/def/ep-document-types//MINUTES_PLENARY</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Is in scheme</td>
+                           <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/ep-document-types">ept:ep-document-types</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>type</td>
+                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#WorkType">eli:WorkType</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section id="psd:LanguageReference">
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 class="sp_section_title_table">Reference to a language</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-session-documents#LanguageReference</code></div>
+                  <p><em>This node shape refers to the class dcterms:LinguisticSystem</em></p>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>http://publications.europa.eu/resource/authority/language/.*$</code></li>
+                     <li>Example: <code>http://publications.europa.eu/resource/authority/language/ENG</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Is in scheme</td>
+                           <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                           <td><code>op-aut:language</code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>type</td>
+                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://purl.org/dc/terms/LinguisticSystem">dcterms:LinguisticSystem</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section id="psd:MediaTypeOrExtentReference">
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 class="sp_section_title_table">Reference to a Format</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-session-documents#MediaTypeOrExtentReference</code></div>
+                  <p><em>This node shape refers to the class dcterms:MediaTypeOrExtent</em></p>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>http://publications.europa.eu/resource/authority/file-type/.*$</code></li>
+                     <li>Example: <code>http://publications.europa.eu/resource/authority/file-type/PDF</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Is in scheme</td>
+                           <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                           <td><code>op-aut:format</code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>type</td>
+                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://purl.org/dc/terms/MediaTypeOrExtent">dcterms:MediaTypeOrExtent</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section id="psd:VersionReference">
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 class="sp_section_title_table">Reference to a Status</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-session-documents#VersionReference</code></div>
+                  <p><em>This node shape refers to the class euvoc:FileStatus</em></p>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>http://publications.europa.eu/resource/authority/file-status/.*$</code></li>
+                     <li>Example: <code>http://publications.europa.eu/resource/authority/file-status/FINAL</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Is in scheme</td>
+                           <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                           <td><code>op-aut:file-status</code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>type</td>
+                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://publications.europa.eu/ontology/euvoc#FileStatus">euvoc:FileStatus</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section id="psd:SubdivisionTypeReference">
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 class="sp_section_title_table">Reference to a Subdivision Type</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-session-documents#SubdivisionTypeReference</code></div>
+                  <p><em>This node shape refers to the class eli:SubdivisionType</em></p>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>http://publications.europa.eu/resource/authority/subdivision/.*$</code></li>
+                     <li>Example: <code>http://publications.europa.eu/resource/authority/subdivision/ITM</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Is in scheme</td>
+                           <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
+                           <td><code>op-aut:subdivision</code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>type</td>
+                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://publications.europa.eu/ontology/euvoc#FileStatus">euvoc:FileStatus</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section id="psd:PlenaryPartSessionReference">
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 class="sp_section_title_table">Reference to a Activity (Plenary Part Session)</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-session-documents#PlenaryPartSessionReference</code></div>
+                  <p><em>This node shape refers to the class eli-dl:Activity</em></p>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\-_]+$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/event/GMTG-PL-2024-01-15</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>recorded in a realization of</td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#recorded_in_a_realization_of">eli-dl:recorded_in_a_realization_of</a></code></td>
+                           <td><code><a href="#psd:PlenaryAgendaPartSessionComplexWork">ComplexWork Plenary agenda</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>type</td>
+                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#Activity">eli-dl:Activity</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section id="psd:PlenarySittingReference">
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 class="sp_section_title_table">Reference to a Activity (Plenary Sitting)</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-session-documents#PlenarySittingReference</code></div>
+                  <p><em>This node shape refers to the class eli-dl:Activity</em></p>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\-_]+$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-01-15</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>recorded in a realization of</td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#recorded_in_a_realization_of">eli-dl:recorded_in_a_realization_of</a></code></td>
+                           <td><code><a href="#psd:PlenarySittingAgendaWork">psd:PlenarySittingAgendaWork</a></code><code> or </code><code><a href="#psd:PlenaryMinutes">psd:PlenaryMinutes</a></code><code> or </code><code><a href="#psd:PlenaryRcvWork">psd:PlenaryRcvWork</a></code><code> or </code><code><a href="#psd:PlenaryAttWork">psd:PlenaryAttWork</a></code><code> or </code><code><a href="#psd:PlenaryVotesWork">psd:PlenaryVotesWork</a></code><code> or </code><code><a href="#psd:PlenaryDebatesWork">psd:PlenaryDebatesWork</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>type</td>
+                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#Activity">eli-dl:Activity</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section id="psd:PlenarySittingItemReference">
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 class="sp_section_title_table">Reference to a Activity (Plenary Debate, Plenary Vote, Plenary Vote Results, ...)</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-session-documents#PlenarySittingItemReference</code></div>
+                  <p><em>This node shape refers to the class eli-dl:Activity</em></p>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\-_]+$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-01-16-PVCRE-ITM-5</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>recorded in a realization of</td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#recorded_in_a_realization_of">eli-dl:recorded_in_a_realization_of</a></code></td>
+                           <td><code><a href="#psd:WorkSubdivision">Work Subdivision (ITM)</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>type</td>
+                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#Activity">eli-dl:Activity</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section id="psd:OrganizationReference">
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 class="sp_section_title_table">Reference to an Organization</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-session-documents#OrganizationReference</code></div>
+                  <p><em>This node shape refers to the class org:Organization</em></p>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/org/.*$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/org/EU_PARLIAMENT</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>type</td>
+                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://www.w3.org/ns/org#Organization">org:Organization</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div>
+            <h2 id="releaseNotes" class="sp_section_subtitle">Release notes</h2><p>2.3.0 - 2024-10-26 (minor/patch)</p>
+<ul>
+<li>(*) Changes impacting data:</li>
+<li>(rfc) change local-id of psd:WorkSubdivision URI, add regex to sh:pattern</li>
+<li>(rfc) change wrong sh:datatype for epvoc:numbering (previously xsd:string) and eli:number (old xsd:integer) for psd:WorkSubdivision</li>
+<li>(*) Other documentation changes (no impact on data):</li>
+<li>(rfc) added regex pattern to local-ids of URIs, also to some properties</li>
+<li>(rfc) added missing cardinalities</li>
+<li>(rfc) added sh:hasValue, sh:in</li>
+<li>(rfc) add shacl-play:background-color</li>
+<li>(rfc) rename some shapes for background-colour formula</li>
+</ul>
+<p>2.2.1 - 2024-04-11 (minor)</p>
+<ul>
+<li>(rfc) remove psd:WorkSubdivisionSpeech and psd:PlenarySittingSpeechReference (it will be provided via a new service) and epvoc:expressionContent for psd:Expression</li>
+</ul>
+<p>2.1.0 - 2024-03-21 (major)</p>
+<ul>
+<li>(rfc) add new psd:WorkSubdivisionSpeech and psd:PlenarySittingSpeechReference</li>
+<li>(rfc) add new properties for psd:WorkSubdivision and psd:Expression</li>
+<li>(new) add missing [sh:inversePath eli:is_part_of] for psd:PlenaryVotes</li>
+<li>(new) add psd:WorkSubdivision for psd:PlenaryDebates</li>
+<li>(rfc) eli:work_type[eli:WorkType] values based on the EP taxonomy ep-document-types (AGENDA_PLENARY_WEEK, AGENDA_PLENARY_DAY, MINUTES_PLENARY, VOTE_RESULTS_PLENARY, VOTE_ROLLCALL_PLENARY, LIST_ATTEND_PLENARY, CRE_PLENARY) and not EU AT (op-aut:resource-type)</li>
+<li>(rfc) dcterms:publisher will be based on org:Organization as EP data</li>
+<li>(rfc) CRE_PLENARY will be only eli:Work, no more eli:ComplexWork</li>
+<li>(rfc) rename shapes psd:PlenaryAgendaPartSession to psd:PlenaryAgendaPartSessionComplexWork; also psd:VersionedWork to psd:PlenaryAgendaPartSessionWork</li>
+<li>(new) add new shapes psd:PlenaryPartSessionReference, psd:PlenarySittingReference, psd:PlenarySittingItemReference</li>
+<li>(rfc) change of JSON key using &quot;inverse_&quot; (api/v2 only)</li>
+</ul>
+<p>1.5.0 - 2023-12-08</p>
+<ul>
+<li>(new) add epvoc:expressionContent</li>
+<li>(new) add eli:refers_to for eli:WorkSubdivision, eli:Work and eli-dl:Process</li>
+<li>(rf) PLENARY_AGENDA_EP only eli:Work, no more eli:ComplexWork</li>
+</ul>
+<p>1.3.0 - 2023-09-26</p>
+<ul>
+<li>(rfc) change target scope (psd:PlenarySittingAgenda, psd:PlenaryRcv, psd:PlenaryVotes, psd:PlenaryAtt moved from Other Shapes to Main Shapes).</li>
+<li>(rfc) removed eli:ComplexWork class for PLENARY_MINUTES_EP (PV), PLENARY_ATT_LIST_EP (ATT), PLENARY_VOTES (VOT). Remark: in the upcoming releases PLENARY_AGENDA_EP and PLENARY_CRE_EP will also be available only as eli:Work.</li>
+<li>(rfc) correct eli-dl:recorded_in_realization_of by eli-dl:recorded_in_a_realization_of</li>
+<li>(rfc) remove shape psd:VersionedAnnexWork, as it is not used</li>
+<li>(rfc) change psd:Expression and psd:Manifestation pattern to manage not only 2 letters, but also 3 - in case for mul (multilingual).</li>
+<li>(new) add eli:WorkSubdivision for PV and RCV</li>
+<li>(new) add [sh:inversePath eli-dl:recorded_in_a_realization_of], [sh:inversePath eli-dl:documented_by_a_realization_of]</li>
+</ul>
+<p>1.1 - 2023-04-27</p>
+<ul>
+<li>eli:date_document sh:datatype is xsd:date, and not xsd:dateTime</li>
+<li>remove external shapes (incl. controlled vocabularies data) in datasets.</li>
+</ul>
+<p>1.0 - 2022-11-18</p>
+<ul>
+<li>creation</li>
+</ul>
+</div>
+      </div><script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js">//</script><script>				
+					anchors.options = {
+	                    icon: '#'
+	                  };
+               		anchors.options.placement = 'left';
+					anchors.add();		
+				</script></body>
+</html>
