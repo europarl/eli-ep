@@ -36,9 +36,23 @@
   rdfs:label "Plenary session documents dataset description"@en;
   dcterms:title "Plenary session documents dataset description"@en;
   dcterms:description "This Dataset Description is a subset of the general ELI-EP application profile and it includes classes and properties used in Plenary session documents datasets. Descriptions of classes and properties can be found in ELI-EP application profile."@en;
-  owl:versionInfo "2.1.0";
-  adms:versionNotes """2.1.0 - 2024-04-11 (major)
-- remark: plenary speeches will be published in a dedicated service (API) in the upcoming weeks
+  owl:versionInfo "2.3.0";
+  adms:versionNotes """2.3.0 - 2024-10-26 (minor/patch)
+- (*) Changes impacting data:
+- (rfc) change local-id of psd:WorkSubdivision URI, add regex to sh:pattern 
+- (rfc) change wrong sh:datatype for epvoc:numbering (previously xsd:string) and eli:number (old xsd:integer) for psd:WorkSubdivision
+- (*) Other documentation changes (no impact on data):
+- (rfc) added regex pattern to local-ids of URIs, also to some properties
+- (rfc) added missing cardinalities
+- (rfc) added sh:hasValue, sh:in
+- (rfc) add shacl-play:background-color
+- (rfc) rename some shapes for background-colour formula
+
+2.2.1 - 2024-04-11 (minor)
+- (rfc) remove psd:WorkSubdivisionSpeech and psd:PlenarySittingSpeechReference (it will be provided via a new service) and epvoc:expressionContent for psd:Expression
+
+2.1.0 - 2024-03-21 (major)
+- (rfc) add new psd:WorkSubdivisionSpeech and psd:PlenarySittingSpeechReference
 - (rfc) add new properties for psd:WorkSubdivision and psd:Expression
 - (new) add missing [sh:inversePath eli:is_part_of] for psd:PlenaryVotes
 - (new) add psd:WorkSubdivision for psd:PlenaryDebates
@@ -73,28 +87,29 @@
   owl:versionIRI <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   dcterms:conformsTo <https://www.w3.org/TR/shacl>;
   dcterms:created "2022-11-18"^^xsd:date;
-  dcterms:modified "2024-04-11T00:00:00.000Z"^^xsd:dateTime;
+  dcterms:modified "2024-10-26T00:00:00.000Z"^^xsd:dateTime;
   dcterms:dateCopyrighted "2022"^^xsd:gYear;
   dcterms:license <https://www.europarl.europa.eu/legal-notice/>;
   dcterms:creator <https://publications.europa.eu/resource/authority/corporate-body/EP>;
   dcterms:publisher <https://publications.europa.eu/resource/authority/corporate-body/EP>;
   dcterms:rigthsHolder <https://publications.europa.eu/resource/authority/corporate-body/EURUN>;
-  dcat:distribution _:a7c8ac44478040d2b35e9c51a45ca5572 .
+  dcat:distribution _:a701ed0bc8f44446a3a682c5adf0356f2510 .
 
-_:a7c8ac44478040d2b35e9c51a45ca5572 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
-  dcat:downloadURL <https://europarl.github.io/eli-ep/dsd/plenary-session-documents/eli-ep_plenary-session-documents.shacl.ttl> .
+_:a701ed0bc8f44446a3a682c5adf0356f2510 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
+  dcat:downloadURL <https://europarl.github.io/eli-ep/2.3.0/dsd/plenary-session-documents/eli-ep_plenary-session-documents.shacl.ttl> .
 
 psd:PlenaryAgendaPartSessionComplexWork a sh:NodeShape;
+  owl:versionInfo "2.3.0";
   rdfs:comment "This node shape represents a subset of eli:ComplexWork"@en;
   sh:target psd:PlenaryAgendaPartSessionComplexWork-target;
   skos:example "https://data.europarl.europa.eu/eli/dl/doc/OJ-9-2021-07-05";
   sh:nodeKind sh:IRI;
-  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/OJ-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}$";
   sh:closed "true"^^xsd:boolean;
-  rdfs:label "ComplexWork Plenary agenda"@en;
   sh:order "1"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "Magenta";
+  shacl-play:color "White";
+  shacl-play:background-color "Chocolate";
+  rdfs:label "ComplexWork Plenary agenda"@en;
   sh:property psd:P9, psd:P10, psd:P11, psd:P12, psd:P13, psd:P14, psd:P15, psd:P16,
     psd:P17, psd:P18, psd:P19, psd:P20, psd:P21, psd:P22 .
 
@@ -105,126 +120,132 @@ WHERE {
  ?this eli:work_type <https://data.europarl.europa.eu/def/ep-document-types/AGENDA_PLENARY_WEEK>.
 }""" .
 
-psd:PlenarySittingAgenda a sh:NodeShape;
+psd:PlenarySittingAgendaWork a sh:NodeShape;
+  owl:versionInfo "2.3.0";
   rdfs:comment "This node shape represents a subset of eli:Work"@en;
-  sh:target psd:PlenarySittingAgenda-target;
+  sh:target psd:PlenarySittingAgendaWork-target;
   skos:example "https://data.europarl.europa.eu/eli/dl/doc/OJQ-9-2021-07-05";
   sh:nodeKind sh:IRI;
-  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/OJQ-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}$";
   sh:closed "true"^^xsd:boolean;
-  rdfs:label "Work Plenary sitting agenda"@en;
   sh:order "2"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "Orange";
-  sh:property psd:P40, psd:P41, psd:P42, psd:P43, psd:P44, psd:P45, psd:P46, psd:P47,
-    psd:P48, psd:P49, psd:P52, psd:P53, psd:P54 .
+  shacl-play:color "White";
+  shacl-play:background-color "DarkOrange";
+  rdfs:label "Work Plenary sitting agenda"@en;
+  sh:property psd:P38, psd:P39, psd:P40, psd:P41, psd:P42, psd:P43, psd:P44, psd:P45,
+    psd:P46, psd:P47, psd:P48, psd:P49, psd:P50 .
 
-psd:PlenarySittingAgenda-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
+psd:PlenarySittingAgendaWork-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
 SELECT ?this
 WHERE {
  ?this a eli:Work.
  ?this eli:work_type <https://data.europarl.europa.eu/def/ep-document-types/AGENDA_PLENARY_DAY> .
 }""" .
 
-psd:PlenaryMinutes a sh:NodeShape;
+psd:PlenaryMinutesWork a sh:NodeShape;
+  owl:versionInfo "2.3.0";
   rdfs:comment "This node shape represents a subset of eli:Work"@en;
-  sh:target psd:PlenaryMinutes-target;
+  sh:target psd:PlenaryMinutesWork-target;
   skos:example "https://data.europarl.europa.eu/eli/dl/doc/PV-9-2021-07-05";
   sh:nodeKind sh:IRI;
-  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/PV-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}$";
   sh:closed "true"^^xsd:boolean;
-  rdfs:label "Work Plenary minutes"@en;
   sh:order "3"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "Magenta";
-  sh:property psd:P57, psd:P58, psd:P59, psd:P60, psd:P61, psd:P62, psd:P63, psd:P64,
-    psd:P65, psd:P66, psd:P67, psd:P68, psd:P69, psd:P70 .
+  shacl-play:color "White";
+  shacl-play:background-color "DarkOrange";
+  rdfs:label "Work Plenary minutes"@en;
+  sh:property psd:P52, psd:P53, psd:P54, psd:P55, psd:P56, psd:P57, psd:P58, psd:P59,
+    psd:P60, psd:P61, psd:P62, psd:P63, psd:P64, psd:P65 .
 
-psd:PlenaryMinutes-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
+psd:PlenaryMinutesWork-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
 SELECT ?this
 WHERE {
  ?this a eli:Work.
  ?this eli:work_type <https://data.europarl.europa.eu/def/ep-document-types/MINUTES_PLENARY> .
 }""" .
 
-psd:PlenaryRcv a sh:NodeShape;
+psd:PlenaryRcvWork a sh:NodeShape;
+  owl:versionInfo "2.3.0";
   rdfs:comment "This node shape represents a subset of eli:Work"@en;
-  sh:target psd:PlenaryRcv-target;
+  sh:target psd:PlenaryRcvWork-target;
   skos:example "https://data.europarl.europa.eu/eli/dl/doc/PV-9-2021-07-05-RCV";
   sh:nodeKind sh:IRI;
-  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/PV-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}-RCV$";
   sh:closed "true"^^xsd:boolean;
-  rdfs:label "Work Plenary Rcv"@en;
   sh:order "4"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "Orange";
-  sh:property psd:P105, psd:P106, psd:P107, psd:P108, psd:P109, psd:P110, psd:P111,
-    psd:P112, psd:P113, psd:P114, psd:P115, psd:P116, psd:P117, psd:P118 .
+  shacl-play:color "White";
+  shacl-play:background-color "DarkOrange";
+  rdfs:label "Work Plenary Rcv"@en;
+  sh:property psd:P96, psd:P97, psd:P98, psd:P99, psd:P100, psd:P101, psd:P102, psd:P103,
+    psd:P104, psd:P105, psd:P106, psd:P107, psd:P108, psd:P109 .
 
-psd:PlenaryRcv-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
+psd:PlenaryRcvWork-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
 SELECT ?this
 WHERE {
  ?this a eli:Work.
  ?this eli:work_type <https://data.europarl.europa.eu/def/ep-document-types/VOTE_ROLLCALL_PLENARY> .
 }""" .
 
-psd:PlenaryVotes a sh:NodeShape;
+psd:PlenaryVotesWork a sh:NodeShape;
+  owl:versionInfo "2.3.0";
   rdfs:comment "This node shape represents a subset of eli:Work"@en;
-  sh:target psd:PlenaryVotes-target;
+  sh:target psd:PlenaryVotesWork-target;
   skos:example "https://data.europarl.europa.eu/eli/dl/doc/PV-9-2021-07-05-VOT";
   sh:nodeKind sh:IRI;
-  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/PV-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}-VOT$";
   sh:closed "true"^^xsd:boolean;
-  rdfs:label "Work Plenary votes"@en;
   sh:order "5"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "Magenta";
-  sh:property psd:P89, psd:P90, psd:P91, psd:P92, psd:P93, psd:P94, psd:P95, psd:P96,
-    psd:P97, psd:P98, psd:P99, psd:P100, psd:P101, psd:P102 .
+  shacl-play:color "White";
+  shacl-play:background-color "DarkOrange";
+  rdfs:label "Work Plenary votes"@en;
+  sh:property psd:P81, psd:P82, psd:P83, psd:P84, psd:P85, psd:P86, psd:P87, psd:P88,
+    psd:P89, psd:P90, psd:P91, psd:P92, psd:P93, psd:P94 .
 
-psd:PlenaryVotes-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
+psd:PlenaryVotesWork-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
 SELECT ?this
 WHERE {
  ?this a eli:Work.
  ?this eli:work_type <https://data.europarl.europa.eu/def/ep-document-types/VOTE_RESULTS_PLENARY> .
 }""" .
 
-psd:PlenaryAtt a sh:NodeShape;
+psd:PlenaryAttWork a sh:NodeShape;
+  owl:versionInfo "2.3.0";
   rdfs:comment "This node shape represents a subset of eli:Work"@en;
-  sh:target psd:PlenaryAtt-target;
+  sh:target psd:PlenaryAttWork-target;
   skos:example "https://data.europarl.europa.eu/eli/dl/doc/PV-9-2021-07-05-ATT";
   sh:nodeKind sh:IRI;
-  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/PV-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}-ATT$";
   sh:closed "true"^^xsd:boolean;
-  rdfs:label "Work Plenary Att"@en;
   sh:order "6"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "Magenta";
-  sh:property psd:P73, psd:P74, psd:P75, psd:P76, psd:P77, psd:P78, psd:P79, psd:P80,
-    psd:P81, psd:P82, psd:P83, psd:P84, psd:P86 .
+  shacl-play:color "White";
+  shacl-play:background-color "DarkOrange";
+  rdfs:label "Work Plenary Att"@en;
+  sh:property psd:P67, psd:P68, psd:P69, psd:P70, psd:P71, psd:P72, psd:P73, psd:P74,
+    psd:P75, psd:P76, psd:P77, psd:P78, psd:P79 .
 
-psd:PlenaryAtt-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
+psd:PlenaryAttWork-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
 SELECT ?this
 WHERE {
  ?this a eli:Work.
  ?this eli:work_type <https://data.europarl.europa.eu/def/ep-document-types/LIST_ATTEND_PLENARY> .
 }""" .
 
-psd:PlenaryDebates a sh:NodeShape;
+psd:PlenaryDebatesWork a sh:NodeShape;
+  owl:versionInfo "2.3.0";
   rdfs:comment "This node shape represents a subset of eli:Work"@en;
-  sh:target psd:PlenaryDebates-target;
+  sh:target psd:PlenaryDebatesWork-target;
   skos:example "https://data.europarl.europa.eu/eli/dl/doc/CRE-9-2021-07-05";
   sh:nodeKind sh:IRI;
-  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/CRE-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}$";
   sh:closed "true"^^xsd:boolean;
-  rdfs:label "Work Plenary debates"@en;
   sh:order "7"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "Magenta";
-  sh:property psd:P121, psd:P122, psd:P123, psd:P124, psd:P125, psd:P126, psd:P127,
-    psd:P128, psd:P129, psd:P132, psd:P133, psd:P134 .
+  shacl-play:color "White";
+  shacl-play:background-color "DarkOrange";
+  rdfs:label "Work Plenary debates"@en;
+  sh:property psd:P111, psd:P112, psd:P113, psd:P114, psd:P115, psd:P116, psd:P117,
+    psd:P118, psd:P119, psd:P120, psd:P121, psd:P122 .
 
-psd:PlenaryDebates-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
+psd:PlenaryDebatesWork-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
 SELECT ?this
 WHERE {
  ?this a eli:Work.
@@ -232,169 +253,183 @@ WHERE {
 }""" .
 
 psd:PlenaryAgendaPartSessionWork a sh:NodeShape;
+  owl:versionInfo "1.0";
   rdfs:comment "This node shape represents a subset of eli:Work"@en;
   skos:example "https://data.europarl.europa.eu/eli/dl/doc/OJ-9-2024-02-26-FNL";
   sh:nodeKind sh:IRI;
-  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/OJ-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}-(FNL|PRV|REV|ADP)$";
   sh:closed "true"^^xsd:boolean;
-  rdfs:label "Versioned Work"@en;
   sh:order "8"^^xsd:integer;
-  owl:versionInfo "1.0";
-  shacl-play:color "Orange";
-  sh:property psd:P25, psd:P26, psd:P27, psd:P28, psd:P29, psd:P30, psd:P31, psd:P32,
-    psd:P33, psd:P34, psd:P35, psd:P36, psd:P37 .
+  shacl-play:color "White";
+  shacl-play:background-color "DarkOrange";
+  rdfs:label "Versioned Work"@en;
+  sh:property psd:P24, psd:P25, psd:P26, psd:P27, psd:P28, psd:P29, psd:P30, psd:P31,
+    psd:P32, psd:P33, psd:P34, psd:P35, psd:P36 .
 
 psd:Expression a sh:NodeShape;
+  owl:versionInfo "1.3.0";
   rdfs:comment "This node shape represents a subset of eli:Expression"@en;
   sh:targetClass eli:Expression;
   skos:example "https://data.europarl.europa.eu/eli/dl/doc/PV-9-2024-02-26/sl";
   sh:nodeKind sh:IRI;
   sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+/[a-z]{2,3}$";
   sh:closed "true"^^xsd:boolean;
-  rdfs:label "Realized By"@en;
   sh:order "9"^^xsd:integer;
-  owl:versionInfo "1.3.0";
-  shacl-play:color "Blue";
-  sh:property psd:P151, psd:P152, psd:P153, psd:P154 .
+  shacl-play:color "White";
+  shacl-play:background-color "CornflowerBlue";
+  rdfs:label "Realized By"@en;
+  sh:property psd:P137, psd:P138, psd:P139, psd:P140 .
 
 psd:Manifestation a sh:NodeShape;
+  owl:versionInfo "1.3.0";
   rdfs:comment "This node shape represents a subset of eli:Manifestation"@en;
   sh:targetClass eli:Manifestation;
   skos:example "https://data.europarl.europa.eu/eli/dl/doc/PV-9-2024-02-26/bg/xml";
   sh:nodeKind sh:IRI;
   sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+/[a-z]{2,3}/.*$";
   sh:closed "true"^^xsd:boolean;
-  rdfs:label "Is embodied by"@en;
   sh:order "10"^^xsd:integer;
-  owl:versionInfo "1.3.0";
-  shacl-play:color "Green";
-  sh:property psd:P157, psd:P158, psd:P159, psd:P160, psd:P161, psd:P162 .
+  shacl-play:color "White";
+  shacl-play:background-color "LimeGreen";
+  rdfs:label "Is embodied by"@en;
+  sh:property psd:P142, psd:P143, psd:P144, psd:P145, psd:P146, psd:P147 .
 
 psd:WorkSubdivision a sh:NodeShape;
+  owl:versionInfo "2.3.0";
   rdfs:comment "This node shape represents a subset of eli:WorkSubdivision"@en;
-  skos:example "https://data.europarl.europa.eu/eli/dl/doc/PV-9-2024-02-26-ITM-22";
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/PV-9-2024-02-26-ITM-022-01";
   sh:nodeKind sh:IRI;
-  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/(PV|CRE)-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}(-(?:VOT|RCV))?-ITM-[0-9]{3}(-[0-9]{2})?$";
   sh:closed "true"^^xsd:boolean;
-  rdfs:label "Work Subdivision (ITM)"@en;
   sh:order "11"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "Orange";
-  sh:property psd:P137, psd:P138, psd:P139, psd:P140, psd:P141, psd:P142, psd:P143,
-    psd:P144, psd:P145, psd:P146, psd:P147, psd:P148 .
+  shacl-play:color "White";
+  shacl-play:background-color "DarkOrange";
+  rdfs:label "Work Subdivision (ITM)"@en;
+  sh:property psd:P124, psd:P125, psd:P126, psd:P127, psd:P128, psd:P129, psd:P130,
+    psd:P131, psd:P132, psd:P133, psd:P134, psd:P135 .
 
 psd:WorkTypeReference a sh:NodeShape;
+  owl:versionInfo "2.1.0";
   rdfs:comment "This node shape refers to the class eli:WorkType"@en;
   skos:example "https://data.europarl.europa.eu/def/ep-document-types//MINUTES_PLENARY";
   sh:nodeKind sh:IRI;
   sh:pattern "https://data.europarl.europa.eu/def/ep-document-types/.*$";
   sh:closed "true"^^xsd:boolean;
+  sh:order "13"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
   rdfs:label "Reference to a Work Type"@en;
-  sh:order "14"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "DarkGrey";
-  sh:property psd:P165, psd:P166 .
+  sh:property psd:P149, psd:P150 .
 
 psd:LanguageReference a sh:NodeShape;
+  owl:versionInfo "1.0";
   rdfs:comment "This node shape refers to the class dcterms:LinguisticSystem"@en;
   skos:example "http://publications.europa.eu/resource/authority/language/ENG";
   sh:nodeKind sh:IRI;
   sh:pattern "http://publications.europa.eu/resource/authority/language/.*$";
   sh:closed "true"^^xsd:boolean;
+  sh:order "14"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
   rdfs:label "Reference to a language"@en;
-  sh:order "15"^^xsd:integer;
-  owl:versionInfo "1.0";
-  shacl-play:color "DarkGrey";
-  sh:property psd:P169, psd:P170 .
+  sh:property psd:P152, psd:P153 .
 
 psd:MediaTypeOrExtentReference a sh:NodeShape;
+  owl:versionInfo "1.0";
   rdfs:comment "This node shape refers to the class dcterms:MediaTypeOrExtent"@en;
   skos:example "http://publications.europa.eu/resource/authority/file-type/PDF";
   sh:nodeKind sh:IRI;
   sh:pattern "http://publications.europa.eu/resource/authority/file-type/.*$";
   sh:closed "true"^^xsd:boolean;
+  sh:order "15"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
   rdfs:label "Reference to a Format"@en;
-  sh:order "16"^^xsd:integer;
-  owl:versionInfo "1.0";
-  shacl-play:color "DarkGrey";
-  sh:property psd:P173, psd:P174 .
+  sh:property psd:P155, psd:P156 .
 
 psd:VersionReference a sh:NodeShape;
+  owl:versionInfo "1.0";
   rdfs:comment "This node shape refers to the class euvoc:FileStatus"@en;
   skos:example "http://publications.europa.eu/resource/authority/file-status/FINAL";
   sh:nodeKind sh:IRI;
   sh:pattern "http://publications.europa.eu/resource/authority/file-status/.*$";
   sh:closed "true"^^xsd:boolean;
+  sh:order "16"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
   rdfs:label "Reference to a Status"@en;
-  sh:order "17"^^xsd:integer;
-  owl:versionInfo "1.0";
-  shacl-play:color "DarkGrey";
-  sh:property psd:P177, psd:P178 .
+  sh:property psd:P158, psd:P159 .
 
 psd:SubdivisionTypeReference a sh:NodeShape;
+  owl:versionInfo "1.3.0";
   rdfs:comment "This node shape refers to the class eli:SubdivisionType"@en;
   skos:example "http://publications.europa.eu/resource/authority/subdivision/ITM";
   sh:nodeKind sh:IRI;
   sh:pattern "http://publications.europa.eu/resource/authority/subdivision/.*$";
   sh:closed "true"^^xsd:boolean;
+  sh:order "17"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
   rdfs:label "Reference to a Subdivision Type"@en;
-  sh:order "18"^^xsd:integer;
-  owl:versionInfo "1.3.0";
-  shacl-play:color "DarkGrey";
-  sh:property psd:P181, psd:P182 .
+  sh:property psd:P161, psd:P162 .
 
 psd:PlenaryPartSessionReference a sh:NodeShape;
+  owl:versionInfo "2.1.0";
   rdfs:comment "This node shape refers to the class eli-dl:Activity"@en;
   skos:example "https://data.europarl.europa.eu/eli/dl/event/GMTG-PL-2024-01-15";
   sh:nodeKind sh:IRI;
   sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\\-_]+$";
   sh:closed "true"^^xsd:boolean;
+  sh:order "18"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
   rdfs:label "Reference to a Activity (Plenary Part Session)"@en;
-  sh:order "19"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "DarkGrey";
-  sh:property psd:P189, psd:P190 .
+  sh:property psd:P167, psd:P168 .
 
 psd:PlenarySittingReference a sh:NodeShape;
+  owl:versionInfo "2.1.0";
   rdfs:comment "This node shape refers to the class eli-dl:Activity"@en;
   skos:example "https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-01-15";
   sh:nodeKind sh:IRI;
   sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\\-_]+$";
   sh:closed "true"^^xsd:boolean;
+  sh:order "19"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
   rdfs:label "Reference to a Activity (Plenary Sitting)"@en;
-  sh:order "20"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "DarkGrey";
-  sh:property psd:P192, psd:P193 .
+  sh:property psd:P170, psd:P171 .
 
 psd:PlenarySittingItemReference a sh:NodeShape;
+  owl:versionInfo "2.1.0";
   rdfs:comment "This node shape refers to the class eli-dl:Activity"@en;
   skos:example "https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-01-16-PVCRE-ITM-5";
   sh:nodeKind sh:IRI;
   sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\\-_]+$";
   sh:closed "true"^^xsd:boolean;
+  sh:order "20"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
   rdfs:label "Reference to a Activity (Plenary Debate, Plenary Vote, Plenary Vote Results, ...)"@en;
-  sh:order "21"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "DarkGrey";
-  sh:property psd:P196, psd:P197 .
+  sh:property psd:P173, psd:P174 .
 
 psd:OrganizationReference a sh:NodeShape;
+  owl:versionInfo "2.1.0";
   rdfs:comment "This node shape refers to the class org:Organization"@en;
   skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
   sh:nodeKind sh:IRI;
   sh:pattern "^https://data.europarl.europa.eu/org/.*$";
   sh:closed "true"^^xsd:boolean;
+  sh:order "21"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
   rdfs:label "Reference to an Organization"@en;
-  sh:order "22"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "DarkGrey";
-  sh:property psd:P185 .
+  sh:property psd:P164 .
 
-psd:P9 owl:versionInfo "2.1.0";
+psd:P9 owl:versionInfo "2.3.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
   sh:hasValue eli:ComplexWork;
   shacl-play:shortname "type" .
 
@@ -428,9 +463,10 @@ psd:P12 owl:versionInfo "2.1.0";
   sh:datatype xsd:date;
   shacl-play:shortname "date_document" .
 
-psd:P13 owl:versionInfo "2.1.0";
+psd:P13 owl:versionInfo "2.3.0";
   sh:path epvoc:identifierYear;
   sh:name "identifier year"@en;
+  sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:string;
@@ -499,18 +535,18 @@ psd:P20 owl:versionInfo "2.1.0";
   shacl-play:shortname "hasCurrentVersion" .
 
 psd:P21 owl:versionInfo "2.1.0";
-  sh:path _:a7c8ac44478040d2b35e9c51a45ca5573;
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2511;
   sh:name "inverse is derivative of"@en;
   sh:minCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
-  sh:node psd:PlenarySittingAgenda;
+  sh:node psd:PlenarySittingAgendaWork;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "inverse_is_derivative_of" .
 
-_:a7c8ac44478040d2b35e9c51a45ca5573 sh:inversePath eli:is_derivative_of .
+_:a701ed0bc8f44446a3a682c5adf0356f2511 sh:inversePath eli:is_derivative_of .
 
 psd:P22 owl:versionInfo "2.1.0";
-  sh:path _:a7c8ac44478040d2b35e9c51a45ca5574;
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2512;
   sh:name "inverse documented by a realization of"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
@@ -519,9 +555,9 @@ psd:P22 owl:versionInfo "2.1.0";
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "inverse_documented_by_a_realization_of" .
 
-_:a7c8ac44478040d2b35e9c51a45ca5574 sh:inversePath eli-dl:documented_by_a_realization_of .
+_:a701ed0bc8f44446a3a682c5adf0356f2512 sh:inversePath eli-dl:documented_by_a_realization_of .
 
-psd:P25 owl:versionInfo "2.1.0";
+psd:P24 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
@@ -529,7 +565,7 @@ psd:P25 owl:versionInfo "2.1.0";
   sh:hasValue eli:Work;
   shacl-play:shortname "type" .
 
-psd:P26 owl:versionInfo "2.1.0";
+psd:P25 owl:versionInfo "2.1.0";
   sh:path dcterms:identifier;
   sh:name "identifier"@en;
   sh:minCount "1"^^xsd:integer;
@@ -538,7 +574,7 @@ psd:P26 owl:versionInfo "2.1.0";
   sh:datatype xsd:string;
   shacl-play:shortname "identifier" .
 
-psd:P27 owl:versionInfo "2.1.0";
+psd:P26 owl:versionInfo "2.1.0";
   sh:path eli:work_type;
   sh:name "work type"@en;
   skos:example "https://data.europarl.europa.eu/def/ep-document-types/AGENDA_PLENARY_WEEK";
@@ -549,7 +585,7 @@ psd:P27 owl:versionInfo "2.1.0";
   sh:hasValue ep-document-types:AGENDA_PLENARY_WEEK;
   shacl-play:shortname "work_type" .
 
-psd:P28 owl:versionInfo "2.1.0";
+psd:P27 owl:versionInfo "2.1.0";
   sh:path eli:date_document;
   sh:name "date document"@en;
   sh:minCount "1"^^xsd:integer;
@@ -558,15 +594,16 @@ psd:P28 owl:versionInfo "2.1.0";
   sh:datatype xsd:date;
   shacl-play:shortname "date_document" .
 
-psd:P29 owl:versionInfo "2.1.0";
+psd:P28 owl:versionInfo "2.3.0";
   sh:path epvoc:identifierYear;
   sh:name "identifier year"@en;
+  sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:string;
   shacl-play:shortname "identifierYear" .
 
-psd:P30 owl:versionInfo "2.1.0";
+psd:P29 owl:versionInfo "2.1.0";
   sh:path dcterms:title;
   sh:name "title"@en;
   sh:minCount "1"^^xsd:integer;
@@ -574,22 +611,23 @@ psd:P30 owl:versionInfo "2.1.0";
   sh:datatype rdf:langString;
   shacl-play:shortname "title_dcterms" .
 
-psd:P31 owl:versionInfo "2.1.0";
+psd:P30 owl:versionInfo "2.1.0";
   sh:path rdfs:label;
   sh:name "label"@en;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:string;
   shacl-play:shortname "label" .
 
-psd:P32 owl:versionInfo "2.1.0";
+psd:P31 owl:versionInfo "2.3.0";
   sh:path skos:notation;
   sh:name "notation"@en;
+  sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
   sh:datatype epvoc:publicRegister;
   shacl-play:shortname "notation_publicRegister" .
 
-psd:P33 owl:versionInfo "2.1.0";
+psd:P32 owl:versionInfo "2.1.0";
   sh:path eli-dl:parliamentary_term;
   sh:name "parliamentary term"@en;
   sh:minCount "1"^^xsd:integer;
@@ -597,7 +635,7 @@ psd:P33 owl:versionInfo "2.1.0";
   sh:nodeKind sh:IRI;
   shacl-play:shortname "parliamentary_term" .
 
-psd:P34 owl:versionInfo "2.1.0";
+psd:P33 owl:versionInfo "2.1.0";
   sh:path dcterms:publisher;
   sh:name "publisher"@en;
   skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
@@ -608,23 +646,24 @@ psd:P34 owl:versionInfo "2.1.0";
   sh:hasValue <https://data.europarl.europa.eu/org/EU_PARLIAMENT>;
   shacl-play:shortname "publisher" .
 
-psd:P35 owl:versionInfo "2.1.0";
+psd:P34 owl:versionInfo "2.1.0";
   sh:path eli:is_realized_by;
   sh:name "is realized by"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:Expression;
   shacl-play:shortname "is_realized_by" .
 
-psd:P36 owl:versionInfo "2.1.0";
+psd:P35 owl:versionInfo "2.3.0";
   sh:path epvoc:versionType;
   sh:name "version status"@en;
+  sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   sh:node psd:VersionReference;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "versiontype" .
 
-psd:P37 owl:versionInfo "2.1.0";
+psd:P36 owl:versionInfo "2.1.0";
   sh:path epvoc:epNumber;
   sh:name "ep number"@en;
   sh:minCount "1"^^xsd:integer;
@@ -633,7 +672,7 @@ psd:P37 owl:versionInfo "2.1.0";
   sh:datatype xsd:string;
   shacl-play:shortname "epNumber" .
 
-psd:P40 owl:versionInfo "1.5.0";
+psd:P38 owl:versionInfo "1.5.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
@@ -641,7 +680,7 @@ psd:P40 owl:versionInfo "1.5.0";
   sh:hasValue eli:Work;
   shacl-play:shortname "type" .
 
-psd:P41 owl:versionInfo "1.0";
+psd:P39 owl:versionInfo "1.0";
   sh:path dcterms:identifier;
   sh:name "identifier"@en;
   sh:minCount "1"^^xsd:integer;
@@ -650,7 +689,7 @@ psd:P41 owl:versionInfo "1.0";
   sh:datatype xsd:string;
   shacl-play:shortname "identifier" .
 
-psd:P42 owl:versionInfo "2.1.0";
+psd:P40 owl:versionInfo "2.1.0";
   sh:path eli:work_type;
   sh:name "work type"@en;
   skos:example "https://data.europarl.europa.eu/def/ep-document-types/AGENDA_PLENARY_DAY";
@@ -661,7 +700,7 @@ psd:P42 owl:versionInfo "2.1.0";
   sh:hasValue ep-document-types:AGENDA_PLENARY_DAY;
   shacl-play:shortname "work_type" .
 
-psd:P43 owl:versionInfo "1.1";
+psd:P41 owl:versionInfo "1.1";
   sh:path eli:date_document;
   sh:name "date document"@en;
   sh:minCount "1"^^xsd:integer;
@@ -670,15 +709,16 @@ psd:P43 owl:versionInfo "1.1";
   sh:datatype xsd:date;
   shacl-play:shortname "date_document" .
 
-psd:P44 owl:versionInfo "1.0";
+psd:P42 owl:versionInfo "2.3.0";
   sh:path epvoc:identifierYear;
   sh:name "identifier year"@en;
+  sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:string;
   shacl-play:shortname "identifierYear" .
 
-psd:P45 owl:versionInfo "1.0";
+psd:P43 owl:versionInfo "1.0";
   sh:path dcterms:title;
   sh:name "title"@en;
   sh:minCount "1"^^xsd:integer;
@@ -686,14 +726,14 @@ psd:P45 owl:versionInfo "1.0";
   sh:datatype rdf:langString;
   shacl-play:shortname "title_dcterms" .
 
-psd:P46 owl:versionInfo "1.0";
+psd:P44 owl:versionInfo "1.0";
   sh:path rdfs:label;
   sh:name "label"@en;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:string;
   shacl-play:shortname "label" .
 
-psd:P47 owl:versionInfo "1.0";
+psd:P45 owl:versionInfo "1.0";
   sh:path epvoc:epNumber;
   sh:name "ep number"@en;
   sh:minCount "1"^^xsd:integer;
@@ -702,7 +742,7 @@ psd:P47 owl:versionInfo "1.0";
   sh:datatype xsd:string;
   shacl-play:shortname "epNumber" .
 
-psd:P48 owl:versionInfo "1.1";
+psd:P46 owl:versionInfo "1.1";
   sh:path eli-dl:parliamentary_term;
   sh:name "parliamentary term"@en;
   sh:minCount "1"^^xsd:integer;
@@ -710,7 +750,7 @@ psd:P48 owl:versionInfo "1.1";
   sh:nodeKind sh:IRI;
   shacl-play:shortname "parliamentary_term" .
 
-psd:P49 owl:versionInfo "2.1.0";
+psd:P47 owl:versionInfo "2.1.0";
   sh:path dcterms:publisher;
   sh:name "publisher"@en;
   skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
@@ -721,7 +761,7 @@ psd:P49 owl:versionInfo "2.1.0";
   sh:hasValue <https://data.europarl.europa.eu/org/EU_PARLIAMENT>;
   shacl-play:shortname "publisher" .
 
-psd:P52 owl:versionInfo "2.1.0";
+psd:P48 owl:versionInfo "2.1.0";
   sh:path eli:is_derivative_of;
   sh:name "is derivative of"@en;
   sh:minCount "1"^^xsd:integer;
@@ -731,15 +771,15 @@ psd:P52 owl:versionInfo "2.1.0";
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "is_derivative_of" .
 
-psd:P53 owl:versionInfo "2.1.0";
+psd:P49 owl:versionInfo "2.1.0";
   sh:path eli:is_realized_by;
   sh:name "is realized by"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:Expression;
   shacl-play:shortname "is_realized_by" .
 
-psd:P54 owl:versionInfo "2.1.0";
-  sh:path _:a7c8ac44478040d2b35e9c51a45ca5575;
+psd:P50 owl:versionInfo "2.1.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2513;
   sh:name "inverse documented by a realization of"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
@@ -748,16 +788,17 @@ psd:P54 owl:versionInfo "2.1.0";
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "inverse_documented_by_a_realization_of" .
 
-_:a7c8ac44478040d2b35e9c51a45ca5575 sh:inversePath eli-dl:documented_by_a_realization_of .
+_:a701ed0bc8f44446a3a682c5adf0356f2513 sh:inversePath eli-dl:documented_by_a_realization_of .
 
-psd:P57 owl:versionInfo "1.3.0";
+psd:P52 owl:versionInfo "2.3.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
   sh:hasValue eli:Work;
   shacl-play:shortname "type" .
 
-psd:P58 owl:versionInfo "1.0";
+psd:P53 owl:versionInfo "1.0";
   sh:path dcterms:identifier;
   sh:name "identifier"@en;
   sh:minCount "1"^^xsd:integer;
@@ -766,7 +807,7 @@ psd:P58 owl:versionInfo "1.0";
   sh:datatype xsd:string;
   shacl-play:shortname "identifier" .
 
-psd:P59 owl:versionInfo "2.1.0";
+psd:P54 owl:versionInfo "2.1.0";
   sh:path eli:work_type;
   sh:name "work type"@en;
   skos:example "https://data.europarl.europa.eu/def/ep-document-types/MINUTES_PLENARY";
@@ -777,7 +818,7 @@ psd:P59 owl:versionInfo "2.1.0";
   sh:hasValue ep-document-types:MINUTES_PLENARY;
   shacl-play:shortname "work_type" .
 
-psd:P60 owl:versionInfo "1.1";
+psd:P55 owl:versionInfo "1.1";
   sh:path eli:date_document;
   sh:name "date document"@en;
   sh:minCount "1"^^xsd:integer;
@@ -786,15 +827,16 @@ psd:P60 owl:versionInfo "1.1";
   sh:datatype xsd:date;
   shacl-play:shortname "date_document" .
 
-psd:P61 owl:versionInfo "1.0";
+psd:P56 owl:versionInfo "2.3.0";
   sh:path epvoc:identifierYear;
   sh:name "identifier year"@en;
+  sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:string;
   shacl-play:shortname "identifierYear" .
 
-psd:P62 owl:versionInfo "1.0";
+psd:P57 owl:versionInfo "1.0";
   sh:path dcterms:title;
   sh:name "title"@en;
   sh:minCount "1"^^xsd:integer;
@@ -802,14 +844,14 @@ psd:P62 owl:versionInfo "1.0";
   sh:datatype rdf:langString;
   shacl-play:shortname "title_dcterms" .
 
-psd:P63 owl:versionInfo "1.0";
+psd:P58 owl:versionInfo "1.0";
   sh:path rdfs:label;
   sh:name "label"@en;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:string;
   shacl-play:shortname "label" .
 
-psd:P64 owl:versionInfo "1.0";
+psd:P59 owl:versionInfo "1.0";
   sh:path epvoc:epNumber;
   sh:name "ep number"@en;
   sh:minCount "1"^^xsd:integer;
@@ -818,7 +860,7 @@ psd:P64 owl:versionInfo "1.0";
   sh:datatype xsd:string;
   shacl-play:shortname "epNumber" .
 
-psd:P65 owl:versionInfo "1.1";
+psd:P60 owl:versionInfo "1.1";
   sh:path eli-dl:parliamentary_term;
   sh:name "parliamentary term"@en;
   sh:minCount "1"^^xsd:integer;
@@ -826,7 +868,7 @@ psd:P65 owl:versionInfo "1.1";
   sh:nodeKind sh:IRI;
   shacl-play:shortname "parliamentary_term" .
 
-psd:P66 owl:versionInfo "2.1.0";
+psd:P61 owl:versionInfo "2.1.0";
   sh:path dcterms:publisher;
   sh:name "publisher"@en;
   skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
@@ -837,66 +879,66 @@ psd:P66 owl:versionInfo "2.1.0";
   sh:hasValue <https://data.europarl.europa.eu/org/EU_PARLIAMENT>;
   shacl-play:shortname "publisher" .
 
-psd:P67 owl:versionInfo "1.3.0";
+psd:P62 owl:versionInfo "1.3.0";
   sh:path eli:is_realized_by;
   sh:name "is realized by"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:Expression;
   shacl-play:shortname "is_realized_by" .
 
-psd:P68 owl:versionInfo "1.3.0";
-  sh:path _:a7c8ac44478040d2b35e9c51a45ca5576;
+psd:P63 owl:versionInfo "1.3.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2514;
   sh:name "inverse is annex of"@en;
   sh:nodeKind sh:IRI;
-  sh:or _:a7c8ac44478040d2b35e9c51a45ca5577;
+  sh:or _:a701ed0bc8f44446a3a682c5adf0356f2515;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "inverse_is_annex_of" .
 
-_:a7c8ac44478040d2b35e9c51a45ca5576 sh:inversePath eli:is_annex_of .
+_:a701ed0bc8f44446a3a682c5adf0356f2514 sh:inversePath eli:is_annex_of .
 
-_:a7c8ac44478040d2b35e9c51a45ca5577 rdf:first _:a7c8ac44478040d2b35e9c51a45ca5578;
-  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca5579 .
+_:a701ed0bc8f44446a3a682c5adf0356f2515 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2516;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2517 .
 
-_:a7c8ac44478040d2b35e9c51a45ca5578 sh:node psd:PlenaryRcv .
+_:a701ed0bc8f44446a3a682c5adf0356f2516 sh:node psd:PlenaryRcvWork .
 
-_:a7c8ac44478040d2b35e9c51a45ca5579 rdf:first _:a7c8ac44478040d2b35e9c51a45ca55710;
-  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55711 .
+_:a701ed0bc8f44446a3a682c5adf0356f2517 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2518;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2519 .
 
-_:a7c8ac44478040d2b35e9c51a45ca55710 sh:node psd:PlenaryAtt .
+_:a701ed0bc8f44446a3a682c5adf0356f2518 sh:node psd:PlenaryAttWork .
 
-_:a7c8ac44478040d2b35e9c51a45ca55711 rdf:first _:a7c8ac44478040d2b35e9c51a45ca55712;
+_:a701ed0bc8f44446a3a682c5adf0356f2519 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2520;
   rdf:rest rdf:nil .
 
-_:a7c8ac44478040d2b35e9c51a45ca55712 sh:node psd:PlenaryVotes .
+_:a701ed0bc8f44446a3a682c5adf0356f2520 sh:node psd:PlenaryVotesWork .
 
-psd:P69 owl:versionInfo "1.3.0";
-  sh:path _:a7c8ac44478040d2b35e9c51a45ca55713;
+psd:P64 owl:versionInfo "1.3.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2521;
   sh:name "inverse is part of"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:WorkSubdivision;
   shacl-play:shortname "inverse_is_part_of" .
 
-_:a7c8ac44478040d2b35e9c51a45ca55713 sh:inversePath eli:is_part_of .
+_:a701ed0bc8f44446a3a682c5adf0356f2521 sh:inversePath eli:is_part_of .
 
-psd:P70 owl:versionInfo "1.3.0";
-  sh:path _:a7c8ac44478040d2b35e9c51a45ca55714;
+psd:P65 owl:versionInfo "1.3.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2522;
   sh:name "inverse recorded in a realization of"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:PlenarySittingReference;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "inverse_recorded_in_a_realization_of" .
 
-_:a7c8ac44478040d2b35e9c51a45ca55714 sh:inversePath eli-dl:recorded_in_a_realization_of .
+_:a701ed0bc8f44446a3a682c5adf0356f2522 sh:inversePath eli-dl:recorded_in_a_realization_of .
 
-psd:P73 owl:versionInfo "1.3.0";
+psd:P67 owl:versionInfo "2.3.0";
   sh:path rdf:type;
   sh:name "type"@en;
-  sh:description ":"@en;
   sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
   sh:hasValue eli:Work;
   shacl-play:shortname "type" .
 
-psd:P74 owl:versionInfo "1.0";
+psd:P68 owl:versionInfo "1.0";
   sh:path dcterms:identifier;
   sh:name "identifier"@en;
   sh:minCount "1"^^xsd:integer;
@@ -905,7 +947,7 @@ psd:P74 owl:versionInfo "1.0";
   sh:datatype xsd:string;
   shacl-play:shortname "identifier" .
 
-psd:P75 owl:versionInfo "2.1.0";
+psd:P69 owl:versionInfo "2.1.0";
   sh:path eli:work_type;
   sh:name "work type"@en;
   skos:example "https://data.europarl.europa.eu/def/ep-document-types/LIST_ATTEND_PLENARY";
@@ -916,7 +958,7 @@ psd:P75 owl:versionInfo "2.1.0";
   sh:hasValue ep-document-types:LIST_ATTEND_PLENARY;
   shacl-play:shortname "work_type" .
 
-psd:P76 owl:versionInfo "1.1";
+psd:P70 owl:versionInfo "1.1";
   sh:path eli:date_document;
   sh:name "date document"@en;
   sh:minCount "1"^^xsd:integer;
@@ -925,15 +967,16 @@ psd:P76 owl:versionInfo "1.1";
   sh:datatype xsd:date;
   shacl-play:shortname "date_document" .
 
-psd:P77 owl:versionInfo "1.0";
+psd:P71 owl:versionInfo "2.3.0";
   sh:path epvoc:identifierYear;
   sh:name "identifier year"@en;
+  sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:string;
   shacl-play:shortname "identifierYear" .
 
-psd:P78 owl:versionInfo "1.0";
+psd:P72 owl:versionInfo "1.0";
   sh:path dcterms:title;
   sh:name "title"@en;
   sh:minCount "1"^^xsd:integer;
@@ -941,14 +984,14 @@ psd:P78 owl:versionInfo "1.0";
   sh:datatype rdf:langString;
   shacl-play:shortname "title_dcterms" .
 
-psd:P79 owl:versionInfo "1.0";
+psd:P73 owl:versionInfo "1.0";
   sh:path rdfs:label;
   sh:name "label"@en;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:string;
   shacl-play:shortname "label" .
 
-psd:P80 owl:versionInfo "1.0";
+psd:P74 owl:versionInfo "1.0";
   sh:path epvoc:epNumber;
   sh:name "ep number"@en;
   sh:minCount "1"^^xsd:integer;
@@ -957,7 +1000,7 @@ psd:P80 owl:versionInfo "1.0";
   sh:datatype xsd:string;
   shacl-play:shortname "epNumber" .
 
-psd:P81 owl:versionInfo "1.1";
+psd:P75 owl:versionInfo "1.1";
   sh:path eli-dl:parliamentary_term;
   sh:name "parliamentary term"@en;
   sh:minCount "1"^^xsd:integer;
@@ -965,7 +1008,7 @@ psd:P81 owl:versionInfo "1.1";
   sh:nodeKind sh:IRI;
   shacl-play:shortname "parliamentary_term" .
 
-psd:P82 owl:versionInfo "2.1.0";
+psd:P76 owl:versionInfo "2.1.0";
   sh:path dcterms:publisher;
   sh:name "publisher"@en;
   skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
@@ -976,41 +1019,42 @@ psd:P82 owl:versionInfo "2.1.0";
   sh:hasValue <https://data.europarl.europa.eu/org/EU_PARLIAMENT>;
   shacl-play:shortname "publisher" .
 
-psd:P83 owl:versionInfo "1.3.0";
+psd:P77 owl:versionInfo "1.3.0";
   sh:path eli:is_realized_by;
   sh:name "is realized by"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:Expression;
   shacl-play:shortname "is_realized_by" .
 
-psd:P84 owl:versionInfo "1.1";
+psd:P78 owl:versionInfo "1.1";
   sh:path eli:is_annex_of;
   sh:name "is annex of"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
-  sh:node psd:PlenaryMinutes;
+  sh:node psd:PlenaryMinutesWork;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "is_annex_of" .
 
-psd:P86 owl:versionInfo "1.3.0";
-  sh:path _:a7c8ac44478040d2b35e9c51a45ca55715;
+psd:P79 owl:versionInfo "1.3.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2523;
   sh:name "inverse recorded in a realization of"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:PlenarySittingReference;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "inverse_recorded_in_a_realization_of" .
 
-_:a7c8ac44478040d2b35e9c51a45ca55715 sh:inversePath eli-dl:recorded_in_a_realization_of .
+_:a701ed0bc8f44446a3a682c5adf0356f2523 sh:inversePath eli-dl:recorded_in_a_realization_of .
 
-psd:P89 owl:versionInfo "1.3.0";
+psd:P81 owl:versionInfo "2.3.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
   sh:hasValue eli:Work;
   shacl-play:shortname "type" .
 
-psd:P90 owl:versionInfo "1.0";
+psd:P82 owl:versionInfo "1.0";
   sh:path dcterms:identifier;
   sh:name "identifier"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1019,7 +1063,7 @@ psd:P90 owl:versionInfo "1.0";
   sh:datatype xsd:string;
   shacl-play:shortname "identifier" .
 
-psd:P91 owl:versionInfo "2.1.0";
+psd:P83 owl:versionInfo "2.1.0";
   sh:path eli:work_type;
   sh:name "work type"@en;
   skos:example "https://data.europarl.europa.eu/def/ep-document-types/VOTE_RESULTS_PLENARY";
@@ -1030,7 +1074,7 @@ psd:P91 owl:versionInfo "2.1.0";
   sh:hasValue ep-document-types:VOTE_RESULTS_PLENARY;
   shacl-play:shortname "work_type" .
 
-psd:P92 owl:versionInfo "1.1";
+psd:P84 owl:versionInfo "1.1";
   sh:path eli:date_document;
   sh:name "date document"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1039,15 +1083,16 @@ psd:P92 owl:versionInfo "1.1";
   sh:datatype xsd:date;
   shacl-play:shortname "date_document" .
 
-psd:P93 owl:versionInfo "1.0";
+psd:P85 owl:versionInfo "2.3.0";
   sh:path epvoc:identifierYear;
   sh:name "identifier year"@en;
+  sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:string;
   shacl-play:shortname "identifierYear" .
 
-psd:P94 owl:versionInfo "1.0";
+psd:P86 owl:versionInfo "1.0";
   sh:path dcterms:title;
   sh:name "title"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1055,14 +1100,14 @@ psd:P94 owl:versionInfo "1.0";
   sh:datatype rdf:langString;
   shacl-play:shortname "title_dcterms" .
 
-psd:P95 owl:versionInfo "1.0";
+psd:P87 owl:versionInfo "1.0";
   sh:path rdfs:label;
   sh:name "label"@en;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:string;
   shacl-play:shortname "label" .
 
-psd:P96 owl:versionInfo "1.0";
+psd:P88 owl:versionInfo "1.0";
   sh:path epvoc:epNumber;
   sh:name "ep number"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1071,7 +1116,7 @@ psd:P96 owl:versionInfo "1.0";
   sh:datatype xsd:string;
   shacl-play:shortname "epNumber" .
 
-psd:P97 owl:versionInfo "1.1";
+psd:P89 owl:versionInfo "1.1";
   sh:path eli-dl:parliamentary_term;
   sh:name "parliamentary term"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1079,7 +1124,7 @@ psd:P97 owl:versionInfo "1.1";
   sh:nodeKind sh:IRI;
   shacl-play:shortname "parliamentary_term" .
 
-psd:P98 owl:versionInfo "2.1.0";
+psd:P90 owl:versionInfo "2.1.0";
   sh:path dcterms:publisher;
   sh:name "publisher"@en;
   skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
@@ -1090,43 +1135,43 @@ psd:P98 owl:versionInfo "2.1.0";
   sh:hasValue <https://data.europarl.europa.eu/org/EU_PARLIAMENT>;
   shacl-play:shortname "publisher" .
 
-psd:P99 owl:versionInfo "1.3.0";
+psd:P91 owl:versionInfo "1.3.0";
   sh:path eli:is_realized_by;
   sh:name "is realized by"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:Expression;
   shacl-play:shortname "is_realized_by" .
 
-psd:P100 owl:versionInfo "1.1";
+psd:P92 owl:versionInfo "1.1";
   sh:path eli:is_annex_of;
   sh:name "is annex of"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
-  sh:node psd:PlenaryMinutes;
+  sh:node psd:PlenaryMinutesWork;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "is_annex_of" .
 
-psd:P101 owl:versionInfo "2.1.0";
-  sh:path _:a7c8ac44478040d2b35e9c51a45ca55716;
+psd:P93 owl:versionInfo "2.1.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2524;
   sh:name "inverse is part of"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:WorkSubdivision;
   shacl-play:shortname "inverse_is_part_of" .
 
-_:a7c8ac44478040d2b35e9c51a45ca55716 sh:inversePath eli:is_part_of .
+_:a701ed0bc8f44446a3a682c5adf0356f2524 sh:inversePath eli:is_part_of .
 
-psd:P102 owl:versionInfo "1.3.0";
-  sh:path _:a7c8ac44478040d2b35e9c51a45ca55717;
+psd:P94 owl:versionInfo "1.3.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2525;
   sh:name "inverse recorded in a realization of"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:PlenarySittingReference;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "inverse_recorded_in_a_realization_of" .
 
-_:a7c8ac44478040d2b35e9c51a45ca55717 sh:inversePath eli-dl:recorded_in_a_realization_of .
+_:a701ed0bc8f44446a3a682c5adf0356f2525 sh:inversePath eli-dl:recorded_in_a_realization_of .
 
-psd:P105 owl:versionInfo "1.0";
+psd:P96 owl:versionInfo "1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1134,7 +1179,7 @@ psd:P105 owl:versionInfo "1.0";
   sh:hasValue eli:Work;
   shacl-play:shortname "type" .
 
-psd:P106 owl:versionInfo "1.0";
+psd:P97 owl:versionInfo "1.0";
   sh:path dcterms:identifier;
   sh:name "identifier"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1143,7 +1188,7 @@ psd:P106 owl:versionInfo "1.0";
   sh:datatype xsd:string;
   shacl-play:shortname "identifier" .
 
-psd:P107 owl:versionInfo "2.1.0";
+psd:P98 owl:versionInfo "2.1.0";
   sh:path eli:work_type;
   sh:name "work type"@en;
   skos:example "https://data.europarl.europa.eu/def/ep-document-types/VOTE_ROLLCALL_PLENARY";
@@ -1154,7 +1199,7 @@ psd:P107 owl:versionInfo "2.1.0";
   sh:hasValue ep-document-types:VOTE_ROLLCALL_PLENARY;
   shacl-play:shortname "work_type" .
 
-psd:P108 owl:versionInfo "1.1";
+psd:P99 owl:versionInfo "1.1";
   sh:path eli:date_document;
   sh:name "date document"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1163,15 +1208,16 @@ psd:P108 owl:versionInfo "1.1";
   sh:datatype xsd:date;
   shacl-play:shortname "date_document" .
 
-psd:P109 owl:versionInfo "1.0";
+psd:P100 owl:versionInfo "2.3.0";
   sh:path epvoc:identifierYear;
   sh:name "identifier year"@en;
+  sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:string;
   shacl-play:shortname "identifierYear" .
 
-psd:P110 owl:versionInfo "1.0";
+psd:P101 owl:versionInfo "1.0";
   sh:path dcterms:title;
   sh:name "title"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1179,14 +1225,14 @@ psd:P110 owl:versionInfo "1.0";
   sh:datatype rdf:langString;
   shacl-play:shortname "title_dcterms" .
 
-psd:P111 owl:versionInfo "1.0";
+psd:P102 owl:versionInfo "1.0";
   sh:path rdfs:label;
   sh:name "label"@en;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:string;
   shacl-play:shortname "label" .
 
-psd:P112 owl:versionInfo "1.0";
+psd:P103 owl:versionInfo "1.0";
   sh:path epvoc:epNumber;
   sh:name "ep number"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1195,7 +1241,7 @@ psd:P112 owl:versionInfo "1.0";
   sh:datatype xsd:string;
   shacl-play:shortname "epNumber" .
 
-psd:P113 owl:versionInfo "1.1";
+psd:P104 owl:versionInfo "1.1";
   sh:path eli-dl:parliamentary_term;
   sh:name "parliamentary term"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1203,7 +1249,7 @@ psd:P113 owl:versionInfo "1.1";
   sh:nodeKind sh:IRI;
   shacl-play:shortname "parliamentary_term" .
 
-psd:P114 owl:versionInfo "2.1.0";
+psd:P105 owl:versionInfo "2.1.0";
   sh:path dcterms:publisher;
   sh:name "publisher"@en;
   skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
@@ -1214,14 +1260,14 @@ psd:P114 owl:versionInfo "2.1.0";
   sh:hasValue <https://data.europarl.europa.eu/org/EU_PARLIAMENT>;
   shacl-play:shortname "publisher" .
 
-psd:P115 owl:versionInfo "1.0";
+psd:P106 owl:versionInfo "1.0";
   sh:path eli:is_realized_by;
   sh:name "is realized by"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:Expression;
   shacl-play:shortname "is_realized_by" .
 
-psd:P116 owl:versionInfo "1.1";
+psd:P107 owl:versionInfo "1.1";
   sh:path eli:is_annex_of;
   sh:name "is annex of"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1231,26 +1277,26 @@ psd:P116 owl:versionInfo "1.1";
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "is_annex_of" .
 
-psd:P117 owl:versionInfo "1.3.0";
-  sh:path _:a7c8ac44478040d2b35e9c51a45ca55718;
+psd:P108 owl:versionInfo "1.3.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2526;
   sh:name "inverse is part of"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:WorkSubdivision;
   shacl-play:shortname "inverse_is_part_of" .
 
-_:a7c8ac44478040d2b35e9c51a45ca55718 sh:inversePath eli:is_part_of .
+_:a701ed0bc8f44446a3a682c5adf0356f2526 sh:inversePath eli:is_part_of .
 
-psd:P118 owl:versionInfo "1.3.0";
-  sh:path _:a7c8ac44478040d2b35e9c51a45ca55719;
+psd:P109 owl:versionInfo "1.3.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2527;
   sh:name "inverse recorded in a realization of"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:PlenarySittingReference;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "inverse_recorded_in_a_realization_of" .
 
-_:a7c8ac44478040d2b35e9c51a45ca55719 sh:inversePath eli-dl:recorded_in_a_realization_of .
+_:a701ed0bc8f44446a3a682c5adf0356f2527 sh:inversePath eli-dl:recorded_in_a_realization_of .
 
-psd:P121 owl:versionInfo "2.1.0";
+psd:P111 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1258,7 +1304,7 @@ psd:P121 owl:versionInfo "2.1.0";
   sh:hasValue eli:Work;
   shacl-play:shortname "type" .
 
-psd:P122 owl:versionInfo "1.0";
+psd:P112 owl:versionInfo "1.0";
   sh:path dcterms:identifier;
   sh:name "identifier"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1267,7 +1313,7 @@ psd:P122 owl:versionInfo "1.0";
   sh:datatype xsd:string;
   shacl-play:shortname "identifier" .
 
-psd:P123 owl:versionInfo "2.1.0";
+psd:P113 owl:versionInfo "2.1.0";
   sh:path eli:work_type;
   sh:name "work type"@en;
   skos:example "https://data.europarl.europa.eu/def/ep-document-types/CRE_PLENARY";
@@ -1278,7 +1324,7 @@ psd:P123 owl:versionInfo "2.1.0";
   sh:hasValue ep-document-types:CRE_PLENARY;
   shacl-play:shortname "work_type" .
 
-psd:P124 owl:versionInfo "1.1";
+psd:P114 owl:versionInfo "1.1";
   sh:path eli:date_document;
   sh:name "date document"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1287,15 +1333,16 @@ psd:P124 owl:versionInfo "1.1";
   sh:datatype xsd:date;
   shacl-play:shortname "date_document" .
 
-psd:P125 owl:versionInfo "1.0";
+psd:P115 owl:versionInfo "2.3.0";
   sh:path epvoc:identifierYear;
   sh:name "identifier year"@en;
+  sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:string;
   shacl-play:shortname "identifierYear" .
 
-psd:P126 owl:versionInfo "1.0";
+psd:P116 owl:versionInfo "1.0";
   sh:path dcterms:title;
   sh:name "title"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1303,14 +1350,14 @@ psd:P126 owl:versionInfo "1.0";
   sh:datatype rdf:langString;
   shacl-play:shortname "title_dcterms" .
 
-psd:P127 owl:versionInfo "1.0";
+psd:P117 owl:versionInfo "1.0";
   sh:path rdfs:label;
   sh:name "label"@en;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:string;
   shacl-play:shortname "label" .
 
-psd:P128 owl:versionInfo "1.1";
+psd:P118 owl:versionInfo "1.1";
   sh:path eli-dl:parliamentary_term;
   sh:name "parliamentary term"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1318,7 +1365,7 @@ psd:P128 owl:versionInfo "1.1";
   sh:nodeKind sh:IRI;
   shacl-play:shortname "parliamentary_term" .
 
-psd:P129 owl:versionInfo "2.1.0";
+psd:P119 owl:versionInfo "2.1.0";
   sh:path dcterms:publisher;
   sh:name "publisher"@en;
   skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
@@ -1329,33 +1376,33 @@ psd:P129 owl:versionInfo "2.1.0";
   sh:hasValue <https://data.europarl.europa.eu/org/EU_PARLIAMENT>;
   shacl-play:shortname "publisher" .
 
-psd:P132 owl:versionInfo "2.1.0";
+psd:P120 owl:versionInfo "2.1.0";
   sh:path eli:is_realized_by;
   sh:name "is realized by"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:Expression;
   shacl-play:shortname "is_realized_by" .
 
-psd:P133 owl:versionInfo "2.1.0";
-  sh:path _:a7c8ac44478040d2b35e9c51a45ca55720;
+psd:P121 owl:versionInfo "2.1.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2528;
   sh:name "inverse is part of"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:WorkSubdivision;
   shacl-play:shortname "inverse_is_part_of" .
 
-_:a7c8ac44478040d2b35e9c51a45ca55720 sh:inversePath eli:is_part_of .
+_:a701ed0bc8f44446a3a682c5adf0356f2528 sh:inversePath eli:is_part_of .
 
-psd:P134 owl:versionInfo "1.3.0";
-  sh:path _:a7c8ac44478040d2b35e9c51a45ca55721;
+psd:P122 owl:versionInfo "1.3.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2529;
   sh:name "inverse recorded in a realization of"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:PlenarySittingReference;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "inverse_recorded_in_a_realization_of" .
 
-_:a7c8ac44478040d2b35e9c51a45ca55721 sh:inversePath eli-dl:recorded_in_a_realization_of .
+_:a701ed0bc8f44446a3a682c5adf0356f2529 sh:inversePath eli-dl:recorded_in_a_realization_of .
 
-psd:P137 owl:versionInfo "1.3.0";
+psd:P124 owl:versionInfo "1.3.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1364,75 +1411,79 @@ psd:P137 owl:versionInfo "1.3.0";
   sh:hasValue eli:WorkSubdivision;
   shacl-play:shortname "type" .
 
-psd:P138 owl:versionInfo "1.3.0";
+psd:P125 owl:versionInfo "2.3.0";
   sh:path dcterms:identifier;
   sh:name "identifier"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:string;
+  sh:pattern "(PV|CRE)-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}(-(?:VOT|RCV))?-ITM-[0-9]{3}(-[0-9]{2})?";
   shacl-play:shortname "identifier" .
 
-psd:P139 owl:versionInfo "2.1.0";
+psd:P126 owl:versionInfo "2.3.0";
   sh:path eli:type_subdivision;
   sh:name "type subdivision"@en;
   sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   sh:node psd:SubdivisionTypeReference;
   sh:hasValue subdivision:ITM;
   shacl-play:shortname "type_subdivision" .
 
-psd:P140 owl:versionInfo "1.3.0";
+psd:P127 owl:versionInfo "2.3.0";
   sh:path epvoc:numbering;
   sh:name "numbering"@en;
-  sh:maxCount "1"^^xsd:integer;
-  sh:nodeKind sh:Literal;
-  sh:datatype xsd:string;
-  shacl-play:shortname "numbering" .
-
-psd:P141 owl:versionInfo "1.3.0";
-  sh:path eli:number;
-  sh:name "number"@en;
+  sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:integer;
+  shacl-play:shortname "numbering" .
+
+psd:P128 owl:versionInfo "2.3.0";
+  sh:path eli:number;
+  sh:name "number"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
   shacl-play:shortname "number" .
 
-psd:P142 owl:versionInfo "2.1.0";
+psd:P129 owl:versionInfo "2.1.0";
   sh:path eli:is_part_of;
   sh:name "is part of"@en;
   sh:minCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
-  sh:or _:a7c8ac44478040d2b35e9c51a45ca55722;
+  sh:or _:a701ed0bc8f44446a3a682c5adf0356f2530;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "is_part_of" .
 
-_:a7c8ac44478040d2b35e9c51a45ca55722 rdf:first _:a7c8ac44478040d2b35e9c51a45ca55723;
-  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55724 .
+_:a701ed0bc8f44446a3a682c5adf0356f2530 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2531;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2532 .
 
-_:a7c8ac44478040d2b35e9c51a45ca55723 sh:node psd:PlenaryMinutes .
+_:a701ed0bc8f44446a3a682c5adf0356f2531 sh:node psd:PlenaryMinutes .
 
-_:a7c8ac44478040d2b35e9c51a45ca55724 rdf:first _:a7c8ac44478040d2b35e9c51a45ca55725;
-  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55726 .
+_:a701ed0bc8f44446a3a682c5adf0356f2532 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2533;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2534 .
 
-_:a7c8ac44478040d2b35e9c51a45ca55725 sh:node psd:PlenaryRcv .
+_:a701ed0bc8f44446a3a682c5adf0356f2533 sh:node psd:PlenaryRcvWork .
 
-_:a7c8ac44478040d2b35e9c51a45ca55726 rdf:first _:a7c8ac44478040d2b35e9c51a45ca55727;
-  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55728 .
+_:a701ed0bc8f44446a3a682c5adf0356f2534 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2535;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2536 .
 
-_:a7c8ac44478040d2b35e9c51a45ca55727 sh:node psd:PlenaryVotes .
+_:a701ed0bc8f44446a3a682c5adf0356f2535 sh:node psd:PlenaryVotesWork .
 
-_:a7c8ac44478040d2b35e9c51a45ca55728 rdf:first _:a7c8ac44478040d2b35e9c51a45ca55729;
-  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55730 .
+_:a701ed0bc8f44446a3a682c5adf0356f2536 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2537;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2538 .
 
-_:a7c8ac44478040d2b35e9c51a45ca55729 sh:node psd:PlenaryDebates .
+_:a701ed0bc8f44446a3a682c5adf0356f2537 sh:node psd:PlenaryDebatesWork .
 
-_:a7c8ac44478040d2b35e9c51a45ca55730 rdf:first _:a7c8ac44478040d2b35e9c51a45ca55731;
+_:a701ed0bc8f44446a3a682c5adf0356f2538 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2539;
   rdf:rest rdf:nil .
 
-_:a7c8ac44478040d2b35e9c51a45ca55731 sh:node psd:WorkSubdivision .
+_:a701ed0bc8f44446a3a682c5adf0356f2539 sh:node psd:WorkSubdivision .
 
-psd:P143 owl:versionInfo "1.3.0";
+psd:P130 owl:versionInfo "1.3.0";
   sh:path dcterms:title;
   sh:name "title"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1440,60 +1491,60 @@ psd:P143 owl:versionInfo "1.3.0";
   sh:datatype rdf:langString;
   shacl-play:shortname "title_dcterms" .
 
-psd:P144 owl:versionInfo "1.5.0";
+psd:P131 owl:versionInfo "1.5.0";
   sh:path eli:refers_to;
   sh:name "refers to"@en;
   sh:nodeKind sh:IRI;
-  sh:in _:a7c8ac44478040d2b35e9c51a45ca55732;
+  sh:in _:a701ed0bc8f44446a3a682c5adf0356f2540;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "refers_to" .
 
-_:a7c8ac44478040d2b35e9c51a45ca55732 rdf:first eli:WorkSubdivision;
-  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55733 .
+_:a701ed0bc8f44446a3a682c5adf0356f2540 rdf:first eli:WorkSubdivision;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2541 .
 
-_:a7c8ac44478040d2b35e9c51a45ca55733 rdf:first eli:Work;
-  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55734 .
+_:a701ed0bc8f44446a3a682c5adf0356f2541 rdf:first eli:Work;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2542 .
 
-_:a7c8ac44478040d2b35e9c51a45ca55734 rdf:first eli-dl:Process;
+_:a701ed0bc8f44446a3a682c5adf0356f2542 rdf:first eli-dl:Process;
   rdf:rest rdf:nil .
 
-psd:P145 owl:versionInfo "1.5.1";
+psd:P132 owl:versionInfo "1.5.1";
   sh:path epvoc:expressionContent;
   sh:name "expression content"@en;
   sh:nodeKind sh:Literal;
   sh:datatype rdf:langString;
   shacl-play:shortname "expressionContent" .
 
-psd:P146 owl:versionInfo "2.1.0";
-  sh:path _:a7c8ac44478040d2b35e9c51a45ca55735;
+psd:P133 owl:versionInfo "2.2.1";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2543;
   sh:name "inverse is part of"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:WorkSubdivision;
   shacl-play:shortname "inverse_is_part_of" .
 
-_:a7c8ac44478040d2b35e9c51a45ca55735 sh:inversePath eli:is_part_of .
+_:a701ed0bc8f44446a3a682c5adf0356f2543 sh:inversePath eli:is_part_of .
 
-psd:P147 owl:versionInfo "1.5.0";
-  sh:path _:a7c8ac44478040d2b35e9c51a45ca55736;
+psd:P134 owl:versionInfo "1.5.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2544;
   sh:name "inverse refers to"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:WorkSubdivision;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "inverse_refers_to" .
 
-_:a7c8ac44478040d2b35e9c51a45ca55736 sh:inversePath eli:refers_to .
+_:a701ed0bc8f44446a3a682c5adf0356f2544 sh:inversePath eli:refers_to .
 
-psd:P148 owl:versionInfo "1.3.0";
-  sh:path _:a7c8ac44478040d2b35e9c51a45ca55737;
+psd:P135 owl:versionInfo "1.3.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2545;
   sh:name "inverse recorded in a realization of"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:PlenarySittingItemReference;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "inverse_recorded_in_a_realization_of" .
 
-_:a7c8ac44478040d2b35e9c51a45ca55737 sh:inversePath eli-dl:recorded_in_a_realization_of .
+_:a701ed0bc8f44446a3a682c5adf0356f2545 sh:inversePath eli-dl:recorded_in_a_realization_of .
 
-psd:P151 owl:versionInfo "1.0";
+psd:P137 owl:versionInfo "1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1502,7 +1553,7 @@ psd:P151 owl:versionInfo "1.0";
   sh:hasValue eli:Expression;
   shacl-play:shortname "type" .
 
-psd:P152 owl:versionInfo "2.1.0";
+psd:P138 owl:versionInfo "2.2.0";
   sh:path eli:title;
   sh:name "title"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1510,23 +1561,22 @@ psd:P152 owl:versionInfo "2.1.0";
   sh:datatype rdf:langString;
   shacl-play:shortname "title" .
 
-psd:P153 owl:versionInfo "1.0";
+psd:P139 owl:versionInfo "1.0";
   sh:path eli:is_embodied_by;
   sh:name "is embodied by"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:Manifestation;
   shacl-play:shortname "is_embodied_by" .
 
-psd:P154 owl:versionInfo "1.1";
+psd:P140 owl:versionInfo "1.1";
   sh:path eli:language;
   sh:name "language"@en;
   sh:minCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   sh:node psd:LanguageReference;
-  sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "language" .
 
-psd:P157 owl:versionInfo "1.0";
+psd:P142 owl:versionInfo "1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1535,7 +1585,7 @@ psd:P157 owl:versionInfo "1.0";
   sh:hasValue eli:Manifestation;
   shacl-play:shortname "type" .
 
-psd:P158 owl:versionInfo "1.0";
+psd:P143 owl:versionInfo "1.0";
   sh:path dcterms:issued;
   sh:name "issued"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1544,32 +1594,32 @@ psd:P158 owl:versionInfo "1.0";
   sh:datatype xsd:dateTime;
   shacl-play:shortname "issued" .
 
-psd:P159 owl:versionInfo "1.0";
+psd:P144 owl:versionInfo "1.0";
   sh:path eli:is_exemplified_by;
   sh:name "is exemplified by"@en;
   sh:minCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   shacl-play:shortname "is_exemplified_by" .
 
-psd:P160 owl:versionInfo "1.0";
+psd:P145 owl:versionInfo "2.3.0";
   sh:path epvoc:byteSize;
   sh:name "byte size"@en;
+  sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:long;
   shacl-play:shortname "byteSize" .
 
-psd:P161 owl:versionInfo "1.1";
+psd:P146 owl:versionInfo "1.1";
   sh:path dcterms:format;
   sh:name "format"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   sh:node psd:MediaTypeOrExtentReference;
-  sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "format" .
 
-psd:P162 owl:versionInfo "1.0";
+psd:P147 owl:versionInfo "1.0";
   sh:path eli:media_type;
   sh:name "media type"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1577,147 +1627,147 @@ psd:P162 owl:versionInfo "1.0";
   sh:nodeKind sh:IRI;
   shacl-play:shortname "media_type" .
 
-psd:P165 owl:versionInfo "2.1.0";
+psd:P149 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue eli:WorkType;
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P166 owl:versionInfo "2.1.0";
+psd:P150 owl:versionInfo "2.1.0";
   sh:path skos:inScheme;
   sh:name "Is in scheme"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue ept:ep-document-types;
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P169 owl:versionInfo "2.1.0";
+psd:P152 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue dcterms:LinguisticSystem;
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P170 owl:versionInfo "2.1.0";
+psd:P153 owl:versionInfo "2.1.0";
   sh:path skos:inScheme;
   sh:name "Is in scheme"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue "op-aut:language";
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P173 owl:versionInfo "2.1.0";
+psd:P155 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue dcterms:MediaTypeOrExtent;
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P174 owl:versionInfo "2.1.0";
+psd:P156 owl:versionInfo "2.1.0";
   sh:path skos:inScheme;
   sh:name "Is in scheme"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue "op-aut:format";
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P177 owl:versionInfo "2.1.0";
+psd:P158 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue euvoc:FileStatus;
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P178 owl:versionInfo "2.1.0";
+psd:P159 owl:versionInfo "2.1.0";
   sh:path skos:inScheme;
   sh:name "Is in scheme"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue "op-aut:file-status";
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P181 owl:versionInfo "2.1.0";
+psd:P161 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue euvoc:FileStatus;
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P182 owl:versionInfo "2.1.0";
+psd:P162 owl:versionInfo "2.1.0";
   sh:path skos:inScheme;
   sh:name "Is in scheme"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue "op-aut:subdivision";
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P185 owl:versionInfo "2.1.0";
+psd:P164 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue org:Organization;
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P189 owl:versionInfo "2.1.0";
+psd:P167 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue eli-dl:Activity;
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P190 owl:versionInfo "2.1.0";
+psd:P168 owl:versionInfo "2.1.0";
   sh:path eli-dl:recorded_in_a_realization_of;
   sh:name "recorded in a realization of"@en;
   sh:nodeKind sh:IRI;
   sh:node psd:PlenaryAgendaPartSessionComplexWork .
 
-psd:P192 owl:versionInfo "2.1.0";
+psd:P170 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue eli-dl:Activity;
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P193 owl:versionInfo "2.1.0";
+psd:P171 owl:versionInfo "2.1.0";
   sh:path eli-dl:recorded_in_a_realization_of;
   sh:name "recorded in a realization of"@en;
   sh:nodeKind sh:IRI;
-  sh:or _:a7c8ac44478040d2b35e9c51a45ca55738 .
+  sh:or _:a701ed0bc8f44446a3a682c5adf0356f2546 .
 
-_:a7c8ac44478040d2b35e9c51a45ca55738 rdf:first _:a7c8ac44478040d2b35e9c51a45ca55739;
-  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55740 .
+_:a701ed0bc8f44446a3a682c5adf0356f2546 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2547;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2548 .
 
-_:a7c8ac44478040d2b35e9c51a45ca55739 sh:node psd:PlenarySittingAgenda .
+_:a701ed0bc8f44446a3a682c5adf0356f2547 sh:node psd:PlenarySittingAgendaWork .
 
-_:a7c8ac44478040d2b35e9c51a45ca55740 rdf:first _:a7c8ac44478040d2b35e9c51a45ca55741;
-  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55742 .
+_:a701ed0bc8f44446a3a682c5adf0356f2548 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2549;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2550 .
 
-_:a7c8ac44478040d2b35e9c51a45ca55741 sh:node psd:PlenaryMinutes .
+_:a701ed0bc8f44446a3a682c5adf0356f2549 sh:node psd:PlenaryMinutes .
 
-_:a7c8ac44478040d2b35e9c51a45ca55742 rdf:first _:a7c8ac44478040d2b35e9c51a45ca55743;
-  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55744 .
+_:a701ed0bc8f44446a3a682c5adf0356f2550 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2551;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2552 .
 
-_:a7c8ac44478040d2b35e9c51a45ca55743 sh:node psd:PlenaryRcv .
+_:a701ed0bc8f44446a3a682c5adf0356f2551 sh:node psd:PlenaryRcvWork .
 
-_:a7c8ac44478040d2b35e9c51a45ca55744 rdf:first _:a7c8ac44478040d2b35e9c51a45ca55745;
-  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55746 .
+_:a701ed0bc8f44446a3a682c5adf0356f2552 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2553;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2554 .
 
-_:a7c8ac44478040d2b35e9c51a45ca55745 sh:node psd:PlenaryAtt .
+_:a701ed0bc8f44446a3a682c5adf0356f2553 sh:node psd:PlenaryAttWork .
 
-_:a7c8ac44478040d2b35e9c51a45ca55746 rdf:first _:a7c8ac44478040d2b35e9c51a45ca55747;
-  rdf:rest _:a7c8ac44478040d2b35e9c51a45ca55748 .
+_:a701ed0bc8f44446a3a682c5adf0356f2554 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2555;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2556 .
 
-_:a7c8ac44478040d2b35e9c51a45ca55747 sh:node psd:PlenaryVotes .
+_:a701ed0bc8f44446a3a682c5adf0356f2555 sh:node psd:PlenaryVotesWork .
 
-_:a7c8ac44478040d2b35e9c51a45ca55748 rdf:first _:a7c8ac44478040d2b35e9c51a45ca55749;
+_:a701ed0bc8f44446a3a682c5adf0356f2556 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2557;
   rdf:rest rdf:nil .
 
-_:a7c8ac44478040d2b35e9c51a45ca55749 sh:node psd:PlenaryDebates .
+_:a701ed0bc8f44446a3a682c5adf0356f2557 sh:node psd:PlenaryDebatesWork .
 
-psd:P196 owl:versionInfo "2.1.0";
+psd:P173 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue eli-dl:Activity;
   sh:deactivated "true"^^xsd:boolean .
 
-psd:P197 owl:versionInfo "2.1.0";
+psd:P174 owl:versionInfo "2.1.0";
   sh:path eli-dl:recorded_in_a_realization_of;
   sh:name "recorded in a realization of"@en;
   sh:nodeKind sh:IRI;

@@ -169,7 +169,7 @@
 					.sp_table_propertyshapes tr {
 					    display: table-row;
 					    vertical-align: inherit;
-					    border-color: inherit;
+					    border-color: inherit;					    
 					}
 													
 					.sp_table_propertyshapes th:nth-child(4) {
@@ -189,6 +189,16 @@
 										
 					.sp_table_propertyshapes_col_description {
 						word-break: break-word;
+					}
+					
+					tr.sp_propertyGroup {
+						font-style: italic;
+						background-color: #def0f7;
+					}
+					
+					tr.sp_propertyGroup td {
+						border-bottom: 1px solid black;
+						padding-bottom: 0.25 rem;
 					}
 					
 					.sp_serialization_badge {
@@ -226,8 +236,23 @@
       <title>Plenary documents dataset description</title>
       <meta name="apple-mobile-web-app-title" content="Plenary documents dataset description">
       <meta name="twitter:title" content="Plenary documents dataset description">
-      <meta property="og:title" content="Plenary documents dataset description">
-   </head>
+      <meta property="og:title" content="Plenary documents dataset description"><script type="application/ld+json">{
+    "datePublished": "2022-11-18",
+    "license": ["https://www.europarl.europa.eu/legal-notice/en/"],
+    "@type": "TechArticle",
+    "author": [{
+        "@type": "Organization",
+        "url": "https://publications.europa.eu/resource/authority/corporate-body/EP"
+    }],
+    "name": "Plenary documents dataset description",
+    "publisher": [{
+        "@type": "Organization",
+        "url": "https://publications.europa.eu/resource/authority/corporate-body/EP"
+    }],
+    "@context": "https://schema.org",
+    "version": "2.3.0",
+    "url": "https://data.europarl.europa.eu/def/plenary-documents#"
+}</script></head>
    <body>
       <div class="sp_container_principal container pt-4">
          <table style="width:100%">
@@ -238,19 +263,19 @@
                </td>
             </tr>
          </table>
-         <div><b>Creation date: </b>2022-11-18<br><b>Last updated: </b>2024-03-21 00:00:00<br><b>Copyright date: </b>2022<br><b>Version: </b>2.1.0<br><b>License: </b><a href="https://www.europarl.europa.eu/legal-notice/en/" target="_blank">https://www.europarl.europa.eu/legal-notice/en/</a><br><b>Creator: </b><a href="https://publications.europa.eu/resource/authority/corporate-body/EP" target="_blank">https://publications.europa.eu/resource/authority/corporate-body/EP</a><br><b>Publisher: </b><a href="https://publications.europa.eu/resource/authority/corporate-body/EP" target="_blank">https://publications.europa.eu/resource/authority/corporate-body/EP</a><br><b>Rightsholder: </b><br><b>Feedback: </b><br><b id="formats">Download serialization: </b><div><span class="sp_serialization_badge"><a href="https://europarl.github.io/eli-ep/dsd/plenary-documents/eli-ep_plenary-documents.shacl.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.png" alt="TTL"></a></span></div><br></div>
+         <div><b>Creation date: </b>2022-11-18<br><b>Last updated: </b>2024-10-26 00:00:00<br><b>Copyright date: </b>2022<br><b>Version: </b>2.3.0<br><b>License: </b><a href="https://www.europarl.europa.eu/legal-notice/en/" target="_blank">https://www.europarl.europa.eu/legal-notice/en/</a><br><b>Creator: </b><a href="https://publications.europa.eu/resource/authority/corporate-body/EP" target="_blank">https://publications.europa.eu/resource/authority/corporate-body/EP</a><br><b>Publisher: </b><a href="https://publications.europa.eu/resource/authority/corporate-body/EP" target="_blank">https://publications.europa.eu/resource/authority/corporate-body/EP</a><br><b id="formats">Download serialization: </b><div><span class="sp_serialization_badge"><a href="https://europarl.github.io/eli-ep/2.3.0/dsd/plenary-documents/eli-ep_plenary-documents.shacl.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.png" alt="TTL"></a></span></div><br></div>
          <div class="sp_section_title_toc toc">
             <h2 id="Index">Table of Contents</h2>
             <ul role="list" class="sp_list_toc ul_type_none t-x-mode">
                <li><a href="#prefixes">Namespaces</a></li>
                <li><a href="#description">Description</a></li>
                <li><a href="#documentation">Model documentation</a><ul role="list" class="ul_type_none sp_list_toc_l2">
-                     <li><a href="#ept:plenary-documents#ReportPlenary">Work Plenary Report</a></li>
-                     <li><a href="#ept:plenary-documents#ResolutionMotion">Work Motion for Resolution</a></li>
-                     <li><a href="#ept:plenary-documents#ResolutionMotionJoint">Work Joint Motion for Resolution</a></li>
-                     <li><a href="#ept:plenary-documents#QuestionResolutionMotion">Work Question for Motion for Resolution</a></li>
-                     <li><a href="#ept:plenary-documents#Amendment">Work Plenary Amendment</a></li>
-                     <li><a href="#ept:plenary-documents#Erratum">Work Plenary Erratum</a></li>
+                     <li><a href="#ept:plenary-documents#ReportPlenaryWork">Work Plenary Report</a></li>
+                     <li><a href="#ept:plenary-documents#ResolutionMotionWork">Work Motion for Resolution</a></li>
+                     <li><a href="#ept:plenary-documents#ResolutionMotionJointWork">Work Joint Motion for Resolution</a></li>
+                     <li><a href="#ept:plenary-documents#QuestionResolutionMotionWork">Work Question for Motion for Resolution</a></li>
+                     <li><a href="#ept:plenary-documents#AmendmentListWork">Work Plenary Amendment</a></li>
+                     <li><a href="#ept:plenary-documents#ErratumWork">Work Plenary Erratum</a></li>
                      <li><a href="#ept:plenary-documents#Expression">Realized By Expression</a></li>
                      <li><a href="#ept:plenary-documents#Manifestation">Is embodied by Manifestation</a></li>
                      <li><a href="#ept:plenary-documents#Participation">Participation</a></li>
@@ -367,20 +392,17 @@
       
       
       <br><div>
-            <h2 id="description" class="sp_section_subtitle">Description</h2><p>This Dataset Description is a subset of the general ELI-EP application profile and it includes classes and properties used in Plenary documents datasets. Descriptions of classes and properties can be found in ELI-EP application profile.</p>
-</div>
-         <h2 id="documentation" class="sp_section_subtitle">Model documentation</h2>
+            <h2 id="documentation" class="sp_section_subtitle">Model documentation</h2>
          <div class="row mt-3">
             <div class="col">
-               <section id="ept:plenary-documents#ReportPlenary">
+               <section id="ept:plenary-documents#ReportPlenaryWork">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Work Plenary Report</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Work Plenary Report</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-documents#ReportPlenaryWork</code></div>
                   <p><em>This node shape represents a subset of eli:Work</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
                      <li>Closed shape</li>
-                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\-_]+$</code></li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/A-[0-9]{1,2}-[0-9]{4}-[0-9]{4}$</code></li>
                      <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/A-9-2024-0061</code></li>
                   </ul>Applies to: <br><code>
                      <pre>PREFIX eli: &lt;http://data.europa.eu/eli/ontology#&gt;&#xD;
@@ -482,7 +504,7 @@ WHERE {&#xD;
                         <tr>
                            <td>inverse corrects</td>
                            <td><code>^eli:corrects</code></td>
-                           <td><code><a href="#ept:plenary-documents#Erratum">Work Plenary Erratum</a></code><br></td>
+                           <td><code><a href="#ept:plenary-documents#ErratumWork">Work Plenary Erratum</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -509,7 +531,7 @@ WHERE {&#xD;
                         <tr>
                            <td>inverse foresees change of</td>
                            <td><code>^eli-dl:foresees_change_of</code></td>
-                           <td><code><a href="#ept:plenary-documents#Amendment">Work Plenary Amendment</a></code><br></td>
+                           <td><code><a href="#ept:plenary-documents#AmendmentListWork">Work Plenary Amendment</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -563,7 +585,7 @@ WHERE {&#xD;
                         <tr>
                            <td>notation</td>
                            <td><code><a href="http://www.w3.org/2004/02/skos/core#notation">skos:notation</a></code></td>
-                           <td><code>ept:epvoc#publicRegister</code><br></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#publicRegister">ept:epvoc#publicRegister</a></code><br></td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
@@ -617,7 +639,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli:Work</code><br></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Work">eli:Work</a></code><br></td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
@@ -638,15 +660,14 @@ WHERE {&#xD;
             </div>
          </div><br><div class="row mt-3">
             <div class="col">
-               <section id="ept:plenary-documents#ResolutionMotion">
+               <section id="ept:plenary-documents#ResolutionMotionWork">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Work Motion for Resolution</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Work Motion for Resolution</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-documents#ResolutionMotionWork</code></div>
                   <p><em>This node shape represents a subset of eli:Work</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
                      <li>Closed shape</li>
-                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\-_]+$</code></li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/B-[0-9]{1,2}-[0-9]{4}-[0-9]{4}$</code></li>
                      <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/B-9-2024-0185</code></li>
                   </ul>Applies to: <br><code>
                      <pre>PREFIX eli: &lt;http://data.europa.eu/eli/ontology#&gt;&#xD;
@@ -696,7 +717,7 @@ WHERE {&#xD;
                            <td><code><a href="https://data.europarl.europa.eu/def/epvoc#epNumber">ept:epvoc#epNumber</a></code></td>
                            <td><code>xsd:string</code><br></td>
                            <td>
-                              <div style="width:30px">0..1</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -714,7 +735,7 @@ WHERE {&#xD;
                            <td><code><a href="https://data.europarl.europa.eu/def/epvoc#identifierYear">ept:epvoc#identifierYear</a></code></td>
                            <td><code>xsd:string</code><br></td>
                            <td>
-                              <div style="width:30px">0..1</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -739,7 +760,7 @@ WHERE {&#xD;
                         <tr>
                            <td>inverse foresees change of</td>
                            <td><code>^eli-dl:foresees_change_of</code></td>
-                           <td><code><a href="#ept:plenary-documents#Amendment">Work Plenary Amendment</a></code><br></td>
+                           <td><code><a href="#ept:plenary-documents#AmendmentListWork">Work Plenary Amendment</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -793,9 +814,9 @@ WHERE {&#xD;
                         <tr>
                            <td>notation</td>
                            <td><code><a href="http://www.w3.org/2004/02/skos/core#notation">skos:notation</a></code></td>
-                           <td><code>ept:epvoc#publicRegister</code><br></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#publicRegister">ept:epvoc#publicRegister</a></code><br></td>
                            <td>
-                              <div style="width:30px">0..*</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -847,7 +868,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli:Work</code><br></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Work">eli:Work</a></code><br></td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
@@ -868,15 +889,14 @@ WHERE {&#xD;
             </div>
          </div><br><div class="row mt-3">
             <div class="col">
-               <section id="ept:plenary-documents#ResolutionMotionJoint">
+               <section id="ept:plenary-documents#ResolutionMotionJointWork">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Work Joint Motion for Resolution</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Work Joint Motion for Resolution</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-documents#ResolutionMotionJointWork</code></div>
                   <p><em>This node shape represents a subset of eli:Work</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
                      <li>Closed shape</li>
-                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\-_]+$</code></li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/RC-[0-9]{1,2}-[0-9]{4}-[0-9]{4}$</code></li>
                      <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/RC-9-2024-0187</code></li>
                   </ul>Applies to: <br><code>
                      <pre>PREFIX eli: &lt;http://data.europa.eu/eli/ontology#&gt;&#xD;
@@ -926,7 +946,7 @@ WHERE {&#xD;
                            <td><code><a href="https://data.europarl.europa.eu/def/epvoc#epNumber">ept:epvoc#epNumber</a></code></td>
                            <td><code>xsd:string</code><br></td>
                            <td>
-                              <div style="width:30px">0..1</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -944,7 +964,7 @@ WHERE {&#xD;
                            <td><code><a href="https://data.europarl.europa.eu/def/epvoc#identifierYear">ept:epvoc#identifierYear</a></code></td>
                            <td><code>xsd:string</code><br></td>
                            <td>
-                              <div style="width:30px">0..1</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -969,7 +989,7 @@ WHERE {&#xD;
                         <tr>
                            <td>inverse foresees change of</td>
                            <td><code>^eli-dl:foresees_change_of</code></td>
-                           <td><code><a href="#ept:plenary-documents#Amendment">Work Plenary Amendment</a></code><br></td>
+                           <td><code><a href="#ept:plenary-documents#AmendmentListWork">Work Plenary Amendment</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -1032,9 +1052,9 @@ WHERE {&#xD;
                         <tr>
                            <td>notation</td>
                            <td><code><a href="http://www.w3.org/2004/02/skos/core#notation">skos:notation</a></code></td>
-                           <td><code>ept:epvoc#publicRegister</code><br></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#publicRegister">ept:epvoc#publicRegister</a></code><br></td>
                            <td>
-                              <div style="width:30px">0..*</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -1086,7 +1106,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli:Work</code><br></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Work">eli:Work</a></code><br></td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
@@ -1107,15 +1127,14 @@ WHERE {&#xD;
             </div>
          </div><br><div class="row mt-3">
             <div class="col">
-               <section id="ept:plenary-documents#QuestionResolutionMotion">
+               <section id="ept:plenary-documents#QuestionResolutionMotionWork">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Work Question for Motion for Resolution</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Work Question for Motion for Resolution</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-documents#QuestionResolutionMotionWork</code></div>
                   <p><em>This node shape represents a subset of eli:Work</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
                      <li>Closed shape</li>
-                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\-_]+$</code></li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/QOB-[0-9]{1,2}-[0-9]{4}-[0-9]{4}$</code></li>
                      <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/QOB-9-2024-0004</code></li>
                   </ul>Applies to: <br><code>
                      <pre>PREFIX eli: &lt;http://data.europa.eu/eli/ontology#&gt;&#xD;
@@ -1165,7 +1184,7 @@ WHERE {&#xD;
                            <td><code><a href="https://data.europarl.europa.eu/def/epvoc#epNumber">ept:epvoc#epNumber</a></code></td>
                            <td><code>xsd:string</code><br></td>
                            <td>
-                              <div style="width:30px">0..1</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -1183,7 +1202,7 @@ WHERE {&#xD;
                            <td><code><a href="https://data.europarl.europa.eu/def/epvoc#identifierYear">ept:epvoc#identifierYear</a></code></td>
                            <td><code>xsd:string</code><br></td>
                            <td>
-                              <div style="width:30px">0..1</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -1208,7 +1227,7 @@ WHERE {&#xD;
                         <tr>
                            <td>inverse foresees change of</td>
                            <td><code>^eli-dl:foresees_change_of</code></td>
-                           <td><code><a href="#ept:plenary-documents#Amendment">Work Plenary Amendment</a></code><br></td>
+                           <td><code><a href="#ept:plenary-documents#AmendmentListWork">Work Plenary Amendment</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -1271,9 +1290,9 @@ WHERE {&#xD;
                         <tr>
                            <td>notation</td>
                            <td><code><a href="http://www.w3.org/2004/02/skos/core#notation">skos:notation</a></code></td>
-                           <td><code>ept:epvoc#publicRegister</code><br></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#publicRegister">ept:epvoc#publicRegister</a></code><br></td>
                            <td>
-                              <div style="width:30px">0..*</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -1325,7 +1344,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli:Work</code><br></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Work">eli:Work</a></code><br></td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
@@ -1346,10 +1365,9 @@ WHERE {&#xD;
             </div>
          </div><br><div class="row mt-3">
             <div class="col">
-               <section id="ept:plenary-documents#Amendment">
+               <section id="ept:plenary-documents#AmendmentListWork">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Work Plenary Amendment</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Work Plenary Amendment</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-documents#AmendmentListWork</code></div>
                   <p><em>This node shape represents a subset of eli:Work</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
@@ -1382,7 +1400,7 @@ WHERE {&#xD;
                            <td><code><a href="https://data.europarl.europa.eu/def/epvoc#epNumber">ept:epvoc#epNumber</a></code></td>
                            <td><code>xsd:string</code><br></td>
                            <td>
-                              <div style="width:30px">0..1</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -1398,9 +1416,9 @@ WHERE {&#xD;
                         <tr>
                            <td>foresees change of</td>
                            <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#foresees_change_of">eli-dl:foresees_change_of</a></code></td>
-                           <td><code><a href="#ept:plenary-documents#ReportPlenary">ept:plenary-documents#ReportPlenary</a></code><code> or </code><code><a href="#ept:plenary-documents#ResolutionMotion">ept:plenary-documents#ResolutionMotion</a></code><code> or </code><code><a href="#ept:plenary-documents#ResolutionMotionJoint">ept:plenary-documents#ResolutionMotionJoint</a></code><br></td>
+                           <td><code><a href="#ept:plenary-documents#ReportPlenaryWork">ept:plenary-documents#ReportPlenaryWork</a></code><code> or </code><code><a href="#ept:plenary-documents#ResolutionMotionWork">ept:plenary-documents#ResolutionMotionWork</a></code><code> or </code><code><a href="#ept:plenary-documents#ResolutionMotionJointWork">ept:plenary-documents#ResolutionMotionJointWork</a></code><br></td>
                            <td>
-                              <div style="width:30px">0..1</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -1418,7 +1436,7 @@ WHERE {&#xD;
                            <td><code><a href="https://data.europarl.europa.eu/def/epvoc#identifierYear">ept:epvoc#identifierYear</a></code></td>
                            <td><code>xsd:string</code><br></td>
                            <td>
-                              <div style="width:30px">0..1</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -1436,7 +1454,7 @@ WHERE {&#xD;
                            <td><code><a href="https://data.europarl.europa.eu/def/epvoc#itemNumberBegin">ept:epvoc#itemNumberBegin</a></code></td>
                            <td><code>xsd:integer</code><br></td>
                            <td>
-                              <div style="width:30px">0..1</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -1445,7 +1463,7 @@ WHERE {&#xD;
                            <td><code><a href="https://data.europarl.europa.eu/def/epvoc#itemNumberEnd">ept:epvoc#itemNumberEnd</a></code></td>
                            <td><code>xsd:integer</code><br></td>
                            <td>
-                              <div style="width:30px">0..1</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -1461,18 +1479,27 @@ WHERE {&#xD;
                         <tr>
                            <td>notation</td>
                            <td><code><a href="http://www.w3.org/2004/02/skos/core#notation">skos:notation</a></code></td>
-                           <td><code>ept:epvoc#publicRegister</code><br></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#publicRegister">ept:epvoc#publicRegister</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
                         <tr>
-                           <td>numbering</td>
-                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#numbering">ept:epvoc#numbering</a></code></td>
+                           <td>number</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#number">eli:number</a></code></td>
                            <td><code>xsd:string</code><br></td>
                            <td>
-                              <div style="width:30px">0..1</div>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>numbering</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#numbering">ept:epvoc#numbering</a></code></td>
+                           <td><code>xsd:integer</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -1490,7 +1517,7 @@ WHERE {&#xD;
                            <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#parliamentary_term">eli-dl:parliamentary_term</a></code></td>
                            <td><code>IRI</code><br></td>
                            <td>
-                              <div style="width:30px">0..1</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -1515,7 +1542,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli:Work</code><br></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Work">eli:Work</a></code><br></td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
@@ -1536,10 +1563,9 @@ WHERE {&#xD;
             </div>
          </div><br><div class="row mt-3">
             <div class="col">
-               <section id="ept:plenary-documents#Erratum">
+               <section id="ept:plenary-documents#ErratumWork">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Work Plenary Erratum</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Work Plenary Erratum</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-documents#ErratumWork</code></div>
                   <p><em>This node shape represents a subset of eli:Work</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
@@ -1560,9 +1586,9 @@ WHERE {&#xD;
                         <tr>
                            <td>corrects</td>
                            <td><code><a href="http://data.europa.eu/eli/ontology#corrects">eli:corrects</a></code></td>
-                           <td><code>ept:plenary-documents#PlenaryReport</code><br></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/plenary-documents#PlenaryReport">ept:plenary-documents#PlenaryReport</a></code><br></td>
                            <td>
-                              <div style="width:30px">0..1</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -1589,7 +1615,7 @@ WHERE {&#xD;
                            <td><code><a href="https://data.europarl.europa.eu/def/epvoc#identifierYear">ept:epvoc#identifierYear</a></code></td>
                            <td><code>xsd:string</code><br></td>
                            <td>
-                              <div style="width:30px">0..1</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -1614,16 +1640,25 @@ WHERE {&#xD;
                         <tr>
                            <td>notation</td>
                            <td><code><a href="http://www.w3.org/2004/02/skos/core#notation">skos:notation</a></code></td>
-                           <td><code>ept:epvoc#publicRegister</code><br></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#publicRegister">ept:epvoc#publicRegister</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
                         <tr>
+                           <td>number</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#number">eli:number</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
                            <td>numbering</td>
                            <td><code><a href="https://data.europarl.europa.eu/def/epvoc#numbering">ept:epvoc#numbering</a></code></td>
-                           <td><code>xsd:string</code><br></td>
+                           <td><code>xsd:integer</code><br></td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
@@ -1643,7 +1678,7 @@ WHERE {&#xD;
                            <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#parliamentary_term">eli-dl:parliamentary_term</a></code></td>
                            <td><code>IRI</code><br></td>
                            <td>
-                              <div style="width:30px">0..1</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -1668,7 +1703,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli:Work</code><br></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Work">eli:Work</a></code><br></td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
@@ -1691,8 +1726,7 @@ WHERE {&#xD;
             <div class="col">
                <section id="ept:plenary-documents#Expression">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Realized By Expression</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Realized By Expression</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-documents#Expression</code></div>
                   <p><em>This node shape represents a subset of eli:Expression</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Applies to: <a href="http://data.europa.eu/eli/ontology#Expression">eli:Expression</a></li>
@@ -1751,7 +1785,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli:Expression</code><br></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Expression">eli:Expression</a></code><br></td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
@@ -1765,8 +1799,7 @@ WHERE {&#xD;
             <div class="col">
                <section id="ept:plenary-documents#Manifestation">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Is embodied by Manifestation</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Is embodied by Manifestation</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-documents#Manifestation</code></div>
                   <p><em>This node shape represents a subset of eli:Manifestation</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Applies to: <a href="http://data.europa.eu/eli/ontology#Manifestation">eli:Manifestation</a></li>
@@ -1791,14 +1824,15 @@ WHERE {&#xD;
                            <td><code><a href="https://data.europarl.europa.eu/def/epvoc#byteSize">ept:epvoc#byteSize</a></code></td>
                            <td><code>xsd:long</code><br></td>
                            <td>
-                              <div style="width:30px">0..1</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
                         <tr>
                            <td>format</td>
                            <td><code><a href="http://purl.org/dc/terms/format">dcterms:format</a></code></td>
-                           <td><code><a href="#ept:plenary-documents#MediaTypeOrExtentReference">Reference to a Media Type</a></code><br></td>
+                           <td><code><a href="#ept:plenary-documents#MediaTypeOrExtentReference">Reference to a Media Type</a></code><br><p><small><a href="http://publications.europa.eu/resource/authority/file-type/PDF">file-type:PDF</a>, <a href="http://publications.europa.eu/resource/authority/file-type/XML">file-type:XML</a>, <a href="http://publications.europa.eu/resource/authority/file-type/DOCX">file-type:DOCX</a>, <a href="http://publications.europa.eu/resource/authority/file-type/DOC">file-type:DOC</a></small></p>
+                           </td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
@@ -1834,7 +1868,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli:Manifestation</code><br></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Manifestation">eli:Manifestation</a></code><br></td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
@@ -1848,8 +1882,7 @@ WHERE {&#xD;
             <div class="col">
                <section id="ept:plenary-documents#Participation">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Participation</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Participation</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-documents#Participation</code></div>
                   <p><em>This node shape represents a subset of eli-dl:Participation</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Applies to: <a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#Participation">eli-dl:Participation</a></li>
@@ -1899,7 +1932,8 @@ WHERE {&#xD;
                         <tr>
                            <td>participation role</td>
                            <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#participation_role">eli-dl:participation_role</a></code></td>
-                           <td><code><a href="#ept:plenary-documents#ParticipationRoleReference">Reference to a Role</a></code><br></td>
+                           <td><code><a href="#ept:plenary-documents#ParticipationRoleReference">Reference to a Role</a></code><br><p><small><a href="https://data.europarl.europa.eu/def/ep-roles/AUTHOR">ep-roles:AUTHOR</a>, <a href="https://data.europarl.europa.eu/def/ep-roles/RAPPORTEUR">ep-roles:RAPPORTEUR</a></small></p>
+                           </td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
@@ -1908,7 +1942,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli-dl:Participation</code><br></td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#Participation">eli-dl:Participation</a></code><br></td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
@@ -1922,8 +1956,7 @@ WHERE {&#xD;
             <div class="col">
                <section id="ept:plenary-documents#WorkTypeReference">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Reference to a Work type</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Reference to a Work type</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-documents#WorkTypeReference</code></div>
                   <p><em>This node shape refers to the class eli:WorkType</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
@@ -1945,7 +1978,7 @@ WHERE {&#xD;
                         <tr>
                            <td>Is in scheme</td>
                            <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                           <td><code>ept:ep-document-types</code><br></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/ep-document-types">ept:ep-document-types</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -1954,7 +1987,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli:WorkType</code><br></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#WorkType">eli:WorkType</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -1968,8 +2001,7 @@ WHERE {&#xD;
             <div class="col">
                <section id="ept:plenary-documents#LanguageReference">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Reference to a Language</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Reference to a Language</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-documents#LanguageReference</code></div>
                   <p><em>This node shape refers to the class dcterms:LinguisticSystem</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
@@ -1991,7 +2023,7 @@ WHERE {&#xD;
                         <tr>
                            <td>Is in scheme</td>
                            <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                           <td><code>op-aut:language</code><br></td>
+                           <td><code><a href="http://publications.europa.eu/resource/authority/language">op-aut:language</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -2000,7 +2032,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>dcterms:LinguisticSystem</code><br></td>
+                           <td><code><a href="http://purl.org/dc/terms/LinguisticSystem">dcterms:LinguisticSystem</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -2014,21 +2046,35 @@ WHERE {&#xD;
             <div class="col">
                <section id="ept:plenary-documents#AgentReference">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Reference to an Agent</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Reference to an Agent</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-documents#AgentReference</code></div>
                   <p><em>This node shape refers to the class foaf:Agent</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
                      <li>Closed shape</li>
                   </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
                </section>
             </div>
          </div><br><div class="row mt-3">
             <div class="col">
                <section id="ept:plenary-documents#MediaTypeOrExtentReference">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Reference to a Media Type</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Reference to a Media Type</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-documents#MediaTypeOrExtentReference</code></div>
                   <p><em>This node shape refers to the class dcterms:MediaTypeOrExtent</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
@@ -2050,7 +2096,7 @@ WHERE {&#xD;
                         <tr>
                            <td>Is in scheme</td>
                            <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                           <td><code>op-aut:format</code><br></td>
+                           <td><code><a href="http://publications.europa.eu/resource/authority/format">op-aut:format</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -2059,7 +2105,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>dcterms:MediaTypeOrExtent</code><br></td>
+                           <td><code><a href="http://purl.org/dc/terms/MediaTypeOrExtent">dcterms:MediaTypeOrExtent</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -2073,8 +2119,7 @@ WHERE {&#xD;
             <div class="col">
                <section id="ept:plenary-documents#ParticipationRoleReference">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Reference to a Role</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Reference to a Role</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-documents#ParticipationRoleReference</code></div>
                   <p><em>This node shape refers to the class eli-dl:ParticipationRole</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
@@ -2096,7 +2141,7 @@ WHERE {&#xD;
                         <tr>
                            <td>Is in scheme</td>
                            <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                           <td><code>http://eurovoc.europa.eu</code><br></td>
+                           <td><code><a href="http://eurovoc.europa.eu">http://eurovoc.europa.eu</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -2105,7 +2150,7 @@ WHERE {&#xD;
                         <tr>
                            <td>Is in scheme</td>
                            <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                           <td><code>ept:ep-roles</code><br></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/ep-roles">ept:ep-roles</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -2114,7 +2159,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli-dl:ParticipationRole</code><br></td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#ParticipationRole">eli-dl:ParticipationRole</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -2128,8 +2173,7 @@ WHERE {&#xD;
             <div class="col">
                <section id="ept:plenary-documents#OrganizationReference">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Reference to an Organization</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Reference to an Organization</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-documents#OrganizationReference</code></div>
                   <p><em>This node shape refers to the class org:Organization</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
@@ -2151,7 +2195,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>org:Organization</code><br></td>
+                           <td><code><a href="http://www.w3.org/ns/org#Organization">org:Organization</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -2165,8 +2209,7 @@ WHERE {&#xD;
             <div class="col">
                <section id="ept:plenary-documents#PersonReference">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Reference to a Person</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Reference to a Person</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-documents#PersonReference</code></div>
                   <p><em>This node shape refers to the class foaf:Person</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
@@ -2188,7 +2231,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>foaf:Person</code><br></td>
+                           <td><code><a href="http://xmlns.com/foaf/0.1/Person">foaf:Person</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -2202,8 +2245,7 @@ WHERE {&#xD;
             <div class="col">
                <section id="ept:plenary-documents#ConceptReference">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Reference to a Concept</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Reference to a Concept</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-documents#ConceptReference</code></div>
                   <p><em>This node shape refers to the class skos:Concept</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
@@ -2225,7 +2267,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>skos:Concept</code><br></td>
+                           <td><code><a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -2239,8 +2281,7 @@ WHERE {&#xD;
             <div class="col">
                <section id="ept:plenary-documents#ConceptSubjectMatterReference">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Reference to a Concept (Subject Matter)</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Reference to a Concept (Subject Matter)</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-documents#ConceptSubjectMatterReference</code></div>
                   <p><em>This node shape refers to the class skos:Concept</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
@@ -2262,7 +2303,7 @@ WHERE {&#xD;
                         <tr>
                            <td>Is in scheme</td>
                            <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                           <td><code>op-aut:subject-matter</code><br></td>
+                           <td><code><a href="http://publications.europa.eu/resource/authority/subject-matter">op-aut:subject-matter</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -2271,7 +2312,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>skos:Concept</code><br></td>
+                           <td><code><a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -2285,8 +2326,7 @@ WHERE {&#xD;
             <div class="col">
                <section id="ept:plenary-documents#ConceptDirectoryCodeReference">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Reference to a Concept (Directory Code)</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Reference to a Concept (Directory Code)</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-documents#ConceptDirectoryCodeReference</code></div>
                   <p><em>This node shape refers to the class skos:Concept</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
@@ -2308,7 +2348,7 @@ WHERE {&#xD;
                         <tr>
                            <td>Is in scheme</td>
                            <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                           <td><code>op-aut:dir-eu-legal-act</code><br></td>
+                           <td><code><a href="http://publications.europa.eu/resource/authority/dir-eu-legal-act">op-aut:dir-eu-legal-act</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -2317,7 +2357,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>skos:Concept</code><br></td>
+                           <td><code><a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -2331,8 +2371,7 @@ WHERE {&#xD;
             <div class="col">
                <section id="ept:plenary-documents#ProcessReference">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Reference to a Process</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Reference to a Process</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-documents#ProcessReference</code></div>
                   <p><em>This node shape refers to the class eli-dl:Process</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
@@ -2354,7 +2393,7 @@ WHERE {&#xD;
                         <tr>
                            <td>created a realization of</td>
                            <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#created_a_realization_of">eli-dl:created_a_realization_of</a></code></td>
-                           <td><code><a href="#ept:plenary-documents#ReportPlenary">ept:plenary-documents#ReportPlenary</a></code><code> or </code><code><a href="#ept:plenary-documents#ResolutionMotion">ept:plenary-documents#ResolutionMotion</a></code><code> or </code><code><a href="#ept:plenary-documents#ResolutionMotionJoint">ept:plenary-documents#ResolutionMotionJoint</a></code><code> or </code><code><a href="#ept:plenary-documents#QuestionResolutionMotion">ept:plenary-documents#QuestionResolutionMotion</a></code><br></td>
+                           <td><code><a href="#ept:plenary-documents#ReportPlenaryWork">ept:plenary-documents#ReportPlenaryWork</a></code><code> or </code><code><a href="#ept:plenary-documents#ResolutionMotionWork">ept:plenary-documents#ResolutionMotionWork</a></code><code> or </code><code><a href="#ept:plenary-documents#ResolutionMotionJointWork">ept:plenary-documents#ResolutionMotionJointWork</a></code><code> or </code><code><a href="#ept:plenary-documents#QuestionResolutionMotionWork">ept:plenary-documents#QuestionResolutionMotionWork</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -2363,7 +2402,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli-dl:Process</code><br></td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#Process">eli-dl:Process</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -2377,8 +2416,7 @@ WHERE {&#xD;
             <div class="col">
                <section id="ept:plenary-documents#DecisionReference">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Reference to a Decision</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Reference to a Decision</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-documents#DecisionReference</code></div>
                   <p><em>This node shape refers to the class eli-dl:Decision</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
@@ -2399,7 +2437,7 @@ WHERE {&#xD;
                         <tr>
                            <td>decided on a realization of</td>
                            <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#decided_a_realization_of">eli-dl:decided_a_realization_of</a></code></td>
-                           <td><code><a href="#ept:plenary-documents#ReportPlenary">Work Plenary Report</a></code><br></td>
+                           <td><code><a href="#ept:plenary-documents#ReportPlenaryWork">Work Plenary Report</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -2417,7 +2455,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli-dl:Decision</code><br></td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#Decision">eli-dl:Decision</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -2431,8 +2469,7 @@ WHERE {&#xD;
             <div class="col">
                <section id="ept:plenary-documents#ActivityReference">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Reference to an Activity</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Reference to an Activity</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-documents#ActivityReference</code></div>
                   <p><em>This node shape refers to the class eli-dl:Activity</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
@@ -2453,7 +2490,7 @@ WHERE {&#xD;
                         <tr>
                            <td>created a realization of</td>
                            <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#created_a_realization_of">eli-dl:created_a_realization_of</a></code></td>
-                           <td><code><a href="#ept:plenary-documents#ReportPlenary">ept:plenary-documents#ReportPlenary</a></code><code> or </code><code><a href="#ept:plenary-documents#ResolutionMotion">ept:plenary-documents#ResolutionMotion</a></code><code> or </code><code><a href="#ept:plenary-documents#ResolutionMotionJoint">ept:plenary-documents#ResolutionMotionJoint</a></code><code> or </code><code><a href="#ept:plenary-documents#QuestionResolutionMotion">ept:plenary-documents#QuestionResolutionMotion</a></code><br></td>
+                           <td><code><a href="#ept:plenary-documents#ReportPlenaryWork">ept:plenary-documents#ReportPlenaryWork</a></code><code> or </code><code><a href="#ept:plenary-documents#ResolutionMotionWork">ept:plenary-documents#ResolutionMotionWork</a></code><code> or </code><code><a href="#ept:plenary-documents#ResolutionMotionJointWork">ept:plenary-documents#ResolutionMotionJointWork</a></code><code> or </code><code><a href="#ept:plenary-documents#QuestionResolutionMotionWork">ept:plenary-documents#QuestionResolutionMotionWork</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -2471,7 +2508,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli-dl:Activity</code><br></td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#Activity">eli-dl:Activity</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -2485,8 +2522,7 @@ WHERE {&#xD;
             <div class="col">
                <section id="ept:plenary-documents#ReportParliamentaryCommitteeDraftReference">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Reference to a Work (Report Parliamentary Committee Draft)</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Reference to a Work (Report Parliamentary Committee Draft)</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/plenary-documents#ReportParliamentaryCommitteeDraftReference</code></div>
                   <p><em>This node shape refers to the class eli:Work</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
@@ -2507,7 +2543,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli:Work</code><br></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Work">eli:Work</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -2516,7 +2552,7 @@ WHERE {&#xD;
                         <tr>
                            <td>work type</td>
                            <td><code><a href="http://data.europa.eu/eli/ontology#work_type">eli:work_type</a></code></td>
-                           <td><code>ept:ep-document-types/REPORT_PARLIAMENTARY_COMMITTEE_DRAFT</code><br></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/ep-document-types/REPORT_PARLIAMENTARY_COMMITTEE_DRAFT">ept:ep-document-types/REPORT_PARLIAMENTARY_COMMITTEE_DRAFT</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -2527,7 +2563,19 @@ WHERE {&#xD;
                </section>
             </div>
          </div><br><div>
-            <h2 id="releaseNotes" class="sp_section_subtitle">Release notes</h2><p>2.1.0 - 2024-03-21</p>
+            <h2 id="releaseNotes" class="sp_section_subtitle">Release notes</h2><p>2.3.0 - 2024-10-26 (minor/patch)</p>
+<ul>
+<li>(*) Changes impacting data:</li>
+<li>(rfc) change wrong sh:datatype for epvoc:numbering (previously xsd:string)</li>
+<li>(new) add eli:number</li>
+<li>(*) Other documentation changes (no impact on data):</li>
+<li>(rfc) added regex pattern to local-ids of URIs, also to some properties</li>
+<li>(rfc) added missing cardinalities</li>
+<li>(rfc) added sh:hasValue, sh:in</li>
+<li>(rfc) add shacl-play:background-color</li>
+<li>(rfc) rename some shapes for background-colour formula</li>
+</ul>
+<p>2.1.0 - 2024-03-21</p>
 <ul>
 <li>(rfc) eli:work_type[eli:WorkType] values based on the EP taxonomy ep-document-types (REPORT_PLENARY, RESOLUTION_MOTION, RESOLUTION_MOTION_JOINT, QUESTION_RESOLUTION_MOTION, AMENDMENT_LIST, ERRATUM) and not EU AT (op-aut:resource-type)</li>
 <li>(rfc) create more specific shapes for each type</li>
@@ -2541,8 +2589,8 @@ WHERE {&#xD;
 </ul>
 <p>1.3.0 - 2023-09-26</p>
 <ul>
-<li>(rfc) impact on eli:work_type due to changed values (op-aut:resource-type: REPORT → REPORT_EP and AMEND_EP → AMEND_LIST_EP)</li>
-<li>(rfc) impact on eli-dl:participation_role for REPORT_EP due to changed values (op-aut:role: AUT → RAPP)</li>
+<li>(rfc) impact on eli:work_type due to changed values (op-aut:resource-type: REPORT ? REPORT_EP and AMEND_EP ? AMEND_LIST_EP)</li>
+<li>(rfc) impact on eli-dl:participation_role for REPORT_EP due to changed values (op-aut:role: AUT ? RAPP)</li>
 <li>(new) eli-dl:adopts for REPORT_EP</li>
 <li>(new) epvoc:isAboutSubjectMatter and epvoc:isAboutDirectoryCode</li>
 <li>(new) add [sh:inversePath eli-dl:created_a_realization_of] to a procedure (Remark: Data on procedures will be available in the upcoming releases).</li>
