@@ -169,7 +169,7 @@
 					.sp_table_propertyshapes tr {
 					    display: table-row;
 					    vertical-align: inherit;
-					    border-color: inherit;
+					    border-color: inherit;					    
 					}
 													
 					.sp_table_propertyshapes th:nth-child(4) {
@@ -189,6 +189,16 @@
 										
 					.sp_table_propertyshapes_col_description {
 						word-break: break-word;
+					}
+					
+					tr.sp_propertyGroup {
+						font-style: italic;
+						background-color: #def0f7;
+					}
+					
+					tr.sp_propertyGroup td {
+						border-bottom: 1px solid black;
+						padding-bottom: 0.25 rem;
 					}
 					
 					.sp_serialization_badge {
@@ -226,8 +236,23 @@
       <title>Parliamentary questions dataset description</title>
       <meta name="apple-mobile-web-app-title" content="Parliamentary questions dataset description">
       <meta name="twitter:title" content="Parliamentary questions dataset description">
-      <meta property="og:title" content="Parliamentary questions dataset description">
-   </head>
+      <meta property="og:title" content="Parliamentary questions dataset description"><script type="application/ld+json">{
+    "datePublished": "2022-11-18",
+    "license": ["https://www.europarl.europa.eu/legal-notice/en/"],
+    "@type": "TechArticle",
+    "author": [{
+        "@type": "Organization",
+        "url": "http://publications.europa.eu/resource/dataset/corporate-body/EP"
+    }],
+    "name": "Parliamentary questions dataset description",
+    "publisher": [{
+        "@type": "Organization",
+        "url": "http://publications.europa.eu/resource/dataset/corporate-body/EP"
+    }],
+    "@context": "https://schema.org",
+    "version": "2.3.0",
+    "url": "https://data.europarl.europa.eu/def/parliamentary-questions#"
+}</script></head>
    <body>
       <div class="sp_container_principal container pt-4">
          <table style="width:100%">
@@ -238,19 +263,19 @@
                </td>
             </tr>
          </table>
-         <div><b>Creation date: </b>2022-11-18<br><b>Last updated: </b>2024-03-21 00:00:00<br><b>Copyright date: </b>2022<br><b>Version: </b>2.1.0<br><b>License: </b><a href="https://www.europarl.europa.eu/legal-notice/en/" target="_blank">https://www.europarl.europa.eu/legal-notice/en/</a><br><b>Creator: </b><a href="http://publications.europa.eu/resource/dataset/corporate-body/EP" target="_blank">http://publications.europa.eu/resource/dataset/corporate-body/EP</a><br><b>Publisher: </b><a href="http://publications.europa.eu/resource/dataset/corporate-body/EP" target="_blank">http://publications.europa.eu/resource/dataset/corporate-body/EP</a><br><b>Rightsholder: </b><br><b>Feedback: </b><br><b id="formats">Download serialization: </b><div><span class="sp_serialization_badge"><a href="https://europarl.github.io/eli-ep/dsd/parliamentary-questions/eli-ep_parliamentary-questions.shacl.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.png" alt="TTL"></a></span></div><br></div>
+         <div><b>Creation date: </b>2022-11-18<br><b>Last updated: </b>2024-10-26 00:00:00<br><b>Copyright date: </b>2022<br><b>Version: </b>2.3.0<br><b>License: </b><a href="https://www.europarl.europa.eu/legal-notice/en/" target="_blank">https://www.europarl.europa.eu/legal-notice/en/</a><br><b>Creator: </b><a href="http://publications.europa.eu/resource/dataset/corporate-body/EP" target="_blank">http://publications.europa.eu/resource/dataset/corporate-body/EP</a><br><b>Publisher: </b><a href="http://publications.europa.eu/resource/dataset/corporate-body/EP" target="_blank">http://publications.europa.eu/resource/dataset/corporate-body/EP</a><br><b id="formats">Download serialization: </b><div><span class="sp_serialization_badge"><a href="https://europarl.github.io/eli-ep/2.3.0/dsd/parliamentary-questions/eli-ep_parliamentary-questions.shacl.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.png" alt="TTL"></a></span></div><br></div>
          <div class="sp_section_title_toc toc">
             <h2 id="Index">Table of Contents</h2>
             <ul role="list" class="sp_list_toc ul_type_none t-x-mode">
                <li><a href="#prefixes">Namespaces</a></li>
                <li><a href="#description">Description</a></li>
                <li><a href="#documentation">Model documentation</a><ul role="list" class="ul_type_none sp_list_toc_l2">
-                     <li><a href="#questions:QuestionWritten">Question Written (Priority)</a></li>
-                     <li><a href="#questions:QuestionOral">Question Oral</a></li>
-                     <li><a href="#questions:InterpellationMajor">Question Interpellation Major</a></li>
-                     <li><a href="#questions:InterpellationMinor">Question Interpellation Minor</a></li>
-                     <li><a href="#questions:AnswerToQuestionWritten">Answer to question</a></li>
-                     <li><a href="#questions:AnnexOfAnswer">Annex to Answer</a></li>
+                     <li><a href="#questions:QuestionOralWork">Question Oral</a></li>
+                     <li><a href="#questions:InterpellationMajorWork">Question Interpellation Major</a></li>
+                     <li><a href="#questions:QuestionWrittenWork">Question Written (Priority)</a></li>
+                     <li><a href="#questions:InterpellationMinorWork">Question Interpellation Minor</a></li>
+                     <li><a href="#questions:AnswerToQuestionWrittenWork">Answer to question</a></li>
+                     <li><a href="#questions:AnnexOfAnswerWork">Annex to Answer</a></li>
                      <li><a href="#questions:Expression">Expression</a></li>
                      <li><a href="#questions:Manifestation">Manifestation</a></li>
                      <li><a href="#questions:Participation">Participation</a></li>
@@ -356,20 +381,391 @@
       
       
       <br><div>
-            <h2 id="description" class="sp_section_subtitle">Description</h2><p>This Dataset Description is a subset of the general ELI-EP application profile and it includes classes and properties used in Parliamentary questions datasets. Descriptions of classes and properties can be found in ELI-EP application profile.</p>
-</div>
-         <h2 id="documentation" class="sp_section_subtitle">Model documentation</h2>
+            <h2 id="documentation" class="sp_section_subtitle">Model documentation</h2>
          <div class="row mt-3">
             <div class="col">
-               <section id="questions:QuestionWritten">
+               <section id="questions:QuestionOralWork">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Question Written (Priority)</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Question Oral</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/parliamentary-questions#QuestionOralWork</code></div>
                   <p><em>This node shape represents a subset of eli:Work</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
                      <li>Closed shape</li>
-                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\-_]+$</code></li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/O-[0-9]{1,2}-[0-9]{4}-[0-9]{6}$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/O-9-2023-000056</code></li>
+                  </ul>Applies to: <br><code>
+                     <pre>PREFIX eli: &lt;http://data.europa.eu/eli/ontology#&gt;&#xD;
+SELECT ?this&#xD;
+WHERE {&#xD;
+ ?this eli:work_type ?type .&#xD;
+ VALUES ?type {&#xD;
+ &lt;https://data.europarl.europa.eu/def/ep-document-types/QUESTION_ORAL&gt;&#xD;
+ }&#xD;
+}</pre></code><table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>based on</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#based_on">eli:based_on</a></code></td>
+                           <td><code>IRI</code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>creator</td>
+                           <td><code><a href="http://purl.org/dc/terms/creator">dcterms:creator</a></code></td>
+                           <td><code><a href="#questions:OrganizationReference">Reference to an Organization</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>date document</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#date_document">eli:date_document</a></code></td>
+                           <td><code>xsd:date</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>en number version</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#epNumberVersion">ept:epvoc#epNumberVersion</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">0..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>ep number</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#epNumber">ept:epvoc#epNumber</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>identifier</td>
+                           <td><code><a href="http://purl.org/dc/terms/identifier">dcterms:identifier</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>identifier year</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#identifierYear">ept:epvoc#identifierYear</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>is realized by</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#is_realized_by">eli:is_realized_by</a></code></td>
+                           <td><code><a href="#questions:Expression">Expression</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>label</td>
+                           <td><code><a href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">0..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>notation</td>
+                           <td><code><a href="http://www.w3.org/2004/02/skos/core#notation">skos:notation</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#publicRegister">ept:epvoc#publicRegister</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>original language</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#originalLanguage">ept:epvoc#originalLanguage</a></code></td>
+                           <td><code><a href="#questions:LanguageReference">Reference to a Language</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>parliamentary term</td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#parliamentary_term">eli-dl:parliamentary_term</a></code></td>
+                           <td><code>IRI</code><br></td>
+                           <td>
+                              <div style="width:30px">0..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>publisher</td>
+                           <td><code><a href="http://purl.org/dc/terms/publisher">dcterms:publisher</a></code></td>
+                           <td><code><a href="#questions:OrganizationReference">Reference to an Organization</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>stakeholder participant</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#workHadParticipation">ept:epvoc#workHadParticipation</a></code></td>
+                           <td><code><a href="#questions:Participation">Participation</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>title</td>
+                           <td><code><a href="http://purl.org/dc/terms/title">dcterms:title</a></code></td>
+                           <td><code>rdf:langString</code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>type</td>
+                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Work">eli:Work</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>work type</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#work_type">eli:work_type</a></code></td>
+                           <td><code><a href="#questions:WorkTypeReference">Reference to a Work type</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section id="questions:InterpellationMajorWork">
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 class="sp_section_title_table">Question Interpellation Major</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/parliamentary-questions#InterpellationMajorWork</code></div>
+                  <p><em>This node shape represents a subset of eli:Work</em></p>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/G-[0-9]{1,2}-[0-9]{4}-[0-9]{6}$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/G-9-2023-001002</code></li>
+                  </ul>Applies to: <br><code>
+                     <pre>PREFIX eli: &lt;http://data.europa.eu/eli/ontology#&gt;&#xD;
+SELECT ?this&#xD;
+WHERE {&#xD;
+ ?this eli:work_type ?type .&#xD;
+ VALUES ?type {&#xD;
+ &lt;https://data.europarl.europa.eu/def/ep-document-types/INTERPELLATION_MAJOR&gt;&#xD;
+ }&#xD;
+}</pre></code><table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>based on</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#based_on">eli:based_on</a></code></td>
+                           <td><code>IRI</code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>creator</td>
+                           <td><code><a href="http://purl.org/dc/terms/creator">dcterms:creator</a></code></td>
+                           <td><code><a href="#questions:OrganizationReference">Reference to an Organization</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>date document</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#date_document">eli:date_document</a></code></td>
+                           <td><code>xsd:date</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>en number version</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#epNumberVersion">ept:epvoc#epNumberVersion</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">0..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>ep number</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#epNumber">ept:epvoc#epNumber</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>identifier</td>
+                           <td><code><a href="http://purl.org/dc/terms/identifier">dcterms:identifier</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>identifier year</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#identifierYear">ept:epvoc#identifierYear</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>is realized by</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#is_realized_by">eli:is_realized_by</a></code></td>
+                           <td><code><a href="#questions:Expression">Expression</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>label</td>
+                           <td><code><a href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">0..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>notation</td>
+                           <td><code><a href="http://www.w3.org/2004/02/skos/core#notation">skos:notation</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#publicRegister">ept:epvoc#publicRegister</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>original language</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#originalLanguage">ept:epvoc#originalLanguage</a></code></td>
+                           <td><code><a href="#questions:LanguageReference">Reference to a Language</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>parliamentary term</td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#parliamentary_term">eli-dl:parliamentary_term</a></code></td>
+                           <td><code>IRI</code><br></td>
+                           <td>
+                              <div style="width:30px">0..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>publisher</td>
+                           <td><code><a href="http://purl.org/dc/terms/publisher">dcterms:publisher</a></code></td>
+                           <td><code><a href="#questions:OrganizationReference">Reference to an Organization</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>stakeholder participant</td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#workHadParticipation">ept:epvoc#workHadParticipation</a></code></td>
+                           <td><code><a href="#questions:Participation">Participation</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>title</td>
+                           <td><code><a href="http://purl.org/dc/terms/title">dcterms:title</a></code></td>
+                           <td><code>rdf:langString</code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>type</td>
+                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Work">eli:Work</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>work type</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#work_type">eli:work_type</a></code></td>
+                           <td><code><a href="#questions:WorkTypeReference">Reference to a Work type</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section id="questions:QuestionWrittenWork">
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 class="sp_section_title_table">Question Written (Priority)</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/parliamentary-questions#QuestionWrittenWork</code></div>
+                  <p><em>This node shape represents a subset of eli:Work</em></p>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/(E|P)-[0-9]{1,2}-[0-9]{4}-[0-9]{6}$</code></li>
                      <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/E-9-2022-000004</code></li>
                   </ul>Applies to: <br><code>
                      <pre>PREFIX eli: &lt;http://data.europa.eu/eli/ontology#&gt;&#xD;
@@ -432,7 +828,7 @@ WHERE {&#xD;
                            <td><code><a href="https://data.europarl.europa.eu/def/epvoc#epNumber">ept:epvoc#epNumber</a></code></td>
                            <td><code>xsd:string</code><br></td>
                            <td>
-                              <div style="width:30px">0..1</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -450,14 +846,14 @@ WHERE {&#xD;
                            <td><code><a href="https://data.europarl.europa.eu/def/epvoc#identifierYear">ept:epvoc#identifierYear</a></code></td>
                            <td><code>xsd:string</code><br></td>
                            <td>
-                              <div style="width:30px">0..1</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
                         <tr>
                            <td>inverse answers to</td>
                            <td><code>^eli-dl:answers_to</code></td>
-                           <td><code>questions:AnswerToQuestion</code><br></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/parliamentary-questions#AnswerToQuestionWork">questions:AnswerToQuestionWork</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -484,9 +880,9 @@ WHERE {&#xD;
                         <tr>
                            <td>notation</td>
                            <td><code><a href="http://www.w3.org/2004/02/skos/core#notation">skos:notation</a></code></td>
-                           <td><code>ept:epvoc#publicRegister</code><br></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#publicRegister">ept:epvoc#publicRegister</a></code><br></td>
                            <td>
-                              <div style="width:30px">0..*</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -538,7 +934,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli:Work</code><br></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Work">eli:Work</a></code><br></td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
@@ -547,7 +943,8 @@ WHERE {&#xD;
                         <tr>
                            <td>work type</td>
                            <td><code><a href="http://data.europa.eu/eli/ontology#work_type">eli:work_type</a></code></td>
-                           <td><code><a href="#questions:WorkTypeReference">Reference to a Work type</a></code><br></td>
+                           <td><code><a href="#questions:WorkTypeReference">Reference to a Work type</a></code><br><p><small><a href="https://data.europarl.europa.eu/def/ep-document-types/QUESTION_WRITTEN">ept:ep-document-types/QUESTION_WRITTEN</a>, <a href="https://data.europarl.europa.eu/def/ep-document-types/QUESTION_WRITTEN_PRIORITY">ept:ep-document-types/QUESTION_WRITTEN_PRIORITY</a></small></p>
+                           </td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
@@ -559,391 +956,14 @@ WHERE {&#xD;
             </div>
          </div><br><div class="row mt-3">
             <div class="col">
-               <section id="questions:QuestionOral">
+               <section id="questions:InterpellationMinorWork">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Question Oral</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Question Interpellation Minor</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/parliamentary-questions#InterpellationMinorWork</code></div>
                   <p><em>This node shape represents a subset of eli:Work</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
                      <li>Closed shape</li>
-                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\-_]+$</code></li>
-                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/O-9-2023-000056</code></li>
-                  </ul>Applies to: <br><code>
-                     <pre>PREFIX eli: &lt;http://data.europa.eu/eli/ontology#&gt;&#xD;
-SELECT ?this&#xD;
-WHERE {&#xD;
- ?this eli:work_type ?type .&#xD;
- VALUES ?type {&#xD;
- &lt;https://data.europarl.europa.eu/def/ep-document-types/QUESTION_ORAL&gt;&#xD;
- }&#xD;
-}</pre></code><table class="sp_table_propertyshapes table-striped table-responsive">
-                     <thead>
-                        <tr>
-                           <th>Property name</th>
-                           <th>URI</th>
-                           <th>Expected value</th>
-                           <th>Card.</th>
-                           <th class="sp_description_column">Description</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <tr>
-                           <td>based on</td>
-                           <td><code><a href="http://data.europa.eu/eli/ontology#based_on">eli:based_on</a></code></td>
-                           <td><code>IRI</code><br></td>
-                           <td>
-                              <div style="width:30px">0..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>creator</td>
-                           <td><code><a href="http://purl.org/dc/terms/creator">dcterms:creator</a></code></td>
-                           <td><code><a href="#questions:OrganizationReference">Reference to an Organization</a></code><br></td>
-                           <td>
-                              <div style="width:30px">0..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>date document</td>
-                           <td><code><a href="http://data.europa.eu/eli/ontology#date_document">eli:date_document</a></code></td>
-                           <td><code>xsd:date</code><br></td>
-                           <td>
-                              <div style="width:30px">1..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>en number version</td>
-                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#epNumberVersion">ept:epvoc#epNumberVersion</a></code></td>
-                           <td><code>xsd:string</code><br></td>
-                           <td>
-                              <div style="width:30px">0..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>ep number</td>
-                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#epNumber">ept:epvoc#epNumber</a></code></td>
-                           <td><code>xsd:string</code><br></td>
-                           <td>
-                              <div style="width:30px">0..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>identifier</td>
-                           <td><code><a href="http://purl.org/dc/terms/identifier">dcterms:identifier</a></code></td>
-                           <td><code>xsd:string</code><br></td>
-                           <td>
-                              <div style="width:30px">1..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>identifier year</td>
-                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#identifierYear">ept:epvoc#identifierYear</a></code></td>
-                           <td><code>xsd:string</code><br></td>
-                           <td>
-                              <div style="width:30px">0..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>is realized by</td>
-                           <td><code><a href="http://data.europa.eu/eli/ontology#is_realized_by">eli:is_realized_by</a></code></td>
-                           <td><code><a href="#questions:Expression">Expression</a></code><br></td>
-                           <td>
-                              <div style="width:30px">1..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>label</td>
-                           <td><code><a href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a></code></td>
-                           <td><code>xsd:string</code><br></td>
-                           <td>
-                              <div style="width:30px">0..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>notation</td>
-                           <td><code><a href="http://www.w3.org/2004/02/skos/core#notation">skos:notation</a></code></td>
-                           <td><code>ept:epvoc#publicRegister</code><br></td>
-                           <td>
-                              <div style="width:30px">0..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>original language</td>
-                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#originalLanguage">ept:epvoc#originalLanguage</a></code></td>
-                           <td><code><a href="#questions:LanguageReference">Reference to a Language</a></code><br></td>
-                           <td>
-                              <div style="width:30px">0..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>parliamentary term</td>
-                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#parliamentary_term">eli-dl:parliamentary_term</a></code></td>
-                           <td><code>IRI</code><br></td>
-                           <td>
-                              <div style="width:30px">0..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>publisher</td>
-                           <td><code><a href="http://purl.org/dc/terms/publisher">dcterms:publisher</a></code></td>
-                           <td><code><a href="#questions:OrganizationReference">Reference to an Organization</a></code><br></td>
-                           <td>
-                              <div style="width:30px">1..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>stakeholder participant</td>
-                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#workHadParticipation">ept:epvoc#workHadParticipation</a></code></td>
-                           <td><code><a href="#questions:Participation">Participation</a></code><br></td>
-                           <td>
-                              <div style="width:30px">0..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>title</td>
-                           <td><code><a href="http://purl.org/dc/terms/title">dcterms:title</a></code></td>
-                           <td><code>rdf:langString</code><br></td>
-                           <td>
-                              <div style="width:30px">1..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>type</td>
-                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli:Work</code><br></td>
-                           <td>
-                              <div style="width:30px">1..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>work type</td>
-                           <td><code><a href="http://data.europa.eu/eli/ontology#work_type">eli:work_type</a></code></td>
-                           <td><code><a href="#questions:WorkTypeReference">Reference to a Work type</a></code><br></td>
-                           <td>
-                              <div style="width:30px">1..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                     </tbody>
-                  </table>
-               </section>
-            </div>
-         </div><br><div class="row mt-3">
-            <div class="col">
-               <section id="questions:InterpellationMajor">
-                  <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Question Interpellation Major</h3>
-                  </div>
-                  <p><em>This node shape represents a subset of eli:Work</em></p>
-                  <ul class="sp_list_description_properties">
-                     <li>Nodes: IRI</li>
-                     <li>Closed shape</li>
-                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\-_]+$</code></li>
-                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/G-9-2023-001002</code></li>
-                  </ul>Applies to: <br><code>
-                     <pre>PREFIX eli: &lt;http://data.europa.eu/eli/ontology#&gt;&#xD;
-SELECT ?this&#xD;
-WHERE {&#xD;
- ?this eli:work_type ?type .&#xD;
- VALUES ?type {&#xD;
- &lt;https://data.europarl.europa.eu/def/ep-document-types/INTERPELLATION_MAJOR&gt;&#xD;
- }&#xD;
-}</pre></code><table class="sp_table_propertyshapes table-striped table-responsive">
-                     <thead>
-                        <tr>
-                           <th>Property name</th>
-                           <th>URI</th>
-                           <th>Expected value</th>
-                           <th>Card.</th>
-                           <th class="sp_description_column">Description</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <tr>
-                           <td>based on</td>
-                           <td><code><a href="http://data.europa.eu/eli/ontology#based_on">eli:based_on</a></code></td>
-                           <td><code>IRI</code><br></td>
-                           <td>
-                              <div style="width:30px">0..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>creator</td>
-                           <td><code><a href="http://purl.org/dc/terms/creator">dcterms:creator</a></code></td>
-                           <td><code><a href="#questions:OrganizationReference">Reference to an Organization</a></code><br></td>
-                           <td>
-                              <div style="width:30px">0..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>date document</td>
-                           <td><code><a href="http://data.europa.eu/eli/ontology#date_document">eli:date_document</a></code></td>
-                           <td><code>xsd:date</code><br></td>
-                           <td>
-                              <div style="width:30px">1..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>en number version</td>
-                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#epNumberVersion">ept:epvoc#epNumberVersion</a></code></td>
-                           <td><code>xsd:string</code><br></td>
-                           <td>
-                              <div style="width:30px">0..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>ep number</td>
-                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#epNumber">ept:epvoc#epNumber</a></code></td>
-                           <td><code>xsd:string</code><br></td>
-                           <td>
-                              <div style="width:30px">0..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>identifier</td>
-                           <td><code><a href="http://purl.org/dc/terms/identifier">dcterms:identifier</a></code></td>
-                           <td><code>xsd:string</code><br></td>
-                           <td>
-                              <div style="width:30px">1..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>identifier year</td>
-                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#identifierYear">ept:epvoc#identifierYear</a></code></td>
-                           <td><code>xsd:string</code><br></td>
-                           <td>
-                              <div style="width:30px">0..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>is realized by</td>
-                           <td><code><a href="http://data.europa.eu/eli/ontology#is_realized_by">eli:is_realized_by</a></code></td>
-                           <td><code><a href="#questions:Expression">Expression</a></code><br></td>
-                           <td>
-                              <div style="width:30px">1..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>label</td>
-                           <td><code><a href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a></code></td>
-                           <td><code>xsd:string</code><br></td>
-                           <td>
-                              <div style="width:30px">0..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>notation</td>
-                           <td><code><a href="http://www.w3.org/2004/02/skos/core#notation">skos:notation</a></code></td>
-                           <td><code>ept:epvoc#publicRegister</code><br></td>
-                           <td>
-                              <div style="width:30px">0..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>original language</td>
-                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#originalLanguage">ept:epvoc#originalLanguage</a></code></td>
-                           <td><code><a href="#questions:LanguageReference">Reference to a Language</a></code><br></td>
-                           <td>
-                              <div style="width:30px">0..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>parliamentary term</td>
-                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#parliamentary_term">eli-dl:parliamentary_term</a></code></td>
-                           <td><code>IRI</code><br></td>
-                           <td>
-                              <div style="width:30px">0..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>publisher</td>
-                           <td><code><a href="http://purl.org/dc/terms/publisher">dcterms:publisher</a></code></td>
-                           <td><code><a href="#questions:OrganizationReference">Reference to an Organization</a></code><br></td>
-                           <td>
-                              <div style="width:30px">1..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>stakeholder participant</td>
-                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#workHadParticipation">ept:epvoc#workHadParticipation</a></code></td>
-                           <td><code><a href="#questions:Participation">Participation</a></code><br></td>
-                           <td>
-                              <div style="width:30px">0..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>title</td>
-                           <td><code><a href="http://purl.org/dc/terms/title">dcterms:title</a></code></td>
-                           <td><code>rdf:langString</code><br></td>
-                           <td>
-                              <div style="width:30px">1..*</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>type</td>
-                           <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli:Work</code><br></td>
-                           <td>
-                              <div style="width:30px">1..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                        <tr>
-                           <td>work type</td>
-                           <td><code><a href="http://data.europa.eu/eli/ontology#work_type">eli:work_type</a></code></td>
-                           <td><code><a href="#questions:WorkTypeReference">Reference to a Work type</a></code><br></td>
-                           <td>
-                              <div style="width:30px">1..1</div>
-                           </td>
-                           <td class="sp_table_propertyshapes_col_description"></td>
-                        </tr>
-                     </tbody>
-                  </table>
-               </section>
-            </div>
-         </div><br><div class="row mt-3">
-            <div class="col">
-               <section id="questions:InterpellationMinor">
-                  <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Question Interpellation Minor</h3>
-                  </div>
-                  <p><em>This node shape represents a subset of eli:Work</em></p>
-                  <ul class="sp_list_description_properties">
-                     <li>Nodes: IRI</li>
-                     <li>Closed shape</li>
-                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\-_]+$</code></li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/K-[0-9]{1,2}-[0-9]{4}-[0-9]{6}$</code></li>
                      <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/K-8-2019-000001</code></li>
                   </ul>Applies to: <br><code>
                      <pre>PREFIX eli: &lt;http://data.europa.eu/eli/ontology#&gt;&#xD;
@@ -1005,7 +1025,7 @@ WHERE {&#xD;
                            <td><code><a href="https://data.europarl.europa.eu/def/epvoc#epNumber">ept:epvoc#epNumber</a></code></td>
                            <td><code>xsd:string</code><br></td>
                            <td>
-                              <div style="width:30px">0..1</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -1023,14 +1043,14 @@ WHERE {&#xD;
                            <td><code><a href="https://data.europarl.europa.eu/def/epvoc#identifierYear">ept:epvoc#identifierYear</a></code></td>
                            <td><code>xsd:string</code><br></td>
                            <td>
-                              <div style="width:30px">0..1</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
                         <tr>
                            <td>inverse answers to</td>
                            <td><code>^eli-dl:answers_to</code></td>
-                           <td><code>questions:AnswerToQuestion</code><br></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/parliamentary-questions#AnswerToQuestionWork">questions:AnswerToQuestionWork</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -1057,9 +1077,9 @@ WHERE {&#xD;
                         <tr>
                            <td>notation</td>
                            <td><code><a href="http://www.w3.org/2004/02/skos/core#notation">skos:notation</a></code></td>
-                           <td><code>ept:epvoc#publicRegister</code><br></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#publicRegister">ept:epvoc#publicRegister</a></code><br></td>
                            <td>
-                              <div style="width:30px">0..*</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -1111,7 +1131,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli:Work</code><br></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Work">eli:Work</a></code><br></td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
@@ -1132,31 +1152,45 @@ WHERE {&#xD;
             </div>
          </div><br><div class="row mt-3">
             <div class="col">
-               <section id="questions:AnswerToQuestionWritten">
+               <section id="questions:AnswerToQuestionWrittenWork">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Answer to question</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Answer to question</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/parliamentary-questions#AnswerToQuestionWrittenWork</code></div>
                   <p><em>This node shape represents a subset of eli:Work</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
                      <li>Closed shape</li>
-                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\-_]+$</code></li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/(E|P|K)-[0-9]{1,2}-[0-9]{4}-[0-9]{6}-ASW$</code></li>
                      <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/E-9-2022-000004-ASW</code></li>
                   </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
                </section>
             </div>
          </div><br><div class="row mt-3">
             <div class="col">
-               <section id="questions:AnnexOfAnswer">
+               <section id="questions:AnnexOfAnswerWork">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Annex to Answer</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Annex to Answer</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/parliamentary-questions#AnnexOfAnswerWork</code></div>
                   <p><em>This node shape represents a subset of eli:Work</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
                      <li>Closed shape</li>
-                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\-_]+$</code></li>
-                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/E-9-2022-000004-ASW</code></li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/(E|P)-[0-9]{1,2}-[0-9]{4}-[0-9]{6}-ASW-ANN[0-9]{2}$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/E-9-2021-003744-ASW-ANN01</code></li>
                   </ul>
                   <table class="sp_table_propertyshapes table-striped table-responsive">
                      <thead>
@@ -1192,7 +1226,7 @@ WHERE {&#xD;
                            <td><code><a href="https://data.europarl.europa.eu/def/epvoc#epNumber">ept:epvoc#epNumber</a></code></td>
                            <td><code>xsd:string</code><br></td>
                            <td>
-                              <div style="width:30px">0..1</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -1210,14 +1244,14 @@ WHERE {&#xD;
                            <td><code><a href="https://data.europarl.europa.eu/def/epvoc#identifierYear">ept:epvoc#identifierYear</a></code></td>
                            <td><code>xsd:string</code><br></td>
                            <td>
-                              <div style="width:30px">0..1</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
                         <tr>
                            <td>is annex of</td>
                            <td><code><a href="http://data.europa.eu/eli/ontology#is_annex_of">eli:is_annex_of</a></code></td>
-                           <td><code>questions:AnswerToQuestion</code><br></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/parliamentary-questions#AnswerToQuestionWork">questions:AnswerToQuestionWork</a></code><br></td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
@@ -1244,18 +1278,27 @@ WHERE {&#xD;
                         <tr>
                            <td>notation</td>
                            <td><code><a href="http://www.w3.org/2004/02/skos/core#notation">skos:notation</a></code></td>
-                           <td><code>ept:epvoc#publicRegister</code><br></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#publicRegister">ept:epvoc#publicRegister</a></code><br></td>
                            <td>
-                              <div style="width:30px">0..*</div>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr>
+                           <td>number</td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#number">eli:number</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
                         <tr>
                            <td>numbering</td>
                            <td><code><a href="https://data.europarl.europa.eu/def/epvoc#numbering">ept:epvoc#numbering</a></code></td>
-                           <td><code>xsd:string</code><br></td>
+                           <td><code>xsd:integer</code><br></td>
                            <td>
-                              <div style="width:30px">0..1</div>
+                              <div style="width:30px">1..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description"></td>
                         </tr>
@@ -1298,7 +1341,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli:Work</code><br></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Work">eli:Work</a></code><br></td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
@@ -1321,8 +1364,7 @@ WHERE {&#xD;
             <div class="col">
                <section id="questions:Expression">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Expression</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Expression</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/parliamentary-questions#Expression</code></div>
                   <ul class="sp_list_description_properties">
                      <li>Applies to: <a href="http://data.europa.eu/eli/ontology#Expression">eli:Expression</a></li>
                      <li>Nodes: IRI</li>
@@ -1380,7 +1422,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli:Expression</code><br></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Expression">eli:Expression</a></code><br></td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
@@ -1394,8 +1436,7 @@ WHERE {&#xD;
             <div class="col">
                <section id="questions:Manifestation">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Manifestation</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Manifestation</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/parliamentary-questions#Manifestation</code></div>
                   <ul class="sp_list_description_properties">
                      <li>Applies to: <a href="http://data.europa.eu/eli/ontology#Manifestation">eli:Manifestation</a></li>
                      <li>Nodes: IRI</li>
@@ -1462,7 +1503,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli:Manifestation</code><br></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Manifestation">eli:Manifestation</a></code><br></td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
@@ -1476,8 +1517,7 @@ WHERE {&#xD;
             <div class="col">
                <section id="questions:Participation">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Participation</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Participation</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/parliamentary-questions#Participation</code></div>
                   <p><em>This node shape refers to the class eli-dl:Participation</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
@@ -1525,7 +1565,8 @@ WHERE {&#xD;
                         <tr>
                            <td>participation role</td>
                            <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#participation_role">eli-dl:participation_role</a></code></td>
-                           <td><code><a href="#questions:ParticipationRoleReference">Reference to a Role</a></code><br></td>
+                           <td><code><a href="#questions:ParticipationRoleReference">Reference to a Role</a></code><br><p><small><a href="https://data.europarl.europa.eu/def/ep-roles/AUTHOR">ep-roles:AUTHOR</a>, <a href="https://data.europarl.europa.eu/def/ep-roles/ADDRESSEE">ep-roles:ADDRESSEE</a></small></p>
+                           </td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
@@ -1534,7 +1575,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli-dl:Participation</code><br></td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#Participation">eli-dl:Participation</a></code><br></td>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
@@ -1548,8 +1589,7 @@ WHERE {&#xD;
             <div class="col">
                <section id="questions:ParliamentaryTermReference">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Reference to a Parliamentary Term</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Reference to a Parliamentary Term</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/parliamentary-questions#ParliamentaryTermReference</code></div>
                   <p><em>This node shape refers to the class eli-dl:ParliamentaryTerm</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
@@ -1557,14 +1597,29 @@ WHERE {&#xD;
                      <li>URI pattern: <code>^https://data.europarl.europa.eu/org/ep-[0-9].*$</code></li>
                      <li>Example: <code>https://data.europarl.europa.eu/org/ep-9</code></li>
                   </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
                </section>
             </div>
          </div><br><div class="row mt-3">
             <div class="col">
                <section id="questions:WorkTypeReference">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Reference to a Work type</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Reference to a Work type</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/parliamentary-questions#WorkTypeReference</code></div>
                   <p><em>This node shape refers to the class eli:WorkType</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
@@ -1586,7 +1641,7 @@ WHERE {&#xD;
                         <tr>
                            <td>Is in scheme</td>
                            <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                           <td><code>ept:ep-document-types</code><br></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/ep-document-types">ept:ep-document-types</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -1595,7 +1650,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli:WorkType</code><br></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#WorkType">eli:WorkType</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -1609,8 +1664,7 @@ WHERE {&#xD;
             <div class="col">
                <section id="questions:LanguageReference">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Reference to a Language</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Reference to a Language</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/parliamentary-questions#LanguageReference</code></div>
                   <p><em>This node shape refers to the class dcterms:LinguisticSystem</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
@@ -1632,7 +1686,7 @@ WHERE {&#xD;
                         <tr>
                            <td>Is in scheme</td>
                            <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                           <td><code>op-aut:language</code><br></td>
+                           <td><code><a href="http://publications.europa.eu/resource/authority/language">op-aut:language</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -1641,7 +1695,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>dcterms:LinguisticSystem</code><br></td>
+                           <td><code><a href="http://purl.org/dc/terms/LinguisticSystem">dcterms:LinguisticSystem</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -1655,8 +1709,7 @@ WHERE {&#xD;
             <div class="col">
                <section id="questions:MediaTypeOrExtentReference">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Reference to a Format</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Reference to a Format</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/parliamentary-questions#MediaTypeOrExtentReference</code></div>
                   <p><em>This node shape refers to the class dcterms:MediaTypeOrExtent</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
@@ -1678,7 +1731,7 @@ WHERE {&#xD;
                         <tr>
                            <td>Is in scheme</td>
                            <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                           <td><code>op-aut:format</code><br></td>
+                           <td><code><a href="http://publications.europa.eu/resource/authority/format">op-aut:format</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -1687,7 +1740,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>dcterms:MediaTypeOrExtent</code><br></td>
+                           <td><code><a href="http://purl.org/dc/terms/MediaTypeOrExtent">dcterms:MediaTypeOrExtent</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -1701,8 +1754,7 @@ WHERE {&#xD;
             <div class="col">
                <section id="questions:ParticipationRoleReference">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Reference to a Role</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Reference to a Role</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/parliamentary-questions#ParticipationRoleReference</code></div>
                   <p><em>This node shape refers to the class eli-dl:ParticipationRole</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
@@ -1724,7 +1776,7 @@ WHERE {&#xD;
                         <tr>
                            <td>Is in scheme</td>
                            <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                           <td><code>ept:ep-roles</code><br></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/ep-roles">ept:ep-roles</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -1733,7 +1785,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>eli-dl:ParticipationRole</code><br></td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#ParticipationRole">eli-dl:ParticipationRole</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -1747,8 +1799,7 @@ WHERE {&#xD;
             <div class="col">
                <section id="questions:OrganizationReference">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Reference to an Organization</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Reference to an Organization</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/parliamentary-questions#OrganizationReference</code></div>
                   <p><em>This node shape refers to the class org:Organization</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
@@ -1770,7 +1821,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>org:Organization</code><br></td>
+                           <td><code><a href="http://www.w3.org/ns/org#Organization">org:Organization</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -1784,8 +1835,7 @@ WHERE {&#xD;
             <div class="col">
                <section id="questions:PersonReference">
                   <div class="sp_section_title_table_wrapper">
-                     <h3 class="sp_section_title_table">Reference to a Person</h3>
-                  </div>
+                     <h3 class="sp_section_title_table">Reference to a Person</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/parliamentary-questions#PersonReference</code></div>
                   <p><em>This node shape refers to the class foaf:Person</em></p>
                   <ul class="sp_list_description_properties">
                      <li>Nodes: IRI</li>
@@ -1807,7 +1857,7 @@ WHERE {&#xD;
                         <tr>
                            <td>type</td>
                            <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
-                           <td><code>foaf:Person</code><br></td>
+                           <td><code><a href="http://xmlns.com/foaf/0.1/Person">foaf:Person</a></code><br></td>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
@@ -1818,7 +1868,19 @@ WHERE {&#xD;
                </section>
             </div>
          </div><br><div>
-            <h2 id="releaseNotes" class="sp_section_subtitle">Release notes</h2><p>2.1.0 - 2024-03-21</p>
+            <h2 id="releaseNotes" class="sp_section_subtitle">Release notes</h2><p>2.3.0 - 2024-10-26 (minor/patch)</p>
+<ul>
+<li>(*) Changes impacting data:</li>
+<li>(rfc) change wrong sh:datatype for epvoc:numbering (previously xsd:string)</li>
+<li>(new) add eli:number</li>
+<li>(*) Other documentation changes (no impact on data):</li>
+<li>(rfc) added regex pattern to local-ids of URIs, also to some properties</li>
+<li>(rfc) added missing cardinalities</li>
+<li>(rfc) added sh:hasValue, sh:in</li>
+<li>(rfc) add shacl-play:background-color</li>
+<li>(rfc) rename some shapes for background-colour formula</li>
+</ul>
+<p>2.1.0 - 2024-03-21</p>
 <ul>
 <li>(rfc) eli:work_type[eli:WorkType] values based on the EP taxonomy ep-document-types (QUESTION_WRITTEN, QUESTION_WRITTEN_PRIORITY, QUESTION_ORAL, INTERPELLATION_MAJOR, INTERPELLATION_MINOR, QUESTION_WRITTEN_ANSWER, INTERPELLATION_MINOR_WRITTEN_ANSWER, ANNEX) and not EU AT (op-aut:resource-type)</li>
 <li>(rfc) dcterms:creator, dcterms:publisher, eli-dl:had_participant_organization and eli-dl:participation_in_name_of will be based on org:Organization as EP data</li>

@@ -19,13 +19,13 @@
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix xls2rdf: <https://xls2rdf.sparna.fr/vocabulary#> .
 @prefix eli-dl: <http://data.europa.eu/eli/eli-draft-legislation-ontology#> .
-@prefix ept: <https://data.europarl.europa.eu/def/> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix shacl-play: <https://shacl-play.sparna.fr/ontology#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix ep-activities: <https://data.europarl.europa.eu/def/ep-activities/> .
 @prefix ep-document-types: <https://data.europarl.europa.eu/def/ep-document-types/> .
 @prefix resource-type: <http://publications.europa.eu/resource/authority/resource-type/> .
+@prefix ep-decision-methods: <https://data.europarl.europa.eu/def/ep-decision-methods/> .
 @prefix epvoc: <https://data.europarl.europa.eu/def/epvoc#> .
 @prefix vr: <https://data.europarl.europa.eu/def/vote-results#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
@@ -38,47 +38,67 @@
   rdfs:label "Vote results dataset description"@en;
   dcterms:title "Vote results dataset description"@en;
   dcterms:description "This Dataset Description is a subset of the general ELI-EP application profile and it includes classes and properties used in Vote results datasets. Descriptions of classes and properties can be found in ELI-EP application profile."@en;
-  owl:versionInfo "2.1.0";
-  adms:versionNotes """2.1.0 - 2024-03-21
+  owl:versionInfo "2.3.0";
+  adms:versionNotes """2.3.0 - 2024-10-26 (minor/patch)
+- (*) Changes impacting data:
+- (rfc) fixed error in property naming (eli-dl:had_decision_outcome renamed to eli-dl:decision_outcome). Impact on api/v2 only.
+- (rfc) change local-id of vr:PlenarySessionDocumentItemReference URI
+- (rfc) change wrong sh:datatype for epvoc:numbering (previously xsd:string)
+- (new) add eli:number, dcterms:identifier for vr:WorkRemark
+- (*) Other documentation changes (no impact on data):
+- (rfc) added regex pattern to local-ids of URIs, also to some properties
+- (rfc) added missing cardinalities
+- (rfc) added sh:hasValue, sh:in
+- (rfc) add shacl-play:background-color
+
+2.2.2 - 2024-07-31
+- (rfc) add sh:in values for eli-dl:decision_method
+
+2.2.0 - 2024-06-24
+- (rfc) remove vr:PlenaryPartSessionDossierReference and its relations (eli-dl:executed) due to eli-ep model simplification. Impact on api/v2 only. 
+
+2.1.0 - 2024-03-21
 - (rfc) add new vr:Vote, also review properties for vr:Decision
 - (new) add vr:PlenaryDocumentReference, vr:PlenarySessionDocumentItemReference, vr:OrganizationReference (no impact)
 - (new) add vr:PlenaryVoteResultsRemarkRequestVoteSplit + add it as sh:node for vr:PlenaryVoteResultsRemark
 - (rfc) missing eli-dl:had_activity_type for vr:PlenaryVoteResultsRemark
-- (rfc) use EP taxonomies (EPT) instead of EU Authority Tables (EU AT)
+- (rfc) use EP taxonomies (\"EPT\") instead of EU Authority Tables (EU AT)
 
 1.5.0 - 2023-12-07
 - add Description
 
 1.3.0 - 2023-09-26
 - creation"""@en;
-  adms:status <https://publications.europa.eu/resource/authority/dataset-status/COMPLETED>;
+  adms:status <http://publications.europa.eu/resource/dataset/dataset-status/DEVELOP>;
   owl:versionIRI <https://data.europarl.europa.eu/def/vote-results#>;
   dcterms:conformsTo <https://www.w3.org/TR/shacl>;
   dcterms:created "2023-09-26"^^xsd:date;
-  dcterms:modified "2024-03-21T00:00:00.000Z"^^xsd:dateTime;
+  dcterms:modified "2024-10-26T00:00:00.000Z"^^xsd:dateTime;
   dcterms:dateCopyrighted "2023"^^xsd:gYear;
   dcterms:license <https://www.europarl.europa.eu/legal-notice/>;
   dcterms:creator <https://publications.europa.eu/resource/authority/corporate-body/EP>;
   dcterms:publisher <https://publications.europa.eu/resource/authority/corporate-body/EP>;
   dcterms:rigthsHolder <https://publications.europa.eu/resource/authority/corporate-body/EURUN>;
-  dcat:distribution _:a4aeb3f30c2042e3b539bc99a24f35721441 .
+  dcat:distribution _:a701ed0bc8f44446a3a682c5adf0356f2558 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721441 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
-  dcat:downloadURL <https://europarl.github.io/eli-ep/dsd/vote-results/eli-ep_vote-results.shacl.ttl> .
+_:a701ed0bc8f44446a3a682c5adf0356f2558 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
+  dcat:downloadURL <https://europarl.github.io/eli-ep/2.3.0/dsd/vote-results/eli-ep_vote-results.shacl.ttl> .
 
 vr:PlenaryVoteResults a sh:NodeShape;
+  owl:versionInfo "2.3.0";
+  skos:editorialNote "API scope: vote-results"@en;
   rdfs:comment "This node shape represents a subset of eli-dl:Activity"@en;
   sh:target vr:PlenaryVoteResults-target;
-  skos:example "https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2023-06-14-VOT-ITM-6";
+  skos:example "https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-04-23-VOT-ITM-946145";
   sh:nodeKind sh:IRI;
-  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\\-_]+$";
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-VOT-ITM-[0-9]+$";
   sh:closed "true"^^xsd:boolean;
-  rdfs:label "Plenary Vote Results"@en;
   sh:order "1"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "DarkBlue";
+  shacl-play:color "White";
+  shacl-play:background-color "DarkBlue";
+  rdfs:label "Plenary Vote Results"@en;
   sh:property vr:P9, vr:P10, vr:P11, vr:P12, vr:P13, vr:P14, vr:P15, vr:P16, vr:P17,
-    vr:P18, vr:P19, vr:P20 .
+    vr:P18, vr:P19 .
 
 vr:PlenaryVoteResults-target sh:select """PREFIX eli-dl: <http://data.europa.eu/eli/eli-draft-legislation-ontology#>
 SELECT ?this
@@ -88,180 +108,193 @@ WHERE {
 }""" .
 
 vr:Decision a sh:NodeShape;
+  owl:versionInfo "2.3.0";
+  skos:editorialNote "API scope: decisions"@en;
   rdfs:comment "This node shape refers to the class eli-dl:Decision"@en;
   sh:targetClass eli-dl:Decision;
   skos:example "https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2023-07-11-DEC-156726";
   sh:nodeKind sh:IRI;
-  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\\-_]+$";
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-DEC-[0-9]+$";
   sh:closed "true"^^xsd:boolean;
-  rdfs:label "Decision"@en;
   sh:order "2"^^xsd:integer;
-  owl:versionInfo "1.3.0";
-  shacl-play:color "LightBlue";
-  sh:property vr:P23, vr:P24, vr:P25, vr:P26, vr:P27, vr:P29, vr:P30, vr:P38, vr:P39,
-    vr:P40, vr:P45, vr:P46, vr:P47, vr:P48, vr:P49, vr:P50, vr:P51, vr:P52, vr:P53 .
+  shacl-play:color "White";
+  shacl-play:background-color "DodgerBlue";
+  rdfs:label "Decision"@en;
+  sh:property vr:P21, vr:P22, vr:P23, vr:P24, vr:P25, vr:P26, vr:P27, vr:P28, vr:P29,
+    vr:P30, vr:P31, vr:P32, vr:P33, vr:P34, vr:P35, vr:P36, vr:P37, vr:P38, vr:P39 .
 
 vr:Vote a sh:NodeShape;
+  owl:versionInfo "2.3.0";
+  skos:editorialNote "API scope: decisions"@en;
   rdfs:comment "This node shape refers to the class eli-dl:Vote"@en;
   sh:targetClass eli-dl:Vote;
   skos:example "https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-02-27-DEC-164491";
   sh:nodeKind sh:IRI;
-  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\\-_]+$";
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-DEC-[0-9]+$";
   sh:closed "true"^^xsd:boolean;
-  rdfs:label "Vote"@en;
   sh:order "3"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "LightBlue";
-  sh:property vr:P56, vr:P57, vr:P58, vr:P59, vr:P60, vr:P61, vr:P62, vr:P63, vr:P64,
-    vr:P65, vr:P66, vr:P67, vr:P68, vr:P69, vr:P70, vr:P71, vr:P72, vr:P73, vr:P74, vr:P75,
-    vr:P76, vr:P77, vr:P78, vr:P79, vr:P80, vr:P81, vr:P82, vr:P83, vr:P84, vr:P85, vr:P86 .
+  shacl-play:color "White";
+  shacl-play:background-color "DodgerBlue";
+  rdfs:label "Vote"@en;
+  sh:property vr:P41, vr:P42, vr:P43, vr:P44, vr:P45, vr:P46, vr:P47, vr:P48, vr:P49,
+    vr:P50, vr:P51, vr:P52, vr:P53, vr:P54, vr:P55, vr:P56, vr:P57, vr:P58, vr:P59, vr:P60,
+    vr:P61, vr:P62, vr:P63, vr:P64, vr:P65, vr:P66, vr:P67, vr:P68, vr:P69, vr:P70, vr:P71 .
 
 vr:PlenaryVoteResultsRemark a sh:NodeShape;
+  owl:versionInfo "2.3.0";
+  skos:editorialNote "API scope: vote-results"@en;
   rdfs:comment "This node shape represents a subset of eli-dl:Activity"@en;
   skos:example "https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2023-11-21-VOT-ITM-939705-SPLIT-6";
   sh:nodeKind sh:IRI;
-  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\\-_]+$";
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-VOT-ITM-[0-9]+-(SPLIT|SEPARATE|RCV)-[0-9]{1,2}$";
   sh:closed "true"^^xsd:boolean;
-  rdfs:label "Plenary Vote Results Remarks (full metadata)"@en;
   sh:order "4"^^xsd:integer;
-  owl:versionInfo "1.5.0";
-  shacl-play:color "DarkBlue";
-  sh:property vr:P89, vr:P90, vr:P91, vr:P92, vr:P93, vr:P94, vr:P95, vr:P96, vr:P97 .
+  shacl-play:color "White";
+  shacl-play:background-color "DarkBlue";
+  rdfs:label "Plenary Vote Results Remarks (full metadata)"@en;
+  sh:property vr:P73, vr:P74, vr:P75, vr:P76, vr:P77, vr:P78, vr:P79, vr:P80, vr:P81 .
 
 vr:PlenaryVoteResultsRemarkRequestVoteSplit a sh:NodeShape;
+  owl:versionInfo "2.3.0";
+  skos:editorialNote "API scope: vote-results"@en;
   rdfs:comment "This node shape represents a subset of eli-dl:Activity"@en;
   skos:example "https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2023-11-21-VOT-ITM-939705-SPLIT-160501";
   sh:nodeKind sh:IRI;
-  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\\-_]+$";
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-VOT-ITM-[0-9]+-SPLIT-[0-9]{6}$";
   sh:closed "true"^^xsd:boolean;
-  rdfs:label "Plenary Vote Results Remarks (limited metadata)"@en;
   sh:order "5"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "DarkBlue";
-  sh:property vr:P105, vr:P106, vr:P107 .
+  shacl-play:color "White";
+  shacl-play:background-color "DarkBlue";
+  rdfs:label "Plenary Vote Results Remarks (limited metadata)"@en;
+  sh:property vr:P89, vr:P90, vr:P91 .
 
 vr:WorkRemark a sh:NodeShape;
+  owl:versionInfo "2.3.0";
+  skos:editorialNote "API scope: vote-results"@en;
   rdfs:comment "This node shape represents a subset of eli:Work"@en;
   skos:example "https://data.europarl.europa.eu/eli/dl/doc/MTG-PL-2024-02-29-VOT-ITM-940956-SPLIT-1-1";
   sh:nodeKind sh:IRI;
-  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-VOT-ITM-[0-9]+-SPLIT-[0-9]{1,2}-[0-9]{1,2}$";
   sh:closed "true"^^xsd:boolean;
-  rdfs:label "Work Remarks"@en;
   sh:order "6"^^xsd:integer;
-  owl:versionInfo "1.5.0";
-  shacl-play:color "Orange";
-  sh:property vr:P100, vr:P101, vr:P102 .
+  shacl-play:color "White";
+  shacl-play:background-color "DarkOrange";
+  rdfs:label "Work Remarks"@en;
+  sh:property vr:P83, vr:P84, vr:P85, vr:P86, vr:P87 .
 
 vr:ActivityTypeReference a sh:NodeShape;
+  owl:versionInfo "2.1.0";
   rdfs:comment "This node shape refers to the class eli-dl:ActivityType"@en;
   skos:example "https://data.europarl.europa.eu/def/ep-activities/PLENARY_VOTE_RESULTS";
   sh:nodeKind sh:IRI;
   sh:pattern "https://data.europarl.europa.eu/def/ep-activities/.*$";
   sh:closed "true"^^xsd:boolean;
-  rdfs:label "Reference to an Activity Type"@en;
   sh:order "7"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "DarkGrey";
-  sh:property vr:P113, vr:P114 .
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to an Activity Type"@en;
+  sh:property vr:P95, vr:P96 .
 
 vr:DecisionMethodReference a sh:NodeShape;
+  owl:versionInfo "2.1.0";
   rdfs:comment "This node shape refers to the class eli-dl:DecisionMethod"@en;
   skos:example "https://data.europarl.europa.eu/def/ep-decision-methods/VOTE_ELECTRONIC_ROLLCALL";
   sh:nodeKind sh:IRI;
   sh:pattern "https://data.europarl.europa.eu/def/ep-decision-methods/.*$";
   sh:closed "true"^^xsd:boolean;
-  rdfs:label "Reference to a Decision Method"@en;
   sh:order "8"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "DarkGrey";
-  sh:property vr:P117, vr:P118 .
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to a Decision Method"@en;
+  sh:property vr:P98, vr:P99 .
 
 vr:PersonReference a sh:NodeShape;
+  owl:versionInfo "1.3.0";
   rdfs:comment "This node shape refers to the class foaf:Person"@en;
   skos:example "https://data.europarl.europa.eu/person/124936";
   sh:nodeKind sh:IRI;
   sh:pattern "^https://data.europarl.europa.eu/person/[0-9]*?$";
   sh:closed "true"^^xsd:boolean;
-  rdfs:label "Reference to a Person"@en;
   sh:order "9"^^xsd:integer;
-  owl:versionInfo "1.3.0";
-  shacl-play:color "DarkGrey";
-  sh:property vr:P110 .
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to a Person"@en;
+  sh:property vr:P93 .
 
 vr:DecisionOutcomedReference a sh:NodeShape;
+  owl:versionInfo "2.1.0";
   rdfs:comment "This node shape refers to the class eli-dl:DecisionOutcome"@en;
   skos:example "https://data.europarl.europa.eu/def/ep-statuses/ADOPTED";
   sh:nodeKind sh:IRI;
   sh:pattern "https://data.europarl.europa.eu/def/ep-statuses/.*$";
   sh:closed "true"^^xsd:boolean;
-  rdfs:label "Reference to a Decision Outcome"@en;
   sh:order "10"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "DarkGrey";
-  sh:property vr:P121, vr:P122 .
-
-vr:PlenaryPartSessionDossierReference a sh:NodeShape;
-  rdfs:comment "This node shape refers to the class eli-dl:ForeseenActivity"@en;
-  skos:example "https://data.europarl.europa.eu/eli/dl/event/GMTG-PL-2024-02-26-ITM-83";
-  sh:nodeKind sh:IRI;
-  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\\-_]+$";
-  sh:closed "true"^^xsd:boolean;
-  rdfs:label "Reference to a Plenary Part Session Dossier"@en;
-  sh:order "11"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "DarkGrey";
-  sh:property vr:P125, vr:P126 .
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to a Decision Outcome"@en;
+  sh:property vr:P101, vr:P102 .
 
 vr:PlenaryDocumentReference a sh:NodeShape;
+  owl:versionInfo "2.1.0";
   rdfs:comment "This node shape refers to the class eli:Work"@en;
   sh:nodeKind sh:IRI;
   sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
   sh:closed "true"^^xsd:boolean;
+  sh:order "11"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
   rdfs:label "Reference to a Work (Plenary Document)"@en;
-  sh:order "12"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "DarkGrey";
-  sh:property vr:P129, vr:P130 .
+  sh:property vr:P104, vr:P105 .
 
 vr:PlenarySessionDocumentItemReference a sh:NodeShape;
+  owl:versionInfo "2.3.0";
   rdfs:comment "This node shape refers to the class eli:WorkSubdivision"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/PV-9-2024-04-23-VOT-ITM-012";
   sh:nodeKind sh:IRI;
-  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/PV-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}-VOT-ITM-[0-9]{3}$";
   sh:closed "true"^^xsd:boolean;
+  sh:order "12"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
   rdfs:label "Reference to a WorkSubdivision"@en;
-  sh:order "13"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "DarkGrey" .
+  sh:property vr:P107 .
 
 vr:OrganizationReference a sh:NodeShape;
+  owl:versionInfo "2.1.0";
   rdfs:comment "This node shape refers to the class org:Organization"@en;
   skos:example "https://data.europarl.europa.eu/org/S_D";
   sh:nodeKind sh:IRI;
   sh:pattern "^https://data.europarl.europa.eu/org/[0-9]*?$";
   sh:closed "true"^^xsd:boolean;
+  sh:order "13"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
   rdfs:label "Reference to an Organisation"@en;
-  sh:order "14"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "DarkGrey" .
+  sh:property vr:P109 .
 
-vr:P9 owl:versionInfo "1.3.0";
+vr:P9 owl:versionInfo "2.3.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
   sh:hasValue eli-dl:Activity;
   shacl-play:shortname "type" .
 
-vr:P10 owl:versionInfo "1.3.0";
+vr:P10 owl:versionInfo "2.3.0";
   sh:path eli-dl:activity_id;
   sh:name "activity id"@en;
+  skos:example "MTG-PL-2024-04-23-VOT-ITM-945845";
   sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:string;
+  sh:pattern "MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-VOT-ITM-[0-9]+";
   shacl-play:shortname "activity_id" .
 
 vr:P11 owl:versionInfo "2.1.0";
   sh:path eli-dl:had_activity_type;
   sh:name "activity type"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-activities/PLENARY_VOTE_RESULTS";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
@@ -269,9 +302,10 @@ vr:P11 owl:versionInfo "2.1.0";
   sh:hasValue ep-activities:PLENARY_VOTE_RESULTS;
   shacl-play:shortname "had_activity_type" .
 
-vr:P12 owl:versionInfo "1.3.0";
+vr:P12 owl:versionInfo "2.3.0";
   sh:path eli-dl:activity_label;
   sh:name "activity label"@en;
+  sh:minCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
   sh:datatype rdf:langString;
   shacl-play:shortname "activity_label" .
@@ -279,6 +313,7 @@ vr:P12 owl:versionInfo "1.3.0";
 vr:P13 owl:versionInfo "1.3.0";
   sh:path eli-dl:activity_date;
   sh:name "activity date"@en;
+  skos:example "45405";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
@@ -288,57 +323,58 @@ vr:P13 owl:versionInfo "1.3.0";
 vr:P14 owl:versionInfo "1.3.0";
   sh:path skos:notation;
   sh:name "dlv id"@en;
+  skos:example "945845";
   sh:nodeKind sh:Literal;
-  sh:datatype epvoc:dlvId .
+  sh:datatype epvoc:dlvId;
+  sh:pattern "[0-9]+" .
 
 vr:P15 owl:versionInfo "1.3.0";
   sh:path eli-dl:consists_of;
   sh:name "consists of"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2023-11-21-DEC-160111";
   sh:nodeKind sh:IRI;
-  sh:or _:a4aeb3f30c2042e3b539bc99a24f35721442;
+  sh:or _:a701ed0bc8f44446a3a682c5adf0356f2559;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "consists_of" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721442 rdf:first _:a4aeb3f30c2042e3b539bc99a24f35721443;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721444 .
+_:a701ed0bc8f44446a3a682c5adf0356f2559 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2560;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2561 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721443 sh:node vr:Decision .
+_:a701ed0bc8f44446a3a682c5adf0356f2560 sh:node vr:Decision .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721444 rdf:first _:a4aeb3f30c2042e3b539bc99a24f35721445;
+_:a701ed0bc8f44446a3a682c5adf0356f2561 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2562;
   rdf:rest rdf:nil .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721445 sh:node vr:Vote .
+_:a701ed0bc8f44446a3a682c5adf0356f2562 sh:node vr:Vote .
 
-vr:P16 owl:versionInfo "1.5.0";
-  sh:path eli-dl:executed;
-  sh:name "executed"@en;
-  sh:nodeKind sh:IRI;
-  sh:node vr:PlenaryPartSessionDossierReference;
-  shacl-play:shortname "executed" .
-
-vr:P17 owl:versionInfo "2.1.0";
+vr:P16 owl:versionInfo "2.1.0";
   sh:path eli-dl:based_on_a_realization_of;
   sh:name "based on a realization of"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/A-9-2023-0064";
   sh:nodeKind sh:IRI;
   sh:node vr:PlenaryDocumentReference;
   shacl-play:shortname "based_on_a_realization_of" .
 
-vr:P18 owl:versionInfo "1.5.0";
+vr:P17 owl:versionInfo "2.3.0";
   sh:path eli-dl:recorded_in_a_realization_of;
   sh:name "recorded in a realization of"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/PV-9-2023-11-21-VOT-ITM-001";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   sh:node vr:PlenarySessionDocumentItemReference;
   shacl-play:shortname "recorded_in_a_realization_of" .
 
-vr:P19 owl:versionInfo "1.5.0";
+vr:P18 owl:versionInfo "1.5.0";
   sh:path eli-dl:was_motivated_by;
   sh:name "was motivated by"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2023-11-21-VOT-ITM-939729-RCV-OJ-1";
   sh:nodeKind sh:IRI;
   sh:node vr:PlenaryVoteResultsRemark;
   shacl-play:shortname "was_motivated_by" .
 
-vr:P20 owl:versionInfo "1.3.0";
-  sh:path _:a4aeb3f30c2042e3b539bc99a24f35721446;
+vr:P19 owl:versionInfo "1.3.0";
+  sh:path _:a701ed0bc8f44446a3a682c5adf0356f2563;
   sh:name "inverse consists of"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
@@ -346,26 +382,31 @@ vr:P20 owl:versionInfo "1.3.0";
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "inverse_consists_of" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721446 sh:inversePath eli-dl:consists_of .
+_:a701ed0bc8f44446a3a682c5adf0356f2563 sh:inversePath eli-dl:consists_of .
 
-vr:P23 owl:versionInfo "1.3.0";
+vr:P21 owl:versionInfo "2.3.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
   sh:hasValue eli-dl:Decision;
   shacl-play:shortname "type" .
 
-vr:P24 owl:versionInfo "1.3.0";
+vr:P22 owl:versionInfo "2.3.0";
   sh:path eli-dl:activity_id;
   sh:name "activity id"@en;
+  skos:example "MTG-PL-2023-11-21-DEC-160343";
   sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:string;
+  sh:pattern "MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-DEC-[0-9]+";
   shacl-play:shortname "activity_id" .
 
-vr:P25 owl:versionInfo "2.1.0";
+vr:P23 owl:versionInfo "2.1.0";
   sh:path eli-dl:had_activity_type;
   sh:name "activity type"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-activities/PLENARY_OUTCOME";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
@@ -373,14 +414,15 @@ vr:P25 owl:versionInfo "2.1.0";
   sh:hasValue ep-activities:PLENARY_OUTCOME;
   shacl-play:shortname "had_activity_type" .
 
-vr:P26 owl:versionInfo "1.3.0";
+vr:P24 owl:versionInfo "1.3.0";
   sh:path skos:notation;
   sh:name "voting id"@en;
+  skos:example "160343";
   sh:nodeKind sh:Literal;
   sh:datatype epvoc:votingId;
   shacl-play:shortname "notation_votingId" .
 
-vr:P27 owl:versionInfo "1.3.0";
+vr:P25 owl:versionInfo "1.3.0";
   sh:path eli-dl:activity_date;
   sh:name "activity date"@en;
   sh:minCount "1"^^xsd:integer;
@@ -389,95 +431,122 @@ vr:P27 owl:versionInfo "1.3.0";
   sh:datatype xsd:date;
   shacl-play:shortname "activity_date" .
 
-vr:P29 owl:versionInfo "1.3.0";
+vr:P26 owl:versionInfo "2.3.0";
   sh:path eli-dl:activity_label;
   sh:name "activity label"@en;
+  skos:example "Article 1, § 3, after point c";
+  sh:minCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
   sh:datatype rdf:langString;
   shacl-play:shortname "activity_label" .
 
-vr:P30 owl:versionInfo "2.1.0";
+vr:P27 owl:versionInfo "2.3.0";
   sh:path eli-dl:decision_method;
   sh:name "decision method"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-decision-methods/VOTE_ELECTRONIC_ROLLCALL";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   sh:node vr:DecisionMethodReference;
+  sh:in _:a701ed0bc8f44446a3a682c5adf0356f2564;
   shacl-play:shortname "decision_method" .
 
-vr:P38 owl:versionInfo "2.1.0";
+_:a701ed0bc8f44446a3a682c5adf0356f2564 rdf:first ep-decision-methods:VOTE_ELECTRONIC;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2565 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2565 rdf:first ep-decision-methods:VOTE_ELECTRONIC_ROLLCALL;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2566 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2566 rdf:first ep-decision-methods:VOTE_ELECTRONIC_SECRET;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2567 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2567 rdf:first ep-decision-methods:VOTE_HAND;
+  rdf:rest rdf:nil .
+
+vr:P28 owl:versionInfo "2.1.0";
   sh:path eli-dl:was_motivated_by;
   sh:name "was motivated by"@en;
   sh:nodeKind sh:IRI;
-  sh:or _:a4aeb3f30c2042e3b539bc99a24f35721447;
+  sh:or _:a701ed0bc8f44446a3a682c5adf0356f2568;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "was_motivated_by" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721447 rdf:first _:a4aeb3f30c2042e3b539bc99a24f35721448;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721449 .
+_:a701ed0bc8f44446a3a682c5adf0356f2568 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2569;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2570 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721448 sh:node vr:PlenaryVoteResultsRemark .
+_:a701ed0bc8f44446a3a682c5adf0356f2569 sh:node vr:PlenaryVoteResultsRemark .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721449 rdf:first _:a4aeb3f30c2042e3b539bc99a24f35721450;
+_:a701ed0bc8f44446a3a682c5adf0356f2570 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2571;
   rdf:rest rdf:nil .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721450 sh:node vr:PlenaryVoteResultsRemarkRequestVoteSplit .
+_:a701ed0bc8f44446a3a682c5adf0356f2571 sh:node vr:PlenaryVoteResultsRemarkRequestVoteSplit .
 
-vr:P39 owl:versionInfo "1.5.0";
+vr:P29 owl:versionInfo "1.5.0";
   sh:path eli-dl:activity_order;
   sh:name "order"@en;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:integer;
   shacl-play:shortname "activity_order" .
 
-vr:P40 owl:versionInfo "2.1.0";
-  sh:path eli-dl:had_decision_outcome;
-  sh:name "had decision outcome"@en;
+vr:P30 owl:versionInfo "2.3.0";
+  sh:path eli-dl:decision_outcome;
+  sh:name "decision outcome"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-statuses/LAPSED";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   sh:node vr:DecisionOutcomedReference;
-  shacl-play:shortname "had_decision_outcome" .
+  sh:hasValue ep-statuses:LAPSED .
 
-vr:P45 owl:versionInfo "1.5.0";
+vr:P31 owl:versionInfo "2.3.0";
   sh:path epvoc:decisionAboutId;
   sh:name "decision about id"@en;
+  skos:example "99";
+  sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:string;
   shacl-play:shortname "decisionAboutId" .
 
-vr:P46 owl:versionInfo "1.5.0";
+vr:P32 owl:versionInfo "2.3.0";
   sh:path epvoc:decisionAboutId;
   sh:name "decision about id (xml syntax)"@en;
+  skos:example "<am><reference><number>99</number></reference></am>";
+  sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
   sh:datatype rdf:XMLLiteral;
   shacl-play:shortname "decisionAboutId_XMLLiteral" .
 
-vr:P47 owl:versionInfo "1.5.0";
+vr:P33 owl:versionInfo "1.5.0";
   sh:path epvoc:referenceText;
   sh:name "reference text"@en;
+  skos:example "Article 1, § 3, after point c";
   sh:nodeKind sh:Literal;
   sh:datatype rdf:langString;
   shacl-play:shortname "referenceText" .
 
-vr:P48 owl:versionInfo "1.5.0";
+vr:P34 owl:versionInfo "1.5.0";
   sh:path epvoc:headingLabel;
   sh:name "heading label"@en;
   sh:nodeKind sh:Literal;
   sh:datatype rdf:langString;
   shacl-play:shortname "headingLabel" .
 
-vr:P49 owl:versionInfo "1.5.0";
+vr:P35 owl:versionInfo "1.5.0";
   sh:path eli-dl:responsible_organization_label;
   sh:name "responsible organization label"@en;
+  skos:example "Verts/ALE";
   sh:nodeKind sh:Literal;
   sh:datatype rdf:langString;
   shacl-play:shortname "responsible_organization_label" .
 
-vr:P50 owl:versionInfo "1.5.0";
+vr:P36 owl:versionInfo "1.5.0";
   sh:path rdfs:comment;
   sh:name "comment"@en;
   sh:nodeKind sh:Literal;
   sh:datatype rdf:langString;
   shacl-play:shortname "comment" .
 
-vr:P51 owl:versionInfo "1.5.0";
+vr:P37 owl:versionInfo "1.5.0";
   sh:path eli-dl:decided_on_a_realization_of;
   sh:name "decided on a realization of"@en;
   sh:nodeKind sh:IRI;
@@ -485,7 +554,7 @@ vr:P51 owl:versionInfo "1.5.0";
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "decided_on_a_realization_of" .
 
-vr:P52 owl:versionInfo "1.5.0";
+vr:P38 owl:versionInfo "1.5.0";
   sh:path eli-dl:decided_on_a_part_of_a_realization_of;
   sh:name "decided on a realization of"@en;
   sh:nodeKind sh:IRI;
@@ -493,31 +562,36 @@ vr:P52 owl:versionInfo "1.5.0";
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "decided_on_a_part_of_a_realization_of" .
 
-vr:P53 owl:versionInfo "1.5.1";
+vr:P39 owl:versionInfo "1.5.1";
   sh:path skos:note;
   sh:name "note"@en;
   sh:nodeKind sh:Literal;
   sh:datatype rdf:langString;
   shacl-play:shortname "note" .
 
-vr:P56 owl:versionInfo "2.1.0";
+vr:P41 owl:versionInfo "2.3.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
   sh:hasValue eli-dl:Vote;
   shacl-play:shortname "type" .
 
-vr:P57 owl:versionInfo "2.1.0";
+vr:P42 owl:versionInfo "2.3.0";
   sh:path eli-dl:activity_id;
   sh:name "activity id"@en;
+  skos:example "MTG-PL-2023-11-21-DEC-160241";
   sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:string;
+  sh:pattern "MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-DEC-[0-9]+";
   shacl-play:shortname "activity_id" .
 
-vr:P58 owl:versionInfo "2.1.0";
+vr:P43 owl:versionInfo "2.1.0";
   sh:path eli-dl:had_activity_type;
   sh:name "activity type"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-activities/PLENARY_OUTCOME";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
@@ -525,14 +599,14 @@ vr:P58 owl:versionInfo "2.1.0";
   sh:hasValue ep-activities:PLENARY_OUTCOME;
   shacl-play:shortname "had_activity_type" .
 
-vr:P59 owl:versionInfo "2.1.0";
+vr:P44 owl:versionInfo "2.1.0";
   sh:path skos:notation;
   sh:name "voting id"@en;
   sh:nodeKind sh:Literal;
   sh:datatype epvoc:votingId;
   shacl-play:shortname "notation_votingId" .
 
-vr:P60 owl:versionInfo "2.1.0";
+vr:P45 owl:versionInfo "2.1.0";
   sh:path eli-dl:activity_date;
   sh:name "activity date"@en;
   sh:minCount "1"^^xsd:integer;
@@ -541,7 +615,7 @@ vr:P60 owl:versionInfo "2.1.0";
   sh:datatype xsd:date;
   shacl-play:shortname "activity_date" .
 
-vr:P61 owl:versionInfo "2.1.0";
+vr:P46 owl:versionInfo "2.1.0";
   sh:path eli-dl:activity_start_date;
   sh:name "activity start date"@en;
   sh:maxCount "1"^^xsd:integer;
@@ -549,179 +623,206 @@ vr:P61 owl:versionInfo "2.1.0";
   sh:datatype xsd:date;
   shacl-play:shortname "activity_start_date" .
 
-vr:P62 owl:versionInfo "2.1.0";
+vr:P47 owl:versionInfo "2.1.0";
   sh:path eli-dl:activity_label;
   sh:name "activity label"@en;
+  skos:example "A9-0444/2023 – Markus Ferber, Margarida Marques – Commission proposal";
   sh:nodeKind sh:Literal;
   sh:datatype rdf:langString;
   shacl-play:shortname "activity_label" .
 
-vr:P63 owl:versionInfo "2.1.0";
+vr:P48 owl:versionInfo "2.3.0";
   sh:path eli-dl:decision_method;
   sh:name "decision method"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-decision-methods/VOTE_ELECTRONIC_ROLLCALL";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   sh:node vr:DecisionMethodReference;
+  sh:in _:a701ed0bc8f44446a3a682c5adf0356f2572;
   shacl-play:shortname "decision_method" .
 
-vr:P64 owl:versionInfo "2.1.0";
+_:a701ed0bc8f44446a3a682c5adf0356f2572 rdf:first ep-decision-methods:VOTE_ELECTRONIC;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2573 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2573 rdf:first ep-decision-methods:VOTE_ELECTRONIC_ROLLCALL;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2574 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2574 rdf:first ep-decision-methods:VOTE_ELECTRONIC_SECRET;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2575 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2575 rdf:first ep-decision-methods:VOTE_HAND;
+  rdf:rest rdf:nil .
+
+vr:P49 owl:versionInfo "2.1.0";
   sh:path eli-dl:had_voter_favor;
   sh:name "had voter favor"@en;
   sh:nodeKind sh:IRI;
   sh:node vr:PersonReference;
   shacl-play:shortname "had_voter_favor" .
 
-vr:P65 owl:versionInfo "2.1.0";
+vr:P50 owl:versionInfo "2.1.0";
   sh:path eli-dl:had_voter_against;
   sh:name "had voter against"@en;
   sh:nodeKind sh:IRI;
   sh:node vr:PersonReference;
   shacl-play:shortname "had_voter_against" .
 
-vr:P66 owl:versionInfo "2.1.0";
+vr:P51 owl:versionInfo "2.1.0";
   sh:path eli-dl:had_voter_abstention;
   sh:name "had voter abstention"@en;
   sh:nodeKind sh:IRI;
   sh:node vr:PersonReference;
   shacl-play:shortname "had_voter_abstention" .
 
-vr:P67 owl:versionInfo "2.1.0";
+vr:P52 owl:versionInfo "2.1.0";
   sh:path eli-dl:had_voter_intended_favor;
   sh:name "had voter intended favor"@en;
   sh:nodeKind sh:IRI;
   sh:node vr:PersonReference;
   shacl-play:shortname "had_voter_intended_favor" .
 
-vr:P68 owl:versionInfo "2.1.0";
+vr:P53 owl:versionInfo "2.1.0";
   sh:path eli-dl:had_voter_intended_against;
   sh:name "had voter intended against"@en;
   sh:nodeKind sh:IRI;
   sh:node vr:PersonReference;
   shacl-play:shortname "had_voter_intended_against" .
 
-vr:P69 owl:versionInfo "2.1.0";
+vr:P54 owl:versionInfo "2.1.0";
   sh:path eli-dl:had_voter_intended_abstention;
   sh:name "had voter intended abstention"@en;
   sh:nodeKind sh:IRI;
   sh:node vr:PersonReference;
   shacl-play:shortname "had_voter_intended_abstention" .
 
-vr:P70 owl:versionInfo "2.1.0";
+vr:P55 owl:versionInfo "2.1.0";
   sh:path eli-dl:recorded_in_a_realization_of;
   sh:name "recorded in a realization of"@en;
   sh:nodeKind sh:IRI;
   sh:node vr:PlenarySessionDocumentItemReference;
   shacl-play:shortname "recorded_in_a_realization_of" .
 
-vr:P71 owl:versionInfo "2.1.0";
+vr:P56 owl:versionInfo "2.1.0";
   sh:path eli-dl:was_motivated_by;
   sh:name "was motivated by"@en;
   sh:nodeKind sh:IRI;
-  sh:or _:a4aeb3f30c2042e3b539bc99a24f35721451;
+  sh:or _:a701ed0bc8f44446a3a682c5adf0356f2576;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "was_motivated_by" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721451 rdf:first _:a4aeb3f30c2042e3b539bc99a24f35721452;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721453 .
+_:a701ed0bc8f44446a3a682c5adf0356f2576 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2577;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2578 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721452 sh:node vr:PlenaryVoteResultsRemark .
+_:a701ed0bc8f44446a3a682c5adf0356f2577 sh:node vr:PlenaryVoteResultsRemark .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721453 rdf:first _:a4aeb3f30c2042e3b539bc99a24f35721454;
+_:a701ed0bc8f44446a3a682c5adf0356f2578 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2579;
   rdf:rest rdf:nil .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721454 sh:node vr:PlenaryVoteResultsRemarkRequestVoteSplit .
+_:a701ed0bc8f44446a3a682c5adf0356f2579 sh:node vr:PlenaryVoteResultsRemarkRequestVoteSplit .
 
-vr:P72 owl:versionInfo "2.1.0";
+vr:P57 owl:versionInfo "2.1.0";
   sh:path eli-dl:activity_order;
   sh:name "order"@en;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:integer;
   shacl-play:shortname "activity_order" .
 
-vr:P73 owl:versionInfo "2.1.0";
-  sh:path eli-dl:had_decision_outcome;
-  sh:name "had decision outcome"@en;
+vr:P58 owl:versionInfo "2.3.0";
+  sh:path eli-dl:decision_outcome;
+  sh:name "decision outcome"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-statuses/ADOPTED";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   sh:node vr:DecisionOutcomedReference;
-  sh:in _:a4aeb3f30c2042e3b539bc99a24f35721455;
-  shacl-play:shortname "had_decision_outcome" .
+  sh:in _:a701ed0bc8f44446a3a682c5adf0356f2580 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721455 rdf:first ep-statuses:ADOPTED;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721456 .
+_:a701ed0bc8f44446a3a682c5adf0356f2580 rdf:first ep-statuses:ADOPTED;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2581 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721456 rdf:first ep-statuses:REJECTED;
+_:a701ed0bc8f44446a3a682c5adf0356f2581 rdf:first ep-statuses:REJECTED;
   rdf:rest rdf:nil .
 
-vr:P74 owl:versionInfo "2.1.0";
+vr:P59 owl:versionInfo "2.3.0";
   sh:path eli-dl:number_of_votes_favor;
   sh:name "number of votes in favor"@en;
+  sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:integer;
   shacl-play:shortname "number_of_votes_favor" .
 
-vr:P75 owl:versionInfo "2.1.0";
+vr:P60 owl:versionInfo "2.3.0";
   sh:path eli-dl:number_of_votes_against;
   sh:name "number of votes against"@en;
+  sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:integer;
   shacl-play:shortname "number_of_votes_against" .
 
-vr:P76 owl:versionInfo "2.1.0";
+vr:P61 owl:versionInfo "2.3.0";
   sh:path eli-dl:number_of_votes_abstention;
   sh:name "number of votes abstention"@en;
+  sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:integer;
   shacl-play:shortname "number_of_votes_abstention" .
 
-vr:P77 owl:versionInfo "2.1.0";
+vr:P62 owl:versionInfo "2.3.0";
   sh:path eli-dl:number_of_attendees;
   sh:name "number of attendees"@en;
+  sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:integer;
   shacl-play:shortname "number_of_attendees" .
 
-vr:P78 owl:versionInfo "2.1.0";
+vr:P63 owl:versionInfo "2.3.0";
   sh:path epvoc:decisionAboutId;
   sh:name "decision about id"@en;
+  sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:string;
   shacl-play:shortname "decisionAboutId" .
 
-vr:P79 owl:versionInfo "2.1.0";
+vr:P64 owl:versionInfo "2.3.0";
   sh:path epvoc:decisionAboutId;
   sh:name "decision about id (xml syntax)"@en;
+  sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
   sh:datatype rdf:XMLLiteral;
   shacl-play:shortname "decisionAboutId_XMLLiteral" .
 
-vr:P80 owl:versionInfo "2.1.0";
+vr:P65 owl:versionInfo "2.1.0";
   sh:path epvoc:referenceText;
   sh:name "reference text"@en;
+  skos:example "Commission proposal";
   sh:nodeKind sh:Literal;
   sh:datatype rdf:langString;
   shacl-play:shortname "referenceText" .
 
-vr:P81 owl:versionInfo "2.1.0";
+vr:P66 owl:versionInfo "2.1.0";
   sh:path epvoc:headingLabel;
   sh:name "heading label"@en;
   sh:nodeKind sh:Literal;
   sh:datatype rdf:langString;
   shacl-play:shortname "headingLabel" .
 
-vr:P82 owl:versionInfo "2.1.0";
+vr:P67 owl:versionInfo "2.1.0";
   sh:path eli-dl:responsible_organization_label;
   sh:name "responsible organization label"@en;
   sh:nodeKind sh:Literal;
   sh:datatype rdf:langString;
   shacl-play:shortname "responsible_organization_label" .
 
-vr:P83 owl:versionInfo "2.1.0";
+vr:P68 owl:versionInfo "2.1.0";
   sh:path rdfs:comment;
   sh:name "comment"@en;
+  skos:example "RCV";
   sh:nodeKind sh:Literal;
   sh:datatype rdf:langString;
   shacl-play:shortname "comment" .
 
-vr:P84 owl:versionInfo "2.1.0";
+vr:P69 owl:versionInfo "2.1.0";
   sh:path eli-dl:decided_on_a_realization_of;
   sh:name "decided on a realization of"@en;
   sh:nodeKind sh:IRI;
@@ -729,7 +830,7 @@ vr:P84 owl:versionInfo "2.1.0";
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "decided_on_a_realization_of" .
 
-vr:P85 owl:versionInfo "2.1.0";
+vr:P70 owl:versionInfo "2.1.0";
   sh:path eli-dl:decided_on_a_part_of_a_realization_of;
   sh:name "decided on a realization of"@en;
   sh:nodeKind sh:IRI;
@@ -737,136 +838,162 @@ vr:P85 owl:versionInfo "2.1.0";
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "decided_on_a_part_of_a_realization_of" .
 
-vr:P86 owl:versionInfo "2.1.0";
+vr:P71 owl:versionInfo "2.1.0";
   sh:path skos:note;
   sh:name "note"@en;
   sh:nodeKind sh:Literal;
   sh:datatype rdf:langString;
   shacl-play:shortname "note" .
 
-vr:P89 owl:versionInfo "1.5.0";
+vr:P73 owl:versionInfo "2.3.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   sh:hasValue eli-dl:Activity;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "type" .
 
-vr:P90 owl:versionInfo "2.1.0";
+vr:P74 owl:versionInfo "2.1.0";
   sh:path eli-dl:activity_id;
   sh:name "activity id"@en;
+  skos:example "MTG-PL-2023-11-21-VOT-ITM-939705-SPLIT-6";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:string;
+  sh:pattern "MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-VOT-ITM-[0-9]+-(SPLIT|SEPARATE|RCV)-[0-9]{1,2}";
   shacl-play:shortname "activity_id" .
 
-vr:P91 owl:versionInfo "2.1.0";
+vr:P75 owl:versionInfo "2.1.0";
   sh:path eli-dl:had_activity_type;
   sh:name "had activity type"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-activities/REQUEST_VOTE_SPLIT";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   sh:node vr:ActivityTypeReference;
-  sh:in _:a4aeb3f30c2042e3b539bc99a24f35721457;
+  sh:in _:a701ed0bc8f44446a3a682c5adf0356f2582;
   shacl-play:shortname "had_activity_type" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721457 rdf:first ep-activities:REQUEST_VOTE_SPLIT;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721458 .
+_:a701ed0bc8f44446a3a682c5adf0356f2582 rdf:first ep-activities:REQUEST_VOTE_SPLIT;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2583 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721458 rdf:first ep-activities:REQUEST_VOTE_ROLLCALL;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721459 .
+_:a701ed0bc8f44446a3a682c5adf0356f2583 rdf:first ep-activities:REQUEST_VOTE_ROLLCALL;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2584 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721459 rdf:first ep-activities:REQUEST_VOTE_SEPARATE;
+_:a701ed0bc8f44446a3a682c5adf0356f2584 rdf:first ep-activities:REQUEST_VOTE_SEPARATE;
   rdf:rest rdf:nil .
 
-vr:P92 owl:versionInfo "1.5.0";
+vr:P76 owl:versionInfo "1.5.0";
   sh:path eli-dl:activity_label;
   sh:name "activity label"@en;
   sh:nodeKind sh:Literal;
   sh:datatype rdf:langString;
   shacl-play:shortname "activity_label" .
 
-vr:P93 owl:versionInfo "1.5.0";
+vr:P77 owl:versionInfo "1.5.0";
   sh:path eli-dl:activity_order;
   sh:name "activity order"@en;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:integer;
   shacl-play:shortname "activity_order" .
 
-vr:P94 owl:versionInfo "2.1.0";
+vr:P78 owl:versionInfo "2.1.0";
   sh:path eli-dl:had_responsible_organization;
   sh:name "had responsible organization"@en;
   sh:nodeKind sh:IRI;
   sh:node vr:OrganizationReference;
   shacl-play:shortname "had_responsible_organization" .
 
-vr:P95 owl:versionInfo "1.5.0";
+vr:P79 owl:versionInfo "1.5.0";
   sh:path eli-dl:responsible_organization_label;
   sh:name "responsible organization label"@en;
   sh:nodeKind sh:Literal;
   sh:datatype rdf:langString;
   shacl-play:shortname "responsible_organization_label" .
 
-vr:P96 owl:versionInfo "2.1.0";
+vr:P80 owl:versionInfo "2.1.0";
   sh:path epvoc:hadResponsibleOrganization;
   sh:name "had responsible organization"@en;
   sh:nodeKind sh:IRI;
   sh:node vr:OrganizationReference;
   shacl-play:shortname "hadResponsibleOrganization" .
 
-vr:P97 owl:versionInfo "1.5.0";
+vr:P81 owl:versionInfo "1.5.0";
   sh:path eli-dl:created_a_realization_of;
   sh:name "created a realization of"@en;
   sh:nodeKind sh:IRI;
   sh:node vr:WorkRemark;
   shacl-play:shortname "created_a_realization_of" .
 
-vr:P100 owl:versionInfo "1.5.0";
+vr:P83 owl:versionInfo "2.3.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   sh:hasValue eli-dl:Activity;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "type" .
 
-vr:P101 owl:versionInfo "1.5.0";
-  sh:path epvoc:numbering;
-  sh:name "numbering"@en;
+vr:P84 owl:versionInfo "2.3.0";
+  sh:path dcterms:identifier;
+  sh:name "identifier"@en;
+  sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
-  sh:datatype xsd:string;
+  sh:datatype xsd:string .
+
+vr:P85 owl:versionInfo "2.3.0";
+  sh:path eli:number;
+  sh:name "number"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string .
+
+vr:P86 owl:versionInfo "2.3.0";
+  sh:path epvoc:numbering;
+  sh:name "numbering"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:integer;
   shacl-play:shortname "numbering" .
 
-vr:P102 owl:versionInfo "1.5.0";
+vr:P87 owl:versionInfo "1.5.0";
   sh:path epvoc:expressionContent;
   sh:name "expression content"@en;
   sh:nodeKind sh:Literal;
   sh:datatype rdf:langString;
   shacl-play:shortname "expressionContent" .
 
-vr:P105 owl:versionInfo "2.1.0";
+vr:P89 owl:versionInfo "2.3.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   sh:hasValue eli-dl:Activity;
   shacl-play:shortname "type" .
 
-vr:P106 owl:versionInfo "2.1.0";
+vr:P90 owl:versionInfo "2.1.0";
   sh:path eli-dl:activity_id;
   sh:name "activity id"@en;
+  skos:example "MTG-PL-2023-11-21-VOT-ITM-939705-SPLIT-160501";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:Literal;
   sh:datatype xsd:string;
+  sh:pattern "MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-VOT-ITM-[0-9]+-SPLIT-[0-9]{6}";
   shacl-play:shortname "activity_id" .
 
-vr:P107 owl:versionInfo "2.1.0";
+vr:P91 owl:versionInfo "2.1.0";
   sh:path eli-dl:had_activity_type;
   sh:name "had activity type"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-activities/REQUEST_VOTE_SPLIT";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
@@ -874,7 +1001,7 @@ vr:P107 owl:versionInfo "2.1.0";
   sh:hasValue ep-activities:REQUEST_VOTE_SPLIT;
   shacl-play:shortname "had_activity_type" .
 
-vr:P110 owl:versionInfo "2.1.0";
+vr:P93 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
@@ -882,79 +1009,113 @@ vr:P110 owl:versionInfo "2.1.0";
   sh:hasValue foaf:Person;
   sh:deactivated "true"^^xsd:boolean .
 
-vr:P113 owl:versionInfo "2.1.0";
+vr:P95 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue eli-dl:ActivityType;
   sh:deactivated "true"^^xsd:boolean .
 
-vr:P114 owl:versionInfo "2.1.0";
+vr:P96 owl:versionInfo "2.1.0";
   sh:path skos:inScheme;
   sh:name "Is in scheme"@en;
   sh:nodeKind sh:IRI;
-  sh:hasValue ept:ep-activities;
+  sh:in _:a701ed0bc8f44446a3a682c5adf0356f2585;
   sh:deactivated "true"^^xsd:boolean .
 
-vr:P117 owl:versionInfo "2.1.0";
+_:a701ed0bc8f44446a3a682c5adf0356f2585 rdf:first ep-activities:REQUEST_VOTE_SPLIT;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2586 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2586 rdf:first ep-activities:REQUEST_VOTE_ROLLCALL;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2587 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2587 rdf:first ep-activities:REQUEST_VOTE_SEPARATE;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2588 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2588 rdf:first ep-activities:PLENARY_OUTCOME;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2589 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2589 rdf:first ep-activities:PLENARY_VOTE_RESULTS;
+  rdf:rest rdf:nil .
+
+vr:P98 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue eli-dl:DecisionMethod;
   sh:deactivated "true"^^xsd:boolean .
 
-vr:P118 owl:versionInfo "2.1.0";
+vr:P99 owl:versionInfo "2.1.0";
   sh:path skos:inScheme;
   sh:name "Is in scheme"@en;
   sh:nodeKind sh:IRI;
-  sh:hasValue ept:ep-decision-methods;
+  sh:in _:a701ed0bc8f44446a3a682c5adf0356f2590;
   sh:deactivated "true"^^xsd:boolean .
 
-vr:P121 owl:versionInfo "2.1.0";
+_:a701ed0bc8f44446a3a682c5adf0356f2590 rdf:first ep-decision-methods:VOTE_ELECTRONIC;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2591 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2591 rdf:first ep-decision-methods:VOTE_ELECTRONIC_ROLLCALL;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2592 .
+
+_:a701ed0bc8f44446a3a682c5adf0356f2592 rdf:first ep-decision-methods:VOTE_HAND;
+  rdf:rest rdf:nil .
+
+vr:P101 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
-  sh:hasValue eli-dl:DecisionMethod;
+  sh:hasValue eli-dl:DecisionOutcome;
   sh:deactivated "true"^^xsd:boolean .
 
-vr:P122 owl:versionInfo "2.1.0";
+vr:P102 owl:versionInfo "2.1.0";
   sh:path skos:inScheme;
   sh:name "Is in scheme"@en;
   sh:nodeKind sh:IRI;
-  sh:hasValue ept:ep-decision-methods;
+  sh:in _:a701ed0bc8f44446a3a682c5adf0356f2593;
   sh:deactivated "true"^^xsd:boolean .
 
-vr:P125 owl:versionInfo "2.1.0";
-  sh:path rdf:type;
-  sh:name "type"@en;
-  sh:nodeKind sh:IRI;
-  sh:hasValue eli-dl:DecisionMethod;
-  sh:deactivated "true"^^xsd:boolean .
+_:a701ed0bc8f44446a3a682c5adf0356f2593 rdf:first ep-statuses:ADOPTED;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2594 .
 
-vr:P126 owl:versionInfo "2.1.0";
-  sh:path eli-dl:had_activity_type;
-  sh:nodeKind sh:IRI;
-  sh:hasValue "ep-activities/PLENARY_PART_SESSION_DOSSIER";
-  sh:deactivated "true"^^xsd:boolean .
+_:a701ed0bc8f44446a3a682c5adf0356f2594 rdf:first ep-statuses:REJECTED;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2595 .
 
-vr:P129 owl:versionInfo "2.1.0";
+_:a701ed0bc8f44446a3a682c5adf0356f2595 rdf:first ep-statuses:LAPSED;
+  rdf:rest rdf:nil .
+
+vr:P104 owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:nodeKind sh:IRI;
   sh:hasValue eli:Work;
   sh:deactivated "true"^^xsd:boolean .
 
-vr:P130 owl:versionInfo "2.1.0";
+vr:P105 owl:versionInfo "2.1.0";
   sh:path eli:work_type;
   sh:nodeKind sh:IRI;
-  sh:in _:a4aeb3f30c2042e3b539bc99a24f35721460;
+  sh:in _:a701ed0bc8f44446a3a682c5adf0356f2596;
   sh:deactivated "true"^^xsd:boolean .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721460 rdf:first ep-document-types:PLENARY_REPORT;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721461 .
+_:a701ed0bc8f44446a3a682c5adf0356f2596 rdf:first ep-document-types:PLENARY_REPORT;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2597 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721461 rdf:first ep-document-types:RESOLUTION_MOTION;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721462 .
+_:a701ed0bc8f44446a3a682c5adf0356f2597 rdf:first ep-document-types:RESOLUTION_MOTION;
+  rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2598 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721462 rdf:first ep-document-types:RESOLUTION_MOTION_JOINT;
+_:a701ed0bc8f44446a3a682c5adf0356f2598 rdf:first ep-document-types:RESOLUTION_MOTION_JOINT;
   rdf:rest rdf:nil .
+
+vr:P107 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli:WorkSubdivision;
+  sh:deactivated "true"^^xsd:boolean .
+
+vr:P109 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:nodeKind sh:IRI;
+  sh:hasValue org:Organization;
+  sh:deactivated "true"^^xsd:boolean .
