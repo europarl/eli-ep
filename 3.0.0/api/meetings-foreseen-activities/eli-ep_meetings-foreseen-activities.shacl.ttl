@@ -1,0 +1,677 @@
+@prefix schema: <http://schema.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skosthes: <http://purl.org/iso25964/skos-thes#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix mtg-fact: <https://data.europarl.europa.eu/def/meetings-foreseen-activities_api#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix euvoc: <http://publications.europa.eu/ontology/euvoc#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix eli: <http://data.europa.eu/eli/ontology#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix xls2rdf: <https://xls2rdf.sparna.fr/vocabulary#> .
+@prefix event-type: <http://publications.europa.eu/resource/authority/event/> .
+@prefix eli-dl: <http://data.europa.eu/eli/eli-draft-legislation-ontology#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@prefix shacl-play: <https://shacl-play.sparna.fr/ontology#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ep-activities: <https://data.europarl.europa.eu/def/ep-activities/> .
+@prefix ep-document-types: <https://data.europarl.europa.eu/def/ep-document-types/> .
+@prefix epvoc: <https://data.europarl.europa.eu/def/epvoc#> .
+@prefix op-aut: <http://publications.europa.eu/resource/authority/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+
+<https://data.europarl.europa.eu/def/meetings-foreseen-activities_api#> a owl:Ontology,
+    adms:Asset;
+  dcterms:type <https://publications.europa.eu/resource/authority/dataset-type/APROF>;
+  rdfs:label "Foreseen Activities Meetings dataset (API) description"@en;
+  dcterms:title "Foreseen Activities Meetings dataset (API) description"@en;
+  dcterms:description "This API Description is a subset of the general ELI-EP application profile and it includes classes and properties used in Forseen Activities of Meetings API. Descriptions of classes and properties can be found in ELI-EP application profile."@en;
+  owl:versionInfo "3.0.0";
+  adms:versionNotes """3.0.0 - 2024-12-12 
+- review scope (meetings dumps full scope, but APIs split into meetings, meetings/foreseen-activities, and meetings/activities"""@en;
+  adms:status <https://publications.europa.eu/resource/authority/dataset-status/COMPLETED>;
+  owl:versionIRI <https://data.europarl.europa.eu/def/meetings-foreseen-activities_api#>;
+  dcterms:conformsTo <https://www.w3.org/TR/shacl>;
+  dcterms:created "2022-11-18"^^xsd:date;
+  dcterms:modified "2024-12-12T00:00:00.000Z"^^xsd:dateTime;
+  dcterms:dateCopyrighted "2022"^^xsd:gYear;
+  dcterms:license <https://www.europarl.europa.eu/legal-notice/>;
+  dcterms:creator <https://publications.europa.eu/resource/authority/corporate-body/EP>;
+  dcterms:publisher <https://publications.europa.eu/resource/authority/corporate-body/EP>;
+  dcterms:rigthsHolder <https://publications.europa.eu/resource/authority/corporate-body/EURUN>;
+  dcat:distribution _:1dbc0e1c12eb4e498d11cf37fb5a8fbd4348 .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd4348 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
+  dcat:downloadURL <https://europarl.github.io/eli-ep/3.0.0/dsd/meetings/eli-ep_meetings.shacl.ttl> .
+
+mtg-fact:ForeseenActivity-MTG-PL-TF a sh:NodeShape;
+  owl:versionInfo "3.0.0";
+  rdfs:comment "This node shape refers to the class eli-dl:ForeseenActivity"@en;
+  sh:target mtg-fact:ForeseenActivity-MTG-PL-TF-target;
+  skos:example "ttps://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-04-22-TF-1700";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-TF-[0-9]{4}$";
+  sh:closed "true"^^xsd:boolean;
+  sh:ignoredProperties _:1dbc0e1c12eb4e498d11cf37fb5a8fbd4349;
+  sh:order "1"^^xsd:integer;
+  shacl-play:color "White";
+  shacl-play:background-color "Slategrey";
+  rdfs:label "Foreseen Activity (ep-activities/MEETING_PART)"@en;
+  sh:property mtg-fact:P9, mtg-fact:P10, mtg-fact:P11, mtg-fact:P12, mtg-fact:P13, mtg-fact:P14,
+    mtg-fact:P15, mtg-fact:P16, mtg-fact:P17, mtg-fact:P18, mtg-fact:P19, mtg-fact:P20,
+    mtg-fact:P21, mtg-fact:P22, mtg-fact:P23 .
+
+mtg-fact:ForeseenActivity-MTG-PL-TF-target sh:select """PREFIX eli-dl: <http://data.europa.eu/eli/eli-draft-legislation-ontology#>
+SELECT ?this
+WHERE {
+ ?this a eli-dl:ForeseenActivity.
+ ?this eli-dl:had_activity_type <https://data.europarl.europa.eu/def/ep-activities/MEETING_PART> .
+}""" .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd4349 rdf:first rdf:type;
+  rdf:rest rdf:nil .
+
+mtg-fact:ForeseenActivity-MTG-PL-OJ-ITM a sh:NodeShape;
+  owl:versionInfo "3.0.0";
+  rdfs:comment "This node shape refers to the class eli-dl:ForeseenActivity"@en;
+  sh:target mtg-fact:ForeseenActivity-MTG-PL-OJ-ITM-target;
+  skos:example "https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-04-23-OJ-ITM-D-141";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-OJ-ITM-[D,V]-[0-9]+$";
+  sh:closed "true"^^xsd:boolean;
+  sh:ignoredProperties _:1dbc0e1c12eb4e498d11cf37fb5a8fbd4350;
+  sh:order "2"^^xsd:integer;
+  shacl-play:color "White";
+  shacl-play:background-color "Slategrey";
+  rdfs:label "Plenary Agenda Item"@en;
+  sh:property mtg-fact:P30, mtg-fact:P31, mtg-fact:P32, mtg-fact:P33, mtg-fact:P34,
+    mtg-fact:P35, mtg-fact:P36, mtg-fact:P37, mtg-fact:P38, mtg-fact:P39, mtg-fact:P40,
+    mtg-fact:P41, mtg-fact:P42, mtg-fact:43, mtg-fact:44, mtg-fact:P45 .
+
+mtg-fact:ForeseenActivity-MTG-PL-OJ-ITM-target sh:select """PREFIX eli-dl: <http://data.europa.eu/eli/eli-draft-legislation-ontology#>
+PREFIX ep-activities: <https://data.europarl.europa.eu/def/ep-activities/>
+SELECT ?this
+WHERE {
+ ?this a eli-dl:ForeseenActivity.
+ ?this eli-dl:had_activity_type ?type.
+ FILTER (?type IN (
+ ep-activities:PLENARY_DEBATE,
+ep-activities:PLENARY_VOTE,
+ep-activities:REQUEST_VOTE_URGENCY ))""" .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd4350 rdf:first rdf:type;
+  rdf:rest rdf:nil .
+
+mtg-fact:Room a sh:NodeShape;
+  owl:versionInfo "3.0.0";
+  rdfs:comment "This node shape refers to the class epvoc:Room"@en;
+  skos:example "https://data.europarl.europa.eu/room/LOWHEM";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/room/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  sh:ignoredProperties _:1dbc0e1c12eb4e498d11cf37fb5a8fbd4351;
+  sh:order "3"^^xsd:integer;
+  shacl-play:color "Black";
+  shacl-play:background-color "FloralWhite";
+  rdfs:label "Room"@en;
+  sh:property mtg-fact:P25, mtg-fact:P26, mtg-fact:P27, mtg-fact:P28 .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd4351 rdf:first rdf:type;
+  rdf:rest rdf:nil .
+
+mtg-fact:Deadline-GMTG-PL-DL-OJ-ITM a sh:NodeShape;
+  owl:versionInfo "3.0.0";
+  rdfs:comment "This node shape refers to the class eli-dl:Deadline"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/event/GMTG-PL-2024-04-22-DL-160-2";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/GMTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-DL-[0-9]+-[0-9]+$";
+  sh:closed "true"^^xsd:boolean;
+  sh:ignoredProperties _:1dbc0e1c12eb4e498d11cf37fb5a8fbd4352;
+  sh:order "4"^^xsd:integer;
+  shacl-play:color "White";
+  shacl-play:background-color "Purple";
+  rdfs:label "Deadline on Plenary Agenda ITM"@en;
+  sh:property mtg-fact:P47, mtg-fact:P48, mtg-fact:P49, mtg-fact:P50, mtg-fact:P51,
+    mtg-fact:P52 .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd4352 rdf:first rdf:type;
+  rdf:rest rdf:nil .
+
+mtg-fact:ActivityType-Node a sh:NodeShape;
+  owl:versionInfo "3.0.0";
+  rdfs:comment "This node shape refers to the class eli-dl:ActivityType"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-activities/MEETING_PART";
+  sh:nodeKind sh:IRI;
+  sh:pattern "https://data.europarl.europa.eu/def/ep-activities/.*$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "5"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to an Activity type"@en .
+
+mtg-fact:Location-Node a sh:NodeShape;
+  owl:versionInfo "3.0.0";
+  rdfs:comment "This node shape refers to the class dcterms:Location"@en;
+  skos:example "http://publications.europa.eu/resource/authority/place/FRA_SXB";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/place/.*$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "6"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to a Place"@en .
+
+mtg-fact:Site-Node a sh:NodeShape;
+  owl:versionInfo "3.0.0";
+  rdfs:comment "This node shape refers to the class org:Site"@en;
+  skos:example "http://publications.europa.eu/resource/authority/site/ASP";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/site/.*$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "7"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to a Site"@en .
+
+mtg-fact:Process-Node a sh:NodeShape;
+  owl:versionInfo "3.0.0";
+  rdfs:comment "This node shape refers to the class eli-dl:Process"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/proc/2022-0147";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/proc/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "8"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to a Process"@en .
+
+mtg-fact:Work-OJQ-Node a sh:NodeShape;
+  owl:versionInfo "3.0.0";
+  rdfs:comment "This node shape refers to the class eli:Work"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/OJQ-9-2024-04-22";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "9"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to a Work"@en .
+
+mtg-fact:Work-A-Node a sh:NodeShape;
+  owl:versionInfo "3.0.0";
+  rdfs:comment "This node shape refers to the class eli:Work"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/A-9-2023-0319";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "10"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to a Work (ep-document-types/REPORT_PLENARY)"@en .
+
+mtg-fact:Work-B-Node a sh:NodeShape;
+  owl:versionInfo "3.0.0";
+  rdfs:comment "This node shape refers to the class eli:Work"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/B-9-2024-0230";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "11"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to a Work (ep-document-types/RESOLUTION_MOTION)"@en .
+
+mtg-fact:Work-RC-Node a sh:NodeShape;
+  owl:versionInfo "3.0.0";
+  rdfs:comment "This node shape refers to the class eli:Work"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/RC-9-2024-0227";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "12"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to a Work (ep-document-types/RESOLUTION_MOTION_JOINT)"@en .
+
+mtg-fact:Work-C-Node a sh:NodeShape;
+  owl:versionInfo "3.0.0";
+  rdfs:comment "This node shape refers to the class eli:Work"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc//C-9-2022-0428";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "13"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to a Work (C documents)"@en .
+
+mtg-fact:Work-O-Node a sh:NodeShape;
+  owl:versionInfo "3.0.0";
+  rdfs:comment "This node shape refers to the class eli:Work"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc//O-9-2024-000007";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "14"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to a Work (ep-document-types/QUESTION_ORAL)"@en .
+
+mtg-fact:ProcessStage-Node a sh:NodeShape;
+  owl:versionInfo "3.0.0";
+  rdfs:comment "This node shape refers to the class eli-dl:ProcessStage"@en;
+  skos:example "http://publications.europa.eu/resource/authority/procedure-phase/RDG1";
+  sh:nodeKind sh:IRI;
+  sh:pattern "http://publications.europa.eu/resource/authority/procedure-phase/.*$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "15"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to a Process stage"@en .
+
+mtg-fact:Activity-MTG-PL-Node a sh:NodeShape;
+  owl:versionInfo "3.0.0";
+  rdfs:comment "This node shape refers to the class eli-dl:Activity"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-04-23";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "16"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White";
+  rdfs:label "Reference to a Plenary Sitting (ep-activities:PLENARY_SITTING)"@en .
+
+mtg-fact:P9 owl:versionInfo "3.0.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue eli-dl:ForeseenActivity;
+  shacl-play:shortname "type" .
+
+mtg-fact:P10 owl:versionInfo "3.0.0";
+  sh:path eli-dl:had_activity_type;
+  sh:name "activity type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node mtg-fact:ActivityType-Node;
+  sh:hasValue ep-activities:MEETING_PART;
+  shacl-play:shortname "had_activity_type" .
+
+mtg-fact:P11 owl:versionInfo "3.0.0";
+  sh:path epvoc:hasRoom;
+  sh:name "room part"@en;
+  sh:minCount "0"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node mtg-fact:Room;
+  shacl-play:shortname "hasRoom" .
+
+mtg-fact:P12 owl:versionInfo "3.0.0";
+  sh:path vcard:hasLocality;
+  sh:name "locality"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node mtg-fact:Location-Node;
+  shacl-play:shortname "hasLocality" .
+
+mtg-fact:P13 owl:versionInfo "3.0.0";
+  sh:path eli-dl:parliamentary_term;
+  sh:name "parliamentary term"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  shacl-play:shortname "parliamentary_term" .
+
+mtg-fact:P14 owl:versionInfo "3.0.0";
+  sh:path eli-dl:activity_date;
+  sh:name "activity date"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  shacl-play:shortname "activity_date" .
+
+mtg-fact:P15 owl:versionInfo "3.0.0";
+  sh:path eli-dl:activity_start_date;
+  sh:name "activity start date"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:dateTime;
+  shacl-play:shortname "activity_start_date" .
+
+mtg-fact:P16 owl:versionInfo "3.0.0";
+  sh:path eli-dl:activity_end_date;
+  sh:name "activity end date"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:dateTime;
+  shacl-play:shortname "activity_end_date" .
+
+mtg-fact:P17 owl:versionInfo "3.0.0";
+  sh:path eli-dl:activity_id;
+  sh:name "activity id"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "activity_id" .
+
+mtg-fact:P18 owl:versionInfo "3.0.0";
+  sh:path eli-dl:activity_label;
+  sh:name "activity label"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "activity_label" .
+
+mtg-fact:P19 owl:versionInfo "3.0.0";
+  sh:path epvoc:agendaLabel;
+  sh:name "agenda label"@en;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "agendaLabel" .
+
+mtg-fact:P20 owl:versionInfo "3.0.0";
+  sh:path epvoc:speakingTimeContent;
+  sh:name "speaking time content"@en;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "speakingTimeContent" .
+
+mtg-fact:P21 owl:versionInfo "3.0.0";
+  sh:path skos:notation;
+  sh:name "pericles identifier"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype epvoc:periclesId;
+  shacl-play:shortname "notation_periclesId" .
+
+mtg-fact:P22 owl:versionInfo "3.0.0";
+  sh:path eli-dl:consists_of;
+  sh:name "consists of"@en;
+  sh:nodeKind sh:IRI;
+  sh:node mtg-fact:ForeseenActivity-MTG-PL-OJ-ITM;
+  sh:deactivated "true"^^xsd:boolean;
+  shacl-play:shortname "consists_of" .
+
+mtg-fact:P23 owl:versionInfo "3.0.0";
+  sh:path _:1dbc0e1c12eb4e498d11cf37fb5a8fbd4353;
+  sh:name "inverse was scheduled in"@en;
+  sh:nodeKind sh:IRI;
+  sh:node mtg-fact:Activity-MTG-PL-Node;
+  shacl-play:shortname "inverse_was_scheduled_in" .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd4353 sh:inversePath eli-dl:was_scheduled_in .
+
+mtg-fact:P25 owl:versionInfo "3.0.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue epvoc:Room;
+  shacl-play:shortname "type" .
+
+mtg-fact:P26 owl:versionInfo "3.0.0";
+  sh:path euvoc:officeAddress;
+  sh:name "office address"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "officeAddress" .
+
+mtg-fact:P27 owl:versionInfo "3.0.0";
+  sh:path dcterms:identifier;
+  sh:name "identifier"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifier" .
+
+mtg-fact:P28 owl:versionInfo "3.0.0";
+  sh:path epvoc:hasSite;
+  sh:name "site"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node mtg-fact:Site-Node;
+  shacl-play:shortname "hasSite" .
+
+mtg-fact:P30 owl:versionInfo "3.0.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue eli-dl:ForeseenActivity;
+  shacl-play:shortname "type" .
+
+mtg-fact:P31 owl:versionInfo "3.0.0";
+  sh:path eli-dl:had_activity_type;
+  sh:name "activity type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node mtg-fact:ActivityType-Node;
+  sh:in _:1dbc0e1c12eb4e498d11cf37fb5a8fbd4354;
+  shacl-play:shortname "had_activity_type" .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd4354 rdf:first ep-activities:PLENARY_DEBATE;
+  rdf:rest _:1dbc0e1c12eb4e498d11cf37fb5a8fbd4355 .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd4355 rdf:first ep-activities:PLENARY_VOTE;
+  rdf:rest _:1dbc0e1c12eb4e498d11cf37fb5a8fbd4356 .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd4356 rdf:first ep-activities:REQUEST_VOTE_URGENCY;
+  rdf:rest rdf:nil .
+
+mtg-fact:P32 owl:versionInfo "3.0.0";
+  sh:path eli-dl:activity_date;
+  sh:name "activity date"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  shacl-play:shortname "activity_date" .
+
+mtg-fact:P33 owl:versionInfo "3.0.0";
+  sh:path eli-dl:activity_id;
+  sh:name "activity id"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "activity_id" .
+
+mtg-fact:P34 owl:versionInfo "3.0.0";
+  sh:path eli-dl:activity_label;
+  sh:name "activity label"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "activity_label" .
+
+mtg-fact:P35 owl:versionInfo "3.0.0";
+  sh:path eli-dl:activity_order;
+  sh:name "activity order"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:decimal;
+  shacl-play:shortname "activity_order" .
+
+mtg-fact:P36 owl:versionInfo "3.0.0";
+  sh:path skos:notation;
+  sh:name "agenda point"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype epvoc:agendaPoint;
+  shacl-play:shortname "notation_agendaPoint" .
+
+mtg-fact:P37 owl:versionInfo "3.0.0";
+  sh:path epvoc:structuredContent;
+  sh:name "structured label"@en;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "stucturedContent" .
+
+mtg-fact:P38 owl:versionInfo "3.0.0";
+  sh:path eli-dl:parliamentary_term;
+  sh:name "parliamentary term"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  shacl-play:shortname "parliamentary_term" .
+
+mtg-fact:P39 owl:versionInfo "3.0.0";
+  sh:path epvoc:headingLabel;
+  sh:name "heading label"@en;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "headingLabel" .
+
+mtg-fact:P40 owl:versionInfo "3.0.0";
+  sh:path rdfs:comment;
+  sh:name "comment"@en;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "comment" .
+
+mtg-fact:P41 owl:versionInfo "3.0.0";
+  sh:path eli-dl:was_purpose_of;
+  sh:name "was purpose of"@en;
+  sh:nodeKind sh:IRI;
+  sh:node mtg-fact:Deadline-GMTG-PL-DL-OJ-ITM;
+  shacl-play:shortname "was_purpose_of" .
+
+mtg-fact:P42 owl:versionInfo "3.0.0";
+  sh:path eli-dl:occured_at_stage;
+  sh:name "occured at stage"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node mtg-fact:ProcessStage-Node;
+  shacl-play:shortname "occured_at_stage" .
+
+mtg-fact:43 owl:versionInfo "3.0.0";
+  sh:path eli-dl:documented_by_a_realization_of;
+  sh:name "documented by a realization of"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/OJQ-9-2024-04-23";
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node mtg-fact:Work-OJQ-Node;
+  shacl-play:shortname "documented_by_a_realization_of" .
+
+mtg-fact:44 owl:versionInfo "3.0.0";
+  sh:path eli-dl:based_on_a_realization_of;
+  sh:name "based on a realization of"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/A-9-2023-0319";
+  sh:nodeKind sh:IRI;
+  sh:or _:1dbc0e1c12eb4e498d11cf37fb5a8fbd4357;
+  shacl-play:shortname "based_on_a_realization_of" .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd4357 rdf:first _:1dbc0e1c12eb4e498d11cf37fb5a8fbd4358;
+  rdf:rest _:1dbc0e1c12eb4e498d11cf37fb5a8fbd4359 .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd4358 sh:node mtg-fact:Work-A-Node .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd4359 rdf:first _:1dbc0e1c12eb4e498d11cf37fb5a8fbd4360;
+  rdf:rest _:1dbc0e1c12eb4e498d11cf37fb5a8fbd4361 .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd4360 sh:node mtg-fact:Work-B-Node .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd4361 rdf:first _:1dbc0e1c12eb4e498d11cf37fb5a8fbd4362;
+  rdf:rest _:1dbc0e1c12eb4e498d11cf37fb5a8fbd4363 .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd4362 sh:node mtg-fact:Work-RC-Node .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd4363 rdf:first _:1dbc0e1c12eb4e498d11cf37fb5a8fbd4364;
+  rdf:rest _:1dbc0e1c12eb4e498d11cf37fb5a8fbd4365 .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd4364 sh:node mtg-fact:Work-C-Node .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd4365 rdf:first _:1dbc0e1c12eb4e498d11cf37fb5a8fbd4366;
+  rdf:rest rdf:nil .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd4366 sh:node mtg-fact:Work-O-Node .
+
+mtg-fact:P45 owl:versionInfo "3.0.0";
+  sh:path _:1dbc0e1c12eb4e498d11cf37fb5a8fbd4367;
+  sh:name "inverse was scheduled in"@en;
+  sh:nodeKind sh:IRI;
+  sh:node mtg-fact:Process-Node;
+  shacl-play:shortname "inverse_was_scheduled_in" .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd4367 sh:inversePath eli-dl:was_scheduled_in .
+
+mtg-fact:P47 owl:versionInfo "3.0.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli-dl:Deadline;
+  shacl-play:shortname "type" .
+
+mtg-fact:P48 owl:versionInfo "3.0.0";
+  sh:path eli-dl:had_activity_type;
+  sh:name "activity type"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-activities/TABLING_PLENARY";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue ep-activities:TABLING_PLENARY;
+  shacl-play:shortname "had_activity_type" .
+
+mtg-fact:P49 owl:versionInfo "3.0.0";
+  sh:path eli-dl:activity_id;
+  sh:name "activity id"@en;
+  skos:example "GMTG-PL-2024-04-22-DL-160-2";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "activity_id" .
+
+mtg-fact:P50 owl:versionInfo "3.0.0";
+  sh:path eli-dl:activity_label;
+  sh:name "activity label"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "activity_label" .
+
+mtg-fact:P51 owl:versionInfo "3.0.0";
+  sh:path eli-dl:activity_end_date;
+  sh:name "activity date"@en;
+  skos:example "2024-04-24T12:00:00+01:00";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:dateTime;
+  sh:pattern "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.\\d{3}\\+\\d{2}:\\d{2}$";
+  shacl-play:shortname "activity_end_date" .
+
+mtg-fact:P52 owl:versionInfo "3.0.0";
+  sh:path eli-dl:activity_order;
+  sh:name "activity order"@en;
+  skos:example "1";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:decimal;
+  shacl-play:shortname "activity_order" .

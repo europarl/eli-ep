@@ -1,0 +1,790 @@
+@prefix schema: <http://schema.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skosthes: <http://purl.org/iso25964/skos-thes#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix language: <http://publications.europa.eu/resource/authority/language/> .
+@prefix eli-ep: <https://data.europarl.europa.eu/def/eli-ep#> .
+@prefix ep-roles: <https://data.europarl.europa.eu/def/ep-roles/> .
+@prefix ep-doc: <https://data.europarl.europa.eu/eli/dl/doc/> .
+@prefix subdivision: <http://publications.europa.eu/resource/authority/subdivision/> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ep-event: <https://data.europarl.europa.eu/eli/dl/event/> .
+@prefix ep-proc: <https://data.europarl.europa.eu/eli/dl/proc/> .
+@prefix ep-org: <https://data.europarl.europa.eu/org/> .
+@prefix place: <http://publications.europa.eu/resource/authority/place/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix euvoc: <http://publications.europa.eu/ontology/euvoc#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix file-type: <http://publications.europa.eu/resource/authority/file-type/> .
+@prefix eli: <http://data.europa.eu/eli/ontology#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix xls2rdf: <https://xls2rdf.sparna.fr/vocabulary#> .
+@prefix ep-procedure-types: <https://data.europarl.europa.eu/def/ep-procedure-types/> .
+@prefix eli-dl: <http://data.europa.eu/eli/eli-draft-legislation-ontology#> .
+@prefix speeches: <https://data.europarl.europa.eu/def/speeches#> .
+@prefix ep-person: <https://data.europarl.europa.eu/person/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix shacl-play: <https://shacl-play.sparna.fr/ontology#> .
+@prefix ep-entities: <https://data.europarl.europa.eu/def/ep-entities/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix person: <http://www.w3.org/ns/person#> .
+@prefix ep-activities: <https://data.europarl.europa.eu/def/ep-activities/> .
+@prefix procedure-phase: <http://publications.europa.eu/resource/authority/procedure-phase/> .
+@prefix ep-document-types: <https://data.europarl.europa.eu/def/ep-document-types/> .
+@prefix ep-decision-methods: <https://data.europarl.europa.eu/def/ep-decision-methods/> .
+@prefix iana: <https://www.iana.org/assignments/media-types/application/> .
+@prefix epvoc: <https://data.europarl.europa.eu/def/epvoc#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ep-statuses: <https://data.europarl.europa.eu/def/ep-statuses/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+
+<https://data.europarl.europa.eu/def/speeches#> a owl:Ontology, adms:Asset;
+  dcterms:type <https://publications.europa.eu/resource/authority/dataset-type/APROF>;
+  rdfs:label "Speeches dataset (dump) description"@en;
+  dcterms:title "Speeches dataset (dump) description"@en;
+  dcterms:description "This Dataset Description is a subset of the general ELI-EP application profile and it includes classes and properties used in Speeches datasets. Descriptions of classes and properties can be found in ELI-EP application profile."@en;
+  owl:versionInfo "3.0.0";
+  adms:versionNotes """3.0.0 - 2025-02-17
+- documentation preparation for publication
+
+3.0.0 - 2024-08-27
+- (rfc) change eli-dl:had_activity_type for speeches:Activity-MTG-PL-PVCRE-CHA and its URI (from -OTH- to -PVCRE-CHA-)
+
+3.0.0 - 2024-06-19
+- (new) add eli-dl:activity_label, eli:number
+- (rfc) change datatype for epvoc:numbering (from xsd:string to xsd:integer)
+
+2.3.0 - 2024-05-22
+- (new) creation"""@en;
+  adms:status <http://publications.europa.eu/resource/dataset/dataset-status/DEVELOP>;
+  owl:versionIRI <https://data.europarl.europa.eu/def/speeches#>;
+  dcterms:conformsTo <https://www.w3.org/TR/shacl>;
+  dcterms:created "2024-05-22"^^xsd:date;
+  dcterms:modified "2025-02-17T00:00:00.000Z"^^xsd:dateTime;
+  dcterms:dateCopyrighted "2024"^^xsd:gYear;
+  dcterms:license <https://www.europarl.europa.eu/legal-notice/>;
+  dcterms:creator <https://publications.europa.eu/resource/authority/corporate-body/EP>;
+  dcterms:publisher <https://publications.europa.eu/resource/authority/corporate-body/EP>;
+  dcterms:rightsHolder <https://publications.europa.eu/resource/authority/corporate-body/EURUN>;
+  dcat:distribution _:1dbc0e1c12eb4e498d11cf37fb5a8fbd3905 .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd3905 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
+  dcat:downloadURL <https://europarl.github.io/eli-ep/3.0.0/dsd/speeches/eli-ep_speeches.shacl.ttl> .
+
+speeches:Activity-MTG-PL-PVCRE-CHA a sh:NodeShape;
+  owl:versionInfo "3.0.0";
+  rdfs:comment "This node shape represents a subset of eli-dl:Activity"@en;
+  sh:target speeches:Activity-MTG-PL-PVCRE-CHA-target;
+  skos:example "https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-04-22-PVCRE-CHA-1";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-PVCRE-CHA-[0-9]+$";
+  sh:closed "true"^^xsd:boolean;
+  sh:ignoredProperties _:1dbc0e1c12eb4e498d11cf37fb5a8fbd3906;
+  sh:order "1"^^xsd:integer;
+  shacl-play:color "White";
+  shacl-play:background-color "DarkBlue";
+  sh:property speeches:P9, speeches:P10, speeches:P11, speeches:P12, speeches:P13, speeches:P14,
+    speeches:P15 .
+
+speeches:Activity-MTG-PL-PVCRE-CHA-target sh:select """PREFIX eli-dl: <http://data.europa.eu/eli/eli-draft-legislation-ontology#>
+SELECT ?s
+WHERE {
+ ?s ?p ?o.
+ FILTER regex(str(?s),\"^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-PVCRE-CHA-[0-9]+$\",\"i\")
+ ?s eli-dl:had_activity_type <https://data.europarl.europa.eu/def/ep-activities/MEETING_NAME_CHAIR> 
+
+}""" .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd3906 rdf:first rdf:type;
+  rdf:rest rdf:nil .
+
+speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY a sh:NodeShape;
+  owl:versionInfo "3.0.0";
+  rdfs:comment "This node shape represents a subset of eli-dl:Activity"@en;
+  sh:target speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY-target;
+  skos:example "https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-04-22-OTH-191168828";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-OTH-[0-9]+$";
+  sh:closed "true"^^xsd:boolean;
+  sh:ignoredProperties _:1dbc0e1c12eb4e498d11cf37fb5a8fbd3907;
+  sh:order "2"^^xsd:integer;
+  shacl-play:color "White";
+  shacl-play:background-color "DarkBlue";
+  sh:property speeches:P17, speeches:P18, speeches:P19, speeches:P20, speeches:P21,
+    speeches:P22, speeches:P23 .
+
+speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY-target sh:select """PREFIX eli-dl: <http://data.europa.eu/eli/eli-draft-legislation-ontology#>
+SELECT ?s
+WHERE {
+ ?s ?p ?o.
+ FILTER regex(str(?s),\"^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-OTH-[0-9]+$\",\"i\")
+ ?s eli-dl:had_activity_type <https://data.europarl.europa.eu/def/ep-activities/PROCEEDING_ACTIVITY> 
+
+}""" .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd3907 rdf:first rdf:type;
+  rdf:rest rdf:nil .
+
+speeches:Activity-MTG-PL-OTH-SPEECH a sh:NodeShape;
+  owl:versionInfo "3.0.0";
+  rdfs:comment "This node shape represents a subset of eli-dl:Activity"@en;
+  sh:target speeches:Activity-MTG-PL-OTH-SPEECH-target;
+  skos:example "https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-04-22-OTH-191168822";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-OTH-[0-9]+$";
+  sh:closed "true"^^xsd:boolean;
+  sh:ignoredProperties _:1dbc0e1c12eb4e498d11cf37fb5a8fbd3908;
+  sh:order "3"^^xsd:integer;
+  shacl-play:color "White";
+  shacl-play:background-color "DarkBlue";
+  sh:property speeches:P25, speeches:P26, speeches:P27, speeches:P28, speeches:P29,
+    speeches:P30, speeches:P31, speeches:P32, speeches:P33, speeches:P34 .
+
+speeches:Activity-MTG-PL-OTH-SPEECH-target sh:select """PREFIX eli-dl: <http://data.europa.eu/eli/eli-draft-legislation-ontology#>
+SELECT ?s
+WHERE {
+ ?s ?p ?o.
+ FILTER regex(str(?s),\"^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-OTH-[0-9]+$\",\"i\")
+ ?s eli-dl:had_activity_type <https://data.europarl.europa.eu/def/ep-activities/PLENARY_DEBATE_SPEECH> 
+
+}""" .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd3908 rdf:first rdf:type;
+  rdf:rest rdf:nil .
+
+speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT a sh:NodeShape;
+  owl:versionInfo "3.0.0";
+  rdfs:comment "This node shape represents a subset of eli-dl:Activity"@en;
+  sh:target speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT-target;
+  skos:example "https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-04-22-OTH-191668814";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-OTH-[0-9]+$";
+  sh:closed "true"^^xsd:boolean;
+  sh:ignoredProperties _:1dbc0e1c12eb4e498d11cf37fb5a8fbd3909;
+  sh:order "4"^^xsd:integer;
+  shacl-play:color "White";
+  shacl-play:background-color "DarkBlue";
+  sh:property speeches:P36, speeches:P37, speeches:P38, speeches:P39, speeches:P40,
+    speeches:P41, speeches:P42, speeches:P43 .
+
+speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT-target sh:select """PREFIX eli-dl: <http://data.europa.eu/eli/eli-draft-legislation-ontology#>
+SELECT ?s
+WHERE {
+ ?s ?p ?o.
+ FILTER regex(str(?s),\"^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-OTH-[0-9]+$\",\"i\")
+ ?s eli-dl:had_activity_type <https://data.europarl.europa.eu/def/ep-activities/PLENARY_DEBATE_WRITTEN_STATEMENT> 
+}""" .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd3909 rdf:first rdf:type;
+  rdf:rest rdf:nil .
+
+speeches:Participation-MTG-PL-PVCRE-CHA a sh:NodeShape;
+  owl:versionInfo "3.0.0";
+  rdfs:comment "This node shape represents a subset of eli-dl:Activity"@en;
+  sh:target speeches:Participation-MTG-PL-PVCRE-CHA-target;
+  skos:example "https://data.europarl.europa.eu/eli/dl/participation/MTG-PL-2025-01-22-PVCRE-CHA-5_88882";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/participation/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-OTH-[0-9]+_[0-9]+$";
+  sh:closed "true"^^xsd:boolean;
+  sh:ignoredProperties _:1dbc0e1c12eb4e498d11cf37fb5a8fbd3910;
+  sh:order "5"^^xsd:integer;
+  shacl-play:color "Black";
+  shacl-play:background-color "FloralWhite";
+  sh:property speeches:P45, speeches:P46, speeches:P47 .
+
+speeches:Participation-MTG-PL-PVCRE-CHA-target sh:select """PREFIX eli-dl: <http://data.europa.eu/eli/eli-draft-legislation-ontology#>
+SELECT ?s
+WHERE {
+ ?s ?p ?o.
+ FILTER regex(str(?s),\"^https://data.europarl.europa.eu/eli/dl/participation/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-OTH-[0-9]+_[0-9]+$\"\",\"i\")
+ ?s eli-dl:participation_role <https://data.europarl.europa.eu/def/ep-roles/CHAIR> 
+
+}""" .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd3910 rdf:first rdf:type;
+  rdf:rest rdf:nil .
+
+speeches:Participation-MTG-PL-OTH a sh:NodeShape;
+  owl:versionInfo "3.0.0";
+  rdfs:comment "This node shape represents a subset of eli-dl:Activity"@en;
+  sh:target speeches:Participation-MTG-PL-OTH-target;
+  skos:example "https://data.europarl.europa.eu/eli/dl/participation/MTG-PL-2025-01-20-OTH-2017011003841_257088";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/participation/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-OTH-[0-9]+_[0-9]+$";
+  sh:closed "true"^^xsd:boolean;
+  sh:ignoredProperties _:1dbc0e1c12eb4e498d11cf37fb5a8fbd3911;
+  sh:order "6"^^xsd:integer;
+  shacl-play:color "Black";
+  shacl-play:background-color "FloralWhite";
+  sh:property speeches:P49, speeches:P50, speeches:P51, speeches:P52 .
+
+speeches:Participation-MTG-PL-OTH-target sh:select """PREFIX eli-dl: <http://data.europa.eu/eli/eli-draft-legislation-ontology#>
+SELECT ?s
+WHERE {
+ ?s ?p ?o.
+ FILTER regex(str(?s),\"^https://data.europarl.europa.eu/eli/dl/participation/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-OTH-[0-9]+_[0-9]+$\"\",\"i\")
+ ?s eli-dl:participation_role <https://data.europarl.europa.eu/def/ep-roles/SPEAKER> 
+
+}""" .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd3911 rdf:first rdf:type;
+  rdf:rest rdf:nil .
+
+speeches:WorkSubdivision-CRE-OTH a sh:NodeShape;
+  owl:versionInfo "3.0.0";
+  sh:targetClass eli:WorkSubdivision;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/CRE-9-2024-04-22-OTH-191364939";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/CRE-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}-OTH-[0-9]+$";
+  sh:closed "true"^^xsd:boolean;
+  sh:ignoredProperties _:1dbc0e1c12eb4e498d11cf37fb5a8fbd3912;
+  sh:order "7"^^xsd:integer;
+  shacl-play:color "White";
+  shacl-play:background-color "DarkOrange";
+  sh:property speeches:P54, speeches:P55, speeches:P56, speeches:P57, speeches:P58,
+    speeches:P59, speeches:P60, speeches:P61, speeches:P62 .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd3912 rdf:first rdf:type;
+  rdf:rest rdf:nil .
+
+speeches:Activity-MTG-PL-Node a sh:NodeShape;
+  owl:versionInfo "3.0.0";
+  skos:example "https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-04-22";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "8"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White" .
+
+speeches:Activity-PVCRE-ITM-L1-Node a sh:NodeShape;
+  owl:versionInfo "3.0.0";
+  skos:example "https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-04-22-PVCRE-ITM-1";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-PVCRE-ITM-[0-9]{1,2}$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "9"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White" .
+
+speeches:Activity-PVCRE-ITM-L2-Node a sh:NodeShape;
+  owl:versionInfo "3.0.0";
+  skos:example "https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-04-22-PVCRE-ITM-7-1";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-PVCRE-ITM-[0-9]{1,2}-[0-9]{1,3}$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "10"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White" .
+
+speeches:WorkSubdivision-CRE-ITM-Node a sh:NodeShape;
+  owl:versionInfo "3.0.0";
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/CRE-9-2024-01-17-ITM-8-1";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/CRE-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}-ITM-[0-9]{2}(-[0-9]+)?$";
+  sh:closed "true"^^xsd:boolean;
+  sh:order "11"^^xsd:integer;
+  shacl-play:color "Gray";
+  shacl-play:background-color "White" .
+
+speeches:P9 owl:versionInfo "3.0.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli-dl:Activity;
+  shacl-play:shortname "type" .
+
+speeches:P10 owl:versionInfo "3.0.0";
+  sh:path eli-dl:activity_id;
+  sh:name "activity id"@en;
+  skos:example "MTG-PL-2024-01-16-OTH-23930000";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:pattern "MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-OTH-[0-9]+";
+  shacl-play:shortname "activity_id" .
+
+speeches:P11 owl:versionInfo "3.0.0";
+  sh:path eli-dl:had_activity_type;
+  sh:name "activity type"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-activities/PLENARY_PROCEEDING_ACTIVITY";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue ep-activities:MEETING_NAME_CHAIR;
+  shacl-play:shortname "had_activity_type" .
+
+speeches:P12 owl:versionInfo "3.0.0";
+  sh:path eli-dl:activity_date;
+  sh:name "activity date"@en;
+  skos:example "2024-01-16";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  shacl-play:shortname "activity_date" .
+
+speeches:P13 owl:versionInfo "3.0.0";
+  sh:path eli-dl:recorded_in_a_realization_of;
+  sh:name "recorded in a realization of"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/CRE-9-2024-01-16-OTH-191668814";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node speeches:WorkSubdivision-CRE-OTH;
+  shacl-play:shortname "recorded_in_a_realization_of" .
+
+speeches:P14 owl:versionInfo "3.0.0";
+  sh:path eli-dl:had_participation;
+  sh:name "had participation"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/participation/MTG-PL-2024-01-16-OTH-2-393-0000_125038";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node speeches:Participation-MTG-PL-PVCRE-CHA;
+  shacl-play:shortname "had_participation" .
+
+speeches:P15 owl:versionInfo "3.0.0";
+  sh:path _:1dbc0e1c12eb4e498d11cf37fb5a8fbd3913;
+  sh:name "inverse consists of"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node speeches:Activity-MTG-PL-Node;
+  shacl-play:shortname "inverse_consists_of" .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd3913 sh:inversePath eli-dl:consists_of .
+
+speeches:P17 owl:versionInfo "3.0.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli-dl:Activity;
+  shacl-play:shortname "type" .
+
+speeches:P18 owl:versionInfo "3.0.0";
+  sh:path eli-dl:activity_id;
+  sh:name "activity id"@en;
+  skos:example "MTG-PL-2024-01-16-OTH-23930000";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:pattern "MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-OTH-[0-9]+";
+  shacl-play:shortname "activity_id" .
+
+speeches:P19 owl:versionInfo "3.0.0";
+  sh:path eli-dl:had_activity_type;
+  sh:name "activity type"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-activities/PLENARY_PROCEEDING_ACTIVITY";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue ep-activities:PROCEEDING_ACTIVITY;
+  shacl-play:shortname "had_activity_type" .
+
+speeches:P20 owl:versionInfo "3.0.0";
+  sh:path eli-dl:activity_date;
+  sh:name "activity date"@en;
+  skos:example "2024-01-16";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  shacl-play:shortname "activity_date" .
+
+speeches:P21 owl:versionInfo "3.0.0";
+  sh:path eli-dl:recorded_in_a_realization_of;
+  sh:name "recorded in a realization of"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/CRE-9-2024-01-16-OTH-191668814";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node speeches:WorkSubdivision-CRE-OTH;
+  shacl-play:shortname "recorded_in_a_realization_of" .
+
+speeches:P22 owl:versionInfo "3.0.0";
+  sh:path eli-dl:activity_label;
+  sh:name "activity label"@en;
+  skos:example "Ouverture de la séance";
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "activity_label" .
+
+speeches:P23 owl:versionInfo "3.0.0";
+  sh:path _:1dbc0e1c12eb4e498d11cf37fb5a8fbd3914;
+  sh:name "inverse consists of"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node speeches:Activity-MTG-PL-Node;
+  shacl-play:shortname "inverse_consists_of" .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd3914 sh:inversePath eli-dl:consists_of .
+
+speeches:P25 owl:versionInfo "3.0.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli-dl:Activity;
+  shacl-play:shortname "type" .
+
+speeches:P26 owl:versionInfo "3.0.0";
+  sh:path eli-dl:activity_id;
+  sh:name "activity id"@en;
+  skos:example "MTG-PL-2024-01-16-OTH-23930000";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:pattern "MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-OTH-[0-9]+";
+  shacl-play:shortname "activity_id" .
+
+speeches:P27 owl:versionInfo "3.0.0";
+  sh:path eli-dl:had_activity_type;
+  sh:name "activity type"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-activities/PLENARY_DEBATE_SPEECH";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue ep-activities:PLENARY_DEBATE_SPEECH;
+  shacl-play:shortname "had_activity_type" .
+
+speeches:P28 owl:versionInfo "3.0.0";
+  sh:path eli-dl:activity_date;
+  sh:name "activity date"@en;
+  skos:example "2024-01-16";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  shacl-play:shortname "activity_date" .
+
+speeches:P29 owl:versionInfo "3.0.0";
+  sh:path eli-dl:activity_start_date;
+  sh:name "activity start date"@en;
+  skos:example "2024-01-16T19:29:39.659+01:00";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:dateTime;
+  sh:pattern "[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?\\+[0-9]{2}:[0-9]{2}";
+  shacl-play:shortname "activity_start_date" .
+
+speeches:P30 owl:versionInfo "3.0.0";
+  sh:path eli-dl:activity_end_date;
+  sh:name "activity end date"@en;
+  skos:example "2024-01-16T19:33:49+01:00";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:dateTime;
+  sh:pattern "[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?\\+[0-9]{2}:[0-9]{2}";
+  shacl-play:shortname "activity_end_date" .
+
+speeches:P31 owl:versionInfo "3.0.0";
+  sh:path eli-dl:recorded_in_a_realization_of;
+  sh:name "recorded in a realization of"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/CRE-9-2024-01-16-OTH-191668814";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node speeches:WorkSubdivision-CRE-OTH;
+  shacl-play:shortname "recorded_in_a_realization_of" .
+
+speeches:P32 owl:versionInfo "3.0.0";
+  sh:path eli-dl:had_participation;
+  sh:name "had participation"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/participation/MTG-PL-2024-01-16-OTH-2-393-0000_125038";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node speeches:Participation-MTG-PL-OTH;
+  shacl-play:shortname "had_participation" .
+
+speeches:P33 owl:versionInfo "3.0.0";
+  sh:path eli-dl:activity_label;
+  sh:name "activity label"@en;
+  skos:example "Ouverture de la séance";
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "activity_label" .
+
+speeches:P34 owl:versionInfo "3.0.0";
+  sh:path _:1dbc0e1c12eb4e498d11cf37fb5a8fbd3915;
+  sh:name "inverse consists of"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:or _:1dbc0e1c12eb4e498d11cf37fb5a8fbd3916;
+  shacl-play:shortname "inverse_consists_of" .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd3915 sh:inversePath eli-dl:consists_of .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd3916 rdf:first _:1dbc0e1c12eb4e498d11cf37fb5a8fbd3917;
+  rdf:rest _:1dbc0e1c12eb4e498d11cf37fb5a8fbd3918 .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd3917 sh:node speeches:Activity-PVCRE-ITM-L1-Node .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd3918 rdf:first _:1dbc0e1c12eb4e498d11cf37fb5a8fbd3919;
+  rdf:rest rdf:nil .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd3919 sh:node speeches:Activity-PVCRE-ITM-L2-Node .
+
+speeches:P36 owl:versionInfo "3.0.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli-dl:Activity;
+  shacl-play:shortname "type" .
+
+speeches:P37 owl:versionInfo "3.0.0";
+  sh:path eli-dl:activity_id;
+  sh:name "activity id"@en;
+  skos:example "MTG-PL-2024-01-16-OTH-2-359-0000";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:pattern "MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-OTH-[0-9]+";
+  shacl-play:shortname "activity_id" .
+
+speeches:P38 owl:versionInfo "3.0.0";
+  sh:path eli-dl:had_activity_type;
+  sh:name "activity type"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-activities/PLENARY_DEBATE_WRITTEN_STATEMENT";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue ep-activities:PLENARY_DEBATE_WRITTEN_STATEMENT;
+  shacl-play:shortname "had_activity_type" .
+
+speeches:P39 owl:versionInfo "3.0.0";
+  sh:path eli-dl:activity_date;
+  sh:name "activity date"@en;
+  skos:example "2024-01-16";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  shacl-play:shortname "activity_date" .
+
+speeches:P40 owl:versionInfo "3.0.0";
+  sh:path eli-dl:recorded_in_a_realization_of;
+  sh:name "recorded in a realization of"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/CRE-9-2024-01-16-OTH-191668814";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node speeches:WorkSubdivision-CRE-OTH;
+  shacl-play:shortname "recorded_in_a_realization_of" .
+
+speeches:P41 owl:versionInfo "3.0.0";
+  sh:path eli-dl:had_participation;
+  sh:name "had participation"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/participation/MTG-PL-2024-01-16-OTH-2-359-0000_124806";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node speeches:Participation-MTG-PL-OTH;
+  shacl-play:shortname "had_participation" .
+
+speeches:P42 owl:versionInfo "3.0.0";
+  sh:path eli-dl:activity_label;
+  sh:name "activity label"@en;
+  skos:example "Ouverture de la séance";
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "activity_label" .
+
+speeches:P43 owl:versionInfo "3.0.0";
+  sh:path _:1dbc0e1c12eb4e498d11cf37fb5a8fbd3920;
+  sh:name "inverse consists of"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:or _:1dbc0e1c12eb4e498d11cf37fb5a8fbd3921;
+  shacl-play:shortname "inverse_consists_of" .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd3920 sh:inversePath eli-dl:consists_of .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd3921 rdf:first _:1dbc0e1c12eb4e498d11cf37fb5a8fbd3922;
+  rdf:rest _:1dbc0e1c12eb4e498d11cf37fb5a8fbd3923 .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd3922 sh:node speeches:Activity-PVCRE-ITM-L1-Node .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd3923 rdf:first _:1dbc0e1c12eb4e498d11cf37fb5a8fbd3924;
+  rdf:rest rdf:nil .
+
+_:1dbc0e1c12eb4e498d11cf37fb5a8fbd3924 sh:node speeches:Activity-PVCRE-ITM-L2-Node .
+
+speeches:P45 owl:versionInfo "3.0.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli-dl:Participation;
+  shacl-play:shortname "type" .
+
+speeches:P46 owl:versionInfo "3.0.0";
+  sh:path eli-dl:participation_role;
+  sh:name "participation role"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-roles/CHAIR";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue ep-roles:CHAIR;
+  shacl-play:shortname "participation_role" .
+
+speeches:P47 owl:versionInfo "3.0.0";
+  sh:path eli-dl:had_participant_person;
+  sh:name "had participant person"@en;
+  skos:example "https://data.europarl.europa.eu/person/125038";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/person/[0-9]+$";
+  shacl-play:shortname "had_participant_person" .
+
+speeches:P49 owl:versionInfo "3.0.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli-dl:Participation;
+  shacl-play:shortname "type" .
+
+speeches:P50 owl:versionInfo "3.0.0";
+  sh:path eli-dl:participation_in_name_of;
+  sh:name "participation in name of"@en;
+  skos:example "président en exercice du Conseil.";
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/org/[A-Z_]+$";
+  shacl-play:shortname "participation_in_name_of" .
+
+speeches:P51 owl:versionInfo "3.0.0";
+  sh:path eli-dl:participation_role;
+  sh:name "participation role"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-roles/SPEAKER";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue ep-roles:SPEAKER;
+  shacl-play:shortname "participation_role" .
+
+speeches:P52 owl:versionInfo "3.0.0";
+  sh:path eli-dl:had_participant_person;
+  sh:name "had participant person"@en;
+  skos:example "https://data.europarl.europa.eu/person/125038";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/person/[0-9]+$";
+  shacl-play:shortname "had_participant_person" .
+
+speeches:P54 owl:versionInfo "3.0.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli:WorkSubdivision;
+  shacl-play:shortname "type" .
+
+speeches:P55 owl:versionInfo "3.0.0";
+  sh:path dcterms:identifier;
+  sh:name "identifier"@en;
+  skos:example "CRE-9-2024-01-16-OTH-24970000";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifier" .
+
+speeches:P56 owl:versionInfo "3.0.0";
+  sh:path eli:number;
+  sh:name "number"@en;
+  skos:example "2-497-0000";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "number" .
+
+speeches:P57 owl:versionInfo "3.0.0";
+  sh:path epvoc:numbering;
+  sh:name "numbering"@en;
+  skos:example "10";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:integer;
+  shacl-play:shortname "numbering" .
+
+speeches:P58 owl:versionInfo "3.0.0";
+  sh:path skos:notation;
+  sh:name "notation"@en;
+  skos:example "24970000";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype epvoc:speechId;
+  shacl-play:shortname "notation_speechId" .
+
+speeches:P59 owl:versionInfo "3.0.0";
+  sh:path eli:type_subdivision;
+  sh:name "type subdivision"@en;
+  skos:example "http://publications.europa.eu/resource/authority/subdivision/OTH";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue subdivision:OTH;
+  shacl-play:shortname "type_subdivision" .
+
+speeches:P60 owl:versionInfo "3.0.0";
+  sh:path epvoc:originalLanguage;
+  sh:name "original language"@en;
+  skos:example "http://publications.europa.eu/resource/authority/language/ENG";
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^http://publications.europa.eu/resource/authority/language/[A-Z]+$";
+  shacl-play:shortname "originalLanguage" .
+
+speeches:P61 owl:versionInfo "3.0.0";
+  sh:path eli:refers_to;
+  sh:name "refers to"@en;
+  sh:nodeKind sh:IRI;
+  shacl-play:shortname "refers_to" .
+
+speeches:P62 owl:versionInfo "3.0.0";
+  sh:path eli:is_part_of;
+  sh:name "is part of"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node speeches:WorkSubdivision-CRE-ITM-Node;
+  shacl-play:shortname "is_part_of" .

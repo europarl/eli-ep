@@ -1,7 +1,7 @@
-# Meetings dataset description (dsd)
+# speeches dataset description (dsd)
 
 This dataset description definition is a profile of the [ELI-EP application profile (v3.0.0)](https://europarl.github.io/eli-ep/3.0.0/).
 
 The dataset description definition is available in the following formats:
-- [SHACL (Turtle serialisation)](./eli-ep_meetings.shacl.ttl)
-- [HTML rendering](https://europarl.github.io/eli-ep/3.0.0/dsd/meetings)
+- [SHACL (Turtle serialisation)](./eli-ep_speeches.shacl.ttl)
+- [HTML rendering](https://europarl.github.io/eli-ep/3.0.0/dsd/speeches)

@@ -1,0 +1,1180 @@
+<!DOCTYPE HTML><html lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <style>
+		
+			body {
+						margin: 0;
+						font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+							"Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+							"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+							"Noto Color Emoji";
+						background-color: #fff;
+					}
+					
+					.anchor {
+						float: left;
+						padding-right: 4px;
+						margin-left: -20px;
+						line-height: 1;
+						padding-top: 12px;
+					}
+							
+					a {
+						color: #007bff;
+						text-decoration: none;
+						background-color: transparent;
+					}
+					
+					a:-webkit-any-link {
+						cursor: pointer;
+					}
+					
+					.p {
+						font-size: 0.875em;
+					}
+					
+					h2 {
+						margin: 25px 0px 10px 0px;
+					}
+					
+					h3 {
+						font-size: 1.4em;
+					}
+					
+					@media only print {
+					}
+					
+					@page {
+						size: A4 portrait;
+						margin-top: 1.2cm;
+						margin-bottom: 1.2cm;
+						margin-left: 1.2cm;
+						margin-right: 1.2cm;
+						background-repeat: no-repeat;
+						background-position: 40px 10px;
+						
+						@bottom-center
+						{
+						content
+						:
+						counter(
+						page
+						);
+					}
+					
+					}
+							
+					/* This section draw the format web */
+					.ul_type_none {
+						list-style-type: none;
+					}
+					
+					.sp_list_description_properties {
+						/* don't set it lower otherwise it gets hidden in PDF */
+						padding-left: 20px;
+					}
+					
+					dl, ol, ul {
+						margin-top: 0;
+						margin-bottom: 1rem;
+					}
+					
+					li {
+						display: list-item;
+						text-align: -webkit-match-parent;
+					}
+					
+					.sp_section_title_header {
+						font-family: Georgia, Garamond, serif;	
+						margin-top: 25px;
+						margin-bottom: 2.5rem;
+					    font-size: 1.5625rem;
+						display: block;
+						font-weight: 500;
+						color: #1e1e1f;
+						line-height: 1.2em;   
+					}
+					
+					.sp_section_subtitle {
+						font-family: Georgia, Garamond, serif;	
+						margin-top: 0;
+						margin-bottom: 0.5rem;
+						display: block;
+						font-weight: 500;
+						color: #1e1e1f;
+						line-height: 1.2em;  
+					}
+					
+					.sp_section_title_table {
+						font-family: Georgia, Garamond, serif;	
+						/* 0 because URI is right under */
+						margin-bottom: 0rem;
+						display: block;
+						font-weight: 500;
+						color: #1e1e1f;
+						line-height: 1.2em; 
+					}
+							
+
+					.sp_section_title_toc {
+						font-family: Georgia, Garamond, serif;	
+					}
+
+					/* URI below the title of the section */
+					.sp_section_uri	 {
+						margin-top: 0px;
+					}
+
+					/* div wrapping section title and URI below - same as a paragraph margin */
+					.sp_section_title_table_wrapper {
+						margin-bottom: 16px;
+						border-bottom: 1px solid;	
+					}
+					
+					.sp_section_nodeshape_diagram {
+						padding-bottom: 16px;
+					}
+					
+					.sp_section_nodeshape_center {
+						display: flex;
+						justify-content: center;
+					}
+					
+					table {
+						display: table;
+						border-spacing: 0px;
+						margin-bottom: 1rem;
+					}
+					
+					.table-striped tr:nth-child(even) {
+						background-color: #eee;
+					}
+							
+					.sp_table_prefixes table {
+						border-collapse: collapse;
+						margin-bottom: 1rem;
+						color: #212529;
+					}
+											
+					.sp_table_prefixes td {
+						padding: 0.25rem;
+						vertical-align: top;
+						border-top: 1px solid #dee2e6;
+					}
+					
+					.sp_table_propertyshapes {
+						border-collapse: collapse;
+						width: 100%;
+					}
+										
+					.sp_table_propertyshapes thead {
+						display: table-header-group;
+						vertical-align: middle;
+						border-color: inherit;
+					}
+													
+					.sp_table_propertyshapes tr {
+					    display: table-row;
+					    vertical-align: inherit;
+					    border-color: inherit;					    
+					}
+													
+					.sp_table_propertyshapes th:nth-child(4) {
+						width: 6%;
+					}
+													
+					.sp_table_propertyshapes td {
+						padding: 0.75rem;
+						border-top: 1px solid #dee2e6;
+					}
+													
+					.sp_table_propertyshapes tbody {
+						display: table-row-group;
+						vertical-align: middle;
+						border-color: inherit;
+					}
+										
+					.sp_table_propertyshapes_col_description {
+						word-break: break-word;
+					}
+					
+					tr.sp_propertyGroup {
+						font-style: italic;
+						background-color: #def0f7;
+					}
+					
+					tr.sp_propertyGroup td {
+						border-bottom: 1px solid black;
+						padding-bottom: 0.25 rem;
+					}
+					
+					.sp_serialization_badge {
+						margin-right: 0.5em;
+					}
+
+					.sp_nodeshape_description {
+						background: #efefef;
+						padding-top:1px;
+						padding-bottom:1px;
+						padding-left:10px;
+						padding-right:10px;
+						border-radius: 5px;
+						margin-bottom:10px;
+					}
+					
+					
+							.container {
+							    width: calc(100% - 40px);
+							    max-width: 1000px;
+							    margin-left: 300px;
+							    margin-right: auto;
+							}
+							.container {width: calc(100% - 500px);}
+							.toc {
+								position: fixed;
+								top: 0;
+								left: 0;
+								font-size: small;
+								padding: 10px 10px;
+								width: auto;
+								border-right: solid 2px #eeeeee;
+								bottom: 0;
+								overflow-y: scroll;
+								background-color:white;
+								max-width:255px;
+							}
+							.sp_list_toc {padding-left: 0px;}
+							.sp_list_toc_l2 {padding-left: 10px;}	
+							.sp_list_toc_l3 {padding-left: 8px;}					
+						</style>
+      <meta charset="UTF-8">
+      <meta name="lang" content="en">
+      <meta property="og:locale" content="en">
+      <title>Meetings dataset (API) description</title>
+      <meta name="apple-mobile-web-app-title" content="Meetings dataset (API) description">
+      <meta name="twitter:title" content="Meetings dataset (API) description">
+      <meta property="og:title" content="Meetings dataset (API) description"><script type="application/ld+json">{
+    "datePublished": "2022-11-18",
+    "license": ["https://www.europarl.europa.eu/legal-notice/"],
+    "@type": "TechArticle",
+    "author": [{
+        "@type": "Organization",
+        "url": "https://publications.europa.eu/resource/authority/corporate-body/EP"
+    }],
+    "name": "Meetings dataset (API) description",
+    "publisher": [{
+        "@type": "Organization",
+        "url": "https://publications.europa.eu/resource/authority/corporate-body/EP"
+    }],
+    "@context": "https://schema.org",
+    "version": "3.0.0",
+    "url": "https://data.europarl.europa.eu/def/meetings_api#"
+}</script></head>
+   <body>
+      <div class="sp_container_principal container pt-4">
+         <table style="width:100%">
+            <tr>
+               <td width="20%"><img src="https://www.europarl.europa.eu/portal/img/ep-logo.svg"></td>
+               <td width="80%">
+                  <h1 class="mb-4 sp_section_title_header">Meetings dataset (API) description</h1>
+               </td>
+            </tr>
+         </table>
+         <div><b>Creation date: </b>2022-11-18<br><b>Last updated: </b>2024-12-12 00:00:00<br><b>Copyright date: </b>2022<br><b>Version: </b>3.0.0<br><b>License: </b><a href="https://www.europarl.europa.eu/legal-notice/" target="_blank">https://www.europarl.europa.eu/legal-notice/</a><br><b>Creator: </b><a href="https://publications.europa.eu/resource/authority/corporate-body/EP" target="_blank">https://publications.europa.eu/resource/authority/corporate-body/EP</a><br><b>Publisher: </b><a href="https://publications.europa.eu/resource/authority/corporate-body/EP" target="_blank">https://publications.europa.eu/resource/authority/corporate-body/EP</a><br><b id="formats">Download serialization: </b><div><span class="sp_serialization_badge"><a href="https://europarl.github.io/eli-ep/3.0.0/dsd/meetings/eli-ep_meetings.shacl.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.png" alt="TTL"></a></span></div><br></div>
+         <div class="sp_section_title_toc toc">
+            <h2 id="index">Table of Contents</h2>
+            <ul role="list" class="sp_list_toc ul_type_none t-x-mode">
+               <li><a href="#prefixes">Namespaces</a></li>
+               <li><a href="#description">Description</a></li>
+               <li><a href="#documentation">Model documentation</a><ul role="list" class="ul_type_none sp_list_toc_l2">
+                     <li><a href="#mtg:Activity-GMTG-PL">Activity Plenary Part Session</a></li>
+                     <li><a href="#mtg:Activity-MTG-PL">Activity Plenary Sitting</a></li>
+                     <li><a href="#mtg:Deadline-GMTG-PL-DL">Deadline on Plenary Part Session</a></li>
+                     <li><a href="#mtg:ActivityType-Node">Reference to an Activity type</a></li>
+                     <li><a href="#mtg:ForeseenActivity-MTG-PL-TF-Node">Reference to a Foreseen Activity (ep-activities/MEETING_PART)</a></li>
+                     <li><a href="#mtg:Activity-MTG-PL-PVCRE-ITM-Node">Reference to an Activity (ep-activities such as, i.e. &#xD;
+                           PLENARY_DEBATE, PLENARY_VOTE, PLENARY_ACTIVITY, PLENARY_VOTE_EXPLANATIONS, etc.</a></li>
+                     <li><a href="#mtg:Location-Node">Reference to a Place</a></li>
+                     <li><a href="#mtg:Work-PV-Node">Reference to a Work (ep-document-types/MINUTES_PLENARY)</a></li>
+                     <li><a href="#mtg:Work-CRE-Node">Reference to a Work (ep-document-types/CRE_PLENARY)</a></li>
+                     <li><a href="#mtg:ComplexWork-OJ-Node">Reference to a ComplexWork (ep-document-types/PLENARY_AGENDA_WEEK)</a></li>
+                     <li><a href="#mtg:Work-OJQ-Node">Reference to a Work (ep-document-types/PLENARY_AGENDA_DAY)</a></li>
+                     <li><a href="#mtg:Activity-MTG-PL-VOT-ITM-Node">Reference to an Activity [ep-activities/PLENARY_VOTE_RESULTS]</a></li>
+                     <li><a href="#mtg:Person-Node">Reference to a Person</a></li>
+                  </ul>
+               </li>
+               <li><a href="#releaseNotes">Release notes</a></li>
+            </ul>
+         </div>
+         <div class="row mt-3">
+            <div class="col">
+               <section>
+                  <h2 id="prefixes" class="sp_section_subtitle">Namespaces</h2>
+                  <table class="sp_table_prefixes table table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Prefix</th>
+                           <th>Namespace</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>eli-dl</td>
+                           <td><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#" target="_blank">http://data.europa.eu/eli/eli-draft-legislation-ontology#</a></td>
+                        </tr>
+                        <tr>
+                           <td>ep-activities</td>
+                           <td><a href="https://data.europarl.europa.eu/def/ep-activities/" target="_blank">https://data.europarl.europa.eu/def/ep-activities/</a></td>
+                        </tr>
+                        <tr>
+                           <td>rdf</td>
+                           <td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#" target="_blank">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a></td>
+                        </tr>
+                        <tr>
+                           <td>vcard</td>
+                           <td><a href="http://www.w3.org/2006/vcard/ns#" target="_blank">http://www.w3.org/2006/vcard/ns#</a></td>
+                        </tr>
+                        <tr>
+                           <td>xsd</td>
+                           <td><a href="http://www.w3.org/2001/XMLSchema#" target="_blank">http://www.w3.org/2001/XMLSchema#</a></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div>
+            <h2 id="description" class="sp_section_subtitle" style="margin-top: 1em;">Description</h2><p>This API Description is a subset of the general ELI-EP application profile and it includes classes and properties used in Meetings API (see foreseen-activities or activities APIs for more details). Descriptions of classes and properties can be found in ELI-EP application profile.</p>
+</div>
+         <h2 id="documentation" class="sp_section_subtitle">Model documentation</h2>
+         <div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg:Activity-GMTG-PL" class="sp_section_title_table">Activity Plenary Part Session</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings_api#Activity-GMTG-PL</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli-dl:Activity</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/event/GMTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/event/GMTG-PL-2023-07-10</code></li>
+                     <li>Applies to: <br><code>
+                           <pre>PREFIX eli-dl: &lt;http://data.europa.eu/eli/eli-draft-legislation-ontology#&gt;&#xD;
+SELECT ?this&#xD;
+WHERE {&#xD;
+ ?this eli-dl:had_activity_type &lt;https://data.europarl.europa.eu/def/ep-activities/PLENARY_PART_SESSION&gt; .&#xD;
+ ?this a eli-dl:Activity.&#xD;
+}</pre></code></li>
+                  </ul>
+                  <div class="sp_section_nodeshape_diagram">
+                     <div class="sp_section_nodeshape_center"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="367px" preserveAspectRatio="none" style="width:811px;height:367px;background:#FFFFFF;" version="1.1" viewBox="0 0 811 367" width="811px" zoomAndPan="magnify"><defs xmlns=""/><g><!--class mtg:Activity-GMTG-PL--><a href="#mtg:Activity-GMTG-PL" target="_top" title="#mtg:Activity-GMTG-PL" xlink:actuate="onRequest" xlink:href="#mtg:Activity-GMTG-PL" xlink:show="new" xlink:title="#mtg:Activity-GMTG-PL" xlink:type="simple"><g id="elem_mtg:Activity-GMTG-PL"><rect codeLine="8" fill="#00008B" height="148.375" id="uml_mtg:Activity-GMTG-PL" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="326" x="103" y="110"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="148" x="192" y="127.9951">mtg:Activity-GMTG-PL</text><line style="stroke:#181818;stroke-width:0.5;" x1="104" x2="428" y1="136.2969" y2="136.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="242" x="109" y="153.292">eli-dl:activity_date  : xsd:date  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="310" x="109" y="169.5889">eli-dl:activity_end_date  : xsd:dateTime  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="231" x="109" y="185.8857">eli-dl:activity_id  : xsd:string  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="273" x="109" y="202.1826">eli-dl:activity_label  : rdf:langString  [1..*]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="314" x="109" y="218.4795">eli-dl:activity_start_date  : xsd:dateTime  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="212" x="109" y="234.7764">eli-dl:parliamentary_term  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="205" x="109" y="251.0732">rdf:type  [1..1]  = eli-dl:Activity</text></g></a><!--class mtg:Activity-MTG-PL--><a href="#mtg:Activity-MTG-PL" target="_top" title="#mtg:Activity-MTG-PL" xlink:actuate="onRequest" xlink:href="#mtg:Activity-MTG-PL" xlink:show="new" xlink:title="#mtg:Activity-MTG-PL" xlink:type="simple"><g id="elem_mtg:Activity-MTG-PL"><rect codeLine="20" fill="#00008B" height="26.2969" id="uml_mtg:Activity-MTG-PL" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="143" x="356.5" y="7"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="137" x="359.5" y="24.9951">mtg:Activity-MTG-PL</text></g></a><!--class mtg:ActivityType-Node--><a href="#mtg:ActivityType-Node" target="_top" title="#mtg:ActivityType-Node" xlink:actuate="onRequest" xlink:href="#mtg:ActivityType-Node" xlink:show="new" xlink:title="#mtg:ActivityType-Node" xlink:type="simple"><g id="elem_mtg:ActivityType-Node"><rect codeLine="22" fill="#FFFFFF" height="26.2969" id="uml_mtg:ActivityType-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="161" x="185.5" y="335"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="155" x="188.5" y="352.9951">mtg:ActivityType-Node</text></g></a><!--class mtg:Deadline-GMTG-PL-DL--><a href="#mtg:Deadline-GMTG-PL-DL" target="_top" title="#mtg:Deadline-GMTG-PL-DL" xlink:actuate="onRequest" xlink:href="#mtg:Deadline-GMTG-PL-DL" xlink:show="new" xlink:title="#mtg:Deadline-GMTG-PL-DL" xlink:type="simple"><g id="elem_mtg:Deadline-GMTG-PL-DL"><rect codeLine="23" fill="#800080" height="26.2969" id="uml_mtg:Deadline-GMTG-PL-DL" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="191" x="613.5" y="171"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="185" x="616.5" y="188.9951">mtg:Deadline-GMTG-PL-DL</text></g></a><!--class mtg:ComplexWork-OJ-Node--><a href="#mtg:ComplexWork-OJ-Node" target="_top" title="#mtg:ComplexWork-OJ-Node" xlink:actuate="onRequest" xlink:href="#mtg:ComplexWork-OJ-Node" xlink:show="new" xlink:title="#mtg:ComplexWork-OJ-Node" xlink:type="simple"><g id="elem_mtg:ComplexWork-OJ-Node"><rect codeLine="21" fill="#FFFFFF" height="26.2969" id="uml_mtg:ComplexWork-OJ-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="194" x="7" y="7"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="188" x="10" y="24.9951">mtg:ComplexWork-OJ-Node</text></g></a><!--reverse link mtg:Activity-MTG-PL to mtg:Activity-GMTG-PL--><g id="link_mtg:Activity-MTG-PL_mtg:Activity-GMTG-PL"><path codeLine="16" d="M417.9963,38.4029 C410.8543,51.1017 401.9824,65.2766 389,80 C380.0301,90.1729 370.0441,100.224 359.7491,109.8344 " fill="none" id="mtg:Activity-MTG-PL-backto-mtg:Activity-GMTG-PL" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="420.9375,33.1733,413.0392,39.0569,418.4865,37.5313,420.0121,42.9786,420.9375,33.1733" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="142" x="402" y="76.0669">eli-dl:consists_of&#xa0;[1..*]</text></g><!--link mtg:Activity-GMTG-PL to mtg:ActivityType-Node--><g id="link_mtg:Activity-GMTG-PL_mtg:ActivityType-Node"><path codeLine="17" d="M266,258.3225 C266,287.4767 266,311.9368 266,328.7873 " fill="none" id="mtg:Activity-GMTG-PL-to-mtg:ActivityType-Node" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="266,334.7873,270,325.7873,266,329.7873,262,325.7873,266,334.7873" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="183" x="267" y="301.0669">eli-dl:had_activity_type&#xa0;[1..1]</text></g><!--link mtg:Activity-GMTG-PL to mtg:Deadline-GMTG-PL-DL--><g id="link_mtg:Activity-GMTG-PL_mtg:Deadline-GMTG-PL-DL"><path codeLine="18" d="M429.0696,184 C490.9929,184 553.4779,184 607.2091,184 " fill="none" id="mtg:Activity-GMTG-PL-to-mtg:Deadline-GMTG-PL-DL" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="613.2091,184,604.2091,180,608.2091,184,604.2091,188,613.2091,184" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="148" x="447.25" y="177.0669">eli-dl:was_scheduled_in</text></g><!--reverse link mtg:ComplexWork-OJ-Node to mtg:Activity-GMTG-PL--><g id="link_mtg:ComplexWork-OJ-Node_mtg:Activity-GMTG-PL"><path codeLine="19" d="M96.0931,38.9218 C91.4167,51.705 88.9171,65.5352 97,80 C103.1339,90.977 110.9542,100.938 119.8553,109.9496 " fill="none" id="mtg:ComplexWork-OJ-Node-backto-mtg:Activity-GMTG-PL" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="98.1544,33.287,91.3059,40.365,96.4366,37.9827,98.8189,43.1134,98.1544,33.287" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="282" x="98" y="76.0669">eli-dl:documented_by_a_realization_of&#xa0;[0..1]</text></g><!--SRC=[fPFVRzem4CVVyrTuvMrJgZ3jATkgCjZOfj9MWue7XA8ZFeY5VqIsKqZ_-ZeZGHODMzQzsVwUF_xUdS-W9H84cXnId68E6gpIH2g9WTaoMHq8ad8mvfkITigUaFG_16yehfb4SlDZ_7rszsjmE_xgXokHEu0BjoL7KWZ-tbDt6l896WCRd3DgCzAF8ayUQArsGyMTYzu4j58oCETDac1OUICNmcxYGMhP8xDbE9xCnk7zpGLPB7fjmd99UYj8j_48zFOBB_2ZnRsDvncp69n1nGGv2ocFePOI2XQ9EzyR6X_MY_xbPNz9I7S6Ilg2CsFYLIn66ugncidDQnWSLiWhZARhc8FSJ3tKstz26GlQ_czohjUSkTPB1oiJYrfqkLoPjsNkFVIv0JRXvw-7HNXryfzUs4gLDCnOawZrfuTtKJI8hlvMe92UOcVEONYhA7hW36Xoh62LWe__KzAXRl0Z1ChTS3PQEFATxy0a9isG5XnfmcI7CWpTE7FSpvNUXdS_JnrJbHPLVnnjLIQGQ0JEdi0o9VtgHBNzjd4zDwqTXjN3jTgiaItQ4ViRT62EDPHj3hrEdNWyAbrmhPsfWItQ4NbVQEVUJpjZ54dATChhjK2RAMeE6nIv- -02nGgr2JGAzOZakf2ElqNw3000]--></g></svg></div><small class="form-text text-muted">Click diagram to navigate to corresponding section | <a href="http://www.plantuml.com/plantuml/png/fPFVRzem4CVVyrTuvMrJgZ3jATkgCjZOfj9MWue7XA8ZFeY5VqIsKqZ_-ZeZGHODMzQzsVwUF_xUdS-W9H84cXnId68E6gpIH2g9WTaoMHq8ad8mvfkITigUaFG_16yehfb4SlDZ_7rszsjmE_xgXokHEu0BjoL7KWZ-tbDt6l896WCRd3DgCzAF8ayUQArsGyMTYzu4j58oCETDac1OUICNmcxYGMhP8xDbE9xCnk7zpGLPB7fjmd99UYj8j_48zFOBB_2ZnRsDvncp69n1nGGv2ocFePOI2XQ9EzyR6X_MY_xbPNz9I7S6Ilg2CsFYLIn66ugncidDQnWSLiWhZARhc8FSJ3tKstz26GlQ_czohjUSkTPB1oiJYrfqkLoPjsNkFVIv0JRXvw-7HNXryfzUs4gLDCnOawZrfuTtKJI8hlvMe92UOcVEONYhA7hW36Xoh62LWe__KzAXRl0Z1ChTS3PQEFATxy0a9isG5XnfmcI7CWpTE7FSpvNUXdS_JnrJbHPLVnnjLIQGQ0JEdi0o9VtgHBNzjd4zDwqTXjN3jTgiaItQ4ViRT62EDPHj3hrEdNWyAbrmhPsfWItQ4NbVQEVUJpjZ54dATChhjK2RAMeE6nIv--02nGgr2JGAzOZakf2ElqNw3000" target="_blank">View as PNG</a></small>
+                     <!--@startuml
+set namespaceSeparator none
+skinparam classFontSize 14
+!define LIGHTORANGE
+skinparam componentStyle uml2
+skinparam wrapMessageWidth 100
+skinparam ArrowColor #Maroon
+set namespaceSeparator none 
+Class "mtg:Activity-GMTG-PL" [[#mtg:Activity-GMTG-PL]] #back:DarkBlue;text:White
+"mtg:Activity-GMTG-PL" : eli-dl:activity_date  : xsd:date  [1..1]  
+"mtg:Activity-GMTG-PL" : eli-dl:activity_end_date  : xsd:dateTime  [1..1]  
+"mtg:Activity-GMTG-PL" : eli-dl:activity_id  : xsd:string  [1..1]  
+"mtg:Activity-GMTG-PL" : eli-dl:activity_label  : rdf:langString  [1..*]  
+"mtg:Activity-GMTG-PL" : eli-dl:activity_start_date  : xsd:dateTime  [1..1]  
+"mtg:Activity-GMTG-PL" : eli-dl:parliamentary_term  [1..1]  
+"mtg:Activity-GMTG-PL" : rdf:type  [1..1]  = eli-dl:Activity  
+"mtg:Activity-GMTG-PL" -u-> "mtg:Activity-MTG-PL" : eli-dl:consists_of<U+00A0>[1..*]  
+"mtg:Activity-GMTG-PL" -d-> "mtg:ActivityType-Node" : eli-dl:had_activity_type<U+00A0>[1..1]  
+"mtg:Activity-GMTG-PL" -r-> "mtg:Deadline-GMTG-PL-DL" : eli-dl:was_scheduled_in 
+"mtg:Activity-GMTG-PL" -u-> "mtg:ComplexWork-OJ-Node" : eli-dl:documented_by_a_realization_of<U+00A0>[0..1]  
+Class "mtg:Activity-MTG-PL" [[#mtg:Activity-MTG-PL]] #back:DarkBlue;text:White
+Class "mtg:ComplexWork-OJ-Node" [[#mtg:ComplexWork-OJ-Node]] #back:White;text:Gray
+Class "mtg:ActivityType-Node" [[#mtg:ActivityType-Node]] #back:White;text:Gray
+Class "mtg:Deadline-GMTG-PL-DL" [[#mtg:Deadline-GMTG-PL-DL]] #back:Purple;text:White
+hide circle
+hide methods
+hide empty members
+remove @unlinked
+@enduml
+--></div>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity date</td>
+                           <td id="mtg:Activity-GMTG-PL_eli-dl:activity_date"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_date">eli-dl:activity_date</a></code></td>
+                           <td><code>xsd:date</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity end date</td>
+                           <td id="mtg:Activity-GMTG-PL_eli-dl:activity_end_date"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_end_date">eli-dl:activity_end_date</a></code></td>
+                           <td><code>xsd:dateTime</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity id</td>
+                           <td id="mtg:Activity-GMTG-PL_eli-dl:activity_id"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_id">eli-dl:activity_id</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity label</td>
+                           <td id="mtg:Activity-GMTG-PL_eli-dl:activity_label"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_label">eli-dl:activity_label</a></code></td>
+                           <td><code>rdf:langString</code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity start date</td>
+                           <td id="mtg:Activity-GMTG-PL_eli-dl:activity_start_date"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_start_date">eli-dl:activity_start_date</a></code></td>
+                           <td><code>xsd:dateTime</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity type</td>
+                           <td id="mtg:Activity-GMTG-PL_eli-dl:had_activity_type"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#had_activity_type">eli-dl:had_activity_type</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/ep-activities/PLENARY_PART_SESSION">ep-activities:PLENARY_PART_SESSION</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>consists of</td>
+                           <td id="mtg:Activity-GMTG-PL_eli-dl:consists_of"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#consists_of">eli-dl:consists_of</a></code></td>
+                           <td><code><a href="#mtg:Activity-MTG-PL">Activity Plenary Sitting</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>documented by a realization of</td>
+                           <td id="mtg:Activity-GMTG-PL_eli-dl:documented_by_a_realization_of"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#documented_by_a_realization_of">eli-dl:documented_by_a_realization_of</a></code></td>
+                           <td><code><a href="#mtg:ComplexWork-OJ-Node">Reference to a ComplexWork (ep-document-types/PLENARY_AGENDA_WEEK)</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>parliamentary term</td>
+                           <td id="mtg:Activity-GMTG-PL_eli-dl:parliamentary_term"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#parliamentary_term">eli-dl:parliamentary_term</a></code></td>
+                           <td><code>IRI</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>scheduled in</td>
+                           <td id="mtg:Activity-GMTG-PL_eli-dl:was_scheduled_in"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#was_scheduled_in">eli-dl:was_scheduled_in</a></code></td>
+                           <td><code><a href="#mtg:Deadline-GMTG-PL-DL">Deadline on Plenary Part Session</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>type</td>
+                           <td id="mtg:Activity-GMTG-PL_rdf:type"><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#Activity">eli-dl:Activity</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg:Activity-MTG-PL" class="sp_section_title_table">Activity Plenary Sitting</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings_api#Activity-MTG-PL</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli-dl:Activity</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2023-07-12</code></li>
+                     <li>Applies to: <br><code>
+                           <pre>PREFIX eli-dl: &lt;http://data.europa.eu/eli/eli-draft-legislation-ontology#&gt;&#xD;
+SELECT ?this&#xD;
+WHERE {&#xD;
+ ?this eli-dl:had_activity_type &lt;https://data.europarl.europa.eu/def/ep-activities/PLENARY_SITTING&gt;.&#xD;
+ ?this a eli-dl:Activity.&#xD;
+}</pre></code></li>
+                  </ul>
+                  <div class="sp_section_nodeshape_diagram">
+                     <div class="sp_section_nodeshape_center"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="501px" preserveAspectRatio="none" style="width:1347px;height:501px;background:#FFFFFF;" version="1.1" viewBox="0 0 1347 501" width="1347px" zoomAndPan="magnify"><defs xmlns=""/><g><!--class mtg:Activity-MTG-PL--><a href="#mtg:Activity-MTG-PL" target="_top" title="#mtg:Activity-MTG-PL" xlink:actuate="onRequest" xlink:href="#mtg:Activity-MTG-PL" xlink:show="new" xlink:title="#mtg:Activity-MTG-PL" xlink:type="simple"><g id="elem_mtg:Activity-MTG-PL"><rect codeLine="8" fill="#00008B" height="164.6719" id="uml_mtg:Activity-MTG-PL" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="340" x="253" y="125"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="137" x="354.5" y="142.9951">mtg:Activity-MTG-PL</text><line style="stroke:#181818;stroke-width:0.5;" x1="254" x2="592" y1="151.2969" y2="151.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="242" x="259" y="168.292">eli-dl:activity_date  : xsd:date  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="310" x="259" y="184.5889">eli-dl:activity_end_date  : xsd:dateTime  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="231" x="259" y="200.8857">eli-dl:activity_id  : xsd:string  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="273" x="259" y="217.1826">eli-dl:activity_label  : rdf:langString  [1..*]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="314" x="259" y="233.4795">eli-dl:activity_start_date  : xsd:dateTime  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="328" x="259" y="249.7764">eli-dl:number_of_attendees  : xsd:integer  [0..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="212" x="259" y="266.0732">eli-dl:parliamentary_term  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="205" x="259" y="282.3701">rdf:type  [1..1]  = eli-dl:Activity</text></g></a><polygon fill="#F1F1F1" points="165,383,177,395,165,407,153,395,165,383" style="stroke:#181818;stroke-width:0.5;"/><!--class mtg:Work-PV-Node--><a href="#mtg:Work-PV-Node" target="_top" title="#mtg:Work-PV-Node" xlink:actuate="onRequest" xlink:href="#mtg:Work-PV-Node" xlink:show="new" xlink:title="#mtg:Work-PV-Node" xlink:type="simple"><g id="elem_mtg:Work-PV-Node"><rect codeLine="35" fill="#FFFFFF" height="26.2969" id="uml_mtg:Work-PV-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="138" x="7" y="469"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="10" y="486.9951">mtg:Work-PV-Node</text></g></a><!--class mtg:Work-CRE-Node--><a href="#mtg:Work-CRE-Node" target="_top" title="#mtg:Work-CRE-Node" xlink:actuate="onRequest" xlink:href="#mtg:Work-CRE-Node" xlink:show="new" xlink:title="#mtg:Work-CRE-Node" xlink:type="simple"><g id="elem_mtg:Work-CRE-Node"><rect codeLine="36" fill="#FFFFFF" height="26.2969" id="uml_mtg:Work-CRE-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="149" x="180.5" y="469"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="143" x="183.5" y="486.9951">mtg:Work-CRE-Node</text></g></a><!--class mtg:ActivityType-Node--><a href="#mtg:ActivityType-Node" target="_top" title="#mtg:ActivityType-Node" xlink:actuate="onRequest" xlink:href="#mtg:ActivityType-Node" xlink:show="new" xlink:title="#mtg:ActivityType-Node" xlink:type="simple"><g id="elem_mtg:ActivityType-Node"><rect codeLine="31" fill="#FFFFFF" height="26.2969" id="uml_mtg:ActivityType-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="161" x="568.5" y="7"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="155" x="571.5" y="24.9951">mtg:ActivityType-Node</text></g></a><!--class mtg:ForeseenActivity-MTG-PL-TF-Node--><a href="#mtg:ForeseenActivity-MTG-PL-TF-Node" target="_top" title="#mtg:ForeseenActivity-MTG-PL-TF-Node" xlink:actuate="onRequest" xlink:href="#mtg:ForeseenActivity-MTG-PL-TF-Node" xlink:show="new" xlink:title="#mtg:ForeseenActivity-MTG-PL-TF-Node" xlink:type="simple"><g id="elem_mtg:ForeseenActivity-MTG-PL-TF-Node"><rect codeLine="33" fill="#FFFFFF" height="26.2969" id="uml_mtg:ForeseenActivity-MTG-PL-TF-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="273" x="286.5" y="382"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="267" x="289.5" y="399.9951">mtg:ForeseenActivity-MTG-PL-TF-Node</text></g></a><!--class mtg:Activity-MTG-PL-VOT-ITM-Node--><a href="#mtg:Activity-MTG-PL-VOT-ITM-Node" target="_top" title="#mtg:Activity-MTG-PL-VOT-ITM-Node" xlink:actuate="onRequest" xlink:href="#mtg:Activity-MTG-PL-VOT-ITM-Node" xlink:show="new" xlink:title="#mtg:Activity-MTG-PL-VOT-ITM-Node" xlink:type="simple"><g id="elem_mtg:Activity-MTG-PL-VOT-ITM-Node"><rect codeLine="28" fill="#FFFFFF" height="26.2969" id="uml_mtg:Activity-MTG-PL-VOT-ITM-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="248" x="1092" y="194.5"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="242" x="1095" y="212.4951">mtg:Activity-MTG-PL-VOT-ITM-Node</text></g></a><!--class mtg:Person-Node--><a href="#mtg:Person-Node" target="_top" title="#mtg:Person-Node" xlink:actuate="onRequest" xlink:href="#mtg:Person-Node" xlink:show="new" xlink:title="#mtg:Person-Node" xlink:type="simple"><g id="elem_mtg:Person-Node"><rect codeLine="32" fill="#FFFFFF" height="26.2969" id="uml_mtg:Person-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="129" x="358.5" y="7"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="123" x="361.5" y="24.9951">mtg:Person-Node</text></g></a><!--class mtg:Location-Node--><a href="#mtg:Location-Node" target="_top" title="#mtg:Location-Node" xlink:actuate="onRequest" xlink:href="#mtg:Location-Node" xlink:show="new" xlink:title="#mtg:Location-Node" xlink:type="simple"><g id="elem_mtg:Location-Node"><rect codeLine="34" fill="#FFFFFF" height="26.2969" id="uml_mtg:Location-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="138" x="595" y="382"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="598" y="399.9951">mtg:Location-Node</text></g></a><!--class mtg:Work-OJQ-Node--><a href="#mtg:Work-OJQ-Node" target="_top" title="#mtg:Work-OJQ-Node" xlink:actuate="onRequest" xlink:href="#mtg:Work-OJQ-Node" xlink:show="new" xlink:title="#mtg:Work-OJQ-Node" xlink:type="simple"><g id="elem_mtg:Work-OJQ-Node"><rect codeLine="30" fill="#FFFFFF" height="26.2969" id="uml_mtg:Work-OJQ-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="145" x="911.5" y="194.5"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="139" x="914.5" y="212.4951">mtg:Work-OJQ-Node</text></g></a><!--class mtg:Activity-MTG-PL-PVCRE-ITM-Node--><a href="#mtg:Activity-MTG-PL-PVCRE-ITM-Node" target="_top" title="#mtg:Activity-MTG-PL-PVCRE-ITM-Node" xlink:actuate="onRequest" xlink:href="#mtg:Activity-MTG-PL-PVCRE-ITM-Node" xlink:show="new" xlink:title="#mtg:Activity-MTG-PL-PVCRE-ITM-Node" xlink:type="simple"><g id="elem_mtg:Activity-MTG-PL-PVCRE-ITM-Node"><rect codeLine="29" fill="#FFFFFF" height="26.2969" id="uml_mtg:Activity-MTG-PL-PVCRE-ITM-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="266" x="57" y="7"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="260" x="60" y="24.9951">mtg:Activity-MTG-PL-PVCRE-ITM-Node</text></g></a><!--link mtg:Activity-MTG-PL to diamond_Activity_MTG_PL_P27--><g id="link_mtg:Activity-MTG-PL_diamond_Activity_MTG_PL_P27"><path codeLine="17" d="M252.9696,275.1123 C232.5014,287.9601 213.1628,302.8613 197,320 C179.2259,338.8473 171.8251,363.2196 168.3002,378.9257 " fill="none" id="mtg:Activity-MTG-PL-to-diamond_Activity_MTG_PL_P27" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="166.9863,384.7801,172.8601,376.8745,168.0812,379.9015,165.0542,375.1226,166.9863,384.7801" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="216" x="198" y="333.0669">eli-dl:recorded_in_a_realization_of</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="34" x="289" y="348.1997">[0..2]</text></g><!--link diamond_Activity_MTG_PL_P27 to mtg:Work-PV-Node--><g id="link_diamond_Activity_MTG_PL_P27_mtg:Work-PV-Node"><path codeLine="18" d="M158.8827,400.9799 C144.6659,414.8771 109.1201,449.6242 89.5126,468.791 " fill="none" id="diamond_Activity_MTG_PL_P27-mtg:Work-PV-Node" style="stroke:#800000;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--link diamond_Activity_MTG_PL_P27 to mtg:Work-CRE-Node--><g id="link_diamond_Activity_MTG_PL_P27_mtg:Work-CRE-Node"><path codeLine="19" d="M171.1861,400.9799 C185.5625,414.8771 221.5078,449.6242 241.3355,468.791 " fill="none" id="diamond_Activity_MTG_PL_P27-mtg:Work-CRE-Node" style="stroke:#800000;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--reverse link mtg:ActivityType-Node to mtg:Activity-MTG-PL--><g id="link_mtg:ActivityType-Node_mtg:Activity-MTG-PL"><path codeLine="21" d="M642.6017,38.9089 C636.775,55.035 627.1863,76.7122 610,95 C600.0107,105.6295 588.7966,115.6063 576.9519,124.8863 " fill="none" id="mtg:ActivityType-Node-backto-mtg:Activity-MTG-PL" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="644.6406,33.266,637.8203,40.3711,642.9415,37.9685,645.3442,43.0897,644.6406,33.266" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="183" x="631" y="83.5669">eli-dl:had_activity_type&#xa0;[1..1]</text></g><!--link mtg:Activity-MTG-PL to mtg:ForeseenActivity-MTG-PL-TF-Node--><g id="link_mtg:Activity-MTG-PL_mtg:ForeseenActivity-MTG-PL-TF-Node"><path codeLine="22" d="M423,290.0131 C423,325.1866 423,356.501 423,375.7658 " fill="none" id="mtg:Activity-MTG-PL-to-mtg:ForeseenActivity-MTG-PL-TF-Node" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="423,381.7658,427,372.7658,423,376.7658,419,372.7658,423,381.7658" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="148" x="424" y="340.5669">eli-dl:was_scheduled_in</text></g><!--link mtg:Activity-MTG-PL to mtg:Activity-MTG-PL-VOT-ITM-Node--><g id="link_mtg:Activity-MTG-PL_mtg:Activity-MTG-PL-VOT-ITM-Node"><path codeLine="23" d="M593.0823,132.5244 C717.9329,87.8 890.7735,47.5093 1038.5,91.5 C1107.2998,111.9875 1169.8624,164.5037 1197.8743,190.3048 " fill="none" id="mtg:Activity-MTG-PL-to-mtg:Activity-MTG-PL-VOT-ITM-Node" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="1202.2875,194.3697,1198.3776,185.3302,1198.6098,190.9823,1192.9577,191.2145,1202.2875,194.3697" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="143" x="894.5" y="83.5669">eli-dl:consists_of&#xa0;[0..1]</text></g><!--reverse link mtg:Person-Node to mtg:Activity-MTG-PL--><g id="link_mtg:Person-Node_mtg:Activity-MTG-PL"><path codeLine="24" d="M421.3592,39.1416 C420.6707,47.647 420.3492,52.9783 420,63 C419.301,83.0616 419.3319,104.696 419.7047,124.9611 " fill="none" id="mtg:Person-Node-backto-mtg:Activity-MTG-PL" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="421.8433,33.1612,417.1302,41.8091,421.4399,38.1449,425.1041,42.4546,421.8433,33.1612" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="169" x="421" y="76.0669">eli-dl:had_excused_person</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="184" x="421" y="91.1997">eli-dl:had_participant_person</text></g><!--link mtg:Activity-MTG-PL to mtg:Location-Node--><g id="link_mtg:Activity-MTG-PL_mtg:Location-Node"><path codeLine="25" d="M542.3075,290.1969 C555.5283,300.0237 568.6617,310.0881 581,320 C606.4363,340.4342 629.8963,362.2013 646.0006,377.6027 " fill="none" id="mtg:Activity-MTG-PL-to-mtg:Location-Node" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="650.3368,381.7497,646.5971,372.6385,646.7233,378.2939,641.0678,378.4201,650.3368,381.7497" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="148" x="619" y="340.5669">vcard:hasLocality&#xa0;[1..1]</text></g><!--link mtg:Activity-MTG-PL to mtg:Work-OJQ-Node--><g id="link_mtg:Activity-MTG-PL_mtg:Work-OJQ-Node"><path codeLine="26" d="M593.2221,207.5 C699.6234,207.5 825.2039,207.5 905.3048,207.5 " fill="none" id="mtg:Activity-MTG-PL-to-mtg:Work-OJQ-Node" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="911.3048,207.5,902.3048,203.5,906.3048,207.5,902.3048,211.5,911.3048,207.5" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="282" x="611.25" y="200.5669">eli-dl:documented_by_a_realization_of&#xa0;[0..1]</text></g><!--reverse link mtg:Activity-MTG-PL-PVCRE-ITM-Node to mtg:Activity-MTG-PL--><g id="link_mtg:Activity-MTG-PL-PVCRE-ITM-Node_mtg:Activity-MTG-PL"><path codeLine="27" d="M211.0585,36.9462 C234.935,56.1601 276.5417,89.6419 320.2153,124.787 " fill="none" id="mtg:Activity-MTG-PL-PVCRE-ITM-Node-backto-mtg:Activity-MTG-PL" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="206.3841,33.1846,210.888,41.9433,210.2795,36.3193,215.9035,35.7107,206.3841,33.1846" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="105" x="279" y="83.5669">eli-dl:consists_of</text></g><!--SRC=[fPLHRzem4CVVyoay-hOf2Af9az8EZNKjwmGjArdxqA78s5UmSEp8TjhIJpy7aZH92OJkBRax_-xlkxEjmI21Gz0H9Z2122jif4922d3qaed442B2iTONKfW9Um7K_UnyeF301A3XvU2dVttJlngS5yDb65c03JSh3YWE-N71-wHmD0AjyHpk63KBrErq2kw-KlBfJ7AhucY4bPJ2qVKYaNEMQ4EjqCozFZ7iaPcLE_87xdZOGlVtHrliqoawcc6oz7vWjVpEOpWny6oykmKpu6m7UGWuSodtSEe9A3Q0hFrPKs_pVTzjjxjJX1eZGD0t69-5xq4nca6qKKpCtu7WU0OyeIZwu74ivfC2wUCX96smCl-vCn67Cr21V0YmCRPG03g3CM5W3igoEirOTbuui-CZhAvLO4251HsdFKIjKzfUP8J04eBnC1WVVwb1ksuFjNOiAoHNGAIYG0Cc0Xmem9ozOCEai7jRx-1uYfmTADHkeyrqtqcrTCUtxfMaq3fWoTdDURgchav9nyqgAhJdQoO_YwwjiXidjIYwV4lQ97ojmWBJ89-F9DNfdq-TJh_JspCFBite5rA11X2L4DU_gEPwmZhGP04qvkkorx9LLNd6lBtstKj_L0KJAJJJHjlEvV9tZ-1hSSQWj1JRoWBF9DPMQBIEG7zvmMSdrp328YnCvjzRgA4aw_dASpqIhAZ5wSJ3xQAcjS_hinwZwr-_g_Af975ohApwsUhDT1zSeseRnhV9wEvknAxxlzB7xOz1AIX_6TPlmUPP62YysfMagh8cJJciIQ9ArLDkoNg8tiAnh4ZCFKrmfK5EGGLR4yJUevnYzyGrILKv32cuP6tSYkpgBNKYDJQ6v9TnYP9PQp4BHW4HfWY7pNS8PY6ftln06DaREeJaoTIEWb0-0leM2yx44kW_]--></g></svg></div><small class="form-text text-muted">Click diagram to navigate to corresponding section | <a href="http://www.plantuml.com/plantuml/png/fPLHRzem4CVVyoay-hOf2Af9az8EZNKjwmGjArdxqA78s5UmSEp8TjhIJpy7aZH92OJkBRax_-xlkxEjmI21Gz0H9Z2122jif4922d3qaed442B2iTONKfW9Um7K_UnyeF301A3XvU2dVttJlngS5yDb65c03JSh3YWE-N71-wHmD0AjyHpk63KBrErq2kw-KlBfJ7AhucY4bPJ2qVKYaNEMQ4EjqCozFZ7iaPcLE_87xdZOGlVtHrliqoawcc6oz7vWjVpEOpWny6oykmKpu6m7UGWuSodtSEe9A3Q0hFrPKs_pVTzjjxjJX1eZGD0t69-5xq4nca6qKKpCtu7WU0OyeIZwu74ivfC2wUCX96smCl-vCn67Cr21V0YmCRPG03g3CM5W3igoEirOTbuui-CZhAvLO4251HsdFKIjKzfUP8J04eBnC1WVVwb1ksuFjNOiAoHNGAIYG0Cc0Xmem9ozOCEai7jRx-1uYfmTADHkeyrqtqcrTCUtxfMaq3fWoTdDURgchav9nyqgAhJdQoO_YwwjiXidjIYwV4lQ97ojmWBJ89-F9DNfdq-TJh_JspCFBite5rA11X2L4DU_gEPwmZhGP04qvkkorx9LLNd6lBtstKj_L0KJAJJJHjlEvV9tZ-1hSSQWj1JRoWBF9DPMQBIEG7zvmMSdrp328YnCvjzRgA4aw_dASpqIhAZ5wSJ3xQAcjS_hinwZwr-_g_Af975ohApwsUhDT1zSeseRnhV9wEvknAxxlzB7xOz1AIX_6TPlmUPP62YysfMagh8cJJciIQ9ArLDkoNg8tiAnh4ZCFKrmfK5EGGLR4yJUevnYzyGrILKv32cuP6tSYkpgBNKYDJQ6v9TnYP9PQp4BHW4HfWY7pNS8PY6ftln06DaREeJaoTIEWb0-0leM2yx44kW_" target="_blank">View as PNG</a></small>
+                     <!--@startuml
+set namespaceSeparator none
+skinparam classFontSize 14
+!define LIGHTORANGE
+skinparam componentStyle uml2
+skinparam wrapMessageWidth 100
+skinparam ArrowColor #Maroon
+set namespaceSeparator none 
+Class "mtg:Activity-MTG-PL" [[#mtg:Activity-MTG-PL]] #back:DarkBlue;text:White
+"mtg:Activity-MTG-PL" : eli-dl:activity_date  : xsd:date  [1..1]  
+"mtg:Activity-MTG-PL" : eli-dl:activity_end_date  : xsd:dateTime  [1..1]  
+"mtg:Activity-MTG-PL" : eli-dl:activity_id  : xsd:string  [1..1]  
+"mtg:Activity-MTG-PL" : eli-dl:activity_label  : rdf:langString  [1..*]  
+"mtg:Activity-MTG-PL" : eli-dl:activity_start_date  : xsd:dateTime  [1..1]  
+"mtg:Activity-MTG-PL" : eli-dl:number_of_attendees  : xsd:integer  [0..1]  
+"mtg:Activity-MTG-PL" : eli-dl:parliamentary_term  [1..1]  
+<> diamond_Activity_MTG_PL_P27
+"mtg:Activity-MTG-PL" - -> "diamond_Activity_MTG_PL_P27" : eli-dl:recorded_in_a_realization_of [0..2] 
+diamond_Activity_MTG_PL_P27 ..  "mtg:Work-PV-Node"
+diamond_Activity_MTG_PL_P27 ..  "mtg:Work-CRE-Node"
+"mtg:Activity-MTG-PL" : rdf:type  [1..1]  = eli-dl:Activity  
+"mtg:Activity-MTG-PL" -u-> "mtg:ActivityType-Node" : eli-dl:had_activity_type<U+00A0>[1..1]  
+"mtg:Activity-MTG-PL" -d-> "mtg:ForeseenActivity-MTG-PL-TF-Node" : eli-dl:was_scheduled_in 
+"mtg:Activity-MTG-PL" -r-> "mtg:Activity-MTG-PL-VOT-ITM-Node" : eli-dl:consists_of<U+00A0>[0..1]  
+"mtg:Activity-MTG-PL" -u-> "mtg:Person-Node" : eli-dl:had_excused_person \leli-dl:had_participant_person 
+"mtg:Activity-MTG-PL" -d-> "mtg:Location-Node" : vcard:hasLocality<U+00A0>[1..1]  
+"mtg:Activity-MTG-PL" -r-> "mtg:Work-OJQ-Node" : eli-dl:documented_by_a_realization_of<U+00A0>[0..1]  
+"mtg:Activity-MTG-PL" -u-> "mtg:Activity-MTG-PL-PVCRE-ITM-Node" : eli-dl:consists_of 
+Class "mtg:Activity-MTG-PL-VOT-ITM-Node" [[#mtg:Activity-MTG-PL-VOT-ITM-Node]] #back:White;text:Gray
+Class "mtg:Activity-MTG-PL-PVCRE-ITM-Node" [[#mtg:Activity-MTG-PL-PVCRE-ITM-Node]] #back:White;text:Gray
+Class "mtg:Work-OJQ-Node" [[#mtg:Work-OJQ-Node]] #back:White;text:Gray
+Class "mtg:ActivityType-Node" [[#mtg:ActivityType-Node]] #back:White;text:Gray
+Class "mtg:Person-Node" [[#mtg:Person-Node]] #back:White;text:Gray
+Class "mtg:ForeseenActivity-MTG-PL-TF-Node" [[#mtg:ForeseenActivity-MTG-PL-TF-Node]] #back:White;text:Gray
+Class "mtg:Location-Node" [[#mtg:Location-Node]] #back:White;text:Gray
+Class "mtg:Work-PV-Node" [[#mtg:Work-PV-Node]] #back:White;text:Gray
+Class "mtg:Work-CRE-Node" [[#mtg:Work-CRE-Node]] #back:White;text:Gray
+hide circle
+hide methods
+hide empty members
+remove @unlinked
+@enduml
+--></div>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity date</td>
+                           <td id="mtg:Activity-MTG-PL_eli-dl:activity_date"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_date">eli-dl:activity_date</a></code></td>
+                           <td><code>xsd:date</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity end date</td>
+                           <td id="mtg:Activity-MTG-PL_eli-dl:activity_end_date"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_end_date">eli-dl:activity_end_date</a></code></td>
+                           <td><code>xsd:dateTime</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity id</td>
+                           <td id="mtg:Activity-MTG-PL_eli-dl:activity_id"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_id">eli-dl:activity_id</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity label</td>
+                           <td id="mtg:Activity-MTG-PL_eli-dl:activity_label"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_label">eli-dl:activity_label</a></code></td>
+                           <td><code>rdf:langString</code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity start date</td>
+                           <td id="mtg:Activity-MTG-PL_eli-dl:activity_start_date"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_start_date">eli-dl:activity_start_date</a></code></td>
+                           <td><code>xsd:dateTime</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity type</td>
+                           <td id="mtg:Activity-MTG-PL_eli-dl:had_activity_type"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#had_activity_type">eli-dl:had_activity_type</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/ep-activities/PLENARY_SITTING">ep-activities:PLENARY_SITTING</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>consists of</td>
+                           <td id="mtg:Activity-MTG-PL_eli-dl:consists_of"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#consists_of">eli-dl:consists_of</a></code></td>
+                           <td><code><a href="#mtg:Activity-MTG-PL-VOT-ITM-Node">Reference to an Activity [ep-activities/PLENARY_VOTE_RESULTS]</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>consists of</td>
+                           <td id="mtg:Activity-MTG-PL_eli-dl:consists_of"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#consists_of">eli-dl:consists_of</a></code></td>
+                           <td><code><a href="#mtg:Activity-MTG-PL-PVCRE-ITM-Node">Reference to an Activity (ep-activities such as, i.e. &#xD;
+                                    PLENARY_DEBATE, PLENARY_VOTE, PLENARY_ACTIVITY, PLENARY_VOTE_EXPLANATIONS, etc.</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>documented by a realization of</td>
+                           <td id="mtg:Activity-MTG-PL_eli-dl:documented_by_a_realization_of"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#documented_by_a_realization_of">eli-dl:documented_by_a_realization_of</a></code></td>
+                           <td><code><a href="#mtg:Work-OJQ-Node">Reference to a Work (ep-document-types/PLENARY_AGENDA_DAY)</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>had excused person</td>
+                           <td id="mtg:Activity-MTG-PL_eli-dl:had_excused_person"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#had_excused_person">eli-dl:had_excused_person</a></code></td>
+                           <td><code><a href="#mtg:Person-Node">Reference to a Person</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>had participant person</td>
+                           <td id="mtg:Activity-MTG-PL_eli-dl:had_participant_person"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#had_participant_person">eli-dl:had_participant_person</a></code></td>
+                           <td><code><a href="#mtg:Person-Node">Reference to a Person</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>locality</td>
+                           <td id="mtg:Activity-MTG-PL_vcard:hasLocality"><code><a href="http://www.w3.org/2006/vcard/ns#hasLocality">vcard:hasLocality</a></code></td>
+                           <td><code><a href="#mtg:Location-Node">Reference to a Place</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>number of attendees</td>
+                           <td id="mtg:Activity-MTG-PL_eli-dl:number_of_attendees"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#number_of_attendees">eli-dl:number_of_attendees</a></code></td>
+                           <td><code>xsd:integer</code><br></td>
+                           <td>
+                              <div style="width:30px">0..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>parliamentary term</td>
+                           <td id="mtg:Activity-MTG-PL_eli-dl:parliamentary_term"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#parliamentary_term">eli-dl:parliamentary_term</a></code></td>
+                           <td><code>IRI</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>recorded in a realization of</td>
+                           <td id="mtg:Activity-MTG-PL_eli-dl:recorded_in_a_realization_of"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#recorded_in_a_realization_of">eli-dl:recorded_in_a_realization_of</a></code></td>
+                           <td><code><a href="#mtg:Work-PV-Node">Reference to a Work (ep-document-types/MINUTES_PLENARY)</a></code><code> or </code><code><a href="#mtg:Work-CRE-Node">Reference to a Work (ep-document-types/CRE_PLENARY)</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..2</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>scheduled in</td>
+                           <td id="mtg:Activity-MTG-PL_eli-dl:was_scheduled_in"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#was_scheduled_in">eli-dl:was_scheduled_in</a></code></td>
+                           <td><code><a href="#mtg:ForeseenActivity-MTG-PL-TF-Node">Reference to a Foreseen Activity (ep-activities/MEETING_PART)</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>type</td>
+                           <td id="mtg:Activity-MTG-PL_rdf:type"><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#Activity">eli-dl:Activity</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg:Deadline-GMTG-PL-DL" class="sp_section_title_table">Deadline on Plenary Part Session</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings_api#Deadline-GMTG-PL-DL</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli-dl:Deadline</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/event/GMTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-DL-[0-9]+$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/event/GMTG-PL-2024-04-22-DL-2</code></li>
+                  </ul>
+                  <div class="sp_section_nodeshape_diagram">
+                     <div class="sp_section_nodeshape_center"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="153px" preserveAspectRatio="none" style="width:470px;height:153px;background:#FFFFFF;" version="1.1" viewBox="0 0 470 153" width="470px" zoomAndPan="magnify"><defs xmlns=""/><g><!--class mtg:Deadline-GMTG-PL-DL--><a href="#mtg:Deadline-GMTG-PL-DL" target="_top" title="#mtg:Deadline-GMTG-PL-DL" xlink:actuate="onRequest" xlink:href="#mtg:Deadline-GMTG-PL-DL" xlink:show="new" xlink:title="#mtg:Deadline-GMTG-PL-DL" xlink:type="simple"><g id="elem_mtg:Deadline-GMTG-PL-DL"><rect codeLine="8" fill="#800080" height="132.0781" id="uml_mtg:Deadline-GMTG-PL-DL" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="449" x="7" y="7"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="185" x="139" y="24.9951">mtg:Deadline-GMTG-PL-DL</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="455" y1="33.2969" y2="33.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="310" x="13" y="50.292">eli-dl:activity_end_date  : xsd:dateTime  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="231" x="13" y="66.5889">eli-dl:activity_id  : xsd:string  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="273" x="13" y="82.8857">eli-dl:activity_label  : rdf:langString  [1..*]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="270" x="13" y="99.1826">eli-dl:activity_order  : xsd:decimal  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="437" x="13" y="115.4795">eli-dl:had_activity_type  [1..1]  = ep-activities:TABLING_PLENARY</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="219" x="13" y="131.7764">rdf:type  [1..1]  = eli-dl:Deadline</text></g></a><!--SRC=[dP1DQy9048Rl-HLJlHKYflIKqaEgDXMY5Gr84GbhTamMzoFihjNqrtU3LG95YhtDp3lpp3jZq88a0ar5SbnWHJInIeDK4ZspOx8f2CWvCUPLIRjWNmZ1etT7SSiaGZAEtzBtUJIDH-rs9Ie7SEssvWXxmHzQwa6JQeB6a0ANZDeIWdw_9KTQgyD0SUUYEo5QAUcPwoR16pJUe2Di4GwHKEvi-V4aZVrPuW-J3gnMtIlQUWtT3SbtuMolAuvF5eysN9RCedST5m9ovbCUajooJsRh32NDAB48JZiQ6ZPnoeJBLq6l5wm1Ri8nUWOPgvai_edXP8Ey8Mcw3JcHnQ95kx-LfZH5VJaGSoO8lyrOIMXsmTcwQhtd6R3oVpI69aoZbsGyZRDPCff6yuy_-CrzltYddUS9HoWPHSYPpZcUOe6sLDIS4XILhLr9R52RRm00]--></g></svg></div><small class="form-text text-muted">Click diagram to navigate to corresponding section | <a href="http://www.plantuml.com/plantuml/png/dP1DQy9048Rl-HLJlHKYflIKqaEgDXMY5Gr84GbhTamMzoFihjNqrtU3LG95YhtDp3lpp3jZq88a0ar5SbnWHJInIeDK4ZspOx8f2CWvCUPLIRjWNmZ1etT7SSiaGZAEtzBtUJIDH-rs9Ie7SEssvWXxmHzQwa6JQeB6a0ANZDeIWdw_9KTQgyD0SUUYEo5QAUcPwoR16pJUe2Di4GwHKEvi-V4aZVrPuW-J3gnMtIlQUWtT3SbtuMolAuvF5eysN9RCedST5m9ovbCUajooJsRh32NDAB48JZiQ6ZPnoeJBLq6l5wm1Ri8nUWOPgvai_edXP8Ey8Mcw3JcHnQ95kx-LfZH5VJaGSoO8lyrOIMXsmTcwQhtd6R3oVpI69aoZbsGyZRDPCff6yuy_-CrzltYddUS9HoWPHSYPpZcUOe6sLDIS4XILhLr9R52RRm00" target="_blank">View as PNG</a></small>
+                     <!--@startuml
+set namespaceSeparator none
+skinparam classFontSize 14
+!define LIGHTORANGE
+skinparam componentStyle uml2
+skinparam wrapMessageWidth 100
+skinparam ArrowColor #Maroon
+set namespaceSeparator none 
+Class "mtg:Deadline-GMTG-PL-DL" [[#mtg:Deadline-GMTG-PL-DL]] #back:Purple;text:White
+"mtg:Deadline-GMTG-PL-DL" : eli-dl:activity_end_date  : xsd:dateTime  [1..1]  
+"mtg:Deadline-GMTG-PL-DL" : eli-dl:activity_id  : xsd:string  [1..1]  
+"mtg:Deadline-GMTG-PL-DL" : eli-dl:activity_label  : rdf:langString  [1..*]  
+"mtg:Deadline-GMTG-PL-DL" : eli-dl:activity_order  : xsd:decimal  [1..1]  
+"mtg:Deadline-GMTG-PL-DL" : eli-dl:had_activity_type  [1..1]  = ep-activities:TABLING_PLENARY  
+"mtg:Deadline-GMTG-PL-DL" : rdf:type  [1..1]  = eli-dl:Deadline  
+hide circle
+hide methods
+hide empty members
+@enduml
+--></div>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity date</td>
+                           <td id="mtg:Deadline-GMTG-PL-DL_eli-dl:activity_end_date"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_end_date">eli-dl:activity_end_date</a></code></td>
+                           <td><code>xsd:dateTime</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity id</td>
+                           <td id="mtg:Deadline-GMTG-PL-DL_eli-dl:activity_id"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_id">eli-dl:activity_id</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity label</td>
+                           <td id="mtg:Deadline-GMTG-PL-DL_eli-dl:activity_label"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_label">eli-dl:activity_label</a></code></td>
+                           <td><code>rdf:langString</code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity order</td>
+                           <td id="mtg:Deadline-GMTG-PL-DL_eli-dl:activity_order"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_order">eli-dl:activity_order</a></code></td>
+                           <td><code>xsd:decimal</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity type</td>
+                           <td id="mtg:Deadline-GMTG-PL-DL_eli-dl:had_activity_type"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#had_activity_type">eli-dl:had_activity_type</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/ep-activities/TABLING_PLENARY">ep-activities:TABLING_PLENARY</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>type</td>
+                           <td id="mtg:Deadline-GMTG-PL-DL_rdf:type"><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#Deadline">eli-dl:Deadline</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg:ActivityType-Node" class="sp_section_title_table">Reference to an Activity type</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings_api#ActivityType-Node</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli-dl:ActivityType</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>https://data.europarl.europa.eu/def/ep-activities/.*$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/def/ep-activities/PLENARY_SITTING</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg:ForeseenActivity-MTG-PL-TF-Node" class="sp_section_title_table">Reference to a Foreseen Activity (ep-activities/MEETING_PART)</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings_api#ForeseenActivity-MTG-PL-TF-Node</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli-dl:ForeseenActivity</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-TF-[0-9]{4}$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2020-10-23-TF-1700</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg:Activity-MTG-PL-PVCRE-ITM-Node" class="sp_section_title_table">Reference to an Activity (ep-activities such as, i.e. &#xD;
+                        PLENARY_DEBATE, PLENARY_VOTE, PLENARY_ACTIVITY, PLENARY_VOTE_EXPLANATIONS, etc.</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings_api#Activity-MTG-PL-PVCRE-ITM-Node</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli-dl:Activity</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\-_]+$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-04-23-PVCRE-ITM-17</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg:Location-Node" class="sp_section_title_table">Reference to a Place</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings_api#Location-Node</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class dcterms:Location</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>http://publications.europa.eu/resource/authority/place/.*$</code></li>
+                     <li>Example: <code>http://publications.europa.eu/resource/authority/place/FRA_SXB</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg:Work-PV-Node" class="sp_section_title_table">Reference to a Work (ep-document-types/MINUTES_PLENARY)</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings_api#Work-PV-Node</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli:Work</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\-_]+$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/PV-9-2024-02-26</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg:Work-CRE-Node" class="sp_section_title_table">Reference to a Work (ep-document-types/CRE_PLENARY)</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings_api#Work-CRE-Node</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli:Work</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\-_]+$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/CRE-9-2024-02-26</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg:ComplexWork-OJ-Node" class="sp_section_title_table">Reference to a ComplexWork (ep-document-types/PLENARY_AGENDA_WEEK)</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings_api#ComplexWork-OJ-Node</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli:ComplexWork</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\-_]+$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/OJ-9-2024-04-22</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg:Work-OJQ-Node" class="sp_section_title_table">Reference to a Work (ep-document-types/PLENARY_AGENDA_DAY)</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings_api#Work-OJQ-Node</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli:Work</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\-_]+$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/OJQ-9-2024-04-22</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg:Activity-MTG-PL-VOT-ITM-Node" class="sp_section_title_table">Reference to an Activity [ep-activities/PLENARY_VOTE_RESULTS]</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings_api#Activity-MTG-PL-VOT-ITM-Node</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli-dl:Activity</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/event/[A-Za-z0-9\-_]+$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-04-23-VOT-ITM-946106</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg:Person-Node" class="sp_section_title_table">Reference to a Person</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings_api#Person-Node</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class foaf:Person</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/person/[0-9]*?$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/person/124936</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div>
+            <h2 id="releaseNotes" class="sp_section_subtitle">Release notes</h2><p>3.0.0 - 2024-12-12</p>
+<ul>
+<li>review scope (meetings dumps full scope, but APIs split into meetings, meetings/foreseen-activities, and meetings/activities</li>
+</ul>
+</div>
+      </div><script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js">//</script><script>				
+					anchors.options = {
+	                    icon: '#'
+	                  };
+               		anchors.options.placement = 'left';
+					anchors.add('h2,h3');
+					// for links inside tables		
+					anchors.add('td[id]');
+				</script></body>
+</html>
