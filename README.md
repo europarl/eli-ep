@@ -17,7 +17,7 @@ ELI-EP is an application profile of the [ELI](https://op.europa.eu/en/web/eu-voc
 - [Version 2.1.0](./2.1.0/)
 - [Version 2.3.0](./2.3.0/)
 - [Version 2.4.0](./2.4.0/)
-- [Version 2.4.0](./3.0.0/)
+- [Version 3.0.0](./3.0.0/)
 
 ## ELI-EP at a glance
 
