@@ -1,0 +1,1250 @@
+<!DOCTYPE HTML><html lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <style>
+		
+			body {
+						margin: 0;
+						font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+							"Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+							"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+							"Noto Color Emoji";
+						background-color: #fff;
+					}
+					
+					.anchor {
+						float: left;
+						padding-right: 4px;
+						margin-left: -20px;
+						line-height: 1;
+						padding-top: 12px;
+					}
+							
+					a {
+						color: #007bff;
+						text-decoration: none;
+						background-color: transparent;
+					}
+					
+					a:-webkit-any-link {
+						cursor: pointer;
+					}
+					
+					.p {
+						font-size: 0.875em;
+					}
+					
+					h2 {
+						margin: 25px 0px 10px 0px;
+					}
+					
+					h3 {
+						font-size: 1.4em;
+					}
+					
+					@media only print {
+					}
+					
+					@page {
+						size: A4 portrait;
+						margin-top: 1.2cm;
+						margin-bottom: 1.2cm;
+						margin-left: 1.2cm;
+						margin-right: 1.2cm;
+						background-repeat: no-repeat;
+						background-position: 40px 10px;
+						
+						@bottom-center
+						{
+						content
+						:
+						counter(
+						page
+						);
+					}
+					
+					}
+							
+					/* This section draw the format web */
+					.ul_type_none {
+						list-style-type: none;
+					}
+					
+					.sp_list_description_properties {
+						/* don't set it lower otherwise it gets hidden in PDF */
+						padding-left: 20px;
+					}
+					
+					dl, ol, ul {
+						margin-top: 0;
+						margin-bottom: 1rem;
+					}
+					
+					li {
+						display: list-item;
+						text-align: -webkit-match-parent;
+					}
+					
+					.sp_section_title_header {
+						font-family: Georgia, Garamond, serif;	
+						margin-top: 25px;
+						margin-bottom: 2.5rem;
+					    font-size: 1.5625rem;
+						display: block;
+						font-weight: 500;
+						color: #1e1e1f;
+						line-height: 1.2em;   
+					}
+					
+					.sp_section_subtitle {
+						font-family: Georgia, Garamond, serif;	
+						margin-top: 0;
+						margin-bottom: 0.5rem;
+						display: block;
+						font-weight: 500;
+						color: #1e1e1f;
+						line-height: 1.2em;  
+					}
+					
+					.sp_section_title_table {
+						font-family: Georgia, Garamond, serif;	
+						/* 0 because URI is right under */
+						margin-bottom: 0rem;
+						display: block;
+						font-weight: 500;
+						color: #1e1e1f;
+						line-height: 1.2em; 
+					}
+							
+
+					.sp_section_title_toc {
+						font-family: Georgia, Garamond, serif;	
+					}
+
+					/* URI below the title of the section */
+					.sp_section_uri	 {
+						margin-top: 0px;
+					}
+
+					/* div wrapping section title and URI below - same as a paragraph margin */
+					.sp_section_title_table_wrapper {
+						margin-bottom: 16px;
+						border-bottom: 1px solid;	
+					}
+					
+					.sp_section_nodeshape_diagram {
+						padding-bottom: 16px;
+					}
+					
+					.sp_section_nodeshape_center {
+						display: flex;
+						justify-content: center;
+					}
+					
+					table {
+						display: table;
+						border-spacing: 0px;
+						margin-bottom: 1rem;
+					}
+					
+					.table-striped tr:nth-child(even) {
+						background-color: #eee;
+					}
+							
+					.sp_table_prefixes table {
+						border-collapse: collapse;
+						margin-bottom: 1rem;
+						color: #212529;
+					}
+											
+					.sp_table_prefixes td {
+						padding: 0.25rem;
+						vertical-align: top;
+						border-top: 1px solid #dee2e6;
+					}
+					
+					.sp_table_propertyshapes {
+						border-collapse: collapse;
+						width: 100%;
+					}
+										
+					.sp_table_propertyshapes thead {
+						display: table-header-group;
+						vertical-align: middle;
+						border-color: inherit;
+					}
+													
+					.sp_table_propertyshapes tr {
+					    display: table-row;
+					    vertical-align: inherit;
+					    border-color: inherit;					    
+					}
+													
+					.sp_table_propertyshapes th:nth-child(4) {
+						width: 6%;
+					}
+													
+					.sp_table_propertyshapes td {
+						padding: 0.75rem;
+						border-top: 1px solid #dee2e6;
+					}
+													
+					.sp_table_propertyshapes tbody {
+						display: table-row-group;
+						vertical-align: middle;
+						border-color: inherit;
+					}
+										
+					.sp_table_propertyshapes_col_description {
+						word-break: break-word;
+					}
+					
+					tr.sp_propertyGroup {
+						font-style: italic;
+						background-color: #def0f7;
+					}
+					
+					tr.sp_propertyGroup td {
+						border-bottom: 1px solid black;
+						padding-bottom: 0.25 rem;
+					}
+					
+					.sp_serialization_badge {
+						margin-right: 0.5em;
+					}
+
+					.sp_nodeshape_description {
+						background: #efefef;
+						padding-top:1px;
+						padding-bottom:1px;
+						padding-left:10px;
+						padding-right:10px;
+						border-radius: 5px;
+						margin-bottom:10px;
+					}
+					
+					
+							.container {
+							    width: calc(100% - 40px);
+							    max-width: 1000px;
+							    margin-left: 300px;
+							    margin-right: auto;
+							}
+							.container {width: calc(100% - 500px);}
+							.toc {
+								position: fixed;
+								top: 0;
+								left: 0;
+								font-size: small;
+								padding: 10px 10px;
+								width: auto;
+								border-right: solid 2px #eeeeee;
+								bottom: 0;
+								overflow-y: scroll;
+								background-color:white;
+								max-width:255px;
+							}
+							.sp_list_toc {padding-left: 0px;}
+							.sp_list_toc_l2 {padding-left: 10px;}	
+							.sp_list_toc_l3 {padding-left: 8px;}					
+						</style>
+      <meta charset="UTF-8">
+      <meta name="lang" content="en">
+      <meta property="og:locale" content="en">
+      <title>Activities Meetings dataset (API) description</title>
+      <meta name="apple-mobile-web-app-title" content="Activities Meetings dataset (API) description">
+      <meta name="twitter:title" content="Activities Meetings dataset (API) description">
+      <meta property="og:title" content="Activities Meetings dataset (API) description"><script type="application/ld+json">{
+    "datePublished": "2022-11-18",
+    "license": ["https://www.europarl.europa.eu/legal-notice/"],
+    "@type": "TechArticle",
+    "author": [{
+        "@type": "Organization",
+        "url": "https://publications.europa.eu/resource/authority/corporate-body/EP"
+    }],
+    "name": "Activities Meetings dataset (API) description",
+    "publisher": [{
+        "@type": "Organization",
+        "url": "https://publications.europa.eu/resource/authority/corporate-body/EP"
+    }],
+    "@context": "https://schema.org",
+    "version": "3.0.0",
+    "url": "https://data.europarl.europa.eu/def/meetings-activities_api#"
+}</script></head>
+   <body>
+      <div class="sp_container_principal container pt-4">
+         <table style="width:100%">
+            <tr>
+               <td width="20%"><img src="https://www.europarl.europa.eu/portal/img/ep-logo.svg"></td>
+               <td width="80%">
+                  <h1 class="mb-4 sp_section_title_header">Activities Meetings dataset (API) description</h1>
+               </td>
+            </tr>
+         </table>
+         <div><b>Creation date: </b>2022-11-18<br><b>Last updated: </b>2025-02-21 00:00:00<br><b>Copyright date: </b>2022<br><b>Version: </b>3.0.0<br><b>License: </b><a href="https://www.europarl.europa.eu/legal-notice/" target="_blank">https://www.europarl.europa.eu/legal-notice/</a><br><b>Creator: </b><a href="https://publications.europa.eu/resource/authority/corporate-body/EP" target="_blank">https://publications.europa.eu/resource/authority/corporate-body/EP</a><br><b>Publisher: </b><a href="https://publications.europa.eu/resource/authority/corporate-body/EP" target="_blank">https://publications.europa.eu/resource/authority/corporate-body/EP</a><br><b id="formats">Download serialization: </b><div><span class="sp_serialization_badge"><a href="https://europarl.github.io/eli-ep/3.0.0/dsd/meetings/eli-ep_meetings.shacl.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.png" alt="TTL"></a></span></div><br></div>
+         <div class="sp_section_title_toc toc">
+            <h2 id="index">Table of Contents</h2>
+            <ul role="list" class="sp_list_toc ul_type_none t-x-mode">
+               <li><a href="#prefixes">Namespaces</a></li>
+               <li><a href="#description">Description</a></li>
+               <li><a href="#documentation">Model documentation</a><ul role="list" class="ul_type_none sp_list_toc_l2">
+                     <li><a href="#mtg-act:Activity-PVCRE-ITM-L1">Plenary Activity level1</a></li>
+                     <li><a href="#mtg-act:Activity-PVCRE-ITM-L2">Plenary Activity level2</a></li>
+                     <li><a href="#mtg-act:ActivityType-Node">Reference to an Activity type</a></li>
+                     <li><a href="#mtg-act:WorkSubdivision-PV-ITM-Node">Reference to a Plenary session document WorkSubdivision</a></li>
+                     <li><a href="#mtg-act:WorkSubdivision-CRE-ITM-Node">Reference to a Plenary session document WorkSubdivision</a></li>
+                     <li><a href="#mtg-act:Activity-MTG-PL-OTH-Node">Reference to a Plenary Speech Activity</a></li>
+                     <li><a href="#mtg-act:Process-Node">Reference to a Process</a></li>
+                     <li><a href="#mtg-act:ProcessStage-Node">Reference to a Process stage</a></li>
+                     <li><a href="#mtg-act:Work-A-Node">Reference to a Work (ep-document-types/REPORT_PLENARY)</a></li>
+                     <li><a href="#mtg-act:Activity-MTG-PL-Node">Reference to a Plenary Sitting</a></li>
+                     <li><a href="#mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node">Reference to a Plenary Sitting</a></li>
+                     <li><a href="#mtg-act:Work-B-Node">Reference to a Work (ep-document-types/RESOLUTION_MOTION)</a></li>
+                     <li><a href="#mtg-act:Work-RC-Node">Reference to a Work (ep-document-types/RESOLUTION_MOTION_JOINT)</a></li>
+                     <li><a href="#mtg-act:Work-C-Node">Reference to a Work (C documents)</a></li>
+                     <li><a href="#mtg-act:Work-O-Node">Reference to a Work (ep-document-types/QUESTION_ORAL)</a></li>
+                     <li><a href="#mtg-act:Work-TA-Node">Reference to a Work (ep-document-types/TEXT_ADOPTED)</a></li>
+                     <li><a href="#mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node">Reference to a Work (ep-document-types/AMENDMENT_BUDGET_EU_DRAFT)</a></li>
+                  </ul>
+               </li>
+               <li><a href="#releaseNotes">Release notes</a></li>
+            </ul>
+         </div>
+         <div class="row mt-3">
+            <div class="col">
+               <section>
+                  <h2 id="prefixes" class="sp_section_subtitle">Namespaces</h2>
+                  <table class="sp_table_prefixes table table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Prefix</th>
+                           <th>Namespace</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>eli-dl</td>
+                           <td><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#" target="_blank">http://data.europa.eu/eli/eli-draft-legislation-ontology#</a></td>
+                        </tr>
+                        <tr>
+                           <td>ep-activities</td>
+                           <td><a href="https://data.europarl.europa.eu/def/ep-activities/" target="_blank">https://data.europarl.europa.eu/def/ep-activities/</a></td>
+                        </tr>
+                        <tr>
+                           <td>rdf</td>
+                           <td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#" target="_blank">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a></td>
+                        </tr>
+                        <tr>
+                           <td>xsd</td>
+                           <td><a href="http://www.w3.org/2001/XMLSchema#" target="_blank">http://www.w3.org/2001/XMLSchema#</a></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div>
+            <h2 id="description" class="sp_section_subtitle" style="margin-top: 1em;">Description</h2><p>This API Description is a subset of the general ELI-EP application profile and it includes classes and properties used in Activities of Meetings API. Descriptions of classes and properties can be found in ELI-EP application profile.</p>
+</div>
+         <h2 id="documentation" class="sp_section_subtitle">Model documentation</h2>
+         <div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg-act:Activity-PVCRE-ITM-L1" class="sp_section_title_table">Plenary Activity level1</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings-activities_api#Activity-PVCRE-ITM-L1</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli-dl:Activity (level 1)</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-PVCRE-ITM-[0-9]{1,2}$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2023-10-17-PVCRE-ITM-7</code></li>
+                  </ul>
+                  <div class="sp_section_nodeshape_diagram">
+                     <div class="sp_section_nodeshape_center"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="420px" preserveAspectRatio="none" style="width:2422px;height:420px;background:#FFFFFF;" version="1.1" viewBox="0 0 2422 420" width="2422px" zoomAndPan="magnify"><defs xmlns=""/><g><!--class mtg-act:Activity-PVCRE-ITM-L1--><a href="#mtg-act:Activity-PVCRE-ITM-L1" target="_top" title="#mtg-act:Activity-PVCRE-ITM-L1" xlink:actuate="onRequest" xlink:href="#mtg-act:Activity-PVCRE-ITM-L1" xlink:show="new" xlink:title="#mtg-act:Activity-PVCRE-ITM-L1" xlink:type="simple"><g id="elem_mtg-act:Activity-PVCRE-ITM-L1"><rect codeLine="8" fill="#00008B" height="99.4844" id="uml_mtg-act:Activity-PVCRE-ITM-L1" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="285" x="1475" y="110"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="207" x="1514" y="127.9951">mtg-act:Activity-PVCRE-ITM-L1</text><line style="stroke:#181818;stroke-width:0.5;" x1="1476" x2="1759" y1="136.2969" y2="136.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="242" x="1481" y="153.292">eli-dl:activity_date  : xsd:date  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="231" x="1481" y="169.5889">eli-dl:activity_id  : xsd:string  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="273" x="1481" y="185.8857">eli-dl:activity_label  : rdf:langString  [1..*]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="205" x="1481" y="202.1826">rdf:type  [1..1]  = eli-dl:Activity</text></g></a><polygon fill="#F1F1F1" points="569.5,302,581.5,314,569.5,326,557.5,314,569.5,302" style="stroke:#181818;stroke-width:0.5;"/><!--class mtg-act:Work-A-Node--><a href="#mtg-act:Work-A-Node" target="_top" title="#mtg-act:Work-A-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:Work-A-Node" xlink:show="new" xlink:title="#mtg-act:Work-A-Node" xlink:type="simple"><g id="elem_mtg-act:Work-A-Node"><rect codeLine="42" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:Work-A-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="155" x="7" y="388"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="149" x="10" y="405.9951">mtg-act:Work-A-Node</text></g></a><!--class mtg-act:Work-B-Node--><a href="#mtg-act:Work-B-Node" target="_top" title="#mtg-act:Work-B-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:Work-B-Node" xlink:show="new" xlink:title="#mtg-act:Work-B-Node" xlink:type="simple"><g id="elem_mtg-act:Work-B-Node"><rect codeLine="43" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:Work-B-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="156" x="197.5" y="388"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="150" x="200.5" y="405.9951">mtg-act:Work-B-Node</text></g></a><!--class mtg-act:Work-RC-Node--><a href="#mtg-act:Work-RC-Node" target="_top" title="#mtg-act:Work-RC-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:Work-RC-Node" xlink:show="new" xlink:title="#mtg-act:Work-RC-Node" xlink:type="simple"><g id="elem_mtg-act:Work-RC-Node"><rect codeLine="44" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:Work-RC-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="166" x="388.5" y="388"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="160" x="391.5" y="405.9951">mtg-act:Work-RC-Node</text></g></a><!--class mtg-act:Work-C-Node--><a href="#mtg-act:Work-C-Node" target="_top" title="#mtg-act:Work-C-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:Work-C-Node" xlink:show="new" xlink:title="#mtg-act:Work-C-Node" xlink:type="simple"><g id="elem_mtg-act:Work-C-Node"><rect codeLine="45" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:Work-C-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="156" x="589.5" y="388"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="150" x="592.5" y="405.9951">mtg-act:Work-C-Node</text></g></a><!--class mtg-act:Work-O-Node--><a href="#mtg-act:Work-O-Node" target="_top" title="#mtg-act:Work-O-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:Work-O-Node" xlink:show="new" xlink:title="#mtg-act:Work-O-Node" xlink:type="simple"><g id="elem_mtg-act:Work-O-Node"><rect codeLine="46" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:Work-O-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="157" x="781" y="388"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="151" x="784" y="405.9951">mtg-act:Work-O-Node</text></g></a><polygon fill="#F1F1F1" points="1367.5,302,1379.5,314,1367.5,326,1355.5,314,1367.5,302" style="stroke:#181818;stroke-width:0.5;"/><!--class mtg-act:Work-TA-Node--><a href="#mtg-act:Work-TA-Node" target="_top" title="#mtg-act:Work-TA-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:Work-TA-Node" xlink:show="new" xlink:title="#mtg-act:Work-TA-Node" xlink:type="simple"><g id="elem_mtg-act:Work-TA-Node"><rect codeLine="47" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:Work-TA-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="164" x="973.5" y="388"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="158" x="976.5" y="405.9951">mtg-act:Work-TA-Node</text></g></a><!--class mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node--><a href="#mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node" target="_top" title="#mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node" xlink:show="new" xlink:title="#mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node" xlink:type="simple"><g id="elem_mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node"><rect codeLine="48" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="390" x="1172.5" y="388"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="384" x="1175.5" y="405.9951">mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node</text></g></a><polygon fill="#F1F1F1" points="1727.5,302,1739.5,314,1727.5,326,1715.5,314,1727.5,302" style="stroke:#181818;stroke-width:0.5;"/><!--class mtg-act:WorkSubdivision-PV-ITM-Node--><a href="#mtg-act:WorkSubdivision-PV-ITM-Node" target="_top" title="#mtg-act:WorkSubdivision-PV-ITM-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:WorkSubdivision-PV-ITM-Node" xlink:show="new" xlink:title="#mtg-act:WorkSubdivision-PV-ITM-Node" xlink:type="simple"><g id="elem_mtg-act:WorkSubdivision-PV-ITM-Node"><rect codeLine="49" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:WorkSubdivision-PV-ITM-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="271" x="1598" y="388"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="265" x="1601" y="405.9951">mtg-act:WorkSubdivision-PV-ITM-Node</text></g></a><!--class mtg-act:WorkSubdivision-CRE-ITM-Node--><a href="#mtg-act:WorkSubdivision-CRE-ITM-Node" target="_top" title="#mtg-act:WorkSubdivision-CRE-ITM-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:WorkSubdivision-CRE-ITM-Node" xlink:show="new" xlink:title="#mtg-act:WorkSubdivision-CRE-ITM-Node" xlink:type="simple"><g id="elem_mtg-act:WorkSubdivision-CRE-ITM-Node"><rect codeLine="50" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:WorkSubdivision-CRE-ITM-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="282" x="1904.5" y="388"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="276" x="1907.5" y="405.9951">mtg-act:WorkSubdivision-CRE-ITM-Node</text></g></a><!--class mtg-act:Activity-MTG-PL-Node--><a href="#mtg-act:Activity-MTG-PL-Node" target="_top" title="#mtg-act:Activity-MTG-PL-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:Activity-MTG-PL-Node" xlink:show="new" xlink:title="#mtg-act:Activity-MTG-PL-Node" xlink:type="simple"><g id="elem_mtg-act:Activity-MTG-PL-Node"><rect codeLine="36" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:Activity-MTG-PL-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="211" x="1815" y="7"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="205" x="1818" y="24.9951">mtg-act:Activity-MTG-PL-Node</text></g></a><!--class mtg-act:ProcessStage-Node--><a href="#mtg-act:ProcessStage-Node" target="_top" title="#mtg-act:ProcessStage-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:ProcessStage-Node" xlink:show="new" xlink:title="#mtg-act:ProcessStage-Node" xlink:type="simple"><g id="elem_mtg-act:ProcessStage-Node"><rect codeLine="41" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:ProcessStage-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="202" x="1774.5" y="301"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="196" x="1777.5" y="318.9951">mtg-act:ProcessStage-Node</text></g></a><!--class mtg-act:Activity-PVCRE-ITM-L2--><a href="#mtg-act:Activity-PVCRE-ITM-L2" target="_top" title="#mtg-act:Activity-PVCRE-ITM-L2" xlink:actuate="onRequest" xlink:href="#mtg-act:Activity-PVCRE-ITM-L2" xlink:show="new" xlink:title="#mtg-act:Activity-PVCRE-ITM-L2" xlink:type="simple"><g id="elem_mtg-act:Activity-PVCRE-ITM-L2"><rect codeLine="37" fill="#00008B" height="26.2969" id="uml_mtg-act:Activity-PVCRE-ITM-L2" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="213" x="2202" y="146.5"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="207" x="2205" y="164.4951">mtg-act:Activity-PVCRE-ITM-L2</text></g></a><!--class mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node--><a href="#mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node" target="_top" title="#mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node" xlink:show="new" xlink:title="#mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node" xlink:type="simple"><g id="elem_mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node"><rect codeLine="39" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="325" x="1455" y="7"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="319" x="1458" y="24.9951">mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node</text></g></a><!--class mtg-act:Process-Node--><a href="#mtg-act:Process-Node" target="_top" title="#mtg-act:Process-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:Process-Node" xlink:show="new" xlink:title="#mtg-act:Process-Node" xlink:type="simple"><g id="elem_mtg-act:Process-Node"><rect codeLine="35" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:Process-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="162" x="2011.5" y="301"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="156" x="2014.5" y="318.9951">mtg-act:Process-Node</text></g></a><!--class mtg-act:ActivityType-Node--><a href="#mtg-act:ActivityType-Node" target="_top" title="#mtg-act:ActivityType-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:ActivityType-Node" xlink:show="new" xlink:title="#mtg-act:ActivityType-Node" xlink:type="simple"><g id="elem_mtg-act:ActivityType-Node"><rect codeLine="40" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:ActivityType-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="187" x="1980" y="146.5"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="181" x="1983" y="164.4951">mtg-act:ActivityType-Node</text></g></a><!--class mtg-act:Activity-MTG-PL-OTH-Node--><a href="#mtg-act:Activity-MTG-PL-OTH-Node" target="_top" title="#mtg-act:Activity-MTG-PL-OTH-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:Activity-MTG-PL-OTH-Node" xlink:show="new" xlink:title="#mtg-act:Activity-MTG-PL-OTH-Node" xlink:type="simple"><g id="elem_mtg-act:Activity-MTG-PL-OTH-Node"><rect codeLine="38" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:Activity-MTG-PL-OTH-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="246" x="1173.5" y="7"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="240" x="1176.5" y="24.9951">mtg-act:Activity-MTG-PL-OTH-Node</text></g></a><!--link mtg-act:Activity-PVCRE-ITM-L1 to diamond_Activity_PVCRE_ITM_L1_P13--><g id="link_mtg-act:Activity-PVCRE-ITM-L1_diamond_Activity_PVCRE_ITM_L1_P13"><path codeLine="13" d="M1474.7982,180.5376 C1210.2511,219.5381 668.9135,299.3441 586.0454,311.5608 " fill="none" id="mtg-act:Activity-PVCRE-ITM-L1-to-diamond_Activity_PVCRE_ITM_L1_P13" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="580.1096,312.4359,589.5968,315.0805,585.0561,311.7067,588.43,307.166,580.1096,312.4359" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="203" x="1063.5" y="259.5669">eli-dl:based_on_a_realization_of</text></g><!--link diamond_Activity_PVCRE_ITM_L1_P13 to mtg-act:Work-A-Node--><g id="link_diamond_Activity_PVCRE_ITM_L1_P13_mtg-act:Work-A-Node"><path codeLine="14" d="M558.919,315.898 C506.971,325.2165 276.6205,366.5371 157.0664,387.9829 " fill="none" id="diamond_Activity_PVCRE_ITM_L1_P13-mtg-act:Work-A-Node" style="stroke:#800000;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--link diamond_Activity_PVCRE_ITM_L1_P13 to mtg-act:Work-B-Node--><g id="link_diamond_Activity_PVCRE_ITM_L1_P13_mtg-act:Work-B-Node"><path codeLine="15" d="M560.0511,316.7961 C523.4886,327.6156 389.8434,367.1637 319.4899,387.9826 " fill="none" id="diamond_Activity_PVCRE_ITM_L1_P13-mtg-act:Work-B-Node" style="stroke:#800000;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--link diamond_Activity_PVCRE_ITM_L1_P13 to mtg-act:Work-RC-Node--><g id="link_diamond_Activity_PVCRE_ITM_L1_P13_mtg-act:Work-RC-Node"><path codeLine="16" d="M563.0699,319.7083 C547.5698,333.4686 507.8265,368.7509 486.1451,387.9987 " fill="none" id="diamond_Activity_PVCRE_ITM_L1_P13-mtg-act:Work-RC-Node" style="stroke:#800000;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--link diamond_Activity_PVCRE_ITM_L1_P13 to mtg-act:Work-C-Node--><g id="link_diamond_Activity_PVCRE_ITM_L1_P13_mtg-act:Work-C-Node"><path codeLine="17" d="M575.9301,319.7083 C591.4302,333.4686 631.1735,368.7509 652.8549,387.9987 " fill="none" id="diamond_Activity_PVCRE_ITM_L1_P13-mtg-act:Work-C-Node" style="stroke:#800000;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--link diamond_Activity_PVCRE_ITM_L1_P13 to mtg-act:Work-O-Node--><g id="link_diamond_Activity_PVCRE_ITM_L1_P13_mtg-act:Work-O-Node"><path codeLine="18" d="M578.8204,316.7961 C614.8854,327.6156 746.7123,367.1637 816.1086,387.9826 " fill="none" id="diamond_Activity_PVCRE_ITM_L1_P13-mtg-act:Work-O-Node" style="stroke:#800000;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--link mtg-act:Activity-PVCRE-ITM-L1 to diamond_Activity_PVCRE_ITM_L1_P14--><g id="link_mtg-act:Activity-PVCRE-ITM-L1_diamond_Activity_PVCRE_ITM_L1_P14"><path codeLine="20" d="M1474.9254,195.5563 C1449.4939,206.5469 1424.7063,220.7394 1404.5,239 C1384.5716,257.0095 1375.6778,282.3618 1371.4152,298.2537 " fill="none" id="mtg-act:Activity-PVCRE-ITM-L1-to-diamond_Activity_PVCRE_ITM_L1_P14" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="1369.8608,304.0489,1376.0558,296.3924,1371.1561,299.2196,1368.329,294.3199,1369.8608,304.0489" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="190" x="1405.5" y="259.5669">eli-dl:created_a_realization_of</text></g><!--link diamond_Activity_PVCRE_ITM_L1_P14 to mtg-act:Work-TA-Node--><g id="link_diamond_Activity_PVCRE_ITM_L1_P14_mtg-act:Work-TA-Node"><path codeLine="21" d="M1357.8203,316.6991 C1319.5579,327.3685 1177.3028,367.0358 1102.3678,387.9311 " fill="none" id="diamond_Activity_PVCRE_ITM_L1_P14-mtg-act:Work-TA-Node" style="stroke:#800000;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--link diamond_Activity_PVCRE_ITM_L1_P14 to mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node--><g id="link_diamond_Activity_PVCRE_ITM_L1_P14_mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node"><path codeLine="22" d="M1367.5,326.097 C1367.5,342.3451 1367.5,371.1092 1367.5,387.8692 " fill="none" id="diamond_Activity_PVCRE_ITM_L1_P14-mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node" style="stroke:#800000;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--link mtg-act:Activity-PVCRE-ITM-L1 to diamond_Activity_PVCRE_ITM_L1_P12--><g id="link_mtg-act:Activity-PVCRE-ITM-L1_diamond_Activity_PVCRE_ITM_L1_P12"><path codeLine="24" d="M1603.9606,209.259 C1601.2431,229.9906 1602.2995,253.3033 1614.5,271 C1626.7717,288.7999 1686.6248,304.4151 1711.8176,310.3754 " fill="none" id="mtg-act:Activity-PVCRE-ITM-L1-to-diamond_Activity_PVCRE_ITM_L1_P12" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="1717.6564,311.7568,1709.8191,305.7922,1712.7907,310.6056,1707.9773,313.5773,1717.6564,311.7568" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="216" x="1615.5" y="252.0669">eli-dl:recorded_in_a_realization_of</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="34" x="1706.5" y="267.1997">[0..2]</text></g><!--link diamond_Activity_PVCRE_ITM_L1_P12 to mtg-act:WorkSubdivision-PV-ITM-Node--><g id="link_diamond_Activity_PVCRE_ITM_L1_P12_mtg-act:WorkSubdivision-PV-ITM-Node"><path codeLine="25" d="M1728.2844,325.3737 C1729.3962,341.4945 1731.4252,370.9153 1732.5979,387.9193 " fill="none" id="diamond_Activity_PVCRE_ITM_L1_P12-mtg-act:WorkSubdivision-PV-ITM-Node" style="stroke:#800000;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--link diamond_Activity_PVCRE_ITM_L1_P12 to mtg-act:WorkSubdivision-CRE-ITM-Node--><g id="link_diamond_Activity_PVCRE_ITM_L1_P12_mtg-act:WorkSubdivision-CRE-ITM-Node"><path codeLine="26" d="M1735.7663,318.0015 C1741.7151,320.777 1749.9825,324.4233 1757.5,327 C1833.805,353.1539 1924.2526,374.9488 1983.1531,387.9627 " fill="none" id="diamond_Activity_PVCRE_ITM_L1_P12-mtg-act:WorkSubdivision-CRE-ITM-Node" style="stroke:#800000;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--reverse link mtg-act:Activity-MTG-PL-Node to mtg-act:Activity-PVCRE-ITM-L1--><g id="link_mtg-act:Activity-MTG-PL-Node_mtg-act:Activity-PVCRE-ITM-L1"><path codeLine="28" d="M1886.5444,35.633 C1848.5359,53.132 1784.5829,82.5757 1725.0762,109.9723 " fill="none" id="mtg-act:Activity-MTG-PL-Node-backto-mtg-act:Activity-PVCRE-ITM-L1" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="1891.9945,33.1238,1882.1465,33.2542,1887.4527,35.2148,1885.4921,40.521,1891.9945,33.1238" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="116" x="1822.5" y="76.0669">^eli-dl:consists_of</text></g><!--link mtg-act:Activity-PVCRE-ITM-L1 to mtg-act:ProcessStage-Node--><g id="link_mtg-act:Activity-PVCRE-ITM-L1_mtg-act:ProcessStage-Node"><path codeLine="29" d="M1760.0495,193.8024 C1787.5092,205.0128 1814.5244,219.7356 1836.5,239 C1855.5922,255.7367 1864.9037,278.376 1870.0934,295.0109 " fill="none" id="mtg-act:Activity-PVCRE-ITM-L1-to-mtg-act:ProcessStage-Node" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="1871.8803,300.7386,1873.0184,290.9557,1870.3912,295.9655,1865.3814,293.3383,1871.8803,300.7386" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="148" x="1860.5" y="259.5669">eli-dl:occured_at_stage</text></g><!--link mtg-act:Activity-PVCRE-ITM-L1 to mtg-act:Activity-PVCRE-ITM-L2--><g id="link_mtg-act:Activity-PVCRE-ITM-L1_mtg-act:Activity-PVCRE-ITM-L2"><path codeLine="30" d="M1760.1342,124.816 C1899.109,93.4753 2100.1967,55.3295 2176,77 C2223.4189,90.556 2265.808,122.6543 2288.9974,142.3221 " fill="none" id="mtg-act:Activity-PVCRE-ITM-L1-to-mtg-act:Activity-PVCRE-ITM-L2" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="2293.5732,146.203,2289.2967,137.331,2289.76,142.9689,2284.1221,143.4321,2293.5732,146.203" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="105" x="2070" y="76.0669">eli-dl:consists_of</text></g><!--reverse link mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node to mtg-act:Activity-PVCRE-ITM-L1--><g id="link_mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node_mtg-act:Activity-PVCRE-ITM-L1"><path codeLine="31" d="M1617.5,39.1238 C1617.5,56.6228 1617.5,82.5757 1617.5,109.9723 " fill="none" id="mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node-backto-mtg-act:Activity-PVCRE-ITM-L1" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="1617.5,33.1238,1613.5,42.1238,1617.5,38.1238,1621.5,42.1238,1617.5,33.1238" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="93" x="1618.5" y="76.0669">eli-dl:executed</text></g><!--link mtg-act:Activity-PVCRE-ITM-L1 to mtg-act:Process-Node--><g id="link_mtg-act:Activity-PVCRE-ITM-L1_mtg-act:Process-Node"><path codeLine="32" d="M1760.2288,178.933 C1856.3961,193.707 1973.4372,215.4524 2017.5,239 C2045.921,254.1885 2066.9538,278.8432 2079.6831,295.9719 " fill="none" id="mtg-act:Activity-PVCRE-ITM-L1-to-mtg-act:Process-Node" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="2083.262,300.7877,2081.1042,291.1781,2080.2796,296.7746,2074.6832,295.95,2083.262,300.7877" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="116" x="2058.5" y="259.5669">^eli-dl:consists_of</text></g><!--link mtg-act:Activity-PVCRE-ITM-L1 to mtg-act:ActivityType-Node--><g id="link_mtg-act:Activity-PVCRE-ITM-L1_mtg-act:ActivityType-Node"><path codeLine="33" d="M1760.2177,159.5 C1831.8018,159.5 1910.4902,159.5 1973.756,159.5 " fill="none" id="mtg-act:Activity-PVCRE-ITM-L1-to-mtg-act:ActivityType-Node" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="1979.756,159.5,1970.756,155.5,1974.756,159.5,1970.756,163.5,1979.756,159.5" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="183" x="1778.5" y="152.5669">eli-dl:had_activity_type&#xa0;[1..1]</text></g><!--reverse link mtg-act:Activity-MTG-PL-OTH-Node to mtg-act:Activity-PVCRE-ITM-L1--><g id="link_mtg-act:Activity-MTG-PL-OTH-Node_mtg-act:Activity-PVCRE-ITM-L1"><path codeLine="34" d="M1332.2017,35.5152 C1372.4681,53.0142 1440.4914,82.5757 1503.5331,109.9723 " fill="none" id="mtg-act:Activity-MTG-PL-OTH-Node-backto-mtg-act:Activity-PVCRE-ITM-L1" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="1326.6989,33.1238,1333.3589,40.3795,1331.2846,35.1167,1336.5474,33.0424,1326.6989,33.1238" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="105" x="1429.5" y="76.0669">eli-dl:consists_of</text></g><!--SRC=[hPPDSzem48Rl_0gLtDen0vGJJJCr927fy3N1RGuCzGXh0Gssn4Xo0ldrbGCEuiFOXXoO0U_gsTrt5tabACHm07A1FHZ00Wkik42CCoZ8EMNHWm1vFfRodZCre6-0AhN25m8JoW2r7riFJk_9xhRkJ7SUB3H0kwkL3oWC_AfXVHLuqG4fyHIUAL4pL2cN3RCj17zjSbzdSTN1WdDMaCb9ea8poWqL0pMriAVgjgVe2rKhg_-t-NHdFJeTgrqfek7mwgJ7Q8IknjYRrs-nc3Vy47ueMAhwyumgAAJ1wmXyQX6_ZZTsbs05I3zVIb9VVnzMIgNA2A4pO9J4AAa4PTEBO3uUWn_n19dKVSoc0uFvDM9Uto12SS0PSMEg-qvrDTLjLzn-vNjgOCkwGSLKZ97W64iWBcSkTWLWdxvXHVKlFYcaKb2fXBO3yCp5tBAjBYTGFEjiuuApJyqB3bzojhSvcw5vjSzfNiredgTRfdJxSlUkTgGK9slp4WxRtQvb1y28_gX6IAQWxi9RWISgkqRLpz6eQcWamEE2Q97euOoZORbKgevGQidLmv87uPXeNwb9EiNt_BB9byAAYrt3qY-Qw3vHguLnrVsCIu_FPBYmh33IzS2fuxIiVdkTYuxrBvuxpYILIaOIfgE9YUuBxkcNq43frz07TuFbdXUAQ9oLAoDx1hOuchRXP8v2lhHt5Bdd0YG0srUcztlRh6qWM88NwZ_ccU9SgFTHJHmz8ljfph3MEfxIQ8Qk_tmhb-toJURttEcnwJaF-o5tAjbR8NQhDpO7q_2nCBol2EjjeINmAd4VsHdXO-k8uP0RlZjeASjEzUIoavB_LiiJDSHEMUl8DDL6l0p-UIKqvl98OH_MhDWZrylX86sjMR7cScC2ZUUvK8q4L2C_Abvz3bWRGovO4kiCL2y1rSkFSfAKT-opO6cRoh4uAMVof92qEUo7JV0xDzJEOd4gbkcO66n62I2F2i-7zVS0r8mJkVu1mKAl7G44On2o823WBu1-XSodR0xaFm00]--></g></svg></div><small class="form-text text-muted">Click diagram to navigate to corresponding section | <a href="http://www.plantuml.com/plantuml/png/hPPDSzem48Rl_0gLtDen0vGJJJCr927fy3N1RGuCzGXh0Gssn4Xo0ldrbGCEuiFOXXoO0U_gsTrt5tabACHm07A1FHZ00Wkik42CCoZ8EMNHWm1vFfRodZCre6-0AhN25m8JoW2r7riFJk_9xhRkJ7SUB3H0kwkL3oWC_AfXVHLuqG4fyHIUAL4pL2cN3RCj17zjSbzdSTN1WdDMaCb9ea8poWqL0pMriAVgjgVe2rKhg_-t-NHdFJeTgrqfek7mwgJ7Q8IknjYRrs-nc3Vy47ueMAhwyumgAAJ1wmXyQX6_ZZTsbs05I3zVIb9VVnzMIgNA2A4pO9J4AAa4PTEBO3uUWn_n19dKVSoc0uFvDM9Uto12SS0PSMEg-qvrDTLjLzn-vNjgOCkwGSLKZ97W64iWBcSkTWLWdxvXHVKlFYcaKb2fXBO3yCp5tBAjBYTGFEjiuuApJyqB3bzojhSvcw5vjSzfNiredgTRfdJxSlUkTgGK9slp4WxRtQvb1y28_gX6IAQWxi9RWISgkqRLpz6eQcWamEE2Q97euOoZORbKgevGQidLmv87uPXeNwb9EiNt_BB9byAAYrt3qY-Qw3vHguLnrVsCIu_FPBYmh33IzS2fuxIiVdkTYuxrBvuxpYILIaOIfgE9YUuBxkcNq43frz07TuFbdXUAQ9oLAoDx1hOuchRXP8v2lhHt5Bdd0YG0srUcztlRh6qWM88NwZ_ccU9SgFTHJHmz8ljfph3MEfxIQ8Qk_tmhb-toJURttEcnwJaF-o5tAjbR8NQhDpO7q_2nCBol2EjjeINmAd4VsHdXO-k8uP0RlZjeASjEzUIoavB_LiiJDSHEMUl8DDL6l0p-UIKqvl98OH_MhDWZrylX86sjMR7cScC2ZUUvK8q4L2C_Abvz3bWRGovO4kiCL2y1rSkFSfAKT-opO6cRoh4uAMVof92qEUo7JV0xDzJEOd4gbkcO66n62I2F2i-7zVS0r8mJkVu1mKAl7G44On2o823WBu1-XSodR0xaFm00" target="_blank">View as PNG</a></small>
+                     <!--@startuml
+set namespaceSeparator none
+skinparam classFontSize 14
+!define LIGHTORANGE
+skinparam componentStyle uml2
+skinparam wrapMessageWidth 100
+skinparam ArrowColor #Maroon
+set namespaceSeparator none 
+Class "mtg-act:Activity-PVCRE-ITM-L1" [[#mtg-act:Activity-PVCRE-ITM-L1]] #back:DarkBlue;text:White
+"mtg-act:Activity-PVCRE-ITM-L1" : eli-dl:activity_date  : xsd:date  [1..1]  
+"mtg-act:Activity-PVCRE-ITM-L1" : eli-dl:activity_id  : xsd:string  [1..1]  
+"mtg-act:Activity-PVCRE-ITM-L1" : eli-dl:activity_label  : rdf:langString  [1..*]  
+<> diamond_Activity_PVCRE_ITM_L1_P13
+"mtg-act:Activity-PVCRE-ITM-L1" - -> "diamond_Activity_PVCRE_ITM_L1_P13" : eli-dl:based_on_a_realization_of
+diamond_Activity_PVCRE_ITM_L1_P13 ..  "mtg-act:Work-A-Node"
+diamond_Activity_PVCRE_ITM_L1_P13 ..  "mtg-act:Work-B-Node"
+diamond_Activity_PVCRE_ITM_L1_P13 ..  "mtg-act:Work-RC-Node"
+diamond_Activity_PVCRE_ITM_L1_P13 ..  "mtg-act:Work-C-Node"
+diamond_Activity_PVCRE_ITM_L1_P13 ..  "mtg-act:Work-O-Node"
+<> diamond_Activity_PVCRE_ITM_L1_P14
+"mtg-act:Activity-PVCRE-ITM-L1" - -> "diamond_Activity_PVCRE_ITM_L1_P14" : eli-dl:created_a_realization_of
+diamond_Activity_PVCRE_ITM_L1_P14 ..  "mtg-act:Work-TA-Node"
+diamond_Activity_PVCRE_ITM_L1_P14 ..  "mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node"
+<> diamond_Activity_PVCRE_ITM_L1_P12
+"mtg-act:Activity-PVCRE-ITM-L1" - -> "diamond_Activity_PVCRE_ITM_L1_P12" : eli-dl:recorded_in_a_realization_of [0..2] 
+diamond_Activity_PVCRE_ITM_L1_P12 ..  "mtg-act:WorkSubdivision-PV-ITM-Node"
+diamond_Activity_PVCRE_ITM_L1_P12 ..  "mtg-act:WorkSubdivision-CRE-ITM-Node"
+"mtg-act:Activity-PVCRE-ITM-L1" : rdf:type  [1..1]  = eli-dl:Activity  
+"mtg-act:Activity-PVCRE-ITM-L1" -u-> "mtg-act:Activity-MTG-PL-Node" : ^eli-dl:consists_of 
+"mtg-act:Activity-PVCRE-ITM-L1" -d-> "mtg-act:ProcessStage-Node" : eli-dl:occured_at_stage 
+"mtg-act:Activity-PVCRE-ITM-L1" -r-> "mtg-act:Activity-PVCRE-ITM-L2" : eli-dl:consists_of 
+"mtg-act:Activity-PVCRE-ITM-L1" -u-> "mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node" : eli-dl:executed 
+"mtg-act:Activity-PVCRE-ITM-L1" -d-> "mtg-act:Process-Node" : ^eli-dl:consists_of 
+"mtg-act:Activity-PVCRE-ITM-L1" -r-> "mtg-act:ActivityType-Node" : eli-dl:had_activity_type<U+00A0>[1..1]  
+"mtg-act:Activity-PVCRE-ITM-L1" -u-> "mtg-act:Activity-MTG-PL-OTH-Node" : eli-dl:consists_of 
+Class "mtg-act:Process-Node" [[#mtg-act:Process-Node]] #back:White;text:Gray
+Class "mtg-act:Activity-MTG-PL-Node" [[#mtg-act:Activity-MTG-PL-Node]] #back:White;text:Gray
+Class "mtg-act:Activity-PVCRE-ITM-L2" [[#mtg-act:Activity-PVCRE-ITM-L2]] #back:DarkBlue;text:White
+Class "mtg-act:Activity-MTG-PL-OTH-Node" [[#mtg-act:Activity-MTG-PL-OTH-Node]] #back:White;text:Gray
+Class "mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node" [[#mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node]] #back:White;text:Gray
+Class "mtg-act:ActivityType-Node" [[#mtg-act:ActivityType-Node]] #back:White;text:Gray
+Class "mtg-act:ProcessStage-Node" [[#mtg-act:ProcessStage-Node]] #back:White;text:Gray
+Class "mtg-act:Work-A-Node" [[#mtg-act:Work-A-Node]] #back:White;text:Gray
+Class "mtg-act:Work-B-Node" [[#mtg-act:Work-B-Node]] #back:White;text:Gray
+Class "mtg-act:Work-RC-Node" [[#mtg-act:Work-RC-Node]] #back:White;text:Gray
+Class "mtg-act:Work-C-Node" [[#mtg-act:Work-C-Node]] #back:White;text:Gray
+Class "mtg-act:Work-O-Node" [[#mtg-act:Work-O-Node]] #back:White;text:Gray
+Class "mtg-act:Work-TA-Node" [[#mtg-act:Work-TA-Node]] #back:White;text:Gray
+Class "mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node" [[#mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node]] #back:White;text:Gray
+Class "mtg-act:WorkSubdivision-PV-ITM-Node" [[#mtg-act:WorkSubdivision-PV-ITM-Node]] #back:White;text:Gray
+Class "mtg-act:WorkSubdivision-CRE-ITM-Node" [[#mtg-act:WorkSubdivision-CRE-ITM-Node]] #back:White;text:Gray
+hide circle
+hide methods
+hide empty members
+remove @unlinked
+@enduml
+--></div>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity date</td>
+                           <td id="mtg-act:Activity-PVCRE-ITM-L1_eli-dl:activity_date"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_date">eli-dl:activity_date</a></code></td>
+                           <td><code>xsd:date</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity id</td>
+                           <td id="mtg-act:Activity-PVCRE-ITM-L1_eli-dl:activity_id"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_id">eli-dl:activity_id</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity label</td>
+                           <td id="mtg-act:Activity-PVCRE-ITM-L1_eli-dl:activity_label"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_label">eli-dl:activity_label</a></code></td>
+                           <td><code>rdf:langString</code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity type</td>
+                           <td id="mtg-act:Activity-PVCRE-ITM-L1_eli-dl:had_activity_type"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#had_activity_type">eli-dl:had_activity_type</a></code></td>
+                           <td><code><a href="#mtg-act:ActivityType-Node">Reference to an Activity type</a></code><br><p><small><a href="https://data.europarl.europa.eu/def/ep-activities/PLENARY_DEBATE">ep-activities:PLENARY_DEBATE</a>, <a href="https://data.europarl.europa.eu/def/ep-activities/PLENARY_VOTE">ep-activities:PLENARY_VOTE</a>, <a href="https://data.europarl.europa.eu/def/ep-activities/PLENARY_ACTIVITY">ep-activities:PLENARY_ACTIVITY</a>, <a href="https://data.europarl.europa.eu/def/ep-activities/PLENARY_VOTE_EXPLANATIONS">ep-activities:PLENARY_VOTE_EXPLANATIONS</a></small></p>
+                           </td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>based on a realization of</td>
+                           <td id="mtg-act:Activity-PVCRE-ITM-L1_eli-dl:based_on_a_realization_of"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#based_on_a_realization_of">eli-dl:based_on_a_realization_of</a></code></td>
+                           <td><code><a href="#mtg-act:Work-A-Node">Reference to a Work (ep-document-types/REPORT_PLENARY)</a></code><code> or </code><code><a href="#mtg-act:Work-B-Node">Reference to a Work (ep-document-types/RESOLUTION_MOTION)</a></code><code> or </code><code><a href="#mtg-act:Work-RC-Node">Reference to a Work (ep-document-types/RESOLUTION_MOTION_JOINT)</a></code><code> or </code><code><a href="#mtg-act:Work-C-Node">Reference to a Work (C documents)</a></code><code> or </code><code><a href="#mtg-act:Work-O-Node">Reference to a Work (ep-document-types/QUESTION_ORAL)</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>consists of</td>
+                           <td id="mtg-act:Activity-PVCRE-ITM-L1_eli-dl:consists_of"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#consists_of">eli-dl:consists_of</a></code></td>
+                           <td><code><a href="#mtg-act:Activity-PVCRE-ITM-L2">Plenary Activity level2</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>consists of</td>
+                           <td id="mtg-act:Activity-PVCRE-ITM-L1_eli-dl:consists_of"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#consists_of">eli-dl:consists_of</a></code></td>
+                           <td><code><a href="#mtg-act:Activity-MTG-PL-OTH-Node">Reference to a Plenary Speech Activity</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>created a realization of</td>
+                           <td id="mtg-act:Activity-PVCRE-ITM-L1_eli-dl:created_a_realization_of"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#created_a_realization_of">eli-dl:created_a_realization_of</a></code></td>
+                           <td><code><a href="#mtg-act:Work-TA-Node">Reference to a Work (ep-document-types/TEXT_ADOPTED)</a></code><code> or </code><code><a href="#mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node">Reference to a Work (ep-document-types/AMENDMENT_BUDGET_EU_DRAFT)</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>executed</td>
+                           <td id="mtg-act:Activity-PVCRE-ITM-L1_eli-dl:executed"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#executed">eli-dl:executed</a></code></td>
+                           <td><code><a href="#mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node">Reference to a Plenary Sitting</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>inverse consists of</td>
+                           <td id="mtg-act:Activity-PVCRE-ITM-L1_^eli-dl:consists_of"><code>^eli-dl:consists_of</code></td>
+                           <td><code><a href="#mtg-act:Process-Node">Reference to a Process</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>inverse consists of</td>
+                           <td id="mtg-act:Activity-PVCRE-ITM-L1_^eli-dl:consists_of"><code>^eli-dl:consists_of</code></td>
+                           <td><code><a href="#mtg-act:Activity-MTG-PL-Node">Reference to a Plenary Sitting</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>occured at stage</td>
+                           <td id="mtg-act:Activity-PVCRE-ITM-L1_eli-dl:occured_at_stage"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#occured_at_stage">eli-dl:occured_at_stage</a></code></td>
+                           <td><code><a href="#mtg-act:ProcessStage-Node">Reference to a Process stage</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>recorded in a realization of</td>
+                           <td id="mtg-act:Activity-PVCRE-ITM-L1_eli-dl:recorded_in_a_realization_of"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#recorded_in_a_realization_of">eli-dl:recorded_in_a_realization_of</a></code></td>
+                           <td><code><a href="#mtg-act:WorkSubdivision-PV-ITM-Node">Reference to a Plenary session document WorkSubdivision</a></code><code> or </code><code><a href="#mtg-act:WorkSubdivision-CRE-ITM-Node">Reference to a Plenary session document WorkSubdivision</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..2</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>type</td>
+                           <td id="mtg-act:Activity-PVCRE-ITM-L1_rdf:type"><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#Activity">eli-dl:Activity</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg-act:Activity-PVCRE-ITM-L2" class="sp_section_title_table">Plenary Activity level2</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings-activities_api#Activity-PVCRE-ITM-L2</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli-dl:Activity (level 2)</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-PVCRE-ITM-[0-9]{1,2}-[0-9]{1,3}$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2023-10-17-PVCRE-ITM-7-8</code></li>
+                  </ul>
+                  <div class="sp_section_nodeshape_diagram">
+                     <div class="sp_section_nodeshape_center"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="420px" preserveAspectRatio="none" style="width:2518px;height:420px;background:#FFFFFF;" version="1.1" viewBox="0 0 2518 420" width="2518px" zoomAndPan="magnify"><defs xmlns=""/><g><!--class mtg-act:Activity-PVCRE-ITM-L2--><a href="#mtg-act:Activity-PVCRE-ITM-L2" target="_top" title="#mtg-act:Activity-PVCRE-ITM-L2" xlink:actuate="onRequest" xlink:href="#mtg-act:Activity-PVCRE-ITM-L2" xlink:show="new" xlink:title="#mtg-act:Activity-PVCRE-ITM-L2" xlink:type="simple"><g id="elem_mtg-act:Activity-PVCRE-ITM-L2"><rect codeLine="8" fill="#00008B" height="99.4844" id="uml_mtg-act:Activity-PVCRE-ITM-L2" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="285" x="1478" y="110"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="207" x="1517" y="127.9951">mtg-act:Activity-PVCRE-ITM-L2</text><line style="stroke:#181818;stroke-width:0.5;" x1="1479" x2="1762" y1="136.2969" y2="136.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="242" x="1484" y="153.292">eli-dl:activity_date  : xsd:date  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="231" x="1484" y="169.5889">eli-dl:activity_id  : xsd:string  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="273" x="1484" y="185.8857">eli-dl:activity_label  : rdf:langString  [1..*]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="205" x="1484" y="202.1826">rdf:type  [1..1]  = eli-dl:Activity</text></g></a><polygon fill="#F1F1F1" points="569.5,302,581.5,314,569.5,326,557.5,314,569.5,302" style="stroke:#181818;stroke-width:0.5;"/><!--class mtg-act:Work-A-Node--><a href="#mtg-act:Work-A-Node" target="_top" title="#mtg-act:Work-A-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:Work-A-Node" xlink:show="new" xlink:title="#mtg-act:Work-A-Node" xlink:type="simple"><g id="elem_mtg-act:Work-A-Node"><rect codeLine="40" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:Work-A-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="155" x="7" y="388"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="149" x="10" y="405.9951">mtg-act:Work-A-Node</text></g></a><!--class mtg-act:Work-B-Node--><a href="#mtg-act:Work-B-Node" target="_top" title="#mtg-act:Work-B-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:Work-B-Node" xlink:show="new" xlink:title="#mtg-act:Work-B-Node" xlink:type="simple"><g id="elem_mtg-act:Work-B-Node"><rect codeLine="41" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:Work-B-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="156" x="197.5" y="388"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="150" x="200.5" y="405.9951">mtg-act:Work-B-Node</text></g></a><!--class mtg-act:Work-RC-Node--><a href="#mtg-act:Work-RC-Node" target="_top" title="#mtg-act:Work-RC-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:Work-RC-Node" xlink:show="new" xlink:title="#mtg-act:Work-RC-Node" xlink:type="simple"><g id="elem_mtg-act:Work-RC-Node"><rect codeLine="42" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:Work-RC-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="166" x="388.5" y="388"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="160" x="391.5" y="405.9951">mtg-act:Work-RC-Node</text></g></a><!--class mtg-act:Work-C-Node--><a href="#mtg-act:Work-C-Node" target="_top" title="#mtg-act:Work-C-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:Work-C-Node" xlink:show="new" xlink:title="#mtg-act:Work-C-Node" xlink:type="simple"><g id="elem_mtg-act:Work-C-Node"><rect codeLine="43" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:Work-C-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="156" x="589.5" y="388"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="150" x="592.5" y="405.9951">mtg-act:Work-C-Node</text></g></a><!--class mtg-act:Work-O-Node--><a href="#mtg-act:Work-O-Node" target="_top" title="#mtg-act:Work-O-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:Work-O-Node" xlink:show="new" xlink:title="#mtg-act:Work-O-Node" xlink:type="simple"><g id="elem_mtg-act:Work-O-Node"><rect codeLine="44" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:Work-O-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="157" x="781" y="388"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="151" x="784" y="405.9951">mtg-act:Work-O-Node</text></g></a><polygon fill="#F1F1F1" points="1367.5,302,1379.5,314,1367.5,326,1355.5,314,1367.5,302" style="stroke:#181818;stroke-width:0.5;"/><!--class mtg-act:Work-TA-Node--><a href="#mtg-act:Work-TA-Node" target="_top" title="#mtg-act:Work-TA-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:Work-TA-Node" xlink:show="new" xlink:title="#mtg-act:Work-TA-Node" xlink:type="simple"><g id="elem_mtg-act:Work-TA-Node"><rect codeLine="45" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:Work-TA-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="164" x="973.5" y="388"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="158" x="976.5" y="405.9951">mtg-act:Work-TA-Node</text></g></a><!--class mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node--><a href="#mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node" target="_top" title="#mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node" xlink:show="new" xlink:title="#mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node" xlink:type="simple"><g id="elem_mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node"><rect codeLine="46" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="390" x="1172.5" y="388"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="384" x="1175.5" y="405.9951">mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node</text></g></a><polygon fill="#F1F1F1" points="1725.5,302,1737.5,314,1725.5,326,1713.5,314,1725.5,302" style="stroke:#181818;stroke-width:0.5;"/><!--class mtg-act:WorkSubdivision-PV-ITM-Node--><a href="#mtg-act:WorkSubdivision-PV-ITM-Node" target="_top" title="#mtg-act:WorkSubdivision-PV-ITM-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:WorkSubdivision-PV-ITM-Node" xlink:show="new" xlink:title="#mtg-act:WorkSubdivision-PV-ITM-Node" xlink:type="simple"><g id="elem_mtg-act:WorkSubdivision-PV-ITM-Node"><rect codeLine="47" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:WorkSubdivision-PV-ITM-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="271" x="1598" y="388"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="265" x="1601" y="405.9951">mtg-act:WorkSubdivision-PV-ITM-Node</text></g></a><!--class mtg-act:WorkSubdivision-CRE-ITM-Node--><a href="#mtg-act:WorkSubdivision-CRE-ITM-Node" target="_top" title="#mtg-act:WorkSubdivision-CRE-ITM-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:WorkSubdivision-CRE-ITM-Node" xlink:show="new" xlink:title="#mtg-act:WorkSubdivision-CRE-ITM-Node" xlink:type="simple"><g id="elem_mtg-act:WorkSubdivision-CRE-ITM-Node"><rect codeLine="48" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:WorkSubdivision-CRE-ITM-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="282" x="1904.5" y="388"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="276" x="1907.5" y="405.9951">mtg-act:WorkSubdivision-CRE-ITM-Node</text></g></a><!--class mtg-act:ProcessStage-Node--><a href="#mtg-act:ProcessStage-Node" target="_top" title="#mtg-act:ProcessStage-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:ProcessStage-Node" xlink:show="new" xlink:title="#mtg-act:ProcessStage-Node" xlink:type="simple"><g id="elem_mtg-act:ProcessStage-Node"><rect codeLine="39" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:ProcessStage-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="202" x="1628.5" y="7"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="196" x="1631.5" y="24.9951">mtg-act:ProcessStage-Node</text></g></a><!--class mtg-act:Activity-MTG-PL-Node--><a href="#mtg-act:Activity-MTG-PL-Node" target="_top" title="#mtg-act:Activity-MTG-PL-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:Activity-MTG-PL-Node" xlink:show="new" xlink:title="#mtg-act:Activity-MTG-PL-Node" xlink:type="simple"><g id="elem_mtg-act:Activity-MTG-PL-Node"><rect codeLine="35" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:Activity-MTG-PL-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="211" x="1773" y="301"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="205" x="1776" y="318.9951">mtg-act:Activity-MTG-PL-Node</text></g></a><!--class mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node--><a href="#mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node" target="_top" title="#mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node" xlink:show="new" xlink:title="#mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node" xlink:type="simple"><g id="elem_mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node"><rect codeLine="37" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="325" x="2186" y="146.5"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="319" x="2189" y="164.4951">mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node</text></g></a><!--class mtg-act:Process-Node--><a href="#mtg-act:Process-Node" target="_top" title="#mtg-act:Process-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:Process-Node" xlink:show="new" xlink:title="#mtg-act:Process-Node" xlink:type="simple"><g id="elem_mtg-act:Process-Node"><rect codeLine="34" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:Process-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="162" x="1431.5" y="7"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="156" x="1434.5" y="24.9951">mtg-act:Process-Node</text></g></a><!--class mtg-act:ActivityType-Node--><a href="#mtg-act:ActivityType-Node" target="_top" title="#mtg-act:ActivityType-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:ActivityType-Node" xlink:show="new" xlink:title="#mtg-act:ActivityType-Node" xlink:type="simple"><g id="elem_mtg-act:ActivityType-Node"><rect codeLine="38" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:ActivityType-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="187" x="2019" y="301"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="181" x="2022" y="318.9951">mtg-act:ActivityType-Node</text></g></a><!--class mtg-act:Activity-MTG-PL-OTH-Node--><a href="#mtg-act:Activity-MTG-PL-OTH-Node" target="_top" title="#mtg-act:Activity-MTG-PL-OTH-Node" xlink:actuate="onRequest" xlink:href="#mtg-act:Activity-MTG-PL-OTH-Node" xlink:show="new" xlink:title="#mtg-act:Activity-MTG-PL-OTH-Node" xlink:type="simple"><g id="elem_mtg-act:Activity-MTG-PL-OTH-Node"><rect codeLine="36" fill="#FFFFFF" height="26.2969" id="uml_mtg-act:Activity-MTG-PL-OTH-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="246" x="1904.5" y="146.5"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="240" x="1907.5" y="164.4951">mtg-act:Activity-MTG-PL-OTH-Node</text></g></a><!--link mtg-act:Activity-PVCRE-ITM-L2 to diamond_Activity_PVCRE_ITM_L2_P28--><g id="link_mtg-act:Activity-PVCRE-ITM-L2_diamond_Activity_PVCRE_ITM_L2_P28"><path codeLine="13" d="M1477.9374,180.4571 C1212.8556,219.4249 669.297,299.3296 586.0895,311.5613 " fill="none" id="mtg-act:Activity-PVCRE-ITM-L2-to-diamond_Activity_PVCRE_ITM_L2_P28" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="580.1533,312.4339,589.6394,315.0824,585.1001,311.7067,588.4758,307.1675,580.1533,312.4339" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="203" x="1064.5" y="259.5669">eli-dl:based_on_a_realization_of</text></g><!--link diamond_Activity_PVCRE_ITM_L2_P28 to mtg-act:Work-A-Node--><g id="link_diamond_Activity_PVCRE_ITM_L2_P28_mtg-act:Work-A-Node"><path codeLine="14" d="M558.919,315.898 C506.971,325.2165 276.6205,366.5371 157.0664,387.9829 " fill="none" id="diamond_Activity_PVCRE_ITM_L2_P28-mtg-act:Work-A-Node" style="stroke:#800000;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--link diamond_Activity_PVCRE_ITM_L2_P28 to mtg-act:Work-B-Node--><g id="link_diamond_Activity_PVCRE_ITM_L2_P28_mtg-act:Work-B-Node"><path codeLine="15" d="M560.0511,316.7961 C523.4886,327.6156 389.8434,367.1637 319.4899,387.9826 " fill="none" id="diamond_Activity_PVCRE_ITM_L2_P28-mtg-act:Work-B-Node" style="stroke:#800000;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--link diamond_Activity_PVCRE_ITM_L2_P28 to mtg-act:Work-RC-Node--><g id="link_diamond_Activity_PVCRE_ITM_L2_P28_mtg-act:Work-RC-Node"><path codeLine="16" d="M563.0699,319.7083 C547.5698,333.4686 507.8265,368.7509 486.1451,387.9987 " fill="none" id="diamond_Activity_PVCRE_ITM_L2_P28-mtg-act:Work-RC-Node" style="stroke:#800000;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--link diamond_Activity_PVCRE_ITM_L2_P28 to mtg-act:Work-C-Node--><g id="link_diamond_Activity_PVCRE_ITM_L2_P28_mtg-act:Work-C-Node"><path codeLine="17" d="M575.9301,319.7083 C591.4302,333.4686 631.1735,368.7509 652.8549,387.9987 " fill="none" id="diamond_Activity_PVCRE_ITM_L2_P28-mtg-act:Work-C-Node" style="stroke:#800000;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--link diamond_Activity_PVCRE_ITM_L2_P28 to mtg-act:Work-O-Node--><g id="link_diamond_Activity_PVCRE_ITM_L2_P28_mtg-act:Work-O-Node"><path codeLine="18" d="M578.8204,316.7961 C614.8854,327.6156 746.7123,367.1637 816.1086,387.9826 " fill="none" id="diamond_Activity_PVCRE_ITM_L2_P28-mtg-act:Work-O-Node" style="stroke:#800000;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--link mtg-act:Activity-PVCRE-ITM-L2 to diamond_Activity_PVCRE_ITM_L2_P29--><g id="link_mtg-act:Activity-PVCRE-ITM-L2_diamond_Activity_PVCRE_ITM_L2_P29"><path codeLine="20" d="M1477.8473,195.688 C1452.1722,206.6736 1427.0711,220.8305 1406.5,239 C1386.0405,257.0709 1376.4183,282.7189 1371.7589,298.5416 " fill="none" id="mtg-act:Activity-PVCRE-ITM-L2-to-diamond_Activity_PVCRE_ITM_L2_P29" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="1370.064,304.2972,1376.4434,296.7937,1371.4764,299.5008,1368.7693,294.5338,1370.064,304.2972" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="190" x="1407.5" y="259.5669">eli-dl:created_a_realization_of</text></g><!--link diamond_Activity_PVCRE_ITM_L2_P29 to mtg-act:Work-TA-Node--><g id="link_diamond_Activity_PVCRE_ITM_L2_P29_mtg-act:Work-TA-Node"><path codeLine="21" d="M1357.8203,316.6991 C1319.5579,327.3685 1177.3028,367.0358 1102.3678,387.9311 " fill="none" id="diamond_Activity_PVCRE_ITM_L2_P29-mtg-act:Work-TA-Node" style="stroke:#800000;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--link diamond_Activity_PVCRE_ITM_L2_P29 to mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node--><g id="link_diamond_Activity_PVCRE_ITM_L2_P29_mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node"><path codeLine="22" d="M1367.5,326.097 C1367.5,342.3451 1367.5,371.1092 1367.5,387.8692 " fill="none" id="diamond_Activity_PVCRE_ITM_L2_P29-mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node" style="stroke:#800000;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--link mtg-act:Activity-PVCRE-ITM-L2 to diamond_Activity_PVCRE_ITM_L2_P27--><g id="link_mtg-act:Activity-PVCRE-ITM-L2_diamond_Activity_PVCRE_ITM_L2_P27"><path codeLine="24" d="M1607.0912,209.1697 C1604.3969,229.8855 1605.4352,253.2105 1617.5,271 C1639.589,303.5701 1684.7105,310.9749 1707.8092,312.8909 " fill="none" id="mtg-act:Activity-PVCRE-ITM-L2-to-diamond_Activity_PVCRE_ITM_L2_P27" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="1713.7887,313.3869,1705.1502,308.6566,1708.8058,312.9736,1704.4888,316.6292,1713.7887,313.3869" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="216" x="1618.5" y="252.0669">eli-dl:recorded_in_a_realization_of</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="34" x="1709.5" y="267.1997">[0..2]</text></g><!--link diamond_Activity_PVCRE_ITM_L2_P27 to mtg-act:WorkSubdivision-PV-ITM-Node--><g id="link_diamond_Activity_PVCRE_ITM_L2_P27_mtg-act:WorkSubdivision-PV-ITM-Node"><path codeLine="25" d="M1726.5132,325.0186 C1727.9848,341.0219 1730.7094,370.6518 1732.2862,387.7999 " fill="none" id="diamond_Activity_PVCRE_ITM_L2_P27-mtg-act:WorkSubdivision-PV-ITM-Node" style="stroke:#800000;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--link diamond_Activity_PVCRE_ITM_L2_P27 to mtg-act:WorkSubdivision-CRE-ITM-Node--><g id="link_diamond_Activity_PVCRE_ITM_L2_P27_mtg-act:WorkSubdivision-CRE-ITM-Node"><path codeLine="26" d="M1733.7649,318.0053 C1739.7131,320.7826 1747.9803,324.4296 1755.5,327 C1832.2011,353.2184 1923.1107,374.9621 1982.4302,387.9488 " fill="none" id="diamond_Activity_PVCRE_ITM_L2_P27-mtg-act:WorkSubdivision-CRE-ITM-Node" style="stroke:#800000;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--reverse link mtg-act:ProcessStage-Node to mtg-act:Activity-PVCRE-ITM-L2--><g id="link_mtg-act:ProcessStage-Node_mtg-act:Activity-PVCRE-ITM-L2"><path codeLine="28" d="M1715.6954,38.1663 C1706.4146,50.3572 1695.9269,64.0575 1683.5,80 C1675.9215,89.7225 1667.7771,100.0721 1659.9429,109.9789 " fill="none" id="mtg-act:ProcessStage-Node-backto-mtg-act:Activity-PVCRE-ITM-L2" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="1719.3298,33.3923,1710.6955,38.1304,1716.3011,37.3706,1717.0609,42.9762,1719.3298,33.3923" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="148" x="1696.5" y="76.0669">eli-dl:occured_at_stage</text></g><!--link mtg-act:Activity-PVCRE-ITM-L2 to mtg-act:Activity-MTG-PL-Node--><g id="link_mtg-act:Activity-PVCRE-ITM-L2_mtg-act:Activity-MTG-PL-Node"><path codeLine="29" d="M1763.0495,193.8024 C1790.5092,205.0128 1817.5244,219.7356 1839.5,239 C1858.5922,255.7367 1867.9037,278.376 1873.0934,295.0109 " fill="none" id="mtg-act:Activity-PVCRE-ITM-L2-to-mtg-act:Activity-MTG-PL-Node" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="1874.8803,300.7386,1876.0184,290.9557,1873.3912,295.9655,1868.3814,293.3383,1874.8803,300.7386" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="116" x="1863.5" y="259.5669">^eli-dl:consists_of</text></g><!--link mtg-act:Activity-PVCRE-ITM-L2 to mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node--><g id="link_mtg-act:Activity-PVCRE-ITM-L2_mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node"><path codeLine="30" d="M1761.8796,109.9733 C1853.2901,83.9711 1974.9438,60.5984 2083,77 C2170.3298,90.2556 2262.9119,124.4727 2311.7849,144.1895 " fill="none" id="mtg-act:Activity-PVCRE-ITM-L2-to-mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="2317.3492,146.4343,2310.4993,139.3576,2312.7123,144.5636,2307.5063,146.7766,2317.3492,146.4343" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="93" x="1989" y="76.0669">eli-dl:executed</text></g><!--reverse link mtg-act:Process-Node to mtg-act:Activity-PVCRE-ITM-L2--><g id="link_mtg-act:Process-Node_mtg-act:Activity-PVCRE-ITM-L2"><path codeLine="31" d="M1526.3334,37.8681 C1539.881,55.3671 1560.9457,82.5757 1582.156,109.9723 " fill="none" id="mtg-act:Process-Node-backto-mtg-act:Activity-PVCRE-ITM-L2" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="1522.6604,33.1238,1525.0071,42.689,1525.7213,37.0774,1531.3329,37.7916,1522.6604,33.1238" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="116" x="1558.5" y="76.0669">^eli-dl:consists_of</text></g><!--link mtg-act:Activity-PVCRE-ITM-L2 to mtg-act:ActivityType-Node--><g id="link_mtg-act:Activity-PVCRE-ITM-L2_mtg-act:ActivityType-Node"><path codeLine="32" d="M1763.3688,185.3434 C1848.5156,201.7206 1947.7286,222.7925 1988.5,239 C2029.1807,255.1714 2066.9908,280.4828 2090.1494,297.297 " fill="none" id="mtg-act:Activity-PVCRE-ITM-L2-to-mtg-act:ActivityType-Node" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="2095.0046,300.8221,2090.0718,292.2976,2090.9586,297.8845,2085.3716,298.7712,2095.0046,300.8221" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="183" x="2048.5" y="259.5669">eli-dl:had_activity_type&#xa0;[1..1]</text></g><!--link mtg-act:Activity-PVCRE-ITM-L2 to mtg-act:Activity-MTG-PL-OTH-Node--><g id="link_mtg-act:Activity-PVCRE-ITM-L2_mtg-act:Activity-MTG-PL-OTH-Node"><path codeLine="33" d="M1763.1347,159.5 C1809.192,159.5 1853.8305,159.5 1898.355,159.5 " fill="none" id="mtg-act:Activity-PVCRE-ITM-L2-to-mtg-act:Activity-MTG-PL-OTH-Node" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="1904.355,159.5,1895.355,155.5,1899.355,159.5,1895.355,163.5,1904.355,159.5" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="105" x="1781.25" y="152.5669">eli-dl:consists_of</text></g><!--SRC=[hPPRRzem583Vyoiy-hOf2D2ahgoh5cXBDt5JoTO7n28J7y0YiP7jjAM_Vavfm5pI9D07f91ppdUkyR44XHWEGIwm3mDOO84L5uXn1fQSKnQ_294VO2blELC3-WAe-jNwH6126Q3shzQTsxjtkgqRKvs72mtGwceP08h2e6P8dmHUT41AF8K7IjGCLIiLG-m8mP-QFD1Hd7Mmu9nPCZr8P3NZs50fL5CR-whk-8e-KhMq-t-RzpVsBxTZjsibD1oUlQin6g6pCVRdzMiiveqWWkyAdbNzOKOLM5dmEeA0sYIeupUvHx02fDy_Ir9VFG-hvN9rXD0HC4eIb5I2ikb9i02F8OXvWapg0MRJWS7y73Clhn2XEEICU0dLUwLwckgrQrw_zYtJiMrVeL8cnWXmZ2KGZpCFUm9mG5-meleVdrYP55Gkeyq0F70njnsxomcKZh9jd61xtpp1-1JRtfjjZkPTV4ppBepc-RfbIhUlSEyk3gJYvcrUYh7JxTfE28pedsf4P0hg9heMUABor-ZyOsfqRjH8WCy5qKMY-pEEXfLokJP2cIcVxwSyYCP4wqfDqY6-nfUlV1ci9DaLBFkWYSyJjLmOHzsF9FN49iU1PKTnNHEblk2-tXG3fNV5Af1DFRdlHoAUEUN9M9w3JKpsMgdZjkn-Uut_bymqPv9A9UFsPAE5YRxb0YG0stNH-xsfw2OHU0O_qb_FaSKvCV23DN5r7tV3d65TwsIKuaPV_lbIgJYLgzpBQBj8UyLnxtPTRcMoi-UtipVMkobOR_NNFRvQwIs1bwcNXgrPE7HdC1IEXMyIVST1efJNIQwHC_pbq2-Qdp4q1n9RI_DY3tpx-rtUIFDYpUk12JJU5q8rKb2DugZayh37UXCKWgMnZa3rKb2zuYWthVAkSnGiQzSVyfDXKoI4jDsxwpP5xrXNMwlvFL-cOggp6IM0V2hy05RF8QWP9tBr1yA5NjmXX6CGqX8GyaT0FoCMK3O7yXy0]--></g></svg></div><small class="form-text text-muted">Click diagram to navigate to corresponding section | <a href="http://www.plantuml.com/plantuml/png/hPPRRzem583Vyoiy-hOf2D2ahgoh5cXBDt5JoTO7n28J7y0YiP7jjAM_Vavfm5pI9D07f91ppdUkyR44XHWEGIwm3mDOO84L5uXn1fQSKnQ_294VO2blELC3-WAe-jNwH6126Q3shzQTsxjtkgqRKvs72mtGwceP08h2e6P8dmHUT41AF8K7IjGCLIiLG-m8mP-QFD1Hd7Mmu9nPCZr8P3NZs50fL5CR-whk-8e-KhMq-t-RzpVsBxTZjsibD1oUlQin6g6pCVRdzMiiveqWWkyAdbNzOKOLM5dmEeA0sYIeupUvHx02fDy_Ir9VFG-hvN9rXD0HC4eIb5I2ikb9i02F8OXvWapg0MRJWS7y73Clhn2XEEICU0dLUwLwckgrQrw_zYtJiMrVeL8cnWXmZ2KGZpCFUm9mG5-meleVdrYP55Gkeyq0F70njnsxomcKZh9jd61xtpp1-1JRtfjjZkPTV4ppBepc-RfbIhUlSEyk3gJYvcrUYh7JxTfE28pedsf4P0hg9heMUABor-ZyOsfqRjH8WCy5qKMY-pEEXfLokJP2cIcVxwSyYCP4wqfDqY6-nfUlV1ci9DaLBFkWYSyJjLmOHzsF9FN49iU1PKTnNHEblk2-tXG3fNV5Af1DFRdlHoAUEUN9M9w3JKpsMgdZjkn-Uut_bymqPv9A9UFsPAE5YRxb0YG0stNH-xsfw2OHU0O_qb_FaSKvCV23DN5r7tV3d65TwsIKuaPV_lbIgJYLgzpBQBj8UyLnxtPTRcMoi-UtipVMkobOR_NNFRvQwIs1bwcNXgrPE7HdC1IEXMyIVST1efJNIQwHC_pbq2-Qdp4q1n9RI_DY3tpx-rtUIFDYpUk12JJU5q8rKb2DugZayh37UXCKWgMnZa3rKb2zuYWthVAkSnGiQzSVyfDXKoI4jDsxwpP5xrXNMwlvFL-cOggp6IM0V2hy05RF8QWP9tBr1yA5NjmXX6CGqX8GyaT0FoCMK3O7yXy0" target="_blank">View as PNG</a></small>
+                     <!--@startuml
+set namespaceSeparator none
+skinparam classFontSize 14
+!define LIGHTORANGE
+skinparam componentStyle uml2
+skinparam wrapMessageWidth 100
+skinparam ArrowColor #Maroon
+set namespaceSeparator none 
+Class "mtg-act:Activity-PVCRE-ITM-L2" [[#mtg-act:Activity-PVCRE-ITM-L2]] #back:DarkBlue;text:White
+"mtg-act:Activity-PVCRE-ITM-L2" : eli-dl:activity_date  : xsd:date  [1..1]  
+"mtg-act:Activity-PVCRE-ITM-L2" : eli-dl:activity_id  : xsd:string  [1..1]  
+"mtg-act:Activity-PVCRE-ITM-L2" : eli-dl:activity_label  : rdf:langString  [1..*]  
+<> diamond_Activity_PVCRE_ITM_L2_P28
+"mtg-act:Activity-PVCRE-ITM-L2" - -> "diamond_Activity_PVCRE_ITM_L2_P28" : eli-dl:based_on_a_realization_of
+diamond_Activity_PVCRE_ITM_L2_P28 ..  "mtg-act:Work-A-Node"
+diamond_Activity_PVCRE_ITM_L2_P28 ..  "mtg-act:Work-B-Node"
+diamond_Activity_PVCRE_ITM_L2_P28 ..  "mtg-act:Work-RC-Node"
+diamond_Activity_PVCRE_ITM_L2_P28 ..  "mtg-act:Work-C-Node"
+diamond_Activity_PVCRE_ITM_L2_P28 ..  "mtg-act:Work-O-Node"
+<> diamond_Activity_PVCRE_ITM_L2_P29
+"mtg-act:Activity-PVCRE-ITM-L2" - -> "diamond_Activity_PVCRE_ITM_L2_P29" : eli-dl:created_a_realization_of
+diamond_Activity_PVCRE_ITM_L2_P29 ..  "mtg-act:Work-TA-Node"
+diamond_Activity_PVCRE_ITM_L2_P29 ..  "mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node"
+<> diamond_Activity_PVCRE_ITM_L2_P27
+"mtg-act:Activity-PVCRE-ITM-L2" - -> "diamond_Activity_PVCRE_ITM_L2_P27" : eli-dl:recorded_in_a_realization_of [0..2] 
+diamond_Activity_PVCRE_ITM_L2_P27 ..  "mtg-act:WorkSubdivision-PV-ITM-Node"
+diamond_Activity_PVCRE_ITM_L2_P27 ..  "mtg-act:WorkSubdivision-CRE-ITM-Node"
+"mtg-act:Activity-PVCRE-ITM-L2" : rdf:type  [1..1]  = eli-dl:Activity  
+"mtg-act:Activity-PVCRE-ITM-L2" -u-> "mtg-act:ProcessStage-Node" : eli-dl:occured_at_stage 
+"mtg-act:Activity-PVCRE-ITM-L2" -d-> "mtg-act:Activity-MTG-PL-Node" : ^eli-dl:consists_of 
+"mtg-act:Activity-PVCRE-ITM-L2" -r-> "mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node" : eli-dl:executed 
+"mtg-act:Activity-PVCRE-ITM-L2" -u-> "mtg-act:Process-Node" : ^eli-dl:consists_of 
+"mtg-act:Activity-PVCRE-ITM-L2" -d-> "mtg-act:ActivityType-Node" : eli-dl:had_activity_type<U+00A0>[1..1]  
+"mtg-act:Activity-PVCRE-ITM-L2" -r-> "mtg-act:Activity-MTG-PL-OTH-Node" : eli-dl:consists_of 
+Class "mtg-act:Process-Node" [[#mtg-act:Process-Node]] #back:White;text:Gray
+Class "mtg-act:Activity-MTG-PL-Node" [[#mtg-act:Activity-MTG-PL-Node]] #back:White;text:Gray
+Class "mtg-act:Activity-MTG-PL-OTH-Node" [[#mtg-act:Activity-MTG-PL-OTH-Node]] #back:White;text:Gray
+Class "mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node" [[#mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node]] #back:White;text:Gray
+Class "mtg-act:ActivityType-Node" [[#mtg-act:ActivityType-Node]] #back:White;text:Gray
+Class "mtg-act:ProcessStage-Node" [[#mtg-act:ProcessStage-Node]] #back:White;text:Gray
+Class "mtg-act:Work-A-Node" [[#mtg-act:Work-A-Node]] #back:White;text:Gray
+Class "mtg-act:Work-B-Node" [[#mtg-act:Work-B-Node]] #back:White;text:Gray
+Class "mtg-act:Work-RC-Node" [[#mtg-act:Work-RC-Node]] #back:White;text:Gray
+Class "mtg-act:Work-C-Node" [[#mtg-act:Work-C-Node]] #back:White;text:Gray
+Class "mtg-act:Work-O-Node" [[#mtg-act:Work-O-Node]] #back:White;text:Gray
+Class "mtg-act:Work-TA-Node" [[#mtg-act:Work-TA-Node]] #back:White;text:Gray
+Class "mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node" [[#mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node]] #back:White;text:Gray
+Class "mtg-act:WorkSubdivision-PV-ITM-Node" [[#mtg-act:WorkSubdivision-PV-ITM-Node]] #back:White;text:Gray
+Class "mtg-act:WorkSubdivision-CRE-ITM-Node" [[#mtg-act:WorkSubdivision-CRE-ITM-Node]] #back:White;text:Gray
+hide circle
+hide methods
+hide empty members
+remove @unlinked
+@enduml
+--></div>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity date</td>
+                           <td id="mtg-act:Activity-PVCRE-ITM-L2_eli-dl:activity_date"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_date">eli-dl:activity_date</a></code></td>
+                           <td><code>xsd:date</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity id</td>
+                           <td id="mtg-act:Activity-PVCRE-ITM-L2_eli-dl:activity_id"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_id">eli-dl:activity_id</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity label</td>
+                           <td id="mtg-act:Activity-PVCRE-ITM-L2_eli-dl:activity_label"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_label">eli-dl:activity_label</a></code></td>
+                           <td><code>rdf:langString</code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity type</td>
+                           <td id="mtg-act:Activity-PVCRE-ITM-L2_eli-dl:had_activity_type"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#had_activity_type">eli-dl:had_activity_type</a></code></td>
+                           <td><code><a href="#mtg-act:ActivityType-Node">Reference to an Activity type</a></code><br><p><small><a href="https://data.europarl.europa.eu/def/ep-activities/PLENARY_DEBATE">ep-activities:PLENARY_DEBATE</a>, <a href="https://data.europarl.europa.eu/def/ep-activities/PLENARY_VOTE">ep-activities:PLENARY_VOTE</a>, <a href="https://data.europarl.europa.eu/def/ep-activities/PLENARY_ACTIVITY">ep-activities:PLENARY_ACTIVITY</a>, <a href="https://data.europarl.europa.eu/def/ep-activities/PLENARY_VOTE_EXPLANATIONS">ep-activities:PLENARY_VOTE_EXPLANATIONS</a></small></p>
+                           </td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>based on a realization of</td>
+                           <td id="mtg-act:Activity-PVCRE-ITM-L2_eli-dl:based_on_a_realization_of"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#based_on_a_realization_of">eli-dl:based_on_a_realization_of</a></code></td>
+                           <td><code><a href="#mtg-act:Work-A-Node">Reference to a Work (ep-document-types/REPORT_PLENARY)</a></code><code> or </code><code><a href="#mtg-act:Work-B-Node">Reference to a Work (ep-document-types/RESOLUTION_MOTION)</a></code><code> or </code><code><a href="#mtg-act:Work-RC-Node">Reference to a Work (ep-document-types/RESOLUTION_MOTION_JOINT)</a></code><code> or </code><code><a href="#mtg-act:Work-C-Node">Reference to a Work (C documents)</a></code><code> or </code><code><a href="#mtg-act:Work-O-Node">Reference to a Work (ep-document-types/QUESTION_ORAL)</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>consists of</td>
+                           <td id="mtg-act:Activity-PVCRE-ITM-L2_eli-dl:consists_of"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#consists_of">eli-dl:consists_of</a></code></td>
+                           <td><code><a href="#mtg-act:Activity-MTG-PL-OTH-Node">Reference to a Plenary Speech Activity</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>created a realization of</td>
+                           <td id="mtg-act:Activity-PVCRE-ITM-L2_eli-dl:created_a_realization_of"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#created_a_realization_of">eli-dl:created_a_realization_of</a></code></td>
+                           <td><code><a href="#mtg-act:Work-TA-Node">Reference to a Work (ep-document-types/TEXT_ADOPTED)</a></code><code> or </code><code><a href="#mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node">Reference to a Work (ep-document-types/AMENDMENT_BUDGET_EU_DRAFT)</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>executed</td>
+                           <td id="mtg-act:Activity-PVCRE-ITM-L2_eli-dl:executed"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#executed">eli-dl:executed</a></code></td>
+                           <td><code><a href="#mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node">Reference to a Plenary Sitting</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>inverse consists of</td>
+                           <td id="mtg-act:Activity-PVCRE-ITM-L2_^eli-dl:consists_of"><code>^eli-dl:consists_of</code></td>
+                           <td><code><a href="#mtg-act:Process-Node">Reference to a Process</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>inverse consists of</td>
+                           <td id="mtg-act:Activity-PVCRE-ITM-L2_^eli-dl:consists_of"><code>^eli-dl:consists_of</code></td>
+                           <td><code><a href="#mtg-act:Activity-MTG-PL-Node">Reference to a Plenary Sitting</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>occured at stage</td>
+                           <td id="mtg-act:Activity-PVCRE-ITM-L2_eli-dl:occured_at_stage"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#occured_at_stage">eli-dl:occured_at_stage</a></code></td>
+                           <td><code><a href="#mtg-act:ProcessStage-Node">Reference to a Process stage</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>recorded in a realization of</td>
+                           <td id="mtg-act:Activity-PVCRE-ITM-L2_eli-dl:recorded_in_a_realization_of"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#recorded_in_a_realization_of">eli-dl:recorded_in_a_realization_of</a></code></td>
+                           <td><code><a href="#mtg-act:WorkSubdivision-PV-ITM-Node">Reference to a Plenary session document WorkSubdivision</a></code><code> or </code><code><a href="#mtg-act:WorkSubdivision-CRE-ITM-Node">Reference to a Plenary session document WorkSubdivision</a></code><br></td>
+                           <td>
+                              <div style="width:30px">0..2</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>type</td>
+                           <td id="mtg-act:Activity-PVCRE-ITM-L2_rdf:type"><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#Activity">eli-dl:Activity</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg-act:ActivityType-Node" class="sp_section_title_table">Reference to an Activity type</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings-activities_api#ActivityType-Node</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli-dl:ActivityType</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>https://data.europarl.europa.eu/def/ep-activities/.*$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/def/ep-activities/PLENARY_DEBATE</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg-act:WorkSubdivision-PV-ITM-Node" class="sp_section_title_table">Reference to a Plenary session document WorkSubdivision</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings-activities_api#WorkSubdivision-PV-ITM-Node</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli:WorkSubdivision</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/PV-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}-ITM-[0-9]{3}(-[0-9]{2})?$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/PV-9-2024-02-27-ITM-007-08</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg-act:WorkSubdivision-CRE-ITM-Node" class="sp_section_title_table">Reference to a Plenary session document WorkSubdivision</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings-activities_api#WorkSubdivision-CRE-ITM-Node</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli:WorkSubdivision</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/CRE-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}-ITM-[0-9]{3}(-[0-9]{2})?$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/CRE-9-2024-02-27-ITM-007-08</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg-act:Activity-MTG-PL-OTH-Node" class="sp_section_title_table">Reference to a Plenary Speech Activity</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings-activities_api#Activity-MTG-PL-OTH-Node</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli-dl:Activity</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-OTH-[0-9]+$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-01-15-OTH-188837399</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg-act:Process-Node" class="sp_section_title_table">Reference to a Process</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings-activities_api#Process-Node</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli-dl:Process</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/proc/[A-Za-z0-9\-_]+$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/proc/2022-0147</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg-act:ProcessStage-Node" class="sp_section_title_table">Reference to a Process stage</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings-activities_api#ProcessStage-Node</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli-dl:ProcessStage</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>http://publications.europa.eu/resource/authority/procedure-phase/.*$</code></li>
+                     <li>Example: <code>http://publications.europa.eu/resource/authority/procedure-phase/RDG1</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg-act:Work-A-Node" class="sp_section_title_table">Reference to a Work (ep-document-types/REPORT_PLENARY)</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings-activities_api#Work-A-Node</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli:Work</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\-_]+$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/A-9-2023-0319</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg-act:Activity-MTG-PL-Node" class="sp_section_title_table">Reference to a Plenary Sitting</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings-activities_api#Activity-MTG-PL-Node</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli-dl:Activity</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-04-23</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg-act:ForeseenActivity-MTG-PL-OJ-ITM-Node" class="sp_section_title_table">Reference to a Plenary Sitting</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings-activities_api#ForeseenActivity-MTG-PL-OJ-ITM-Node</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli-dl:ForeseenActivity</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-OJ-ITM-[D,V]-[0-9]+$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-04-23-OJ-ITM-D-141</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg-act:Work-B-Node" class="sp_section_title_table">Reference to a Work (ep-document-types/RESOLUTION_MOTION)</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings-activities_api#Work-B-Node</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli:Work</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\-_]+$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/B-9-2024-0230</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg-act:Work-RC-Node" class="sp_section_title_table">Reference to a Work (ep-document-types/RESOLUTION_MOTION_JOINT)</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings-activities_api#Work-RC-Node</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli:Work</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\-_]+$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/RC-9-2024-0227</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg-act:Work-C-Node" class="sp_section_title_table">Reference to a Work (C documents)</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings-activities_api#Work-C-Node</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli:Work</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\-_]+$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc//C-9-2022-0428</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg-act:Work-O-Node" class="sp_section_title_table">Reference to a Work (ep-document-types/QUESTION_ORAL)</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings-activities_api#Work-O-Node</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli:Work</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\-_]+$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc//O-9-2024-000007</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg-act:Work-TA-Node" class="sp_section_title_table">Reference to a Work (ep-document-types/TEXT_ADOPTED)</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings-activities_api#Work-TA-Node</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli:Work</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/TA-[0-9]{1,2}-[0-9]{4}-[0-9]{4}$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/TA-9-2021-0362</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="mtg-act:Work-TA-ANN-AmendmentBudgetEuDraft-Node" class="sp_section_title_table">Reference to a Work (ep-document-types/AMENDMENT_BUDGET_EU_DRAFT)</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meetings-activities_api#Work-TA-ANN-AmendmentBudgetEuDraft-Node</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape refers to the class eli:Work</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/TA-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}-ANN[0-9]{2}$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/TA-8-2014-10-22-ANN01</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div>
+            <h2 id="releaseNotes" class="sp_section_subtitle">Release notes</h2><p>3.0.0 - 2025-02-21</p>
+<ul>
+<li>(new) add eli-dl:created_a_realization_of for mtg-act:Activity-PVCRE-ITM-L1 &amp; mtg-act:Activity-PVCRE-ITM-L2</li>
+</ul>
+<p>3.0.0 - 2024-12-12</p>
+<ul>
+<li>review scope (meetings dumps full scope, but APIs split into meetings, meetings/foreseen-activities, and meetings/activities</li>
+</ul>
+</div>
+      </div><script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js">//</script><script>				
+					anchors.options = {
+	                    icon: '#'
+	                  };
+               		anchors.options.placement = 'left';
+					anchors.add('h2,h3');
+					// for links inside tables		
+					anchors.add('td[id]');
+				</script></body>
+</html>

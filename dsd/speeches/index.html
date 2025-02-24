@@ -1,0 +1,1376 @@
+<!DOCTYPE HTML><html lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <style>
+		
+			body {
+						margin: 0;
+						font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+							"Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+							"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+							"Noto Color Emoji";
+						background-color: #fff;
+					}
+					
+					.anchor {
+						float: left;
+						padding-right: 4px;
+						margin-left: -20px;
+						line-height: 1;
+						padding-top: 12px;
+					}
+							
+					a {
+						color: #007bff;
+						text-decoration: none;
+						background-color: transparent;
+					}
+					
+					a:-webkit-any-link {
+						cursor: pointer;
+					}
+					
+					.p {
+						font-size: 0.875em;
+					}
+					
+					h2 {
+						margin: 25px 0px 10px 0px;
+					}
+					
+					h3 {
+						font-size: 1.4em;
+					}
+					
+					@media only print {
+					}
+					
+					@page {
+						size: A4 portrait;
+						margin-top: 1.2cm;
+						margin-bottom: 1.2cm;
+						margin-left: 1.2cm;
+						margin-right: 1.2cm;
+						background-repeat: no-repeat;
+						background-position: 40px 10px;
+						
+						@bottom-center
+						{
+						content
+						:
+						counter(
+						page
+						);
+					}
+					
+					}
+							
+					/* This section draw the format web */
+					.ul_type_none {
+						list-style-type: none;
+					}
+					
+					.sp_list_description_properties {
+						/* don't set it lower otherwise it gets hidden in PDF */
+						padding-left: 20px;
+					}
+					
+					dl, ol, ul {
+						margin-top: 0;
+						margin-bottom: 1rem;
+					}
+					
+					li {
+						display: list-item;
+						text-align: -webkit-match-parent;
+					}
+					
+					.sp_section_title_header {
+						font-family: Georgia, Garamond, serif;	
+						margin-top: 25px;
+						margin-bottom: 2.5rem;
+					    font-size: 1.5625rem;
+						display: block;
+						font-weight: 500;
+						color: #1e1e1f;
+						line-height: 1.2em;   
+					}
+					
+					.sp_section_subtitle {
+						font-family: Georgia, Garamond, serif;	
+						margin-top: 0;
+						margin-bottom: 0.5rem;
+						display: block;
+						font-weight: 500;
+						color: #1e1e1f;
+						line-height: 1.2em;  
+					}
+					
+					.sp_section_title_table {
+						font-family: Georgia, Garamond, serif;	
+						/* 0 because URI is right under */
+						margin-bottom: 0rem;
+						display: block;
+						font-weight: 500;
+						color: #1e1e1f;
+						line-height: 1.2em; 
+					}
+							
+
+					.sp_section_title_toc {
+						font-family: Georgia, Garamond, serif;	
+					}
+
+					/* URI below the title of the section */
+					.sp_section_uri	 {
+						margin-top: 0px;
+					}
+
+					/* div wrapping section title and URI below - same as a paragraph margin */
+					.sp_section_title_table_wrapper {
+						margin-bottom: 16px;
+						border-bottom: 1px solid;	
+					}
+					
+					.sp_section_nodeshape_diagram {
+						padding-bottom: 16px;
+					}
+					
+					.sp_section_nodeshape_center {
+						display: flex;
+						justify-content: center;
+					}
+					
+					table {
+						display: table;
+						border-spacing: 0px;
+						margin-bottom: 1rem;
+					}
+					
+					.table-striped tr:nth-child(even) {
+						background-color: #eee;
+					}
+							
+					.sp_table_prefixes table {
+						border-collapse: collapse;
+						margin-bottom: 1rem;
+						color: #212529;
+					}
+											
+					.sp_table_prefixes td {
+						padding: 0.25rem;
+						vertical-align: top;
+						border-top: 1px solid #dee2e6;
+					}
+					
+					.sp_table_propertyshapes {
+						border-collapse: collapse;
+						width: 100%;
+					}
+										
+					.sp_table_propertyshapes thead {
+						display: table-header-group;
+						vertical-align: middle;
+						border-color: inherit;
+					}
+													
+					.sp_table_propertyshapes tr {
+					    display: table-row;
+					    vertical-align: inherit;
+					    border-color: inherit;					    
+					}
+													
+					.sp_table_propertyshapes th:nth-child(4) {
+						width: 6%;
+					}
+													
+					.sp_table_propertyshapes td {
+						padding: 0.75rem;
+						border-top: 1px solid #dee2e6;
+					}
+													
+					.sp_table_propertyshapes tbody {
+						display: table-row-group;
+						vertical-align: middle;
+						border-color: inherit;
+					}
+										
+					.sp_table_propertyshapes_col_description {
+						word-break: break-word;
+					}
+					
+					tr.sp_propertyGroup {
+						font-style: italic;
+						background-color: #def0f7;
+					}
+					
+					tr.sp_propertyGroup td {
+						border-bottom: 1px solid black;
+						padding-bottom: 0.25 rem;
+					}
+					
+					.sp_serialization_badge {
+						margin-right: 0.5em;
+					}
+
+					.sp_nodeshape_description {
+						background: #efefef;
+						padding-top:1px;
+						padding-bottom:1px;
+						padding-left:10px;
+						padding-right:10px;
+						border-radius: 5px;
+						margin-bottom:10px;
+					}
+					
+					
+							.container {
+							    width: calc(100% - 40px);
+							    max-width: 1000px;
+							    margin-left: 300px;
+							    margin-right: auto;
+							}
+							.container {width: calc(100% - 500px);}
+							.toc {
+								position: fixed;
+								top: 0;
+								left: 0;
+								font-size: small;
+								padding: 10px 10px;
+								width: auto;
+								border-right: solid 2px #eeeeee;
+								bottom: 0;
+								overflow-y: scroll;
+								background-color:white;
+								max-width:255px;
+							}
+							.sp_list_toc {padding-left: 0px;}
+							.sp_list_toc_l2 {padding-left: 10px;}	
+							.sp_list_toc_l3 {padding-left: 8px;}					
+						</style>
+      <meta charset="UTF-8">
+      <meta name="lang" content="en">
+      <meta property="og:locale" content="en">
+      <title>Speeches dataset (dump) description</title>
+      <meta name="apple-mobile-web-app-title" content="Speeches dataset (dump) description">
+      <meta name="twitter:title" content="Speeches dataset (dump) description">
+      <meta property="og:title" content="Speeches dataset (dump) description"><script type="application/ld+json">{
+    "datePublished": "2024-05-22",
+    "license": ["https://www.europarl.europa.eu/legal-notice/"],
+    "@type": "TechArticle",
+    "author": [{
+        "@type": "Organization",
+        "url": "https://publications.europa.eu/resource/authority/corporate-body/EP"
+    }],
+    "name": "Speeches dataset (dump) description",
+    "publisher": [{
+        "@type": "Organization",
+        "url": "https://publications.europa.eu/resource/authority/corporate-body/EP"
+    }],
+    "@context": "https://schema.org",
+    "version": "3.0.0",
+    "url": "https://data.europarl.europa.eu/def/speeches#"
+}</script></head>
+   <body>
+      <div class="sp_container_principal container pt-4">
+         <table style="width:100%">
+            <tr>
+               <td width="20%"><img src="https://www.europarl.europa.eu/portal/img/ep-logo.svg"></td>
+               <td width="80%">
+                  <h1 class="mb-4 sp_section_title_header">Speeches dataset (dump) description</h1>
+               </td>
+            </tr>
+         </table>
+         <div><b>Creation date: </b>2024-05-22<br><b>Last updated: </b>2025-02-17 00:00:00<br><b>Copyright date: </b>2024<br><b>Version: </b>3.0.0<br><b>License: </b><a href="https://www.europarl.europa.eu/legal-notice/" target="_blank">https://www.europarl.europa.eu/legal-notice/</a><br><b>Creator: </b><a href="https://publications.europa.eu/resource/authority/corporate-body/EP" target="_blank">https://publications.europa.eu/resource/authority/corporate-body/EP</a><br><b>Publisher: </b><a href="https://publications.europa.eu/resource/authority/corporate-body/EP" target="_blank">https://publications.europa.eu/resource/authority/corporate-body/EP</a><br><b>Rightsholder: </b><a href="https://publications.europa.eu/resource/authority/corporate-body/EURUN" target="_blank">https://publications.europa.eu/resource/authority/corporate-body/EURUN</a><br><b id="formats">Download serialization: </b><div><span class="sp_serialization_badge"><a href="https://europarl.github.io/eli-ep/3.0.0/dsd/speeches/eli-ep_speeches.shacl.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.png" alt="TTL"></a></span></div><br></div>
+         <div class="sp_section_title_toc toc">
+            <h2 id="index">Table of Contents</h2>
+            <ul role="list" class="sp_list_toc ul_type_none t-x-mode">
+               <li><a href="#prefixes">Namespaces</a></li>
+               <li><a href="#description">Description</a></li>
+               <li><a href="#documentation">Model documentation</a><ul role="list" class="ul_type_none sp_list_toc_l2">
+                     <li><a href="#speeches:Activity-MTG-PL-PVCRE-CHA">speeches:Activity-MTG-PL-PVCRE-CHA</a></li>
+                     <li><a href="#speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY">speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY</a></li>
+                     <li><a href="#speeches:Activity-MTG-PL-OTH-SPEECH">speeches:Activity-MTG-PL-OTH-SPEECH</a></li>
+                     <li><a href="#speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT">speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT</a></li>
+                     <li><a href="#speeches:Participation-MTG-PL-PVCRE-CHA">speeches:Participation-MTG-PL-PVCRE-CHA</a></li>
+                     <li><a href="#speeches:Participation-MTG-PL-OTH">speeches:Participation-MTG-PL-OTH</a></li>
+                     <li><a href="#speeches:WorkSubdivision-CRE-OTH">speeches:WorkSubdivision-CRE-OTH</a></li>
+                     <li><a href="#speeches:Activity-MTG-PL-Node">speeches:Activity-MTG-PL-Node</a></li>
+                     <li><a href="#speeches:Activity-PVCRE-ITM-L1-Node">speeches:Activity-PVCRE-ITM-L1-Node</a></li>
+                     <li><a href="#speeches:Activity-PVCRE-ITM-L2-Node">speeches:Activity-PVCRE-ITM-L2-Node</a></li>
+                     <li><a href="#speeches:WorkSubdivision-CRE-ITM-Node">speeches:WorkSubdivision-CRE-ITM-Node</a></li>
+                  </ul>
+               </li>
+               <li><a href="#releaseNotes">Release notes</a></li>
+            </ul>
+         </div>
+         <div class="row mt-3">
+            <div class="col">
+               <section>
+                  <h2 id="prefixes" class="sp_section_subtitle">Namespaces</h2>
+                  <table class="sp_table_prefixes table table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Prefix</th>
+                           <th>Namespace</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>dcterms</td>
+                           <td><a href="http://purl.org/dc/terms/" target="_blank">http://purl.org/dc/terms/</a></td>
+                        </tr>
+                        <tr>
+                           <td>eli</td>
+                           <td><a href="http://data.europa.eu/eli/ontology#" target="_blank">http://data.europa.eu/eli/ontology#</a></td>
+                        </tr>
+                        <tr>
+                           <td>eli-dl</td>
+                           <td><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#" target="_blank">http://data.europa.eu/eli/eli-draft-legislation-ontology#</a></td>
+                        </tr>
+                        <tr>
+                           <td>ep-activities</td>
+                           <td><a href="https://data.europarl.europa.eu/def/ep-activities/" target="_blank">https://data.europarl.europa.eu/def/ep-activities/</a></td>
+                        </tr>
+                        <tr>
+                           <td>ep-roles</td>
+                           <td><a href="https://data.europarl.europa.eu/def/ep-roles/" target="_blank">https://data.europarl.europa.eu/def/ep-roles/</a></td>
+                        </tr>
+                        <tr>
+                           <td>epvoc</td>
+                           <td><a href="https://data.europarl.europa.eu/def/epvoc#" target="_blank">https://data.europarl.europa.eu/def/epvoc#</a></td>
+                        </tr>
+                        <tr>
+                           <td>rdf</td>
+                           <td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#" target="_blank">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a></td>
+                        </tr>
+                        <tr>
+                           <td>skos</td>
+                           <td><a href="http://www.w3.org/2004/02/skos/core#" target="_blank">http://www.w3.org/2004/02/skos/core#</a></td>
+                        </tr>
+                        <tr>
+                           <td>subdivision</td>
+                           <td><a href="http://publications.europa.eu/resource/authority/subdivision/" target="_blank">http://publications.europa.eu/resource/authority/subdivision/</a></td>
+                        </tr>
+                        <tr>
+                           <td>xsd</td>
+                           <td><a href="http://www.w3.org/2001/XMLSchema#" target="_blank">http://www.w3.org/2001/XMLSchema#</a></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div>
+            <h2 id="description" class="sp_section_subtitle" style="margin-top: 1em;">Description</h2><p>This Dataset Description is a subset of the general ELI-EP application profile and it includes classes and properties used in Speeches datasets. Descriptions of classes and properties can be found in ELI-EP application profile.</p>
+</div>
+         <h2 id="documentation" class="sp_section_subtitle">Model documentation</h2>
+         <div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="speeches:Activity-MTG-PL-PVCRE-CHA" class="sp_section_title_table">speeches:Activity-MTG-PL-PVCRE-CHA</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/speeches#Activity-MTG-PL-PVCRE-CHA</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape represents a subset of eli-dl:Activity</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-PVCRE-CHA-[0-9]+$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-04-22-PVCRE-CHA-1</code></li>
+                     <li>Applies to: <br><code>
+                           <pre>PREFIX eli-dl: &lt;http://data.europa.eu/eli/eli-draft-legislation-ontology#&gt;&#xD;
+SELECT ?s&#xD;
+WHERE {&#xD;
+ ?s ?p ?o.&#xD;
+ FILTER regex(str(?s),"^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-PVCRE-CHA-[0-9]+$","i")&#xD;
+ ?s eli-dl:had_activity_type &lt;https://data.europarl.europa.eu/def/ep-activities/MEETING_NAME_CHAIR&gt; &#xD;
+&#xD;
+}</pre></code></li>
+                  </ul>
+                  <div class="sp_section_nodeshape_diagram">
+                     <div class="sp_section_nodeshape_center"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="318px" preserveAspectRatio="none" style="width:1193px;height:318px;background:#FFFFFF;" version="1.1" viewBox="0 0 1193 318" width="1193px" zoomAndPan="magnify"><defs xmlns=""/><g><!--class speeches:Activity-MTG-PL-PVCRE-CHA--><a href="#speeches:Activity-MTG-PL-PVCRE-CHA" target="_top" title="#speeches:Activity-MTG-PL-PVCRE-CHA" xlink:actuate="onRequest" xlink:href="#speeches:Activity-MTG-PL-PVCRE-CHA" xlink:show="new" xlink:title="#speeches:Activity-MTG-PL-PVCRE-CHA" xlink:type="simple"><g id="elem_speeches:Activity-MTG-PL-PVCRE-CHA"><rect codeLine="8" fill="#00008B" height="99.4844" id="uml_speeches:Activity-MTG-PL-PVCRE-CHA" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="479" x="7" y="110"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="265" x="114" y="127.9951">speeches:Activity-MTG-PL-PVCRE-CHA</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="485" y1="136.2969" y2="136.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="242" x="13" y="153.292">eli-dl:activity_date  : xsd:date  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="231" x="13" y="169.5889">eli-dl:activity_id  : xsd:string  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="467" x="13" y="185.8857">eli-dl:had_activity_type  [1..1]  = ep-activities:MEETING_NAME_CHAIR</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="205" x="13" y="202.1826">rdf:type  [1..1]  = eli-dl:Activity</text></g></a><!--class speeches:Activity-MTG-PL-Node--><a href="#speeches:Activity-MTG-PL-Node" target="_top" title="#speeches:Activity-MTG-PL-Node" xlink:actuate="onRequest" xlink:href="#speeches:Activity-MTG-PL-Node" xlink:show="new" xlink:title="#speeches:Activity-MTG-PL-Node" xlink:type="simple"><g id="elem_speeches:Activity-MTG-PL-Node"><rect codeLine="16" fill="#FFFFFF" height="26.2969" id="uml_speeches:Activity-MTG-PL-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="227" x="133" y="7"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="221" x="136" y="24.9951">speeches:Activity-MTG-PL-Node</text></g></a><!--class speeches:Participation-MTG-PL-PVCRE-CHA--><a href="#speeches:Participation-MTG-PL-PVCRE-CHA" target="_top" title="#speeches:Participation-MTG-PL-PVCRE-CHA" xlink:actuate="onRequest" xlink:href="#speeches:Participation-MTG-PL-PVCRE-CHA" xlink:show="new" xlink:title="#speeches:Participation-MTG-PL-PVCRE-CHA" xlink:type="simple"><g id="elem_speeches:Participation-MTG-PL-PVCRE-CHA"><rect codeLine="17" fill="#FFFAF0" height="26.2969" id="uml_speeches:Participation-MTG-PL-PVCRE-CHA" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="308" x="92.5" y="286"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="302" x="95.5" y="303.9951">speeches:Participation-MTG-PL-PVCRE-CHA</text></g></a><!--class speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)--><a href="#speeches:WorkSubdivision-CRE-OTH" target="_top" title="#speeches:WorkSubdivision-CRE-OTH" xlink:actuate="onRequest" xlink:href="#speeches:WorkSubdivision-CRE-OTH" xlink:show="new" xlink:title="#speeches:WorkSubdivision-CRE-OTH" xlink:type="simple"><g id="elem_speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)"><rect codeLine="18" fill="#FF8C00" height="26.2969" id="speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="409" x="777" y="146.5"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="403" x="780" y="164.4951">speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)</text></g></a><!--reverse link speeches:Activity-MTG-PL-Node to speeches:Activity-MTG-PL-PVCRE-CHA--><g id="link_speeches:Activity-MTG-PL-Node_speeches:Activity-MTG-PL-PVCRE-CHA"><path codeLine="13" d="M246.5,39.1238 C246.5,56.6228 246.5,82.5757 246.5,109.9723 " fill="none" id="speeches:Activity-MTG-PL-Node-backto-speeches:Activity-MTG-PL-PVCRE-CHA" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="246.5,33.1238,242.5,42.1238,246.5,38.1238,250.5,42.1238,246.5,33.1238" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="154" x="247.5" y="76.0669">^eli-dl:consists_of&#xa0;[1..1]</text></g><!--link speeches:Activity-MTG-PL-PVCRE-CHA to speeches:Participation-MTG-PL-PVCRE-CHA--><g id="link_speeches:Activity-MTG-PL-PVCRE-CHA_speeches:Participation-MTG-PL-PVCRE-CHA"><path codeLine="14" d="M246.5,209.0753 C246.5,236.4849 246.5,262.4423 246.5,279.9213 " fill="none" id="speeches:Activity-MTG-PL-PVCRE-CHA-to-speeches:Participation-MTG-PL-PVCRE-CHA" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="246.5,285.9213,250.5,276.9213,246.5,280.9213,242.5,276.9213,246.5,285.9213" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="182" x="247.5" y="252.0669">eli-dl:had_participation&#xa0;[1..1]</text></g><!--link speeches:Activity-MTG-PL-PVCRE-CHA to speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)--><g id="link_speeches:Activity-MTG-PL-PVCRE-CHA_speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)"><path codeLine="15" d="M486.1495,159.5 C579.9877,159.5 680.5306,159.5 770.7005,159.5 " fill="none" id="speeches:Activity-MTG-PL-PVCRE-CHA-to-speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="776.7005,159.5,767.7005,155.5,771.7005,159.5,767.7005,163.5,776.7005,159.5" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="254" x="504.5" y="152.5669">eli-dl:recorded_in_a_realization_of&#xa0;[1..1]</text></g><!--SRC=[dLHHRzem67pFh_3AowOfLPZsb6xLKfO6f0OGqF60M6Ji3sB5iIFRQKj__Po6eb1MeBmv_ivtfulkqs2Gm3de0XCOGu4LDb8X8GKuEcEYkiWHuLZhModCc3q3QdztFb5OCW7ehXTr9uDHq8_29bpcXIMmSBFcWCgSVsjC7nKkOj0Qhs3Ag4bHs_CQuq0f-TYHtBfenLX9AHpzladaT2flw48N02G5xGV4i0TcrcuyYTpXdJlyqnc5RgSRNA3Ph7KSDf-ZrWAJpF-DLNR3IxWoy6JyQSeCE2V9-0WuSodtyGQJK6m0sVidJVtwF6jVNhRd29tBoEWhdpQAYTNPZ2ccoPRLh8k6jvy82dSpOvOk3iD9hnyb_I0E4ylI6vskfkZItsEl7Ro-EvNCBTth0_-xBobKYdytz4GApRJHYLp-kF_gUO5t_R6eNBgZDyJACC8AR9WKnv8jck0pvTME_5IgR5mkg8Nhoa256qowwBDLVJlyqd2ZW4X5WIPC93XHW3bxVd7rlroETQhE-52TAiIsII_TgMiKARpUepyMQLFeC7OhUMlt1-ODuHjkh_UKFvXcqyWxJtVMnq1XiTfP82cZW0XJX6_EEPXKKbr_G5xO7kIGBq1fHq4k7m3zAWLd8WFw3m00]--></g></svg></div><small class="form-text text-muted">Click diagram to navigate to corresponding section | <a href="http://www.plantuml.com/plantuml/png/dLHHRzem67pFh_3AowOfLPZsb6xLKfO6f0OGqF60M6Ji3sB5iIFRQKj__Po6eb1MeBmv_ivtfulkqs2Gm3de0XCOGu4LDb8X8GKuEcEYkiWHuLZhModCc3q3QdztFb5OCW7ehXTr9uDHq8_29bpcXIMmSBFcWCgSVsjC7nKkOj0Qhs3Ag4bHs_CQuq0f-TYHtBfenLX9AHpzladaT2flw48N02G5xGV4i0TcrcuyYTpXdJlyqnc5RgSRNA3Ph7KSDf-ZrWAJpF-DLNR3IxWoy6JyQSeCE2V9-0WuSodtyGQJK6m0sVidJVtwF6jVNhRd29tBoEWhdpQAYTNPZ2ccoPRLh8k6jvy82dSpOvOk3iD9hnyb_I0E4ylI6vskfkZItsEl7Ro-EvNCBTth0_-xBobKYdytz4GApRJHYLp-kF_gUO5t_R6eNBgZDyJACC8AR9WKnv8jck0pvTME_5IgR5mkg8Nhoa256qowwBDLVJlyqd2ZW4X5WIPC93XHW3bxVd7rlroETQhE-52TAiIsII_TgMiKARpUepyMQLFeC7OhUMlt1-ODuHjkh_UKFvXcqyWxJtVMnq1XiTfP82cZW0XJX6_EEPXKKbr_G5xO7kIGBq1fHq4k7m3zAWLd8WFw3m00" target="_blank">View as PNG</a></small>
+                     <!--@startuml
+set namespaceSeparator none
+skinparam classFontSize 14
+!define LIGHTORANGE
+skinparam componentStyle uml2
+skinparam wrapMessageWidth 100
+skinparam ArrowColor #Maroon
+set namespaceSeparator none 
+Class "speeches:Activity-MTG-PL-PVCRE-CHA" [[#speeches:Activity-MTG-PL-PVCRE-CHA]] #back:DarkBlue;text:White
+"speeches:Activity-MTG-PL-PVCRE-CHA" : eli-dl:activity_date  : xsd:date  [1..1]  
+"speeches:Activity-MTG-PL-PVCRE-CHA" : eli-dl:activity_id  : xsd:string  [1..1]  
+"speeches:Activity-MTG-PL-PVCRE-CHA" : eli-dl:had_activity_type  [1..1]  = ep-activities:MEETING_NAME_CHAIR  
+"speeches:Activity-MTG-PL-PVCRE-CHA" : rdf:type  [1..1]  = eli-dl:Activity  
+"speeches:Activity-MTG-PL-PVCRE-CHA" -u-> "speeches:Activity-MTG-PL-Node" : ^eli-dl:consists_of<U+00A0>[1..1]  
+"speeches:Activity-MTG-PL-PVCRE-CHA" -d-> "speeches:Participation-MTG-PL-PVCRE-CHA" : eli-dl:had_participation<U+00A0>[1..1]  
+"speeches:Activity-MTG-PL-PVCRE-CHA" -r-> "speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" : eli-dl:recorded_in_a_realization_of<U+00A0>[1..1]  
+Class "speeches:Activity-MTG-PL-Node" [[#speeches:Activity-MTG-PL-Node]] #back:White;text:Gray
+Class "speeches:Participation-MTG-PL-PVCRE-CHA" [[#speeches:Participation-MTG-PL-PVCRE-CHA]] #back:FloralWhite;text:Black
+Class "speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" [[#speeches:WorkSubdivision-CRE-OTH]] #back:DarkOrange;text:White
+hide circle
+hide methods
+hide empty members
+remove @unlinked
+@enduml
+--></div>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity date</td>
+                           <td id="speeches:Activity-MTG-PL-PVCRE-CHA_eli-dl:activity_date"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_date">eli-dl:activity_date</a></code></td>
+                           <td><code>xsd:date</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity id</td>
+                           <td id="speeches:Activity-MTG-PL-PVCRE-CHA_eli-dl:activity_id"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_id">eli-dl:activity_id</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity type</td>
+                           <td id="speeches:Activity-MTG-PL-PVCRE-CHA_eli-dl:had_activity_type"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#had_activity_type">eli-dl:had_activity_type</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/ep-activities/MEETING_NAME_CHAIR">ep-activities:MEETING_NAME_CHAIR</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>had participation</td>
+                           <td id="speeches:Activity-MTG-PL-PVCRE-CHA_eli-dl:had_participation"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#had_participation">eli-dl:had_participation</a></code></td>
+                           <td><code><a href="#speeches:Participation-MTG-PL-PVCRE-CHA">speeches:Participation-MTG-PL-PVCRE-CHA</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>inverse consists of</td>
+                           <td id="speeches:Activity-MTG-PL-PVCRE-CHA_^eli-dl:consists_of"><code>^eli-dl:consists_of</code></td>
+                           <td><code><a href="#speeches:Activity-MTG-PL-Node">speeches:Activity-MTG-PL-Node</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>recorded in a realization of</td>
+                           <td id="speeches:Activity-MTG-PL-PVCRE-CHA_eli-dl:recorded_in_a_realization_of"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#recorded_in_a_realization_of">eli-dl:recorded_in_a_realization_of</a></code></td>
+                           <td><code><a href="#speeches:WorkSubdivision-CRE-OTH">speeches:WorkSubdivision-CRE-OTH</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>type</td>
+                           <td id="speeches:Activity-MTG-PL-PVCRE-CHA_rdf:type"><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#Activity">eli-dl:Activity</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY" class="sp_section_title_table">speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/speeches#Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape represents a subset of eli-dl:Activity</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-OTH-[0-9]+$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-04-22-OTH-191168828</code></li>
+                     <li>Applies to: <br><code>
+                           <pre>PREFIX eli-dl: &lt;http://data.europa.eu/eli/eli-draft-legislation-ontology#&gt;&#xD;
+SELECT ?s&#xD;
+WHERE {&#xD;
+ ?s ?p ?o.&#xD;
+ FILTER regex(str(?s),"^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-OTH-[0-9]+$","i")&#xD;
+ ?s eli-dl:had_activity_type &lt;https://data.europarl.europa.eu/def/ep-activities/PROCEEDING_ACTIVITY&gt; &#xD;
+&#xD;
+}</pre></code></li>
+                  </ul>
+                  <div class="sp_section_nodeshape_diagram">
+                     <div class="sp_section_nodeshape_center"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="335px" preserveAspectRatio="none" style="width:510px;height:335px;background:#FFFFFF;" version="1.1" viewBox="0 0 510 335" width="510px" zoomAndPan="magnify"><defs xmlns=""/><g><!--class speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY--><a href="#speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY" target="_top" title="#speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY" xlink:actuate="onRequest" xlink:href="#speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY" xlink:show="new" xlink:title="#speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY" xlink:type="simple"><g id="elem_speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY"><rect codeLine="8" fill="#00008B" height="115.7813" id="uml_speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="481" x="7" y="110"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="378" x="58.5" y="127.9951">speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="487" y1="136.2969" y2="136.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="242" x="13" y="153.292">eli-dl:activity_date  : xsd:date  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="231" x="13" y="169.5889">eli-dl:activity_id  : xsd:string  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="273" x="13" y="185.8857">eli-dl:activity_label  : rdf:langString  [1..*]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="469" x="13" y="202.1826">eli-dl:had_activity_type  [1..1]  = ep-activities:PROCEEDING_ACTIVITY</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="205" x="13" y="218.4795">rdf:type  [1..1]  = eli-dl:Activity</text></g></a><!--class speeches:Activity-MTG-PL-Node--><a href="#speeches:Activity-MTG-PL-Node" target="_top" title="#speeches:Activity-MTG-PL-Node" xlink:actuate="onRequest" xlink:href="#speeches:Activity-MTG-PL-Node" xlink:show="new" xlink:title="#speeches:Activity-MTG-PL-Node" xlink:type="simple"><g id="elem_speeches:Activity-MTG-PL-Node"><rect codeLine="16" fill="#FFFFFF" height="26.2969" id="uml_speeches:Activity-MTG-PL-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="227" x="134" y="7"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="221" x="137" y="24.9951">speeches:Activity-MTG-PL-Node</text></g></a><!--class speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)--><a href="#speeches:WorkSubdivision-CRE-OTH" target="_top" title="#speeches:WorkSubdivision-CRE-OTH" xlink:actuate="onRequest" xlink:href="#speeches:WorkSubdivision-CRE-OTH" xlink:show="new" xlink:title="#speeches:WorkSubdivision-CRE-OTH" xlink:type="simple"><g id="elem_speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)"><rect codeLine="17" fill="#FF8C00" height="26.2969" id="speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="409" x="43" y="303"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="403" x="46" y="320.9951">speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)</text></g></a><!--reverse link speeches:Activity-MTG-PL-Node to speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY--><g id="link_speeches:Activity-MTG-PL-Node_speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY"><path codeLine="14" d="M247.5,39.134 C247.5,56.3249 247.5,81.577 247.5,109.6708 " fill="none" id="speeches:Activity-MTG-PL-Node-backto-speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="247.5,33.134,243.5,42.134,247.5,38.134,251.5,42.134,247.5,33.134" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="154" x="248.5" y="76.0669">^eli-dl:consists_of&#xa0;[1..1]</text></g><!--link speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY to speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)--><g id="link_speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY_speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)"><path codeLine="15" d="M247.5,226.0687 C247.5,254.2507 247.5,279.6688 247.5,296.9046 " fill="none" id="speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY-to-speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="247.5,302.9046,251.5,293.9046,247.5,297.9046,243.5,293.9046,247.5,302.9046" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="254" x="248.5" y="269.0669">eli-dl:recorded_in_a_realization_of&#xa0;[1..1]</text></g><!--SRC=[hPHlRzem4CRVvrFSoflzaQimxLMsLMCfIv4AL90DJOX59Zw85SUERASj_VHr5kZ2kdOgxJl7T_VydejzDcX1qW9DILESOaarjKg3L18zatDPRnIG2chCDoNjbDyWT3zuhnYkk4Gu7qHdyNZI6qNzThegIYVWqkr685I5UD-ANcbQ3j4OkiOPPpQ3hk-tmZsjrLMeX7FH6LAjbFJCmoR12sjlS6HAn3H34_HIoo-vtP1X796BSpAEpyZ5P1ps-wU3KKHwOJpuCOX_7i5ytdbgqM81dILDy-2KwlohgF2ZnMiRp39kqJl0GW0eE64YeDkAX56BuFQl3GkQzRnxVDnT0BoCFcSxTMCrb-kNrXTqYQ96QBOA19NhQGlpzhcOZBBa3cKtPUltV0OioJR6dVWVeMGdT2YyRkKUh36qKpbCcbJav96REr8CQ_wlBInLqd1ZJQ9Mdxw_y_sUV_ASmoDiZpvJEfzMI-QA3LUIX9D-NGkl7Vtlu9lMcMXCbMR84YuJccYaWjzGwvB-PVD_mzgq_DXarXbtO_Xxy9ePZ3JTt9D_OazjxWEbUo_0MBiBllS6P9mXf5odOhikq6QAcUO3Yz9TbGAB9MhZQIpK9SANIWekSsIt]--></g></svg></div><small class="form-text text-muted">Click diagram to navigate to corresponding section | <a href="http://www.plantuml.com/plantuml/png/hPHlRzem4CRVvrFSoflzaQimxLMsLMCfIv4AL90DJOX59Zw85SUERASj_VHr5kZ2kdOgxJl7T_VydejzDcX1qW9DILESOaarjKg3L18zatDPRnIG2chCDoNjbDyWT3zuhnYkk4Gu7qHdyNZI6qNzThegIYVWqkr685I5UD-ANcbQ3j4OkiOPPpQ3hk-tmZsjrLMeX7FH6LAjbFJCmoR12sjlS6HAn3H34_HIoo-vtP1X796BSpAEpyZ5P1ps-wU3KKHwOJpuCOX_7i5ytdbgqM81dILDy-2KwlohgF2ZnMiRp39kqJl0GW0eE64YeDkAX56BuFQl3GkQzRnxVDnT0BoCFcSxTMCrb-kNrXTqYQ96QBOA19NhQGlpzhcOZBBa3cKtPUltV0OioJR6dVWVeMGdT2YyRkKUh36qKpbCcbJav96REr8CQ_wlBInLqd1ZJQ9Mdxw_y_sUV_ASmoDiZpvJEfzMI-QA3LUIX9D-NGkl7Vtlu9lMcMXCbMR84YuJccYaWjzGwvB-PVD_mzgq_DXarXbtO_Xxy9ePZ3JTt9D_OazjxWEbUo_0MBiBllS6P9mXf5odOhikq6QAcUO3Yz9TbGAB9MhZQIpK9SANIWekSsIt" target="_blank">View as PNG</a></small>
+                     <!--@startuml
+set namespaceSeparator none
+skinparam classFontSize 14
+!define LIGHTORANGE
+skinparam componentStyle uml2
+skinparam wrapMessageWidth 100
+skinparam ArrowColor #Maroon
+set namespaceSeparator none 
+Class "speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY" [[#speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY]] #back:DarkBlue;text:White
+"speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY" : eli-dl:activity_date  : xsd:date  [1..1]  
+"speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY" : eli-dl:activity_id  : xsd:string  [1..1]  
+"speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY" : eli-dl:activity_label  : rdf:langString  [1..*]  
+"speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY" : eli-dl:had_activity_type  [1..1]  = ep-activities:PROCEEDING_ACTIVITY  
+"speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY" : rdf:type  [1..1]  = eli-dl:Activity  
+"speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY" -u-> "speeches:Activity-MTG-PL-Node" : ^eli-dl:consists_of<U+00A0>[1..1]  
+"speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY" -d-> "speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" : eli-dl:recorded_in_a_realization_of<U+00A0>[1..1]  
+Class "speeches:Activity-MTG-PL-Node" [[#speeches:Activity-MTG-PL-Node]] #back:White;text:Gray
+Class "speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" [[#speeches:WorkSubdivision-CRE-OTH]] #back:DarkOrange;text:White
+hide circle
+hide methods
+hide empty members
+remove @unlinked
+@enduml
+--></div>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity date</td>
+                           <td id="speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY_eli-dl:activity_date"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_date">eli-dl:activity_date</a></code></td>
+                           <td><code>xsd:date</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity id</td>
+                           <td id="speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY_eli-dl:activity_id"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_id">eli-dl:activity_id</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity label</td>
+                           <td id="speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY_eli-dl:activity_label"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_label">eli-dl:activity_label</a></code></td>
+                           <td><code>rdf:langString</code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity type</td>
+                           <td id="speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY_eli-dl:had_activity_type"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#had_activity_type">eli-dl:had_activity_type</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/ep-activities/PROCEEDING_ACTIVITY">ep-activities:PROCEEDING_ACTIVITY</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>inverse consists of</td>
+                           <td id="speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY_^eli-dl:consists_of"><code>^eli-dl:consists_of</code></td>
+                           <td><code><a href="#speeches:Activity-MTG-PL-Node">speeches:Activity-MTG-PL-Node</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>recorded in a realization of</td>
+                           <td id="speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY_eli-dl:recorded_in_a_realization_of"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#recorded_in_a_realization_of">eli-dl:recorded_in_a_realization_of</a></code></td>
+                           <td><code><a href="#speeches:WorkSubdivision-CRE-OTH">speeches:WorkSubdivision-CRE-OTH</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>type</td>
+                           <td id="speeches:Activity-MTG-PL-OTH-PROCEEDING-ACTIVITY_rdf:type"><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#Activity">eli-dl:Activity</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="speeches:Activity-MTG-PL-OTH-SPEECH" class="sp_section_title_table">speeches:Activity-MTG-PL-OTH-SPEECH</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/speeches#Activity-MTG-PL-OTH-SPEECH</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape represents a subset of eli-dl:Activity</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-OTH-[0-9]+$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-04-22-OTH-191168822</code></li>
+                     <li>Applies to: <br><code>
+                           <pre>PREFIX eli-dl: &lt;http://data.europa.eu/eli/eli-draft-legislation-ontology#&gt;&#xD;
+SELECT ?s&#xD;
+WHERE {&#xD;
+ ?s ?p ?o.&#xD;
+ FILTER regex(str(?s),"^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-OTH-[0-9]+$","i")&#xD;
+ ?s eli-dl:had_activity_type &lt;https://data.europarl.europa.eu/def/ep-activities/PLENARY_DEBATE_SPEECH&gt; &#xD;
+&#xD;
+}</pre></code></li>
+                  </ul>
+                  <div class="sp_section_nodeshape_diagram">
+                     <div class="sp_section_nodeshape_center"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="469px" preserveAspectRatio="none" style="width:779px;height:469px;background:#FFFFFF;" version="1.1" viewBox="0 0 779 469" width="779px" zoomAndPan="magnify"><defs xmlns=""/><g><!--class speeches:Activity-MTG-PL-OTH-SPEECH--><a href="#speeches:Activity-MTG-PL-OTH-SPEECH" target="_top" title="#speeches:Activity-MTG-PL-OTH-SPEECH" xlink:actuate="onRequest" xlink:href="#speeches:Activity-MTG-PL-OTH-SPEECH" xlink:show="new" xlink:title="#speeches:Activity-MTG-PL-OTH-SPEECH" xlink:type="simple"><g id="elem_speeches:Activity-MTG-PL-OTH-SPEECH"><rect codeLine="8" fill="#00008B" height="148.375" id="uml_speeches:Activity-MTG-PL-OTH-SPEECH" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="510" x="166.5" y="110"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="275" x="284" y="127.9951">speeches:Activity-MTG-PL-OTH-SPEECH</text><line style="stroke:#181818;stroke-width:0.5;" x1="167.5" x2="675.5" y1="136.2969" y2="136.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="242" x="172.5" y="153.292">eli-dl:activity_date  : xsd:date  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="310" x="172.5" y="169.5889">eli-dl:activity_end_date  : xsd:dateTime  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="231" x="172.5" y="185.8857">eli-dl:activity_id  : xsd:string  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="273" x="172.5" y="202.1826">eli-dl:activity_label  : rdf:langString  [1..*]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="314" x="172.5" y="218.4795">eli-dl:activity_start_date  : xsd:dateTime  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="498" x="172.5" y="234.7764">eli-dl:had_activity_type  [1..1]  = ep-activities:PLENARY_DEBATE_SPEECH</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="205" x="172.5" y="251.0732">rdf:type  [1..1]  = eli-dl:Activity</text></g></a><polygon fill="#F1F1F1" points="295.5,351,307.5,363,295.5,375,283.5,363,295.5,351" style="stroke:#181818;stroke-width:0.5;"/><!--class speeches:Activity-PVCRE-ITM-L1-Node--><a href="#speeches:Activity-PVCRE-ITM-L1-Node" target="_top" title="#speeches:Activity-PVCRE-ITM-L1-Node" xlink:actuate="onRequest" xlink:href="#speeches:Activity-PVCRE-ITM-L1-Node" xlink:show="new" xlink:title="#speeches:Activity-PVCRE-ITM-L1-Node" xlink:type="simple"><g id="elem_speeches:Activity-PVCRE-ITM-L1-Node"><rect codeLine="24" fill="#FFFFFF" height="26.2969" id="uml_speeches:Activity-PVCRE-ITM-L1-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="271" x="7" y="437"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="265" x="10" y="454.9951">speeches:Activity-PVCRE-ITM-L1-Node</text></g></a><!--class speeches:Activity-PVCRE-ITM-L2-Node--><a href="#speeches:Activity-PVCRE-ITM-L2-Node" target="_top" title="#speeches:Activity-PVCRE-ITM-L2-Node" xlink:actuate="onRequest" xlink:href="#speeches:Activity-PVCRE-ITM-L2-Node" xlink:show="new" xlink:title="#speeches:Activity-PVCRE-ITM-L2-Node" xlink:type="simple"><g id="elem_speeches:Activity-PVCRE-ITM-L2-Node"><rect codeLine="25" fill="#FFFFFF" height="26.2969" id="uml_speeches:Activity-PVCRE-ITM-L2-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="271" x="313" y="437"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="265" x="316" y="454.9951">speeches:Activity-PVCRE-ITM-L2-Node</text></g></a><!--class speeches:Participation-MTG-PL-OTH--><a href="#speeches:Participation-MTG-PL-OTH" target="_top" title="#speeches:Participation-MTG-PL-OTH" xlink:actuate="onRequest" xlink:href="#speeches:Participation-MTG-PL-OTH" xlink:show="new" xlink:title="#speeches:Participation-MTG-PL-OTH" xlink:type="simple"><g id="elem_speeches:Participation-MTG-PL-OTH"><rect codeLine="22" fill="#FFFAF0" height="26.2969" id="uml_speeches:Participation-MTG-PL-OTH" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="257" x="293" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="251" x="296" y="24.9951">speeches:Participation-MTG-PL-OTH</text></g></a><!--class speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)--><a href="#speeches:WorkSubdivision-CRE-OTH" target="_top" title="#speeches:WorkSubdivision-CRE-OTH" xlink:actuate="onRequest" xlink:href="#speeches:WorkSubdivision-CRE-OTH" xlink:show="new" xlink:title="#speeches:WorkSubdivision-CRE-OTH" xlink:type="simple"><g id="elem_speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)"><rect codeLine="23" fill="#FF8C00" height="26.2969" id="speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="409" x="343" y="350"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="403" x="346" y="367.9951">speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)</text></g></a><!--link speeches:Activity-MTG-PL-OTH-SPEECH to diamond_Activity_MTG_PL_OTH_SPEECH_P34--><g id="link_speeches:Activity-MTG-PL-OTH-SPEECH_diamond_Activity_MTG_PL_OTH_SPEECH_P34"><path codeLine="10" d="M369.3414,258.0983 C342.2607,296.5702 315.8781,334.0504 304.1205,350.7535 " fill="none" id="speeches:Activity-MTG-PL-OTH-SPEECH-to-diamond_Activity_MTG_PL_OTH_SPEECH_P34" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="300.6668,355.6598,309.1182,350.6027,303.5449,351.5712,302.5764,345.9978,300.6668,355.6598" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="116" x="348.5" y="301.0669">^eli-dl:consists_of</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="34" x="389.5" y="316.1997">[1..1]</text></g><!--link diamond_Activity_MTG_PL_OTH_SPEECH_P34 to speeches:Activity-PVCRE-ITM-L1-Node--><g id="link_diamond_Activity_MTG_PL_OTH_SPEECH_P34_speeches:Activity-PVCRE-ITM-L1-Node"><path codeLine="11" d="M287.7024,367.434 C265.3538,380.142 200.4393,417.0541 165.4638,436.9421 " fill="none" id="diamond_Activity_MTG_PL_OTH_SPEECH_P34-speeches:Activity-PVCRE-ITM-L1-Node" style="stroke:#800000;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--link diamond_Activity_MTG_PL_OTH_SPEECH_P34 to speeches:Activity-PVCRE-ITM-L2-Node--><g id="link_diamond_Activity_MTG_PL_OTH_SPEECH_P34_speeches:Activity-PVCRE-ITM-L2-Node"><path codeLine="12" d="M303.2976,367.434 C325.6462,380.142 390.5607,417.0541 425.5362,436.9421 " fill="none" id="diamond_Activity_MTG_PL_OTH_SPEECH_P34-speeches:Activity-PVCRE-ITM-L2-Node" style="stroke:#800000;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--reverse link speeches:Participation-MTG-PL-OTH to speeches:Activity-MTG-PL-OTH-SPEECH--><g id="link_speeches:Participation-MTG-PL-OTH_speeches:Activity-MTG-PL-OTH-SPEECH"><path codeLine="20" d="M421.5,39.1436 C421.5,56.0176 421.5,80.6202 421.5,109.8738 " fill="none" id="speeches:Participation-MTG-PL-OTH-backto-speeches:Activity-MTG-PL-OTH-SPEECH" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="421.5,33.1436,417.5,42.1436,421.5,38.1436,425.5,42.1436,421.5,33.1436" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="182" x="422.5" y="76.0669">eli-dl:had_participation&#xa0;[1..1]</text></g><!--link speeches:Activity-MTG-PL-OTH-SPEECH to speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)--><g id="link_speeches:Activity-MTG-PL-OTH-SPEECH_speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)"><path codeLine="21" d="M473.6586,258.0983 C498.0313,292.723 521.1823,325.6121 534.8308,345.0016 " fill="none" id="speeches:Activity-MTG-PL-OTH-SPEECH-to-speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="538.2844,349.908,536.3748,340.246,535.4064,345.8194,529.833,344.8509,538.2844,349.908" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="254" x="517.5" y="308.5669">eli-dl:recorded_in_a_realization_of&#xa0;[1..1]</text></g><!--SRC=[hPLTRzem58RlyolEwCtMoGXOhxAk6gKfhSH71DdGL7MHYK-BXMD7jcbBV_sSyg40PGeRTuxzvddFEOhV6BGWQOecemaECQEQMgL1AecUcNAPRwIG26hCjP9so5yHwcVU1uOFN29qRjitKN_GxBM3ebobcGCukPqBX5ag6eNJPqspBXf37t74cPr0lLOh73UrLiyj9LmL9rsgbPAUsLyaUAsyDgYO336PeF6RYULFtCv9DsgJi4FwqGqPXa7Gkgd0tTr92TtzFPoCQJBrhwYUNeePVhNuOltHX5lqpY-0SPegoU8L8NQ4EEp4ZX0l277uvSmhLn8X5r0fHwo03xzHSCA4doXfkB4cLWzmLwzMw_VWbQD0jGhlZIlysHe4v3RgaawTz1J3ol60ZIMmt4XyM3P9LxwCMWIt_sAOlrWlUuP_HgBhQniRyVGOQCvMK6Crbuz7G0ewHf5JDNlm1PMFmmBvz7_8nb9jZpo92MNnsi3EimBg6s16bcVSyS9Eq6iEViLNmMKp2fPVrG6E-Jns71PLh5uiJIEp_2wkfQ4R34zuHYrNig3VQZGhoiv_VAxLchMB0oT7s8RpIEdfS3PcJczox_mUEJbyTBRRXvyAvMXCb6R8OYvZ6ckaWh- -bULIOgUoxTpStsunDVUfrfbvxOARYhUiNCJcfN3REsu7jbWiOS-h6wdTr-wEREJstj_4Rkwz_vlOqQqD2yssDPsNicgKj6hytMh26KB2TI9miKxHJXGpYmTCC_VvfvYEKHjFOwgU4BxFfE1oYkmF]--></g></svg></div><small class="form-text text-muted">Click diagram to navigate to corresponding section | <a href="http://www.plantuml.com/plantuml/png/hPLTRzem58RlyolEwCtMoGXOhxAk6gKfhSH71DdGL7MHYK-BXMD7jcbBV_sSyg40PGeRTuxzvddFEOhV6BGWQOecemaECQEQMgL1AecUcNAPRwIG26hCjP9so5yHwcVU1uOFN29qRjitKN_GxBM3ebobcGCukPqBX5ag6eNJPqspBXf37t74cPr0lLOh73UrLiyj9LmL9rsgbPAUsLyaUAsyDgYO336PeF6RYULFtCv9DsgJi4FwqGqPXa7Gkgd0tTr92TtzFPoCQJBrhwYUNeePVhNuOltHX5lqpY-0SPegoU8L8NQ4EEp4ZX0l277uvSmhLn8X5r0fHwo03xzHSCA4doXfkB4cLWzmLwzMw_VWbQD0jGhlZIlysHe4v3RgaawTz1J3ol60ZIMmt4XyM3P9LxwCMWIt_sAOlrWlUuP_HgBhQniRyVGOQCvMK6Crbuz7G0ewHf5JDNlm1PMFmmBvz7_8nb9jZpo92MNnsi3EimBg6s16bcVSyS9Eq6iEViLNmMKp2fPVrG6E-Jns71PLh5uiJIEp_2wkfQ4R34zuHYrNig3VQZGhoiv_VAxLchMB0oT7s8RpIEdfS3PcJczox_mUEJbyTBRRXvyAvMXCb6R8OYvZ6ckaWh--bULIOgUoxTpStsunDVUfrfbvxOARYhUiNCJcfN3REsu7jbWiOS-h6wdTr-wEREJstj_4Rkwz_vlOqQqD2yssDPsNicgKj6hytMh26KB2TI9miKxHJXGpYmTCC_VvfvYEKHjFOwgU4BxFfE1oYkmF" target="_blank">View as PNG</a></small>
+                     <!--@startuml
+set namespaceSeparator none
+skinparam classFontSize 14
+!define LIGHTORANGE
+skinparam componentStyle uml2
+skinparam wrapMessageWidth 100
+skinparam ArrowColor #Maroon
+set namespaceSeparator none 
+Class "speeches:Activity-MTG-PL-OTH-SPEECH" [[#speeches:Activity-MTG-PL-OTH-SPEECH]] #back:DarkBlue;text:White
+<> diamond_Activity_MTG_PL_OTH_SPEECH_P34
+"speeches:Activity-MTG-PL-OTH-SPEECH" - -> "diamond_Activity_MTG_PL_OTH_SPEECH_P34" : ^eli-dl:consists_of [1..1] 
+diamond_Activity_MTG_PL_OTH_SPEECH_P34 ..  "speeches:Activity-PVCRE-ITM-L1-Node"
+diamond_Activity_MTG_PL_OTH_SPEECH_P34 ..  "speeches:Activity-PVCRE-ITM-L2-Node"
+"speeches:Activity-MTG-PL-OTH-SPEECH" : eli-dl:activity_date  : xsd:date  [1..1]  
+"speeches:Activity-MTG-PL-OTH-SPEECH" : eli-dl:activity_end_date  : xsd:dateTime  [1..1]  
+"speeches:Activity-MTG-PL-OTH-SPEECH" : eli-dl:activity_id  : xsd:string  [1..1]  
+"speeches:Activity-MTG-PL-OTH-SPEECH" : eli-dl:activity_label  : rdf:langString  [1..*]  
+"speeches:Activity-MTG-PL-OTH-SPEECH" : eli-dl:activity_start_date  : xsd:dateTime  [1..1]  
+"speeches:Activity-MTG-PL-OTH-SPEECH" : eli-dl:had_activity_type  [1..1]  = ep-activities:PLENARY_DEBATE_SPEECH  
+"speeches:Activity-MTG-PL-OTH-SPEECH" : rdf:type  [1..1]  = eli-dl:Activity  
+"speeches:Activity-MTG-PL-OTH-SPEECH" -u-> "speeches:Participation-MTG-PL-OTH" : eli-dl:had_participation<U+00A0>[1..1]  
+"speeches:Activity-MTG-PL-OTH-SPEECH" -d-> "speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" : eli-dl:recorded_in_a_realization_of<U+00A0>[1..1]  
+Class "speeches:Participation-MTG-PL-OTH" [[#speeches:Participation-MTG-PL-OTH]] #back:FloralWhite;text:Black
+Class "speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" [[#speeches:WorkSubdivision-CRE-OTH]] #back:DarkOrange;text:White
+Class "speeches:Activity-PVCRE-ITM-L1-Node" [[#speeches:Activity-PVCRE-ITM-L1-Node]] #back:White;text:Gray
+Class "speeches:Activity-PVCRE-ITM-L2-Node" [[#speeches:Activity-PVCRE-ITM-L2-Node]] #back:White;text:Gray
+hide circle
+hide methods
+hide empty members
+remove @unlinked
+@enduml
+--></div>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity date</td>
+                           <td id="speeches:Activity-MTG-PL-OTH-SPEECH_eli-dl:activity_date"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_date">eli-dl:activity_date</a></code></td>
+                           <td><code>xsd:date</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity end date</td>
+                           <td id="speeches:Activity-MTG-PL-OTH-SPEECH_eli-dl:activity_end_date"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_end_date">eli-dl:activity_end_date</a></code></td>
+                           <td><code>xsd:dateTime</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity id</td>
+                           <td id="speeches:Activity-MTG-PL-OTH-SPEECH_eli-dl:activity_id"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_id">eli-dl:activity_id</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity label</td>
+                           <td id="speeches:Activity-MTG-PL-OTH-SPEECH_eli-dl:activity_label"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_label">eli-dl:activity_label</a></code></td>
+                           <td><code>rdf:langString</code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity start date</td>
+                           <td id="speeches:Activity-MTG-PL-OTH-SPEECH_eli-dl:activity_start_date"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_start_date">eli-dl:activity_start_date</a></code></td>
+                           <td><code>xsd:dateTime</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity type</td>
+                           <td id="speeches:Activity-MTG-PL-OTH-SPEECH_eli-dl:had_activity_type"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#had_activity_type">eli-dl:had_activity_type</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/ep-activities/PLENARY_DEBATE_SPEECH">ep-activities:PLENARY_DEBATE_SPEECH</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>had participation</td>
+                           <td id="speeches:Activity-MTG-PL-OTH-SPEECH_eli-dl:had_participation"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#had_participation">eli-dl:had_participation</a></code></td>
+                           <td><code><a href="#speeches:Participation-MTG-PL-OTH">speeches:Participation-MTG-PL-OTH</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>inverse consists of</td>
+                           <td id="speeches:Activity-MTG-PL-OTH-SPEECH_^eli-dl:consists_of"><code>^eli-dl:consists_of</code></td>
+                           <td><code><a href="#speeches:Activity-PVCRE-ITM-L1-Node">speeches:Activity-PVCRE-ITM-L1-Node</a></code><code> or </code><code><a href="#speeches:Activity-PVCRE-ITM-L2-Node">speeches:Activity-PVCRE-ITM-L2-Node</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>recorded in a realization of</td>
+                           <td id="speeches:Activity-MTG-PL-OTH-SPEECH_eli-dl:recorded_in_a_realization_of"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#recorded_in_a_realization_of">eli-dl:recorded_in_a_realization_of</a></code></td>
+                           <td><code><a href="#speeches:WorkSubdivision-CRE-OTH">speeches:WorkSubdivision-CRE-OTH</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>type</td>
+                           <td id="speeches:Activity-MTG-PL-OTH-SPEECH_rdf:type"><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#Activity">eli-dl:Activity</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT" class="sp_section_title_table">speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/speeches#Activity-MTG-PL-OTH-WRITTEN-STATEMENT</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape represents a subset of eli-dl:Activity</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-OTH-[0-9]+$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-04-22-OTH-191668814</code></li>
+                     <li>Applies to: <br><code>
+                           <pre>PREFIX eli-dl: &lt;http://data.europa.eu/eli/eli-draft-legislation-ontology#&gt;&#xD;
+SELECT ?s&#xD;
+WHERE {&#xD;
+ ?s ?p ?o.&#xD;
+ FILTER regex(str(?s),"^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-OTH-[0-9]+$","i")&#xD;
+ ?s eli-dl:had_activity_type &lt;https://data.europarl.europa.eu/def/ep-activities/PLENARY_DEBATE_WRITTEN_STATEMENT&gt; &#xD;
+}</pre></code></li>
+                  </ul>
+                  <div class="sp_section_nodeshape_diagram">
+                     <div class="sp_section_nodeshape_center"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="437px" preserveAspectRatio="none" style="width:776px;height:437px;background:#FFFFFF;" version="1.1" viewBox="0 0 776 437" width="776px" zoomAndPan="magnify"><defs xmlns=""/><g><!--class speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT--><a href="#speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT" target="_top" title="#speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT" xlink:actuate="onRequest" xlink:href="#speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT" xlink:show="new" xlink:title="#speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT" xlink:type="simple"><g id="elem_speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT"><rect codeLine="8" fill="#00008B" height="115.7813" id="uml_speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="609" x="117" y="110"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="372" x="235.5" y="127.9951">speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT</text><line style="stroke:#181818;stroke-width:0.5;" x1="118" x2="725" y1="136.2969" y2="136.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="242" x="123" y="153.292">eli-dl:activity_date  : xsd:date  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="231" x="123" y="169.5889">eli-dl:activity_id  : xsd:string  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="273" x="123" y="185.8857">eli-dl:activity_label  : rdf:langString  [1..*]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="597" x="123" y="202.1826">eli-dl:had_activity_type  [1..1]  = ep-activities:PLENARY_DEBATE_WRITTEN_STATEMENT</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="205" x="123" y="218.4795">rdf:type  [1..1]  = eli-dl:Activity</text></g></a><polygon fill="#F1F1F1" points="295.5,319,307.5,331,295.5,343,283.5,331,295.5,319" style="stroke:#181818;stroke-width:0.5;"/><!--class speeches:Activity-PVCRE-ITM-L1-Node--><a href="#speeches:Activity-PVCRE-ITM-L1-Node" target="_top" title="#speeches:Activity-PVCRE-ITM-L1-Node" xlink:actuate="onRequest" xlink:href="#speeches:Activity-PVCRE-ITM-L1-Node" xlink:show="new" xlink:title="#speeches:Activity-PVCRE-ITM-L1-Node" xlink:type="simple"><g id="elem_speeches:Activity-PVCRE-ITM-L1-Node"><rect codeLine="22" fill="#FFFFFF" height="26.2969" id="uml_speeches:Activity-PVCRE-ITM-L1-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="271" x="7" y="405"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="265" x="10" y="422.9951">speeches:Activity-PVCRE-ITM-L1-Node</text></g></a><!--class speeches:Activity-PVCRE-ITM-L2-Node--><a href="#speeches:Activity-PVCRE-ITM-L2-Node" target="_top" title="#speeches:Activity-PVCRE-ITM-L2-Node" xlink:actuate="onRequest" xlink:href="#speeches:Activity-PVCRE-ITM-L2-Node" xlink:show="new" xlink:title="#speeches:Activity-PVCRE-ITM-L2-Node" xlink:type="simple"><g id="elem_speeches:Activity-PVCRE-ITM-L2-Node"><rect codeLine="23" fill="#FFFFFF" height="26.2969" id="uml_speeches:Activity-PVCRE-ITM-L2-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="271" x="313" y="405"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="265" x="316" y="422.9951">speeches:Activity-PVCRE-ITM-L2-Node</text></g></a><!--class speeches:Participation-MTG-PL-OTH--><a href="#speeches:Participation-MTG-PL-OTH" target="_top" title="#speeches:Participation-MTG-PL-OTH" xlink:actuate="onRequest" xlink:href="#speeches:Participation-MTG-PL-OTH" xlink:show="new" xlink:title="#speeches:Participation-MTG-PL-OTH" xlink:type="simple"><g id="elem_speeches:Participation-MTG-PL-OTH"><rect codeLine="20" fill="#FFFAF0" height="26.2969" id="uml_speeches:Participation-MTG-PL-OTH" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="257" x="293" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="251" x="296" y="24.9951">speeches:Participation-MTG-PL-OTH</text></g></a><!--class speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)--><a href="#speeches:WorkSubdivision-CRE-OTH" target="_top" title="#speeches:WorkSubdivision-CRE-OTH" xlink:actuate="onRequest" xlink:href="#speeches:WorkSubdivision-CRE-OTH" xlink:show="new" xlink:title="#speeches:WorkSubdivision-CRE-OTH" xlink:type="simple"><g id="elem_speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)"><rect codeLine="21" fill="#FF8C00" height="26.2969" id="speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="409" x="343" y="318"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="403" x="346" y="335.9951">speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)</text></g></a><!--link speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT to diamond_Activity_MTG_PL_OTH_WRITTEN_STATEMENT_P43--><g id="link_speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT_diamond_Activity_MTG_PL_OTH_WRITTEN_STATEMENT_P43"><path codeLine="10" d="M376.367,226.3863 C347.8389,263.2917 317.6518,302.3432 304.6379,319.1787 " fill="none" id="speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT-to-diamond_Activity_MTG_PL_OTH_WRITTEN_STATEMENT_P43" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="300.9684,323.9258,309.6374,319.2515,304.0263,319.9699,303.3079,314.3588,300.9684,323.9258" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="116" x="352.5" y="269.0669">^eli-dl:consists_of</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="34" x="393.5" y="284.1997">[1..1]</text></g><!--link diamond_Activity_MTG_PL_OTH_WRITTEN_STATEMENT_P43 to speeches:Activity-PVCRE-ITM-L1-Node--><g id="link_diamond_Activity_MTG_PL_OTH_WRITTEN_STATEMENT_P43_speeches:Activity-PVCRE-ITM-L1-Node"><path codeLine="11" d="M287.7024,335.434 C265.3538,348.142 200.4393,385.0541 165.4638,404.9421 " fill="none" id="diamond_Activity_MTG_PL_OTH_WRITTEN_STATEMENT_P43-speeches:Activity-PVCRE-ITM-L1-Node" style="stroke:#800000;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--link diamond_Activity_MTG_PL_OTH_WRITTEN_STATEMENT_P43 to speeches:Activity-PVCRE-ITM-L2-Node--><g id="link_diamond_Activity_MTG_PL_OTH_WRITTEN_STATEMENT_P43_speeches:Activity-PVCRE-ITM-L2-Node"><path codeLine="12" d="M303.2976,335.434 C325.6462,348.142 390.5607,385.0541 425.5362,404.9421 " fill="none" id="diamond_Activity_MTG_PL_OTH_WRITTEN_STATEMENT_P43-speeches:Activity-PVCRE-ITM-L2-Node" style="stroke:#800000;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--reverse link speeches:Participation-MTG-PL-OTH to speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT--><g id="link_speeches:Participation-MTG-PL-OTH_speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT"><path codeLine="18" d="M421.5,39.134 C421.5,56.3249 421.5,81.577 421.5,109.6708 " fill="none" id="speeches:Participation-MTG-PL-OTH-backto-speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="421.5,33.134,417.5,42.134,421.5,38.134,425.5,42.134,421.5,33.134" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="182" x="422.5" y="76.0669">eli-dl:had_participation&#xa0;[1..1]</text></g><!--link speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT to speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)--><g id="link_speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT_speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)"><path codeLine="19" d="M466.633,226.3863 C492.1953,259.455 518.3663,293.3111 533.6569,313.0918 " fill="none" id="speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT-to-speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="537.3264,317.8389,534.9868,308.272,534.2685,313.883,528.6574,313.1646,537.3264,317.8389" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="254" x="514.5" y="276.5669">eli-dl:recorded_in_a_realization_of&#xa0;[1..1]</text></g><!--SRC=[jLNRRXen47tVhvZ2IvlA26YUjcbKI3Oa4ZV1jgYAg6NMas3XjLUsIKA-ljvmqGP25TBqpUkPEUVCU7riqO5YATgC9JZ4Z1dcj06b5GPs9bI-aK8YcRKNMhcXU4Ie7GSVEDu8XT2-Qbt6lK6ZsugAwJhDF81FTmk9C4zblH2zDopheBNi5aU2kodKgjL2k66ClZ_JqgieTvZHMWLslqW8pd9jKB8POZ956pOI9-w4Mv1Et2BzDkd5bsGqk8hZg4k6SIEEEb4tBi7rTVcmal4OoXEMpC9pPcPDESUl3XzSE9eAXy79AN31KgquNODH3qRxRUh1w0gCRi1e__XBSB1cGawXT31F2KBuZL8GBiD4AokiirJVm7MjKgcD8JWO42eLU6dW_PzdWuXSnHtIhf6kvbZwBzZr5VR1umjXDGMsLiEPG_3x3vQ7o_LgAF0Uw8AliQqpGjs-Bxfa4vGvWU4teMJgTbWWEVetaYdZT4Fa5bbXCDy0CxAA2G_TRqVTnk0NFO-Q7cVtKD-c8-zfXtUfROtn5c0ops_GfghFZ1E9o9WJMXLAjoQH5TDEVdokLXlLqxSV9U7FH8oqcGtd4-vBRIuZ_yzz9Npq2hQ3dmhA32RQSEHKACgeGIR5uvD2VxTtH6wRvFxEYxwuBsjZXHVUfPbyii2b6pQbtzvXEx35eeGzfS_Ck6Vyt__CZlU-2RiMzV93i9Et8Imqsp9iyIgg-Ykfwd-dcWgEa0YJI5okKtHJpUto0zFCNueKqmaQ6nXCzHt2zxcIGisG_m40]--></g></svg></div><small class="form-text text-muted">Click diagram to navigate to corresponding section | <a href="http://www.plantuml.com/plantuml/png/jLNRRXen47tVhvZ2IvlA26YUjcbKI3Oa4ZV1jgYAg6NMas3XjLUsIKA-ljvmqGP25TBqpUkPEUVCU7riqO5YATgC9JZ4Z1dcj06b5GPs9bI-aK8YcRKNMhcXU4Ie7GSVEDu8XT2-Qbt6lK6ZsugAwJhDF81FTmk9C4zblH2zDopheBNi5aU2kodKgjL2k66ClZ_JqgieTvZHMWLslqW8pd9jKB8POZ956pOI9-w4Mv1Et2BzDkd5bsGqk8hZg4k6SIEEEb4tBi7rTVcmal4OoXEMpC9pPcPDESUl3XzSE9eAXy79AN31KgquNODH3qRxRUh1w0gCRi1e__XBSB1cGawXT31F2KBuZL8GBiD4AokiirJVm7MjKgcD8JWO42eLU6dW_PzdWuXSnHtIhf6kvbZwBzZr5VR1umjXDGMsLiEPG_3x3vQ7o_LgAF0Uw8AliQqpGjs-Bxfa4vGvWU4teMJgTbWWEVetaYdZT4Fa5bbXCDy0CxAA2G_TRqVTnk0NFO-Q7cVtKD-c8-zfXtUfROtn5c0ops_GfghFZ1E9o9WJMXLAjoQH5TDEVdokLXlLqxSV9U7FH8oqcGtd4-vBRIuZ_yzz9Npq2hQ3dmhA32RQSEHKACgeGIR5uvD2VxTtH6wRvFxEYxwuBsjZXHVUfPbyii2b6pQbtzvXEx35eeGzfS_Ck6Vyt__CZlU-2RiMzV93i9Et8Imqsp9iyIgg-Ykfwd-dcWgEa0YJI5okKtHJpUto0zFCNueKqmaQ6nXCzHt2zxcIGisG_m40" target="_blank">View as PNG</a></small>
+                     <!--@startuml
+set namespaceSeparator none
+skinparam classFontSize 14
+!define LIGHTORANGE
+skinparam componentStyle uml2
+skinparam wrapMessageWidth 100
+skinparam ArrowColor #Maroon
+set namespaceSeparator none 
+Class "speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT" [[#speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT]] #back:DarkBlue;text:White
+<> diamond_Activity_MTG_PL_OTH_WRITTEN_STATEMENT_P43
+"speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT" - -> "diamond_Activity_MTG_PL_OTH_WRITTEN_STATEMENT_P43" : ^eli-dl:consists_of [1..1] 
+diamond_Activity_MTG_PL_OTH_WRITTEN_STATEMENT_P43 ..  "speeches:Activity-PVCRE-ITM-L1-Node"
+diamond_Activity_MTG_PL_OTH_WRITTEN_STATEMENT_P43 ..  "speeches:Activity-PVCRE-ITM-L2-Node"
+"speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT" : eli-dl:activity_date  : xsd:date  [1..1]  
+"speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT" : eli-dl:activity_id  : xsd:string  [1..1]  
+"speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT" : eli-dl:activity_label  : rdf:langString  [1..*]  
+"speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT" : eli-dl:had_activity_type  [1..1]  = ep-activities:PLENARY_DEBATE_WRITTEN_STATEMENT  
+"speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT" : rdf:type  [1..1]  = eli-dl:Activity  
+"speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT" -u-> "speeches:Participation-MTG-PL-OTH" : eli-dl:had_participation<U+00A0>[1..1]  
+"speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT" -d-> "speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" : eli-dl:recorded_in_a_realization_of<U+00A0>[1..1]  
+Class "speeches:Participation-MTG-PL-OTH" [[#speeches:Participation-MTG-PL-OTH]] #back:FloralWhite;text:Black
+Class "speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" [[#speeches:WorkSubdivision-CRE-OTH]] #back:DarkOrange;text:White
+Class "speeches:Activity-PVCRE-ITM-L1-Node" [[#speeches:Activity-PVCRE-ITM-L1-Node]] #back:White;text:Gray
+Class "speeches:Activity-PVCRE-ITM-L2-Node" [[#speeches:Activity-PVCRE-ITM-L2-Node]] #back:White;text:Gray
+hide circle
+hide methods
+hide empty members
+remove @unlinked
+@enduml
+--></div>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity date</td>
+                           <td id="speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT_eli-dl:activity_date"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_date">eli-dl:activity_date</a></code></td>
+                           <td><code>xsd:date</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity id</td>
+                           <td id="speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT_eli-dl:activity_id"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_id">eli-dl:activity_id</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity label</td>
+                           <td id="speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT_eli-dl:activity_label"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#activity_label">eli-dl:activity_label</a></code></td>
+                           <td><code>rdf:langString</code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>activity type</td>
+                           <td id="speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT_eli-dl:had_activity_type"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#had_activity_type">eli-dl:had_activity_type</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/ep-activities/PLENARY_DEBATE_WRITTEN_STATEMENT">ep-activities:PLENARY_DEBATE_WRITTEN_STATEMENT</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>had participation</td>
+                           <td id="speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT_eli-dl:had_participation"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#had_participation">eli-dl:had_participation</a></code></td>
+                           <td><code><a href="#speeches:Participation-MTG-PL-OTH">speeches:Participation-MTG-PL-OTH</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>inverse consists of</td>
+                           <td id="speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT_^eli-dl:consists_of"><code>^eli-dl:consists_of</code></td>
+                           <td><code><a href="#speeches:Activity-PVCRE-ITM-L1-Node">speeches:Activity-PVCRE-ITM-L1-Node</a></code><code> or </code><code><a href="#speeches:Activity-PVCRE-ITM-L2-Node">speeches:Activity-PVCRE-ITM-L2-Node</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>recorded in a realization of</td>
+                           <td id="speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT_eli-dl:recorded_in_a_realization_of"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#recorded_in_a_realization_of">eli-dl:recorded_in_a_realization_of</a></code></td>
+                           <td><code><a href="#speeches:WorkSubdivision-CRE-OTH">speeches:WorkSubdivision-CRE-OTH</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>type</td>
+                           <td id="speeches:Activity-MTG-PL-OTH-WRITTEN-STATEMENT_rdf:type"><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#Activity">eli-dl:Activity</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="speeches:Participation-MTG-PL-PVCRE-CHA" class="sp_section_title_table">speeches:Participation-MTG-PL-PVCRE-CHA</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/speeches#Participation-MTG-PL-PVCRE-CHA</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape represents a subset of eli-dl:Activity</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/participation/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-OTH-[0-9]+_[0-9]+$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/participation/MTG-PL-2025-01-22-PVCRE-CHA-5_88882</code></li>
+                     <li>Applies to: <br><code>
+                           <pre>PREFIX eli-dl: &lt;http://data.europa.eu/eli/eli-draft-legislation-ontology#&gt;&#xD;
+SELECT ?s&#xD;
+WHERE {&#xD;
+ ?s ?p ?o.&#xD;
+ FILTER regex(str(?s),"^https://data.europarl.europa.eu/eli/dl/participation/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-OTH-[0-9]+_[0-9]+$"","i")&#xD;
+ ?s eli-dl:participation_role &lt;https://data.europarl.europa.eu/def/ep-roles/CHAIR&gt; &#xD;
+&#xD;
+}</pre></code></li>
+                  </ul>
+                  <div class="sp_section_nodeshape_diagram">
+                     <div class="sp_section_nodeshape_center"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="104px" preserveAspectRatio="none" style="width:359px;height:104px;background:#FFFFFF;" version="1.1" viewBox="0 0 359 104" width="359px" zoomAndPan="magnify"><defs xmlns=""/><g><!--class speeches:Participation-MTG-PL-PVCRE-CHA--><a href="#speeches:Participation-MTG-PL-PVCRE-CHA" target="_top" title="#speeches:Participation-MTG-PL-PVCRE-CHA" xlink:actuate="onRequest" xlink:href="#speeches:Participation-MTG-PL-PVCRE-CHA" xlink:show="new" xlink:title="#speeches:Participation-MTG-PL-PVCRE-CHA" xlink:type="simple"><g id="elem_speeches:Participation-MTG-PL-PVCRE-CHA"><rect codeLine="8" fill="#FFFAF0" height="83.1875" id="uml_speeches:Participation-MTG-PL-PVCRE-CHA" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="338" x="7" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="302" x="25" y="24.9951">speeches:Participation-MTG-PL-PVCRE-CHA</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="344" y1="33.2969" y2="33.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="242" x="13" y="50.292">eli-dl:had_participant_person  [1..1]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="326" x="13" y="66.5889">eli-dl:participation_role  [1..1]  = ep-roles:CHAIR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="242" x="13" y="82.8857">rdf:type  [1..1]  = eli-dl:Participation</text></g></a><!--SRC=[dP1BQm8n58NtyojkTJtYbAvIkh23Bz1MLEf2P8Z9jHFCY-GMQtzz8r8P5mNRNNBkTyyvIKG2omr6pmKkqFF0oGMmpc8MzygU10D2ynW7pj92VI4K3zcTn9so29FnSBHydVTUXlqcxenF1WcdeqRuCFg-CJq4xgSO8t_7bP9KGz7jDiQz4DoXT3grQ4zvSCvcyVUIa9MdRj2A7b7K6DcC1r92UKxAsNow7EQpIJvxA-Vzl1prMh1UjszaDnjeRxdOiq4gm_MgLeIFX9_4ddMIizip6Q1MkTIivhBoFx2bocE8pWAiYqwds03ynzCtmIguzECNloT0dv-aoDBIUFx7X21tZ8x-sl2SUhMSR6ib4OGAGkFvR91g9-FvWiRJCKbccnxy3G00]--></g></svg></div><small class="form-text text-muted">Click diagram to navigate to corresponding section | <a href="http://www.plantuml.com/plantuml/png/dP1BQm8n58NtyojkTJtYbAvIkh23Bz1MLEf2P8Z9jHFCY-GMQtzz8r8P5mNRNNBkTyyvIKG2omr6pmKkqFF0oGMmpc8MzygU10D2ynW7pj92VI4K3zcTn9so29FnSBHydVTUXlqcxenF1WcdeqRuCFg-CJq4xgSO8t_7bP9KGz7jDiQz4DoXT3grQ4zvSCvcyVUIa9MdRj2A7b7K6DcC1r92UKxAsNow7EQpIJvxA-Vzl1prMh1UjszaDnjeRxdOiq4gm_MgLeIFX9_4ddMIizip6Q1MkTIivhBoFx2bocE8pWAiYqwds03ynzCtmIguzECNloT0dv-aoDBIUFx7X21tZ8x-sl2SUhMSR6ib4OGAGkFvR91g9-FvWiRJCKbccnxy3G00" target="_blank">View as PNG</a></small>
+                     <!--@startuml
+set namespaceSeparator none
+skinparam classFontSize 14
+!define LIGHTORANGE
+skinparam componentStyle uml2
+skinparam wrapMessageWidth 100
+skinparam ArrowColor #Maroon
+set namespaceSeparator none 
+Class "speeches:Participation-MTG-PL-PVCRE-CHA" [[#speeches:Participation-MTG-PL-PVCRE-CHA]] #back:FloralWhite;text:Black
+"speeches:Participation-MTG-PL-PVCRE-CHA" : eli-dl:had_participant_person  [1..1]  
+"speeches:Participation-MTG-PL-PVCRE-CHA" : eli-dl:participation_role  [1..1]  = ep-roles:CHAIR  
+"speeches:Participation-MTG-PL-PVCRE-CHA" : rdf:type  [1..1]  = eli-dl:Participation  
+hide circle
+hide methods
+hide empty members
+@enduml
+--></div>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>had participant person</td>
+                           <td id="speeches:Participation-MTG-PL-PVCRE-CHA_eli-dl:had_participant_person"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#had_participant_person">eli-dl:had_participant_person</a></code></td>
+                           <td><code>IRI</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>participation role</td>
+                           <td id="speeches:Participation-MTG-PL-PVCRE-CHA_eli-dl:participation_role"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#participation_role">eli-dl:participation_role</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/ep-roles/CHAIR">ep-roles:CHAIR</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>type</td>
+                           <td id="speeches:Participation-MTG-PL-PVCRE-CHA_rdf:type"><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#Participation">eli-dl:Participation</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="speeches:Participation-MTG-PL-OTH" class="sp_section_title_table">speeches:Participation-MTG-PL-OTH</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/speeches#Participation-MTG-PL-OTH</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape represents a subset of eli-dl:Activity</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/participation/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-OTH-[0-9]+_[0-9]+$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/participation/MTG-PL-2025-01-20-OTH-2017011003841_257088</code></li>
+                     <li>Applies to: <br><code>
+                           <pre>PREFIX eli-dl: &lt;http://data.europa.eu/eli/eli-draft-legislation-ontology#&gt;&#xD;
+SELECT ?s&#xD;
+WHERE {&#xD;
+ ?s ?p ?o.&#xD;
+ FILTER regex(str(?s),"^https://data.europarl.europa.eu/eli/dl/participation/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-OTH-[0-9]+_[0-9]+$"","i")&#xD;
+ ?s eli-dl:participation_role &lt;https://data.europarl.europa.eu/def/ep-roles/SPEAKER&gt; &#xD;
+&#xD;
+}</pre></code></li>
+                  </ul>
+                  <div class="sp_section_nodeshape_diagram">
+                     <div class="sp_section_nodeshape_center"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="120px" preserveAspectRatio="none" style="width:381px;height:120px;background:#FFFFFF;" version="1.1" viewBox="0 0 381 120" width="381px" zoomAndPan="magnify"><defs xmlns=""/><g><!--class speeches:Participation-MTG-PL-OTH--><a href="#speeches:Participation-MTG-PL-OTH" target="_top" title="#speeches:Participation-MTG-PL-OTH" xlink:actuate="onRequest" xlink:href="#speeches:Participation-MTG-PL-OTH" xlink:show="new" xlink:title="#speeches:Participation-MTG-PL-OTH" xlink:type="simple"><g id="elem_speeches:Participation-MTG-PL-OTH"><rect codeLine="8" fill="#FFFAF0" height="99.4844" id="uml_speeches:Participation-MTG-PL-OTH" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="360" x="7" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="251" x="61.5" y="24.9951">speeches:Participation-MTG-PL-OTH</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="366" y1="33.2969" y2="33.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="242" x="13" y="50.292">eli-dl:had_participant_person  [1..1]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="250" x="13" y="66.5889">eli-dl:participation_in_name_of  [0..1]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="348" x="13" y="82.8857">eli-dl:participation_role  [1..1]  = ep-roles:SPEAKER</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="242" x="13" y="99.1826">rdf:type  [1..1]  = eli-dl:Participation</text></g></a><!--SRC=[fP5DJm8n48Rl-oj6E2zXZQSQ3qZuC88G8E50oAQqWzlGhxHZ47-ztH3DSZ1Yl7NUUVlCcvc819ORZ9uBNABdWPCBO9t5B1wKhGK3GlCOXyxIKdqW57VPZSIziWYJfz5uDLlqNaQ3fjqPdm39JYUDy6RqRQDx3DnFCKR-YcibgOAYsssqUo6uOz_fbA8zvS4vcyMVGqBMhxD1Atf4KM5aSnv82UKvAMVpwMgKpoVvR3LkmMRJ_jMrtK9xnyM13LC0hjUL8hmdV2Vsg9ESNJE70MgLIyqgBal_PRDKUWpHMO1DqUaKMu2_qNpJKYfRrYiftJxnkl_d1PSkzPti0T3djHJPSZxeFGyMLzE3t3Cw-KlOUUB5jmIib4GGAWYDvxT1gfoCvmADfrEIp2wjxHC0]--></g></svg></div><small class="form-text text-muted">Click diagram to navigate to corresponding section | <a href="http://www.plantuml.com/plantuml/png/fP5DJm8n48Rl-oj6E2zXZQSQ3qZuC88G8E50oAQqWzlGhxHZ47-ztH3DSZ1Yl7NUUVlCcvc819ORZ9uBNABdWPCBO9t5B1wKhGK3GlCOXyxIKdqW57VPZSIziWYJfz5uDLlqNaQ3fjqPdm39JYUDy6RqRQDx3DnFCKR-YcibgOAYsssqUo6uOz_fbA8zvS4vcyMVGqBMhxD1Atf4KM5aSnv82UKvAMVpwMgKpoVvR3LkmMRJ_jMrtK9xnyM13LC0hjUL8hmdV2Vsg9ESNJE70MgLIyqgBal_PRDKUWpHMO1DqUaKMu2_qNpJKYfRrYiftJxnkl_d1PSkzPti0T3djHJPSZxeFGyMLzE3t3Cw-KlOUUB5jmIib4GGAWYDvxT1gfoCvmADfrEIp2wjxHC0" target="_blank">View as PNG</a></small>
+                     <!--@startuml
+set namespaceSeparator none
+skinparam classFontSize 14
+!define LIGHTORANGE
+skinparam componentStyle uml2
+skinparam wrapMessageWidth 100
+skinparam ArrowColor #Maroon
+set namespaceSeparator none 
+Class "speeches:Participation-MTG-PL-OTH" [[#speeches:Participation-MTG-PL-OTH]] #back:FloralWhite;text:Black
+"speeches:Participation-MTG-PL-OTH" : eli-dl:had_participant_person  [1..1]  
+"speeches:Participation-MTG-PL-OTH" : eli-dl:participation_in_name_of  [0..1]  
+"speeches:Participation-MTG-PL-OTH" : eli-dl:participation_role  [1..1]  = ep-roles:SPEAKER  
+"speeches:Participation-MTG-PL-OTH" : rdf:type  [1..1]  = eli-dl:Participation  
+hide circle
+hide methods
+hide empty members
+@enduml
+--></div>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>had participant person</td>
+                           <td id="speeches:Participation-MTG-PL-OTH_eli-dl:had_participant_person"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#had_participant_person">eli-dl:had_participant_person</a></code></td>
+                           <td><code>IRI</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>participation in name of</td>
+                           <td id="speeches:Participation-MTG-PL-OTH_eli-dl:participation_in_name_of"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#participation_in_name_of">eli-dl:participation_in_name_of</a></code></td>
+                           <td><code>IRI</code><br></td>
+                           <td>
+                              <div style="width:30px">0..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>participation role</td>
+                           <td id="speeches:Participation-MTG-PL-OTH_eli-dl:participation_role"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#participation_role">eli-dl:participation_role</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/ep-roles/SPEAKER">ep-roles:SPEAKER</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>type</td>
+                           <td id="speeches:Participation-MTG-PL-OTH_rdf:type"><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#Participation">eli-dl:Participation</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="speeches:WorkSubdivision-CRE-OTH" class="sp_section_title_table">speeches:WorkSubdivision-CRE-OTH</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/speeches#WorkSubdivision-CRE-OTH</code></div>
+                  <ul class="sp_list_description_properties">
+                     <li>Applies to: <a href="http://data.europa.eu/eli/ontology#WorkSubdivision">eli:WorkSubdivision</a></li>
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/CRE-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}-OTH-[0-9]+$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/CRE-9-2024-04-22-OTH-191364939</code></li>
+                  </ul>
+                  <div class="sp_section_nodeshape_diagram">
+                     <div class="sp_section_nodeshape_center"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="281px" preserveAspectRatio="none" style="width:423px;height:281px;background:#FFFFFF;" version="1.1" viewBox="0 0 423 281" width="423px" zoomAndPan="magnify"><defs xmlns=""/><g><!--class speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)--><a href="#speeches:WorkSubdivision-CRE-OTH" target="_top" title="#speeches:WorkSubdivision-CRE-OTH" xlink:actuate="onRequest" xlink:href="#speeches:WorkSubdivision-CRE-OTH" xlink:show="new" xlink:title="#speeches:WorkSubdivision-CRE-OTH" xlink:type="simple"><g id="elem_speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)"><rect codeLine="8" fill="#FF8C00" height="164.6719" id="speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="409" x="7" y="110"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="403" x="10" y="127.9951">speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="415" y1="136.2969" y2="136.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="250" x="13" y="153.292">dcterms:identifier  : xsd:string  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="203" x="13" y="169.5889">eli:number  : xsd:string  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="118" x="13" y="185.8857">eli:refers_to  :  IRI</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="314" x="13" y="202.1826">eli:type_subdivision  [1..1]  = subdivision:OTH</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="261" x="13" y="218.4795">epvoc:numbering  : xsd:integer  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="206" x="13" y="234.7764">epvoc:originalLanguage  [1..*]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="254" x="13" y="251.0732">rdf:type  [1..1]  = eli:WorkSubdivision</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="267" x="13" y="267.3701">skos:notation  : epvoc:speechId  [1..1]</text></g></a><!--class speeches:WorkSubdivision-CRE-ITM-Node--><a href="#speeches:WorkSubdivision-CRE-ITM-Node" target="_top" title="#speeches:WorkSubdivision-CRE-ITM-Node" xlink:actuate="onRequest" xlink:href="#speeches:WorkSubdivision-CRE-ITM-Node" xlink:show="new" xlink:title="#speeches:WorkSubdivision-CRE-ITM-Node" xlink:type="simple"><g id="elem_speeches:WorkSubdivision-CRE-ITM-Node"><rect codeLine="18" fill="#FFFFFF" height="26.2969" id="uml_speeches:WorkSubdivision-CRE-ITM-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="298" x="62.5" y="7"/><text fill="#808080" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="292" x="65.5" y="24.9951">speeches:WorkSubdivision-CRE-ITM-Node</text></g></a><!--reverse link speeches:WorkSubdivision-CRE-ITM-Node to speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)--><g id="link_speeches:WorkSubdivision-CRE-ITM-Node_speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)"><path codeLine="17" d="M211.5,39.2494 C211.5,55.9746 211.5,80.1524 211.5,109.7749 " fill="none" id="speeches:WorkSubdivision-CRE-ITM-Node-backto-speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="211.5,33.2494,207.5,42.2494,211.5,38.2494,215.5,42.2494,211.5,33.2494" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="118" x="212.5" y="76.0669">eli:is_part_of&#xa0;[1..1]</text></g><!--SRC=[jLHTRvj047pdLspZbtw825TzecbKoqqTf3YMR4T-i2php2rmWhj3juSJvzVtW3f6LIjN9Ns3sMLc6EqkeGN595B9ObnWoGopse3I2ZtAXQe12N71YBvhPHVY6M7uoNl3CH4AuIwQt2vdyz7zvARRhcNf25oxFHG8bIm-TggFXfLJ968fhWIt6Go3e5CU6QCVnxfmBWPJPhHM7ltP97ZZsXjSK8aOPqZXIfjyKUsus0iIMldZ-Oq_Mzx2Mop4hyLt5x1U3yvzkjd0OCVYFFp6J3upJANusUAJ3LUPiEZzitG8FBPe98M2kx148j20Gv-8XsIDK2d0UdXvETm0z56fSLN9tVzZDvYWeQtLjG14ywWtepsKkALJuUJr2tJWi2Rg9rRkTVmpdYQJDY6XBAPrOAyIKQEXZKY5OiMT6w3A3N_B_Rudj-594rOteD_qzXEXN5Eej6MseJh-KKiOyTT8oQ_ywpDR72sd_htcU9mHGLjt2knM9rSF7u9W55o_sFYRet2YEtS3ZfqlXw1P_FO6J0mxU9bRO8Y5YGjidoNQJ7DgNr2Mzk2WUiJ8CoZr7k5hfGgXSkG_0000]--></g></svg></div><small class="form-text text-muted">Click diagram to navigate to corresponding section | <a href="http://www.plantuml.com/plantuml/png/jLHTRvj047pdLspZbtw825TzecbKoqqTf3YMR4T-i2php2rmWhj3juSJvzVtW3f6LIjN9Ns3sMLc6EqkeGN595B9ObnWoGopse3I2ZtAXQe12N71YBvhPHVY6M7uoNl3CH4AuIwQt2vdyz7zvARRhcNf25oxFHG8bIm-TggFXfLJ968fhWIt6Go3e5CU6QCVnxfmBWPJPhHM7ltP97ZZsXjSK8aOPqZXIfjyKUsus0iIMldZ-Oq_Mzx2Mop4hyLt5x1U3yvzkjd0OCVYFFp6J3upJANusUAJ3LUPiEZzitG8FBPe98M2kx148j20Gv-8XsIDK2d0UdXvETm0z56fSLN9tVzZDvYWeQtLjG14ywWtepsKkALJuUJr2tJWi2Rg9rRkTVmpdYQJDY6XBAPrOAyIKQEXZKY5OiMT6w3A3N_B_Rudj-594rOteD_qzXEXN5Eej6MseJh-KKiOyTT8oQ_ywpDR72sd_htcU9mHGLjt2knM9rSF7u9W55o_sFYRet2YEtS3ZfqlXw1P_FO6J0mxU9bRO8Y5YGjidoNQJ7DgNr2Mzk2WUiJ8CoZr7k5hfGgXSkG_0000" target="_blank">View as PNG</a></small>
+                     <!--@startuml
+set namespaceSeparator none
+skinparam classFontSize 14
+!define LIGHTORANGE
+skinparam componentStyle uml2
+skinparam wrapMessageWidth 100
+skinparam ArrowColor #Maroon
+set namespaceSeparator none 
+Class "speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" [[#speeches:WorkSubdivision-CRE-OTH]] #back:DarkOrange;text:White
+"speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" : dcterms:identifier  : xsd:string  [1..1]  
+"speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" : eli:number  : xsd:string  [1..1]  
+"speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" : eli:refers_to  :  IRI 
+"speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" : eli:type_subdivision  [1..1]  = subdivision:OTH  
+"speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" : epvoc:numbering  : xsd:integer  [1..1]  
+"speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" : epvoc:originalLanguage  [1..*]  
+"speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" : rdf:type  [1..1]  = eli:WorkSubdivision  
+"speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" : skos:notation  : epvoc:speechId  [1..1]  
+"speeches:WorkSubdivision-CRE-OTH (eli:WorkSubdivision)" -u-> "speeches:WorkSubdivision-CRE-ITM-Node" : eli:is_part_of<U+00A0>[1..1]  
+Class "speeches:WorkSubdivision-CRE-ITM-Node" [[#speeches:WorkSubdivision-CRE-ITM-Node]] #back:White;text:Gray
+hide circle
+hide methods
+hide empty members
+remove @unlinked
+@enduml
+--></div>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>identifier</td>
+                           <td id="speeches:WorkSubdivision-CRE-OTH_dcterms:identifier"><code><a href="http://purl.org/dc/terms/identifier">dcterms:identifier</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>is part of</td>
+                           <td id="speeches:WorkSubdivision-CRE-OTH_eli:is_part_of"><code><a href="http://data.europa.eu/eli/ontology#is_part_of">eli:is_part_of</a></code></td>
+                           <td><code><a href="#speeches:WorkSubdivision-CRE-ITM-Node">speeches:WorkSubdivision-CRE-ITM-Node</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>notation</td>
+                           <td id="speeches:WorkSubdivision-CRE-OTH_skos:notation"><code><a href="http://www.w3.org/2004/02/skos/core#notation">skos:notation</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#speechId">epvoc:speechId</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>number</td>
+                           <td id="speeches:WorkSubdivision-CRE-OTH_eli:number"><code><a href="http://data.europa.eu/eli/ontology#number">eli:number</a></code></td>
+                           <td><code>xsd:string</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>numbering</td>
+                           <td id="speeches:WorkSubdivision-CRE-OTH_epvoc:numbering"><code><a href="https://data.europarl.europa.eu/def/epvoc#numbering">epvoc:numbering</a></code></td>
+                           <td><code>xsd:integer</code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>original language</td>
+                           <td id="speeches:WorkSubdivision-CRE-OTH_epvoc:originalLanguage"><code><a href="https://data.europarl.europa.eu/def/epvoc#originalLanguage">epvoc:originalLanguage</a></code></td>
+                           <td><code>IRI</code><br></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>refers to</td>
+                           <td id="speeches:WorkSubdivision-CRE-OTH_eli:refers_to"><code><a href="http://data.europa.eu/eli/ontology#refers_to">eli:refers_to</a></code></td>
+                           <td><code>IRI</code><br></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>type</td>
+                           <td id="speeches:WorkSubdivision-CRE-OTH_rdf:type"><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#WorkSubdivision">eli:WorkSubdivision</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>type subdivision</td>
+                           <td id="speeches:WorkSubdivision-CRE-OTH_eli:type_subdivision"><code><a href="http://data.europa.eu/eli/ontology#type_subdivision">eli:type_subdivision</a></code></td>
+                           <td><code><a href="http://publications.europa.eu/resource/authority/subdivision/OTH">subdivision:OTH</a></code><br></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="speeches:Activity-MTG-PL-Node" class="sp_section_title_table">speeches:Activity-MTG-PL-Node</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/speeches#Activity-MTG-PL-Node</code></div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-04-22</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="speeches:Activity-PVCRE-ITM-L1-Node" class="sp_section_title_table">speeches:Activity-PVCRE-ITM-L1-Node</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/speeches#Activity-PVCRE-ITM-L1-Node</code></div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-PVCRE-ITM-[0-9]{1,2}$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-04-22-PVCRE-ITM-1</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="speeches:Activity-PVCRE-ITM-L2-Node" class="sp_section_title_table">speeches:Activity-PVCRE-ITM-L2-Node</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/speeches#Activity-PVCRE-ITM-L2-Node</code></div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/event/MTG-PL-[0-9]{4}-[0-9]{2}-[0-9]{2}-PVCRE-ITM-[0-9]{1,2}-[0-9]{1,3}$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/event/MTG-PL-2024-04-22-PVCRE-ITM-7-1</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="speeches:WorkSubdivision-CRE-ITM-Node" class="sp_section_title_table">speeches:WorkSubdivision-CRE-ITM-Node</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/speeches#WorkSubdivision-CRE-ITM-Node</code></div>
+                  <ul class="sp_list_description_properties">
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/CRE-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}-ITM-[0-9]{2}(-[0-9]+)?$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/CRE-9-2024-01-17-ITM-8-1</code></li>
+                  </ul>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="5"><em>No specific properties</em></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div>
+            <h2 id="releaseNotes" class="sp_section_subtitle">Release notes</h2><p>3.0.0 - 2025-02-17</p>
+<ul>
+<li>documentation preparation for publication</li>
+</ul>
+<p>3.0.0 - 2024-08-27</p>
+<ul>
+<li>(rfc) change eli-dl:had_activity_type for speeches:Activity-MTG-PL-PVCRE-CHA and its URI (from -OTH- to -PVCRE-CHA-)</li>
+</ul>
+<p>3.0.0 - 2024-06-19</p>
+<ul>
+<li>(new) add eli-dl:activity_label, eli:number</li>
+<li>(rfc) change datatype for epvoc:numbering (from xsd:string to xsd:integer)</li>
+</ul>
+<p>2.3.0 - 2024-05-22</p>
+<ul>
+<li>(new) creation</li>
+</ul>
+</div>
+      </div><script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js">//</script><script>				
+					anchors.options = {
+	                    icon: '#'
+	                  };
+               		anchors.options.placement = 'left';
+					anchors.add('h2,h3');
+					// for links inside tables		
+					anchors.add('td[id]');
+				</script></body>
+</html>
