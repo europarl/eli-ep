@@ -1,0 +1,1002 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skosthes: <http://purl.org/iso25964/skos-thes#> .
+@prefix language: <http://publications.europa.eu/resource/authority/language/> .
+@prefix ep-doc: <https://data.europarl.europa.eu/eli/dl/doc/> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ep-proc: <https://data.europarl.europa.eu/eli/dl/proc/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix file-type: <http://publications.europa.eu/resource/authority/file-type/> .
+@prefix eli: <http://data.europa.eu/eli/ontology#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix xls2rdf: <https://xls2rdf.sparna.fr/vocabulary#> .
+@prefix ep-procedure-types: <https://data.europarl.europa.eu/def/ep-procedure-types/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix ep-entities: <https://data.europarl.europa.eu/def/ep-entities/> .
+@prefix person: <http://www.w3.org/ns/person#> .
+@prefix procedure-phase: <http://publications.europa.eu/resource/authority/procedure-phase/> .
+@prefix shacl-ep: <https://data.europarl.europa.eu/def/shacl-ep#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix eli-ep: <https://data.europarl.europa.eu/def/eli-ep#> .
+@prefix ep-roles: <https://data.europarl.europa.eu/def/ep-roles/> .
+@prefix subdivision: <http://publications.europa.eu/resource/authority/subdivision/> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ep-event: <https://data.europarl.europa.eu/eli/dl/event/> .
+@prefix ep-org: <https://data.europarl.europa.eu/org/> .
+@prefix place: <http://publications.europa.eu/resource/authority/place/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix euvoc: <http://publications.europa.eu/ontology/euvoc#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix eli-dl: <http://data.europa.eu/eli/eli-draft-legislation-ontology#> .
+@prefix ep-person: <https://data.europarl.europa.eu/person/> .
+@prefix ta: <https://data.europarl.europa.eu/def/adopted-texts#> .
+@prefix shacl-play: <https://shacl-play.sparna.fr/ontology#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ep-activities: <https://data.europarl.europa.eu/def/ep-activities/> .
+@prefix ep-document-types: <https://data.europarl.europa.eu/def/ep-document-types/> .
+@prefix ep-decision-methods: <https://data.europarl.europa.eu/def/ep-decision-methods/> .
+@prefix iana: <https://www.iana.org/assignments/media-types/application/> .
+@prefix epvoc: <https://data.europarl.europa.eu/def/epvoc#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ep-statuses: <https://data.europarl.europa.eu/def/ep-statuses/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+
+<https://data.europarl.europa.eu/def/adopted-texts#> a owl:Ontology, adms:Asset;
+  owl:imports <https://data.europarl.europa.eu/def/shacl-ep>;
+  dcterms:type <https://publications.europa.eu/resource/authority/dataset-type/APROF>;
+  rdfs:label "Adopted texts dataset description"@en;
+  dcterms:title "Adopted texts dataset description"@en;
+  dcterms:description "This Dataset Description is a subset of the general ELI-EP application profile and it includes classes and properties used in Adopted texts datasets. Descriptions of classes and properties can be found in ELI-EP application profile."@en;
+  owl:versionInfo "3.1.0";
+  adms:versionNotes """3.1.0 - 2025-07-22
+- (rfc) added sh:in for Manifestation iana values
+
+3.1.0 - 2025-07-16, 2025-07-03
+- (info) Integrated shacl-ep
+
+3.1.0 - 2025-07-01
+- (bug) correct sh:hasValue for eli:work_type of ta:Work-TA-ANN-AmendmentBudgetEuDraft
+
+3.1.0 - 2025-06-12
+- (new) add inverse eli-dl:answers_to for ta:Work-TA
+
+3.1.0 - 2025-06-05
+- (info) add missing prefixes, owl:imports (shacl-ep), new column sh:node in classes tab
+
+3.1.0 - 2025-02-27
+- (*) Changes impacting data:
+- (rfc) remove eli:is_consolidated_by
+- (new) add eli:refers_to
+- (*) Other documentation changes (no impact on data): 
+- (rfc) rename shapes
+
+2.3.0 - 2025-01-23 (minor/patch)
+- (*) Changes impacting data:
+- (new) add inverse eli:is_annex_of for ta:AdoptedTextWork
+- (*) Other documentation changes (no impact on data): N/A
+
+2.3.0 - 2024-10-26 (minor/patch)
+- (*) Changes impacting data:
+- (rfc) change wrong sh:datatype for epvoc:numbering (previously xsd:string) 
+- (new) add eli:number
+- (*) Other documentation changes (no impact on data):
+- (rfc) added regex pattern to local-ids of URIs, also to some properties
+- (rfc) added missing cardinalities
+- (rfc) added sh:hasValue, sh:in
+- (rfc) add shacl-play:background-color
+- (rfc) rename some shapes for background-colour formula
+
+
+2.1.0 - 2024-03-21
+- (new) new shapes (document types) BUDGET_EP_DRAFT and AMENDMENT_BUDGET_EU_DRAFT 
+- (new) extended scope for [sh:inversePath eli-dl:created_a_realization_of] to retrieve not only ta:ProcessReference, but also ta:PlenarySittingActivityReference
+- (rfc) eli:work_type[eli:WorkType] values based on EP taxonomy ep-document-types (TEXT_ADOPTED, CORRIGENDUM) and not EU AT (op-aut:resource-type)
+- (rfc) dcterms:creator and dcterms:publisher (value EU_PARLIAMENT) based on org-ep data and not EU AT (op-aut:corporate-body)
+- (rfc) change of JSON key using \"inverse_\" (impact on api/v2 only)
+- (rfc) add ta:ProcessReference, ta:DecisionReference, ta:PlenarySittingActivityReference (no impact on data, only for documentation purpose)
+
+1.5.0 - 2023-12-07
+- (new) [sh:inversePath eli-dl:decided_on_a_realization_of]
+
+1.3.0 - 2023-09-26
+- (new) dcterms:creator
+
+1.1 - 2023-04-12
+- (new) object properties: eli-dl:adopts, epvoc:isAboutSubjectMatter, epvoc:isAboutDirectoryCode
+- (new) inverse object (from eli-dl:Process) property eli-dl:created_a_realization_of
+- (update) change of sh:datatype for eli:date_document from xsd:dateTime to xsd:date
+- (update) ta:Corrigendum do not have the same properties as ta:AdoptedText
+- (update) remove controlled vocabularies or other enrichment shapes, as this data will not be provided in dumps. Yet, it will be somehow provded via APIs.
+- (new) add sh:pattern and skos:example in properties. 
+- (new) prefix file-type, op-aut
+- (new) add owl:versionInfo for classes and properties"""@en;
+  adms:status <https://publications.europa.eu/resource/authority/dataset-status/COMPLETED>;
+  owl:versionIRI <https://data.europarl.europa.eu/def/adopted-texts#>;
+  dcterms:conformsTo <https://www.w3.org/TR/shacl>;
+  dcterms:created "2022-11-18"^^xsd:date;
+  dcterms:modified "2025-07-22T00:00:00.000Z"^^xsd:dateTime;
+  dcterms:dateCopyrighted "2022"^^xsd:gYear;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/>;
+  dcterms:creator <https://publications.europa.eu/resource/authority/corporate-body/EP>;
+  dcterms:publisher <https://publications.europa.eu/resource/authority/corporate-body/EP>;
+  dcterms:rigthsHolder <https://publications.europa.eu/resource/authority/corporate-body/EURUN>;
+  dcat:distribution _:307697226f7a4edbb27587ce08a349cd3286 .
+
+_:307697226f7a4edbb27587ce08a349cd3286 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
+  dcat:downloadURL <https://europarl.github.io/eli-ep/3.1.0/dsd/adopted-texts/eli-ep_adopted-texts.shacl.ttl> .
+
+ta:Work-TA a sh:NodeShape;
+  owl:versionInfo "3.1.0";
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  sh:target ta:Work-TA-target;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/TA-9-2021-0362";
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Work-TA-Node;
+  sh:closed "true"^^xsd:boolean;
+  sh:ignoredProperties _:307697226f7a4edbb27587ce08a349cd3287;
+  sh:order "1"^^xsd:integer;
+  shacl-play:color "White";
+  shacl-play:background-color "DarkOrange";
+  rdfs:label "Adopted text"@en;
+  sh:property ta:P9, ta:P10, ta:P11, ta:P12, ta:P13, ta:P14, ta:P15, ta:P16, ta:P17,
+    ta:P18, ta:P19, ta:P20, ta:P21, ta:P22, ta:P23, ta:P24, ta:P25, ta:P27, ta:P28, ta:P29,
+    ta:P30, ta:P31, ta:P32 .
+
+ta:Work-TA-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
+SELECT ?this
+WHERE {
+ ?this eli:work_type <https://data.europarl.europa.eu/def/ep-document-types/TEXT_ADOPTED>.
+}""" .
+
+_:307697226f7a4edbb27587ce08a349cd3287 rdf:first rdf:type;
+  rdf:rest rdf:nil .
+
+ta:Work-TA-ANN-BudgetEpDraft a sh:NodeShape;
+  owl:versionInfo "3.1.0";
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  sh:target ta:Work-TA-ANN-BudgetEpDraft-target;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/TA-9-2022-04-07-ANN01";
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Work-TA-ANN-Node;
+  sh:closed "true"^^xsd:boolean;
+  sh:ignoredProperties _:307697226f7a4edbb27587ce08a349cd3288;
+  sh:order "2"^^xsd:integer;
+  shacl-play:color "White";
+  shacl-play:background-color "DarkOrange";
+  rdfs:label "Budget EP draft"@en;
+  sh:property ta:P34, ta:P35, ta:P36, ta:P37, ta:P38, ta:P39, ta:P40, ta:P41, ta:P42,
+    ta:P43, ta:P44, ta:P45, ta:P46 .
+
+ta:Work-TA-ANN-BudgetEpDraft-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
+SELECT ?this
+WHERE {
+ ?this eli:work_type <https://data.europarl.europa.eu/def/ep-document-types/BUDGET_EP_DRAFT>.
+}""" .
+
+_:307697226f7a4edbb27587ce08a349cd3288 rdf:first rdf:type;
+  rdf:rest rdf:nil .
+
+ta:Work-TA-ANN-AmendmentBudgetEuDraft a sh:NodeShape;
+  owl:versionInfo "3.1.0";
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  sh:target ta:Work-TA-ANN-AmendmentBudgetEuDraft-target;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/TA-9-2021-10-21-ANN01";
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Work-TA-ANN-Node;
+  sh:closed "true"^^xsd:boolean;
+  sh:ignoredProperties _:307697226f7a4edbb27587ce08a349cd3289;
+  sh:order "3"^^xsd:integer;
+  shacl-play:color "White";
+  shacl-play:background-color "DarkOrange";
+  rdfs:label "Amendment Budget EU draft"@en;
+  sh:property ta:P48, ta:P49, ta:P50, ta:P51, ta:P52, ta:P53, ta:P54, ta:P55, ta:P56,
+    ta:P57, ta:P58, ta:P59, ta:P60 .
+
+ta:Work-TA-ANN-AmendmentBudgetEuDraft-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
+SELECT ?this
+WHERE {
+ ?this eli:work_type <https://data.europarl.europa.eu/def/ep-document-types/AMENDMENT_BUDGET_EU_DRAFT>.
+}""" .
+
+_:307697226f7a4edbb27587ce08a349cd3289 rdf:first rdf:type;
+  rdf:rest rdf:nil .
+
+ta:Work-TA-COR a sh:NodeShape;
+  owl:versionInfo "3.1.0";
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/TA-9-2021-0362-COR01";
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Work-TA-COR-Node;
+  sh:closed "true"^^xsd:boolean;
+  sh:ignoredProperties _:307697226f7a4edbb27587ce08a349cd3290;
+  sh:order "5"^^xsd:integer;
+  shacl-play:color "White";
+  shacl-play:background-color "DarkOrange";
+  rdfs:label "Corrigendum to Adopted text"@en;
+  sh:property ta:P62, ta:P63, ta:P64, ta:P65, ta:P66, ta:P67, ta:P68, ta:P69, ta:P70,
+    ta:P71, ta:P72, ta:P73, ta:P75, ta:P76 .
+
+_:307697226f7a4edbb27587ce08a349cd3290 rdf:first rdf:type;
+  rdf:rest rdf:nil .
+
+ta:Expression a sh:NodeShape;
+  owl:versionInfo "1.0";
+  rdfs:comment "This node shape represents a subset of eli:Expression"@en;
+  sh:targetClass eli:Expression;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/TA-9-2021-0362/en";
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Expression-Node;
+  sh:closed "true"^^xsd:boolean;
+  sh:ignoredProperties _:307697226f7a4edbb27587ce08a349cd3291;
+  sh:order "6"^^xsd:integer;
+  shacl-play:color "White";
+  shacl-play:background-color "CornflowerBlue";
+  rdfs:label "Expression"@en;
+  sh:property ta:P78, ta:P79, ta:P80, ta:P81, ta:P82 .
+
+_:307697226f7a4edbb27587ce08a349cd3291 rdf:first rdf:type;
+  rdf:rest rdf:nil .
+
+ta:Manifestation a sh:NodeShape;
+  owl:versionInfo "1.0";
+  rdfs:comment "This node shape represents a subset of eli:Manifestation"@en;
+  sh:targetClass eli:Manifestation;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/TA-9-2021-0362/en/pdf";
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Manifestation-Node;
+  sh:closed "true"^^xsd:boolean;
+  sh:ignoredProperties _:307697226f7a4edbb27587ce08a349cd3292;
+  sh:order "7"^^xsd:integer;
+  shacl-play:color "White";
+  shacl-play:background-color "LimeGreen";
+  rdfs:label "Manifestation"@en;
+  sh:property ta:P84, ta:P85, ta:P86, ta:P87, ta:P88, ta:P89 .
+
+_:307697226f7a4edbb27587ce08a349cd3292 rdf:first rdf:type;
+  rdf:rest rdf:nil .
+
+ta:P9 owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue eli:Work;
+  shacl-play:shortname "type" .
+
+ta:P10 owl:versionInfo "2.3.0";
+  sh:path dcterms:identifier;
+  sh:name "identifier"@en;
+  skos:example "TA-9-2022-0269";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:pattern "TA-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}";
+  shacl-play:shortname "identifier" .
+
+ta:P11 owl:versionInfo "3.1.0";
+  sh:path eli:work_type;
+  sh:name "work type"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-document-types/TEXT_ADOPTED";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:WorkType-Node;
+  sh:hasValue ep-document-types:TEXT_ADOPTED;
+  shacl-play:shortname "work_type" .
+
+ta:P12 owl:versionInfo "1.1";
+  sh:path eli:date_document;
+  sh:name "date document"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  shacl-play:shortname "date_document" .
+
+ta:P13 owl:versionInfo "2.3.0";
+  sh:path epvoc:identifierYear;
+  sh:name "identifier year"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:pattern "[0-9]{4}";
+  shacl-play:shortname "identifierYear" .
+
+ta:P14 owl:versionInfo "1.0";
+  sh:path dcterms:title;
+  sh:name "title"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title_dcterms" .
+
+ta:P15 owl:versionInfo "2.3.0";
+  sh:path rdfs:label;
+  sh:name "label"@en;
+  skos:example "T9-0269/2022";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:pattern "T[0-9]{1,2}-[0-9]{4}/[0-9]{4}";
+  shacl-play:shortname "label" .
+
+ta:P16 owl:versionInfo "2.3.0";
+  sh:path epvoc:epNumber;
+  sh:name "ep number"@en;
+  skos:example "PE693.594";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:pattern "PE[0-9]{3}.[0-9]{3}";
+  shacl-play:shortname "epNumber" .
+
+ta:P17 owl:versionInfo "2.3.0";
+  sh:path skos:notation;
+  sh:name "notation"@en;
+  skos:example "P9_TA(2022)0269";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype epvoc:publicRegister;
+  sh:pattern "P[0-9]{1,2}_TA\\([0-9]{4}\\)[0-9]{4}";
+  shacl-play:shortname "notation_publicRegister" .
+
+ta:P18 owl:versionInfo "1.1";
+  sh:path eli-dl:parliamentary_term;
+  sh:name "parliamentary term"@en;
+  skos:example "https://data.europarl.europa.eu/org/ep-9";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/org/ep-[0-9].*$";
+  shacl-play:shortname "parliamentary_term" .
+
+ta:P19 owl:versionInfo "3.1.0";
+  sh:path eli:is_about;
+  sh:name "is about"@en;
+  skos:example "http://eurovoc.europa.eu/2836";
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Concept-Eurovoc-Node;
+  sh:pattern "http://eurovoc.europa.eu/.*$";
+  shacl-play:shortname "is_about" .
+
+ta:P20 owl:versionInfo "3.1.0";
+  sh:path dcterms:publisher;
+  sh:name "publisher"@en;
+  skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Organization-Node;
+  sh:hasValue ep-org:EU_PARLIAMENT;
+  shacl-play:shortname "publisher" .
+
+ta:P21 owl:versionInfo "3.1.0";
+  sh:path dcterms:creator;
+  sh:name "creator"@en;
+  skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Organization-Node;
+  sh:hasValue ep-org:EU_PARLIAMENT;
+  shacl-play:shortname "creator" .
+
+ta:P22 owl:versionInfo "1.0";
+  sh:path eli:is_realized_by;
+  sh:name "is realized by"@en;
+  sh:nodeKind sh:IRI;
+  sh:node ta:Expression;
+  shacl-play:shortname "is_realized_by" .
+
+ta:P23 owl:versionInfo "3.1.0";
+  sh:path epvoc:isAboutSubjectMatter;
+  sh:name "is about subject matter"@en;
+  skos:example "http://publications.europa.eu/resource/authority/subject-matter/MARI";
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Concept-SubjectMatter-Node;
+  sh:pattern "http://publications.europa.eu/resource/authority/subject-matter/.*$";
+  shacl-play:shortname "isAboutSubjectMatter" .
+
+ta:P24 owl:versionInfo "3.1.0";
+  sh:path epvoc:isAboutDirectoryCode;
+  sh:name "is about directory code"@en;
+  skos:example "http://publications.europa.eu/resource/authority/dir-eu-legal-act/062020";
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Concept-DirEuLegalAct-Node;
+  sh:pattern "http://publications.europa.eu/resource/authority/dir-eu-legal-act/.*$";
+  shacl-play:shortname "isAboutDirectoryCode" .
+
+ta:P25 owl:versionInfo "1.1";
+  sh:path eli-dl:adopts;
+  sh:name "adopts"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/B-9-2021-0412";
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  shacl-play:shortname "adopts" .
+
+ta:P27 owl:versionInfo "3.1.0";
+  sh:path _:307697226f7a4edbb27587ce08a349cd3293;
+  sh:name "inverse corrects"@en;
+  sh:nodeKind sh:IRI;
+  sh:node ta:Work-TA-COR;
+  shacl-play:shortname "inverse_corrects" .
+
+_:307697226f7a4edbb27587ce08a349cd3293 sh:inversePath eli:corrects .
+
+ta:P28 owl:versionInfo "3.1.0";
+  sh:path _:307697226f7a4edbb27587ce08a349cd3294;
+  sh:name "inverse refers to"@en;
+  sh:nodeKind sh:IRI;
+  sh:or _:307697226f7a4edbb27587ce08a349cd3295 .
+
+_:307697226f7a4edbb27587ce08a349cd3294 sh:inversePath eli:refers_to .
+
+_:307697226f7a4edbb27587ce08a349cd3295 rdf:first _:307697226f7a4edbb27587ce08a349cd3296;
+  rdf:rest _:307697226f7a4edbb27587ce08a349cd3297 .
+
+_:307697226f7a4edbb27587ce08a349cd3296 sh:node shacl-ep:Work-PV-ITM-L1-Node .
+
+_:307697226f7a4edbb27587ce08a349cd3297 rdf:first _:307697226f7a4edbb27587ce08a349cd3298;
+  rdf:rest rdf:nil .
+
+_:307697226f7a4edbb27587ce08a349cd3298 sh:node shacl-ep:Work-PV-ITM-L2-Node .
+
+ta:P29 owl:versionInfo "3.1.0";
+  sh:path _:307697226f7a4edbb27587ce08a349cd3299;
+  sh:name "inverse created a realization of"@en;
+  sh:nodeKind sh:IRI;
+  sh:or _:307697226f7a4edbb27587ce08a349cd3300;
+  shacl-play:shortname "inverse_created_a_realization_of" .
+
+_:307697226f7a4edbb27587ce08a349cd3299 sh:inversePath eli-dl:created_a_realization_of .
+
+_:307697226f7a4edbb27587ce08a349cd3300 rdf:first _:307697226f7a4edbb27587ce08a349cd3301;
+  rdf:rest _:307697226f7a4edbb27587ce08a349cd3302 .
+
+_:307697226f7a4edbb27587ce08a349cd3301 sh:node shacl-ep:Process-Node .
+
+_:307697226f7a4edbb27587ce08a349cd3302 rdf:first _:307697226f7a4edbb27587ce08a349cd3303;
+  rdf:rest _:307697226f7a4edbb27587ce08a349cd3304 .
+
+_:307697226f7a4edbb27587ce08a349cd3303 sh:node shacl-ep:Activity-PVCRE-ITM-L1 .
+
+_:307697226f7a4edbb27587ce08a349cd3304 rdf:first _:307697226f7a4edbb27587ce08a349cd3305;
+  rdf:rest rdf:nil .
+
+_:307697226f7a4edbb27587ce08a349cd3305 sh:node shacl-ep:Activity-PVCRE-ITM-L2 .
+
+ta:P30 owl:versionInfo "3.1.0";
+  sh:path _:307697226f7a4edbb27587ce08a349cd3306;
+  sh:name "inverse decided on a realization of"@en;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Decision-DCPL-Node;
+  shacl-play:shortname "inverse_decided_on_a_realization_of" .
+
+_:307697226f7a4edbb27587ce08a349cd3306 sh:inversePath eli-dl:decided_on_a_realization_of .
+
+ta:P31 owl:versionInfo "3.1.0";
+  sh:path _:307697226f7a4edbb27587ce08a349cd3307;
+  sh:name "inverse is annex of"@en;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Work-TA-ANN-BudgetEpDraft;
+  shacl-play:shortname "inverse_is_annex_of" .
+
+_:307697226f7a4edbb27587ce08a349cd3307 sh:inversePath eli:is_annex_of .
+
+ta:P32 owl:versionInfo "3.1.0";
+  sh:path _:307697226f7a4edbb27587ce08a349cd3308;
+  sh:name "inverse answers to"@en;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Work-SP-Node;
+  shacl-play:shortname "inverse_answers_to" .
+
+_:307697226f7a4edbb27587ce08a349cd3308 sh:inversePath eli-dl:answers_to .
+
+ta:P34 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue eli:Work;
+  shacl-play:shortname "type" .
+
+ta:P35 owl:versionInfo "2.3.0";
+  sh:path dcterms:identifier;
+  sh:name "identifier"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:pattern "TA-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}-ANN[0-9]{2}";
+  shacl-play:shortname "identifier" .
+
+ta:P36 owl:versionInfo "3.1.0";
+  sh:path eli:work_type;
+  sh:name "work type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:WorkType-Node;
+  sh:hasValue ep-document-types:BUDGET_EP_DRAFT;
+  shacl-play:shortname "work_type" .
+
+ta:P37 owl:versionInfo "2.1.0";
+  sh:path eli:date_document;
+  sh:name "date document"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  shacl-play:shortname "date_document" .
+
+ta:P38 owl:versionInfo "2.3.0";
+  sh:path epvoc:identifierYear;
+  sh:name "identifier year"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:pattern "[0-9]{4}";
+  shacl-play:shortname "identifierYear" .
+
+ta:P39 owl:versionInfo "2.1.0";
+  sh:path dcterms:title;
+  sh:name "title"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title_dcterms" .
+
+ta:P40 owl:versionInfo "2.3.0";
+  sh:path epvoc:numbering;
+  sh:name "numbering"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:integer;
+  shacl-play:shortname "numbering" .
+
+ta:P41 owl:versionInfo "2.3.0";
+  sh:path eli:number;
+  sh:name "number"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string .
+
+ta:P42 owl:versionInfo "2.1.0";
+  sh:path eli-dl:parliamentary_term;
+  sh:name "parliamentary term"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/org/ep-[0-9].*$";
+  shacl-play:shortname "parliamentary_term" .
+
+ta:P43 owl:versionInfo "3.1.0";
+  sh:path dcterms:publisher;
+  sh:name "publisher"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Organization-Node;
+  sh:hasValue ep-org:EU_PARLIAMENT;
+  shacl-play:shortname "publisher" .
+
+ta:P44 owl:versionInfo "3.1.0";
+  sh:path dcterms:creator;
+  sh:name "creator"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Organization-Node;
+  sh:hasValue ep-org:EU_PARLIAMENT;
+  shacl-play:shortname "creator" .
+
+ta:P45 owl:versionInfo "3.1.0";
+  sh:path eli:is_annex_of;
+  sh:name "is annex of"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Work-TA-Node;
+  shacl-play:shortname "is_annex_of" .
+
+ta:P46 owl:versionInfo "2.1.0";
+  sh:path eli:is_realized_by;
+  sh:name "is realized by"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node ta:Expression;
+  shacl-play:shortname "is_realized_by" .
+
+ta:P48 owl:versionInfo "2.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue eli:Work;
+  shacl-play:shortname "type" .
+
+ta:P49 owl:versionInfo "2.3.0";
+  sh:path dcterms:identifier;
+  sh:name "identifier"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:pattern "TA-[0-9]{1,2}-[0-9]{4}-[0-9]{2}-[0-9]{2}-ANN[0-9]{2}";
+  shacl-play:shortname "identifier" .
+
+ta:P50 owl:versionInfo "3.1.0";
+  sh:path eli:work_type;
+  sh:name "work type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:WorkType-Node;
+  sh:hasValue ep-document-types:AMENDMENT_BUDGET_EU_DRAFT;
+  shacl-play:shortname "work_type" .
+
+ta:P51 owl:versionInfo "2.1.0";
+  sh:path eli:date_document;
+  sh:name "date document"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  shacl-play:shortname "date_document" .
+
+ta:P52 owl:versionInfo "2.3.0";
+  sh:path epvoc:identifierYear;
+  sh:name "identifier year"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:pattern "[0-9]{4}";
+  shacl-play:shortname "identifierYear" .
+
+ta:P53 owl:versionInfo "2.1.0";
+  sh:path dcterms:title;
+  sh:name "title"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title_dcterms" .
+
+ta:P54 owl:versionInfo "2.3.0";
+  sh:path epvoc:numbering;
+  sh:name "numbering"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:integer;
+  shacl-play:shortname "numbering" .
+
+ta:P55 owl:versionInfo "2.3.0";
+  sh:path eli:number;
+  sh:name "number"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string .
+
+ta:P56 owl:versionInfo "2.1.0";
+  sh:path eli-dl:parliamentary_term;
+  sh:name "parliamentary term"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/org/ep-[0-9].*$";
+  shacl-play:shortname "parliamentary_term" .
+
+ta:P57 owl:versionInfo "3.1.0";
+  sh:path dcterms:publisher;
+  sh:name "publisher"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Organization-Node;
+  sh:hasValue ep-org:EU_PARLIAMENT;
+  shacl-play:shortname "publisher" .
+
+ta:P58 owl:versionInfo "3.1.0";
+  sh:path dcterms:creator;
+  sh:name "creator"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Organization-Node;
+  sh:hasValue ep-org:EU_PARLIAMENT;
+  shacl-play:shortname "creator" .
+
+ta:P59 owl:versionInfo "2.1.0";
+  sh:path eli:is_realized_by;
+  sh:name "is realized by"@en;
+  sh:nodeKind sh:IRI;
+  sh:node ta:Expression;
+  shacl-play:shortname "is_realized_by" .
+
+ta:P60 owl:versionInfo "3.1.0";
+  sh:path _:307697226f7a4edbb27587ce08a349cd3309;
+  sh:name "inverse created a realization of"@en;
+  sh:nodeKind sh:IRI;
+  sh:or _:307697226f7a4edbb27587ce08a349cd3310;
+  shacl-play:shortname "inverse_created_a_realization_of" .
+
+_:307697226f7a4edbb27587ce08a349cd3309 sh:inversePath eli-dl:created_a_realization_of .
+
+_:307697226f7a4edbb27587ce08a349cd3310 rdf:first _:307697226f7a4edbb27587ce08a349cd3311;
+  rdf:rest _:307697226f7a4edbb27587ce08a349cd3312 .
+
+_:307697226f7a4edbb27587ce08a349cd3311 sh:node shacl-ep:Activity-PVCRE-ITM-L1 .
+
+_:307697226f7a4edbb27587ce08a349cd3312 rdf:first _:307697226f7a4edbb27587ce08a349cd3313;
+  rdf:rest rdf:nil .
+
+_:307697226f7a4edbb27587ce08a349cd3313 sh:node shacl-ep:Activity-PVCRE-ITM-L2 .
+
+ta:P62 owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:hasValue eli:Work;
+  shacl-play:shortname "type" .
+
+ta:P63 owl:versionInfo "1.0";
+  sh:path dcterms:identifier;
+  sh:name "identifier"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifier" .
+
+ta:P64 owl:versionInfo "2.1.0";
+  sh:path eli:work_type;
+  sh:name "work type"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-document-types/CORRIGENDUM";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue ep-document-types:CORRIGENDUM;
+  shacl-play:shortname "work_type" .
+
+ta:P65 owl:versionInfo "1.1";
+  sh:path eli:date_document;
+  sh:name "date document"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  shacl-play:shortname "date_document" .
+
+ta:P66 owl:versionInfo "2.3.0";
+  sh:path epvoc:identifierYear;
+  sh:name "identifier year"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifierYear" .
+
+ta:P67 owl:versionInfo "1.0";
+  sh:path dcterms:title;
+  sh:name "title"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title_dcterms" .
+
+ta:P68 owl:versionInfo "2.3.0";
+  sh:path epvoc:numbering;
+  sh:name "numbering"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:integer;
+  shacl-play:shortname "numbering" .
+
+ta:P69 owl:versionInfo "2.3.0";
+  sh:path eli:number;
+  sh:name "number"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string .
+
+ta:P70 owl:versionInfo "2.3.0";
+  sh:path eli-dl:parliamentary_term;
+  sh:name "parliamentary term"@en;
+  skos:example "https://data.europarl.europa.eu/org/ep-9";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/org/ep-[0-9].*$";
+  shacl-play:shortname "parliamentary_term" .
+
+ta:P71 owl:versionInfo "3.1.0";
+  sh:path dcterms:publisher;
+  sh:name "publisher"@en;
+  skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Organization-Node;
+  sh:hasValue ep-org:EU_PARLIAMENT;
+  shacl-play:shortname "publisher" .
+
+ta:P72 owl:versionInfo "3.1.0";
+  sh:path dcterms:creator;
+  sh:name "creator"@en;
+  skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Organization-Node;
+  sh:hasValue ep-org:EU_PARLIAMENT;
+  shacl-play:shortname "creator" .
+
+ta:P73 owl:versionInfo "1.0";
+  sh:path eli:is_realized_by;
+  sh:name "is realized by"@en;
+  sh:nodeKind sh:IRI;
+  sh:node ta:Expression;
+  shacl-play:shortname "is_realized_by" .
+
+ta:P75 owl:versionInfo "3.1.0";
+  sh:path eli:corrects;
+  sh:name "corrects"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Work-TA-Node;
+  shacl-play:shortname "corrects" .
+
+ta:P76 owl:versionInfo "3.1.0";
+  sh:path eli:refers_to;
+  sh:name "refers to"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Work-TA-Node;
+  shacl-play:shortname "refers_to" .
+
+ta:P78 owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli:Expression;
+  shacl-play:shortname "type" .
+
+ta:P79 owl:versionInfo "1.0";
+  sh:path eli:title;
+  sh:name "title"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title" .
+
+ta:P80 owl:versionInfo "1.0";
+  sh:path eli:title_alternative;
+  sh:name "alternative title"@en;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title_alternative" .
+
+ta:P81 owl:versionInfo "1.0";
+  sh:path eli:is_embodied_by;
+  sh:name "is embodied by"@en;
+  sh:nodeKind sh:IRI;
+  sh:node ta:Manifestation;
+  shacl-play:shortname "is_embodied_by" .
+
+ta:P82 owl:versionInfo "2.3.0";
+  sh:path eli:language;
+  sh:name "language"@en;
+  skos:example "http://publications.europa.eu/resource/authority/language/ENG";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:LinguisticSystem-Node;
+  sh:pattern "http://publications.europa.eu/resource/authority/language/.*$";
+  shacl-play:shortname "language" .
+
+ta:P84 owl:versionInfo "1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli:Manifestation;
+  shacl-play:shortname "type" .
+
+ta:P85 owl:versionInfo "1.0";
+  sh:path dcterms:issued;
+  sh:name "issued"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:dateTime;
+  shacl-play:shortname "issued" .
+
+ta:P86 owl:versionInfo "2.3.0";
+  sh:path eli:is_exemplified_by;
+  sh:name "is exemplified by"@en;
+  skos:example "https://data.europarl.europa.eu/distribution/reds_iPlTa_Itm/TA-9-2022-0269/TA-9-2022-0269-FNL_fr.pdf\"";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/distribution/.*$";
+  shacl-play:shortname "is_exemplified_by" .
+
+ta:P87 owl:versionInfo "2.3.0";
+  sh:path epvoc:byteSize;
+  sh:name "byte size"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:long;
+  shacl-play:shortname "byteSize" .
+
+ta:P88 owl:versionInfo "1.1";
+  sh:path dcterms:format;
+  sh:name "format"@en;
+  sh:description "Remark: XML format is expected only for TEXT_ADOPTED, not CORRIGENDUM."@en;
+  skos:example "http://publications.europa.eu/resource/authority/file-type/PDF";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:MediaTypeOrExtent-Node;
+  sh:in _:307697226f7a4edbb27587ce08a349cd3314;
+  shacl-play:shortname "dcterms_format" .
+
+_:307697226f7a4edbb27587ce08a349cd3314 rdf:first file-type:PDF;
+  rdf:rest _:307697226f7a4edbb27587ce08a349cd3315 .
+
+_:307697226f7a4edbb27587ce08a349cd3315 rdf:first file-type:XML;
+  rdf:rest _:307697226f7a4edbb27587ce08a349cd3316 .
+
+_:307697226f7a4edbb27587ce08a349cd3316 rdf:first file-type:DOCX;
+  rdf:rest _:307697226f7a4edbb27587ce08a349cd3317 .
+
+_:307697226f7a4edbb27587ce08a349cd3317 rdf:first file-type:DOC;
+  rdf:rest rdf:nil .
+
+ta:P89 owl:versionInfo "2.4.0";
+  sh:path eli:media_type;
+  sh:name "media type"@en;
+  skos:example "https://www.iana.org/assignments/media-types/application/pdf";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:in _:307697226f7a4edbb27587ce08a349cd3318;
+  shacl-play:shortname "media_type" .
+
+_:307697226f7a4edbb27587ce08a349cd3318 rdf:first iana:pdf;
+  rdf:rest _:307697226f7a4edbb27587ce08a349cd3319 .
+
+_:307697226f7a4edbb27587ce08a349cd3319 rdf:first iana:msword;
+  rdf:rest _:307697226f7a4edbb27587ce08a349cd3320 .
+
+_:307697226f7a4edbb27587ce08a349cd3320 rdf:first iana:vnd.openxmlformats-officedocument.wordprocessingml.document;
+  rdf:rest _:307697226f7a4edbb27587ce08a349cd3321 .
+
+_:307697226f7a4edbb27587ce08a349cd3321 rdf:first iana:xml;
+  rdf:rest rdf:nil .
