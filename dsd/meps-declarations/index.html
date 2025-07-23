@@ -1,0 +1,1113 @@
+<!DOCTYPE HTML><html lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <style>
+		
+			body {
+						margin: 0;
+						font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+							"Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+							"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+							"Noto Color Emoji";
+						background-color: #fff;
+					}
+		
+		/* Pour la colonne Description */
+		td,
+		th {
+		white-space: normal;
+		word-break: break-word;
+		}
+		/* Limite la largeur de la colonne Description */
+		td.description,
+		th.description {
+		max-width: 300px;
+		}
+		/* Pour éviter le scroll horizontal du tableau */
+		table {
+		/*width: 100%;*/
+		max-width: 1100px;
+		table-layout: fixed;
+		}
+			  
+					
+					.anchor {
+						float: left;
+						padding-right: 4px;
+						margin-left: -20px;
+						line-height: 1;
+						padding-top: 12px;
+					}
+							
+					a {
+						color: #007bff;
+						text-decoration: none;
+						background-color: transparent;
+					}
+					
+					a:-webkit-any-link {
+						cursor: pointer;
+					}
+					
+					.p {
+						font-size: 0.875em;
+					}
+					
+					h2 {
+						margin: 25px 0px 10px 0px;
+					}
+					
+					h3 {
+						font-size: 1.4em;
+					}
+
+					h4 {
+						font-size: 1.1em;
+						font-weight: bold;
+					}
+
+					.constraint_list li {
+						list-style:"> ";
+						font-style: italic;
+					}
+					
+					@media only print {
+					}
+					
+					@page {
+						size: A4 portrait;
+						margin-top: 1.2cm;
+						margin-bottom: 1.2cm;
+						margin-left: 1.2cm;
+						margin-right: 1.2cm;
+						background-repeat: no-repeat;
+						background-position: 40px 10px;
+						
+						@bottom-center
+						{
+						content
+						:
+						counter(
+						page
+						);
+					}
+					
+					}
+							
+					/* This section draw the format web */
+					.ul_type_none {
+						list-style-type: none;
+					}
+					
+					.sp_list_description_properties {
+						/* don't set it lower otherwise it gets hidden in PDF */
+						padding-left: 20px;
+					}
+					
+					dl, ol, ul {
+						margin-top: 0;
+						margin-bottom: 1rem;
+					}
+					
+					li {
+						display: list-item;
+						text-align: -webkit-match-parent;
+					}
+					
+					.sp_section_title_header {
+						font-family: Georgia, Garamond, serif;	
+						margin-top: 25px;
+						margin-bottom: 2.5rem;
+					    font-size: 1.5625rem;
+						display: block;
+						font-weight: 500;
+						color: #1e1e1f;
+						line-height: 1.2em;   
+					}
+					
+					.sp_section_subtitle {
+						font-family: Georgia, Garamond, serif;	
+						margin-top: 0;
+						margin-bottom: 0.5rem;
+						display: block;
+						font-weight: 500;
+						color: #1e1e1f;
+						line-height: 1.2em;  
+					}
+					
+					.sp_section_title_table {
+						font-family: Georgia, Garamond, serif;	
+						/* 0 because URI is right under */
+						margin-bottom: 0rem;
+						display: block;
+						font-weight: 500;
+						color: #1e1e1f;
+						line-height: 1.2em; 
+					}
+							
+
+					.sp_section_title_toc {
+						font-family: Georgia, Garamond, serif;	
+					}
+
+					/* URI below the title of the section */
+					.sp_section_uri	 {
+						margin-top: 0px;
+					}
+
+					/* div wrapping section title and URI below - same as a paragraph margin */
+					.sp_section_title_table_wrapper {
+						margin-bottom: 16px;
+						border-bottom: 1px solid;	
+					}
+					
+					.sp_section_nodeshape_diagram {
+						padding-bottom: 16px;
+					}
+					
+					.sp_section_nodeshape_center {
+						display: flex;
+						justify-content: center;
+					}
+					
+					table {
+						display: table;
+						border-spacing: 0px;
+						margin-bottom: 1rem;
+					}
+					
+					.table-striped tr:nth-child(even) {
+						background-color: #eee;
+					}
+							
+					.sp_table_prefixes table {
+						border-collapse: collapse;
+						margin-bottom: 1rem;
+						color: #212529;
+					}
+											
+					.sp_table_prefixes td {
+						padding: 0.25rem;
+						vertical-align: top;
+						border-top: 1px solid #dee2e6;
+					}
+					
+					.sp_table_propertyshapes {
+						border-collapse: collapse;
+						width: 100%;
+					}
+										
+					.sp_table_propertyshapes thead {
+						display: table-header-group;
+						vertical-align: middle;
+						border-color: inherit;
+					}
+													
+					.sp_table_propertyshapes tr {
+					    display: table-row;
+					    vertical-align: inherit;
+					    border-color: inherit;					    
+					}
+													
+					.sp_table_propertyshapes th:nth-child(4) {
+						width: 6%;
+					}
+													
+					.sp_table_propertyshapes td {
+						padding: 0.75rem;
+						border-top: 1px solid #dee2e6;
+					}
+													
+					.sp_table_propertyshapes tbody {
+						display: table-row-group;
+						vertical-align: middle;
+						border-color: inherit;
+					}
+										
+					.sp_table_propertyshapes_col_description {
+						word-break: break-word;
+					}
+					
+					tr.sp_propertyGroup {
+						font-style: italic;
+						background-color: #def0f7;
+					}
+					
+					tr.sp_propertyGroup td {
+						border-bottom: 1px solid black;
+						padding-bottom: 0.25 rem;
+					}
+					
+					.sp_serialization_badge {
+						margin-right: 0.5em;
+					}
+
+					.sp_nodeshape_description {
+						background: #efefef;
+						padding-top:1px;
+						padding-bottom:1px;
+						padding-left:10px;
+						padding-right:10px;
+						border-radius: 5px;
+						margin-bottom:10px;
+					}
+					
+					
+							/*
+							.container {
+							    width: calc(100% - 40px);
+							    max-width: 1100px;
+							    margin-left: 300px;
+							    margin-right: auto;
+							}
+							.container {width: calc(100% - 500px);}
+							*/
+							.container {
+								width: auto;
+								max-width: 1100px;
+								margin-left: 300px;
+								margin-right: 120px;
+							}
+							.toc {
+								position: fixed;
+								top: 0;
+								left: 0;
+								font-size: small;
+								padding: 10px 10px;
+								width: auto;
+								border-right: solid 2px #eeeeee;
+								bottom: 0;
+								overflow-y: scroll;
+								background-color:white;
+								max-width:255px;
+							}
+							.sp_list_toc {padding-left: 0px;}
+							.sp_list_toc_l2 {padding-left: 10px;}	
+							.sp_list_toc_l3 {padding-left: 8px;}					
+						</style>
+      <!--EXTRA CSS-->
+      <meta charset="UTF-8">
+      <meta name="lang" content="en">
+      <meta property="og:locale" content="en">
+      <title>MEPs declarations dataset description</title>
+      <meta name="apple-mobile-web-app-title" content="MEPs declarations dataset description">
+      <meta name="twitter:title" content="MEPs declarations dataset description">
+      <meta property="og:title" content="MEPs declarations dataset description"><script type="application/ld+json">{
+    "datePublished": "2025-04-10",
+    "license": ["https://creativecommons.org/licenses/by/4.0/"],
+    "@type": "TechArticle",
+    "author": [{
+        "@type": "Organization",
+        "url": "https://publications.europa.eu/resource/authority/corporate-body/EP"
+    }],
+    "name": "MEPs declarations dataset description",
+    "publisher": [{
+        "@type": "Organization",
+        "url": "https://publications.europa.eu/resource/authority/corporate-body/EP"
+    }],
+    "@context": "https://schema.org",
+    "version": "3.1.0",
+    "url": "https://data.europarl.europa.eu/def/meps-decl#"
+}</script></head>
+   <body>
+      <div class="sp_container_principal container pt-4">
+         <table style="width:100%">
+            <tr>
+               <td width="20%"><img src="https://www.europarl.europa.eu/portal/img/ep-logo.svg"></td>
+               <td width="80%">
+                  <h1 class="mb-4 sp_section_title_header">MEPs declarations dataset description</h1>
+               </td>
+            </tr>
+         </table>
+         <div><b>Creation date: </b>2025-04-10<br><b>Last updated: </b>2025-06-17 00:00:00<br><b>Copyright date: </b>2025<br><b>Version: </b>3.1.0<br><b>License: </b><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">https://creativecommons.org/licenses/by/4.0/</a><br><b>Creator: </b><a href="https://publications.europa.eu/resource/authority/corporate-body/EP" target="_blank">https://publications.europa.eu/resource/authority/corporate-body/EP</a><br><b>Publisher: </b><a href="https://publications.europa.eu/resource/authority/corporate-body/EP" target="_blank">https://publications.europa.eu/resource/authority/corporate-body/EP</a><br><b>Imports : </b><a href="https://data.europarl.europa.eu/def/shacl-ep" target="_blank">https://data.europarl.europa.eu/def/shacl-ep</a><br><b id="formats">Download serialization: </b><div><span class="sp_serialization_badge"><a href="https://europarl.github.io/eli-ep/3.1.0/dsd/meps-declarations/eli-ep_meps-declarations.shacl.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.png" alt="TTL"></a></span></div><br></div>
+         <div class="sp_section_title_toc toc">
+            <h2 id="index">Table of Contents</h2>
+            <ul role="list" class="sp_list_toc ul_type_none t-x-mode">
+               <li><a href="#prefixes">Namespaces</a></li>
+               <li><a href="#description">Description</a></li>
+               <li><a href="#documentation">Model documentation</a><ul role="list" class="ul_type_none sp_list_toc_l2">
+                     <li><a href="#meps-decl:Work-DCI">meps-decl:Work-DCI</a></li>
+                     <li><a href="#meps-decl:Participation">meps-decl:Participation</a></li>
+                     <li><a href="#meps-decl:ForeseenCapacity">meps-decl:ForeseenCapacity</a></li>
+                     <li><a href="#meps-decl:Expression">meps-decl:Expression</a></li>
+                     <li><a href="#meps-decl:Manifestation">meps-decl:Manifestation</a></li>
+                  </ul>
+               </li>
+               <li><a href="#releaseNotes">Release notes</a></li>
+            </ul>
+         </div>
+         <div class="row mt-3">
+            <div class="col">
+               <section>
+                  <h2 id="prefixes" class="sp_section_subtitle">Namespaces</h2>
+                  <table class="sp_table_prefixes table table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Prefix</th>
+                           <th>Namespace</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>dcat</td>
+                           <td><a href="http://www.w3.org/ns/dcat#" target="_blank">http://www.w3.org/ns/dcat#</a></td>
+                        </tr>
+                        <tr>
+                           <td>dcterms</td>
+                           <td><a href="http://purl.org/dc/terms/" target="_blank">http://purl.org/dc/terms/</a></td>
+                        </tr>
+                        <tr>
+                           <td>eli</td>
+                           <td><a href="http://data.europa.eu/eli/ontology#" target="_blank">http://data.europa.eu/eli/ontology#</a></td>
+                        </tr>
+                        <tr>
+                           <td>eli-dl</td>
+                           <td><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#" target="_blank">http://data.europa.eu/eli/eli-draft-legislation-ontology#</a></td>
+                        </tr>
+                        <tr>
+                           <td>ep-document-types</td>
+                           <td><a href="https://data.europarl.europa.eu/def/ep-document-types/" target="_blank">https://data.europarl.europa.eu/def/ep-document-types/</a></td>
+                        </tr>
+                        <tr>
+                           <td>ep-org</td>
+                           <td><a href="https://data.europarl.europa.eu/org/" target="_blank">https://data.europarl.europa.eu/org/</a></td>
+                        </tr>
+                        <tr>
+                           <td>ep-roles</td>
+                           <td><a href="https://data.europarl.europa.eu/def/ep-roles/" target="_blank">https://data.europarl.europa.eu/def/ep-roles/</a></td>
+                        </tr>
+                        <tr>
+                           <td>epvoc</td>
+                           <td><a href="https://data.europarl.europa.eu/def/epvoc#" target="_blank">https://data.europarl.europa.eu/def/epvoc#</a></td>
+                        </tr>
+                        <tr>
+                           <td>file-type</td>
+                           <td><a href="http://publications.europa.eu/resource/authority/file-type/" target="_blank">http://publications.europa.eu/resource/authority/file-type/</a></td>
+                        </tr>
+                        <tr>
+                           <td>iana</td>
+                           <td><a href="https://www.iana.org/assignments/media-types/application/" target="_blank">https://www.iana.org/assignments/media-types/application/</a></td>
+                        </tr>
+                        <tr>
+                           <td>rdf</td>
+                           <td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#" target="_blank">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a></td>
+                        </tr>
+                        <tr>
+                           <td>rdfs</td>
+                           <td><a href="http://www.w3.org/2000/01/rdf-schema#" target="_blank">http://www.w3.org/2000/01/rdf-schema#</a></td>
+                        </tr>
+                        <tr>
+                           <td>skos</td>
+                           <td><a href="http://www.w3.org/2004/02/skos/core#" target="_blank">http://www.w3.org/2004/02/skos/core#</a></td>
+                        </tr>
+                        <tr>
+                           <td>xsd</td>
+                           <td><a href="http://www.w3.org/2001/XMLSchema#" target="_blank">http://www.w3.org/2001/XMLSchema#</a></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div>
+            <h2 id="description" class="sp_section_subtitle" style="margin-top: 1em;">Description</h2><p>MEPs declarations dataset description</p>
+</div>
+         <h2 id="documentation" class="sp_section_subtitle">Model documentation</h2>
+         <div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="meps-decl:Work-DCI" class="sp_section_title_table">meps-decl:Work-DCI</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meps-decl#Work-DCI</code></div>
+                  <div class="sp_nodeshape_description"><p>This node shape represents a subset of eli:Work</p>
+</div>
+                  <ul class="sp_list_description_properties">
+                     <li>Closed shape</li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/DCI-197491-2024-07-19-123456</code></li>
+                     <li>Applies to: <br><code>
+                           <pre>PREFIX eli: &lt;http://data.europa.eu/eli/ontology#&gt;
+SELECT ?this
+WHERE {
+ ?this eli:work_type &lt;https://data.europarl.europa.eu/def/ep-document-types/MEMBER_DECLARATION_INTEREST_CONFLICT&gt;.
+}</pre></code></li>
+                  </ul>
+                  <div class="sp_section_nodeshape_diagram">
+                     <div class="sp_section_nodeshape_center"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="463px" preserveAspectRatio="none" style="width:1296px;height:463px;background:#FFFFFF;" version="1.1" viewBox="0 0 1296 463" width="1296px" zoomAndPan="magnify"><defs xmlns=""/><g><!--class meps-decl:Work-DCI--><a href="#meps-decl:Work-DCI" target="_top" title="#meps-decl:Work-DCI" xlink:actuate="onRequest" xlink:href="#meps-decl:Work-DCI" xlink:show="new" xlink:title="#meps-decl:Work-DCI" xlink:type="simple"><g id="elem_meps-decl:Work-DCI"><rect codeLine="8" fill="#FF8C00" height="213.5625" id="uml_meps-decl:Work-DCI" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="629" x="7" y="125"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="142" x="250.5" y="142.9951">meps-decl:Work-DCI</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="635" y1="151.2969" y2="151.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="250" x="13" y="168.292">dcterms:identifier  : xsd:string  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="358" x="13" y="184.5889">dcterms:publisher  [1..1]  = ep-org:EU_PARLIAMENT</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="238" x="13" y="200.8857">dcterms:title  : rdf:langString  [1..*]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="212" x="13" y="217.1826">eli-dl:parliamentary_term  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="250" x="13" y="233.4795">eli:date_document  : xsd:date  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="617" x="13" y="249.7764">eli:work_type  [1..1]  = ep-document-types:MEMBER_DECLARATION_INTEREST_CONFLICT</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="334" x="13" y="266.0732">epvoc:awarenessOfConflict  : xsd:boolean  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="304" x="13" y="282.3701">epvoc:conflictDescription  : xsd:string  [0..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="266" x="13" y="298.667">epvoc:identifierYear  : xsd:string  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="176" x="13" y="314.9639">rdf:type  [1..1]  = eli:Work</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="192" x="13" y="331.2607">rdfs:label  : xsd:string  [1..1]</text></g></a><!--class shacl-ep:Work-DCI-Node--><a href="#shacl-ep:Work-DCI-Node" target="_top" title="#shacl-ep:Work-DCI-Node" xlink:actuate="onRequest" xlink:href="#shacl-ep:Work-DCI-Node" xlink:show="new" xlink:title="#shacl-ep:Work-DCI-Node" xlink:type="simple"><g id="elem_shacl-ep:Work-DCI-Node"><rect codeLine="27" fill="#F1F1F1" height="26.2969" id="uml_shacl-ep:Work-DCI-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="176" x="74.5" y="431"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="170" x="77.5" y="448.9951">shacl-ep:Work-DCI-Node</text></g></a><!--class 1c2837285b760a4c329ec4c2686dcad2--><g id="elem_1c2837285b760a4c329ec4c2686dcad2"><rect fill="#F1F1F1" height="26.2969" id="uml_1c2837285b760a4c329ec4c2686dcad2" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="287" x="454" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="281" x="457" y="24.9951">1c2837285b760a4c329ec4c2686dcad2</text></g><!--class 11cdb3a0d5f5c12b3949c89e44a39f51--><g id="elem_11cdb3a0d5f5c12b3949c89e44a39f51"><rect fill="#F1F1F1" height="26.2969" id="uml_11cdb3a0d5f5c12b3949c89e44a39f51" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="279" x="286" y="431"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="273" x="289" y="448.9951">11cdb3a0d5f5c12b3949c89e44a39f51</text></g><!--class shacl-ep:Process-Node--><a href="#shacl-ep:Process-Node" target="_top" title="#shacl-ep:Process-Node" xlink:actuate="onRequest" xlink:href="#shacl-ep:Process-Node" xlink:show="new" xlink:title="#shacl-ep:Process-Node" xlink:type="simple"><g id="elem_shacl-ep:Process-Node"><rect codeLine="29" fill="#F1F1F1" height="26.2969" id="uml_shacl-ep:Process-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="168" x="1121.5" y="219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="162" x="1124.5" y="236.9951">shacl-ep:Process-Node</text></g></a><!--class meps-decl:Participation (eli-dl:Participation)--><a href="#meps-decl:Participation" target="_top" title="#meps-decl:Participation" xlink:actuate="onRequest" xlink:href="#meps-decl:Participation" xlink:show="new" xlink:title="#meps-decl:Participation" xlink:type="simple"><g id="elem_meps-decl:Participation (eli-dl:Participation)"><rect codeLine="30" fill="#FFFAF0" height="26.2969" id="meps-decl:Participation (eli-dl:Participation)" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="303" x="116" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="297" x="119" y="24.9951">meps-decl:Participation (eli-dl:Participation)</text></g></a><!--class meps-decl:Expression (eli:Expression)--><a href="#meps-decl:Expression" target="_top" title="#meps-decl:Expression" xlink:actuate="onRequest" xlink:href="#meps-decl:Expression" xlink:show="new" xlink:title="#meps-decl:Expression" xlink:type="simple"><g id="elem_meps-decl:Expression (eli:Expression)"><rect codeLine="28" fill="#6495ED" height="26.2969" id="meps-decl:Expression (eli:Expression)" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="270" x="816.5" y="219"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="264" x="819.5" y="236.9951">meps-decl:Expression (eli:Expression)</text></g></a><!--reverse link shacl-ep:Work-DCI-Node to meps-decl:Work-DCI--><g id="link_shacl-ep:Work-DCI-Node_meps-decl:Work-DCI"><path codeLine="9" d="M243.7582,426.6079 C274.5845,418.9704 289.5661,412.8406 299.5,401 C314.048,383.6597 321.8659,361.5916 325.6768,339.1697 " fill="none" id="shacl-ep:Work-DCI-Node-backto-meps-decl:Work-DCI" style="stroke:#808080;stroke-width:2.0;"/><polygon fill="none" points="226.2865,430.9367,245.2012,432.4318,242.3153,420.784,226.2865,430.9367" style="stroke:#808080;stroke-width:2.0;"/></g><!--link meps-decl:Work-DCI to shacl-ep:Work-DCI-Node--><g id="link_meps-decl:Work-DCI_shacl-ep:Work-DCI-Node"><path codeLine="25" d="M173.657,339.1769 C166.6147,348.5721 160.4382,358.5217 155.5,369 C146.0782,388.9919 150.2402,409.5847 155.4531,425.1392 " fill="none" id="meps-decl:Work-DCI-to-shacl-ep:Work-DCI-Node" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="157.3597,430.8282,158.2925,421.0236,155.7709,426.0874,150.7071,423.5657,157.3597,430.8282" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="134" x="156.5" y="389.5669">dcat:previousVersion</text></g><!--reverse link 1c2837285b760a4c329ec4c2686dcad2 to meps-decl:Work-DCI--><g id="link_1c2837285b760a4c329ec4c2686dcad2_meps-decl:Work-DCI"><path codeLine="21" d="M578.809,37.2033 C562.0266,52.5187 537.5675,74.3076 511.5,95 C499.0779,104.8607 486.031,114.8965 472.838,124.8253 " fill="none" id="1c2837285b760a4c329ec4c2686dcad2-backto-meps-decl:Work-DCI" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="583.2409,33.1588,573.8967,36.271,579.5476,36.5292,579.2894,42.1802,583.2409,33.1588" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="86" x="548.5" y="76.0669">skos:notation</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="34" x="574.5" y="91.1997">[0..1]</text></g><!--link meps-decl:Work-DCI to 11cdb3a0d5f5c12b3949c89e44a39f51--><g id="link_meps-decl:Work-DCI_11cdb3a0d5f5c12b3949c89e44a39f51"><path codeLine="22" d="M374.1094,339.2422 C392.0452,375.8036 407.2418,406.7813 416.4474,425.5466 " fill="none" id="meps-decl:Work-DCI-to-11cdb3a0d5f5c12b3949c89e44a39f51" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="419.0899,430.9333,418.7172,421.0915,416.8878,426.4444,411.5349,424.6149,419.0899,430.9333" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="86" x="403.5" y="382.0669">skos:notation</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="34" x="429.5" y="397.1997">[1..1]</text></g><!--link meps-decl:Work-DCI to shacl-ep:Process-Node--><g id="link_meps-decl:Work-DCI_shacl-ep:Process-Node"><path codeLine="23" d="M633.515,124.9146 C732.3274,101.4893 842.515,86.1022 945,95.5 C1016.79,102.0831 1041.1844,90.5287 1104.5,125 C1147.1274,148.2079 1178.8108,190.8983 1194.0179,213.9504 " fill="none" id="meps-decl:Work-DCI-to-shacl-ep:Process-Node" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="1197.3219,218.9588,1195.7049,209.2436,1194.5686,214.7851,1189.0271,213.6489,1197.3219,218.9588" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="75" x="869" y="83.5669">eli:refers_to</text></g><!--reverse link meps-decl:Participation (eli-dl:Participation) to meps-decl:Work-DCI--><g id="link_meps-decl:Participation (eli-dl:Participation)_meps-decl:Work-DCI"><path codeLine="24" d="M272.3589,39.0758 C277.1616,57.9307 284.9357,88.4513 294.233,124.9519 " fill="none" id="meps-decl:Participation (eli-dl:Participation)-backto-meps-decl:Work-DCI" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="270.8779,33.2615,269.2232,42.9704,272.1121,38.1068,276.9757,40.9957,270.8779,33.2615" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="214" x="288.5" y="83.5669">epvoc:workHadParticipation&#xa0;[1..1]</text></g><!--link meps-decl:Work-DCI to meps-decl:Expression (eli:Expression)--><g id="link_meps-decl:Work-DCI_meps-decl:Expression (eli:Expression)"><path codeLine="26" d="M636.0386,232 C699.4695,232 756.9254,232 810.118,232 " fill="none" id="meps-decl:Work-DCI-to-meps-decl:Expression (eli:Expression)" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="816.118,232,807.118,228,811.118,232,807.118,236,816.118,232" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="144" x="654.25" y="225.0669">eli:is_realized_by&#xa0;[1..*]</text></g><!--SRC=[bLLRRzem67tdLtZbPTsMYciBsLQDGjeY5QY0hfeGYXpx0omSEx9DATD-_1me9HGQw5lyNOwFptU91eC43a57c40F8gomaGe9AI2Zfqp4XX0HZhM-biBqs5z0-LBc4uKH4u3kcZUt_Kwtrhxnak4oZ2o03JSB3cWMyaB2ErSuQe7MU0oFZ9e9okTo2NTDAJclIsvPP5jOIIao-dsIA5EFkQ6J42BjK23SVPHgwZJgpHCq66HtpSCXoWQOJDq6LjEEmc8Ctmqy6_TnmWnazW8visYG7Iky-1P8JeVElqjqeYUOS0UYrp2dBIcSx0Tm4IK6LAXTHgqkRCH08MjzrjJLHZ4nHcYGFplB3n4wX13D0ixq90POf_n443bIZLtlmR-lTU-QjPRNxX-6CipO-bY3eYENMobw2IvVKhW0Pmxbhgq4PxOmmc2ry6FCmy-mgIx51dmgoInENUiG6uzBdzkpRnOHl55WZUZ4FksslDQLr_KRNlskrgtrcvsstsptlQxNw_lrJllwhbbFqGYY9qbSFCSAXEtMpgWknOWpyieta9835aTGNYAHb_G6QA9OP9WKEnsGEmPeqq5_07-uY-9AxqXdDOrZKhEqRP00-CVkSsQE7PKyALIA5uLAERWup-4IAHQgG4gaS5uvfmJJGdo3dahj2cdmKfXq9HowHCqJ6XHnZfP7PP8l1CLggKegLIYLSB4wAkVteAPpLKvohE-L9BRkgwb-QJm58r3QDpBrkHlFFLQ64HQjhl_yCZLRrjDDOUEsliLqo_tZuMikLyjT7g1EdVStqdBUiN4Z1KzCplHl-uIOJfeA6u_tRFEqNlDFd4_NgZ3jAy3S_Xge7ooIZ9Shv6L1lyVEBkdzBhkeTvTxAfsjVR_nl6xykbHs1kKSr1MVRMtzjnotYv-acFJiPNXSpRUeRZbVsLxRNo3cItuhgbVScZCJE_-8C4KuhBv3C1D9zUe0OMGMrXG6jieP1Q5y0lHh9ZWJKw3_0G00]--></g></svg></div><small class="form-text text-muted">Click diagram to navigate to corresponding section | <a href="http://www.plantuml.com/plantuml/png/bLLRRzem67tdLtZbPTsMYciBsLQDGjeY5QY0hfeGYXpx0omSEx9DATD-_1me9HGQw5lyNOwFptU91eC43a57c40F8gomaGe9AI2Zfqp4XX0HZhM-biBqs5z0-LBc4uKH4u3kcZUt_Kwtrhxnak4oZ2o03JSB3cWMyaB2ErSuQe7MU0oFZ9e9okTo2NTDAJclIsvPP5jOIIao-dsIA5EFkQ6J42BjK23SVPHgwZJgpHCq66HtpSCXoWQOJDq6LjEEmc8Ctmqy6_TnmWnazW8visYG7Iky-1P8JeVElqjqeYUOS0UYrp2dBIcSx0Tm4IK6LAXTHgqkRCH08MjzrjJLHZ4nHcYGFplB3n4wX13D0ixq90POf_n443bIZLtlmR-lTU-QjPRNxX-6CipO-bY3eYENMobw2IvVKhW0Pmxbhgq4PxOmmc2ry6FCmy-mgIx51dmgoInENUiG6uzBdzkpRnOHl55WZUZ4FksslDQLr_KRNlskrgtrcvsstsptlQxNw_lrJllwhbbFqGYY9qbSFCSAXEtMpgWknOWpyieta9835aTGNYAHb_G6QA9OP9WKEnsGEmPeqq5_07-uY-9AxqXdDOrZKhEqRP00-CVkSsQE7PKyALIA5uLAERWup-4IAHQgG4gaS5uvfmJJGdo3dahj2cdmKfXq9HowHCqJ6XHnZfP7PP8l1CLggKegLIYLSB4wAkVteAPpLKvohE-L9BRkgwb-QJm58r3QDpBrkHlFFLQ64HQjhl_yCZLRrjDDOUEsliLqo_tZuMikLyjT7g1EdVStqdBUiN4Z1KzCplHl-uIOJfeA6u_tRFEqNlDFd4_NgZ3jAy3S_Xge7ooIZ9Shv6L1lyVEBkdzBhkeTvTxAfsjVR_nl6xykbHs1kKSr1MVRMtzjnotYv-acFJiPNXSpRUeRZbVsLxRNo3cItuhgbVScZCJE_-8C4KuhBv3C1D9zUe0OMGMrXG6jieP1Q5y0lHh9ZWJKw3_0G00" target="_blank">View as PNG</a></small>
+                     <!--@startuml
+set namespaceSeparator none
+skinparam classFontSize 14
+!define LIGHTORANGE
+skinparam componentStyle uml2
+skinparam wrapMessageWidth 100
+skinparam ArrowColor #Maroon
+set namespaceSeparator none 
+Class "meps-decl:Work-DCI" [[#meps-decl:Work-DCI]] #back:DarkOrange;text:White
+"meps-decl:Work-DCI" -up[#gray,bold]-|> "shacl-ep:Work-DCI-Node"
+"meps-decl:Work-DCI" : dcterms:identifier  : xsd:string  [1..1]  
+"meps-decl:Work-DCI" : dcterms:publisher  [1..1]  = ep-org:EU_PARLIAMENT  
+"meps-decl:Work-DCI" : dcterms:title  : rdf:langString  [1..*]  
+"meps-decl:Work-DCI" : eli-dl:parliamentary_term  [1..1]  
+"meps-decl:Work-DCI" : eli:date_document  : xsd:date  [1..1]  
+"meps-decl:Work-DCI" : eli:work_type  [1..1]  = ep-document-types:MEMBER_DECLARATION_INTEREST_CONFLICT  
+"meps-decl:Work-DCI" : epvoc:awarenessOfConflict  : xsd:boolean  [1..1]  
+"meps-decl:Work-DCI" : epvoc:conflictDescription  : xsd:string  [0..1]  
+"meps-decl:Work-DCI" : epvoc:identifierYear  : xsd:string  [1..1]  
+"meps-decl:Work-DCI" : rdf:type  [1..1]  = eli:Work  
+"meps-decl:Work-DCI" : rdfs:label  : xsd:string  [1..1]  
+"meps-decl:Work-DCI" -u-> "1c2837285b760a4c329ec4c2686dcad2" : skos:notation [0..1]  
+"meps-decl:Work-DCI" -d-> "11cdb3a0d5f5c12b3949c89e44a39f51" : skos:notation [1..1]  
+"meps-decl:Work-DCI" -r-> "shacl-ep:Process-Node" : eli:refers_to 
+"meps-decl:Work-DCI" -u-> "meps-decl:Participation (eli-dl:Participation)" : epvoc:workHadParticipation<U+00A0>[1..1]  
+"meps-decl:Work-DCI" -d-> "shacl-ep:Work-DCI-Node" : dcat:previousVersion 
+"meps-decl:Work-DCI" -r-> "meps-decl:Expression (eli:Expression)" : eli:is_realized_by<U+00A0>[1..*]  
+Class "shacl-ep:Work-DCI-Node" [[#shacl-ep:Work-DCI-Node]] 
+Class "meps-decl:Expression (eli:Expression)" [[#meps-decl:Expression]] #back:CornflowerBlue;text:White
+Class "shacl-ep:Process-Node" [[#shacl-ep:Process-Node]] 
+Class "meps-decl:Participation (eli-dl:Participation)" [[#meps-decl:Participation]] #back:FloralWhite;text:Black
+hide circle
+hide methods
+hide empty members
+remove @unlinked
+@enduml
+--></div>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                           <th>Example</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>awareness of conflict</td>
+                           <td id="meps-decl:Work-DCI_epvoc:awarenessOfConflict"><code><a href="https://data.europarl.europa.eu/def/epvoc#awarenessOfConflict">epvoc:awarenessOfConflict</a></code></td>
+                           <td><code>xsd:boolean</code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>conflict description</td>
+                           <td id="meps-decl:Work-DCI_epvoc:conflictDescription"><code><a href="https://data.europarl.europa.eu/def/epvoc#conflictDescription">epvoc:conflictDescription</a></code></td>
+                           <td><code>xsd:string</code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">0..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description">Present only is absenceOfConflict is false.</td>
+                           <td></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>data provider identifier</td>
+                           <td id="meps-decl:Work-DCI_skos:notation"><code><a href="http://www.w3.org/2004/02/skos/core#notation">skos:notation</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#providerId">epvoc:providerId</a></code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td>123456</td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>date document</td>
+                           <td id="meps-decl:Work-DCI_eli:date_document"><code><a href="http://data.europa.eu/eli/ontology#date_document">eli:date_document</a></code></td>
+                           <td><code>xsd:date</code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td>2024-01-18</td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>dossier identifier</td>
+                           <td id="meps-decl:Work-DCI_skos:notation"><code><a href="http://www.w3.org/2004/02/skos/core#notation">skos:notation</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#dossierId">epvoc:dossierId</a></code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">0..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td>INTA/10/00367</td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>identifier</td>
+                           <td id="meps-decl:Work-DCI_dcterms:identifier"><code><a href="http://purl.org/dc/terms/identifier">dcterms:identifier</a></code></td>
+                           <td><code>xsd:string</code><br><small>^[A-Z]{2,8}-[0-9]+-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]+$</small></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td>DCI-197491-2024-07-19-123456</td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>identifier year</td>
+                           <td id="meps-decl:Work-DCI_epvoc:identifierYear"><code><a href="https://data.europarl.europa.eu/def/epvoc#identifierYear">epvoc:identifierYear</a></code></td>
+                           <td><code>xsd:string</code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td>2023</td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>is realized by</td>
+                           <td id="meps-decl:Work-DCI_eli:is_realized_by"><code><a href="http://data.europa.eu/eli/ontology#is_realized_by">eli:is_realized_by</a></code></td>
+                           <td><code><a href="#meps-decl:Expression">meps-decl:Expression</a></code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td>https://data.europarl.europa.eu/eli/dl/doc/DCI-197491-2024-07-19-123456/en</td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>label</td>
+                           <td id="meps-decl:Work-DCI_rdfs:label"><code><a href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a></code></td>
+                           <td><code>xsd:string</code><br><small>^[A-Z]{2,8}-[0-9]+-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]+$</small></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td>DCI-197491-2024-07-19-123456</td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>parliamentary term</td>
+                           <td id="meps-decl:Work-DCI_eli-dl:parliamentary_term"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#parliamentary_term">eli-dl:parliamentary_term</a></code></td>
+                           <td><code>IRI</code><br><small>^https://data.europarl.europa.eu/org/ep-[0-9][0-9]?$</small></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td>https://data.europarl.europa.eu/org/ep-9</td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>previous version</td>
+                           <td id="meps-decl:Work-DCI_dcat:previousVersion"><code><a href="http://www.w3.org/ns/dcat#previousVersion">dcat:previousVersion</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/shacl-ep#Work-DCI-Node">shacl-ep:Work-DCI-Node</a></code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>publisher</td>
+                           <td id="meps-decl:Work-DCI_dcterms:publisher"><code><a href="http://purl.org/dc/terms/publisher">dcterms:publisher</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/org/EU_PARLIAMENT">ep-org:EU_PARLIAMENT</a></code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td>https://data.europarl.europa.eu/org/EU_PARLIAMENT</td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>refers to</td>
+                           <td id="meps-decl:Work-DCI_eli:refers_to"><code><a href="http://data.europa.eu/eli/ontology#refers_to">eli:refers_to</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/shacl-ep#Process-Node">shacl-ep:Process-Node</a></code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">0..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>title</td>
+                           <td id="meps-decl:Work-DCI_dcterms:title"><code><a href="http://purl.org/dc/terms/title">dcterms:title</a></code></td>
+                           <td><code>rdf:langString</code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td>Declaration on awareness of conflicts of interest - Peter AGIUS - Shadow rapporteur
+                              - Committee on Petitions - 2024-09-10</td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>type</td>
+                           <td id="meps-decl:Work-DCI_rdf:type"><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Work">eli:Work</a></code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>work had participation</td>
+                           <td id="meps-decl:Work-DCI_epvoc:workHadParticipation"><code><a href="https://data.europarl.europa.eu/def/epvoc#workHadParticipation">epvoc:workHadParticipation</a></code></td>
+                           <td><code><a href="#meps-decl:Participation">meps-decl:Participation</a></code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>work type</td>
+                           <td id="meps-decl:Work-DCI_eli:work_type"><code><a href="http://data.europa.eu/eli/ontology#work_type">eli:work_type</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/ep-document-types/MEMBER_DECLARATION_INTEREST_CONFLICT">ep-document-types:MEMBER_DECLARATION_INTEREST_CONFLICT</a></code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td>https://data.europarl.europa.eu/def/ep-document-types/MEMBER_DECLARATION_INTEREST_CONFLICT</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="meps-decl:Participation" class="sp_section_title_table">meps-decl:Participation</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meps-decl#Participation</code></div>
+                  <ul class="sp_list_description_properties">
+                     <li>Applies to: <a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#Participation">eli-dl:Participation</a></li>
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/participation/.*$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/participation/DCI-197491-2024-07-19-123456-AUTHOR</code></li>
+                  </ul>
+                  <div class="sp_section_nodeshape_diagram">
+                     <div class="sp_section_nodeshape_center"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="286px" preserveAspectRatio="none" style="width:434px;height:286px;background:#FFFFFF;" version="1.1" viewBox="0 0 434 286" width="434px" zoomAndPan="magnify"><defs xmlns=""/><g><!--class meps-decl:Participation (eli-dl:Participation)--><a href="#meps-decl:Participation" target="_top" title="#meps-decl:Participation" xlink:actuate="onRequest" xlink:href="#meps-decl:Participation" xlink:show="new" xlink:title="#meps-decl:Participation" xlink:type="simple"><g id="elem_meps-decl:Participation (eli-dl:Participation)"><rect codeLine="8" fill="#FFFAF0" height="66.8906" id="meps-decl:Participation (eli-dl:Participation)" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="355" x="26" y="110"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="297" x="55" y="127.9951">meps-decl:Participation (eli-dl:Participation)</text><line style="stroke:#181818;stroke-width:0.5;" x1="27" x2="380" y1="136.2969" y2="136.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="343" x="32" y="153.292">eli-dl:participation_role  [1..1]  = ep-roles:AUTHOR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="242" x="32" y="169.5889">rdf:type  [1..1]  = eli-dl:Participation</text></g></a><!--class shacl-ep:Person-Node--><a href="#shacl-ep:Person-Node" target="_top" title="#shacl-ep:Person-Node" xlink:actuate="onRequest" xlink:href="#shacl-ep:Person-Node" xlink:show="new" xlink:title="#shacl-ep:Person-Node" xlink:type="simple"><g id="elem_shacl-ep:Person-Node"><rect codeLine="13" fill="#F1F1F1" height="26.2969" id="uml_shacl-ep:Person-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="161" x="123" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="155" x="126" y="24.9951">shacl-ep:Person-Node</text></g></a><!--class meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)--><a href="#meps-decl:ForeseenCapacity" target="_top" title="#meps-decl:ForeseenCapacity" xlink:actuate="onRequest" xlink:href="#meps-decl:ForeseenCapacity" xlink:show="new" xlink:title="#meps-decl:ForeseenCapacity" xlink:type="simple"><g id="elem_meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)"><rect codeLine="14" fill="#F5DEB3" height="26.2969" id="meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="393" x="7" y="254"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="387" x="10" y="271.9951">meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)</text></g></a><!--reverse link shacl-ep:Person-Node to meps-decl:Participation (eli-dl:Participation)--><g id="link_shacl-ep:Person-Node_meps-decl:Participation (eli-dl:Participation)"><path codeLine="11" d="M203.5,39.2167 C203.5,57.3866 203.5,84.7018 203.5,109.9773 " fill="none" id="shacl-ep:Person-Node-backto-meps-decl:Participation (eli-dl:Participation)" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="203.5,33.2167,199.5,42.2167,203.5,38.2167,207.5,42.2167,203.5,33.2167" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="222" x="204.5" y="76.0669">eli-dl:had_participant_person&#xa0;[1..1]</text></g><!--link meps-decl:Participation (eli-dl:Participation) to meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)--><g id="link_meps-decl:Participation (eli-dl:Participation)_meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)"><path codeLine="12" d="M203.5,177.2469 C203.5,202.5289 203.5,229.7565 203.5,247.8565 " fill="none" id="meps-decl:Participation (eli-dl:Participation)-to-meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="203.5,253.8565,207.5,244.8565,203.5,248.8565,199.5,244.8565,203.5,253.8565" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="160" x="204.5" y="220.0669">epvoc:inCapacityOf&#xa0;[1..1]</text></g><!--SRC=[dL9DJm8n4BtlhnZXeZ5B5kDf_OX8H4mK21_XG0WfxU0sz2jj4V7NsnN4LU0Wj_QzcNbl9i-X1qKaEaCezj0GIxoseBJ2oCsvoW49L13d6bhv7lz0g5v69mndN24yFpqs- -rkhVNuK2pNqeG1eTol1C92Yei2kxJ4lA1pv1M7dFaCgabIe6lMwcLTY-2Y_4AirYfoXqr2LC-zGKcYSJ53Aj8EiPvJReZdMi4f2XwpF-XP2KQZye6MyHZAKqBdQIDu86AOSOzN7jzzUYy27FrRAeKDOOh4nEfm6nXLAvNg6E06qCGvvDBQeDziTm6EKR9iblgL-JruJ_4nq-D5V0ibbn4gOZHf1wtJAcvfXeKTCy8cspsLdvYlgkl1UPBKajjlKqU8irpyfwkXBJf4LISX5DolGgDvqtG7Nz__Y-9Ri3tRCRI9qVxjGbZs4I4fk_7xXx5V6VpBRsCup93uOW0ppX0ejrJW-YtHPvgvzGUb2Q8IvJGOZInA_OPmjr22gpcoJm00]--></g></svg></div><small class="form-text text-muted">Click diagram to navigate to corresponding section | <a href="http://www.plantuml.com/plantuml/png/dL9DJm8n4BtlhnZXeZ5B5kDf_OX8H4mK21_XG0WfxU0sz2jj4V7NsnN4LU0Wj_QzcNbl9i-X1qKaEaCezj0GIxoseBJ2oCsvoW49L13d6bhv7lz0g5v69mndN24yFpqs--rkhVNuK2pNqeG1eTol1C92Yei2kxJ4lA1pv1M7dFaCgabIe6lMwcLTY-2Y_4AirYfoXqr2LC-zGKcYSJ53Aj8EiPvJReZdMi4f2XwpF-XP2KQZye6MyHZAKqBdQIDu86AOSOzN7jzzUYy27FrRAeKDOOh4nEfm6nXLAvNg6E06qCGvvDBQeDziTm6EKR9iblgL-JruJ_4nq-D5V0ibbn4gOZHf1wtJAcvfXeKTCy8cspsLdvYlgkl1UPBKajjlKqU8irpyfwkXBJf4LISX5DolGgDvqtG7Nz__Y-9Ri3tRCRI9qVxjGbZs4I4fk_7xXx5V6VpBRsCup93uOW0ppX0ejrJW-YtHPvgvzGUb2Q8IvJGOZInA_OPmjr22gpcoJm00" target="_blank">View as PNG</a></small>
+                     <!--@startuml
+set namespaceSeparator none
+skinparam classFontSize 14
+!define LIGHTORANGE
+skinparam componentStyle uml2
+skinparam wrapMessageWidth 100
+skinparam ArrowColor #Maroon
+set namespaceSeparator none 
+Class "meps-decl:Participation (eli-dl:Participation)" [[#meps-decl:Participation]] #back:FloralWhite;text:Black
+"meps-decl:Participation (eli-dl:Participation)" : eli-dl:participation_role  [1..1]  = ep-roles:AUTHOR  
+"meps-decl:Participation (eli-dl:Participation)" : rdf:type  [1..1]  = eli-dl:Participation  
+"meps-decl:Participation (eli-dl:Participation)" -u-> "shacl-ep:Person-Node" : eli-dl:had_participant_person<U+00A0>[1..1]  
+"meps-decl:Participation (eli-dl:Participation)" -d-> "meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)" : epvoc:inCapacityOf<U+00A0>[1..1]  
+Class "shacl-ep:Person-Node" [[#shacl-ep:Person-Node]] 
+Class "meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)" [[#meps-decl:ForeseenCapacity]] #back:Wheat;text:Black
+hide circle
+hide methods
+hide empty members
+remove @unlinked
+@enduml
+--></div>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                           <th>Example</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>had participant person</td>
+                           <td id="meps-decl:Participation_eli-dl:had_participant_person"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#had_participant_person">eli-dl:had_participant_person</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/shacl-ep#Person-Node">shacl-ep:Person-Node</a></code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td>https://data.europarl.europa.eu/person/197490</td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>in capacity of</td>
+                           <td id="meps-decl:Participation_epvoc:inCapacityOf"><code><a href="https://data.europarl.europa.eu/def/epvoc#inCapacityOf">epvoc:inCapacityOf</a></code></td>
+                           <td><code><a href="#meps-decl:ForeseenCapacity">meps-decl:ForeseenCapacity</a></code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description">Please note that the naming of this property might change in the future (ELI Task
+                              Force decision is pending)</td>
+                           <td></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>participation role</td>
+                           <td id="meps-decl:Participation_eli-dl:participation_role"><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#participation_role">eli-dl:participation_role</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/ep-roles/AUTHOR">ep-roles:AUTHOR</a></code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td>https://data.europarl.europa.eu/def/ep-roles/AUTHOR</td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>type</td>
+                           <td id="meps-decl:Participation_rdf:type"><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/eli-draft-legislation-ontology#Participation">eli-dl:Participation</a></code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="meps-decl:ForeseenCapacity" class="sp_section_title_table">meps-decl:ForeseenCapacity</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meps-decl#ForeseenCapacity</code></div>
+                  <ul class="sp_list_description_properties">
+                     <li>Applies to: <a href="https://data.europarl.europa.eu/def/epvoc#ForeseenCapacity">epvoc:ForeseenCapacity</a></li>
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/capacity/.*$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/capacity/DCI-197491-2024-07-19-123456-AUTHOR</code></li>
+                  </ul>
+                  <div class="sp_section_nodeshape_diagram">
+                     <div class="sp_section_nodeshape_center"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="286px" preserveAspectRatio="none" style="width:747px;height:286px;background:#FFFFFF;" version="1.1" viewBox="0 0 747 286" width="747px" zoomAndPan="magnify"><defs xmlns=""/><g><!--class meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)--><a href="#meps-decl:ForeseenCapacity" target="_top" title="#meps-decl:ForeseenCapacity" xlink:actuate="onRequest" xlink:href="#meps-decl:ForeseenCapacity" xlink:show="new" xlink:title="#meps-decl:ForeseenCapacity" xlink:type="simple"><g id="elem_meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)"><rect codeLine="8" fill="#F5DEB3" height="66.8906" id="meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="393" x="7" y="110"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="387" x="10" y="127.9951">meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="399" y1="136.2969" y2="136.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="315" x="13" y="153.292">epvoc:capacityActivityLabel  : xsd:string  [0..1]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="292" x="13" y="169.5889">rdf:type  [1..1]  = epvoc:ForeseenCapacity</text></g></a><!--class shacl-ep:Organization-Node--><a href="#shacl-ep:Organization-Node" target="_top" title="#shacl-ep:Organization-Node" xlink:actuate="onRequest" xlink:href="#shacl-ep:Organization-Node" xlink:show="new" xlink:title="#shacl-ep:Organization-Node" xlink:type="simple"><g id="elem_shacl-ep:Organization-Node"><rect codeLine="16" fill="#F1F1F1" height="26.2969" id="uml_shacl-ep:Organization-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="199" x="215" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="193" x="218" y="24.9951">shacl-ep:Organization-Node</text></g></a><!--class shacl-ep:Person-Node--><a href="#shacl-ep:Person-Node" target="_top" title="#shacl-ep:Person-Node" xlink:actuate="onRequest" xlink:href="#shacl-ep:Person-Node" xlink:show="new" xlink:title="#shacl-ep:Person-Node" xlink:type="simple"><g id="elem_shacl-ep:Person-Node"><rect codeLine="17" fill="#F1F1F1" height="26.2969" id="uml_shacl-ep:Person-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="161" x="123" y="254"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="155" x="126" y="271.9951">shacl-ep:Person-Node</text></g></a><!--class shacl-ep:Role-Node--><a href="#shacl-ep:Role-Node" target="_top" title="#shacl-ep:Role-Node" xlink:actuate="onRequest" xlink:href="#shacl-ep:Role-Node" xlink:show="new" xlink:title="#shacl-ep:Role-Node" xlink:type="simple"><g id="elem_shacl-ep:Role-Node"><rect codeLine="18" fill="#F1F1F1" height="26.2969" id="uml_shacl-ep:Role-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="143" x="597" y="130.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="137" x="600" y="148.4951">shacl-ep:Role-Node</text></g></a><!--class shacl-ep:Process-Node--><a href="#shacl-ep:Process-Node" target="_top" title="#shacl-ep:Process-Node" xlink:actuate="onRequest" xlink:href="#shacl-ep:Process-Node" xlink:show="new" xlink:title="#shacl-ep:Process-Node" xlink:type="simple"><g id="elem_shacl-ep:Process-Node"><rect codeLine="15" fill="#F1F1F1" height="26.2969" id="uml_shacl-ep:Process-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="168" x="9.5" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="162" x="12.5" y="24.9951">shacl-ep:Process-Node</text></g></a><!--reverse link shacl-ep:Organization-Node to meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)--><g id="link_shacl-ep:Organization-Node_meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)"><path codeLine="11" d="M304.405,38.3305 C297.2127,50.9855 288.3281,65.142 275.5,80 C266.5686,90.3447 255.9717,100.5774 245.6925,109.7086 " fill="none" id="shacl-ep:Organization-Node-backto-meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="307.3697,33.1141,299.4451,38.9622,304.8991,37.4611,306.4003,42.9151,307.3697,33.1141" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="214" x="288.5" y="76.0669">epvoc:capacityOrganization&#xa0;[0..1]</text></g><!--link meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity) to shacl-ep:Person-Node--><g id="link_meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)_shacl-ep:Person-Node"><path codeLine="12" d="M203.5,177.2469 C203.5,202.5289 203.5,229.7565 203.5,247.8565 " fill="none" id="meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)-to-shacl-ep:Person-Node" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="203.5,253.8565,207.5,244.8565,203.5,248.8565,199.5,244.8565,203.5,253.8565" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="177" x="204.5" y="220.0669">epvoc:capacityPerson&#xa0;[1..1]</text></g><!--link meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity) to shacl-ep:Role-Node--><g id="link_meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)_shacl-ep:Role-Node"><path codeLine="13" d="M400.0279,143.5 C469.927,143.5 538.2716,143.5 590.9601,143.5 " fill="none" id="meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)-to-shacl-ep:Role-Node" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="596.9601,143.5,587.9601,139.5,591.9601,143.5,587.9601,147.5,596.9601,143.5" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="160" x="418.5" y="136.5669">epvoc:capacityRole&#xa0;[1..1]</text></g><!--reverse link shacl-ep:Process-Node to meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)--><g id="link_shacl-ep:Process-Node_meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)"><path codeLine="14" d="M87.2467,39.1727 C83.6588,52.0347 82.1777,65.777 90.5,80 C97.4894,91.945 107.6421,101.8156 119.0349,109.919 " fill="none" id="shacl-ep:Process-Node-backto-meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="88.8589,33.3933,82.5877,40.9875,87.5154,38.2094,90.2935,43.1371,88.8589,33.3933" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="179" x="91.5" y="76.0669">epvoc:capacityActivity&#xa0;[0..1]</text></g><!--SRC=[hPFBJiCm44Nt-OgXtO1GK89OXOSe5Ir8GAi2Ob5ruTf3OzKlsMwXV3skmYDHaarXbMJkt3dZSSQX1qKaEaCeFg8XbdXjGMc5aLjojGr8e88uDz3AF_8FXFGascFuoXN2tUtmvcaqwJqChylfMffG8AJxZK1OIN5SKjyiCVVe75dW2sS-XpH9IdBFMltMro9qqRqdLciLkVOc8UflUuEEHEDYXbHa0stH8Qe-2UdSRs0VpLhJMloW0zDfjzqtcq5tJkWoUycH-5EFxpwx4Y4GxGRBe93eLwX7FL-7vnsPeu0WlpkMEM-vMW1CawEZT0QmCykorynl38PIQL7g79hJTuR4g_W2EYudLCHeif5T4CK_YETQnG-QOVt8vPIpvyCawIKNVpnfp2fDZD6wLdmX_e3Jlu5j1JpH0bkmM-c_eDMHZwscOPDQkDy_M6tINolJKYOiHQCIzg7cRBZpihqcDzMeN5a5_Yiq-KeJBxj-mbjFpXa2vPOABDub-bmpLtoWD67Q4kKya2ABKgyHBbTASBL4zWa0]--></g></svg></div><small class="form-text text-muted">Click diagram to navigate to corresponding section | <a href="http://www.plantuml.com/plantuml/png/hPFBJiCm44Nt-OgXtO1GK89OXOSe5Ir8GAi2Ob5ruTf3OzKlsMwXV3skmYDHaarXbMJkt3dZSSQX1qKaEaCeFg8XbdXjGMc5aLjojGr8e88uDz3AF_8FXFGascFuoXN2tUtmvcaqwJqChylfMffG8AJxZK1OIN5SKjyiCVVe75dW2sS-XpH9IdBFMltMro9qqRqdLciLkVOc8UflUuEEHEDYXbHa0stH8Qe-2UdSRs0VpLhJMloW0zDfjzqtcq5tJkWoUycH-5EFxpwx4Y4GxGRBe93eLwX7FL-7vnsPeu0WlpkMEM-vMW1CawEZT0QmCykorynl38PIQL7g79hJTuR4g_W2EYudLCHeif5T4CK_YETQnG-QOVt8vPIpvyCawIKNVpnfp2fDZD6wLdmX_e3Jlu5j1JpH0bkmM-c_eDMHZwscOPDQkDy_M6tINolJKYOiHQCIzg7cRBZpihqcDzMeN5a5_Yiq-KeJBxj-mbjFpXa2vPOABDub-bmpLtoWD67Q4kKya2ABKgyHBbTASBL4zWa0" target="_blank">View as PNG</a></small>
+                     <!--@startuml
+set namespaceSeparator none
+skinparam classFontSize 14
+!define LIGHTORANGE
+skinparam componentStyle uml2
+skinparam wrapMessageWidth 100
+skinparam ArrowColor #Maroon
+set namespaceSeparator none 
+Class "meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)" [[#meps-decl:ForeseenCapacity]] #back:Wheat;text:Black
+"meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)" : epvoc:capacityActivityLabel  : xsd:string  [0..1]  
+"meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)" : rdf:type  [1..1]  = epvoc:ForeseenCapacity  
+"meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)" -u-> "shacl-ep:Organization-Node" : epvoc:capacityOrganization<U+00A0>[0..1]  
+"meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)" -d-> "shacl-ep:Person-Node" : epvoc:capacityPerson<U+00A0>[1..1]  
+"meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)" -r-> "shacl-ep:Role-Node" : epvoc:capacityRole<U+00A0>[1..1]  
+"meps-decl:ForeseenCapacity (epvoc:ForeseenCapacity)" -u-> "shacl-ep:Process-Node" : epvoc:capacityActivity<U+00A0>[0..1]  
+Class "shacl-ep:Process-Node" [[#shacl-ep:Process-Node]] 
+Class "shacl-ep:Organization-Node" [[#shacl-ep:Organization-Node]] 
+Class "shacl-ep:Person-Node" [[#shacl-ep:Person-Node]] 
+Class "shacl-ep:Role-Node" [[#shacl-ep:Role-Node]] 
+hide circle
+hide methods
+hide empty members
+remove @unlinked
+@enduml
+--></div>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                           <th>Example</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>capacity activity</td>
+                           <td id="meps-decl:ForeseenCapacity_epvoc:capacityActivity"><code><a href="https://data.europarl.europa.eu/def/epvoc#capacityActivity">epvoc:capacityActivity</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/shacl-ep#Process-Node">shacl-ep:Process-Node</a></code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">0..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td>https://data.europarl.europa.eu/eli/dl/proc/2008-0140</td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>capacity activity label</td>
+                           <td id="meps-decl:ForeseenCapacity_epvoc:capacityActivityLabel"><code><a href="https://data.europarl.europa.eu/def/epvoc#capacityActivityLabel">epvoc:capacityActivityLabel</a></code></td>
+                           <td><code>xsd:string</code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">0..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description">Parliamentary Procedure Specification (free text)</td>
+                           <td></td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>capacity organization</td>
+                           <td id="meps-decl:ForeseenCapacity_epvoc:capacityOrganization"><code><a href="https://data.europarl.europa.eu/def/epvoc#capacityOrganization">epvoc:capacityOrganization</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/shacl-ep#Organization-Node">shacl-ep:Organization-Node</a></code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">0..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td>https://data.europarl.europa.eu/org/IMCO</td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>capacity person</td>
+                           <td id="meps-decl:ForeseenCapacity_epvoc:capacityPerson"><code><a href="https://data.europarl.europa.eu/def/epvoc#capacityPerson">epvoc:capacityPerson</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/shacl-ep#Person-Node">shacl-ep:Person-Node</a></code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td>https://data.europarl.europa.eu/person/197490</td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>capacity role</td>
+                           <td id="meps-decl:ForeseenCapacity_epvoc:capacityRole"><code><a href="https://data.europarl.europa.eu/def/epvoc#capacityRole">epvoc:capacityRole</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/shacl-ep#Role-Node">shacl-ep:Role-Node</a></code><br><p><small><a href="https://data.europarl.europa.eu/def/ep-roles/PRESIDENT_VICE">ep-roles:PRESIDENT_VICE</a>, <a href="https://data.europarl.europa.eu/def/ep-roles/QUAESTOR">ep-roles:QUAESTOR</a>, <a href="https://data.europarl.europa.eu/def/ep-roles/CHAIR_COMMITTEE">ep-roles:CHAIR_COMMITTEE</a>, <a href="https://data.europarl.europa.eu/def/ep-roles/CHAIR_VICE_COMMITTEE">ep-roles:CHAIR_VICE_COMMITTEE</a>, <a href="https://data.europarl.europa.eu/def/ep-roles/RAPPORTEUR">ep-roles:RAPPORTEUR</a>, <a href="https://data.europarl.europa.eu/def/ep-roles/RAPPORTEUR_OPINION">ep-roles:RAPPORTEUR_OPINION</a>, <a href="https://data.europarl.europa.eu/def/ep-roles/RAPPORTEUR_SHADOW_REPORT">ep-roles:RAPPORTEUR_SHADOW_REPORT</a>, <a href="https://data.europarl.europa.eu/def/ep-roles/RAPPORTEUR_SHADOW_OPINION">ep-roles:RAPPORTEUR_SHADOW_OPINION</a>, <a href="https://data.europarl.europa.eu/def/ep-roles/MEMBER_NEGOTIATION_INTERINSTITUTIONAL">ep-roles:MEMBER_NEGOTIATION_INTERINSTITUTIONAL</a>, <a href="https://data.europarl.europa.eu/def/ep-roles/CHAIR_DELEGATION">ep-roles:CHAIR_DELEGATION</a>, <a href="https://data.europarl.europa.eu/def/ep-roles/CHAIR_VICE_DELEGATION">ep-roles:CHAIR_VICE_DELEGATION</a>, <a href="https://data.europarl.europa.eu/def/ep-roles/MEMBER_DELEGATION_OFFICIAL">ep-roles:MEMBER_DELEGATION_OFFICIAL</a></small></p><small></small></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td>https://data.europarl.europa.eu/def/ep-roles/RAPPORTEUR</td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>type</td>
+                           <td id="meps-decl:ForeseenCapacity_rdf:type"><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/epvoc#ForeseenCapacity">epvoc:ForeseenCapacity</a></code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td></td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <h4>Additionnal constraints</h4>
+                  <ul class="constraint_list">
+                     <li>If the ForeseenCapacity is linked to a Process, then the capacity role must be RAPPORTEUR,
+                        RAPORTEUR_OPINION, RAPPORTEUR_SHADOW_REPORT or RAPPORTEUR_SHADOW_OPINION</li>
+                  </ul>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="meps-decl:Expression" class="sp_section_title_table">meps-decl:Expression</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meps-decl#Expression</code></div>
+                  <ul class="sp_list_description_properties">
+                     <li>Applies to: <a href="http://data.europa.eu/eli/ontology#Expression">eli:Expression</a></li>
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/[^/]*/[a-z]{2,3}$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/DCI-197491-2024-07-19-123456/en</code></li>
+                  </ul>
+                  <div class="sp_section_nodeshape_diagram">
+                     <div class="sp_section_nodeshape_center"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="286px" preserveAspectRatio="none" style="width:325px;height:286px;background:#FFFFFF;" version="1.1" viewBox="0 0 325 286" width="325px" zoomAndPan="magnify"><defs xmlns=""/><g><!--class meps-decl:Expression (eli:Expression)--><a href="#meps-decl:Expression" target="_top" title="#meps-decl:Expression" xlink:actuate="onRequest" xlink:href="#meps-decl:Expression" xlink:show="new" xlink:title="#meps-decl:Expression" xlink:type="simple"><g id="elem_meps-decl:Expression (eli:Expression)"><rect codeLine="8" fill="#6495ED" height="66.8906" id="meps-decl:Expression (eli:Expression)" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="270" x="23" y="110"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="264" x="26" y="127.9951">meps-decl:Expression (eli:Expression)</text><line style="stroke:#181818;stroke-width:0.5;" x1="24" x2="292" y1="136.2969" y2="136.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="198" x="29" y="153.292">eli:title  : rdf:langString  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="217" x="29" y="169.5889">rdf:type  [1..1]  = eli:Expression</text></g></a><!--class meps-decl:Manifestation (eli:Manifestation)--><a href="#meps-decl:Manifestation" target="_top" title="#meps-decl:Manifestation" xlink:actuate="onRequest" xlink:href="#meps-decl:Manifestation" xlink:show="new" xlink:title="#meps-decl:Manifestation" xlink:type="simple"><g id="elem_meps-decl:Manifestation (eli:Manifestation)"><rect codeLine="13" fill="#32CD32" height="26.2969" id="meps-decl:Manifestation (eli:Manifestation)" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="302" x="7" y="7"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="296" x="10" y="24.9951">meps-decl:Manifestation (eli:Manifestation)</text></g></a><!--class shacl-ep:LinguisticSystem-Node--><a href="#shacl-ep:LinguisticSystem-Node" target="_top" title="#shacl-ep:LinguisticSystem-Node" xlink:actuate="onRequest" xlink:href="#shacl-ep:LinguisticSystem-Node" xlink:show="new" xlink:title="#shacl-ep:LinguisticSystem-Node" xlink:type="simple"><g id="elem_shacl-ep:LinguisticSystem-Node"><rect codeLine="14" fill="#F1F1F1" height="26.2969" id="uml_shacl-ep:LinguisticSystem-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="227" x="44.5" y="254"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="221" x="47.5" y="271.9951">shacl-ep:LinguisticSystem-Node</text></g></a><!--reverse link meps-decl:Manifestation (eli:Manifestation) to meps-decl:Expression (eli:Expression)--><g id="link_meps-decl:Manifestation (eli:Manifestation)_meps-decl:Expression (eli:Expression)"><path codeLine="11" d="M158,39.2167 C158,57.3866 158,84.7018 158,109.9773 " fill="none" id="meps-decl:Manifestation (eli:Manifestation)-backto-meps-decl:Expression (eli:Expression)" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="158,33.2167,154,42.2167,158,38.2167,162,42.2167,158,33.2167" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="158" x="159" y="76.0669">eli:is_embodied_by&#xa0;[1..*]</text></g><!--link meps-decl:Expression (eli:Expression) to shacl-ep:LinguisticSystem-Node--><g id="link_meps-decl:Expression (eli:Expression)_shacl-ep:LinguisticSystem-Node"><path codeLine="12" d="M158,177.2469 C158,202.5289 158,229.7565 158,247.8565 " fill="none" id="meps-decl:Expression (eli:Expression)-to-shacl-ep:LinguisticSystem-Node" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="158,253.8565,162,244.8565,158,248.8565,154,244.8565,158,253.8565" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="115" x="159" y="220.0669">eli:language&#xa0;[1..1]</text></g><!--SRC=[bLBRRjD047ttLmpD2nUvSX1FXbQ4g0Iaf4W4r8SegZRUatYKlMbtJUf-FMiAmL5RQDuyCyVdChC1aOpG24vKcCC9BwBrPAn15hPikeQcIeaGFbeJvtmB6hx9dacisO2cdoUVldtvEhgSNFJXLhj4aE2nLQ16gzUzwSuBDqC8OeChbh6cOL7qnYFlxMviLN8nc0blhSd2uoOf6tVUw4J3XLoYKkN5ZVE9dgsXvr3Sgr-Sq68nU0YvND9W9QfjERRUh9NTmNzG3Tv6tCJogkQ8xAaA9NMjo34bJuMNwr89ivb7psP3j1YUdWwNH4VmTHInTVZxynaTmewWovlylB-jcJ2yHeWYxl47hNqY3jVGAoiPydhLlll-gYX6nNddwEKnSNBPwOTQL2g7AwTfAGs7oDMy3H4wlxGIVoIxlJNfcVJ5VktktisVaEBWyWV3_V6dh37nWEdV_RVM_nmd-dz3aafMimHLx2k5ks-DM5iPxWfe5zlKqYlua7be-mFqlZ6ApHRo9m00]--></g></svg></div><small class="form-text text-muted">Click diagram to navigate to corresponding section | <a href="http://www.plantuml.com/plantuml/png/bLBRRjD047ttLmpD2nUvSX1FXbQ4g0Iaf4W4r8SegZRUatYKlMbtJUf-FMiAmL5RQDuyCyVdChC1aOpG24vKcCC9BwBrPAn15hPikeQcIeaGFbeJvtmB6hx9dacisO2cdoUVldtvEhgSNFJXLhj4aE2nLQ16gzUzwSuBDqC8OeChbh6cOL7qnYFlxMviLN8nc0blhSd2uoOf6tVUw4J3XLoYKkN5ZVE9dgsXvr3Sgr-Sq68nU0YvND9W9QfjERRUh9NTmNzG3Tv6tCJogkQ8xAaA9NMjo34bJuMNwr89ivb7psP3j1YUdWwNH4VmTHInTVZxynaTmewWovlylB-jcJ2yHeWYxl47hNqY3jVGAoiPydhLlll-gYX6nNddwEKnSNBPwOTQL2g7AwTfAGs7oDMy3H4wlxGIVoIxlJNfcVJ5VktktisVaEBWyWV3_V6dh37nWEdV_RVM_nmd-dz3aafMimHLx2k5ks-DM5iPxWfe5zlKqYlua7be-mFqlZ6ApHRo9m00" target="_blank">View as PNG</a></small>
+                     <!--@startuml
+set namespaceSeparator none
+skinparam classFontSize 14
+!define LIGHTORANGE
+skinparam componentStyle uml2
+skinparam wrapMessageWidth 100
+skinparam ArrowColor #Maroon
+set namespaceSeparator none 
+Class "meps-decl:Expression (eli:Expression)" [[#meps-decl:Expression]] #back:CornflowerBlue;text:White
+"meps-decl:Expression (eli:Expression)" : eli:title  : rdf:langString  [1..1]  
+"meps-decl:Expression (eli:Expression)" : rdf:type  [1..1]  = eli:Expression  
+"meps-decl:Expression (eli:Expression)" -u-> "meps-decl:Manifestation (eli:Manifestation)" : eli:is_embodied_by<U+00A0>[1..*]  
+"meps-decl:Expression (eli:Expression)" -d-> "shacl-ep:LinguisticSystem-Node" : eli:language<U+00A0>[1..1]  
+Class "meps-decl:Manifestation (eli:Manifestation)" [[#meps-decl:Manifestation]] #back:LimeGreen;text:White
+Class "shacl-ep:LinguisticSystem-Node" [[#shacl-ep:LinguisticSystem-Node]] 
+hide circle
+hide methods
+hide empty members
+remove @unlinked
+@enduml
+--></div>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                           <th>Example</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>is embodied by</td>
+                           <td id="meps-decl:Expression_eli:is_embodied_by"><code><a href="http://data.europa.eu/eli/ontology#is_embodied_by">eli:is_embodied_by</a></code></td>
+                           <td><code><a href="#meps-decl:Manifestation">meps-decl:Manifestation</a></code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">1..*</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td>https://data.europarl.europa.eu/eli/dl/doc/DCI-197491-2024-07-19-123456/en/pdf</td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>language</td>
+                           <td id="meps-decl:Expression_eli:language"><code><a href="http://data.europa.eu/eli/ontology#language">eli:language</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/shacl-ep#LinguisticSystem-Node">shacl-ep:LinguisticSystem-Node</a></code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td>http://publications.europa.eu/resource/authority/language/ITA</td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>title</td>
+                           <td id="meps-decl:Expression_eli:title"><code><a href="http://data.europa.eu/eli/ontology#title">eli:title</a></code></td>
+                           <td><code>rdf:langString</code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td>Declaration on awareness of conflicts of interest - Peter AGIUS - Shadow rapporteur
+                              - Committee on Petitions - 2024-09-10</td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>type</td>
+                           <td id="meps-decl:Expression_rdf:type"><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Expression">eli:Expression</a></code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div class="row mt-3">
+            <div class="col">
+               <section>
+                  <div class="sp_section_title_table_wrapper">
+                     <h3 id="meps-decl:Manifestation" class="sp_section_title_table">meps-decl:Manifestation</h3><code class="sp_section_uri">https://data.europarl.europa.eu/def/meps-decl#Manifestation</code></div>
+                  <ul class="sp_list_description_properties">
+                     <li>Applies to: <a href="http://data.europa.eu/eli/ontology#Manifestation">eli:Manifestation</a></li>
+                     <li>Nodes: IRI</li>
+                     <li>Closed shape</li>
+                     <li>URI pattern: <code>^https://data.europarl.europa.eu/eli/dl/doc/.*/[a-z]{2,3}/[a-z]+$</code></li>
+                     <li>Example: <code>https://data.europarl.europa.eu/eli/dl/doc/DCI-197491-2024-07-19-123456/en/pdf</code></li>
+                  </ul>
+                  <div class="sp_section_nodeshape_diagram">
+                     <div class="sp_section_nodeshape_center"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="318px" preserveAspectRatio="none" style="width:316px;height:318px;background:#FFFFFF;" version="1.1" viewBox="0 0 316 318" width="316px" zoomAndPan="magnify"><defs xmlns=""/><g><!--class meps-decl:Manifestation (eli:Manifestation)--><a href="#meps-decl:Manifestation" target="_top" title="#meps-decl:Manifestation" xlink:actuate="onRequest" xlink:href="#meps-decl:Manifestation" xlink:show="new" xlink:title="#meps-decl:Manifestation" xlink:type="simple"><g id="elem_meps-decl:Manifestation (eli:Manifestation)"><rect codeLine="8" fill="#32CD32" height="99.4844" id="meps-decl:Manifestation (eli:Manifestation)" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="302" x="7" y="110"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="296" x="10" y="127.9951">meps-decl:Manifestation (eli:Manifestation)</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="308" y1="136.2969" y2="136.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="263" x="13" y="153.292">dcterms:issued  : xsd:dateTime  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="183" x="13" y="169.5889">eli:is_exemplified_by  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="226" x="13" y="185.8857">epvoc:byteSize  : xsd:long  [1..1]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="233" x="13" y="202.1826">rdf:type  [1..1]  = eli:Manifestation</text></g></a><!--class shacl-ep:MediaType-Node--><a href="#shacl-ep:MediaType-Node" target="_top" title="#shacl-ep:MediaType-Node" xlink:actuate="onRequest" xlink:href="#shacl-ep:MediaType-Node" xlink:show="new" xlink:title="#shacl-ep:MediaType-Node" xlink:type="simple"><g id="elem_shacl-ep:MediaType-Node"><rect codeLine="16" fill="#F1F1F1" height="26.2969" id="uml_shacl-ep:MediaType-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="187" x="64.5" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="181" x="67.5" y="24.9951">shacl-ep:MediaType-Node</text></g></a><!--class shacl-ep:MediaTypeOrExtent-Node--><a href="#shacl-ep:MediaTypeOrExtent-Node" target="_top" title="#shacl-ep:MediaTypeOrExtent-Node" xlink:actuate="onRequest" xlink:href="#shacl-ep:MediaTypeOrExtent-Node" xlink:show="new" xlink:title="#shacl-ep:MediaTypeOrExtent-Node" xlink:type="simple"><g id="elem_shacl-ep:MediaTypeOrExtent-Node"><rect codeLine="15" fill="#F1F1F1" height="26.2969" id="uml_shacl-ep:MediaTypeOrExtent-Node" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="247" x="34.5" y="286"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="241" x="37.5" y="303.9951">shacl-ep:MediaTypeOrExtent-Node</text></g></a><!--reverse link shacl-ep:MediaType-Node to meps-decl:Manifestation (eli:Manifestation)--><g id="link_shacl-ep:MediaType-Node_meps-decl:Manifestation (eli:Manifestation)"><path codeLine="13" d="M158,39.1238 C158,56.6228 158,82.5757 158,109.9723 " fill="none" id="shacl-ep:MediaType-Node-backto-meps-decl:Manifestation (eli:Manifestation)" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="158,33.1238,154,42.1238,158,38.1238,162,42.1238,158,33.1238" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="131" x="159" y="76.0669">eli:media_type&#xa0;[1..1]</text></g><!--link meps-decl:Manifestation (eli:Manifestation) to shacl-ep:MediaTypeOrExtent-Node--><g id="link_meps-decl:Manifestation (eli:Manifestation)_shacl-ep:MediaTypeOrExtent-Node"><path codeLine="14" d="M158,209.0753 C158,236.4849 158,262.4423 158,279.9213 " fill="none" id="meps-decl:Manifestation (eli:Manifestation)-to-shacl-ep:MediaTypeOrExtent-Node" style="stroke:#800000;stroke-width:1.0;"/><polygon fill="#800000" points="158,285.9213,162,276.9213,158,280.9213,154,276.9213,158,285.9213" style="stroke:#800000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="138" x="159" y="252.0669">dcterms:format&#xa0;[1..1]</text></g><!--SRC=[fP9BRnCn58NtyoikoGQ4ffeWLWDKH5K9I4qhqQ0keYXox3CTAtx9lcap_7eyzA6W4ghGdUVu-3lNuvF0v8H52aBY4a54mJwIymv5MclN2vQa4IbzyOulzK_Gw7tnIg7H3dJsRV9rTl5zV3uvtRLx6p8Wsxape8qrxtPsRwC8KwGahd6b5RSqgggTxN6C_lR4cpp5S2gYzwv8-uUaugIVZGOM8PKAqjHJuNI3n8ArT_GQHlyflHdGV3xSuryiQBWISbsVQOj91Dm7nfRhgrOpYiDIQbAI4MsgTKeRAChADgbQ2SOiuudcewEZqOBeO72lwhJ45ZOOtMYevQfx2I_SU5clEiRl5xuVr7Xt_G9eL4tDNTYvvoTwuZoOMsxAOngaLaXJ8jHJA2rcEQKyzmeF_yRswh8F__ZZRLMDg-F_l4Mf_fvs4K-td1l-cFhmr8sFLl2JrFkMFWlApNp6ankwd_OlokFfLYkGr54QtAqjkFKgtNtaHd6N9Rj2J4M4zJUWpnjdj5j3_G80]--></g></svg></div><small class="form-text text-muted">Click diagram to navigate to corresponding section | <a href="http://www.plantuml.com/plantuml/png/fP9BRnCn58NtyoikoGQ4ffeWLWDKH5K9I4qhqQ0keYXox3CTAtx9lcap_7eyzA6W4ghGdUVu-3lNuvF0v8H52aBY4a54mJwIymv5MclN2vQa4IbzyOulzK_Gw7tnIg7H3dJsRV9rTl5zV3uvtRLx6p8Wsxape8qrxtPsRwC8KwGahd6b5RSqgggTxN6C_lR4cpp5S2gYzwv8-uUaugIVZGOM8PKAqjHJuNI3n8ArT_GQHlyflHdGV3xSuryiQBWISbsVQOj91Dm7nfRhgrOpYiDIQbAI4MsgTKeRAChADgbQ2SOiuudcewEZqOBeO72lwhJ45ZOOtMYevQfx2I_SU5clEiRl5xuVr7Xt_G9eL4tDNTYvvoTwuZoOMsxAOngaLaXJ8jHJA2rcEQKyzmeF_yRswh8F__ZZRLMDg-F_l4Mf_fvs4K-td1l-cFhmr8sFLl2JrFkMFWlApNp6ankwd_OlokFfLYkGr54QtAqjkFKgtNtaHd6N9Rj2J4M4zJUWpnjdj5j3_G80" target="_blank">View as PNG</a></small>
+                     <!--@startuml
+set namespaceSeparator none
+skinparam classFontSize 14
+!define LIGHTORANGE
+skinparam componentStyle uml2
+skinparam wrapMessageWidth 100
+skinparam ArrowColor #Maroon
+set namespaceSeparator none 
+Class "meps-decl:Manifestation (eli:Manifestation)" [[#meps-decl:Manifestation]] #back:LimeGreen;text:White
+"meps-decl:Manifestation (eli:Manifestation)" : dcterms:issued  : xsd:dateTime  [1..1]  
+"meps-decl:Manifestation (eli:Manifestation)" : eli:is_exemplified_by  [1..1]  
+"meps-decl:Manifestation (eli:Manifestation)" : epvoc:byteSize  : xsd:long  [1..1]  
+"meps-decl:Manifestation (eli:Manifestation)" : rdf:type  [1..1]  = eli:Manifestation  
+"meps-decl:Manifestation (eli:Manifestation)" -u-> "shacl-ep:MediaType-Node" : eli:media_type<U+00A0>[1..1]  
+"meps-decl:Manifestation (eli:Manifestation)" -d-> "shacl-ep:MediaTypeOrExtent-Node" : dcterms:format<U+00A0>[1..1]  
+Class "shacl-ep:MediaTypeOrExtent-Node" [[#shacl-ep:MediaTypeOrExtent-Node]] 
+Class "shacl-ep:MediaType-Node" [[#shacl-ep:MediaType-Node]] 
+hide circle
+hide methods
+hide empty members
+remove @unlinked
+@enduml
+--></div>
+                  <table class="sp_table_propertyshapes table-striped table-responsive">
+                     <thead>
+                        <tr>
+                           <th>Property name</th>
+                           <th>URI</th>
+                           <th>Expected value</th>
+                           <th>Card.</th>
+                           <th class="sp_description_column">Description</th>
+                           <th>Example</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>byte size</td>
+                           <td id="meps-decl:Manifestation_epvoc:byteSize"><code><a href="https://data.europarl.europa.eu/def/epvoc#byteSize">epvoc:byteSize</a></code></td>
+                           <td><code>xsd:long</code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td>59254</td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>format</td>
+                           <td id="meps-decl:Manifestation_dcterms:format"><code><a href="http://purl.org/dc/terms/format">dcterms:format</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/shacl-ep#MediaTypeOrExtent-Node">shacl-ep:MediaTypeOrExtent-Node</a></code><br><p><small><a href="http://publications.europa.eu/resource/authority/file-type/PDF">file-type:PDF</a></small></p><small></small></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td>http://publications.europa.eu/resource/authority/file-type/PDF</td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>format</td>
+                           <td id="meps-decl:Manifestation_eli:media_type"><code><a href="http://data.europa.eu/eli/ontology#media_type">eli:media_type</a></code></td>
+                           <td><code><a href="https://data.europarl.europa.eu/def/shacl-ep#MediaType-Node">shacl-ep:MediaType-Node</a></code><br><p><small><a href="https://www.iana.org/assignments/media-types/application/pdf">iana:pdf</a></small></p><small></small></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td>https://www.iana.org/assignments/media-types/application/pdf</td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>is exemplified by</td>
+                           <td id="meps-decl:Manifestation_eli:is_exemplified_by"><code><a href="http://data.europa.eu/eli/ontology#is_exemplified_by">eli:is_exemplified_by</a></code></td>
+                           <td><code>IRI</code><br><small>https://data.europarl.europa.eu/distribution/doc/DCI-[0-9]+-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]+_[a-z]{2}.(pdf)$</small></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td>https://data.europarl.europa.eu/distribution/doc/DCI-197400-2025-01-13-429690_it.pdf</td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>issued</td>
+                           <td id="meps-decl:Manifestation_dcterms:issued"><code><a href="http://purl.org/dc/terms/issued">dcterms:issued</a></code></td>
+                           <td><code>xsd:dateTime</code><br><small>^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}((\.\d{3})?\+\d{2}:\d{2}|Z)$</small></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td>2024-01-19T13:35:07.000+01:00</td>
+                        </tr>
+                        <tr style="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;''&#xA;&#x9;&#x9;&#x9;&#x9;">
+                           <td>type</td>
+                           <td id="meps-decl:Manifestation_rdf:type"><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a></code></td>
+                           <td><code><a href="http://data.europa.eu/eli/ontology#Manifestation">eli:Manifestation</a></code><br><small></small></td>
+                           <td>
+                              <div style="width:30px">1..1</div>
+                           </td>
+                           <td class="sp_table_propertyshapes_col_description"></td>
+                           <td></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+         </div><br><div>
+            <h2 id="releaseNotes" class="sp_section_subtitle">Release notes</h2><p>3.1.0 - 2025-06-06</p>
+<ul>
+<li>(rfc) epvoc:absenceOfConflict changed to epvoc:awarenessOfConflict</li>
+<li>(rfc) change cardinality for eli:refers_to to manage multiple procedures (test case: DCI-197469-2023-11-28-326883)</li>
+<li>(rfc) correct sh:pattern for meps-decl:Expression, meps-decl:Manifestation</li>
+</ul>
+<p>3.1.0 - 2025-05-27</p>
+<ul>
+<li>minor correction. notation dossier cardinality, notation provider uri.</li>
+<li>pattern correction of distribution and expression id</li>
+<li>change cardinality of capacityOrganization 0,1 instead of 1,1</li>
+</ul>
+<p>3.1.0 - 2025-05-19</p>
+<ul>
+<li>(rfc) epvoc:conflictDescription changed to xsd:string</li>
+</ul>
+<p>3.1.0 - 2025-05-08</p>
+<ul>
+<li>(info) minor improvements</li>
+</ul>
+<p>3.1.0 - 2025-04-22</p>
+<ul>
+<li>(info) rename prefix as this file will not be used only for DACI documents</li>
+<li>(info) make it clear what the target is</li>
+</ul>
+<p>3.1.0 - 2025-04-10
+creation</p>
+</div>
+      </div><script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js">//</script><script>				
+					anchors.options = {
+	                    icon: '#'
+	                  };
+               		anchors.options.placement = 'left';
+					anchors.add('h2,h3');
+					// for links inside tables		
+					anchors.add('td[id]');
+				</script></body>
+</html>

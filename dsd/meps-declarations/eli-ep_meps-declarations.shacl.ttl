@@ -1,0 +1,611 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix meps-decl: <https://data.europarl.europa.eu/def/meps-decl#> .
+@prefix skosthes: <http://purl.org/iso25964/skos-thes#> .
+@prefix language: <http://publications.europa.eu/resource/authority/language/> .
+@prefix ep-doc: <https://data.europarl.europa.eu/eli/dl/doc/> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ep-proc: <https://data.europarl.europa.eu/eli/dl/proc/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix file-type: <http://publications.europa.eu/resource/authority/file-type/> .
+@prefix eli: <http://data.europa.eu/eli/ontology#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix xls2rdf: <https://xls2rdf.sparna.fr/vocabulary#> .
+@prefix ep-procedure-types: <https://data.europarl.europa.eu/def/ep-procedure-types/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix ep-entities: <https://data.europarl.europa.eu/def/ep-entities/> .
+@prefix person: <http://www.w3.org/ns/person#> .
+@prefix procedure-phase: <http://publications.europa.eu/resource/authority/procedure-phase/> .
+@prefix shacl-ep: <https://data.europarl.europa.eu/def/shacl-ep#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix eli-ep: <https://data.europarl.europa.eu/def/eli-ep#> .
+@prefix ep-roles: <https://data.europarl.europa.eu/def/ep-roles/> .
+@prefix subdivision: <http://publications.europa.eu/resource/authority/subdivision/> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ep-event: <https://data.europarl.europa.eu/eli/dl/event/> .
+@prefix ep-org: <https://data.europarl.europa.eu/org/> .
+@prefix place: <http://publications.europa.eu/resource/authority/place/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix euvoc: <http://publications.europa.eu/ontology/euvoc#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix eli-dl: <http://data.europa.eu/eli/eli-draft-legislation-ontology#> .
+@prefix ep-person: <https://data.europarl.europa.eu/person/> .
+@prefix shacl-play: <https://shacl-play.sparna.fr/ontology#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ep-activities: <https://data.europarl.europa.eu/def/ep-activities/> .
+@prefix ep-document-types: <https://data.europarl.europa.eu/def/ep-document-types/> .
+@prefix ep-decision-methods: <https://data.europarl.europa.eu/def/ep-decision-methods/> .
+@prefix iana: <https://www.iana.org/assignments/media-types/application/> .
+@prefix epvoc: <https://data.europarl.europa.eu/def/epvoc#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ep-statuses: <https://data.europarl.europa.eu/def/ep-statuses/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+
+<https://data.europarl.europa.eu/def/meps-decl#> a owl:Ontology, adms:Asset;
+  owl:imports <https://data.europarl.europa.eu/def/shacl-ep>;
+  dcterms:type <https://publications.europa.eu/resource/authority/dataset-type/APROF>;
+  rdfs:label "MEPs declarations"@en;
+  dcterms:title "MEPs declarations dataset description"@en;
+  dcterms:description "MEPs declarations dataset description"@en;
+  owl:versionInfo "3.1.0";
+  adms:versionNotes """3.1.0 - 2025-06-06
+- (rfc) epvoc:absenceOfConflict changed to epvoc:awarenessOfConflict
+- (rfc) change cardinality for eli:refers_to to manage multiple procedures (test case: DCI-197469-2023-11-28-326883)
+- (rfc) correct sh:pattern for meps-decl:Expression, meps-decl:Manifestation
+
+3.1.0 - 2025-05-27
+- minor correction. notation dossier cardinality, notation provider uri.
+- pattern correction of distribution and expression id
+- change cardinality of capacityOrganization 0,1 instead of 1,1
+
+3.1.0 - 2025-05-19
+- (rfc) epvoc:conflictDescription changed to xsd:string
+
+3.1.0 - 2025-05-08
+- (info) minor improvements
+
+3.1.0 - 2025-04-22
+- (info) rename prefix as this file will not be used only for DACI documents
+- (info) make it clear what the target is
+
+3.1.0 - 2025-04-10
+creation"""@en;
+  adms:status <http://publications.europa.eu/resource/dataset/dataset-status/DEVELOP>;
+  owl:versionIRI <https://data.europarl.europa.eu/def/meps-decl#>;
+  dcterms:conformsTo <https://www.w3.org/TR/shacl>;
+  dcterms:created "2025-04-10"^^xsd:date;
+  dcterms:modified "2025-06-17T00:00:00.000Z"^^xsd:dateTime;
+  dcterms:dateCopyrighted "2025"^^xsd:gYear;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/>;
+  dcterms:creator <https://publications.europa.eu/resource/authority/corporate-body/EP>;
+  dcterms:publisher <https://publications.europa.eu/resource/authority/corporate-body/EP>;
+  dcterms:rigthsHolder <https://publications.europa.eu/resource/authority/corporate-body/EURUN>;
+  dcat:distribution _:307697226f7a4edbb27587ce08a349cd3322 .
+
+_:307697226f7a4edbb27587ce08a349cd3322 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
+  dcat:downloadURL <https://europarl.github.io/eli-ep/3.1.0/dsd/meps-declarations/eli-ep_meps-declarations.shacl.ttl> .
+
+meps-decl:Work-DCI a sh:NodeShape;
+  owl:versionInfo "3.1.0";
+  rdfs:comment "This node shape represents a subset of eli:Work"@en;
+  sh:target meps-decl:Work-DCI-target;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/DCI-197491-2024-07-19-123456";
+  sh:node shacl-ep:Work-DCI-Node;
+  sh:closed "true"^^xsd:boolean;
+  sh:ignoredProperties _:307697226f7a4edbb27587ce08a349cd3323;
+  sh:order "1"^^xsd:integer;
+  shacl-play:color "White";
+  shacl-play:background-color "DarkOrange";
+  sh:property meps-decl:Work-DCI_type, meps-decl:Work-DCI_work_type, meps-decl:Work-DCI_identifier,
+    meps-decl:Work-DCI_publisher, meps-decl:Work-DCI_identifierYear, meps-decl:Work-DCI_date_document,
+    meps-decl:Work-DCI_parliamentary_term, meps-decl:Work-DCI_notationProviderId, meps-decl:Work-DCI_notationDossierId,
+    meps-decl:Work-DCI_awarenessOfConflict, meps-decl:Work-DCI_conflictDescription, meps-decl:Work-DCI_workHadParticipation,
+    meps-decl:Work-DCI_label, meps-decl:Work-DCI_refers_to, meps-decl:Work-DCI_title,
+    meps-decl:Work-DCI_is_realized_by, meps-decl:Work-DCI_previousVersion;
+  sh:sparql shacl-ep:Constraint-URI-identifier .
+
+meps-decl:Work-DCI-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
+SELECT ?this
+WHERE {
+ ?this eli:work_type <https://data.europarl.europa.eu/def/ep-document-types/MEMBER_DECLARATION_INTEREST_CONFLICT>.
+}""" .
+
+_:307697226f7a4edbb27587ce08a349cd3323 rdf:first rdf:type;
+  rdf:rest rdf:nil .
+
+meps-decl:Participation a sh:NodeShape;
+  owl:versionInfo "3.1.0";
+  sh:targetClass eli-dl:Participation;
+  skos:example "https://data.europarl.europa.eu/eli/dl/participation/DCI-197491-2024-07-19-123456-AUTHOR";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/participation/.*$";
+  sh:node shacl-ep:Participation-Node;
+  sh:closed "true"^^xsd:boolean;
+  sh:ignoredProperties _:307697226f7a4edbb27587ce08a349cd3324;
+  sh:order "2"^^xsd:integer;
+  shacl-play:color "Black";
+  shacl-play:background-color "FloralWhite";
+  sh:property meps-decl:Participation_type, meps-decl:Participation_had_participant_person,
+    meps-decl:Participation_participation_role, meps-decl:Participation_inCapacityOf .
+
+_:307697226f7a4edbb27587ce08a349cd3324 rdf:first rdf:type;
+  rdf:rest rdf:nil .
+
+meps-decl:ForeseenCapacity a sh:NodeShape;
+  owl:versionInfo "3.1.0";
+  sh:targetClass epvoc:ForeseenCapacity;
+  skos:example "https://data.europarl.europa.eu/eli/dl/capacity/DCI-197491-2024-07-19-123456-AUTHOR";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/capacity/.*$";
+  sh:node shacl-ep:ForeseenCapacity-Node;
+  sh:closed "true"^^xsd:boolean;
+  sh:ignoredProperties _:307697226f7a4edbb27587ce08a349cd3325;
+  sh:order "3"^^xsd:integer;
+  shacl-play:color "Black";
+  shacl-play:background-color "Wheat";
+  sh:property meps-decl:ForeseenCapacity_type, meps-decl:ForeseenCapacity_capacityActivity,
+    meps-decl:ForeseenCapacity_capacityActivityLabel, meps-decl:ForeseenCapacity_capacityRole,
+    meps-decl:ForeseenCapacity_capacityOrganization, meps-decl:ForeseenCapacity_capacityPerson;
+  sh:sparql meps-decl:Constraint-Process .
+
+_:307697226f7a4edbb27587ce08a349cd3325 rdf:first rdf:type;
+  rdf:rest rdf:nil .
+
+meps-decl:Expression a sh:NodeShape;
+  owl:versionInfo "3.1.0";
+  sh:targetClass eli:Expression;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/DCI-197491-2024-07-19-123456/en";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[^/]*/[a-z]{2,3}$";
+  sh:node shacl-ep:Expression-Node;
+  sh:closed "true"^^xsd:boolean;
+  sh:ignoredProperties _:307697226f7a4edbb27587ce08a349cd3326;
+  sh:order "4"^^xsd:integer;
+  shacl-play:color "White";
+  shacl-play:background-color "CornflowerBlue";
+  sh:property meps-decl:Expression_type, meps-decl:Expression_title, meps-decl:Expression_language,
+    meps-decl:Expression_is_embodied_by .
+
+_:307697226f7a4edbb27587ce08a349cd3326 rdf:first rdf:type;
+  rdf:rest rdf:nil .
+
+meps-decl:Manifestation a sh:NodeShape;
+  owl:versionInfo "3.1.0";
+  sh:targetClass eli:Manifestation;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/DCI-197491-2024-07-19-123456/en/pdf";
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/.*/[a-z]{2,3}/[a-z]+$";
+  sh:node shacl-ep:Manifestation-Node;
+  sh:closed "true"^^xsd:boolean;
+  sh:ignoredProperties _:307697226f7a4edbb27587ce08a349cd3327;
+  sh:order "5"^^xsd:integer;
+  shacl-play:color "White";
+  shacl-play:background-color "LimeGreen";
+  sh:property meps-decl:Manifestation_type, meps-decl:Manifestation_is_exemplified_by,
+    meps-decl:Manifestation_format, meps-decl:Manifestation_media_type, meps-decl:Manifestation_byteSize,
+    meps-decl:Manifestation_issued .
+
+_:307697226f7a4edbb27587ce08a349cd3327 rdf:first rdf:type;
+  rdf:rest rdf:nil .
+
+meps-decl:Work-DCI_type owl:versionInfo "3.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli:Work;
+  shacl-play:shortname "type" .
+
+meps-decl:Work-DCI_work_type owl:versionInfo "3.1.0";
+  sh:path eli:work_type;
+  sh:name "work type"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-document-types/MEMBER_DECLARATION_INTEREST_CONFLICT";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue ep-document-types:MEMBER_DECLARATION_INTEREST_CONFLICT;
+  shacl-play:shortname "work_type" .
+
+meps-decl:Work-DCI_identifier owl:versionInfo "3.1.0";
+  sh:path dcterms:identifier;
+  sh:name "identifier"@en;
+  skos:example "DCI-197491-2024-07-19-123456";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:pattern "^[A-Z]{2,8}-[0-9]+-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]+$";
+  shacl-play:shortname "identifier" .
+
+meps-decl:Work-DCI_publisher owl:versionInfo "3.1.0";
+  sh:path dcterms:publisher;
+  sh:name "publisher"@en;
+  skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue ep-org:EU_PARLIAMENT;
+  shacl-play:shortname "publisher" .
+
+meps-decl:Work-DCI_identifierYear owl:versionInfo "3.1.0";
+  sh:path epvoc:identifierYear;
+  sh:name "identifier year"@en;
+  skos:example "2023";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "identifierYear" .
+
+meps-decl:Work-DCI_date_document owl:versionInfo "3.1.0";
+  sh:path eli:date_document;
+  sh:name "date document"@en;
+  skos:example "2024-01-18";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:date;
+  shacl-play:shortname "date_document" .
+
+meps-decl:Work-DCI_parliamentary_term owl:versionInfo "3.1.0";
+  sh:path eli-dl:parliamentary_term;
+  sh:name "parliamentary term"@en;
+  skos:example "https://data.europarl.europa.eu/org/ep-9";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:pattern "^https://data.europarl.europa.eu/org/ep-[0-9][0-9]?$";
+  shacl-play:shortname "parliamentary_term" .
+
+meps-decl:Work-DCI_notationProviderId owl:versionInfo "3.1.0";
+  sh:path skos:notation;
+  sh:name "data provider identifier"@en;
+  skos:example "123456";
+  sh:nodeKind sh:Literal;
+  sh:qualifiedValueShape _:307697226f7a4edbb27587ce08a349cd3328;
+  sh:qualifiedMinCount "1"^^xsd:integer;
+  sh:qualifiedMaxCount "1"^^xsd:integer;
+  shacl-play:shortname "notation_providerId" .
+
+_:307697226f7a4edbb27587ce08a349cd3328 sh:datatype epvoc:providerId .
+
+meps-decl:Work-DCI_notationDossierId owl:versionInfo "3.1.0";
+  sh:path skos:notation;
+  sh:name "dossier identifier"@en;
+  skos:example "INTA/10/00367";
+  sh:minCount "0"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:qualifiedValueShape _:307697226f7a4edbb27587ce08a349cd3329;
+  sh:qualifiedMaxCount "1"^^xsd:integer;
+  shacl-play:shortname "notation_dossierId" .
+
+_:307697226f7a4edbb27587ce08a349cd3329 sh:datatype epvoc:dossierId .
+
+meps-decl:Work-DCI_awarenessOfConflict owl:versionInfo "3.1.0";
+  sh:path epvoc:awarenessOfConflict;
+  sh:name "awareness of conflict"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:boolean;
+  shacl-play:shortname "awarenessOfConflict" .
+
+meps-decl:Work-DCI_conflictDescription owl:versionInfo "3.1.0";
+  sh:path epvoc:conflictDescription;
+  sh:name "conflict description"@en;
+  sh:description "Present only is absenceOfConflict is false."@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "conflictDescription" .
+
+meps-decl:Work-DCI_workHadParticipation owl:versionInfo "3.1.0";
+  sh:path epvoc:workHadParticipation;
+  sh:name "work had participation"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node meps-decl:Participation;
+  shacl-play:shortname "workHadParticipation" .
+
+meps-decl:Work-DCI_label owl:versionInfo "3.1.0";
+  sh:path rdfs:label;
+  sh:name "label"@en;
+  skos:example "DCI-197491-2024-07-19-123456";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:pattern "^[A-Z]{2,8}-[0-9]+-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]+$";
+  shacl-play:shortname "label" .
+
+meps-decl:Work-DCI_refers_to owl:versionInfo "3.1.0";
+  sh:path eli:refers_to;
+  sh:name "refers to"@en;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Process-Node;
+  shacl-play:shortname "refers_to" .
+
+meps-decl:Work-DCI_title owl:versionInfo "3.1.0";
+  sh:path dcterms:title;
+  sh:name "title"@en;
+  skos:example "Declaration on awareness of conflicts of interest - Peter AGIUS - Shadow rapporteur - Committee on Petitions - 2024-09-10";
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title_dcterms" .
+
+meps-decl:Work-DCI_is_realized_by owl:versionInfo "3.1.0";
+  sh:path eli:is_realized_by;
+  sh:name "is realized by"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/DCI-197491-2024-07-19-123456/en";
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node meps-decl:Expression;
+  shacl-play:shortname "is_realized_by" .
+
+meps-decl:Work-DCI_previousVersion owl:versionInfo "3.1.0";
+  sh:path dcat:previousVersion;
+  sh:name "previous version"@en;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Work-DCI-Node;
+  shacl-play:shortname "previousVersion" .
+
+meps-decl:Participation_type owl:versionInfo "3.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli-dl:Participation;
+  shacl-play:shortname "type" .
+
+meps-decl:Participation_had_participant_person owl:versionInfo "3.1.0";
+  sh:path eli-dl:had_participant_person;
+  sh:name "had participant person"@en;
+  skos:example "https://data.europarl.europa.eu/person/197490";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Person-Node;
+  shacl-play:shortname "had_participant_person" .
+
+meps-decl:Participation_participation_role owl:versionInfo "3.1.0";
+  sh:path eli-dl:participation_role;
+  sh:name "participation role"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-roles/AUTHOR";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue ep-roles:AUTHOR;
+  shacl-play:shortname "participation_role" .
+
+meps-decl:Participation_inCapacityOf owl:versionInfo "3.1.0";
+  sh:path epvoc:inCapacityOf;
+  sh:name "in capacity of"@en;
+  sh:description "Please note that the naming of this property might change in the future (ELI Task Force decision is pending)"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node meps-decl:ForeseenCapacity;
+  shacl-play:shortname "inCapacityOf" .
+
+meps-decl:ForeseenCapacity_type owl:versionInfo "3.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue epvoc:ForeseenCapacity;
+  shacl-play:shortname "type" .
+
+meps-decl:ForeseenCapacity_capacityActivity owl:versionInfo "3.1.0";
+  sh:path epvoc:capacityActivity;
+  sh:name "capacity activity"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/proc/2008-0140";
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Process-Node;
+  shacl-play:shortname "capacityActivity" .
+
+meps-decl:ForeseenCapacity_capacityActivityLabel owl:versionInfo "3.1.0";
+  sh:path epvoc:capacityActivityLabel;
+  sh:name "capacity activity label"@en;
+  sh:description "Parliamentary Procedure Specification (free text)"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  shacl-play:shortname "capacityActivityLabel" .
+
+meps-decl:ForeseenCapacity_capacityRole owl:versionInfo "3.1.0";
+  sh:path epvoc:capacityRole;
+  sh:name "capacity role"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-roles/RAPPORTEUR";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Role-Node;
+  sh:in _:307697226f7a4edbb27587ce08a349cd3330;
+  shacl-play:shortname "capacityRole" .
+
+_:307697226f7a4edbb27587ce08a349cd3330 rdf:first ep-roles:PRESIDENT_VICE;
+  rdf:rest _:307697226f7a4edbb27587ce08a349cd3331 .
+
+_:307697226f7a4edbb27587ce08a349cd3331 rdf:first ep-roles:QUAESTOR;
+  rdf:rest _:307697226f7a4edbb27587ce08a349cd3332 .
+
+_:307697226f7a4edbb27587ce08a349cd3332 rdf:first ep-roles:CHAIR_COMMITTEE;
+  rdf:rest _:307697226f7a4edbb27587ce08a349cd3333 .
+
+_:307697226f7a4edbb27587ce08a349cd3333 rdf:first ep-roles:CHAIR_VICE_COMMITTEE;
+  rdf:rest _:307697226f7a4edbb27587ce08a349cd3334 .
+
+_:307697226f7a4edbb27587ce08a349cd3334 rdf:first ep-roles:RAPPORTEUR;
+  rdf:rest _:307697226f7a4edbb27587ce08a349cd3335 .
+
+_:307697226f7a4edbb27587ce08a349cd3335 rdf:first ep-roles:RAPPORTEUR_OPINION;
+  rdf:rest _:307697226f7a4edbb27587ce08a349cd3336 .
+
+_:307697226f7a4edbb27587ce08a349cd3336 rdf:first ep-roles:RAPPORTEUR_SHADOW_REPORT;
+  rdf:rest _:307697226f7a4edbb27587ce08a349cd3337 .
+
+_:307697226f7a4edbb27587ce08a349cd3337 rdf:first ep-roles:RAPPORTEUR_SHADOW_OPINION;
+  rdf:rest _:307697226f7a4edbb27587ce08a349cd3338 .
+
+_:307697226f7a4edbb27587ce08a349cd3338 rdf:first ep-roles:MEMBER_NEGOTIATION_INTERINSTITUTIONAL;
+  rdf:rest _:307697226f7a4edbb27587ce08a349cd3339 .
+
+_:307697226f7a4edbb27587ce08a349cd3339 rdf:first ep-roles:CHAIR_DELEGATION;
+  rdf:rest _:307697226f7a4edbb27587ce08a349cd3340 .
+
+_:307697226f7a4edbb27587ce08a349cd3340 rdf:first ep-roles:CHAIR_VICE_DELEGATION;
+  rdf:rest _:307697226f7a4edbb27587ce08a349cd3341 .
+
+_:307697226f7a4edbb27587ce08a349cd3341 rdf:first ep-roles:MEMBER_DELEGATION_OFFICIAL;
+  rdf:rest rdf:nil .
+
+meps-decl:ForeseenCapacity_capacityOrganization owl:versionInfo "3.1.0";
+  sh:path epvoc:capacityOrganization;
+  sh:name "capacity organization"@en;
+  skos:example "https://data.europarl.europa.eu/org/IMCO";
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Organization-Node;
+  shacl-play:shortname "capacityOrganization" .
+
+meps-decl:ForeseenCapacity_capacityPerson owl:versionInfo "3.1.0";
+  sh:path epvoc:capacityPerson;
+  sh:name "capacity person"@en;
+  skos:example "https://data.europarl.europa.eu/person/197490";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Person-Node .
+
+meps-decl:Expression_type owl:versionInfo "3.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli:Expression;
+  shacl-play:shortname "type" .
+
+meps-decl:Expression_title owl:versionInfo "3.1.0";
+  sh:path eli:title;
+  sh:name "title"@en;
+  skos:example "Declaration on awareness of conflicts of interest - Peter AGIUS - Shadow rapporteur - Committee on Petitions - 2024-09-10";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  shacl-play:shortname "title" .
+
+meps-decl:Expression_language owl:versionInfo "3.1.0";
+  sh:path eli:language;
+  sh:name "language"@en;
+  skos:example "http://publications.europa.eu/resource/authority/language/ITA";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:LinguisticSystem-Node;
+  shacl-play:shortname "language" .
+
+meps-decl:Expression_is_embodied_by owl:versionInfo "3.1.0";
+  sh:path eli:is_embodied_by;
+  sh:name "is embodied by"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/DCI-197491-2024-07-19-123456/en/pdf";
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node meps-decl:Manifestation;
+  shacl-play:shortname "is_embodied_by" .
+
+meps-decl:Manifestation_type owl:versionInfo "3.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli:Manifestation;
+  shacl-play:shortname "type" .
+
+meps-decl:Manifestation_is_exemplified_by owl:versionInfo "3.1.0";
+  sh:path eli:is_exemplified_by;
+  sh:name "is exemplified by"@en;
+  skos:example "https://data.europarl.europa.eu/distribution/doc/DCI-197400-2025-01-13-429690_it.pdf";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:pattern "https://data.europarl.europa.eu/distribution/doc/DCI-[0-9]+-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]+_[a-z]{2}.(pdf)$";
+  shacl-play:shortname "is_exemplified_by" .
+
+meps-decl:Manifestation_format owl:versionInfo "3.1.0";
+  sh:path dcterms:format;
+  sh:name "format"@en;
+  skos:example "http://publications.europa.eu/resource/authority/file-type/PDF";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:MediaTypeOrExtent-Node;
+  sh:in _:307697226f7a4edbb27587ce08a349cd3342;
+  shacl-play:shortname "dcterms_format" .
+
+_:307697226f7a4edbb27587ce08a349cd3342 rdf:first file-type:PDF;
+  rdf:rest rdf:nil .
+
+meps-decl:Manifestation_media_type owl:versionInfo "3.1.0";
+  sh:path eli:media_type;
+  sh:name "format"@en;
+  skos:example "https://www.iana.org/assignments/media-types/application/pdf";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:MediaType-Node;
+  sh:in _:307697226f7a4edbb27587ce08a349cd3343;
+  shacl-play:shortname "media_type" .
+
+_:307697226f7a4edbb27587ce08a349cd3343 rdf:first iana:pdf;
+  rdf:rest rdf:nil .
+
+meps-decl:Manifestation_byteSize owl:versionInfo "3.1.0";
+  sh:path epvoc:byteSize;
+  sh:name "byte size"@en;
+  skos:example "59254";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:long;
+  shacl-play:shortname "byteSize" .
+
+meps-decl:Manifestation_issued owl:versionInfo "3.1.0";
+  sh:path dcterms:issued;
+  sh:name "issued"@en;
+  skos:example "2024-01-19T13:35:07.000+01:00";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:dateTime;
+  sh:pattern "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}((\\.\\d{3})?\\+\\d{2}:\\d{2}|Z)$";
+  shacl-play:shortname "issued" .
+
+meps-decl:Constraint-Process a sh:SPARQLConstraint;
+  dcterms:description "If the ForeseenCapacity is linked to a Process, then the capacity role must be RAPPORTEUR, RAPORTEUR_OPINION, RAPPORTEUR_SHADOW_REPORT or RAPPORTEUR_SHADOW_OPINION"@en;
+  sh:message "The ForeseenCapacity is linked to a Process, but its role is not one of RAPPORTEUR, RAPORTEUR_OPINION, RAPPORTEUR_SHADOW_REPORT or RAPPORTEUR_SHADOW_OPINION"@en;
+  sh:select """PREFIX epvoc: <https://data.europarl.europa.eu/def/epvoc#>
+PREFIX ep-roles: <https://data.europarl.europa.eu/def/ep-roles/>
+SELECT $this
+WHERE {
+ $this epvoc:capacityActivity ?process .
+ FILTER(regex(STR(?process), \"proc/[0-9]{4}-[0-9]{4}[A-Z]?\"))
+ $this epvoc:capacityRole ?role .
+ FILTER(?role NOT IN (ep-roles:RAPPORTEUR, ep-roles:RAPORTEUR_OPINION, ep-roles:RAPPORTEUR_SHADOW_REPORT, ep-roles:RAPPORTEUR_SHADOW_OPINION))
+}""" .

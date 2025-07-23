@@ -1,180 +1,166 @@
-@prefix schema: <http://schema.org/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skosthes: <http://purl.org/iso25964/skos-thes#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix language: <http://publications.europa.eu/resource/authority/language/> .
+@prefix ep-doc: <https://data.europarl.europa.eu/eli/dl/doc/> .
 @prefix qb: <http://purl.org/linked-data/cube#> .
-@prefix doap: <http://usefulinc.com/ns/doap#> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
-@prefix euvoc: <http://publications.europa.eu/ontology/euvoc#> .
+@prefix ep-proc: <https://data.europarl.europa.eu/eli/dl/proc/> .
 @prefix locn: <http://www.w3.org/ns/locn#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix ext: <https://data.europarl.europa.eu/def/external-documents#> .
 @prefix file-type: <http://publications.europa.eu/resource/authority/file-type/> .
 @prefix eli: <http://data.europa.eu/eli/ontology#> .
 @prefix adms: <http://www.w3.org/ns/adms#> .
-@prefix org: <http://www.w3.org/ns/org#> .
 @prefix xls2rdf: <https://xls2rdf.sparna.fr/vocabulary#> .
-@prefix eli-dl: <http://data.europa.eu/eli/eli-draft-legislation-ontology#> .
-@prefix ept: <https://data.europarl.europa.eu/def/> .
+@prefix ep-procedure-types: <https://data.europarl.europa.eu/def/ep-procedure-types/> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix ep-entities: <https://data.europarl.europa.eu/def/ep-entities/> .
+@prefix person: <http://www.w3.org/ns/person#> .
+@prefix procedure-phase: <http://publications.europa.eu/resource/authority/procedure-phase/> .
+@prefix shacl-ep: <https://data.europarl.europa.eu/def/shacl-ep#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix eli-ep: <https://data.europarl.europa.eu/def/eli-ep#> .
+@prefix ep-roles: <https://data.europarl.europa.eu/def/ep-roles/> .
+@prefix subdivision: <http://publications.europa.eu/resource/authority/subdivision/> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ep-event: <https://data.europarl.europa.eu/eli/dl/event/> .
+@prefix ep-org: <https://data.europarl.europa.eu/org/> .
+@prefix place: <http://publications.europa.eu/resource/authority/place/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix euvoc: <http://publications.europa.eu/ontology/euvoc#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix eli-dl: <http://data.europa.eu/eli/eli-draft-legislation-ontology#> .
+@prefix ep-person: <https://data.europarl.europa.eu/person/> .
 @prefix shacl-play: <https://shacl-play.sparna.fr/ontology#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix ep-activities: <https://data.europarl.europa.eu/def/ep-activities/> .
 @prefix ep-document-types: <https://data.europarl.europa.eu/def/ep-document-types/> .
-@prefix resource-type: <http://publications.europa.eu/resource/authority/resource-type/> .
+@prefix ep-decision-methods: <https://data.europarl.europa.eu/def/ep-decision-methods/> .
+@prefix iana: <https://www.iana.org/assignments/media-types/application/> .
 @prefix epvoc: <https://data.europarl.europa.eu/def/epvoc#> .
-@prefix op-aut: <http://publications.europa.eu/resource/authority/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ep-statuses: <https://data.europarl.europa.eu/def/ep-statuses/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
 
 <https://data.europarl.europa.eu/def/external-documents#> a owl:Ontology, adms:Asset;
+  owl:imports <https://data.europarl.europa.eu/def/shacl-ep>;
   dcterms:type <https://publications.europa.eu/resource/authority/dataset-type/APROF>;
   rdfs:label "External documents dataset description"@en;
   dcterms:title "External documents dataset description"@en;
   dcterms:description "This Dataset Description is a subset of the general ELI-EP application profile and it includes classes and properties used in External documents datasets. Descriptions of classes and properties can be found in ELI-EP application profile."@en;
-  owl:versionInfo "2.1.0";
-  adms:versionNotes """2.1.0 - 204-03-21
+  owl:versionInfo "3.1.0";
+  adms:versionNotes """3.1.0 - 2025-07-23
+- (info) shacl-ep integration
+
+3.1.0 - 2025-06-16
+- (info) minor updates
+
+2.1.0 - 204-03-21
 - (new) creation"""@en;
   adms:status <https://publications.europa.eu/resource/authority/dataset-status/COMPLETED>;
-  owl:versionIRI <https://data.europarl.europa.eu/def/adopted-texts#>;
+  owl:versionIRI <https://data.europarl.europa.eu/def/external-documents#>;
   dcterms:conformsTo <https://www.w3.org/TR/shacl>;
   dcterms:created "2024-01-23"^^xsd:date;
-  dcterms:modified "2024-03-21T00:00:00.000Z"^^xsd:dateTime;
+  dcterms:modified "2025-07-23T00:00:00.000Z"^^xsd:dateTime;
   dcterms:dateCopyrighted "2024"^^xsd:gYear;
-  dcterms:license <https://www.europarl.europa.eu/legal-notice/en/>;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/>;
   dcterms:creator <https://publications.europa.eu/resource/authority/corporate-body/EP>;
   dcterms:publisher <https://publications.europa.eu/resource/authority/corporate-body/EP>;
   dcterms:rigthsHolder <https://publications.europa.eu/resource/authority/corporate-body/EURUN>;
-  dcat:distribution _:a4aeb3f30c2042e3b539bc99a24f35721221 .
+  dcat:distribution _:307697226f7a4edbb27587ce08a349cd3344 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721221 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
-  dcat:downloadURL <https://europarl.github.io/eli-ep/dsd/adopted-texts/eli-ep_adopted-texts.shacl.ttl> .
+_:307697226f7a4edbb27587ce08a349cd3344 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
+  dcat:downloadURL <https://europarl.github.io/eli-ep/3.1.0/dsd/external-documents/eli-ep_external-documents.shacl.ttl> .
 
-ext:ActFollowUp a sh:NodeShape;
+ext:Work-SP a sh:NodeShape;
+  owl:versionInfo "3.1.0";
   rdfs:comment "This node shape represents a subset of eli:Work"@en;
-  sh:target ext:ActFollowUp-target;
+  sh:target ext:Work-SP-target;
   skos:example "https://data.europarl.europa.eu/eli/dl/doc/SP-2022-180-TA-9-2022-0053";
   sh:nodeKind sh:IRI;
-  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
+  sh:node shacl-ep:Work-SP-Node;
   sh:closed "true"^^xsd:boolean;
-  rdfs:label "Follow-up of acts"@en;
+  sh:ignoredProperties _:307697226f7a4edbb27587ce08a349cd3345;
   sh:order "1"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "Orange";
-  sh:property ext:P9, ext:P10, ext:P11, ext:P12, ext:P13, ext:P14, ext:P15, ext:P16,
-    ext:P17, ext:P18, ext:P19, ext:P20 .
+  shacl-play:color "White";
+  shacl-play:background-color "DarkOrange";
+  rdfs:label "Follow-up of acts"@en;
+  sh:property ext:Work-SP_type, ext:Work-SP_identifier, ext:Work-SP_work_type, ext:Work-SP_date_document,
+    ext:Work-SP_identifierYear, ext:Work-SP_title, ext:Work-SP_label, ext:Work-SP_publisher,
+    ext:Work-SP_creator, ext:Work-SP_is_realized_by, ext:Work-SP_answers_to, ext:Work-SP_workHadParticipation,
+    ext:Work-SP_inverse_created_a_realization_of .
 
-ext:ActFollowUp-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
+ext:Work-SP-target sh:select """PREFIX eli: <http://data.europa.eu/eli/ontology#>
 SELECT ?this
 WHERE {
  ?this eli:work_type <https://data.europarl.europa.eu/def/ep-document-types/ACT_FOLLOWUP>.
 }""" .
 
+_:307697226f7a4edbb27587ce08a349cd3345 rdf:first rdf:type;
+  rdf:rest rdf:nil .
+
 ext:Expression a sh:NodeShape;
+  owl:versionInfo "3.1.0";
   rdfs:comment "This node shape represents a subset of eli:Expression"@en;
   sh:targetClass eli:Expression;
   skos:example "https://data.europarl.europa.eu/eli/dl/doc/SP-2022-180-TA-9-2022-0053/en";
   sh:nodeKind sh:IRI;
-  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+/[a-z][a-z]$";
+  sh:node shacl-ep:Expression-Node;
   sh:closed "true"^^xsd:boolean;
+  sh:ignoredProperties _:307697226f7a4edbb27587ce08a349cd3346;
+  sh:order "2"^^xsd:integer;
+  shacl-play:color "White";
+  shacl-play:background-color "CornflowerBlue";
   rdfs:label "Expression"@en;
-  sh:order "3"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "RoyalBlue";
-  sh:property ext:P23, ext:P24, ext:P25, ext:P26 .
+  sh:property ext:Expression_type, ext:Expression_title, ext:Expression_language, ext:Expression_is_embodied_by .
+
+_:307697226f7a4edbb27587ce08a349cd3346 rdf:first rdf:type;
+  rdf:rest rdf:nil .
 
 ext:Manifestation a sh:NodeShape;
+  owl:versionInfo "3.1.0";
   rdfs:comment "This node shape represents a subset of eli:Manifestation"@en;
   sh:targetClass eli:Manifestation;
   skos:example "https://data.europarl.europa.eu/eli/dl/doc/SP-2022-180-TA-9-2022-0053/docx";
   sh:nodeKind sh:IRI;
-  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+/[a-z][a-z]/.*$";
+  sh:node shacl-ep:Manifestation-Node;
   sh:closed "true"^^xsd:boolean;
+  sh:ignoredProperties _:307697226f7a4edbb27587ce08a349cd3347;
+  sh:order "3"^^xsd:integer;
+  shacl-play:color "White";
+  shacl-play:background-color "LimeGreen";
   rdfs:label "Manifestation"@en;
+  sh:property ext:Manifestation_type, ext:Manifestation_issued, ext:Manifestation_is_exemplified_by,
+    ext:Manifestation_byteSize, ext:Manifestation_format, ext:Manifestation_media_type .
+
+_:307697226f7a4edbb27587ce08a349cd3347 rdf:first rdf:type;
+  rdf:rest rdf:nil .
+
+ext:Participation a sh:NodeShape;
+  owl:versionInfo "3.1.0";
+  rdfs:comment "This node shape represents a subset of eli-dl:Participation"@en;
+  sh:targetClass eli-dl:Participation;
+  skos:example "https://data.europarl.europa.eu/eli/dl/participation/SP-2022-180-TA-9-2022-0053_197826";
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Participation-Node;
+  sh:closed "true"^^xsd:boolean;
+  sh:ignoredProperties _:307697226f7a4edbb27587ce08a349cd3348;
   sh:order "4"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "SeaGreen";
-  sh:property ext:P29, ext:P30, ext:P31, ext:P32, ext:P33, ext:P34 .
+  shacl-play:color "Black";
+  shacl-play:background-color "FloralWhite";
+  rdfs:label "Participation"@en;
+  sh:property ext:Participation_type, ext:Participation_participation_role, ext:Participation_had_participant_organization .
 
-ext:WorkTypeReference a sh:NodeShape;
-  rdfs:comment "This node shape refers to the class eli:WorkType"@en;
-  skos:example "https://data.europarl.europa.eu/def/ep-document-types/ACT_FOLLOWUP";
-  sh:nodeKind sh:IRI;
-  sh:pattern "https://data.europarl.europa.eu/def/ep-document-types/.*$";
-  sh:closed "true"^^xsd:boolean;
-  rdfs:label "Reference to a Work type"@en;
-  sh:order "6"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "DarkGrey";
-  sh:property ext:P37, ext:P38 .
+_:307697226f7a4edbb27587ce08a349cd3348 rdf:first rdf:type;
+  rdf:rest rdf:nil .
 
-ext:LanguageReference a sh:NodeShape;
-  rdfs:comment "This node shape refers to the class dcterms:LinguisticSystem"@en;
-  skos:example "http://publications.europa.eu/resource/authority/language/ENG";
-  sh:nodeKind sh:IRI;
-  sh:pattern "http://publications.europa.eu/resource/authority/language/.*$";
-  sh:closed "true"^^xsd:boolean;
-  rdfs:label "Reference to a Language"@en;
-  sh:order "7"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "DarkGrey";
-  sh:property ext:P41, ext:P42 .
-
-ext:MediaTypeOrExtentReference a sh:NodeShape;
-  rdfs:comment "This node shape refers to the class dcterms:MediaTypeOrExtent"@en;
-  skos:example "http://publications.europa.eu/resource/authority/file-type/DOCX";
-  sh:nodeKind sh:IRI;
-  sh:pattern "http://publications.europa.eu/resource/authority/file-type/.*$";
-  sh:closed "true"^^xsd:boolean;
-  rdfs:label "Reference to a Media Type or Extent (Format)"@en;
-  sh:order "8"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "DarkGrey";
-  sh:property ext:P45, ext:P46 .
-
-ext:OrganizationReference a sh:NodeShape;
-  rdfs:comment "This node shape refers to the class org:Organization"@en;
-  skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
-  sh:nodeKind sh:IRI;
-  sh:pattern "^https://data.europarl.europa.eu/org/.*$";
-  sh:closed "true"^^xsd:boolean;
-  rdfs:label "Reference to an Organization"@en;
-  sh:order "9"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "DarkGrey";
-  sh:property ext:P49 .
-
-ext:ProcessReference a sh:NodeShape;
-  rdfs:comment "This node shape refers to the class eli-dl:Process"@en;
-  skos:example "https://data.europarl.europa.eu/eli/dl/proc/2023-0338";
-  sh:nodeKind sh:IRI;
-  sh:pattern "^https://data.europarl.europa.eu/eli/dl/proc/[A-Za-z0-9\\-_]+$";
-  sh:closed "true"^^xsd:boolean;
-  rdfs:label "Reference to a Process"@en;
-  sh:order "10"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "DarkGrey";
-  sh:property ext:P52, ext:P53 .
-
-ext:AdoptedTextReference a sh:NodeShape;
-  rdfs:comment "This node shape refers to the class eli:Work"@en;
-  skos:example "https://data.europarl.europa.eu/eli/dl/doc/TA-9-2022-0354";
-  sh:nodeKind sh:IRI;
-  sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
-  sh:closed "true"^^xsd:boolean;
-  rdfs:label "Reference to an Adopted Text"@en;
-  sh:order "11"^^xsd:integer;
-  owl:versionInfo "2.1.0";
-  shacl-play:color "DarkGrey";
-  sh:property ext:P56, ext:P57 .
-
-ext:P9 owl:versionInfo "2.1.0";
+ext:Work-SP_type owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
@@ -182,7 +168,7 @@ ext:P9 owl:versionInfo "2.1.0";
   sh:hasValue eli:Work;
   shacl-play:shortname "type" .
 
-ext:P10 owl:versionInfo "2.1.0";
+ext:Work-SP_identifier owl:versionInfo "2.1.0";
   sh:path dcterms:identifier;
   sh:name "identifier"@en;
   skos:example "SP-2023-459-TA-9-2022-0233";
@@ -192,18 +178,18 @@ ext:P10 owl:versionInfo "2.1.0";
   sh:datatype xsd:string;
   shacl-play:shortname "identifier" .
 
-ext:P11 owl:versionInfo "2.1.0";
+ext:Work-SP_work_type owl:versionInfo "2.1.0";
   sh:path eli:work_type;
   sh:name "work type"@en;
   skos:example "https://data.europarl.europa.eu/def/ep-document-types/ACT_FOLLOWUP";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
-  sh:node ext:WorkTypeReference;
+  sh:node shacl-ep:WorkType-Node;
   sh:hasValue ep-document-types:ACT_FOLLOWUP;
   shacl-play:shortname "work_type" .
 
-ext:P12 owl:versionInfo "2.1.0";
+ext:Work-SP_date_document owl:versionInfo "2.1.0";
   sh:path eli:date_document;
   sh:name "date document"@en;
   sh:minCount "1"^^xsd:integer;
@@ -212,7 +198,7 @@ ext:P12 owl:versionInfo "2.1.0";
   sh:datatype xsd:date;
   shacl-play:shortname "date_document" .
 
-ext:P13 owl:versionInfo "2.1.0";
+ext:Work-SP_identifierYear owl:versionInfo "2.1.0";
   sh:path epvoc:identifierYear;
   sh:name "identifier year"@en;
   skos:example "2023";
@@ -222,7 +208,7 @@ ext:P13 owl:versionInfo "2.1.0";
   sh:datatype xsd:string;
   shacl-play:shortname "identifierYear" .
 
-ext:P14 owl:versionInfo "2.1.0";
+ext:Work-SP_title owl:versionInfo "2.1.0";
   sh:path dcterms:title;
   sh:name "title"@en;
   skos:example "Follow up to T9-0233/2022";
@@ -231,7 +217,7 @@ ext:P14 owl:versionInfo "2.1.0";
   sh:datatype rdf:langString;
   shacl-play:shortname "title_dcterms" .
 
-ext:P15 owl:versionInfo "2.1.0";
+ext:Work-SP_label owl:versionInfo "2.1.0";
   sh:path rdfs:label;
   sh:name "label"@en;
   skos:example "SP(2023)459 T9-0233/2022";
@@ -241,29 +227,29 @@ ext:P15 owl:versionInfo "2.1.0";
   sh:datatype xsd:string;
   shacl-play:shortname "label" .
 
-ext:P16 owl:versionInfo "2.1.0";
+ext:Work-SP_publisher owl:versionInfo "2.1.0";
   sh:path dcterms:publisher;
   sh:name "publisher"@en;
   skos:example "https://data.europarl.europa.eu/org/EU_PARLIAMENT";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
-  sh:node ext:OrganizationReference;
-  sh:hasValue <https://data.europarl.europa.eu/org/EU_PARLIAMENT>;
+  sh:node shacl-ep:Organization-Node;
+  sh:hasValue ep-org:EU_PARLIAMENT;
   shacl-play:shortname "publisher" .
 
-ext:P17 owl:versionInfo "2.1.0";
+ext:Work-SP_creator owl:versionInfo "2.1.0";
   sh:path dcterms:creator;
   sh:name "creator"@en;
   skos:example "https://data.europarl.europa.eu/org/EU_COMMISSION";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
-  sh:node ext:OrganizationReference;
-  sh:hasValue <https://data.europarl.europa.eu/org/EU_COMMISSION>;
+  sh:node shacl-ep:Organization-Node;
+  sh:hasValue ep-org:EU_COMMISSION;
   shacl-play:shortname "creator" .
 
-ext:P18 owl:versionInfo "2.1.0";
+ext:Work-SP_is_realized_by owl:versionInfo "2.1.0";
   sh:path eli:is_realized_by;
   sh:name "is realized by"@en;
   skos:example "https://data.europarl.europa.eu/eli/dl/doc/SP-2023-459-TA-9-2022-0233/en";
@@ -272,68 +258,99 @@ ext:P18 owl:versionInfo "2.1.0";
   sh:node ext:Expression;
   shacl-play:shortname "is_realized_by" .
 
-ext:P19 owl:versionInfo "2.1.0";
+ext:Work-SP_answers_to owl:versionInfo "2.1.0";
   sh:path eli-dl:answers_to;
   sh:name "answers_to"@en;
   skos:example "https://data.europarl.europa.eu/eli/dl/doc/TA-9-2022-0233";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
-  sh:node ext:AdoptedTextReference;
+  sh:node shacl-ep:Work-TA-Node;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "answers_to" .
 
-ext:P20 owl:versionInfo "2.1.0";
-  sh:path _:a4aeb3f30c2042e3b539bc99a24f35721222;
+ext:Work-SP_workHadParticipation owl:versionInfo "2.1.0";
+  sh:path epvoc:workHadParticipation;
+  sh:name "stakeholder participant"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/participation/A-9-2022-0081_LIBE";
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Participation-Node;
+  shacl-play:shortname "workHadParticipation" .
+
+ext:Work-SP_inverse_created_a_realization_of owl:versionInfo "2.1.0";
+  sh:path _:307697226f7a4edbb27587ce08a349cd3349;
   sh:name "inverse created a realization of"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
-  sh:node ext:ProcessReference;
+  sh:node shacl-ep:Process-Node;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "inverse_created_a_realization_of" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721222 sh:inversePath eli-dl:created_a_realization_of .
+_:307697226f7a4edbb27587ce08a349cd3349 sh:inversePath eli-dl:created_a_realization_of .
 
-ext:P23 owl:versionInfo "2.1.0";
+ext:Participation_type owl:versionInfo "1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
-  sh:hasValue eli:Expression;
+  sh:hasValue eli-dl:Participation;
   shacl-play:shortname "type" .
 
-ext:P24 owl:versionInfo "2.1.0";
-  sh:path eli:title;
-  sh:name "title"@en;
-  skos:example "Follow up to T9-0233/2022";
-  sh:minCount "1"^^xsd:integer;
-  sh:nodeKind sh:Literal;
-  sh:datatype rdf:langString;
-  shacl-play:shortname "title" .
-
-ext:P25 owl:versionInfo "2.1.0";
-  sh:path eli:is_embodied_by;
-  sh:name "is embodied by"@en;
-  skos:example "https://data.europarl.europa.eu/eli/dl/doc/SP-2023-459-TA-9-2022-0233/en/docx";
-  sh:minCount "1"^^xsd:integer;
-  sh:nodeKind sh:IRI;
-  sh:node ext:Manifestation;
-  shacl-play:shortname "is_embodied_by" .
-
-ext:P26 owl:versionInfo "2.1.0";
-  sh:path eli:language;
-  sh:name "language"@en;
-  skos:example "http://publications.europa.eu/resource/authority/language/ENG";
+ext:Participation_participation_role owl:versionInfo "2.1.0";
+  sh:path eli-dl:participation_role;
+  sh:name "participation role"@en;
+  skos:example "https://data.europarl.europa.eu/def/ep-roles/AUTHOR";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
-  sh:node ext:LanguageReference;
-  sh:pattern "http://publications.europa.eu/resource/authority/language/.*$";
-  shacl-play:shortname "language" .
+  sh:node shacl-ep:Participation-Node;
+  sh:hasValue ep-roles:AUTHOR;
+  shacl-play:shortname "participation_role" .
 
-ext:P29 owl:versionInfo "2.1.0";
+ext:Participation_had_participant_organization owl:versionInfo "2.1.0";
+  sh:path eli-dl:had_participant_organization;
+  sh:name "participation organization"@en;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:Organization-Node;
+  shacl-play:shortname "had_participant_organization" .
+
+ext:Expression_type owl:versionInfo "3.1.0";
+  sh:path rdf:type;
+  sh:name "type"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:hasValue eli:Expression .
+
+ext:Expression_title owl:versionInfo "3.1.0";
+  sh:path eli:title;
+  sh:name "title"@en;
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString .
+
+ext:Expression_language owl:versionInfo "3.1.0";
+  sh:path eli:language;
+  sh:name "language"@en;
+  skos:example "http://publications.europa.eu/resource/authority/language/ITA";
+  sh:minCount "1"^^xsd:integer;
+  sh:maxCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node shacl-ep:LinguisticSystem-Node .
+
+ext:Expression_is_embodied_by owl:versionInfo "3.1.0";
+  sh:path eli:is_embodied_by;
+  sh:name "is embodied by"@en;
+  skos:example "https://data.europarl.europa.eu/eli/dl/doc/SP-2023-459-TA-9-2022-0233/pdf";
+  sh:minCount "1"^^xsd:integer;
+  sh:nodeKind sh:IRI;
+  sh:node ext:Manifestation .
+
+ext:Manifestation_type owl:versionInfo "2.1.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
@@ -342,7 +359,7 @@ ext:P29 owl:versionInfo "2.1.0";
   sh:hasValue eli:Manifestation;
   shacl-play:shortname "type" .
 
-ext:P30 owl:versionInfo "2.1.0";
+ext:Manifestation_issued owl:versionInfo "2.1.0";
   sh:path dcterms:issued;
   sh:name "issued"@en;
   skos:example "2024-01-15T10:12:48.960+0100";
@@ -352,17 +369,16 @@ ext:P30 owl:versionInfo "2.1.0";
   sh:datatype xsd:dateTime;
   shacl-play:shortname "issued" .
 
-ext:P31 owl:versionInfo "2.1.0";
+ext:Manifestation_is_exemplified_by owl:versionInfo "2.1.0";
   sh:path eli:is_exemplified_by;
   sh:name "is exemplified by"@en;
   skos:example "https://data.europarl.europa.eu/distribution/doc/SP-2023-459-TA-9-2022-0233_en.docx";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
-  sh:pattern "^https://data.europarl.europa.eu/distribution/.*$";
   shacl-play:shortname "is_exemplified_by" .
 
-ext:P32 owl:versionInfo "2.1.0";
+ext:Manifestation_byteSize owl:versionInfo "2.1.0";
   sh:path epvoc:byteSize;
   sh:name "byte size"@en;
   skos:example "13399";
@@ -372,109 +388,32 @@ ext:P32 owl:versionInfo "2.1.0";
   sh:datatype xsd:long;
   shacl-play:shortname "byteSize" .
 
-ext:P33 owl:versionInfo "2.1.0";
+ext:Manifestation_format owl:versionInfo "2.1.0";
   sh:path dcterms:format;
   sh:name "format"@en;
   skos:example "http://publications.europa.eu/resource/authority/file-type/DOCX";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
-  sh:node ext:MediaTypeOrExtentReference;
-  sh:in _:a4aeb3f30c2042e3b539bc99a24f35721223;
-  sh:pattern "http://publications.europa.eu/resource/authority/file-type/.*$";
+  sh:node shacl-ep:MediaTypeOrExtent-Node;
+  sh:in _:307697226f7a4edbb27587ce08a349cd3350;
   shacl-play:shortname "format" .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721223 rdf:first file-type:PDF;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721224 .
+_:307697226f7a4edbb27587ce08a349cd3350 rdf:first file-type:PDF;
+  rdf:rest _:307697226f7a4edbb27587ce08a349cd3351 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721224 rdf:first file-type:DOCX;
-  rdf:rest _:a4aeb3f30c2042e3b539bc99a24f35721225 .
+_:307697226f7a4edbb27587ce08a349cd3351 rdf:first file-type:DOCX;
+  rdf:rest _:307697226f7a4edbb27587ce08a349cd3352 .
 
-_:a4aeb3f30c2042e3b539bc99a24f35721225 rdf:first file-type:DOC;
+_:307697226f7a4edbb27587ce08a349cd3352 rdf:first file-type:DOC;
   rdf:rest rdf:nil .
 
-ext:P34 owl:versionInfo "2.1.0";
+ext:Manifestation_media_type owl:versionInfo "2.1.0";
   sh:path eli:media_type;
   sh:name "media type"@en;
   skos:example "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
-  sh:pattern "https://www.iana.org/assignments/media-types/.*$";
+  sh:node shacl-ep:MediaType-Node;
   shacl-play:shortname "media_type" .
-
-ext:P37 owl:versionInfo "2.1.0";
-  sh:path rdf:type;
-  sh:name "type"@en;
-  sh:nodeKind sh:IRI;
-  sh:hasValue eli:WorkType;
-  sh:deactivated "true"^^xsd:boolean .
-
-ext:P38 owl:versionInfo "2.1.0";
-  sh:path skos:inScheme;
-  sh:name "Is in scheme"@en;
-  sh:nodeKind sh:IRI;
-  sh:hasValue ept:ep-document-types;
-  sh:deactivated "true"^^xsd:boolean .
-
-ext:P41 owl:versionInfo "2.1.0";
-  sh:path rdf:type;
-  sh:name "type"@en;
-  sh:nodeKind sh:IRI;
-  sh:hasValue dcterms:LinguisticSystem;
-  sh:deactivated "true"^^xsd:boolean .
-
-ext:P42 owl:versionInfo "2.1.0";
-  sh:path skos:inScheme;
-  sh:name "Is in scheme"@en;
-  sh:nodeKind sh:IRI;
-  sh:hasValue op-aut:language;
-  sh:deactivated "true"^^xsd:boolean .
-
-ext:P45 owl:versionInfo "2.1.0";
-  sh:path rdf:type;
-  sh:name "type"@en;
-  sh:nodeKind sh:IRI;
-  sh:hasValue dcterms:MediaTypeOrExtent;
-  sh:deactivated "true"^^xsd:boolean .
-
-ext:P46 owl:versionInfo "2.1.0";
-  sh:path skos:inScheme;
-  sh:name "Is in scheme"@en;
-  sh:nodeKind sh:IRI;
-  sh:hasValue op-aut:file-type;
-  sh:deactivated "true"^^xsd:boolean .
-
-ext:P49 owl:versionInfo "2.1.0";
-  sh:path rdf:type;
-  sh:name "type"@en;
-  sh:nodeKind sh:IRI;
-  sh:hasValue org:Organization;
-  sh:deactivated "true"^^xsd:boolean .
-
-ext:P52 owl:versionInfo "2.1.0";
-  sh:path rdf:type;
-  sh:name "type"@en;
-  sh:nodeKind sh:IRI;
-  sh:hasValue eli-dl:Process;
-  sh:deactivated "true"^^xsd:boolean .
-
-ext:P53 owl:versionInfo "2.1.0";
-  sh:path eli-dl:created_a_realization_of;
-  sh:name "created a realization of"@en;
-  sh:nodeKind sh:IRI;
-  sh:node ext:ActFollowUp .
-
-ext:P56 owl:versionInfo "2.1.0";
-  sh:path rdf:type;
-  sh:name "type"@en;
-  sh:nodeKind sh:IRI;
-  sh:hasValue eli:Work;
-  sh:deactivated "true"^^xsd:boolean .
-
-ext:P57 owl:versionInfo "2.1.0";
-  sh:path eli:work_type;
-  sh:name "work type"@en;
-  sh:nodeKind sh:IRI;
-  sh:hasValue ep-document-types:TEXT_ADOPTED;
-  sh:deactivated "true"^^xsd:boolean .
