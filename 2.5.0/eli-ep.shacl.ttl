@@ -40,7 +40,7 @@
   adms:versionNotes """2.5.0 - 2025-02-20
 - (new) add Classes eli-dl:Deadline 
 
-2.4.0 - 2025-01-21
+2.5.0 - 2025-01-21
 - (rfc) change cardinality for eli-dl:executed (old 0,1) and its range (wrong eli:ForeseenActivity)
 - (rfc) remove epvoc:scheduledIn from eli-dl:Activity
 - (rfc) change eli-dl:acitivity_id cardinality (old 0,1)
