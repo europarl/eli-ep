@@ -36,11 +36,11 @@
   rdfs:label "ELI-EP Application Profile"@en;
   dcterms:title "ELI-EP Application Profile"@en;
   dcterms:description "ELI-EP is an application profile based on the ELI / ELI-DL Ontology, specifically designed to describe the documents and the activities of the European Parliament."@en;
-  owl:versionInfo "3.0.0";
-  adms:versionNotes """3.0.0 - 2025-02-20
+  owl:versionInfo "2.5.0";
+  adms:versionNotes """2.5.0 - 2025-02-20
 - (new) add Classes eli-dl:Deadline 
 
-2.4.0 - 2025-01-21
+2.5.0 - 2025-01-21
 - (rfc) change cardinality for eli-dl:executed (old 0,1) and its range (wrong eli:ForeseenActivity)
 - (rfc) remove epvoc:scheduledIn from eli-dl:Activity
 - (rfc) change eli-dl:acitivity_id cardinality (old 0,1)
@@ -97,7 +97,7 @@
   dcat:distribution _:1dbc0e1c12eb4e498d11cf37fb5a8fbd4251 .
 
 _:1dbc0e1c12eb4e498d11cf37fb5a8fbd4251 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
-  dcat:downloadURL <https://europarl.github.io/eli-ep/3.0.0/eli-ep.shacl.ttl> .
+  dcat:downloadURL <https://europarl.github.io/eli-ep/2.5.0/eli-ep.shacl.ttl> .
 
 eli:Work a sh:NodeShape, rdfs:Class;
   skos:example "https://data.europarl.europa.eu/eli/dl/doc/A-9-2019-0001";
@@ -336,7 +336,7 @@ eli-ep:Deadline a sh:NodeShape, rdfs:Class;
   sh:ignoredProperties _:1dbc0e1c12eb4e498d11cf37fb5a8fbd4266;
   rdfs:label "Deadline"@en;
   sh:order "15"^^xsd:integer;
-  owl:versionInfo "3.0.0";
+  owl:versionInfo "2.5.0";
   shacl-play:color "Purple";
   sh:property eli-ep:P140, eli-ep:P141, eli-ep:P142, eli-ep:P143, eli-ep:P144, eli-ep:P145 .
 
@@ -989,7 +989,7 @@ eli-ep:P67 owl:versionInfo "2.1.0";
   sh:nodeKind sh:Literal;
   sh:datatype xsd:dateTime .
 
-eli-ep:P68 owl:versionInfo "3.0.0";
+eli-ep:P68 owl:versionInfo "2.5.0";
   sh:path eli-dl:activity_order;
   sh:name "order"@en;
   sh:description "Indicates the order of this activity in a sequence of activities. Note that the range of this property is xsd:decimal, so it is always possible to order a new activity in between two subsequent existing activities."@en;
@@ -1168,7 +1168,7 @@ eli-ep:P91 owl:versionInfo "1.5";
   sh:nodeKind sh:IRI;
   sh:class org:Organization .
 
-eli-ep:P92 owl:versionInfo "3.0.0";
+eli-ep:P92 owl:versionInfo "2.5.0";
   sh:path eli-dl:had_participation;
   sh:name "had participaiton"@en;
   sh:description "2024-06-19: new"@en;
@@ -1239,13 +1239,13 @@ eli-ep:P101 owl:versionInfo "2.1.0";
   sh:nodeKind sh:IRI;
   sh:class eli-dl:ForeseenActivity .
 
-eli-ep:P102 owl:versionInfo "3.0.0";
+eli-ep:P102 owl:versionInfo "2.5.0";
   sh:path epvoc:structuredContent;
   sh:name "structured content"@en;
   sh:nodeKind sh:Literal;
   sh:datatype rdf:langString .
 
-eli-ep:P103 owl:versionInfo "3.0.0";
+eli-ep:P103 owl:versionInfo "2.5.0";
   sh:path epvoc:speakingTimeContent;
   sh:name "speaking time content"@en;
   sh:nodeKind sh:Literal;
@@ -1349,7 +1349,7 @@ eli-ep:P116 owl:versionInfo "2.1.0";
   sh:nodeKind sh:Literal;
   sh:datatype rdf:XMLLiteral .
 
-eli-ep:P117 owl:versionInfo "3.0.0";
+eli-ep:P117 owl:versionInfo "2.5.0";
   sh:path eli-dl:activity_order;
   sh:name "order"@en;
   sh:description "Indicates the order of this activity in a sequence of activities. Note that the range of this property is xsd:decimal, so it is always possible to order a new activity in between two subsequent existing activities."@en;
@@ -1520,14 +1520,14 @@ Note : this property is shortcut for an implicit FRBR \\\"Recording Event\\\" th
   sh:nodeKind sh:IRI;
   sh:class eli:WorkSubdivision .
 
-eli-ep:P140 owl:versionInfo "3.0.0";
+eli-ep:P140 owl:versionInfo "2.5.0";
   sh:path rdf:type;
   sh:name "type"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI .
 
-eli-ep:P141 owl:versionInfo "3.0.0";
+eli-ep:P141 owl:versionInfo "2.5.0";
   sh:path eli-dl:had_activity_type;
   sh:name "activity type"@en;
   sh:description "https://data.europarl.europa.eu/def/ep-activities/TABLING_PLENARY"@en;
@@ -1536,7 +1536,7 @@ eli-ep:P141 owl:versionInfo "3.0.0";
   sh:nodeKind sh:IRI;
   sh:class eli-dl:ActivityType .
 
-eli-ep:P142 owl:versionInfo "3.0.0";
+eli-ep:P142 owl:versionInfo "2.5.0";
   sh:path eli-dl:activity_id;
   sh:name "activity id"@en;
   sh:description "GMTG-PL-2024-03-11-DL-1"@en;
@@ -1545,7 +1545,7 @@ eli-ep:P142 owl:versionInfo "3.0.0";
   sh:nodeKind sh:Literal;
   sh:datatype xsd:string .
 
-eli-ep:P143 owl:versionInfo "3.0.0";
+eli-ep:P143 owl:versionInfo "2.5.0";
   sh:path eli-dl:activity_label;
   sh:name "activity label"@en;
   sh:minCount "1"^^xsd:integer;
@@ -1553,7 +1553,7 @@ eli-ep:P143 owl:versionInfo "3.0.0";
   sh:nodeKind sh:Literal;
   sh:datatype rdf:langString .
 
-eli-ep:P144 owl:versionInfo "3.0.0";
+eli-ep:P144 owl:versionInfo "2.5.0";
   sh:path eli-dl:activity_end_date;
   sh:name "activity date"@en;
   sh:description "2024-03-08T12:00:00+01:00"@en;
@@ -1562,7 +1562,7 @@ eli-ep:P144 owl:versionInfo "3.0.0";
   sh:nodeKind sh:Literal;
   sh:datatype xsd:dateTime .
 
-eli-ep:P145 owl:versionInfo "3.0.0";
+eli-ep:P145 owl:versionInfo "2.5.0";
   sh:path eli-dl:activity_order;
   sh:name "activity order"@en;
   sh:minCount "1"^^xsd:integer;
