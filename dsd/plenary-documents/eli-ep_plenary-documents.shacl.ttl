@@ -1627,7 +1627,7 @@ pld:P141 owl:versionInfo "2.3.0";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
-  sh:node pld:PlenaryReport;
+  sh:node pld:PlenaryReportWork;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "corrects" .
 

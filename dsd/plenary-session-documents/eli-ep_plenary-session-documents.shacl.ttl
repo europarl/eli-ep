@@ -767,7 +767,7 @@ psd:P48 owl:versionInfo "2.1.0";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
-  sh:node psd:PlenaryAgendaPartSession;
+  sh:node psd:PlenaryAgendaPartSessionComplexWork;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "is_derivative_of" .
 
@@ -1273,7 +1273,7 @@ psd:P107 owl:versionInfo "1.1";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
-  sh:node psd:PlenaryMinutes;
+  sh:node psd:PlenaryMinutesWork;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "is_annex_of" .
 
@@ -1461,7 +1461,7 @@ psd:P129 owl:versionInfo "2.1.0";
 _:a701ed0bc8f44446a3a682c5adf0356f2530 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2531;
   rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2532 .
 
-_:a701ed0bc8f44446a3a682c5adf0356f2531 sh:node psd:PlenaryMinutes .
+_:a701ed0bc8f44446a3a682c5adf0356f2531 sh:node psd:PlenaryMinutesWork .
 
 _:a701ed0bc8f44446a3a682c5adf0356f2532 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2533;
   rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2534 .
@@ -1738,7 +1738,7 @@ _:a701ed0bc8f44446a3a682c5adf0356f2547 sh:node psd:PlenarySittingAgendaWork .
 _:a701ed0bc8f44446a3a682c5adf0356f2548 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2549;
   rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2550 .
 
-_:a701ed0bc8f44446a3a682c5adf0356f2549 sh:node psd:PlenaryMinutes .
+_:a701ed0bc8f44446a3a682c5adf0356f2549 sh:node psd:PlenaryMinutesWork .
 
 _:a701ed0bc8f44446a3a682c5adf0356f2550 rdf:first _:a701ed0bc8f44446a3a682c5adf0356f2551;
   rdf:rest _:a701ed0bc8f44446a3a682c5adf0356f2552 .
