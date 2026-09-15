@@ -433,7 +433,7 @@ proc:P21 owl:versionInfo "2.4.0";
   sh:path eli-dl:had_participation;
   sh:name "had participation"@en;
   sh:nodeKind sh:IRI;
-  sh:node <https://data.europarl.europa.eu/def/proc#Participation-Org%Aproc:Participation-Person>;
+  sh:node proc:Participation-Org, proc:Participation-Person;
   shacl-play:shortname "had_participation" .
 
 proc:P23 owl:versionInfo "1.5.0";
