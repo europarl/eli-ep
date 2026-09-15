@@ -37,7 +37,7 @@
   dcterms:license <https://www.europarl.europa.eu/legal-notice/en/>;
   dcterms:modified "2023-01-18T00:00:00.000Z"^^xsd:dateTime;
   dcterms:publisher <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
-  dcterms:rigthsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
+  dcterms:rightsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
   dcterms:title "Meetings dataset description"@en;
   dcterms:type <http://publications.europa.eu/resource/authority/dataset-type/APROF>;
   rdfs:label "Meetings dataset description"@en;

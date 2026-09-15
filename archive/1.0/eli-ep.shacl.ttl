@@ -38,7 +38,7 @@
   dcterms:license <https://www.europarl.europa.eu/legal-notice/>;
   dcterms:modified "2023-01-17T00:00:00.000Z"^^xsd:dateTime;
   dcterms:publisher <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
-  dcterms:rigthsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
+  dcterms:rightsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
   dcterms:title "ELI-EP Application Profile"@en;
   dcterms:type <http://publications.europa.eu/resource/authority/dataset-type/APROF>;
   rdfs:label "ELI-EP Application Profile"@en;
@@ -255,7 +255,7 @@ _:node1goo957ugx3020 rdf:first rdf:type;
 
 dcterms:LinguisticSystem sh:nodeKind sh:IRI;
   sh:order 13;
-  sh:pattern "http://publications.europa.eu/resource/authority/langauge/.*$";
+  sh:pattern "http://publications.europa.eu/resource/authority/language/.*$";
   sh:property eli-ep:P110, eli-ep:P111;
   shacl-play:color "DarkGrey" .
 

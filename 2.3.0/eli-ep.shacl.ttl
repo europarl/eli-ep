@@ -84,7 +84,7 @@
   dcterms:license <https://www.europarl.europa.eu/legal-notice/>;
   dcterms:creator <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
   dcterms:publisher <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
-  dcterms:rigthsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
+  dcterms:rightsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
   dcat:distribution _:a701ed0bc8f44446a3a682c5adf0356f2390 .
 
 _:a701ed0bc8f44446a3a682c5adf0356f2390 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
@@ -349,7 +349,7 @@ _:a701ed0bc8f44446a3a682c5adf0356f2406 rdf:first rdf:type;
 dcterms:LinguisticSystem a sh:NodeShape, rdfs:Class;
   skos:example "http://publications.europa.eu/resource/authority/language/LIT";
   sh:nodeKind sh:IRI;
-  sh:pattern "http://publications.europa.eu/resource/authority/langauge/.*$";
+  sh:pattern "http://publications.europa.eu/resource/authority/language/.*$";
   sh:ignoredProperties _:a701ed0bc8f44446a3a682c5adf0356f2407;
   rdfs:label "Linguistic System"@en;
   sh:order "18"^^xsd:integer;

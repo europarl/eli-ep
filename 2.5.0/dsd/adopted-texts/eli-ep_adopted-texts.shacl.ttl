@@ -120,7 +120,7 @@
   dcterms:license <https://creativecommons.org/licenses/by/4.0/>;
   dcterms:creator <https://publications.europa.eu/resource/authority/corporate-body/EP>;
   dcterms:publisher <https://publications.europa.eu/resource/authority/corporate-body/EP>;
-  dcterms:rigthsHolder <https://publications.europa.eu/resource/authority/corporate-body/EURUN>;
+  dcterms:rightsHolder <https://publications.europa.eu/resource/authority/corporate-body/EURUN>;
   dcat:distribution _:552e4c547ad34c33a489630ab4d6c1131197 .
 
 _:552e4c547ad34c33a489630ab4d6c1131197 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
