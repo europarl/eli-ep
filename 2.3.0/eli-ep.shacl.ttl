@@ -75,16 +75,16 @@
 - (new) object properties: eli-dl:adopts, epvoc:isAboutSubjectMatter, epvoc:isAboutDirectoryCode
 - (new) eli-dl:Process
 - (update) eli:date_document sh:datatype changed from xsd:dateTime to xsd:date"""@en;
-  adms:status <http://publications.europa.eu/resource/dataset/dataset-status/COMPLETED>;
+  adms:status <http://publications.europa.eu/resource/authority/dataset-status/COMPLETED>;
   owl:versionIRI <https://data.europarl.europa.eu/def/eli-ep#>;
   dcterms:conformsTo <https://www.w3.org/TR/shacl>;
   dcterms:created "2022-11-24"^^xsd:date;
   dcterms:modified "2024-10-28T00:00:00.000Z"^^xsd:dateTime;
   dcterms:dateCopyrighted "2022"^^xsd:gYear;
   dcterms:license <https://www.europarl.europa.eu/legal-notice/>;
-  dcterms:creator <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
-  dcterms:publisher <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
-  dcterms:rightsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
+  dcterms:creator <http://publications.europa.eu/resource/authority/corporate-body/EP>;
+  dcterms:publisher <http://publications.europa.eu/resource/authority/corporate-body/EP>;
+  dcterms:rightsHolder <http://publications.europa.eu/resource/authority/corporate-body/EURUN>;
   dcat:distribution _:a701ed0bc8f44446a3a682c5adf0356f2390 .
 
 _:a701ed0bc8f44446a3a682c5adf0356f2390 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;

@@ -77,7 +77,7 @@
 
 3.1.0 - 2025-04-10
 creation"""@en;
-  adms:status <http://publications.europa.eu/resource/dataset/dataset-status/DEVELOP>;
+  adms:status <http://publications.europa.eu/resource/authority/dataset-status/DEVELOP>;
   owl:versionIRI <https://data.europarl.europa.eu/def/meps-decl#>;
   dcterms:conformsTo <https://www.w3.org/TR/shacl>;
   dcterms:created "2025-04-10"^^xsd:date;
