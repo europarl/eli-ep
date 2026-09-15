@@ -1082,7 +1082,7 @@ questions:P97 owl:versionInfo "2.1.0";
   sh:name "answers to"@en;
   sh:minCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
-  sh:node questions:Question;
+  sh:node questions:InterpellationMinorWork, questions:QuestionOralWork, questions:InterpellationMajorWork, questions:QuestionWrittenWork;
   sh:deactivated "true"^^xsd:boolean;
   shacl-play:shortname "answers_to" .
 
