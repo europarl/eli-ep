@@ -40,16 +40,16 @@
   owl:versionInfo "1.3.0";
   adms:versionNotes """1.3.0 - 2023-09-26
 - creation"""@en;
-  adms:status <http://publications.europa.eu/resource/dataset/dataset-status/COMPLETED>;
+  adms:status <http://publications.europa.eu/resource/authority/dataset-status/COMPLETED>;
   owl:versionIRI <https://data.europarl.europa.eu/def/committee-documents#>;
   dcterms:conformsTo <https://www.w3.org/TR/shacl>;
   dcterms:created "2023-09-26"^^xsd:date;
   dcterms:modified "2023-09-26T00:00:00.000Z"^^xsd:dateTime;
   dcterms:dateCopyrighted "2023"^^xsd:gYear;
   dcterms:license <https://www.europarl.europa.eu/legal-notice/en/>;
-  dcterms:creator <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
-  dcterms:publisher <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
-  dcterms:rightsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
+  dcterms:creator <http://publications.europa.eu/resource/authority/corporate-body/EP>;
+  dcterms:publisher <http://publications.europa.eu/resource/authority/corporate-body/EP>;
+  dcterms:rightsHolder <http://publications.europa.eu/resource/authority/corporate-body/EURUN>;
   dcat:distribution _:6cae76e663834852a26be1c266d997066065;
   skos:hasTopConcept comdoc:P9, comdoc:P10, comdoc:P11, comdoc:P12, comdoc:P13, comdoc:P14,
     comdoc:P15, comdoc:P16, comdoc:P17, comdoc:P18, comdoc:P19, comdoc:P20, comdoc:P21,

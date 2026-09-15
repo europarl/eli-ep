@@ -32,19 +32,19 @@
 <https://data.europarl.europa.eu/def/eli-ep#> a owl:Ontology, adms:Asset;
   dcterms:conformsTo <https://www.w3.org/TR/shacl>;
   dcterms:created "2022-11-24"^^xsd:date;
-  dcterms:creator <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
+  dcterms:creator <http://publications.europa.eu/resource/authority/corporate-body/EP>;
   dcterms:dateCopyrighted "2022"^^xsd:gYear;
   dcterms:description "ELI-EP is an application profile based on the ELI / ELI-DL Ontology, specifically designed to describe the documents and the activities of the European Parliament."@en;
   dcterms:license <https://www.europarl.europa.eu/legal-notice/>;
   dcterms:modified "2023-01-17T00:00:00.000Z"^^xsd:dateTime;
-  dcterms:publisher <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
-  dcterms:rightsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
+  dcterms:publisher <http://publications.europa.eu/resource/authority/corporate-body/EP>;
+  dcterms:rightsHolder <http://publications.europa.eu/resource/authority/corporate-body/EURUN>;
   dcterms:title "ELI-EP Application Profile"@en;
   dcterms:type <http://publications.europa.eu/resource/authority/dataset-type/APROF>;
   rdfs:label "ELI-EP Application Profile"@en;
   owl:versionIRI <https://data.europarl.europa.eu/def/eli-ep#>;
   owl:versionInfo "1.0";
-  adms:status <http://publications.europa.eu/resource/dataset/dataset-status/COMPLETED>;
+  adms:status <http://publications.europa.eu/resource/authority/dataset-status/COMPLETED>;
   adms:versionNotes """1.0 - 2023-01-17
 - minor corrections
 1.0 - 2022-11-18

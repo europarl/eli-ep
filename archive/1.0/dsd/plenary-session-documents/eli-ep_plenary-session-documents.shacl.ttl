@@ -30,19 +30,19 @@
 <https://data.europarl.europa.eu/def/plenary-session-documents#> a owl:Ontology, adms:Asset;
   dcterms:conformsTo <https://www.w3.org/TR/shacl>;
   dcterms:created "2022-11-18"^^xsd:date;
-  dcterms:creator <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
+  dcterms:creator <http://publications.europa.eu/resource/authority/corporate-body/EP>;
   dcterms:dateCopyrighted "2022"^^xsd:gYear;
   dcterms:description "This Dataset Description is a subset of the general ELI-EP application profile and it includes classes and properties used in Plenary session documents datasets. Descriptions of classes and properties can be found in ELI-EP application profile."@en;
   dcterms:license <https://www.europarl.europa.eu/legal-notice/en/>;
   dcterms:modified "2023-01-16T00:00:00.000Z"^^xsd:dateTime;
-  dcterms:publisher <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
-  dcterms:rightsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
+  dcterms:publisher <http://publications.europa.eu/resource/authority/corporate-body/EP>;
+  dcterms:rightsHolder <http://publications.europa.eu/resource/authority/corporate-body/EURUN>;
   dcterms:title "Plenary session documents dataset description"@en;
   dcterms:type <http://publications.europa.eu/resource/authority/dataset-type/APROF>;
   rdfs:label "Plenary session documents dataset description"@en;
   owl:versionIRI <https://data.europarl.europa.eu/def/plenary-session-documents#>;
   owl:versionInfo "1.0";
-  adms:status <http://publications.europa.eu/resource/dataset/dataset-status/COMPLETED>;
+  adms:status <http://publications.europa.eu/resource/authority/dataset-status/COMPLETED>;
   adms:versionNotes """1.0 - 2023-01-16
 - minor corrections
 1.0 - 2022-11-18
