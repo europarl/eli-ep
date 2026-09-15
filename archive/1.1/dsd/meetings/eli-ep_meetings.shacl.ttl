@@ -48,7 +48,7 @@
   dcterms:license <https://www.europarl.europa.eu/legal-notice/en/>;
   dcterms:creator <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
   dcterms:publisher <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
-  dcterms:rigthsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
+  dcterms:rightsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
   dcat:distribution _:a2950a43c59347ed9378ba4420ba04c28147;
   skos:hasTopConcept meetings:P9, meetings:P10, meetings:P11, meetings:P12, meetings:P13,
     meetings:P14, meetings:P15, meetings:P16, meetings:P17, meetings:P18, meetings:P19,

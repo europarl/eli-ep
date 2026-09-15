@@ -39,7 +39,7 @@
   dcterms:license <https://www.europarl.europa.eu/legal-notice/>;
   dcterms:modified "2022-08-17"^^xsd:date;
   dcterms:publisher <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
-  dcterms:rigthsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
+  dcterms:rightsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
   dcterms:title "ELI-EP Application Profile"@en;
   dcterms:type <http://publications.europa.eu/resource/authority/dataset-type/APROF>;
   vann:usageNote "This version of ELI-EP is a draft specification and may be updated, replaced or obsoleted by other documents at any time. It is inappropriate to cite this document as other than work in progress."@en;

@@ -48,7 +48,7 @@
   dcterms:license <https://www.europarl.europa.eu/legal-notice/>;
   dcterms:creator <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
   dcterms:publisher <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
-  dcterms:rigthsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
+  dcterms:rightsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
   dcat:distribution _:24b883f25d9e4a03a5050a6b1d409209852 .
 
 _:24b883f25d9e4a03a5050a6b1d409209852 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;

@@ -59,7 +59,7 @@
   dcterms:license <https://www.europarl.europa.eu/legal-notice/en/>;
   dcterms:creator <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
   dcterms:publisher <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
-  dcterms:rigthsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
+  dcterms:rightsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
   dcat:distribution _:79f295ad32df4ce8a18a92539c6e8a3b45549;
   skos:hasTopConcept pld:P9, pld:P10, pld:P11, pld:P12, pld:P13, pld:P14, pld:P15, pld:P16,
     pld:P17, pld:P18, pld:P19, pld:P20, pld:P21, pld:P22, pld:P23, pld:P24, pld:P25, pld:P26,
