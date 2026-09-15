@@ -344,7 +344,7 @@ _:48744caa1d464947aca415ba07b9ab094847 rdf:first rdf:type;
 dcterms:LinguisticSystem a sh:NodeShape, rdfs:Class;
   skos:example "http://publications.europa.eu/resource/authority/language/LIT";
   sh:nodeKind sh:IRI;
-  sh:pattern "http://publications.europa.eu/resource/authority/langauge/.*$";
+  sh:pattern "http://publications.europa.eu/resource/authority/language/.*$";
   sh:ignoredProperties _:48744caa1d464947aca415ba07b9ab094848;
   rdfs:label "Linguistic System"@en;
   sh:order "18"^^xsd:integer;

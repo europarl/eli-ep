@@ -321,7 +321,7 @@ _:node1g8tmdfl9x9183 rdf:first rdf:type;
 
 dcterms:LinguisticSystem sh:nodeKind sh:IRI;
   sh:order 14;
-  sh:pattern "http://publications.europa.eu/resource/authority/langauge/.*$";
+  sh:pattern "http://publications.europa.eu/resource/authority/language/.*$";
   sh:property eli-ep:P114, eli-ep:P115;
   shacl-play:color "DarkGrey" .
 

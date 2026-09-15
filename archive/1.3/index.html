@@ -408,7 +408,8 @@ the European Parliament.</p>
                               <div style="width:30px">0..1</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description">Indicates a LegalResource already published that the future law, if adopted, will
-                              change. Readers should refer to the definition of the eli:changes property.
+                              change. Readers should refer to the definition of the eli:changes property.
+
                               Note the legal impacts can change in successive versions of the same document.</td>
                         </tr>
                         <tr>
@@ -983,7 +984,8 @@ the European Parliament.</p>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
-                           <td class="sp_table_propertyshapes_col_description">The file format of the manifestation (IANA).
+                           <td class="sp_table_propertyshapes_col_description">The file format of the manifestation (IANA).
+
                               This field is intended to capture the technical file format and will serve as a basis
                               for content negotiation for the server to return the appropriate file based on the
                               client preference.</td>
@@ -1051,8 +1053,10 @@ the European Parliament.</p>
                            </td>
                            <td class="sp_table_propertyshapes_col_description">The date of an activity, to indicate a single date. Alternatively, if an activity
                               spans a time range, \"activity_start_date\" and \"activity_end_date\" can be used
-                              to indicate the beginning and end of the activity.
-                              
+                              to indicate the beginning and end of the activity.
+
+                              
+
                               Dates can be expressed either at a date precision (yyyy-mm-dd), or with time precision
                               (yyyy-dd-mmYhh:mm:ss)</td>
                         </tr>
@@ -1063,8 +1067,10 @@ the European Parliament.</p>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
-                           <td class="sp_table_propertyshapes_col_description">The date at which an activity ended.
-                              
+                           <td class="sp_table_propertyshapes_col_description">The date at which an activity ended.
+
+                              
+
                               Dates can be expressed either at a date precision (yyyy-mm-dd), or with time precision
                               (yyyy-dd-mmYhh:mm:ss)</td>
                         </tr>
@@ -1077,8 +1083,10 @@ the European Parliament.</p>
                            </td>
                            <td class="sp_table_propertyshapes_col_description">An identifier for the process. This is meant to capture how the process is identified
                               by law makers. A process can have multiple identifiers for different institutions,
-                              e.g. an identifier for the government, and an identifier for the parliament.
-                              
+                              e.g. an identifier for the government, and an identifier for the parliament.
+
+                              
+
                               Note that a subproperty process_external_id exists to capture the identifier of another
                               institution, depending on the point of view.</td>
                         </tr>
@@ -1098,8 +1106,10 @@ the European Parliament.</p>
                            <td>
                               <div style="width:30px">1..1</div>
                            </td>
-                           <td class="sp_table_propertyshapes_col_description">The date at which an activity started.
-                              
+                           <td class="sp_table_propertyshapes_col_description">The date at which an activity started.
+
+                              
+
                               Dates can be expressed either at a date precision (yyyy-mm-dd), or with time precision
                               (yyyy-dd-mmYhh:mm:ss)</td>
                         </tr>
@@ -1121,8 +1131,10 @@ the European Parliament.</p>
                               <div style="width:30px">0..*</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description">Indicates a more fine-grained activity that is taking place within this one. This
-                              allows to nest activities inside each other, at an arbitrary level of precision.
-                              
+                              allows to nest activities inside each other, at an arbitrary level of precision.
+
+                              
+
                               Example : \"Legislative process number 384\" consists of \"Initiation of the process
                               384\", \"First lecture in assembl?e nationale of legislative process 384\", \"First
                               lecture in senate of legislative process 384\", \"joint commitee reading of legislative
@@ -1210,8 +1222,10 @@ the European Parliament.</p>
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
-                           <td class="sp_table_propertyshapes_col_description">Indicates that an activity was recorded in a related work.
-                              
+                           <td class="sp_table_propertyshapes_col_description">Indicates that an activity was recorded in a related work.
+
+                              
+
                               Note : this property is shortcut for an implicit FRBR \"Recording Event\" that would
                               have created the Recording of the event.</td>
                         </tr>
@@ -1459,7 +1473,8 @@ dumps and APIs.</em></p>
                               <div style="width:30px">0..*</div>
                            </td>
                            <td class="sp_table_propertyshapes_col_description">Indicates that a Process created some Work . The works are seen as the \"output\"
-                              of the activity.
+                              of the activity.
+
                               Remark: Process data will not be yet available. For now, this inverse relation will
                               be provided only in adopted-texts dumps and APIs.</td>
                         </tr>
@@ -1547,9 +1562,12 @@ dumps and APIs.</em></p>
                            </td>
                            <td class="sp_table_propertyshapes_col_description">The
  type of a document subdivision (e.g. "Article", "Paragraph", "Section",
- etc.).
-                              A subdivision can have only one type.
-                              
+ etc.).
+
+                              A subdivision can have only one type.
+
+                              
+
                               ELI does not specify a list of possible 
 values. Member states are encouraged to make
                               their own list of values in the 
@@ -1602,8 +1620,10 @@ https://op.europa.eu/en/web/eu-vocabularies/at-dataset/-/resource/dataset/subdiv
                            </td>
                            <td class="sp_table_propertyshapes_col_description">The date of an activity, to indicate a single date. Alternatively, if an activity
                               spans a time range, \"activity_start_date\" and \"activity_end_date\" can be used
-                              to indicate the beginning and end of the activity.
-                              
+                              to indicate the beginning and end of the activity.
+
+                              
+
                               Dates can be expressed either at a date precision (yyyy-mm-dd), or with time precision
                               (yyyy-dd-mmYhh:mm:ss)</td>
                         </tr>
@@ -1616,8 +1636,10 @@ https://op.europa.eu/en/web/eu-vocabularies/at-dataset/-/resource/dataset/subdiv
                            </td>
                            <td class="sp_table_propertyshapes_col_description">An identifier for the process. This is meant to capture how the process is identified
                               by law makers. A process can have multiple identifiers for different institutions,
-                              e.g. an identifier for the government, and an identifier for the parliament.
-                              
+                              e.g. an identifier for the government, and an identifier for the parliament.
+
+                              
+
                               Note that a subproperty process_external_id exists to capture the identifier of another
                               institution, depending on the point of view.</td>
                         </tr>
@@ -1637,8 +1659,10 @@ https://op.europa.eu/en/web/eu-vocabularies/at-dataset/-/resource/dataset/subdiv
                            <td>
                               <div style="width:30px">0..1</div>
                            </td>
-                           <td class="sp_table_propertyshapes_col_description">The date at which an activity started.
-                              
+                           <td class="sp_table_propertyshapes_col_description">The date at which an activity started.
+
+                              
+
                               Dates can be expressed either at a date precision (yyyy-mm-dd), or with time precision
                               (yyyy-dd-mmYhh:mm:ss)</td>
                         </tr>
@@ -1733,8 +1757,10 @@ https://op.europa.eu/en/web/eu-vocabularies/at-dataset/-/resource/dataset/subdiv
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
-                           <td class="sp_table_propertyshapes_col_description">Indicates that an activity was recorded in a related work.
-                              
+                           <td class="sp_table_propertyshapes_col_description">Indicates that an activity was recorded in a related work.
+
+                              
+
                               Note : this property is shortcut for an implicit FRBR \"Recording Event\" that would
                               have created the Recording of the event.</td>
                         </tr>
@@ -1787,7 +1813,7 @@ https://op.europa.eu/en/web/eu-vocabularies/at-dataset/-/resource/dataset/subdiv
                         <tr>
                            <td>Is in scheme</td>
                            <td><code><a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></code></td>
-                           <td><code>op-aut:role</code><br></td>
+                           <td><code>op-aut:role</code><br></td>language
                            <td>
                               <div style="width:30px">0..*</div>
                            </td>
