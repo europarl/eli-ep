@@ -69,7 +69,7 @@
 
 1.3.0 - 2023-09-26
 - creation"""@en;
-  adms:status <http://publications.europa.eu/resource/dataset/dataset-status/DEVELOP>;
+  adms:status <http://publications.europa.eu/resource/authority/dataset-status/DEVELOP>;
   owl:versionIRI <https://data.europarl.europa.eu/def/vote-results#>;
   dcterms:conformsTo <https://www.w3.org/TR/shacl>;
   dcterms:created "2023-09-26"^^xsd:date;
@@ -78,7 +78,7 @@
   dcterms:license <https://www.europarl.europa.eu/legal-notice/>;
   dcterms:creator <https://publications.europa.eu/resource/authority/corporate-body/EP>;
   dcterms:publisher <https://publications.europa.eu/resource/authority/corporate-body/EP>;
-  dcterms:rigthsHolder <https://publications.europa.eu/resource/authority/corporate-body/EURUN>;
+  dcterms:rightsHolder <https://publications.europa.eu/resource/authority/corporate-body/EURUN>;
   dcat:distribution _:a701ed0bc8f44446a3a682c5adf0356f2558 .
 
 _:a701ed0bc8f44446a3a682c5adf0356f2558 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;

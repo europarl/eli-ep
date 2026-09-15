@@ -39,16 +39,16 @@
 - remove external shapes (incl. controlled vocabularies data) in datasets.
 1.0 - 2022-11-18
 - creation"""@en;
-  adms:status <http://publications.europa.eu/resource/dataset/dataset-status/COMPLETED>;
+  adms:status <http://publications.europa.eu/resource/authority/dataset-status/COMPLETED>;
   owl:versionIRI <https://data.europarl.europa.eu/def/plenary-documents#>;
   dcterms:conformsTo <https://www.w3.org/TR/shacl>;
   dcterms:created "2022-11-18"^^xsd:date;
   dcterms:modified "2023-04-13T00:00:00.000Z"^^xsd:dateTime;
   dcterms:dateCopyrighted "2022"^^xsd:gYear;
   dcterms:license <https://www.europarl.europa.eu/legal-notice/en/>;
-  dcterms:creator <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
-  dcterms:publisher <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
-  dcterms:rigthsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
+  dcterms:creator <http://publications.europa.eu/resource/authority/corporate-body/EP>;
+  dcterms:publisher <http://publications.europa.eu/resource/authority/corporate-body/EP>;
+  dcterms:rightsHolder <http://publications.europa.eu/resource/authority/corporate-body/EURUN>;
   dcat:distribution _:a2950a43c59347ed9378ba4420ba04c28148;
   skos:hasTopConcept pld:P9, pld:P10, pld:P11, pld:P12, pld:P13, pld:P14, pld:P15, pld:P16,
     pld:P17, pld:P18, pld:P19, pld:P20, pld:P21, pld:P22, pld:P23, pld:P24, pld:P25, pld:P26,

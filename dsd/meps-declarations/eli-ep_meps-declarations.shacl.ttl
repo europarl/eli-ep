@@ -77,7 +77,7 @@
 
 3.1.0 - 2025-04-10
 creation"""@en;
-  adms:status <http://publications.europa.eu/resource/dataset/dataset-status/DEVELOP>;
+  adms:status <http://publications.europa.eu/resource/authority/dataset-status/DEVELOP>;
   owl:versionIRI <https://data.europarl.europa.eu/def/meps-decl#>;
   dcterms:conformsTo <https://www.w3.org/TR/shacl>;
   dcterms:created "2025-04-10"^^xsd:date;
@@ -86,7 +86,7 @@ creation"""@en;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/>;
   dcterms:creator <https://publications.europa.eu/resource/authority/corporate-body/EP>;
   dcterms:publisher <https://publications.europa.eu/resource/authority/corporate-body/EP>;
-  dcterms:rigthsHolder <https://publications.europa.eu/resource/authority/corporate-body/EURUN>;
+  dcterms:rightsHolder <https://publications.europa.eu/resource/authority/corporate-body/EURUN>;
   dcat:distribution _:307697226f7a4edbb27587ce08a349cd3322 .
 
 _:307697226f7a4edbb27587ce08a349cd3322 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;

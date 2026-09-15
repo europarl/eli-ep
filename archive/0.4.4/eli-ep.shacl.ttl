@@ -32,14 +32,14 @@
     adms:Asset;
   dcterms:conformsTo <https://www.w3.org/TR/shacl>;
   dcterms:created "2021-11-11"^^xsd:date;
-  dcterms:creator <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
+  dcterms:creator <http://publications.europa.eu/resource/authority/corporate-body/EP>;
   dcterms:dateCopyrighted "2021"^^xsd:gYear;
   dcterms:description "ELI-EP is an application profile of the European Legislation Identifier (ELI) ontology (https://op.europa.eu/en/web/eu-vocabularies/eli), designed and used for data of the European Parliament."@en;
   dcterms:issued "2022-08-19"^^xsd:date;
   dcterms:license <https://www.europarl.europa.eu/legal-notice/>;
   dcterms:modified "2022-08-17"^^xsd:date;
-  dcterms:publisher <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
-  dcterms:rigthsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
+  dcterms:publisher <http://publications.europa.eu/resource/authority/corporate-body/EP>;
+  dcterms:rightsHolder <http://publications.europa.eu/resource/authority/corporate-body/EURUN>;
   dcterms:title "ELI-EP Application Profile"@en;
   dcterms:type <http://publications.europa.eu/resource/authority/dataset-type/APROF>;
   vann:usageNote "This version of ELI-EP is a draft specification and may be updated, replaced or obsoleted by other documents at any time. It is inappropriate to cite this document as other than work in progress."@en;
@@ -58,7 +58,7 @@
     eli-ep:P67, eli-ep:P68, eli-ep:P69, eli-ep:P70, eli-ep:P71, eli-ep:P72, eli-ep:P73,
     eli-ep:P74, eli-ep:P77, eli-ep:P78, eli-ep:P79, eli-ep:P80, eli-ep:P83, eli-ep:P84,
     eli-ep:P85, eli-ep:P88, eli-ep:P91, eli-ep:P94, eli-ep:P95, eli-ep:P98, eli-ep:P99;
-  adms:status <http://publications.europa.eu/resource/dataset/dataset-status/DEVELOP>;
+  adms:status <http://publications.europa.eu/resource/authority/dataset-status/DEVELOP>;
   adms:versionNotes """0.4.4 -
 2022-08-02
 - fixed license url
@@ -321,7 +321,7 @@ _:node1g8tmdfl9x9183 rdf:first rdf:type;
 
 dcterms:LinguisticSystem sh:nodeKind sh:IRI;
   sh:order 14;
-  sh:pattern "http://publications.europa.eu/resource/authority/langauge/.*$";
+  sh:pattern "http://publications.europa.eu/resource/authority/language/.*$";
   sh:property eli-ep:P114, eli-ep:P115;
   shacl-play:color "DarkGrey" .
 

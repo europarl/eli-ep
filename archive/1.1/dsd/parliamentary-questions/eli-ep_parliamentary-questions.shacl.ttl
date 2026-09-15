@@ -39,16 +39,16 @@
 - remove external shapes (incl. controlled vocabularies data) in datasets (Dumps).
 1.0 - 2022-11-18
 - creation"""@en;
-  adms:status <http://publications.europa.eu/resource/dataset/dataset-status/COMPLETED>;
+  adms:status <http://publications.europa.eu/resource/authority/dataset-status/COMPLETED>;
   owl:versionIRI <https://data.europarl.europa.eu/def/parliamentary-questions#>;
   dcterms:conformsTo <https://www.w3.org/TR/shacl>;
   dcterms:created "2022-11-18"^^xsd:date;
   dcterms:modified "2023-04-13T00:00:00.000Z"^^xsd:dateTime;
   dcterms:dateCopyrighted "2022"^^xsd:gYear;
   dcterms:license <https://www.europarl.europa.eu/legal-notice/en/>;
-  dcterms:creator <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
-  dcterms:publisher <http://publications.europa.eu/resource/dataset/corporate-body/EP>;
-  dcterms:rigthsHolder <http://publications.europa.eu/resource/dataset/corporate-body/EURUN>;
+  dcterms:creator <http://publications.europa.eu/resource/authority/corporate-body/EP>;
+  dcterms:publisher <http://publications.europa.eu/resource/authority/corporate-body/EP>;
+  dcterms:rightsHolder <http://publications.europa.eu/resource/authority/corporate-body/EURUN>;
   dcat:distribution _:a2950a43c59347ed9378ba4420ba04c28155;
   skos:hasTopConcept questions:P9, questions:P10, questions:P11, questions:P12, questions:P13,
     questions:P14, questions:P15, questions:P16, questions:P17, questions:P18, questions:P19,
