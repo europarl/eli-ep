@@ -7,6 +7,7 @@
 @prefix ep-proc: <https://data.europarl.europa.eu/eli/dl/proc/> .
 @prefix locn: <http://www.w3.org/ns/locn#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
+@prefix shui: <http://www.w3.org/ns/shacl-ui#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix file-type: <http://publications.europa.eu/resource/authority/file-type/> .
 @prefix eli: <http://data.europa.eu/eli/ontology#> .
@@ -57,7 +58,10 @@
   dcterms:title "Adopted texts dataset description"@en;
   dcterms:description "This Dataset Description is a subset of the general ELI-EP application profile and it includes classes and properties used in Adopted texts datasets. Descriptions of classes and properties can be found in ELI-EP application profile."@en;
   owl:versionInfo "2.5.0";
-  adms:versionNotes """2.5.0 - 2026-09-02
+  adms:versionNotes """2.5.0 - 2026-09-23
+- (rfc) change minCount=0 for eli-dl:adopts (use case: TA-10-2024-0046)
+
+2.5.0 - 2026-09-02
 - (info) previous version 3.1.0 was replaced by 2.5.0 to be aligned with api v2, while 3.x.x will be dedicated for api v3
 - (info) add new metadata to better describe a purpose of SHACL file
 
@@ -115,15 +119,15 @@
   owl:versionIRI <https://data.europarl.europa.eu/def/adopted-texts#>;
   dcterms:conformsTo <https://www.w3.org/TR/shacl>;
   dcterms:created "2022-11-18"^^xsd:date;
-  dcterms:modified "2026-09-02T00:00:00.000Z"^^xsd:dateTime;
+  dcterms:modified "2026-09-22T00:00:00.000Z"^^xsd:dateTime;
   dcterms:dateCopyrighted "2022"^^xsd:gYear;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/>;
   dcterms:creator <https://publications.europa.eu/resource/authority/corporate-body/EP>;
   dcterms:publisher <https://publications.europa.eu/resource/authority/corporate-body/EP>;
-  dcterms:rightsHolder <https://publications.europa.eu/resource/authority/corporate-body/EURUN>;
-  dcat:distribution _:552e4c547ad34c33a489630ab4d6c1131197 .
+  dcterms:rigthsHolder <https://publications.europa.eu/resource/authority/corporate-body/EURUN>;
+  dcat:distribution _:74bce3cf5b0248d0815942ea94fd0f411014 .
 
-_:552e4c547ad34c33a489630ab4d6c1131197 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
+_:74bce3cf5b0248d0815942ea94fd0f411014 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
   dcat:downloadURL <https://europarl.github.io/eli-ep/2.5.0/dsd/adopted-texts/eli-ep_adopted-texts.shacl.ttl> .
 
 ta:Work-TA a sh:NodeShape;
@@ -134,7 +138,7 @@ ta:Work-TA a sh:NodeShape;
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:Work-TA-Node;
   sh:closed "true"^^xsd:boolean;
-  sh:ignoredProperties _:552e4c547ad34c33a489630ab4d6c1131198;
+  sh:ignoredProperties _:74bce3cf5b0248d0815942ea94fd0f411015;
   sh:order "1"^^xsd:integer;
   rdfs:label "Adopted text"@en;
   sh:property ta:Work-TA_type, ta:Work-TA_identifier, ta:Work-TA_work_type, ta:Work-TA_date_document,
@@ -151,7 +155,7 @@ WHERE {
  ?this eli:work_type <https://data.europarl.europa.eu/def/ep-document-types/TEXT_ADOPTED>.
 }""" .
 
-_:552e4c547ad34c33a489630ab4d6c1131198 rdf:first rdf:type;
+_:74bce3cf5b0248d0815942ea94fd0f411015 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 ta:Work-TA-ANN-BudgetEpDraft a sh:NodeShape;
@@ -162,7 +166,7 @@ ta:Work-TA-ANN-BudgetEpDraft a sh:NodeShape;
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:Work-TA-ANN-Node;
   sh:closed "true"^^xsd:boolean;
-  sh:ignoredProperties _:552e4c547ad34c33a489630ab4d6c1131199;
+  sh:ignoredProperties _:74bce3cf5b0248d0815942ea94fd0f411016;
   sh:order "2"^^xsd:integer;
   rdfs:label "Budget EP draft"@en;
   sh:property ta:Work-TA-ANN-BudgetEpDraft_type, ta:Work-TA-ANN-BudgetEpDraft_identifier,
@@ -178,7 +182,7 @@ WHERE {
  ?this eli:work_type <https://data.europarl.europa.eu/def/ep-document-types/BUDGET_EP_DRAFT>.
 }""" .
 
-_:552e4c547ad34c33a489630ab4d6c1131199 rdf:first rdf:type;
+_:74bce3cf5b0248d0815942ea94fd0f411016 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 ta:Work-TA-ANN-AmendmentBudgetEuDraft a sh:NodeShape;
@@ -189,7 +193,7 @@ ta:Work-TA-ANN-AmendmentBudgetEuDraft a sh:NodeShape;
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:Work-TA-ANN-Node;
   sh:closed "true"^^xsd:boolean;
-  sh:ignoredProperties _:552e4c547ad34c33a489630ab4d6c1131200;
+  sh:ignoredProperties _:74bce3cf5b0248d0815942ea94fd0f411017;
   sh:order "3"^^xsd:integer;
   rdfs:label "Amendment Budget EU draft"@en;
   sh:property ta:Work-TA-ANN-AmendmentBudgetEuDraft_type, ta:Work-TA-ANN-AmendmentBudgetEuDraft_identifier,
@@ -206,7 +210,7 @@ WHERE {
  ?this eli:work_type <https://data.europarl.europa.eu/def/ep-document-types/AMENDMENT_BUDGET_EU_DRAFT>.
 }""" .
 
-_:552e4c547ad34c33a489630ab4d6c1131200 rdf:first rdf:type;
+_:74bce3cf5b0248d0815942ea94fd0f411017 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 ta:Work-TA-COR a sh:NodeShape;
@@ -217,7 +221,7 @@ ta:Work-TA-COR a sh:NodeShape;
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:Work-TA-COR-Node;
   sh:closed "true"^^xsd:boolean;
-  sh:ignoredProperties _:552e4c547ad34c33a489630ab4d6c1131201;
+  sh:ignoredProperties _:74bce3cf5b0248d0815942ea94fd0f411018;
   sh:order "5"^^xsd:integer;
   rdfs:label "Corrigendum to Adopted text"@en;
   sh:property ta:Work-TA-COR_type, ta:Work-TA-COR_identifier, ta:Work-TA-COR_work_type,
@@ -232,7 +236,7 @@ WHERE {
  ?this eli:work_type <https://data.europarl.europa.eu/def/ep-document-types/CORRIGENDUM>.
 }""" .
 
-_:552e4c547ad34c33a489630ab4d6c1131201 rdf:first rdf:type;
+_:74bce3cf5b0248d0815942ea94fd0f411018 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 ta:Expression a sh:NodeShape;
@@ -243,13 +247,13 @@ ta:Expression a sh:NodeShape;
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:Expression-Node;
   sh:closed "true"^^xsd:boolean;
-  sh:ignoredProperties _:552e4c547ad34c33a489630ab4d6c1131202;
+  sh:ignoredProperties _:74bce3cf5b0248d0815942ea94fd0f411019;
   sh:order "6"^^xsd:integer;
   rdfs:label "Expression"@en;
   sh:property ta:Expression_type, ta:Expression_title, ta:Expression_title_alternative,
     ta:Expression_is_embodied_by, ta:Expression_language .
 
-_:552e4c547ad34c33a489630ab4d6c1131202 rdf:first rdf:type;
+_:74bce3cf5b0248d0815942ea94fd0f411019 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 ta:Manifestation a sh:NodeShape;
@@ -260,13 +264,13 @@ ta:Manifestation a sh:NodeShape;
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:Manifestation-Node;
   sh:closed "true"^^xsd:boolean;
-  sh:ignoredProperties _:552e4c547ad34c33a489630ab4d6c1131203;
+  sh:ignoredProperties _:74bce3cf5b0248d0815942ea94fd0f411020;
   sh:order "7"^^xsd:integer;
   rdfs:label "Manifestation"@en;
   sh:property ta:Manifestation_type, ta:Manifestation_issued, ta:Manifestation_is_exemplified_by,
     ta:Manifestation_byteSize, ta:Manifestation_format, ta:Manifestation_media_type .
 
-_:552e4c547ad34c33a489630ab4d6c1131203 rdf:first rdf:type;
+_:74bce3cf5b0248d0815942ea94fd0f411020 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 ta:Work-TA_type owl:versionInfo "1.0";
@@ -275,7 +279,7 @@ ta:Work-TA_type owl:versionInfo "1.0";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   shacl-play:shortname "type";
-  sh:in _:552e4c547ad34c33a489630ab4d6c1131225 .
+  sh:in _:74bce3cf5b0248d0815942ea94fd0f411042 .
 
 ta:Work-TA_identifier owl:versionInfo "2.5.0";
   sh:path dcterms:identifier;
@@ -297,7 +301,7 @@ ta:Work-TA_work_type owl:versionInfo "2.5.0";
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:WorkType-Node;
   shacl-play:shortname "work_type";
-  sh:in _:552e4c547ad34c33a489630ab4d6c1131226 .
+  sh:in _:74bce3cf5b0248d0815942ea94fd0f411043 .
 
 ta:Work-TA_date_document owl:versionInfo "1.1";
   sh:path eli:date_document;
@@ -387,7 +391,7 @@ ta:Work-TA_publisher owl:versionInfo "2.5.0";
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:Organization-Node;
   shacl-play:shortname "publisher";
-  sh:in _:552e4c547ad34c33a489630ab4d6c1131227 .
+  sh:in _:74bce3cf5b0248d0815942ea94fd0f411044 .
 
 ta:Work-TA_creator owl:versionInfo "2.5.0";
   sh:path dcterms:creator;
@@ -398,7 +402,7 @@ ta:Work-TA_creator owl:versionInfo "2.5.0";
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:Organization-Node;
   shacl-play:shortname "creator";
-  sh:in _:552e4c547ad34c33a489630ab4d6c1131228 .
+  sh:in _:74bce3cf5b0248d0815942ea94fd0f411045 .
 
 ta:Work-TA_is_realized_by owl:versionInfo "1.0";
   sh:path eli:is_realized_by;
@@ -425,94 +429,96 @@ ta:Work-TA_isAboutDirectoryCode owl:versionInfo "2.5.0";
   sh:pattern "http://publications.europa.eu/resource/authority/dir-eu-legal-act/.*$";
   shacl-play:shortname "isAboutDirectoryCode" .
 
-ta:Work-TA_adopts owl:versionInfo "1.1";
+ta:Work-TA_adopts owl:versionInfo "2.5.0";
   sh:path eli-dl:adopts;
   sh:name "adopts"@en;
+  sh:description """1) with
+2) without TA-10-2024-0046 (PV-10-2024-11-27_EN.html#pvitem6)"""@en;
   skos:example "https://data.europarl.europa.eu/eli/dl/doc/B-9-2021-0412";
-  sh:minCount "1"^^xsd:integer;
+  sh:minCount "0"^^xsd:integer;
   sh:nodeKind sh:IRI;
   sh:pattern "^https://data.europarl.europa.eu/eli/dl/doc/[A-Za-z0-9\\-_]+$";
   shacl-play:shortname "adopts" .
 
 ta:Work-TA_inversePath_corrects owl:versionInfo "2.5.0";
-  sh:path _:552e4c547ad34c33a489630ab4d6c1131204;
+  sh:path _:74bce3cf5b0248d0815942ea94fd0f411021;
   sh:name "inverse corrects"@en;
   sh:nodeKind sh:IRI;
   sh:node ta:Work-TA-COR;
   shacl-play:shortname "inverse_corrects" .
 
-_:552e4c547ad34c33a489630ab4d6c1131204 sh:inversePath eli:corrects .
+_:74bce3cf5b0248d0815942ea94fd0f411021 sh:inversePath eli:corrects .
 
 ta:Work-TA_inversePath_refers_to owl:versionInfo "2.5.0";
-  sh:path _:552e4c547ad34c33a489630ab4d6c1131205;
+  sh:path _:74bce3cf5b0248d0815942ea94fd0f411022;
   sh:name "inverse refers to"@en;
   sh:nodeKind sh:IRI;
-  sh:or _:552e4c547ad34c33a489630ab4d6c1131208 .
+  sh:or _:74bce3cf5b0248d0815942ea94fd0f411025 .
 
-_:552e4c547ad34c33a489630ab4d6c1131205 sh:inversePath eli:refers_to .
+_:74bce3cf5b0248d0815942ea94fd0f411022 sh:inversePath eli:refers_to .
 
-_:552e4c547ad34c33a489630ab4d6c1131206 sh:node shacl-ep:Work-PV-ITM-L1-Node .
+_:74bce3cf5b0248d0815942ea94fd0f411023 sh:node shacl-ep:Work-PV-ITM-L1-Node .
 
-_:552e4c547ad34c33a489630ab4d6c1131207 sh:node shacl-ep:Work-PV-ITM-L2-Node .
+_:74bce3cf5b0248d0815942ea94fd0f411024 sh:node shacl-ep:Work-PV-ITM-L2-Node .
 
-_:552e4c547ad34c33a489630ab4d6c1131208 a rdf:List;
-  rdf:first _:552e4c547ad34c33a489630ab4d6c1131206;
-  rdf:rest _:552e4c547ad34c33a489630ab4d6c1131209 .
+_:74bce3cf5b0248d0815942ea94fd0f411025 a rdf:List;
+  rdf:first _:74bce3cf5b0248d0815942ea94fd0f411023;
+  rdf:rest _:74bce3cf5b0248d0815942ea94fd0f411026 .
 
-_:552e4c547ad34c33a489630ab4d6c1131209 rdf:first _:552e4c547ad34c33a489630ab4d6c1131207;
+_:74bce3cf5b0248d0815942ea94fd0f411026 rdf:first _:74bce3cf5b0248d0815942ea94fd0f411024;
   rdf:rest rdf:nil .
 
 ta:Work-TA_inversePath_created_a_realization_of owl:versionInfo "2.5.0";
-  sh:path _:552e4c547ad34c33a489630ab4d6c1131210;
+  sh:path _:74bce3cf5b0248d0815942ea94fd0f411027;
   sh:name "inverse created a realization of"@en;
   sh:nodeKind sh:IRI;
-  sh:or _:552e4c547ad34c33a489630ab4d6c1131214;
+  sh:or _:74bce3cf5b0248d0815942ea94fd0f411031;
   shacl-play:shortname "inverse_created_a_realization_of" .
 
-_:552e4c547ad34c33a489630ab4d6c1131210 sh:inversePath eli-dl:created_a_realization_of .
+_:74bce3cf5b0248d0815942ea94fd0f411027 sh:inversePath eli-dl:created_a_realization_of .
 
-_:552e4c547ad34c33a489630ab4d6c1131211 sh:node shacl-ep:Activity-PVCRE-ITM-L1-Node .
+_:74bce3cf5b0248d0815942ea94fd0f411028 sh:node shacl-ep:Activity-PVCRE-ITM-L1-Node .
 
-_:552e4c547ad34c33a489630ab4d6c1131212 sh:node shacl-ep:Process-Node .
+_:74bce3cf5b0248d0815942ea94fd0f411029 sh:node shacl-ep:Process-Node .
 
-_:552e4c547ad34c33a489630ab4d6c1131213 sh:node shacl-ep:Activity-PVCRE-ITM-L2-Node .
+_:74bce3cf5b0248d0815942ea94fd0f411030 sh:node shacl-ep:Activity-PVCRE-ITM-L2-Node .
 
-_:552e4c547ad34c33a489630ab4d6c1131214 a rdf:List;
-  rdf:first _:552e4c547ad34c33a489630ab4d6c1131211;
-  rdf:rest _:552e4c547ad34c33a489630ab4d6c1131215 .
+_:74bce3cf5b0248d0815942ea94fd0f411031 a rdf:List;
+  rdf:first _:74bce3cf5b0248d0815942ea94fd0f411028;
+  rdf:rest _:74bce3cf5b0248d0815942ea94fd0f411032 .
 
-_:552e4c547ad34c33a489630ab4d6c1131215 rdf:first _:552e4c547ad34c33a489630ab4d6c1131212;
-  rdf:rest _:552e4c547ad34c33a489630ab4d6c1131216 .
+_:74bce3cf5b0248d0815942ea94fd0f411032 rdf:first _:74bce3cf5b0248d0815942ea94fd0f411029;
+  rdf:rest _:74bce3cf5b0248d0815942ea94fd0f411033 .
 
-_:552e4c547ad34c33a489630ab4d6c1131216 rdf:first _:552e4c547ad34c33a489630ab4d6c1131213;
+_:74bce3cf5b0248d0815942ea94fd0f411033 rdf:first _:74bce3cf5b0248d0815942ea94fd0f411030;
   rdf:rest rdf:nil .
 
 ta:Work-TA_inversePath_decided_on_a_realization_of owl:versionInfo "2.5.0";
-  sh:path _:552e4c547ad34c33a489630ab4d6c1131217;
+  sh:path _:74bce3cf5b0248d0815942ea94fd0f411034;
   sh:name "inverse decided on a realization of"@en;
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:Decision-DCPL-Node;
   shacl-play:shortname "inverse_decided_on_a_realization_of" .
 
-_:552e4c547ad34c33a489630ab4d6c1131217 sh:inversePath eli-dl:decided_on_a_realization_of .
+_:74bce3cf5b0248d0815942ea94fd0f411034 sh:inversePath eli-dl:decided_on_a_realization_of .
 
 ta:Work-TA_inversePath_is_annex_of owl:versionInfo "2.5.0";
-  sh:path _:552e4c547ad34c33a489630ab4d6c1131218;
+  sh:path _:74bce3cf5b0248d0815942ea94fd0f411035;
   sh:name "inverse is annex of"@en;
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:Work-TA-ANN-BudgetEpDraft;
   shacl-play:shortname "inverse_is_annex_of" .
 
-_:552e4c547ad34c33a489630ab4d6c1131218 sh:inversePath eli:is_annex_of .
+_:74bce3cf5b0248d0815942ea94fd0f411035 sh:inversePath eli:is_annex_of .
 
 ta:Work-TA_inversePath_answers_to owl:versionInfo "2.5.0";
-  sh:path _:552e4c547ad34c33a489630ab4d6c1131219;
+  sh:path _:74bce3cf5b0248d0815942ea94fd0f411036;
   sh:name "inverse answers to"@en;
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:Work-SP-Node;
   shacl-play:shortname "inverse_answers_to" .
 
-_:552e4c547ad34c33a489630ab4d6c1131219 sh:inversePath eli-dl:answers_to .
+_:74bce3cf5b0248d0815942ea94fd0f411036 sh:inversePath eli-dl:answers_to .
 
 ta:Work-TA-ANN-BudgetEpDraft_type owl:versionInfo "2.1.0";
   sh:path rdf:type;
@@ -520,7 +526,7 @@ ta:Work-TA-ANN-BudgetEpDraft_type owl:versionInfo "2.1.0";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   shacl-play:shortname "type";
-  sh:in _:552e4c547ad34c33a489630ab4d6c1131229 .
+  sh:in _:74bce3cf5b0248d0815942ea94fd0f411046 .
 
 ta:Work-TA-ANN-BudgetEpDraft_identifier owl:versionInfo "2.3.0";
   sh:path dcterms:identifier;
@@ -540,7 +546,7 @@ ta:Work-TA-ANN-BudgetEpDraft_work_type owl:versionInfo "2.5.0";
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:WorkType-Node;
   shacl-play:shortname "work_type";
-  sh:in _:552e4c547ad34c33a489630ab4d6c1131230 .
+  sh:in _:74bce3cf5b0248d0815942ea94fd0f411047 .
 
 ta:Work-TA-ANN-BudgetEpDraft_date_document owl:versionInfo "2.1.0";
   sh:path eli:date_document;
@@ -603,7 +609,7 @@ ta:Work-TA-ANN-BudgetEpDraft_publisher owl:versionInfo "2.5.0";
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:Organization-Node;
   shacl-play:shortname "publisher";
-  sh:in _:552e4c547ad34c33a489630ab4d6c1131231 .
+  sh:in _:74bce3cf5b0248d0815942ea94fd0f411048 .
 
 ta:Work-TA-ANN-BudgetEpDraft_creator owl:versionInfo "3.1.1";
   sh:path dcterms:creator;
@@ -613,7 +619,7 @@ ta:Work-TA-ANN-BudgetEpDraft_creator owl:versionInfo "3.1.1";
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:Organization-Node;
   shacl-play:shortname "creator";
-  sh:in _:552e4c547ad34c33a489630ab4d6c1131232 .
+  sh:in _:74bce3cf5b0248d0815942ea94fd0f411049 .
 
 ta:Work-TA-ANN-BudgetEpDraft_is_annex_of owl:versionInfo "2.5.0";
   sh:path eli:is_annex_of;
@@ -638,7 +644,7 @@ ta:Work-TA-ANN-AmendmentBudgetEuDraft_type owl:versionInfo "2.1.0";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   shacl-play:shortname "type";
-  sh:in _:552e4c547ad34c33a489630ab4d6c1131233 .
+  sh:in _:74bce3cf5b0248d0815942ea94fd0f411050 .
 
 ta:Work-TA-ANN-AmendmentBudgetEuDraft_identifier owl:versionInfo "2.3.0";
   sh:path dcterms:identifier;
@@ -658,7 +664,7 @@ ta:Work-TA-ANN-AmendmentBudgetEuDraft_work_type owl:versionInfo "2.5.0";
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:WorkType-Node;
   shacl-play:shortname "work_type";
-  sh:in _:552e4c547ad34c33a489630ab4d6c1131234 .
+  sh:in _:74bce3cf5b0248d0815942ea94fd0f411051 .
 
 ta:Work-TA-ANN-AmendmentBudgetEuDraft_date_document owl:versionInfo "2.1.0";
   sh:path eli:date_document;
@@ -721,7 +727,7 @@ ta:Work-TA-ANN-AmendmentBudgetEuDraft_publisher owl:versionInfo "2.5.0";
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:Organization-Node;
   shacl-play:shortname "publisher";
-  sh:in _:552e4c547ad34c33a489630ab4d6c1131235 .
+  sh:in _:74bce3cf5b0248d0815942ea94fd0f411052 .
 
 ta:Work-TA-ANN-AmendmentBudgetEuDraft_creator owl:versionInfo "2.5.0";
   sh:path dcterms:creator;
@@ -731,7 +737,7 @@ ta:Work-TA-ANN-AmendmentBudgetEuDraft_creator owl:versionInfo "2.5.0";
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:Organization-Node;
   shacl-play:shortname "creator";
-  sh:in _:552e4c547ad34c33a489630ab4d6c1131236 .
+  sh:in _:74bce3cf5b0248d0815942ea94fd0f411053 .
 
 ta:Work-TA-ANN-AmendmentBudgetEuDraft_is_realized_by owl:versionInfo "2.1.0";
   sh:path eli:is_realized_by;
@@ -742,23 +748,23 @@ ta:Work-TA-ANN-AmendmentBudgetEuDraft_is_realized_by owl:versionInfo "2.1.0";
 
 ta:Work-TA-ANN-AmendmentBudgetEuDraft_inversePath_created_a_realization_of owl:versionInfo
     "2.5.0";
-  sh:path _:552e4c547ad34c33a489630ab4d6c1131220;
+  sh:path _:74bce3cf5b0248d0815942ea94fd0f411037;
   sh:name "inverse created a realization of"@en;
   sh:nodeKind sh:IRI;
-  sh:or _:552e4c547ad34c33a489630ab4d6c1131223;
+  sh:or _:74bce3cf5b0248d0815942ea94fd0f411040;
   shacl-play:shortname "inverse_created_a_realization_of" .
 
-_:552e4c547ad34c33a489630ab4d6c1131220 sh:inversePath eli-dl:created_a_realization_of .
+_:74bce3cf5b0248d0815942ea94fd0f411037 sh:inversePath eli-dl:created_a_realization_of .
 
-_:552e4c547ad34c33a489630ab4d6c1131221 sh:node shacl-ep:Activity-PVCRE-ITM-L1-Node .
+_:74bce3cf5b0248d0815942ea94fd0f411038 sh:node shacl-ep:Activity-PVCRE-ITM-L1-Node .
 
-_:552e4c547ad34c33a489630ab4d6c1131222 sh:node <http://www.w3.org/ns/shacl#node%20shacl-ep:Activity-PVCRE-ITM-L2-Node> .
+_:74bce3cf5b0248d0815942ea94fd0f411039 sh:node <http://www.w3.org/ns/shacl#node%20shacl-ep:Activity-PVCRE-ITM-L2-Node> .
 
-_:552e4c547ad34c33a489630ab4d6c1131223 a rdf:List;
-  rdf:first _:552e4c547ad34c33a489630ab4d6c1131221;
-  rdf:rest _:552e4c547ad34c33a489630ab4d6c1131224 .
+_:74bce3cf5b0248d0815942ea94fd0f411040 a rdf:List;
+  rdf:first _:74bce3cf5b0248d0815942ea94fd0f411038;
+  rdf:rest _:74bce3cf5b0248d0815942ea94fd0f411041 .
 
-_:552e4c547ad34c33a489630ab4d6c1131224 rdf:first _:552e4c547ad34c33a489630ab4d6c1131222;
+_:74bce3cf5b0248d0815942ea94fd0f411041 rdf:first _:74bce3cf5b0248d0815942ea94fd0f411039;
   rdf:rest rdf:nil .
 
 ta:Work-TA-COR_type owl:versionInfo "1.0";
@@ -767,7 +773,7 @@ ta:Work-TA-COR_type owl:versionInfo "1.0";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   shacl-play:shortname "type";
-  sh:in _:552e4c547ad34c33a489630ab4d6c1131237 .
+  sh:in _:74bce3cf5b0248d0815942ea94fd0f411054 .
 
 ta:Work-TA-COR_identifier owl:versionInfo "1.0";
   sh:path dcterms:identifier;
@@ -786,7 +792,7 @@ ta:Work-TA-COR_work_type owl:versionInfo "2.1.0";
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   shacl-play:shortname "work_type";
-  sh:in _:552e4c547ad34c33a489630ab4d6c1131238 .
+  sh:in _:74bce3cf5b0248d0815942ea94fd0f411055 .
 
 ta:Work-TA-COR_date_document owl:versionInfo "1.1";
   sh:path eli:date_document;
@@ -850,7 +856,7 @@ ta:Work-TA-COR_publisher owl:versionInfo "2.5.0";
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:Organization-Node;
   shacl-play:shortname "publisher";
-  sh:in _:552e4c547ad34c33a489630ab4d6c1131239 .
+  sh:in _:74bce3cf5b0248d0815942ea94fd0f411056 .
 
 ta:Work-TA-COR_creator owl:versionInfo "3.1.1";
   sh:path dcterms:creator;
@@ -861,7 +867,7 @@ ta:Work-TA-COR_creator owl:versionInfo "3.1.1";
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:Organization-Node;
   shacl-play:shortname "creator";
-  sh:in _:552e4c547ad34c33a489630ab4d6c1131240 .
+  sh:in _:74bce3cf5b0248d0815942ea94fd0f411057 .
 
 ta:Work-TA-COR_is_realized_by owl:versionInfo "1.0";
   sh:path eli:is_realized_by;
@@ -894,7 +900,7 @@ ta:Expression_type owl:versionInfo "1.0";
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   shacl-play:shortname "type";
-  sh:in _:552e4c547ad34c33a489630ab4d6c1131241 .
+  sh:in _:74bce3cf5b0248d0815942ea94fd0f411058 .
 
 ta:Expression_title owl:versionInfo "1.0";
   sh:path eli:title;
@@ -936,7 +942,7 @@ ta:Manifestation_type owl:versionInfo "1.0";
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   shacl-play:shortname "type";
-  sh:in _:552e4c547ad34c33a489630ab4d6c1131242 .
+  sh:in _:74bce3cf5b0248d0815942ea94fd0f411059 .
 
 ta:Manifestation_issued owl:versionInfo "1.0";
   sh:path dcterms:issued;
@@ -950,7 +956,6 @@ ta:Manifestation_issued owl:versionInfo "1.0";
 ta:Manifestation_is_exemplified_by owl:versionInfo "2.3.0";
   sh:path eli:is_exemplified_by;
   sh:name "is exemplified by"@en;
-  skos:example "https://data.europarl.europa.eu/distribution/reds_iPlTa_Itm/TA-9-2022-0269/TA-9-2022-0269-FNL_fr.pdf\"";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
@@ -976,7 +981,7 @@ ta:Manifestation_format owl:versionInfo "2.5.0";
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:MediaTypeOrExtent-Node;
   shacl-play:shortname "dcterms_format";
-  sh:in _:552e4c547ad34c33a489630ab4d6c1131243 .
+  sh:in _:74bce3cf5b0248d0815942ea94fd0f411060 .
 
 ta:Manifestation_media_type owl:versionInfo "2.5.0";
   sh:path eli:media_type;
@@ -986,102 +991,102 @@ ta:Manifestation_media_type owl:versionInfo "2.5.0";
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   shacl-play:shortname "media_type";
-  sh:in _:552e4c547ad34c33a489630ab4d6c1131247 .
+  sh:in _:74bce3cf5b0248d0815942ea94fd0f411064 .
 
-_:552e4c547ad34c33a489630ab4d6c1131225 a rdf:List;
+_:74bce3cf5b0248d0815942ea94fd0f411042 a rdf:List;
   rdf:first eli:Work;
   rdf:rest rdf:nil .
 
-_:552e4c547ad34c33a489630ab4d6c1131226 a rdf:List;
+_:74bce3cf5b0248d0815942ea94fd0f411043 a rdf:List;
   rdf:first ep-document-types:TEXT_ADOPTED;
   rdf:rest rdf:nil .
 
-_:552e4c547ad34c33a489630ab4d6c1131227 a rdf:List;
+_:74bce3cf5b0248d0815942ea94fd0f411044 a rdf:List;
   rdf:first ep-org:EU_PARLIAMENT;
   rdf:rest rdf:nil .
 
-_:552e4c547ad34c33a489630ab4d6c1131228 a rdf:List;
+_:74bce3cf5b0248d0815942ea94fd0f411045 a rdf:List;
   rdf:first ep-org:EU_PARLIAMENT;
   rdf:rest rdf:nil .
 
-_:552e4c547ad34c33a489630ab4d6c1131229 a rdf:List;
+_:74bce3cf5b0248d0815942ea94fd0f411046 a rdf:List;
   rdf:first eli:Work;
   rdf:rest rdf:nil .
 
-_:552e4c547ad34c33a489630ab4d6c1131230 a rdf:List;
+_:74bce3cf5b0248d0815942ea94fd0f411047 a rdf:List;
   rdf:first ep-document-types:BUDGET_EP_DRAFT;
   rdf:rest rdf:nil .
 
-_:552e4c547ad34c33a489630ab4d6c1131231 a rdf:List;
+_:74bce3cf5b0248d0815942ea94fd0f411048 a rdf:List;
   rdf:first ep-org:EU_PARLIAMENT;
   rdf:rest rdf:nil .
 
-_:552e4c547ad34c33a489630ab4d6c1131232 a rdf:List;
+_:74bce3cf5b0248d0815942ea94fd0f411049 a rdf:List;
   rdf:first ep-org:EU_PARLIAMENT;
   rdf:rest rdf:nil .
 
-_:552e4c547ad34c33a489630ab4d6c1131233 a rdf:List;
+_:74bce3cf5b0248d0815942ea94fd0f411050 a rdf:List;
   rdf:first eli:Work;
   rdf:rest rdf:nil .
 
-_:552e4c547ad34c33a489630ab4d6c1131234 a rdf:List;
+_:74bce3cf5b0248d0815942ea94fd0f411051 a rdf:List;
   rdf:first ep-document-types:AMENDMENT_BUDGET_EU_DRAFT;
   rdf:rest rdf:nil .
 
-_:552e4c547ad34c33a489630ab4d6c1131235 a rdf:List;
+_:74bce3cf5b0248d0815942ea94fd0f411052 a rdf:List;
   rdf:first ep-org:EU_PARLIAMENT;
   rdf:rest rdf:nil .
 
-_:552e4c547ad34c33a489630ab4d6c1131236 a rdf:List;
+_:74bce3cf5b0248d0815942ea94fd0f411053 a rdf:List;
   rdf:first ep-org:EU_PARLIAMENT;
   rdf:rest rdf:nil .
 
-_:552e4c547ad34c33a489630ab4d6c1131237 a rdf:List;
+_:74bce3cf5b0248d0815942ea94fd0f411054 a rdf:List;
   rdf:first eli:Work;
   rdf:rest rdf:nil .
 
-_:552e4c547ad34c33a489630ab4d6c1131238 a rdf:List;
+_:74bce3cf5b0248d0815942ea94fd0f411055 a rdf:List;
   rdf:first ep-document-types:CORRIGENDUM;
   rdf:rest rdf:nil .
 
-_:552e4c547ad34c33a489630ab4d6c1131239 a rdf:List;
+_:74bce3cf5b0248d0815942ea94fd0f411056 a rdf:List;
   rdf:first ep-org:EU_PARLIAMENT;
   rdf:rest rdf:nil .
 
-_:552e4c547ad34c33a489630ab4d6c1131240 a rdf:List;
+_:74bce3cf5b0248d0815942ea94fd0f411057 a rdf:List;
   rdf:first ep-org:EU_PARLIAMENT;
   rdf:rest rdf:nil .
 
-_:552e4c547ad34c33a489630ab4d6c1131241 a rdf:List;
+_:74bce3cf5b0248d0815942ea94fd0f411058 a rdf:List;
   rdf:first eli:Expression;
   rdf:rest rdf:nil .
 
-_:552e4c547ad34c33a489630ab4d6c1131242 a rdf:List;
+_:74bce3cf5b0248d0815942ea94fd0f411059 a rdf:List;
   rdf:first eli:Manifestation;
   rdf:rest rdf:nil .
 
-_:552e4c547ad34c33a489630ab4d6c1131243 a rdf:List;
+_:74bce3cf5b0248d0815942ea94fd0f411060 a rdf:List;
   rdf:first file-type:PDF;
-  rdf:rest _:552e4c547ad34c33a489630ab4d6c1131244 .
+  rdf:rest _:74bce3cf5b0248d0815942ea94fd0f411061 .
 
-_:552e4c547ad34c33a489630ab4d6c1131244 rdf:first file-type:XML;
-  rdf:rest _:552e4c547ad34c33a489630ab4d6c1131245 .
+_:74bce3cf5b0248d0815942ea94fd0f411061 rdf:first file-type:XML;
+  rdf:rest _:74bce3cf5b0248d0815942ea94fd0f411062 .
 
-_:552e4c547ad34c33a489630ab4d6c1131245 rdf:first file-type:DOCX;
-  rdf:rest _:552e4c547ad34c33a489630ab4d6c1131246 .
+_:74bce3cf5b0248d0815942ea94fd0f411062 rdf:first file-type:DOCX;
+  rdf:rest _:74bce3cf5b0248d0815942ea94fd0f411063 .
 
-_:552e4c547ad34c33a489630ab4d6c1131246 rdf:first file-type:DOC;
+_:74bce3cf5b0248d0815942ea94fd0f411063 rdf:first file-type:DOC;
   rdf:rest rdf:nil .
 
-_:552e4c547ad34c33a489630ab4d6c1131247 a rdf:List;
+_:74bce3cf5b0248d0815942ea94fd0f411064 a rdf:List;
   rdf:first iana:pdf;
-  rdf:rest _:552e4c547ad34c33a489630ab4d6c1131248 .
+  rdf:rest _:74bce3cf5b0248d0815942ea94fd0f411065 .
 
-_:552e4c547ad34c33a489630ab4d6c1131248 rdf:first iana:msword;
-  rdf:rest _:552e4c547ad34c33a489630ab4d6c1131249 .
+_:74bce3cf5b0248d0815942ea94fd0f411065 rdf:first iana:msword;
+  rdf:rest _:74bce3cf5b0248d0815942ea94fd0f411066 .
 
-_:552e4c547ad34c33a489630ab4d6c1131249 rdf:first iana:vnd.openxmlformats-officedocument.wordprocessingml.document;
-  rdf:rest _:552e4c547ad34c33a489630ab4d6c1131250 .
+_:74bce3cf5b0248d0815942ea94fd0f411066 rdf:first iana:vnd.openxmlformats-officedocument.wordprocessingml.document;
+  rdf:rest _:74bce3cf5b0248d0815942ea94fd0f411067 .
 
-_:552e4c547ad34c33a489630ab4d6c1131250 rdf:first iana:xml;
+_:74bce3cf5b0248d0815942ea94fd0f411067 rdf:first iana:xml;
   rdf:rest rdf:nil .
