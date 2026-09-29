@@ -7,6 +7,7 @@
 @prefix ep-proc: <https://data.europarl.europa.eu/eli/dl/proc/> .
 @prefix locn: <http://www.w3.org/ns/locn#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
+@prefix shui: <http://www.w3.org/ns/shacl-ui#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix ext: <https://data.europarl.europa.eu/def/external-documents#> .
 @prefix file-type: <http://publications.europa.eu/resource/authority/file-type/> .
@@ -85,10 +86,10 @@
   dcterms:license <https://creativecommons.org/licenses/by/4.0/>;
   dcterms:creator <https://publications.europa.eu/resource/authority/corporate-body/EP>;
   dcterms:publisher <https://publications.europa.eu/resource/authority/corporate-body/EP>;
-  dcterms:rightsHolder <https://publications.europa.eu/resource/authority/corporate-body/EURUN>;
-  dcat:distribution _:552e4c547ad34c33a489630ab4d6c1131187 .
+  dcterms:rigthsHolder <https://publications.europa.eu/resource/authority/corporate-body/EURUN>;
+  dcat:distribution _:74bce3cf5b0248d0815942ea94fd0f411004 .
 
-_:552e4c547ad34c33a489630ab4d6c1131187 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
+_:74bce3cf5b0248d0815942ea94fd0f411004 dcterms:format <https://www.iana.org/assignments/media-types/text/turtle>;
   dcat:downloadURL <https://europarl.github.io/eli-ep/2.5.0/dsd/external-documents/eli-ep_external-documents.shacl.ttl> .
 
 ext:Work-SP a sh:NodeShape;
@@ -99,7 +100,7 @@ ext:Work-SP a sh:NodeShape;
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:Work-SP-Node;
   sh:closed "true"^^xsd:boolean;
-  sh:ignoredProperties _:552e4c547ad34c33a489630ab4d6c1131188;
+  sh:ignoredProperties _:74bce3cf5b0248d0815942ea94fd0f411005;
   sh:order "1"^^xsd:integer;
   rdfs:label "Follow-up of acts"@en;
   sh:property ext:Work-SP_type, ext:Work-SP_identifier, ext:Work-SP_work_type, ext:Work-SP_date_document,
@@ -113,7 +114,7 @@ WHERE {
  ?this eli:work_type <https://data.europarl.europa.eu/def/ep-document-types/ACT_FOLLOWUP>.
 }""" .
 
-_:552e4c547ad34c33a489630ab4d6c1131188 rdf:first rdf:type;
+_:74bce3cf5b0248d0815942ea94fd0f411005 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 ext:Expression a sh:NodeShape;
@@ -124,12 +125,12 @@ ext:Expression a sh:NodeShape;
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:Expression-Node;
   sh:closed "true"^^xsd:boolean;
-  sh:ignoredProperties _:552e4c547ad34c33a489630ab4d6c1131189;
+  sh:ignoredProperties _:74bce3cf5b0248d0815942ea94fd0f411006;
   sh:order "2"^^xsd:integer;
   rdfs:label "Expression"@en;
   sh:property ext:Expression_type, ext:Expression_title, ext:Expression_language, ext:Expression_is_embodied_by .
 
-_:552e4c547ad34c33a489630ab4d6c1131189 rdf:first rdf:type;
+_:74bce3cf5b0248d0815942ea94fd0f411006 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 ext:Manifestation a sh:NodeShape;
@@ -140,13 +141,13 @@ ext:Manifestation a sh:NodeShape;
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:Manifestation-Node;
   sh:closed "true"^^xsd:boolean;
-  sh:ignoredProperties _:552e4c547ad34c33a489630ab4d6c1131190;
+  sh:ignoredProperties _:74bce3cf5b0248d0815942ea94fd0f411007;
   sh:order "3"^^xsd:integer;
   rdfs:label "Manifestation"@en;
   sh:property ext:Manifestation_type, ext:Manifestation_issued, ext:Manifestation_is_exemplified_by,
     ext:Manifestation_byteSize, ext:Manifestation_format, ext:Manifestation_media_type .
 
-_:552e4c547ad34c33a489630ab4d6c1131190 rdf:first rdf:type;
+_:74bce3cf5b0248d0815942ea94fd0f411007 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 ext:Participation a sh:NodeShape;
@@ -157,12 +158,12 @@ ext:Participation a sh:NodeShape;
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:Participation-Node;
   sh:closed "true"^^xsd:boolean;
-  sh:ignoredProperties _:552e4c547ad34c33a489630ab4d6c1131191;
+  sh:ignoredProperties _:74bce3cf5b0248d0815942ea94fd0f411008;
   sh:order "4"^^xsd:integer;
   rdfs:label "Participation"@en;
   sh:property ext:Participation_type, ext:Participation_participation_role, ext:Participation_had_participant_organization .
 
-_:552e4c547ad34c33a489630ab4d6c1131191 rdf:first rdf:type;
+_:74bce3cf5b0248d0815942ea94fd0f411008 rdf:first rdf:type;
   rdf:rest rdf:nil .
 
 ext:Work-SP_type owl:versionInfo "2.5.0";
@@ -254,7 +255,7 @@ ext:Work-SP_creator owl:versionInfo "2.5.0";
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:Organization-Node;
   shacl-play:shortname "creator";
-  sh:in _:552e4c547ad34c33a489630ab4d6c1131193 .
+  sh:in _:74bce3cf5b0248d0815942ea94fd0f411010 .
 
 ext:Work-SP_is_realized_by owl:versionInfo "2.5.0";
   sh:path eli:is_realized_by;
@@ -286,7 +287,7 @@ ext:Work-SP_workHadParticipation owl:versionInfo "2.5.0";
   shacl-play:shortname "workHadParticipation" .
 
 ext:Work-SP_inverse_created_a_realization_of owl:versionInfo "2.5.0";
-  sh:path _:552e4c547ad34c33a489630ab4d6c1131192;
+  sh:path _:74bce3cf5b0248d0815942ea94fd0f411009;
   sh:name "inverse created a realization of"@en;
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
@@ -294,7 +295,7 @@ ext:Work-SP_inverse_created_a_realization_of owl:versionInfo "2.5.0";
   sh:node shacl-ep:Process-Node;
   shacl-play:shortname "inverse_created_a_realization_of" .
 
-_:552e4c547ad34c33a489630ab4d6c1131192 sh:inversePath eli-dl:created_a_realization_of .
+_:74bce3cf5b0248d0815942ea94fd0f411009 sh:inversePath eli-dl:created_a_realization_of .
 
 ext:Participation_type owl:versionInfo "2.5.0";
   sh:path rdf:type;
@@ -345,7 +346,6 @@ ext:Expression_title owl:versionInfo "2.5.0";
 ext:Expression_language owl:versionInfo "2.5.0";
   sh:path eli:language;
   sh:name "language"@en;
-  skos:example "http://publications.europa.eu/resource/authority/language/ITA";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
@@ -381,7 +381,6 @@ ext:Manifestation_issued owl:versionInfo "2.5.0";
 ext:Manifestation_is_exemplified_by owl:versionInfo "2.5.0";
   sh:path eli:is_exemplified_by;
   sh:name "is exemplified by"@en;
-  skos:example "https://data.europarl.europa.eu/distribution/doc/SP-2023-459-TA-9-2022-0233_en.docx";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
@@ -400,34 +399,32 @@ ext:Manifestation_byteSize owl:versionInfo "2.5.0";
 ext:Manifestation_format owl:versionInfo "2.5.0";
   sh:path dcterms:format;
   sh:name "format"@en;
-  skos:example "http://publications.europa.eu/resource/authority/file-type/DOCX";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:MediaTypeOrExtent-Node;
   shacl-play:shortname "format";
-  sh:in _:552e4c547ad34c33a489630ab4d6c1131194 .
+  sh:in _:74bce3cf5b0248d0815942ea94fd0f411011 .
 
 ext:Manifestation_media_type owl:versionInfo "2.5.0";
   sh:path eli:media_type;
   sh:name "media type"@en;
-  skos:example "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document";
   sh:minCount "1"^^xsd:integer;
   sh:maxCount "1"^^xsd:integer;
   sh:nodeKind sh:IRI;
   sh:node shacl-ep:MediaType-Node;
   shacl-play:shortname "media_type" .
 
-_:552e4c547ad34c33a489630ab4d6c1131193 a rdf:List;
+_:74bce3cf5b0248d0815942ea94fd0f411010 a rdf:List;
   rdf:first <https://data.europarl.europa.eu/org/EU_COMMISSION>;
   rdf:rest rdf:nil .
 
-_:552e4c547ad34c33a489630ab4d6c1131194 a rdf:List;
+_:74bce3cf5b0248d0815942ea94fd0f411011 a rdf:List;
   rdf:first file-type:PDF;
-  rdf:rest _:552e4c547ad34c33a489630ab4d6c1131195 .
+  rdf:rest _:74bce3cf5b0248d0815942ea94fd0f411012 .
 
-_:552e4c547ad34c33a489630ab4d6c1131195 rdf:first file-type:DOCX;
-  rdf:rest _:552e4c547ad34c33a489630ab4d6c1131196 .
+_:74bce3cf5b0248d0815942ea94fd0f411012 rdf:first file-type:DOCX;
+  rdf:rest _:74bce3cf5b0248d0815942ea94fd0f411013 .
 
-_:552e4c547ad34c33a489630ab4d6c1131196 rdf:first file-type:DOC;
+_:74bce3cf5b0248d0815942ea94fd0f411013 rdf:first file-type:DOC;
   rdf:rest rdf:nil .
